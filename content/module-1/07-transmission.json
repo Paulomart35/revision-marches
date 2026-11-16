@@ -1,0 +1,311 @@
+{
+  "chapitre": {
+    "id": "m1.transmission",
+    "module": 1,
+    "ordre": 7,
+    "titre": "La transmission : comment les taux agissent sur les prix",
+    "resume": "Le chemin qui va d'une décision de la banque centrale jusqu'à l'inflation, avec ses délais, et ses effets sur les obligations, la monnaie et les clients d'une banque."
+  },
+  "elements": [
+    {
+      "id": "m1.transmission.chaine",
+      "type": "fiche", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "tags": ["transmission", "taux", "inflation"],
+      "titre": "Comment une hausse de taux fait baisser l'inflation",
+      "une_phrase": "Une hausse de taux rend le **crédit plus cher** et l'**épargne plus rémunératrice** : les ménages et les entreprises dépensent moins, la demande ralentit, et les prix montent moins vite.",
+      "trente_secondes": "La banque centrale ne fixe pas les prix. Elle agit sur le **prix de l'argent**, et compte sur une chaîne de réactions.\n\nQuand elle monte ses taux, les banques paient plus cher pour se financer et répercutent cette hausse sur leurs crédits. Emprunter pour acheter une maison ou une machine coûte plus cher : certains projets sont abandonnés ou reportés. En même temps, placer son argent rapporte plus : on épargne davantage.\n\nMoins de dépenses, c'est moins de demande. Les entreprises ont plus de mal à augmenter leurs prix et à accorder des hausses de salaires. L'inflation ralentit.\n\nPour une baisse de taux, la chaîne fonctionne à l'envers.",
+      "analogie": "C'est un thermostat. Quand l'économie « chauffe » trop et que l'inflation monte, la banque centrale tourne le bouton pour refroidir. Quand elle est trop froide, elle le tourne dans l'autre sens. Mais c'est un chauffage par le sol : entre le moment où l'on tourne le bouton et celui où la température change, il se passe longtemps.",
+      "visuel": { "type": "outil", "ref": "labo.transmission", "legende": "Choisis « hausse » ou « baisse » et déroule la chaîne étape par étape." },
+      "exemple_chiffre": [
+        "Exemple fictif. Un ménage veut emprunter 200 000 euros sur 20 ans pour acheter un logement.",
+        "Avec un taux de crédit de 2 %, la mensualité est de 1 012 euros.",
+        "La banque centrale monte ses taux et le taux du crédit passe à 4 %. La mensualité devient 1 212 euros : 200 euros de plus par mois, pour le même logement.",
+        "Sur toute la durée du prêt, les intérêts passent d'environ 42 800 euros à environ 90 900 euros.",
+        "Une partie des ménages renonce à acheter, ou achète plus petit. Moins d'achats, c'est moins de travaux, de meubles, de commissions : la demande ralentit bien au-delà du seul crédit."
+      ],
+      "formules": [
+        {
+          "titre": "La mensualité d'un crédit",
+          "latex": "M = C \\times \\frac{r}{1 - (1 + r)^{-n}}",
+          "legende": { "M": "la mensualité", "C": "le capital emprunté", "r": "le taux mensuel (le taux annuel divisé par 12)", "n": "le nombre de mensualités" },
+          "en_francais": "La mensualité est le capital multiplié par un coefficient qui grandit avec le taux. Tu n'as pas à la calculer de tête : retiens que deux points de taux en plus représentent environ 20 % de mensualité en plus sur 20 ans."
+        }
+      ],
+      "deux_minutes": "On distingue plusieurs **canaux de transmission**, qui agissent en même temps.\n\n- **Le canal du crédit** : le coût des emprunts monte, les banques deviennent aussi plus sélectives. C'est le canal principal en zone euro, où les entreprises se financent surtout auprès des banques.\n- **Le canal du taux de change** : des taux plus élevés attirent les capitaux, la monnaie s'apprécie, les importations coûtent moins cher.\n- **Le canal du prix des actifs** : des taux plus hauts font baisser le prix des obligations, des actions et de l'immobilier. Les ménages se sentent moins riches et dépensent moins (*effet de richesse*).\n- **Le canal des anticipations** : en montrant sa détermination, la banque centrale maintient les anticipations d'inflation à 2 %, ce qui modère les hausses de prix et de salaires.\n\n**Les délais.** L'effet complet sur l'inflation met environ **12 à 24 mois** à se manifester. Les taux de marché réagissent tout de suite, le crédit en quelques mois, l'activité en six à douze mois, les prix en dernier. L'économiste Milton Friedman parlait de délais « longs et variables ».\n\n**La conséquence.** La banque centrale ne peut pas viser l'inflation d'aujourd'hui : quand sa décision agira, la situation aura changé. Elle décide en fonction de l'inflation **prévue** dans un à deux ans. C'est le sens de « à moyen terme » dans son objectif, et c'est pourquoi elle peut continuer à monter ses taux alors que l'économie ralentit déjà, ou les baisser alors que l'inflation est encore au-dessus de 2 %.\n\n**La force de la transmission dépend du pays.** Là où les crédits immobiliers sont à taux variable (Espagne, Royaume-Uni), une hausse de taux touche vite tous les emprunteurs. Là où ils sont à taux fixe (France, États-Unis), elle ne touche que les nouveaux emprunteurs : l'effet est plus lent.",
+      "piege": "Croire que la banque centrale « fait baisser les prix ». Elle fait ralentir la **hausse** des prix, en freinant la demande. Et l'effet n'est pas immédiat : juger une hausse de taux sur l'inflation du mois suivant n'a pas de sens.",
+      "a_dire_en_entretien": "« Une hausse de taux rend le crédit plus cher et l'épargne plus rémunératrice. Les ménages et les entreprises empruntent, consomment et investissent moins : la demande ralentit, et les entreprises ne peuvent plus augmenter leurs prix aussi vite. S'y ajoutent l'appréciation de la monnaie, qui réduit le coût des importations, et l'ancrage des anticipations. L'effet complet prend 12 à 24 mois : la banque centrale décide donc en fonction de l'inflation future, pas de l'inflation du jour. »",
+      "liens": ["m1.transmission.obligations", "m1.transmission.change", "m1.transmission.clients", "m1.transmission.taux-reel"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.obligations",
+      "type": "fiche", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "tags": ["obligations", "taux", "piege"],
+      "titre": "Quand les taux montent, le prix des obligations baisse",
+      "une_phrase": "Le prix d'une obligation et les taux d'intérêt évoluent **en sens inverse** : si les taux montent, les obligations déjà émises perdent de la valeur.",
+      "trente_secondes": "Une obligation est un prêt. Celui qui l'achète prête de l'argent et reçoit chaque année un intérêt fixe, le **coupon**, puis son capital à l'échéance.\n\nImagine que tu détiens une obligation qui verse 3 % par an. Les taux montent : les nouvelles obligations versent maintenant 4 %. Plus personne ne veut de la tienne à son prix d'origine. Pour la vendre, tu dois baisser son prix, jusqu'à ce que son rendement pour l'acheteur soit aussi de 4 %.\n\nPlus l'obligation est **longue**, plus la baisse est forte : on est coincé plus longtemps avec un coupon devenu trop faible.",
+      "analogie": "Tu as signé un bail pour louer un appartement 1 000 euros par mois pendant dix ans. Les loyers du quartier montent à 1 300 euros. Ton bail vaut de l'or. Maintenant, mets-toi à la place du propriétaire : il est coincé avec un loyer trop bas. Le détenteur d'une obligation est ce propriétaire : quand les taux montent, son contrat à taux fixe perd de la valeur.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Obligation à coupon de 3 %", "Taux de marché à 3 %", "Taux à 4 %", "Variation"],
+        "lignes": [
+          ["Durée 2 ans", "100,00", "98,11", "−1,9 %"],
+          ["Durée 10 ans", "100,00", "91,89", "−8,1 %"]
+        ],
+        "legende": "Exemple fictif, prix pour 100 de nominal. Même hausse de taux, baisse quatre fois plus forte sur l'obligation longue."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Tu détiens une obligation d'État à 10 ans qui verse un coupon de 3 % : 3 euros par an pour 100 euros prêtés. Les taux à 10 ans sont à 3 % : elle vaut 100.",
+        "Les taux à 10 ans montent à 4 %. Une obligation neuve verse maintenant 4 euros par an.",
+        "La tienne ne verse toujours que 3 euros. Pour qu'un acheteur l'accepte, son prix doit baisser jusqu'à lui offrir 4 % de rendement.",
+        "Ce prix est 91,89. Tu as perdu 8,1 % de la valeur de ton placement, alors que l'État rembourse toujours à l'heure.",
+        "Si tu gardes l'obligation jusqu'au bout, tu récupéreras bien tes 100 euros. La perte n'est réelle que si tu vends avant l'échéance."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix d'une obligation",
+          "latex": "P = \\sum_{t=1}^{n} \\frac{c}{(1 + y)^t} + \\frac{100}{(1 + y)^n}",
+          "legende": { "P": "le prix de l'obligation, pour 100 de nominal", "c": "le coupon annuel", "y": "le taux de marché (le rendement exigé)", "n": "le nombre d'années restantes", "t": "l'année de chaque paiement" },
+          "en_francais": "Le prix est la somme de tous les paiements futurs, chacun ramené à sa valeur d'aujourd'hui. Le taux est au dénominateur : quand il monte, chaque paiement futur vaut moins aujourd'hui, donc le prix baisse."
+        }
+      ],
+      "deux_minutes": "**La duration.** La sensibilité du prix d'une obligation à une variation des taux se mesure par sa **duration**. En première approximation, une obligation de duration 8 perd environ 8 % quand les taux montent d'un point. Plus l'échéance est lointaine et le coupon faible, plus la duration est élevée. La notion est détaillée dans le module 3.\n\n**L'épisode de 2022.** Quand les banques centrales ont relevé leurs taux à toute vitesse, les obligations ont connu l'une de leurs pires années : les indices d'obligations d'État de la zone euro ont perdu près de 20 %. Un placement réputé sûr peut donc perdre beaucoup.\n\n**La faillite de Silicon Valley Bank**, en mars 2023, vient de là. La banque avait placé les dépôts de ses clients dans des obligations longues, achetées quand les taux étaient très bas. La hausse des taux les a fait chuter. Quand les clients ont retiré leur argent, elle a dû les vendre à perte et a fait faillite en quelques jours.\n\n**Dans l'autre sens.** Quand les taux baissent, les obligations existantes prennent de la valeur. C'est pourquoi les investisseurs achètent des obligations d'État quand ils anticipent une récession et des baisses de taux.\n\n**Vocabulaire de marché.** On dit que le marché obligataire « monte » quand les prix montent, donc quand les taux baissent. Une « tension sur les taux » est une hausse des taux, donc une baisse des prix. Attention à toujours préciser si tu parles du prix ou du taux.",
+      "piege": "Dire « les taux montent, donc les obligations rapportent plus, donc elles valent plus ». C'est vrai pour les **nouvelles** obligations, qui offriront un meilleur coupon. Mais les obligations **déjà émises**, avec leur ancien coupon, perdent de la valeur. La question porte presque toujours sur ces dernières.",
+      "a_dire_en_entretien": "« Si les taux montent, le prix des obligations baisse. Une obligation existante verse un coupon fixe ; si les nouvelles émissions rapportent plus, l'ancienne doit se vendre moins cher pour offrir le même rendement. L'effet est d'autant plus fort que l'obligation est longue : c'est ce que mesure la duration. Par exemple, une obligation à 10 ans de coupon 3 % perd environ 8 % si les taux passent de 3 % à 4 %. »",
+      "liens": ["m1.transmission.chaine", "m1.outils.qe-qt", "m1.cycle.courbe-inversee"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.change",
+      "type": "fiche", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "tags": ["change", "transmission"],
+      "titre": "L'effet des taux sur la monnaie",
+      "une_phrase": "Quand la BCE monte ses taux plus que prévu, **l'euro tend à s'apprécier** ; un euro plus fort rend les importations moins chères, ce qui aide aussi à faire baisser l'inflation.",
+      "trente_secondes": "C'est le canal du taux de change, et il s'appuie sur ce qu'on a vu sur l'écart de taux. Des taux européens plus élevés rendent les placements en euros plus attrayants : les investisseurs achètent des euros, l'euro monte.\n\nUn euro plus fort agit sur les prix de deux façons. Tout ce que l'Europe importe et paie en dollars, à commencer par l'énergie, coûte **moins d'euros**. Et les produits européens deviennent plus chers à l'étranger : les exportations ralentissent, ce qui freine l'activité.\n\nLa BCE n'a pas d'objectif de change, mais ce canal fait partie de son raisonnement.",
+      "analogie": "Monter les taux, c'est proposer une meilleure rémunération à ceux qui gardent ta monnaie. Les clients affluent, ta monnaie se renchérit, et avec elle tu peux acheter davantage à l'étranger. C'est comme une augmentation de salaire qui ne servirait que pour les achats à l'étranger : le plein d'essence, payé en dollars, te coûte moins.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "La BCE monte ses taux plus que prévu", "texte": "L'écart de taux évolue en faveur de l'euro." },
+          { "titre": "Les capitaux affluent", "texte": "Les investisseurs achètent des euros pour placer en zone euro." },
+          { "titre": "L'euro s'apprécie", "texte": "L'EUR/USD monte." },
+          { "titre": "Les importations coûtent moins cher", "texte": "L'énergie et les matières premières, payées en dollars, baissent en euros." },
+          { "titre": "L'inflation ralentit", "texte": "Et les exportateurs, pénalisés, vendent moins : la demande ralentit aussi." }
+        ],
+        "legende": "Le canal du change. Il ne fonctionne que si la BCE surprend, ou fait plus que la Fed."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Le baril de pétrole vaut 95 dollars. L'EUR/USD est à 1,10 : le baril coûte 95 ÷ 1,10 = 86,36 euros.",
+        "La BCE surprend le marché par un discours plus ferme que prévu. L'euro s'apprécie de 5 % et l'EUR/USD passe à 1,155.",
+        "Le baril vaut toujours 95 dollars, mais il coûte maintenant 95 ÷ 1,155 = 82,25 euros.",
+        "Le prix du pétrole en euros a baissé de 4,8 % sans que le marché pétrolier ait bougé. C'est de la désinflation importée."
+      ],
+      "formules": [],
+      "deux_minutes": "**Ce qui compte, c'est l'écart et la surprise.** Si la BCE monte ses taux de 0,25 point alors que la Fed monte les siens de 0,50, l'écart évolue en faveur du dollar et l'euro **baisse**. Et si la hausse de la BCE était attendue, elle est déjà dans le cours : l'euro ne bouge pas. C'est ce qui s'est passé en 2026 : la BCE a relevé ses taux deux fois, mais l'euro a reculé, parce que la Fed est restée plus restrictive et que le choc d'énergie pénalise davantage l'Europe.\n\n**L'ordre de grandeur.** On estime qu'une appréciation de 10 % de l'euro retire quelques dixièmes de point à l'inflation de la zone euro sur un à deux ans. L'effet est rapide sur l'énergie, plus lent sur les autres biens.\n\n**Pourquoi la BCE n'en fait pas un objectif.** Cibler un cours de change obligerait à sacrifier l'objectif d'inflation, et pourrait déclencher une « guerre des monnaies », chaque pays cherchant à affaiblir la sienne pour exporter. Les grandes banques centrales s'en tiennent donc à leur objectif d'inflation et laissent le change flotter. Elles commentent néanmoins les mouvements brutaux.\n\n**Le cas d'un euro faible.** C'est la situation de novembre 2026 : à 1,1052 dollar le 13 novembre, l'euro est au plus bas depuis un an. Cela renchérit l'énergie importée et ajoute à l'inflation, ce qui pousse la BCE à rester ferme. Le change et la politique monétaire se répondent.",
+      "piege": "Dire « la BCE monte ses taux, donc l'euro monte » sans regarder ce que fait la Fed ni ce que le marché attendait. En 2026, la BCE a monté ses taux et l'euro a baissé. Ce qui fait bouger le change, c'est l'**écart** de taux et la **surprise**.",
+      "a_dire_en_entretien": "« Une hausse de taux de la BCE, si elle est plus forte que prévu ou que celle de la Fed, attire les capitaux et fait monter l'euro. Un euro plus fort réduit le prix en euros des importations, notamment l'énergie, ce qui contribue à la désinflation, et il pénalise les exportateurs. La BCE n'a pas d'objectif de change, mais elle en tient compte. En 2026, l'euro a pourtant reculé malgré deux hausses, parce que l'écart de taux avec les États-Unis reste défavorable. »",
+      "liens": ["m1.forces.ecart-taux", "m1.change.euro-fort-faible", "m1.transmission.chaine"],
+      "sources": [{ "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html", "date": "2026-11-13" }],
+      "chiffres": [{ "libelle": "EUR/USD (taux de référence)", "valeur": "1,1052", "date": "2026-11-13", "source": "BCE" }],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.clients",
+      "type": "fiche", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "tags": ["client", "banque", "taux"],
+      "titre": "Ce qu'une hausse de taux change pour les clients d'une banque",
+      "une_phrase": "Quand les taux montent, les **emprunteurs à taux variable** paient plus et cherchent à se couvrir, les **placeurs** gagnent plus, et, par le change, les importateurs et les exportateurs voient leur situation bouger.",
+      "trente_secondes": "Une décision de banque centrale se traduit, pour une banque, en conversations avec ses clients.\n\n**L'emprunteur à taux variable** voit ses intérêts augmenter à chaque échéance. Il veut plafonner ou fixer son coût.\n\n**L'emprunteur à taux fixe** n'est pas touché sur ses crédits en cours, mais ses prochains emprunts coûteront plus cher.\n\n**Celui qui place sa trésorerie** obtient enfin une rémunération : les dépôts à terme et les produits à capital garanti redeviennent intéressants.\n\n**L'exportateur et l'importateur** sont touchés par ricochet, si la décision fait bouger l'euro.",
+      "analogie": "Une hausse de taux est comme une hausse du prix de l'essence. Celui qui roule beaucoup (l'emprunteur) souffre. Celui qui vend de l'essence (le prêteur, l'épargnant) y gagne. Et celui qui a signé un contrat à prix fixe pour l'année est tranquille jusqu'au renouvellement. Le même événement, trois vécus différents.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Client", "Effet d'une hausse des taux", "Ce qu'il demande à sa banque"],
+        "lignes": [
+          ["Emprunteur à taux variable", "Ses intérêts augmentent à chaque révision", "Une couverture : fixer ou plafonner son taux"],
+          ["Emprunteur à taux fixe", "Rien sur l'encours ; les nouveaux crédits coûtent plus cher", "Emprunter avant la hausse, ou attendre la baisse"],
+          ["Placeur de trésorerie", "Ses placements rapportent plus", "Dépôts à terme, placements à capital garanti"],
+          ["Importateur (si l'euro monte)", "Ses achats en dollars coûtent moins cher", "Fixer ce cours favorable"],
+          ["Exportateur (si l'euro monte)", "Ses recettes en dollars valent moins d'euros", "Une couverture de change"]
+        ],
+        "legende": "Pour une baisse des taux, inverse chaque ligne."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une entreprise a deux positions : un crédit de 3 000 000 d'euros indexé sur l'Euribor 3 mois, et 1 000 000 d'euros de trésorerie placés à court terme.",
+        "Les taux courts montent de 1 point.",
+        "Son crédit lui coûte 3 000 000 × 1 % = 30 000 euros de plus par an.",
+        "Sa trésorerie lui rapporte 1 000 000 × 1 % = 10 000 euros de plus par an.",
+        "Au total, la hausse lui coûte 20 000 euros par an : elle est « emprunteuse nette ». C'est cette position nette qu'il faut regarder avant de proposer une couverture."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi c'est une question d'entretien.** Dans une salle des marchés qui sert des entreprises, le travail consiste à relier l'actualité macroéconomique aux besoins des clients. « Quel impact pour nos clients ? » est la suite logique de toute question sur la BCE.\n\n**Les couvertures de taux**, détaillées dans le module 3 :\n\n- le **swap** : le client échange son taux variable contre un taux fixe. Il ne profite plus d'une baisse, mais il est protégé d'une hausse ;\n- le **cap** : un plafond. Il reste à taux variable mais son taux ne dépassera pas un niveau fixé, contre le paiement d'une prime ;\n- le **tunnel** : un plafond et un plancher, pour réduire ou annuler la prime.\n\n**Le bon moment.** Une couverture coûte d'autant plus cher que la hausse est déjà anticipée par le marché. Se couvrir quand tout le monde s'attend à des hausses, c'est payer cette anticipation. L'intérêt d'une couverture n'est pas de gagner, mais de rendre ses charges prévisibles.\n\n**Pour la banque elle-même.** Une hausse des taux améliore en général sa marge d'intérêt, car elle prête à des taux plus élevés alors que la rémunération des dépôts monte plus lentement. Mais elle augmente le risque que des emprunteurs ne puissent plus rembourser, et réduit la demande de crédit.\n\n**Aujourd'hui (novembre 2026).** Les taux courts sont remontés et l'Euribor intègre encore une hausse : c'est une période où les emprunteurs à taux variable regardent les couvertures, et où les trésoriers retrouvent du rendement. L'euro faible avantage les exportateurs et pénalise les importateurs.",
+      "piege": "Répondre de façon générale : « c'est mauvais pour les clients ». Distingue toujours qui emprunte et qui place, à taux fixe ou à taux variable. Et n'oublie pas le ricochet par le change. Une bonne réponse cite au moins trois types de clients.",
+      "a_dire_en_entretien": "« Une hausse des taux de la BCE touche d'abord les clients endettés à taux variable : leurs intérêts montent avec l'Euribor, donc ils cherchent à se couvrir, par un swap ou un cap. Les clients qui placent leur trésorerie retrouvent du rendement, ce qui rend les dépôts à terme et les produits à capital garanti plus attractifs. Enfin, par le change, un euro plus fort aide les importateurs et pénalise les exportateurs, ce qui crée des besoins de couverture de change. »",
+      "liens": ["m1.transmission.chaine", "m1.outils.estr-euribor", "m1.change.risque-couverture"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.taux-reel",
+      "type": "fiche", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "tags": ["taux", "inflation"],
+      "titre": "Le taux réel : ce que coûte vraiment l'argent",
+      "une_phrase": "Le taux réel est le **taux d'intérêt nominal moins l'inflation** : c'est lui, et non le taux affiché, qui dit si l'argent est cher ou bon marché.",
+      "trente_secondes": "Le **taux nominal** est celui qui est écrit sur le contrat : 3 %. Le **taux réel** tient compte de ce que la monnaie perd en valeur pendant ce temps.\n\nSi tu empruntes à 3 % alors que les prix et ton salaire montent de 5 % par an, ta dette s'allège en réalité de 2 % par an : le taux réel est de −2 %. Emprunter est une bonne affaire.\n\nSi tu empruntes à 3 % avec une inflation de 1 %, le taux réel est de +2 % : l'argent est réellement cher.\n\nC'est le taux réel qui décide si la politique monétaire freine ou stimule l'économie.",
+      "analogie": "Tu montes un escalier roulant qui descend. Ta vitesse sur les marches est le taux nominal. La vitesse de l'escalier est l'inflation. Ce qui compte, c'est ta vitesse par rapport au sol : c'est le taux réel. Si l'escalier descend plus vite que tu ne montes, tu recules, même en marchant.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Taux nominal", "Inflation", "Taux réel", "Lecture"],
+        "lignes": [
+          ["4,00 %", "2,0 %", "+2,0 %", "L'argent est cher : la politique freine"],
+          ["2,00 %", "2,0 %", "0,0 %", "Proche de la neutralité"],
+          ["2,50 %", "4,0 %", "−1,5 %", "L'argent reste bon marché malgré des taux en hausse"],
+          ["0,00 %", "−1,0 %", "+1,0 %", "Déflation : même à taux zéro, l'argent est cher"]
+        ],
+        "legende": "La troisième ligne correspond à la zone euro en octobre 2026."
+      },
+      "exemple_chiffre": [
+        "La zone euro à l'automne 2026.",
+        "Le taux de dépôt de la BCE est de 2,50 % depuis le 16 septembre 2026.",
+        "L'inflation de la zone euro est de 4,0 % sur un an en octobre 2026 (estimation rapide d'Eurostat).",
+        "Taux réel ≈ 2,50 % − 4,0 % = −1,5 %.",
+        "Lecture : malgré deux hausses de taux en 2026, l'argent coûte moins que l'inflation. C'est un argument de ceux qui veulent monter encore. L'argument inverse : cette inflation vient de l'énergie et devrait refluer ; par rapport à l'inflation attendue dans un an ou deux, le taux réel est moins négatif."
+      ],
+      "formules": [
+        {
+          "titre": "Le taux réel (approximation)",
+          "latex": "r \\approx i - \\pi",
+          "legende": { "r": "le taux réel", "i": "le taux nominal, celui qui est affiché", "\\pi": "le taux d'inflation" },
+          "en_francais": "Le taux réel est à peu près le taux affiché moins l'inflation. L'approximation est très bonne tant que les taux et l'inflation sont faibles."
+        },
+        {
+          "titre": "La relation exacte (relation de Fisher)",
+          "latex": "1 + r = \\frac{1 + i}{1 + \\pi}",
+          "legende": { "r": "le taux réel", "i": "le taux nominal", "\\pi": "le taux d'inflation" },
+          "en_francais": "Placer à 2,50 % avec 4 % d'inflation donne 1,025 ÷ 1,04 = 0,9856, soit un taux réel exact de −1,44 %, très proche des −1,5 % de l'approximation."
+        }
+      ],
+      "deux_minutes": "**Avec quelle inflation ?** Il y a deux façons de calculer.\n\n- Le taux réel **constaté** (*ex post*) : on retire l'inflation observée sur l'année écoulée. C'est le calcul simple, celui qu'on fait en entretien.\n- Le taux réel **anticipé** (*ex ante*) : on retire l'inflation **attendue** sur la durée du prêt. C'est celui qui guide les décisions d'emprunt et d'investissement, puisqu'on rembourse dans le futur. On l'observe sur le marché grâce aux obligations indexées sur l'inflation.\n\nQuand l'inflation vient d'un choc temporaire, les deux mesures divergent fortement, et c'est tout le débat de 2026.\n\n**Pourquoi c'est central pour la banque centrale.** Pour freiner l'économie, il ne suffit pas de monter le taux nominal : il faut que le taux réel monte. Si l'inflation monte de 3 points et la banque centrale de 1 point seulement, le taux réel a **baissé** de 2 points : la politique est devenue plus souple alors qu'on croit qu'elle se durcit. C'est le **principe de Taylor** : le taux directeur doit monter plus que l'inflation.\n\n**Le taux réel neutre.** C'est le taux réel qui ne freine ni ne stimule l'économie. On compare le taux réel actuel à ce repère pour savoir si la politique est restrictive ou accommodante.\n\n**Pour un épargnant.** Un livret à 3 % avec une inflation de 4 % fait perdre 1 % de pouvoir d'achat par an. Pour un État endetté, des taux réels négatifs allègent le poids de la dette : c'est l'un des effets de l'inflation.",
+      "piege": "Juger la politique monétaire sur le seul taux nominal. Un taux de 2,50 % peut être très restrictif si l'inflation est à 0 %, et très souple si elle est à 4 %. Second piège : confondre le taux réel constaté avec le taux réel anticipé ; précise toujours avec quelle inflation tu calcules.",
+      "a_dire_en_entretien": "« Le taux réel, c'est le taux nominal moins l'inflation. Il mesure le vrai coût de l'argent. Aujourd'hui, avec un taux de dépôt à 2,50 % et une inflation à 4 %, il est d'environ −1,5 % : en termes réels, la politique monétaire reste accommodante, ce qui plaide pour de nouvelles hausses. La nuance est qu'il faudrait utiliser l'inflation anticipée, plus basse que l'inflation actuelle puisque le choc vient de l'énergie. »",
+      "liens": ["m1.transmission.chaine", "m1.decision.taux-neutre", "m1.inflation.definition"],
+      "sources": [
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Eurostat, estimation rapide de l'inflation d'octobre 2026", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap", "date": "2026-11-04" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" },
+        { "libelle": "Inflation zone euro (IPCH, estimation rapide)", "valeur": "4,0 %", "date": "2026-10-31", "source": "Eurostat" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.transmission.c01", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "recto": "En une phrase : comment une hausse de taux fait-elle baisser l'inflation ?", "verso": "Le crédit coûte plus cher et l'épargne rapporte plus : ménages et entreprises dépensent moins, la demande ralentit, les prix montent moins vite.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c02", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Combien de temps faut-il pour qu'une hausse de taux produise tout son effet sur l'inflation ?", "verso": "Environ 12 à 24 mois. La banque centrale décide donc en fonction de l'inflation future.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c03", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Cite les quatre canaux de transmission de la politique monétaire.", "verso": "Le crédit, le taux de change, le prix des actifs (effet de richesse), les anticipations.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c04", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "recto": "Les taux montent. Que devient le prix d'une obligation déjà émise ?", "verso": "Il baisse. Son coupon fixe devient moins intéressant que celui des nouvelles obligations.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c05", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Quelle obligation baisse le plus quand les taux montent : une 2 ans ou une 10 ans ?", "verso": "La 10 ans. Plus l'obligation est longue, plus elle est sensible aux taux : c'est la duration.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c06", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Pourquoi Silicon Valley Bank a-t-elle fait faillite en mars 2023 ?", "verso": "Elle détenait des obligations longues achetées à taux bas. La hausse des taux les a fait chuter ; elle a dû les vendre à perte quand ses clients ont retiré leurs dépôts.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c07", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Comment un euro plus fort aide-t-il à faire baisser l'inflation ?", "verso": "Les importations payées en dollars, surtout l'énergie, coûtent moins d'euros. Et les exportations ralentissent, ce qui freine la demande.", "fiche": "m1.transmission.change", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c08", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "La BCE a monté ses taux deux fois en 2026 et l'euro a baissé. Pourquoi ?", "verso": "Parce que ce qui compte est l'écart de taux et la surprise : la Fed est restée plus restrictive, et le choc d'énergie pénalise davantage l'Europe.", "fiche": "m1.transmission.change", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c09", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "recto": "Qui est le plus touché par une hausse des taux courts ?", "verso": "L'emprunteur à taux variable : ses intérêts suivent l'Euribor. Il cherche à se couvrir (swap, cap).", "fiche": "m1.transmission.clients", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c10", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "recto": "Qu'est-ce que le taux réel ?", "verso": "Le taux nominal moins l'inflation. Il mesure le vrai coût de l'argent.", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c11", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "recto": "Taux réel en zone euro à l'automne 2026 ?", "verso": "Environ −1,5 % : taux de dépôt de 2,50 % moins inflation de 4,0 % (octobre 2026).", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.c12", "type": "carte", "module": 1, "chapitre": "m1.transmission", "difficulte": 3, "recto": "L'inflation monte de 3 points, la banque centrale monte ses taux de 1 point. La politique s'est-elle durcie ?", "verso": "Non : le taux réel a baissé de 2 points. Pour freiner, le taux directeur doit monter plus que l'inflation (principe de Taylor).", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.transmission.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.transmission", "difficulte": 2,
+      "question": "Pourquoi la BCE monte-t-elle ses taux, et comment cela fait-il baisser l'inflation ?",
+      "reponse_modele": "Elle monte ses taux quand l'inflation est nettement au-dessus de 2 % et risque d'y rester. Une hausse de taux rend le crédit plus cher et l'épargne plus rémunératrice : les ménages et les entreprises dépensent et investissent moins, la demande ralentit, et les entreprises augmentent moins leurs prix. L'euro a aussi tendance à s'apprécier, ce qui rend les importations moins chères. Enfin, cela ancre les anticipations d'inflation. L'effet complet prend 12 à 24 mois.",
+      "points_cles": ["Inflation au-dessus de la cible", "Crédit plus cher, épargne mieux rémunérée", "Demande qui ralentit", "Canal du change", "Anticipations", "Délai de 12 à 24 mois"],
+      "piege": "Oublier le délai, ou dire que la BCE fait baisser les prix : elle ralentit leur hausse.",
+      "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.transmission", "difficulte": 1,
+      "question": "Si les taux montent, que devient le prix d'une obligation ?",
+      "reponse_modele": "Il baisse. Une obligation existante verse un coupon fixe. Si les nouvelles obligations rapportent davantage, l'ancienne doit se vendre moins cher pour offrir le même rendement à son acheteur. Plus l'obligation est longue, plus son prix baisse : c'est ce que mesure la duration. Par exemple, une obligation à 10 ans de coupon 3 % perd environ 8 % si les taux passent de 3 % à 4 %, contre environ 2 % pour une obligation à 2 ans.",
+      "points_cles": ["Relation inverse prix / taux", "Coupon fixe", "Comparaison avec les nouvelles émissions", "Sensibilité croissante avec la durée : duration", "Un ordre de grandeur chiffré"],
+      "piege": "Répondre que les obligations « rapportent plus, donc valent plus ».",
+      "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.transmission", "difficulte": 2,
+      "question": "Quel est l'impact d'une hausse des taux de la BCE sur les clients entreprises d'une banque ?",
+      "reponse_modele": "Je distingue trois cas. Les entreprises endettées à taux variable voient leurs intérêts monter avec l'Euribor : c'est le moment où elles demandent des couvertures, un swap pour fixer leur taux ou un cap pour le plafonner. Celles qui ont de la trésorerie à placer retrouvent du rendement : dépôts à terme et produits à capital garanti redeviennent attractifs. Enfin, par le change, si l'euro s'apprécie, les importateurs sont avantagés et les exportateurs pénalisés, ce qui crée des besoins de couverture de change.",
+      "points_cles": ["Emprunteurs à taux variable : couverture", "Swap et cap", "Placeurs : meilleur rendement", "Ricochet par le change", "Regarder la position nette du client"],
+      "piege": "Faire une réponse générale sans distinguer les types de clients.",
+      "fiche": "m1.transmission.clients", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.transmission", "difficulte": 2,
+      "question": "Qu'est-ce que le taux réel ? Où en est-il aujourd'hui ?",
+      "reponse_modele": "C'est le taux nominal moins l'inflation : le vrai coût de l'argent en pouvoir d'achat. Aujourd'hui, en zone euro, avec un taux de dépôt à 2,50 % et une inflation à 4,0 % en octobre 2026, il est d'environ −1,5 %. En termes réels, l'argent reste donc bon marché, ce qui justifie que la BCE envisage encore une hausse. La nuance est qu'il faudrait raisonner avec l'inflation attendue, plus basse que l'inflation actuelle puisque le choc vient de l'énergie.",
+      "points_cles": ["Définition : nominal moins inflation", "Calcul avec les chiffres du moment", "Lecture : politique encore accommodante", "Nuance : inflation constatée ou anticipée"],
+      "piege": "Donner un taux réel sans dire avec quelle inflation il est calculé.",
+      "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.transmission.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.transmission", "difficulte": 3,
+      "question": "La BCE baisse ses taux alors que l'inflation est encore au-dessus de 2 %. Est-ce une erreur ?",
+      "reponse_modele": "Pas forcément. La politique monétaire agit avec un délai de 12 à 24 mois, donc la BCE décide en fonction de l'inflation prévue à cet horizon, pas de l'inflation du jour. Si ses projections montrent un retour à 2 % et que l'économie ralentit, attendre que l'inflation soit exactement à 2 % reviendrait à freiner trop longtemps et à passer sous la cible. C'est ce qu'elle a fait à partir de juin 2024 : elle a commencé à baisser ses taux alors que l'inflation était encore un peu au-dessus de 2 %.",
+      "points_cles": ["Délais de transmission", "Décision sur l'inflation prévue", "Risque de trop freiner", "Exemple : juin 2024", "Cible symétrique"],
+      "piege": "Juger la décision sur le dernier chiffre d'inflation publié.",
+      "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.transmission.z01", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "enonce": "Remets la chaîne de transmission d'une hausse de taux dans l'ordre.", "etapes": ["La banque centrale monte ses taux directeurs", "Les taux de marché et les taux des crédits montent", "Ménages et entreprises empruntent et dépensent moins", "La demande ralentit", "Les entreprises augmentent moins leurs prix : l'inflation baisse"], "explication": "Taux directeurs, taux de marché, crédit, demande, prix : chaque étape prend du temps, d'où un délai total de 12 à 24 mois.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z02", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "enonce": "Les taux à 10 ans passent de 3 % à 4 %. Une obligation à 10 ans de coupon 3 %…", "choix": ["prend de la valeur", "perd de la valeur", "garde le même prix", "voit son coupon augmenter"], "bonne": 1, "explication": "Son coupon fixe de 3 % est devenu inférieur aux 4 % du marché : son prix baisse (ici d'environ 8 %). Le coupon, lui, ne change jamais.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z03", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "enonce": "Taux nominal : 2,5 %. Inflation : 4 %. Quel est le taux réel approché, en % ?", "reponse": -1.5, "tolerance": 0.1, "unite": "%", "explication": "Taux réel ≈ 2,5 % − 4 % = −1,5 %.", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z04", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "enonce": "Quel est le délai habituel pour qu'une hausse de taux produise tout son effet sur l'inflation ?", "choix": ["Quelques jours", "1 à 3 mois", "12 à 24 mois", "Plus de 5 ans"], "bonne": 2, "explication": "Les taux de marché réagissent tout de suite, mais l'effet sur la demande puis sur les prix prend 12 à 24 mois.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z05", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "enonce": "Un emprunteur à taux fixe voit ses mensualités augmenter quand la BCE monte ses taux.", "vrai": false, "explication": "Son taux est fixé pour toute la durée du crédit. Seuls ses futurs emprunts coûteront plus cher. C'est l'emprunteur à taux variable qui est touché.", "fiche": "m1.transmission.clients", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z06", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "enonce": "La BCE monte ses taux de 0,25 point, comme prévu. Le même jour, la Fed surprend par une hausse de 0,50 point. L'EUR/USD…", "choix": ["monte, car la BCE a monté ses taux", "baisse, car l'écart de taux évolue en faveur du dollar", "ne bouge pas", "revient à la parité"], "bonne": 1, "explication": "La hausse de la BCE était attendue ; celle de la Fed est plus forte et surprend. L'écart de taux se creuse en faveur du dollar.", "fiche": "m1.transmission.change", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z07", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.transmission", "difficulte": 3, "enonce": "Avec un taux directeur à 0 % et des prix qui baissent de 1 % par an, le taux réel est positif.", "vrai": true, "explication": "Taux réel ≈ 0 % − (−1 %) = +1 %. En déflation, même un taux nul reste cher : c'est le piège de la déflation.", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.z08", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "enonce": "Une entreprise a 4 000 000 € de dette à taux variable et 1 500 000 € de trésorerie placée à taux variable. Les taux courts montent de 1 point. Quel est le surcoût net annuel, en euros ?", "reponse": 25000, "tolerance": 10, "unite": "€", "explication": "Dette : +40 000 €. Trésorerie : +15 000 €. Net : 40 000 − 15 000 = 25 000 € de charge supplémentaire.", "fiche": "m1.transmission.clients", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.transmission.x01", "type": "exercice", "module": 1, "chapitre": "m1.transmission", "difficulte": 2,
+      "titre": "Ce qu'une hausse de taux fait à un crédit et à une obligation",
+      "enonce": "Exemple fictif. Partie 1 : un ménage emprunte 200 000 euros sur 20 ans. Compare la mensualité à 2 % et à 4 %. Partie 2 : tu détiens une obligation à 10 ans de coupon 3 %, qui vaut 100. Les taux passent à 4 %. Quel est son nouveau prix ?",
+      "etapes": [
+        {
+          "titre": "La mensualité à 2 %",
+          "texte": "Le taux mensuel est 2 % ÷ 12 et il y a 20 × 12 = 240 mensualités.",
+          "formule": { "latex": "200\\,000 \\times \\frac{0{,}02 / 12}{1 - (1 + 0{,}02 / 12)^{-240}} = 1\\,011{,}77", "legende": { "0{,}02 / 12": "le taux mensuel", "240": "le nombre de mensualités" }, "en_francais": "Le capital multiplié par le coefficient de mensualité correspondant à 2 % sur 20 ans." },
+          "resultat": "1 011,77 € par mois",
+          "verif": { "fn": "taux.mensualite", "args": [200000, 2, 20], "attendu": 1011.77, "tolerance": 0.01 }
+        },
+        {
+          "titre": "La mensualité à 4 %",
+          "texte": "Même formule avec un taux mensuel de 4 % ÷ 12.",
+          "resultat": "1 211,96 € par mois, soit 200 € de plus",
+          "verif": { "fn": "taux.mensualite", "args": [200000, 4, 20], "attendu": 1211.96, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Le coût total des intérêts",
+          "texte": "Total payé moins capital emprunté. À 2 % : 1 011,77 × 240 − 200 000 = 42 824 euros. À 4 % : 1 211,96 × 240 − 200 000 = 90 870 euros.",
+          "resultat": "Les intérêts font plus que doubler",
+          "verif": { "fn": "taux.coutCredit", "args": [200000, 4, 20], "attendu": 90870, "tolerance": 2 }
+        },
+        {
+          "titre": "Le prix de l'obligation à 4 %",
+          "texte": "On ramène à aujourd'hui les dix coupons de 3 et le remboursement de 100, avec un taux de 4 %.",
+          "formule": { "latex": "\\sum_{t=1}^{10} \\frac{3}{1{,}04^t} + \\frac{100}{1{,}04^{10}} = 24{,}33 + 67{,}56 = 91{,}89", "legende": { "3": "le coupon annuel", "1{,}04": "1 plus le nouveau taux de marché", "10": "le nombre d'années" }, "en_francais": "Les coupons valent 24,33 aujourd'hui et le remboursement final 67,56 : au total 91,89." },
+          "resultat": "91,89, soit une baisse de 8,1 %",
+          "verif": { "fn": "taux.prixObligation", "args": [3, 4, 10], "attendu": 91.89, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "La même hausse de taux pénalise l'emprunteur (mensualité plus lourde) et le détenteur d'obligations (prix en baisse). Elle avantage celui qui place de l'argent neuf. C'est ainsi que la décision de la banque centrale se diffuse."
+        }
+      ],
+      "erreurs_a_eviter": ["Utiliser le taux annuel au lieu du taux mensuel dans la mensualité.", "Dire que l'obligation « vaut plus » parce que les taux montent.", "Oublier que la perte sur l'obligation n'est réalisée que si on la vend avant l'échéance."],
+      "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.transmission.l-transmission", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "terme": "Transmission de la politique monétaire", "anglais": "monetary policy transmission", "definition": "Ensemble des mécanismes par lesquels une décision de taux se diffuse au crédit, à la demande et finalement aux prix.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-canal-du-credit", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "terme": "Canal du crédit", "anglais": "credit channel", "definition": "Effet d'une variation des taux sur le coût et la disponibilité des crédits bancaires.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-effet-de-richesse", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "terme": "Effet de richesse", "anglais": "wealth effect", "definition": "Les ménages dépensent plus quand la valeur de leur patrimoine (immobilier, actions) monte, et moins quand elle baisse.", "fiche": "m1.transmission.chaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-obligation", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "terme": "Obligation", "anglais": "bond", "definition": "Titre de dette : celui qui l'achète prête à l'émetteur, reçoit des intérêts (coupons) puis le remboursement du capital.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-coupon", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "terme": "Coupon", "anglais": "coupon", "definition": "Intérêt versé périodiquement par une obligation, fixé à l'émission.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-rendement", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "terme": "Rendement", "anglais": "yield", "definition": "Taux que rapporte une obligation à celui qui l'achète à son prix actuel et la garde jusqu'à l'échéance.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-duration", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 2, "terme": "Duration", "anglais": "duration", "definition": "Mesure de la sensibilité du prix d'une obligation aux taux. Une duration de 8 : environ −8 % si les taux montent d'un point.", "fiche": "m1.transmission.obligations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-taux-variable", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "terme": "Taux variable", "anglais": "floating rate", "definition": "Taux d'un crédit révisé périodiquement selon un index, le plus souvent l'Euribor, auquel s'ajoute une marge.", "fiche": "m1.transmission.clients", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-taux-nominal", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 1, "terme": "Taux nominal", "anglais": "nominal rate", "definition": "Taux d'intérêt affiché, sans tenir compte de l'inflation.", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.transmission.l-relation-de-fisher", "type": "lexique", "module": 1, "chapitre": "m1.transmission", "difficulte": 3, "terme": "Relation de Fisher", "anglais": "Fisher equation", "definition": "Relation entre taux nominal, taux réel et inflation : le taux nominal est à peu près la somme du taux réel et de l'inflation.", "fiche": "m1.transmission.taux-reel", "maj": "2026-11-16", "version": 1 }
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "chapitre": {
+    "id": "m1.bc",
+    "module": 1,
+    "ordre": 5,
+    "titre": "La banque centrale : BCE et Fed",
+    "resume": "À quoi sert une banque centrale, pourquoi elle est indépendante, et ce qui distingue la BCE de la Fed. Avec le piège classique : BCE n'est pas BPCE."
+  },
+  "elements": [
+    {
+      "id": "m1.bc.roles",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "tags": ["banque centrale"],
+      "titre": "Une banque centrale, c'est quoi ?",
+      "une_phrase": "Une banque centrale est l'institution publique qui **gère la monnaie d'un pays** : elle est la banque des banques, elle émet la monnaie et elle sert de prêteur en dernier ressort.",
+      "trente_secondes": "**La banque des banques.** Les banques commerciales (BNP Paribas, Société Générale, Crédit Agricole…) ont chacune un compte à la banque centrale. Elle leur prête de l'argent et rémunère leurs dépôts, à des taux qu'elle fixe : les **taux directeurs**.\n\n**Elle émet la monnaie.** Elle seule crée les billets et la monnaie « de base ». Sa mission est que cette monnaie garde sa valeur, donc que l'inflation reste faible.\n\n**Le pompier du système.** En cas de panique, elle prête aux banques solides mais à court de liquidités, pour éviter des faillites en chaîne. C'est le rôle de **prêteur en dernier ressort**.",
+      "analogie": "Dans une ville, les magasins sont les banques commerciales : c'est chez eux que les habitants vont. La banque centrale est le grossiste où tous les magasins se fournissent. Tu n'y entres jamais, mais le prix qu'elle fixe se retrouve dans tous les rayons. Et si un magasin est en rupture un soir de panique, c'est elle qui le réapprovisionne.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "La banque centrale", "texte": "Fixe le prix de l'argent pour les banques : les taux directeurs." },
+          { "titre": "Les banques commerciales", "texte": "Empruntent et placent à ces taux, puis prêtent à leurs clients avec une marge." },
+          { "titre": "Les ménages et les entreprises", "texte": "Paient leurs crédits plus ou moins cher, épargnent plus ou moins." },
+          { "titre": "L'économie et les prix", "texte": "La demande accélère ou ralentit, et l'inflation avec elle." }
+        ],
+        "legende": "Tu n'es jamais client de la banque centrale, mais ses décisions arrivent jusqu'à toi."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. La banque centrale rémunère les dépôts des banques à 2,50 %.",
+        "Une banque commerciale peut donc gagner 2,50 % sans aucun risque en laissant son argent à la banque centrale.",
+        "Elle n'a aucune raison de prêter à une entreprise à moins de 2,50 %. Elle ajoute sa marge et le coût du risque : par exemple 2,50 % + 1,50 % = 4,00 %.",
+        "Si la banque centrale monte son taux à 3,00 %, le même crédit passe à 3,00 % + 1,50 % = 4,50 %. La décision de la banque centrale s'est transmise au client."
+      ],
+      "formules": [],
+      "deux_minutes": "Aux trois rôles classiques s'ajoutent, selon les pays :\n\n- **La politique monétaire** : fixer les taux et, plus largement, les conditions financières, pour atteindre son objectif d'inflation. C'est son rôle le plus visible.\n- **La stabilité financière** : surveiller les risques qui menacent l'ensemble du système.\n- **La supervision des banques** : en zone euro, la BCE supervise directement les plus grandes banques depuis 2014.\n- **Les systèmes de paiement** : elle fait fonctionner la tuyauterie qui permet aux banques de se régler entre elles.\n- **Les réserves de change** : elle gère les réserves en devises et en or du pays.\n\n**Monnaie centrale et monnaie bancaire.** La monnaie créée par la banque centrale comprend les billets et les réserves que les banques détiennent chez elle. L'essentiel de la monnaie que nous utilisons, celle de nos comptes courants, est créée par les banques commerciales quand elles accordent des crédits. La banque centrale ne contrôle donc pas directement la quantité de monnaie : elle agit sur son **prix**, le taux d'intérêt.\n\n**Prêteur en dernier ressort.** Le principe, formulé par Walter Bagehot au XIXe siècle : en cas de panique, prêter sans limite aux banques solvables, contre de bonnes garanties et à un taux élevé. C'est ce qu'ont fait les banques centrales en 2008 puis en mars 2020.",
+      "piege": "Dire que la banque centrale « prête aux entreprises et aux particuliers » ou qu'elle « fixe les taux des crédits ». Elle ne traite qu'avec les banques, et elle ne fixe que ses propres taux directeurs. Les taux des crédits sont décidés par les banques commerciales, qui s'en inspirent.",
+      "a_dire_en_entretien": "« Une banque centrale a trois rôles historiques : elle est la banque des banques, elle émet la monnaie, et elle est prêteur en dernier ressort en cas de crise. Aujourd'hui, sa mission principale est la politique monétaire : elle fixe les taux directeurs pour maintenir la stabilité des prix. En zone euro, c'est la BCE ; aux États-Unis, la Réserve fédérale. »",
+      "liens": ["m1.bc.independance", "m1.bc.bce", "m1.bc.fed", "m1.bc.bce-bpce"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.independance",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "tags": ["banque centrale", "credibilite"],
+      "titre": "Pourquoi les banques centrales sont indépendantes",
+      "une_phrase": "Une banque centrale indépendante décide des taux **sans recevoir d'ordres du gouvernement**, pour pouvoir prendre des décisions impopulaires qui protègent la valeur de la monnaie.",
+      "trente_secondes": "Un gouvernement a presque toujours intérêt à des taux bas : le crédit est facile, la croissance et l'emploi sont meilleurs à court terme, et la dette de l'État coûte moins cher. Surtout avant une élection.\n\nMais des taux trop bas trop longtemps créent de l'inflation, qui arrive plus tard. Le bénéfice est immédiat, le coût est différé : la tentation est permanente.\n\nOn a donc confié les taux à une institution séparée, dirigée par des experts nommés pour longtemps, avec un objectif fixé par la loi. Elle peut dire non. C'est cette capacité qui rend crédible sa promesse d'une inflation à 2 %.",
+      "analogie": "C'est l'arbitre d'un match. Si l'arbitre était payé par l'une des deux équipes, personne ne croirait à ses décisions. On le choisit neutre, et on lui donne un règlement. Un gouvernement qui fixerait lui-même les taux serait à la fois joueur et arbitre.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Garantie", "En pratique"],
+        "lignes": [
+          ["Un objectif fixé par la loi", "La stabilité des prix, inscrite dans les traités européens"],
+          ["Interdiction de recevoir des instructions", "Ni des gouvernements, ni des institutions européennes"],
+          ["Des mandats longs", "Huit ans non renouvelables pour la présidence de la BCE"],
+          ["Interdiction de financer l'État", "La banque centrale ne peut pas prêter directement au Trésor"],
+          ["Une contrepartie : rendre des comptes", "Conférences de presse, auditions au Parlement, comptes rendus publiés"]
+        ],
+        "legende": "Indépendante ne veut pas dire sans contrôle : elle doit expliquer ses décisions."
+      },
+      "exemple_chiffre": [
+        "Turquie, 2021-2022. Le président turc défend l'idée que des taux élevés causent l'inflation et pèse sur la banque centrale, dont il remplace plusieurs gouverneurs.",
+        "À partir de septembre 2021, la banque centrale baisse son taux directeur, de 19 % à 14 % en fin d'année, alors que l'inflation dépasse déjà 19 %.",
+        "La livre turque s'effondre et les prix des produits importés flambent : l'inflation officielle atteint environ 85 % en octobre 2022.",
+        "À partir de juin 2023, une nouvelle équipe remonte le taux, jusqu'à 50 % en mars 2024, pour reprendre le contrôle."
+      ],
+      "formules": [],
+      "deux_minutes": "**Le fondement juridique.** En zone euro, l'indépendance est inscrite dans le traité sur le fonctionnement de l'Union européenne (article 130), ce qui la rend très difficile à modifier : il faudrait l'accord de tous les États. Aux États-Unis, elle repose sur une loi ordinaire et sur la pratique ; elle est donc plus exposée aux pressions politiques, sujet récurrent autour de la Fed.\n\n**L'argument économique** s'appelle l'**incohérence temporelle** : une autorité qui promet une inflation basse a toujours intérêt, une fois la promesse crue, à la trahir pour gagner un peu de croissance. Les agents le savent et anticipent plus d'inflation. Seule une institution qui ne peut pas céder à cette tentation est crue.\n\n**L'expérience historique.** Les pays aux banques centrales les plus indépendantes ont eu, en moyenne, moins d'inflation. La Bundesbank allemande en a été le modèle, et la BCE a été construite sur lui.\n\n**Indépendance d'objectif et d'instrument.** La BCE est indépendante dans le choix de ses instruments, et c'est elle qui a défini que « stabilité des prix » veut dire 2 %. La Banque d'Angleterre, elle, reçoit sa cible d'inflation du gouvernement et n'est indépendante que pour les moyens.\n\n**Les critiques.** Des décisions majeures sont prises par des non-élus. La réponse est la transparence et le contrôle parlementaire, mais le débat revient à chaque crise.",
+      "piege": "Dire que la BCE est « indépendante de tout ». Elle est indépendante des pouvoirs politiques pour ses décisions, mais elle agit dans le cadre d'un mandat fixé par les traités, elle rend des comptes au Parlement européen, et ses décisions peuvent être contestées devant la Cour de justice de l'Union européenne.",
+      "a_dire_en_entretien": "« L'indépendance sert à protéger la politique monétaire du cycle électoral. Un gouvernement a toujours intérêt à des taux bas à court terme, au prix d'une inflation plus forte ensuite. Une banque centrale indépendante peut monter les taux même quand c'est impopulaire, ce qui rend son objectif d'inflation crédible. L'exemple inverse est la Turquie en 2021-2022 : les taux ont été baissés sous pression politique et l'inflation a atteint 85 %. »",
+      "liens": ["m1.bc.roles", "m1.inflation.anticipations", "m1.inflation.hyperinflation"],
+      "sources": [
+        { "titre": "Traité sur le fonctionnement de l'Union européenne, article 130", "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:12016E130" },
+        { "titre": "Banque centrale de la République de Turquie, historique du taux directeur", "url": "https://www.tcmb.gov.tr" },
+        { "titre": "Institut statistique de Turquie (TurkStat), indice des prix à la consommation, octobre 2022", "url": "https://data.tuik.gov.tr" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation en Turquie, pic", "valeur": "environ 85 %", "date": "2022-10-31", "source": "TurkStat" },
+        { "libelle": "Taux directeur turc", "valeur": "50 %", "date": "2024-03-21", "source": "Banque centrale de Turquie" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.bce",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "tags": ["banque centrale", "BCE"],
+      "titre": "La BCE : un seul objectif, la stabilité des prix",
+      "une_phrase": "La Banque centrale européenne (BCE) conduit la politique monétaire des **21 pays de la zone euro** avec un **mandat unique** : maintenir l'inflation à 2 % à moyen terme.",
+      "trente_secondes": "La BCE siège à Francfort. Elle décide d'**un seul taux** pour toute la zone euro, de l'Allemagne à la Grèce : c'est la contrepartie de la monnaie unique.\n\nLes décisions sont prises par le **Conseil des gouverneurs**, qui se réunit huit fois par an, environ toutes les six semaines, le jeudi. Il réunit les six membres du directoire et les gouverneurs des banques centrales nationales, dont celui de la Banque de France.\n\nSon objectif premier est la **stabilité des prix**. La croissance et l'emploi ne viennent qu'ensuite, et seulement si la stabilité des prix n'est pas menacée.",
+      "analogie": "Imagine 21 colocataires qui partagent un seul thermostat. Certains ont froid, d'autres ont chaud, mais il n'y a qu'un réglage possible. La BCE règle le thermostat pour la moyenne de la maison. C'est pour cela que la même décision peut être trop stricte pour un pays et trop souple pour un autre.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "La BCE"],
+        "lignes": [
+          ["Mandat", "Unique : stabilité des prix (inflation de 2 % à moyen terme)"],
+          ["Territoire", "21 pays de la zone euro (la Bulgarie depuis le 1er janvier 2026)"],
+          ["Siège", "Francfort"],
+          ["Qui décide", "Le Conseil des gouverneurs : 6 membres du directoire + 21 gouverneurs nationaux"],
+          ["Présidence", "Christine Lagarde depuis novembre 2019 ; départ annoncé pour le 7 février 2027"],
+          ["Taux directeur principal", "Taux de dépôt : 2,50 % depuis le 16 septembre 2026"],
+          ["Réunions", "8 par an ; la prochaine le 17 décembre 2026"]
+        ],
+        "legende": "Situation au 16 novembre 2026."
+      },
+      "exemple_chiffre": [
+        "Les décisions de la BCE en 2026, d'après ses communiqués.",
+        "Début 2026 : le taux de dépôt est à 2,00 %, son niveau depuis juin 2025.",
+        "11 juin 2026 : première hausse depuis 2023, de 0,25 point. Le taux de dépôt passe à 2,25 %.",
+        "10 septembre 2026 : deuxième hausse de 0,25 point, à 2,50 %, applicable le 16 septembre.",
+        "29 octobre 2026 : statu quo à 2,50 %. L'inflation est à 4,0 % en octobre, tirée par l'énergie ; la sous-jacente est stable à 2,5 %."
+      ],
+      "formules": [],
+      "deux_minutes": "**BCE, Eurosystème, SEBC.** L'**Eurosystème** réunit la BCE et les banques centrales nationales des pays qui ont adopté l'euro : c'est lui qui met en œuvre la politique monétaire. Le Système européen de banques centrales (SEBC) inclut aussi les banques centrales des pays de l'Union qui n'ont pas l'euro.\n\n**Le vote.** Chaque membre a une voix et vote pour l'ensemble de la zone, pas pour son pays. Comme les gouverneurs sont nombreux, leurs droits de vote tournent : à chaque réunion, tous ne votent pas. En pratique, la BCE cherche le consensus et ne publie pas le détail des votes.\n\n**Le déroulé d'une réunion.** Le communiqué de décision est publié à 14 h 15, puis la présidente tient une conférence de presse à 14 h 45. Les marchés réagissent souvent davantage aux réponses de la conférence de presse qu'à la décision elle-même. Quatre fois par an (mars, juin, septembre, décembre), la BCE publie ses **projections** d'inflation et de croissance.\n\n**Le mandat.** Il est fixé par les traités : l'objectif principal est la stabilité des prix ; « sans préjudice » de cet objectif, la BCE soutient les politiques économiques générales de l'Union. C'est la BCE elle-même qui a traduit cela en « 2 % à moyen terme, de façon symétrique ».\n\n**La succession.** Christine Lagarde quittera ses fonctions le 7 février 2027, environ neuf mois avant la fin de son mandat. Son successeur est désigné par le Conseil européen. Les candidats cités sont le Néerlandais Klaas Knot et l'Espagnol Pablo Hernández de Cos.",
+      "piege": "Dire que la BCE a pour objectif la croissance ou l'emploi. Son mandat premier est unique : la stabilité des prix. C'est la grande différence avec la Fed, qui a un double mandat. Autre erreur : croire que chaque gouverneur défend son pays ; ils votent pour la zone euro dans son ensemble.",
+      "a_dire_en_entretien": "« La BCE est la banque centrale des 21 pays de la zone euro. Son mandat est unique : la stabilité des prix, qu'elle définit comme une inflation de 2 % à moyen terme. Les décisions sont prises par le Conseil des gouverneurs, huit fois par an. Son principal taux directeur est le taux de dépôt, à 2,50 % depuis septembre 2026, après deux hausses cette année face au choc d'énergie. »",
+      "liens": ["m1.bc.fed", "m1.bc.face-a-face", "m1.bc.bce-bpce", "m1.inflation.cible-2"],
+      "sources": [
+        { "titre": "BCE, décisions de politique monétaire du 11 juin 2026", "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260611~4d41bd5e83.en.html", "date": "2026-06-11" },
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "France 24, « Christine Lagarde va quitter la présidence de la BCE en février 2027 »", "url": "https://www.france24.com/fr/europe/20261029-christine-lagarde-va-quitter-la-pr%C3%A9sidence-de-la-bce-en-f%C3%A9vrier-2027", "date": "2026-10-29" },
+        { "titre": "Eurostat, estimation rapide de l'inflation d'octobre 2026", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap", "date": "2026-11-04" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" },
+        { "libelle": "Inflation zone euro (IPCH, estimation rapide)", "valeur": "4,0 %", "date": "2026-10-31", "source": "Eurostat" },
+        { "libelle": "Inflation sous-jacente zone euro", "valeur": "2,5 %", "date": "2026-10-31", "source": "Eurostat" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.fed",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "tags": ["banque centrale", "Fed"],
+      "titre": "La Fed : un double mandat, prix et emploi",
+      "une_phrase": "La Réserve fédérale (Fed) est la banque centrale des États-Unis ; elle a un **double mandat** : le plein emploi et la stabilité des prix.",
+      "trente_secondes": "La Fed doit viser en même temps une inflation de 2 % et un emploi aussi élevé que possible. Quand les deux objectifs se contredisent, elle doit arbitrer.\n\nLes décisions de taux sont prises par le **FOMC** (*Federal Open Market Committee*), qui se réunit huit fois par an, sur deux jours, avec une décision le mercredi.\n\nSon taux directeur s'appelle le **taux des fonds fédéraux** (*Fed funds*). Il n'est pas fixé à un niveau précis mais dans une **fourchette** de 0,25 point, par exemple 3,75 % – 4,00 %.\n\nParce que le dollar est la monnaie du monde, les décisions de la Fed influencent les taux et les devises partout.",
+      "analogie": "La BCE conduit en regardant un seul cadran : la vitesse (l'inflation). La Fed doit en regarder deux à la fois : la vitesse et la jauge d'essence (l'emploi). La plupart du temps les deux cadrans disent la même chose. Quand ils se contredisent, elle doit choisir lequel écouter.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "La Fed"],
+        "lignes": [
+          ["Mandat", "Double : plein emploi et stabilité des prix (2 % d'inflation, mesurée par le PCE)"],
+          ["Territoire", "États-Unis"],
+          ["Siège", "Washington, plus 12 banques régionales"],
+          ["Qui décide", "Le FOMC : 12 votants (7 gouverneurs, le président de la Fed de New York, 4 présidents régionaux par rotation)"],
+          ["Présidence", "Kevin Warsh, depuis mai 2026 (successeur de Jerome Powell)"],
+          ["Taux directeur", "Fed funds : 3,75 % – 4,00 % depuis le 16 septembre 2026"],
+          ["Réunions", "8 par an ; la prochaine les 8 et 9 décembre 2026"]
+        ],
+        "legende": "Situation au 16 novembre 2026."
+      },
+      "exemple_chiffre": [
+        "Les décisions de la Fed à l'automne 2026, d'après ses communiqués.",
+        "16 septembre 2026 : hausse de 0,25 point. La fourchette passe de 3,50 % – 3,75 % à 3,75 % – 4,00 %.",
+        "28 octobre 2026 : statu quo, par 10 voix contre 2. Les deux opposants voulaient une nouvelle hausse de 0,25 point.",
+        "Le contexte : une inflation de 3,7 % sur un an en septembre 2026 et un marché du travail qui résiste (165 000 créations d'emplois en octobre, chômage à 4,1 %).",
+        "Ici, les deux cadrans disent la même chose : inflation trop haute et emploi solide plaident tous deux pour des taux élevés."
+      ],
+      "formules": [],
+      "deux_minutes": "**L'organisation.** Le système comprend un Conseil des gouverneurs de sept membres à Washington, nommés par le président des États-Unis et confirmés par le Sénat, et douze banques fédérales régionales (New York, Chicago, San Francisco…). Le président de la Fed est nommé pour quatre ans, renouvelables.\n\n**Le vocabulaire des réunions.** Quatre fois par an (mars, juin, septembre, décembre), la Fed publie les projections de ses membres, dont le fameux **graphique à points** (*dot plot*) : chaque point représente le niveau de taux qu'un membre juge approprié pour les années à venir. Les comptes rendus (*minutes*) sont publiés trois semaines après chaque réunion. Contrairement à la BCE, les votes sont publics et les désaccords nommés.\n\n**L'origine du double mandat.** Il date d'une loi de 1977. Le texte cite en réalité trois objectifs : l'emploi maximum, des prix stables et des taux à long terme modérés ; le troisième découle des deux premiers.\n\n**L'emploi maximum** n'a pas de cible chiffrée, contrairement à l'inflation : la Fed l'apprécie à partir de nombreux indicateurs.\n\n**L'effet mondial.** Beaucoup d'États et d'entreprises dans le monde empruntent en dollars. Quand la Fed monte ses taux, leurs dettes coûtent plus cher et les capitaux reviennent vers les États-Unis : les devises des pays émergents baissent. On dit parfois que la Fed est la banque centrale du monde.\n\n**L'indépendance.** Elle repose sur la loi et la pratique, pas sur un traité. Elle fait l'objet de pressions politiques récurrentes, que les marchés surveillent de près.",
+      "piege": "Dire que la Fed fixe « un » taux. Elle fixe une **fourchette** de 0,25 point. Et sa cible d'inflation de 2 % porte sur l'indice **PCE**, pas sur le CPI. Autre confusion : le FOMC compte douze votants, mais dix-neuf participants prennent part aux discussions.",
+      "a_dire_en_entretien": "« La Fed est la banque centrale américaine. Contrairement à la BCE, elle a un double mandat : le plein emploi et la stabilité des prix, avec une cible d'inflation de 2 % mesurée par le PCE. Les décisions sont prises par le FOMC, huit fois par an. Son taux directeur, le taux des Fed funds, est une fourchette, actuellement 3,75 % – 4,00 %. Elle est présidée par Kevin Warsh depuis mai 2026. »",
+      "liens": ["m1.bc.bce", "m1.bc.face-a-face", "m1.inflation.mesure", "m1.cycle.chomage"],
+      "sources": [
+        { "titre": "Réserve fédérale, communiqué du FOMC du 16 septembre 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm", "date": "2026-09-16" },
+        { "titre": "Réserve fédérale, communiqué du FOMC du 28 octobre 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm", "date": "2026-10-28" },
+        { "titre": "Bureau of Labor Statistics, CPI de septembre 2026", "url": "https://www.bls.gov/news.release/archives/cpi_10142026.htm", "date": "2026-10-14" }
+      ],
+      "chiffres": [
+        { "libelle": "Fourchette des Fed funds", "valeur": "3,75 % – 4,00 %", "date": "2026-10-28", "source": "Réserve fédérale" },
+        { "libelle": "Inflation États-Unis (CPI, sur un an)", "valeur": "3,7 %", "date": "2026-09-30", "source": "Bureau of Labor Statistics" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.face-a-face",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "tags": ["banque centrale", "BCE", "Fed", "entretien"],
+      "titre": "BCE et Fed face à face",
+      "une_phrase": "La différence à retenir : la BCE a un **mandat unique** (les prix), la Fed un **double mandat** (les prix et l'emploi) ; la Fed est donc en principe plus sensible au chômage.",
+      "trente_secondes": "Les deux banques centrales visent 2 % d'inflation, se réunissent huit fois par an et utilisent les mêmes outils. Elles diffèrent sur trois points.\n\n**Le mandat.** Face à une économie qui ralentit avec une inflation encore élevée, la BCE doit privilégier l'inflation ; la Fed peut tenir compte de l'emploi.\n\n**L'économie.** La BCE fixe un taux pour 21 pays aux situations différentes ; la Fed pour un seul État fédéral, avec un budget commun.\n\n**La structure du financement.** En zone euro, les entreprises se financent surtout par le crédit bancaire ; aux États-Unis, davantage par les marchés.",
+      "analogie": "Deux médecins soignent la fièvre avec le même médicament. Le premier (la BCE) a pour seule consigne de faire tomber la fièvre. Le second (la Fed) doit aussi veiller à ce que le patient garde des forces. Devant un patient fiévreux et affaibli, ils ne prescriront pas forcément la même dose.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "BCE (zone euro)", "Fed (États-Unis)"],
+        "lignes": [
+          ["Mandat", "Unique : stabilité des prix", "Double : plein emploi et stabilité des prix"],
+          ["Cible d'inflation", "2 % à moyen terme, sur l'IPCH", "2 % à long terme, sur le PCE"],
+          ["Qui décide", "Conseil des gouverneurs", "FOMC, 12 votants"],
+          ["Président", "Christine Lagarde (jusqu'au 7 février 2027)", "Kevin Warsh (depuis mai 2026)"],
+          ["Taux directeur", "Taux de dépôt : 2,50 %", "Fed funds : 3,75 % – 4,00 %"],
+          ["Prochaine réunion", "17 décembre 2026", "8 et 9 décembre 2026"],
+          ["Votes", "Consensus, détail non publié", "Publics, opposants nommés"],
+          ["Indépendance", "Garantie par les traités européens", "Fixée par la loi, plus exposée aux pressions"]
+        ],
+        "legende": "Situation au 16 novembre 2026."
+      },
+      "exemple_chiffre": [
+        "L'écart de taux directeurs entre les deux zones, au 16 novembre 2026.",
+        "Milieu de la fourchette de la Fed : (3,75 % + 4,00 %) ÷ 2 = 3,875 %.",
+        "Taux de dépôt de la BCE : 2,50 %.",
+        "Écart : 3,875 % − 2,50 % = 1,375 point, soit environ 138 points de base en faveur du dollar.",
+        "C'est l'une des raisons de la faiblesse de l'euro : l'EUR/USD était à 1,1052 le 13 novembre 2026, son plus bas niveau sur un an."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi leurs cycles se décalent.** Les deux économies ne subissent pas les mêmes chocs. En 2022, la Fed a commencé à monter ses taux quatre mois avant la BCE, et plus fort : l'inflation américaine venait surtout de la demande, celle de la zone euro surtout de l'énergie. Ces décalages sont le premier moteur de l'EUR/USD.\n\n**Face à un choc d'énergie.** L'Europe, importatrice, le subit plus durement que les États-Unis, producteurs. La BCE fait face à un dilemme plus aigu : l'inflation monte et la croissance souffre en même temps.\n\n**La fragmentation.** C'est un problème propre à la BCE. Comme il y a 21 États et 21 dettes publiques, une hausse de taux peut faire monter beaucoup plus les taux d'emprunt des pays les plus endettés. La BCE s'est dotée d'un outil pour cela, le TPI. La Fed n'a pas ce souci : il n'y a qu'une seule dette fédérale.\n\n**La communication.** La Fed publie les projections de taux de ses membres (le graphique à points) et le détail des votes. La BCE publie des projections d'inflation et de croissance, mais pas de trajectoire de taux, et décide par consensus.\n\n**Ce qu'elles ont en commun.** Une cible de 2 %, une approche « dépendante des données » réunion par réunion, et les mêmes familles d'outils : taux directeurs, bilan, communication.",
+      "piege": "Réciter les deux fiches séparément sans jamais les comparer. La question d'entretien est presque toujours « quelle est la différence ? ». Commence par le mandat, puis donne une conséquence concrète. Et vérifie les taux la veille de l'entretien : ils changent.",
+      "a_dire_en_entretien": "« Les deux visent 2 % d'inflation, mais la BCE a un mandat unique, la stabilité des prix, alors que la Fed a un double mandat qui inclut le plein emploi. La Fed peut donc être plus sensible à une hausse du chômage. Autre différence : la BCE fixe un seul taux pour 21 pays, ce qui lui pose un problème de fragmentation que la Fed n'a pas. Aujourd'hui, le taux de dépôt de la BCE est à 2,50 % et la fourchette de la Fed à 3,75 % – 4,00 % : cet écart soutient le dollar. »",
+      "liens": ["m1.bc.bce", "m1.bc.fed", "m1.forces.ecart-taux", "m1.bc.boe-boj"],
+      "sources": [
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Réserve fédérale, communiqué du FOMC du 28 octobre 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm", "date": "2026-10-28" },
+        { "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html", "date": "2026-11-13" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" },
+        { "libelle": "Fourchette des Fed funds", "valeur": "3,75 % – 4,00 %", "date": "2026-10-28", "source": "Réserve fédérale" },
+        { "libelle": "EUR/USD (taux de référence)", "valeur": "1,1052", "date": "2026-11-13", "source": "BCE" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.boe-boj",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "tags": ["banque centrale"],
+      "titre": "En bref : la Banque d'Angleterre et la Banque du Japon",
+      "une_phrase": "La **Banque d'Angleterre** (BoE) fixe le taux de la livre sterling et la **Banque du Japon** (BoJ) celui du yen ; avec la Fed et la BCE, ce sont les quatre banques centrales que suivent les marchés.",
+      "trente_secondes": "**La Banque d'Angleterre** vise 2 % d'inflation, une cible que lui fixe le gouvernement britannique. Son taux directeur s'appelle le *Bank Rate*. Il est décidé par un comité de neuf membres, le MPC, dont les votes sont publics.\n\n**La Banque du Japon** est un cas à part. Le Japon a connu des décennies de prix stagnants : la BoJ a gardé des taux nuls ou négatifs bien plus longtemps que les autres, et n'a commencé à les remonter qu'en 2024.\n\nCes deux banques centrales comptent pour deux paires de devises très traitées : EUR/GBP et USD/JPY.",
+      "analogie": "Si la Fed et la BCE sont les deux têtes d'affiche, la BoE et la BoJ sont les deux seconds rôles qu'on ne peut pas ignorer. Et la BoJ est le personnage qui fait toujours l'inverse des autres : elle montait à peine ses taux quand tout le monde les montait fort.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Banque d'Angleterre", "Banque du Japon"],
+        "lignes": [
+          ["Devise", "Livre sterling (GBP)", "Yen (JPY)"],
+          ["Cible d'inflation", "2 %, fixée par le gouvernement", "2 %"],
+          ["Qui décide", "Le MPC, 9 membres, votes publics", "Le Conseil de politique monétaire, 9 membres"],
+          ["Gouverneur", "Andrew Bailey", "Kazuo Ueda"],
+          ["Taux directeur", "4,00 % depuis le 4 novembre 2026", "Environ 1,25 %, maintenu le 30 octobre 2026"],
+          ["Cours face à l'euro", "EUR/GBP : 0,8356", "EUR/JPY : 176,83"]
+        ],
+        "legende": "Situation mi-novembre 2026. Cours : taux de référence de la BCE du 13 novembre 2026."
+      },
+      "exemple_chiffre": [
+        "La décision de la Banque d'Angleterre du 4 novembre 2026.",
+        "Le comité relève le *Bank Rate* de 0,25 point, de 3,75 % à 4,00 %. C'est sa première hausse depuis août 2023.",
+        "Le vote est de 8 voix contre 1 : le membre minoritaire voulait une hausse de 0,50 point, à 4,25 %.",
+        "La raison : la hausse des prix mondiaux de l'énergie. L'inflation britannique était de 3,5 % en septembre 2026, et la banque s'attend à ce qu'elle approche 5 % au deuxième trimestre 2027."
+      ],
+      "formules": [],
+      "deux_minutes": "**Banque d'Angleterre.** Fondée en 1694, elle n'est indépendante pour la conduite de la politique monétaire que depuis 1997. Elle a une indépendance d'**instrument** : le gouvernement fixe la cible, la banque choisit les moyens. Si l'inflation s'écarte de plus d'un point de la cible, le gouverneur doit écrire une lettre publique au ministre des Finances pour s'expliquer. L'épisode à connaître est celui de **septembre 2022** : après l'annonce d'un budget non financé, les taux d'État britanniques ont bondi et la BoE a dû acheter des obligations en urgence pour stabiliser le marché.\n\n**Banque du Japon.** Trois repères. Elle a été la première à pratiquer l'assouplissement quantitatif, dès 2001. De 2016 à mars 2024, elle a appliqué un taux négatif (−0,10 %) et un **contrôle de la courbe des taux** : elle plafonnait le taux à 10 ans de l'État japonais en achetant autant d'obligations que nécessaire. Depuis mars 2024, elle normalise lentement sa politique.\n\n**Le yen et le portage.** Pendant des années, les investisseurs ont emprunté en yen, presque gratuitement, pour placer dans des devises mieux rémunérées. Quand la BoJ monte ses taux, ces positions sont dénouées et le yen peut s'apprécier brutalement, comme en août 2024.\n\n**Lire les deux paires.** EUR/GBP = 0,8356 : un euro vaut 0,8356 livre. USD/JPY se lit dans l'autre sens que l'EUR/USD pour le dollar : s'il monte, le dollar se renforce face au yen.",
+      "piege": "Croire que la Banque d'Angleterre fait partie du système de l'euro. Le Royaume-Uni n'a jamais adopté l'euro, et il a quitté l'Union européenne en 2020 : la BoE est entièrement distincte de la BCE. Autre erreur : penser que toutes les banques centrales bougent ensemble ; la BoJ a longtemps fait cavalier seul.",
+      "a_dire_en_entretien": "« En plus de la Fed et de la BCE, je suis la Banque d'Angleterre et la Banque du Japon. La BoE vise 2 % d'inflation, avec une cible fixée par le gouvernement ; elle vient de relever son taux à 4 % début novembre 2026, sa première hausse depuis 2023. La Banque du Japon sort lentement de décennies de taux nuls ou négatifs : son taux est autour de 1,25 %. Ses décisions comptent beaucoup pour le yen, à cause des positions de portage. »",
+      "liens": ["m1.bc.face-a-face", "m1.forces.ecart-taux", "m1.forces.politique"],
+      "sources": [
+        { "titre": "Banque d'Angleterre, Monetary Policy Report, novembre 2026", "url": "https://www.bankofengland.co.uk/monetary-policy-report/2026/November-2026", "date": "2026-11-05" },
+        { "titre": "Banque du Japon, décisions de politique monétaire (taux d'octobre 2026 repris d'une source secondaire, à recouper)", "url": "https://www.boj.or.jp/en/mopo/mpmdeci/index.htm", "date": "2026-10-30" },
+        { "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html", "date": "2026-11-13" }
+      ],
+      "chiffres": [
+        { "libelle": "Bank Rate (Banque d'Angleterre)", "valeur": "4,00 %", "date": "2026-11-04", "source": "Banque d'Angleterre" },
+        { "libelle": "Taux directeur de la Banque du Japon", "valeur": "environ 1,25 %", "date": "2026-10-30", "source": "Banque du Japon, via source secondaire" },
+        { "libelle": "EUR/GBP (taux de référence)", "valeur": "0,8356", "date": "2026-11-13", "source": "BCE" },
+        { "libelle": "EUR/JPY (taux de référence)", "valeur": "176,83", "date": "2026-11-13", "source": "BCE" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.bce-bpce",
+      "type": "fiche", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "tags": ["piege", "banque centrale", "banque"],
+      "titre": "Le piège : BCE n'est pas BPCE",
+      "une_phrase": "La **BCE** est la banque centrale de la zone euro, qui fixe les taux directeurs ; **BPCE** est un groupe bancaire commercial français, qui subit ces taux comme toutes les banques.",
+      "trente_secondes": "Une seule lettre les sépare, et tout le reste.\n\n**La BCE** (Banque centrale européenne) est une institution publique européenne, à Francfort. Elle n'a pas de clients particuliers ni d'agences. Elle décide de la politique monétaire.\n\n**BPCE** est le groupe né en 2009 du rapprochement des **B**anques **P**opulaires et des **C**aisses d'**É**pargne. C'est une banque commerciale, avec des millions de clients, des agences et des filiales comme Natixis. Elle n'a aucun « taux directeur ».\n\nLa confusion à l'oral est fréquente, surtout quand on parle vite.",
+      "analogie": "C'est la différence entre la Fédération française de football et un club. La fédération écrit les règles et désigne les arbitres pour tout le monde. Le club joue les matchs en respectant ces règles. La BCE est la fédération ; BPCE, comme BNP Paribas ou le Crédit Agricole, est un club.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "BCE", "BPCE"],
+        "lignes": [
+          ["Nom complet", "Banque centrale européenne", "Groupe issu des Banques Populaires et des Caisses d'Épargne"],
+          ["Nature", "Banque centrale, institution publique européenne", "Banque commerciale, groupe coopératif français"],
+          ["Siège", "Francfort", "Paris"],
+          ["Ses « clients »", "Les banques", "Les particuliers, les entreprises, les collectivités"],
+          ["Son rôle", "Fixer les taux directeurs, garantir la stabilité des prix", "Collecter l'épargne, prêter, vendre des services financiers"],
+          ["Lien entre les deux", "Elle supervise BPCE et lui prête", "Elle emprunte à la BCE et répercute ses taux"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif d'une phrase d'entretien, avec et sans l'erreur.",
+        "Faux : « La BPCE a monté ses taux directeurs en septembre. » BPCE n'a pas de taux directeurs.",
+        "Juste : « La BCE a relevé son taux de dépôt de 2,25 % à 2,50 % en septembre 2026. »",
+        "Juste aussi : « Après la hausse de la BCE, les banques commerciales comme BPCE ont relevé les taux de leurs crédits. »"
+      ],
+      "formules": [],
+      "deux_minutes": "D'autres sigles se ressemblent et valent la peine d'être rangés une fois pour toutes.\n\n- **BCE** : Banque centrale européenne. **Fed** : Réserve fédérale américaine. **BoE** : Banque d'Angleterre. **BoJ** : Banque du Japon. Ce sont des banques centrales.\n- **Banque de France** : la banque centrale **nationale** française. Elle fait partie de l'Eurosystème ; son gouverneur siège au Conseil des gouverneurs de la BCE. Elle ne fixe plus de taux seule depuis l'euro.\n- **BPCE, BNP Paribas, Société Générale, Crédit Agricole, Crédit Mutuel, La Banque Postale** : les grands groupes bancaires commerciaux français.\n- **BEI** : Banque européenne d'investissement. C'est la banque publique de l'Union européenne, qui finance des projets. Ce n'est pas une banque centrale.\n- **BRI** : Banque des règlements internationaux, à Bâle. C'est la « banque des banques centrales », où sont élaborées les règles de Bâle.\n- **FMI** : Fonds monétaire international. Il prête aux États en difficulté. Ce n'est pas une banque centrale non plus.\n\nUn dernier faux ami : la **Banque centrale** et la **Banque mondiale** n'ont rien à voir. La Banque mondiale finance le développement des pays pauvres.",
+      "piege": "Dire « la BPCE monte ses taux » en parlant de politique monétaire. En entretien dans une banque française, l'erreur est remarquée tout de suite. Si tu sens que ta langue fourche, dis le nom en entier : « la Banque centrale européenne ».",
+      "a_dire_en_entretien": "« La BCE est la banque centrale de la zone euro : elle fixe les taux directeurs. BPCE est un groupe bancaire commercial français, issu des Banques Populaires et des Caisses d'Épargne, propriétaire de Natixis. BPCE ne fixe pas de taux directeurs : comme toutes les banques, elle se refinance aux conditions fixées par la BCE et les répercute sur ses clients. »",
+      "liens": ["m1.bc.roles", "m1.bc.bce"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.bc.c01", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Les trois rôles historiques d'une banque centrale ?", "verso": "Banque des banques, émission de la monnaie, prêteur en dernier ressort.", "fiche": "m1.bc.roles", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c02", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "recto": "Que veut dire « prêteur en dernier ressort » ?", "verso": "En cas de panique, la banque centrale prête aux banques solvables à court de liquidités, pour éviter des faillites en chaîne.", "fiche": "m1.bc.roles", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c03", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "recto": "Pourquoi une banque centrale doit-elle être indépendante ?", "verso": "Parce qu'un gouvernement a intérêt à des taux bas à court terme, au prix d'une inflation plus forte ensuite. L'indépendance rend crédible l'objectif d'inflation.", "fiche": "m1.bc.independance", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c04", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Quel est le mandat de la BCE ?", "verso": "Un mandat unique : la stabilité des prix, soit une inflation de 2 % à moyen terme.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c05", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Quel est le mandat de la Fed ?", "verso": "Un double mandat : le plein emploi et la stabilité des prix (2 % d'inflation, mesurée par le PCE).", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c06", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Qui décide des taux à la BCE ? À la Fed ?", "verso": "BCE : le Conseil des gouverneurs (6 membres du directoire + les gouverneurs nationaux). Fed : le FOMC, 12 votants.", "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c07", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Combien de pays dans la zone euro en 2026 ?", "verso": "21. La Bulgarie est entrée le 1er janvier 2026.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c08", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Taux directeurs au 16 novembre 2026 : BCE et Fed ?", "verso": "BCE : taux de dépôt à 2,50 %. Fed : fourchette de 3,75 % à 4,00 %. À vérifier avant chaque entretien.", "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c09", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "Qui préside la BCE ? La Fed ? (novembre 2026)", "verso": "BCE : Christine Lagarde, qui partira le 7 février 2027. Fed : Kevin Warsh, depuis mai 2026.", "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c10", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "recto": "BCE et BPCE : quelle différence ?", "verso": "BCE : banque centrale de la zone euro, elle fixe les taux directeurs. BPCE : groupe bancaire commercial français (Banques Populaires, Caisses d'Épargne, Natixis).", "fiche": "m1.bc.bce-bpce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c11", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "recto": "Qu'est-ce que le graphique à points (dot plot) de la Fed ?", "verso": "Un graphique publié quatre fois par an où chaque point représente le niveau de taux qu'un membre du FOMC juge approprié pour les années à venir.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c12", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "recto": "Quelle est la particularité historique de la Banque du Japon ?", "verso": "Des décennies de taux nuls ou négatifs face à des prix stagnants. Elle n'a commencé à remonter ses taux qu'en mars 2024.", "fiche": "m1.bc.boe-boj", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.c13", "type": "carte", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "recto": "Qu'est-ce que l'Eurosystème ?", "verso": "L'ensemble formé par la BCE et les banques centrales nationales des pays de la zone euro, dont la Banque de France.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.bc.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 1,
+      "question": "Quel est le rôle principal de la BCE ?",
+      "reponse_modele": "La stabilité des prix : maintenir l'inflation à 2 % à moyen terme pour les 21 pays de la zone euro. C'est son mandat unique, fixé par les traités. Pour cela, elle fixe les taux directeurs, dont le principal est le taux de dépôt, à 2,50 % depuis septembre 2026. Elle dispose aussi de son bilan, en achetant ou en laissant s'éteindre des obligations, et de sa communication. Elle supervise par ailleurs les grandes banques de la zone euro.",
+      "points_cles": ["Stabilité des prix, 2 % à moyen terme", "Mandat unique, fixé par les traités", "21 pays", "Taux directeurs : taux de dépôt à 2,50 %", "Autres outils : bilan, communication"],
+      "piege": "Citer la croissance ou l'emploi comme objectif, ou dire « BPCE ».",
+      "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 1,
+      "question": "Quel est le rôle de la Fed ? En quoi est-elle différente de la BCE ?",
+      "reponse_modele": "La Fed a un double mandat : le plein emploi et la stabilité des prix, avec une cible d'inflation de 2 %. La BCE n'a qu'un objectif, la stabilité des prix. Concrètement, la Fed peut être plus sensible à une hausse du chômage. Autre différence : la BCE décide pour 21 pays, ce qui crée un risque de fragmentation entre les dettes publiques, que la Fed n'a pas. Aujourd'hui, la fourchette des Fed funds est de 3,75 % à 4,00 %, et la Fed est présidée par Kevin Warsh depuis mai 2026.",
+      "points_cles": ["Double mandat contre mandat unique", "Conséquence : sensibilité au chômage", "21 pays contre un État fédéral", "Taux actuels des deux côtés", "Présidence"],
+      "piege": "Dire que la Fed « privilégie l'emploi » : les deux objectifs ont le même poids dans la loi.",
+      "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "tags": ["piege"],
+      "question": "Quelle différence entre la BCE et BPCE ?",
+      "reponse_modele": "La BCE est la banque centrale de la zone euro : elle fixe les taux directeurs et veille à la stabilité des prix. BPCE est un groupe bancaire commercial français, né en 2009 du rapprochement des Banques Populaires et des Caisses d'Épargne, et propriétaire de Natixis. BPCE n'a pas de taux directeurs : elle se refinance aux conditions fixées par la BCE et les répercute sur ses clients, comme n'importe quelle banque commerciale.",
+      "points_cles": ["BCE : banque centrale, fixe les taux", "BPCE : banque commerciale française", "Banques Populaires + Caisses d'Épargne, Natixis", "BPCE subit et répercute les taux de la BCE"],
+      "piege": "Confondre les deux à l'oral. Dis les noms en entier si besoin.",
+      "fiche": "m1.bc.bce-bpce", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 2,
+      "question": "Pourquoi les banques centrales sont-elles indépendantes des gouvernements ?",
+      "reponse_modele": "Parce qu'un gouvernement a toujours intérêt à des taux bas à court terme : cela soutient la croissance, l'emploi et allège le coût de la dette, surtout avant une élection. Mais le prix à payer, l'inflation, arrive plus tard. Une banque centrale indépendante, dotée d'un mandat clair et de dirigeants nommés pour longtemps, peut prendre des décisions impopulaires. C'est ce qui rend son objectif de 2 % crédible et ancre les anticipations. La Turquie de 2021-2022 montre ce qui arrive quand cette indépendance disparaît : une inflation à 85 %.",
+      "points_cles": ["Tentation des taux bas à court terme", "Coût différé : l'inflation", "Crédibilité et ancrage des anticipations", "Garanties : mandat, durée, interdiction de financer l'État", "Un contre-exemple"],
+      "piege": "Dire qu'indépendante veut dire sans contrôle : elle rend des comptes au Parlement.",
+      "fiche": "m1.bc.independance", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 2,
+      "question": "Où en sont les taux de la BCE et de la Fed aujourd'hui, et que s'est-il passé cette année ?",
+      "reponse_modele": "Mi-novembre 2026, le taux de dépôt de la BCE est à 2,50 % et la fourchette des Fed funds à 3,75 % – 4,00 %. Les deux banques centrales ont remonté leurs taux cette année, après les baisses de 2024-2025, à cause d'un choc d'énergie qui a fait remonter l'inflation : la BCE en juin puis en septembre, la Fed en septembre. Toutes deux ont fait une pause fin octobre. Les prochaines réunions sont les 8 et 9 décembre pour la Fed et le 17 décembre pour la BCE.",
+      "points_cles": ["Les deux niveaux de taux", "Le sens du mouvement en 2026 : hausses", "La cause : choc d'énergie, inflation à 4 %", "La pause d'octobre", "Les dates des prochaines réunions"],
+      "piege": "Donner des chiffres périmés. Vérifie les taux la veille de l'entretien, dans l'onglet Marché.",
+      "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.bc.q06", "type": "question_entretien", "module": 1, "chapitre": "m1.bc", "difficulte": 3,
+      "question": "La BCE fixe un seul taux pour 21 pays. Quel problème cela pose-t-il ?",
+      "reponse_modele": "Les 21 économies n'ont pas la même inflation ni la même croissance : le taux unique est forcément trop élevé pour certains pays et trop bas pour d'autres. De plus, il y a 21 dettes publiques distinctes. Quand la BCE monte ses taux, les taux d'emprunt des États les plus endettés peuvent monter bien plus que ceux de l'Allemagne : c'est le risque de fragmentation, qui empêche la politique monétaire de se transmettre de façon homogène. La BCE s'est dotée d'un outil pour y répondre, le TPI. La Fed n'a pas ce problème, puisqu'il n'y a qu'une dette fédérale.",
+      "points_cles": ["Un taux pour des économies différentes", "21 dettes publiques", "Fragmentation : écarts de taux entre États", "Transmission inégale de la politique monétaire", "L'outil : le TPI"],
+      "piege": "Répondre que chaque gouverneur défend son pays : ils votent pour la zone dans son ensemble.",
+      "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.bc.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "enonce": "Quel est le mandat de la BCE ?", "choix": ["Plein emploi et stabilité des prix", "Stabilité des prix", "Croissance économique", "Stabilité du taux de change de l'euro"], "bonne": 1, "explication": "Un mandat unique : la stabilité des prix. Le double mandat est celui de la Fed. La BCE n'a pas d'objectif de change.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z02", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "enonce": "BPCE fixe les taux directeurs de la zone euro.", "vrai": false, "explication": "C'est la BCE. BPCE est un groupe bancaire commercial français.", "fiche": "m1.bc.bce-bpce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z03", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "enonce": "Comment s'appelle le comité qui décide des taux de la Fed ?", "choix": ["Le MPC", "Le FOMC", "Le Conseil des gouverneurs", "Le directoire"], "bonne": 1, "explication": "Le FOMC (Federal Open Market Committee). Le MPC est celui de la Banque d'Angleterre, le Conseil des gouverneurs celui de la BCE.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z04", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "enonce": "Une banque centrale agit comme « prêteur en dernier ressort » quand…", "choix": ["elle prête directement à l'État", "elle prête aux banques solvables à court de liquidités pendant une crise", "elle accorde des crédits immobiliers", "elle achète des actions"], "bonne": 1, "explication": "C'est son rôle de pompier du système. Prêter directement à l'État lui est interdit en zone euro.", "fiche": "m1.bc.roles", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z05", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "enonce": "Le taux de dépôt de la BCE est à 2,50 % et la fourchette de la Fed à 3,75 % – 4,00 %. Quel est l'écart entre le milieu de la fourchette de la Fed et le taux de la BCE, en points de base ?", "reponse": 137.5, "tolerance": 1, "unite": "pb", "explication": "Milieu de la fourchette : 3,875 %. Écart : 3,875 % − 2,50 % = 1,375 %, soit 137,5 points de base.", "fiche": "m1.bc.face-a-face", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z06", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "enonce": "La cible d'inflation de la Banque d'Angleterre est fixée par le gouvernement britannique.", "vrai": true, "explication": "Oui : la BoE a une indépendance d'instrument. Le gouvernement fixe la cible (2 %), la banque choisit les moyens.", "fiche": "m1.bc.boe-boj", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z07", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "enonce": "Pourquoi confier les taux à une banque centrale indépendante ?", "choix": ["Parce que les gouvernements ne comprennent pas l'économie", "Pour éviter que les taux soient baissés pour des raisons électorales au prix de plus d'inflation", "Pour que les banques commerciales fixent elles-mêmes les taux", "Pour supprimer tout contrôle démocratique"], "bonne": 1, "explication": "Le bénéfice de taux bas est immédiat, le coût (l'inflation) est différé : la tentation politique est permanente.", "fiche": "m1.bc.independance", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.z08", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "enonce": "La Fed fixe son taux directeur sous la forme d'une fourchette de 0,25 point.", "vrai": true, "explication": "Oui, par exemple 3,75 % – 4,00 %. La BCE, elle, fixe trois taux précis.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+
+    { "id": "m1.bc.l-banque-centrale", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "Banque centrale", "anglais": "central bank", "definition": "Institution publique qui émet la monnaie, fixe les taux directeurs et veille à la stabilité des prix et du système financier.", "fiche": "m1.bc.roles", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-preteur-en-dernier-ressort", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Prêteur en dernier ressort", "anglais": "lender of last resort", "definition": "Rôle de la banque centrale qui prête aux banques solvables à court de liquidités lors d'une crise.", "fiche": "m1.bc.roles", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-bce", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "BCE", "anglais": "ECB", "definition": "Banque centrale européenne. Banque centrale de la zone euro, à Francfort. Mandat unique : la stabilité des prix.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-eurosysteme", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Eurosystème", "anglais": "Eurosystem", "definition": "La BCE et les banques centrales nationales des pays de la zone euro.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-conseil-des-gouverneurs", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Conseil des gouverneurs", "anglais": "Governing Council", "definition": "Organe de décision de la BCE : les six membres du directoire et les gouverneurs des banques centrales nationales de la zone euro.", "fiche": "m1.bc.bce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-fed", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "Fed", "anglais": "Federal Reserve", "definition": "Réserve fédérale, banque centrale des États-Unis. Double mandat : plein emploi et stabilité des prix.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-fomc", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "FOMC", "anglais": "Federal Open Market Committee", "definition": "Comité de la Fed qui décide des taux, huit fois par an. Douze votants.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-fed-funds", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "Taux des fonds fédéraux", "anglais": "Fed funds rate", "definition": "Taux directeur de la Fed, fixé sous forme d'une fourchette de 0,25 point.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-double-mandat", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "Double mandat", "anglais": "dual mandate", "definition": "Les deux objectifs de la Fed : le plein emploi et la stabilité des prix.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-dot-plot", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Graphique à points", "anglais": "dot plot", "definition": "Graphique des niveaux de taux jugés appropriés par chaque membre du FOMC, publié quatre fois par an.", "fiche": "m1.bc.fed", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-bpce", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "BPCE", "definition": "Groupe bancaire commercial français (Banques Populaires, Caisses d'Épargne, Natixis). À ne pas confondre avec la BCE.", "fiche": "m1.bc.bce-bpce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-banque-de-france", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 1, "terme": "Banque de France", "definition": "Banque centrale nationale française, membre de l'Eurosystème. Son gouverneur siège au Conseil des gouverneurs de la BCE.", "fiche": "m1.bc.bce-bpce", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-boe", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Banque d'Angleterre", "anglais": "Bank of England (BoE)", "definition": "Banque centrale du Royaume-Uni. Son taux directeur est le Bank Rate, décidé par le MPC.", "fiche": "m1.bc.boe-boj", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-boj", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 2, "terme": "Banque du Japon", "anglais": "Bank of Japan (BoJ)", "definition": "Banque centrale du Japon, connue pour ses décennies de taux nuls ou négatifs.", "fiche": "m1.bc.boe-boj", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.bc.l-incoherence-temporelle", "type": "lexique", "module": 1, "chapitre": "m1.bc", "difficulte": 3, "terme": "Incohérence temporelle", "anglais": "time inconsistency", "definition": "Tentation, pour une autorité, de renoncer à une promesse d'inflation basse une fois qu'elle est crue. Argument central pour l'indépendance des banques centrales.", "fiche": "m1.bc.independance", "maj": "2026-11-16", "version": 1 }
+  ]
+}

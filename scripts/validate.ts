@@ -7,6 +7,8 @@ import { FichierChapitre, Module, type TElement, type TFormule } from '../src/sc
 import { REGISTRE } from '../src/finance/registre';
 
 const erreurs: string[] = [];
+// Références d'outils déclarées dans le Labo (lues dans le fichier pour ne pas charger React ici).
+const outils = new Set([...readFileSync('src/tools/index.tsx', 'utf8').matchAll(/'(labo.[a-z0-9-]+)':/g)].map((m) => m[1]));
 const err = (ou: string, quoi: string) => erreurs.push(`${ou} : ${quoi}`);
 
 const modules = (JSON.parse(readFileSync('content/modules.json', 'utf8')) as unknown[]).map((m) => Module.parse(m));
@@ -62,7 +64,7 @@ for (const e of elements) {
 
   if (e.type === 'fiche') {
     e.formules.forEach((f) => verifierFormule(e.id, f));
-    if (e.visuel?.type === 'outil' && !e.visuel.ref.startsWith('labo.')) err(e.id, "référence d'outil invalide");
+    if (e.visuel?.type === 'outil' && !outils.has(e.visuel.ref)) err(e.id, `outil « ${e.visuel.ref} » absent du Labo`);
     // Un exemple réel doit être daté et sourcé.
     if (!e.exemple_fictif && (e.chiffres.length === 0 || e.sources.length === 0))
       err(e.id, 'exemple non fictif : il faut des « chiffres » datés et des « sources »');

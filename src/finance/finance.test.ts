@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import * as fx from './fx';
 import * as inf from './inflation';
+import * as tx from './taux';
 
 describe('change', () => {
   it('convertit 1 M$ en euros', () => {
@@ -46,5 +47,35 @@ describe('inflation', () => {
   it('taux réel', () => {
     expect(inf.tauxReelApproche(3, 5)).toBe(-2);
     expect(inf.tauxReelExact(3, 5)).toBeCloseTo(-1.905, 3);
+  });
+});
+
+describe('taux', () => {
+  it('une obligation vaut le pair quand le taux égale le coupon', () => {
+    expect(tx.prixObligation(3, 3, 10)).toBeCloseTo(100, 9);
+  });
+  it('le prix baisse quand le taux monte (valeur de référence calculée à la main)', () => {
+    // 3 × (1 − 1,04^-10) / 0,04 + 100 / 1,04^10 = 24,333 + 67,556
+    expect(tx.prixObligation(3, 4, 10)).toBeCloseTo(91.889, 2);
+    expect(tx.prixObligation(3, 2, 10)).toBeCloseTo(108.983, 2);
+    // plus l'obligation est longue, plus elle baisse
+    expect(tx.prixObligation(3, 4, 2)).toBeGreaterThan(tx.prixObligation(3, 4, 10));
+  });
+  it("mensualité d'un crédit (références : 200 000 € sur 20 ans)", () => {
+    expect(tx.mensualite(200_000, 2, 20)).toBeCloseTo(1011.77, 1);
+    expect(tx.mensualite(200_000, 4, 20)).toBeCloseTo(1211.96, 1);
+    expect(tx.mensualite(120_000, 0, 10)).toBeCloseTo(1000, 9);
+    expect(tx.coutCredit(200_000, 4, 20)).toBeCloseTo(1211.96 * 240 - 200_000, -1);
+  });
+  it('règle de Taylor', () => {
+    expect(tx.regleTaylor(2, 2, 2, 0)).toBe(4);
+    expect(tx.regleTaylor(0.5, 4, 2, -1)).toBe(5);
+  });
+  it('écart en points de base, annualisation, intérêts, dette', () => {
+    expect(tx.ecartPb(4.66, 3.24)).toBeCloseTo(142, 6);
+    expect(tx.annualiser(0.5)).toBeCloseTo(2.015, 3);
+    expect(tx.interets(1_000_000, 2.5)).toBe(25_000);
+    expect(tx.detteSuivante(115, 3.5, 2.5, 2)).toBeCloseTo(118.12, 2);
+    expect(tx.detteSuivante(100, 3, 3, 0)).toBeCloseTo(100, 9);
   });
 });

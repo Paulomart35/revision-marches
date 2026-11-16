@@ -286,3 +286,21 @@ select, textarea, .recherche { width: 100%; min-height: 48px; border: 1px solid 
 .lexique dt { font: 700 1rem Archivo; }
 .lexique dt em { font: 400 .85rem 'IBM Plex Sans'; color: var(--mut); }
 .lexique dd { margin: 2px 0 0; font-size: .95rem; }
+
+/* Outils de politique monétaire */
+.decision { background: var(--bg); border-radius: 10px; padding: 14px 16px; border-left: 6px solid var(--mut); display: grid; gap: 4px; }
+.decision small { color: var(--mut); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.decision b { font: 800 1.2rem/1.2 Archivo; }
+.decision p { margin: 4px 0 0; font-size: .95rem; }
+.decision .reel { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; font-weight: 500; }
+.decision.up { border-left-color: var(--ko); }
+.decision.down { border-left-color: var(--ok); }
+.decision.hold { border-left-color: var(--yel); }
+.outil svg .bande { fill: var(--soft-yel); }
+.outil svg .cible { stroke: var(--ok); stroke-width: 1; stroke-dasharray: 4 3; }
+.outil svg .cibletxt { fill: var(--ok); }
+.outil svg .pt1 { fill: var(--c1); }
+.outil .chaine { margin: 0; }
+.outil .chaine li { background: var(--bg); }
+.outil .chaine li.on { background: var(--soft-yel); }
+.outil .ligne { margin: 0; }

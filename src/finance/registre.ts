@@ -2,6 +2,7 @@
 // le script de validation recalcule chaque résultat avec ces fonctions.
 import * as fx from './fx';
 import * as inflation from './inflation';
+import * as taux from './taux';
 
 export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'fx.usdVersEur': fx.usdVersEur,
@@ -16,6 +17,14 @@ export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'inflation.niveauPrix': inflation.niveauPrix,
   'inflation.tauxReelApproche': inflation.tauxReelApproche,
   'inflation.tauxReelExact': inflation.tauxReelExact,
+  'taux.prixObligation': taux.prixObligation,
+  'taux.mensualite': taux.mensualite,
+  'taux.coutCredit': taux.coutCredit,
+  'taux.regleTaylor': taux.regleTaylor,
+  'taux.ecartPb': taux.ecartPb,
+  'taux.annualiser': taux.annualiser,
+  'taux.interets': taux.interets,
+  'taux.detteSuivante': taux.detteSuivante,
   // somme pondérée : args = poids1, hausse1, poids2, hausse2, …
   'inflation.inflationPonderee': (...a: number[]) => {
     const postes = [];

@@ -3,6 +3,7 @@ import { useState, type ReactNode } from 'react';
 import { usdVersEur } from '../finance/fx';
 import { contribution, inflationPonderee, niveauPrix, pouvoirAchat } from '../finance/inflation';
 import { eur, nf } from '../lib';
+import { Gouverneur, Historique, Transmission } from './politique';
 
 function Curseur(p: { libelle: string; valeur: number; min: number; max: number; pas: number; affiche: string; onChange: (v: number) => void }) {
   return (
@@ -155,5 +156,8 @@ function PanierInflation() {
 export const OUTILS: Record<string, { titre: string; resume: string; module: number; rendu: () => ReactNode; fiche: string }> = {
   'labo.fx-calculateur': { titre: 'Exportateur ou importateur ?', resume: 'Ce que vaut un montant en dollars selon l\'EUR/USD.', module: 1, rendu: () => <FxCalculateur />, fiche: 'm1.change.exportateur' },
   'labo.pouvoir-achat': { titre: 'Ce que l\'inflation fait à 100 €', resume: 'Prix du panier et pouvoir d\'achat au fil des années.', module: 1, rendu: () => <PouvoirAchat />, fiche: 'm1.inflation.definition' },
+  'labo.transmission': { titre: 'La chaîne de transmission', resume: "D'une décision de taux jusqu'à l'inflation, étape par étape.", module: 1, rendu: () => <Transmission />, fiche: 'm1.transmission.chaine' },
+  'labo.gouverneur': { titre: 'Toi, gouverneur de la BCE', resume: 'Inflation, croissance, origine du choc : que décides-tu ?', module: 1, rendu: () => <Gouverneur />, fiche: 'm1.decision.choc-offre' },
+  'labo.historique': { titre: 'Inflation et taux depuis 2014', resume: 'Les quatre grandes phases de la politique de la BCE.', module: 1, rendu: () => <Historique />, fiche: 'm1.episodes.vue-ensemble' },
   'labo.panier-inflation': { titre: 'Le panier d\'inflation', resume: 'Inflation totale et sous-jacente, poste par poste.', module: 1, rendu: () => <PanierInflation />, fiche: 'm1.inflation.mesure' },
 };

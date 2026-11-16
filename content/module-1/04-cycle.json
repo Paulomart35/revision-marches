@@ -1,0 +1,345 @@
+{
+  "chapitre": {
+    "id": "m1.cycle",
+    "module": 1,
+    "ordre": 4,
+    "titre": "Croissance et cycle économique",
+    "resume": "Le PIB, le chômage, la récession et les indicateurs qui permettent de savoir où en est l'économie : PMI et courbe des taux."
+  },
+  "elements": [
+    {
+      "id": "m1.cycle.pib",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "tags": ["croissance", "indicateurs"],
+      "titre": "Le PIB et la croissance",
+      "une_phrase": "Le PIB (produit intérieur brut) mesure **tout ce qu'un pays produit en un an** ; la croissance est la hausse de ce PIB d'une période à l'autre.",
+      "trente_secondes": "Le PIB additionne la valeur de tous les biens et services produits sur un territoire : les voitures, les repas au restaurant, les consultations médicales, les logiciels.\n\nQuand on dit « la croissance est de 1,3 % », cela veut dire que le pays a produit 1,3 % de plus que l'année précédente, **une fois l'inflation retirée**. On parle de PIB **réel** (ou « en volume »).\n\nC'est le thermomètre de l'activité : plus de production veut dire plus de revenus distribués et, en général, plus d'emplois.",
+      "analogie": "Le PIB est le chiffre d'affaires d'un pays, à un détail près : on ne compte que la valeur que chaque entreprise **ajoute**. Le boulanger qui vend un pain 1 euro avec 0,30 euro de farine a ajouté 0,70 euro. Sinon, on compterait la farine deux fois : chez le meunier et dans le pain.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Composante", "Ce que c'est", "Poids habituel"],
+        "lignes": [
+          ["Consommation des ménages", "Ce que les familles achètent", "Un peu plus de la moitié"],
+          ["Investissement", "Machines, bâtiments, logements", "Environ un cinquième"],
+          ["Dépenses publiques", "Services rendus par l'État : école, santé", "Environ un cinquième"],
+          ["Exportations moins importations", "Le solde du commerce extérieur", "Petit, positif ou négatif"]
+        ],
+        "legende": "Les quatre moteurs de la demande. Ordres de grandeur pour un pays européen."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Le PIB d'un pays vaut 1 000 milliards d'euros. L'année suivante, il vaut 1 050 milliards.",
+        "En apparence, la hausse est de 5 % : c'est la croissance **nominale** (ou « en valeur »).",
+        "Mais les prix ont augmenté de 3 % sur la même période. Une partie de la hausse n'est donc que de l'inflation.",
+        "La croissance **réelle** est d'environ 5 % − 3 % = 2 %. C'est ce chiffre qu'on appelle « la croissance »."
+      ],
+      "formules": [
+        {
+          "titre": "Le PIB vu par la demande",
+          "latex": "\\text{PIB} = C + I + G + (X - M)",
+          "legende": { "C": "la consommation des ménages", "I": "l'investissement", "G": "les dépenses publiques", "X - M": "les exportations moins les importations" },
+          "en_francais": "Tout ce qui est produit est soit consommé, soit investi, soit utilisé par l'État, soit vendu à l'étranger ; on retire les importations, qui ont été produites ailleurs."
+        }
+      ],
+      "deux_minutes": "**Trimestriel ou annualisé.** Le PIB est publié chaque trimestre. En Europe, on donne la variation par rapport au trimestre précédent (par exemple +0,4 %). Aux États-Unis, on publie un rythme **annualisé** : la même hausse trimestrielle, comme si elle se répétait quatre trimestres de suite. +0,4 % sur un trimestre correspond à environ +1,6 % annualisé. Ne compare jamais directement un chiffre européen et un chiffre américain.\n\n**Le chiffre du moment.** Au troisième trimestre 2026, le PIB de la zone euro a progressé de 0,4 % sur un trimestre et de 1,3 % sur un an. La France a reculé de 0,1 %, l'Italie a stagné, l'Allemagne a progressé de 0,2 %.\n\n**Croissance potentielle.** C'est le rythme auquel une économie peut croître durablement sans créer d'inflation. Il dépend de la population active et de la productivité : environ 1 % par an en zone euro, près de 2 % aux États-Unis. Quand la croissance dépasse durablement son potentiel, l'économie surchauffe et l'inflation monte. L'écart entre le PIB réel et son potentiel s'appelle l'**écart de production** (*output gap*).\n\n**Limites.** Le PIB arrive tard (un mois après la fin du trimestre) et il est révisé plusieurs fois. C'est pourquoi les marchés regardent des indicateurs plus rapides, comme les PMI. Il ne mesure ni le bien-être ni les inégalités.",
+      "piege": "Comparer une croissance trimestrielle européenne (+0,4 %) et une croissance américaine annualisée (+1,6 %) comme si c'étaient les mêmes unités. Ici, les deux décrivent exactement le même rythme. Autre erreur : oublier que « la croissance » est toujours la croissance réelle, hors inflation.",
+      "a_dire_en_entretien": "« Le PIB mesure la production de biens et services d'un pays sur une période. La croissance est sa variation en volume, c'est-à-dire hors inflation. On peut le décomposer en consommation, investissement, dépenses publiques et commerce extérieur. En zone euro, il a progressé de 0,4 % au troisième trimestre 2026, soit 1,3 % sur un an. »",
+      "liens": ["m1.cycle.cycle", "m1.cycle.recession", "m1.cycle.pmi"],
+      "sources": [{ "titre": "Eurostat, PIB et emploi du troisième trimestre 2026 (communiqué du 13 novembre 2026)", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-13112026-ap", "date": "2026-11-13" }],
+      "chiffres": [
+        { "libelle": "PIB zone euro, T3 2026, sur un trimestre", "valeur": "+0,4 %", "date": "2026-11-13", "source": "Eurostat" },
+        { "libelle": "PIB zone euro, T3 2026, sur un an", "valeur": "+1,3 %", "date": "2026-11-13", "source": "Eurostat" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.chomage",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "tags": ["emploi", "indicateurs"],
+      "titre": "Le chômage et le marché du travail",
+      "une_phrase": "Le taux de chômage est la **part des personnes qui veulent travailler et ne trouvent pas d'emploi** ; il dit si l'économie utilise toutes ses forces.",
+      "trente_secondes": "On ne divise pas le nombre de chômeurs par toute la population, mais par la **population active** : ceux qui ont un emploi plus ceux qui en cherchent un. Un étudiant ou un retraité n'est ni actif ni chômeur.\n\nUn chômage bas signifie que les entreprises ont du mal à recruter : les salariés peuvent obtenir des hausses de salaire, ce qui peut nourrir l'inflation. Un chômage élevé signifie que l'économie tourne au ralenti.\n\nPour la Fed, l'emploi est un objectif à part entière. Pour la BCE, c'est un indicateur de la pression sur les salaires et les prix.",
+      "analogie": "Pense au jeu des chaises musicales. Les joueurs sont la population active, les chaises sont les emplois. Le taux de chômage est la part des joueurs restés debout. S'il y a presque autant de chaises que de joueurs, chacun peut choisir sa chaise et négocier : c'est un marché du travail « tendu ».",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Marché du travail", "Chômage", "Salaires", "Lecture pour la banque centrale"],
+        "lignes": [
+          ["Tendu", "Bas", "Accélèrent", "Risque d'inflation : plutôt des taux hauts"],
+          ["Équilibré", "Proche de son niveau habituel", "Suivent la productivité", "Pas de signal"],
+          ["Dégradé", "Élevé ou en hausse", "Ralentissent", "Économie faible : plutôt des taux bas"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un pays compte 30 millions de personnes en emploi et 2 millions de personnes sans emploi qui en cherchent un.",
+        "La population active est de 30 + 2 = 32 millions.",
+        "Le taux de chômage est de 2 ÷ 32 = 6,25 %.",
+        "Si 500 000 chômeurs, découragés, cessent de chercher, ils sortent de la population active : le taux tombe à 1,5 ÷ 31,5 = 4,8 %, sans qu'aucun emploi n'ait été créé. Le taux peut donc baisser pour de mauvaises raisons."
+      ],
+      "formules": [
+        {
+          "titre": "Le taux de chômage",
+          "latex": "\\text{Taux de chômage} = \\frac{\\text{Chômeurs}}{\\text{Population active}}",
+          "legende": { "\\text{Chômeurs}": "personnes sans emploi, disponibles, qui en cherchent activement un", "\\text{Population active}": "personnes en emploi + chômeurs" },
+          "en_francais": "Sur cent personnes qui travaillent ou veulent travailler, combien n'ont pas d'emploi."
+        }
+      ],
+      "deux_minutes": "**Les chiffres du moment.** En zone euro, le taux de chômage était de 6,5 % en septembre 2026, contre 6,3 % un an plus tôt. Aux États-Unis, il était de 4,1 % en octobre 2026.\n\n**Le rapport sur l'emploi américain.** Publié en général le premier vendredi du mois, c'est la statistique la plus suivie par les marchés. Il donne les **créations d'emplois hors agriculture** (*non-farm payrolls*), le taux de chômage et la hausse des salaires horaires. En octobre 2026 : 165 000 créations, bien plus que prévu, et des salaires en hausse de 3,1 % sur un an.\n\n**Un indicateur retardé.** Les entreprises licencient en dernier recours et embauchent tard. Le chômage commence donc à monter après le début d'un ralentissement et continue de monter après la reprise. Pour anticiper, on regarde plutôt les inscriptions hebdomadaires au chômage aux États-Unis ou les offres d'emploi.\n\n**Chômage et inflation.** La relation selon laquelle un chômage bas s'accompagne d'une inflation plus forte s'appelle la **courbe de Phillips**. Le niveau de chômage en dessous duquel les salaires et les prix accélèrent est le chômage d'équilibre (souvent désigné par son sigle anglais, NAIRU). On ne l'observe pas directement : on l'estime.\n\nLa définition harmonisée du chômage est celle du Bureau international du travail (BIT) : être sans emploi, disponible sous deux semaines, et avoir cherché activement dans le mois.",
+      "piege": "Croire qu'un chômage qui baisse est toujours une bonne nouvelle pour les marchés. Un marché du travail très tendu signifie des salaires qui accélèrent, donc une banque centrale qui garde des taux élevés : les obligations baissent. « Bonne nouvelle économique » et « bonne nouvelle pour les marchés » ne vont pas toujours ensemble.",
+      "a_dire_en_entretien": "« Le taux de chômage rapporte le nombre de chômeurs à la population active. C'est un indicateur retardé du cycle, mais il est central pour les banques centrales : un marché du travail tendu fait accélérer les salaires et peut alimenter l'inflation. C'est même la moitié du mandat de la Fed. Il est de 6,5 % en zone euro et de 4,1 % aux États-Unis à l'automne 2026. »",
+      "liens": ["m1.cycle.pib", "m1.cycle.cycle", "m1.inflation.boucle-prix-salaires"],
+      "sources": [
+        { "titre": "Eurostat, chômage de la zone euro, septembre 2026", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/3-30102026-bp", "date": "2026-10-30" },
+        { "titre": "Bureau of Labor Statistics, The Employment Situation, octobre 2026", "url": "https://www.bls.gov/news.release/pdf/empsit.pdf", "date": "2026-11-06" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de chômage, zone euro", "valeur": "6,5 %", "date": "2026-09-30", "source": "Eurostat" },
+        { "libelle": "Taux de chômage, États-Unis", "valeur": "4,1 %", "date": "2026-10-31", "source": "Bureau of Labor Statistics" },
+        { "libelle": "Créations d'emplois, États-Unis", "valeur": "165 000", "date": "2026-10-31", "source": "Bureau of Labor Statistics" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.cycle",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "tags": ["croissance", "cycle"],
+      "titre": "Le cycle économique",
+      "une_phrase": "L'économie n'avance pas en ligne droite : elle alterne des phases d'**expansion** et de **ralentissement** autour de sa tendance, c'est le cycle économique.",
+      "trente_secondes": "On distingue quatre moments. L'**expansion** : l'activité et l'emploi progressent. Le **pic** : l'économie tourne à plein, l'inflation monte. La **récession** : l'activité recule, le chômage monte. Le **creux** : le point bas, d'où repart la reprise.\n\nLa banque centrale essaie de lisser ces vagues. Elle monte les taux quand l'économie surchauffe et les baisse quand elle faiblit.\n\nSavoir où l'on est dans le cycle, c'est savoir ce que la banque centrale va probablement faire, donc dans quel sens iront les taux.",
+      "analogie": "C'est la respiration de l'économie : elle inspire (expansion) puis expire (ralentissement). La banque centrale joue le rôle d'un entraîneur qui demande de ralentir quand le coureur s'essouffle et d'accélérer quand il traîne. Elle ne supprime pas la respiration, elle évite l'hyperventilation et l'apnée.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Expansion", "texte": "Croissance au-dessus du potentiel, chômage en baisse, crédit dynamique." },
+          { "titre": "Pic", "texte": "Économie à pleine capacité, inflation en hausse : la banque centrale monte ses taux." },
+          { "titre": "Récession", "texte": "Activité en baisse, chômage en hausse, inflation qui reflue." },
+          { "titre": "Creux puis reprise", "texte": "La banque centrale baisse ses taux, le crédit repart, un nouveau cycle commence." }
+        ],
+        "legende": "Les quatre temps du cycle, et le rôle de la banque centrale à chaque étape."
+      },
+      "exemple_chiffre": [
+        "Le dernier cycle complet en zone euro, à travers le taux de dépôt de la BCE.",
+        "2021 : reprise après le Covid. Le taux est à −0,50 %, l'inflation commence à monter.",
+        "2022-2023 : surchauffe et choc d'énergie. L'inflation atteint 10,6 % ; la BCE monte son taux de −0,50 % à 4,00 %.",
+        "2024-2025 : l'inflation revient vers 2 % et la croissance est faible. La BCE redescend de 4,00 % à 2,00 %.",
+        "2026 : nouveau choc d'énergie. La BCE remonte à 2,25 % en juin puis 2,50 % en septembre."
+      ],
+      "formules": [],
+      "deux_minutes": "Chaque phase a sa signature sur les marchés.\n\n- **Expansion** : les bénéfices montent, les actions progressent, les taux longs remontent doucement.\n- **Fin de cycle** : la banque centrale resserre, les taux courts montent plus que les taux longs, la courbe des taux s'aplatit puis s'inverse.\n- **Récession** : les actions baissent, les investisseurs achètent des obligations d'État (les taux longs baissent), les écarts de crédit des entreprises s'élargissent.\n- **Reprise** : la banque centrale a baissé ses taux, la courbe se repentifie, les actifs risqués repartent.\n\nLes cycles ne se ressemblent pas. Leur durée varie de quelques années à plus de dix ans, et leur cause aussi : un excès de crédit (2008), une pandémie (2020), un choc d'énergie (2022, 2026).\n\nLa difficulté de 2026 est que le choc d'énergie brouille la lecture : l'inflation est celle d'une surchauffe, alors que la croissance est celle d'un ralentissement. C'est la configuration de la **stagflation**.\n\nOn appelle **atterrissage en douceur** (*soft landing*) le scénario où la banque centrale ramène l'inflation à 2 % sans provoquer de récession, et **atterrissage brutal** (*hard landing*) le scénario inverse.",
+      "piege": "Croire que le cycle est régulier et prévisible, comme une horloge. Personne ne sait dater un retournement à l'avance. Ce qu'on attend de toi, c'est de reconnaître la phase actuelle à partir des indicateurs, pas d'annoncer la date de la prochaine récession.",
+      "a_dire_en_entretien": "« L'économie évolue par cycles : expansion, pic, récession, creux. La banque centrale cherche à les lisser en montant ses taux en haut de cycle et en les baissant en bas de cycle. Aujourd'hui, la zone euro est dans une situation inconfortable : la croissance est modeste, autour de 1,3 % sur un an, mais l'inflation est remontée à 4 % à cause de l'énergie. »",
+      "liens": ["m1.cycle.recession", "m1.cycle.courbe-inversee", "m1.inflation.stagflation"],
+      "sources": [{ "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" }],
+      "chiffres": [{ "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" }],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.recession",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "tags": ["croissance", "cycle", "piege"],
+      "titre": "La récession : deux définitions",
+      "une_phrase": "Une récession est un **recul de l'activité économique** ; la définition technique est **deux trimestres consécutifs de baisse du PIB**, mais les États-Unis utilisent une définition plus large, celle du NBER.",
+      "trente_secondes": "**La définition technique** est simple : le PIB réel baisse pendant deux trimestres de suite. C'est celle qu'on utilise en Europe et dans la presse.\n\n**La définition américaine** est fixée par un comité d'économistes, le NBER (*National Bureau of Economic Research*). Pour lui, une récession est une baisse **marquée**, **généralisée** à l'ensemble de l'économie et qui dure **plus de quelques mois**. Il regarde l'emploi, les revenus, la consommation et la production, pas seulement le PIB.\n\nLes deux définitions peuvent donc ne pas être d'accord.",
+      "analogie": "Pour savoir si quelqu'un est malade, on peut appliquer une règle simple : « plus de 38 °C deux jours de suite ». C'est la définition technique : rapide, mais elle peut se tromper. Le NBER, lui, est le médecin qui examine la température, la tension, la fatigue et la durée des symptômes avant de poser son diagnostic. C'est plus juste, mais le diagnostic arrive tard.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Définition technique", "Définition du NBER"],
+        "lignes": [
+          ["Critère", "Deux trimestres consécutifs de baisse du PIB réel", "Baisse marquée, généralisée et durable de l'activité"],
+          ["Indicateurs", "Le PIB seulement", "Emploi, revenus, consommation, production industrielle, PIB"],
+          ["Qui décide", "Personne : c'est une règle", "Un comité de huit économistes"],
+          ["Délai", "Dès la publication du PIB", "Plusieurs mois, souvent près d'un an après"],
+          ["Utilisée", "En Europe, dans la presse", "Aux États-Unis, c'est la référence officielle"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Deux épisodes américains où les deux définitions ont divergé.",
+        "Premier semestre 2022 : selon les premières estimations, le PIB américain recule deux trimestres de suite. La règle technique dit « récession ».",
+        "Mais dans le même temps, l'économie crée plusieurs centaines de milliers d'emplois par mois et le chômage est au plus bas. Le NBER ne déclare pas de récession.",
+        "À l'inverse, au printemps 2020, le NBER date une récession de deux mois seulement, de février à avril 2020 : trop courte pour la règle des deux trimestres, mais si violente et si générale qu'elle a été retenue."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi ça compte pour les marchés.** Une récession signifie des bénéfices en baisse, des défauts d'entreprises en hausse et, presque toujours, des baisses de taux de la banque centrale. Les investisseurs vendent des actions et achètent des obligations d'État.\n\n**Récession et inflation.** Dans une récession classique, la demande chute, donc l'inflation baisse : la banque centrale peut baisser ses taux sans hésiter. La difficulté apparaît quand la récession s'accompagne d'une inflation forte : c'est la stagflation.\n\n**Vocabulaire voisin.**\n\n- **Ralentissement** : la croissance reste positive mais diminue. Ce n'est pas une récession.\n- **Stagnation** : la croissance est proche de zéro.\n- **Dépression** : une récession très profonde et très longue, comme dans les années 1930. Il n'y a pas de seuil officiel.\n\n**La France au troisième trimestre 2026.** Son PIB a reculé de 0,1 %. Un seul trimestre de baisse n'est pas une récession technique : il en faudrait un second.\n\nUne récession n'est connue avec certitude qu'après coup : les chiffres du PIB sont publiés avec retard et révisés. Les marchés travaillent donc avec des **probabilités de récession**, tirées d'indicateurs avancés comme la courbe des taux ou les PMI.",
+      "piege": "Donner la règle des deux trimestres comme la seule définition. En entretien, cite les deux : la définition technique, puis celle du NBER, et dis qu'elles peuvent diverger, comme aux États-Unis en 2022. Autre confusion : un ralentissement de la croissance n'est pas une récession.",
+      "a_dire_en_entretien": "« Techniquement, une récession, c'est deux trimestres consécutifs de baisse du PIB. Aux États-Unis, la référence est le NBER, qui la définit comme une baisse marquée de l'activité, répandue dans toute l'économie et durant plus de quelques mois, en regardant aussi l'emploi et les revenus. Les deux peuvent diverger : en 2022, le PIB américain a reculé deux trimestres de suite sans que le NBER déclare de récession, parce que l'emploi restait très solide. »",
+      "liens": ["m1.cycle.cycle", "m1.cycle.courbe-inversee", "m1.cycle.pib"],
+      "sources": [{ "titre": "NBER, Business Cycle Dating : procédure et dates des cycles américains", "url": "https://www.nber.org/research/business-cycle-dating" }],
+      "chiffres": [{ "libelle": "Récession américaine du Covid datée par le NBER", "valeur": "février à avril 2020", "date": "2021-07-19", "source": "NBER" }],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.pmi",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "tags": ["indicateurs", "croissance"],
+      "titre": "Les PMI : prendre le pouls des entreprises",
+      "une_phrase": "Le PMI est une **enquête mensuelle auprès des directeurs d'achat** ; au-dessus de 50, l'activité progresse, en dessous de 50, elle recule.",
+      "trente_secondes": "Chaque mois, on demande à des milliers d'entreprises si leurs commandes, leur production, leurs embauches et leurs prix sont en hausse, stables ou en baisse par rapport au mois précédent. Les réponses sont résumées en un indice entre 0 et 100.\n\n**50** est la frontière : c'est le niveau où autant d'entreprises voient une amélioration qu'une dégradation.\n\nLe PMI (*Purchasing Managers' Index*) est très suivi parce qu'il arrive **tôt** : une première estimation est publiée avant la fin du mois, alors que le PIB sort plusieurs semaines après la fin du trimestre.",
+      "analogie": "Le PIB est le bilan de santé annuel, complet mais tardif. Le PMI est le thermomètre qu'on prend tous les matins : moins précis, mais il prévient tout de suite. Et on interroge les directeurs d'achat parce qu'ils sont en première ligne : ce sont eux qui commandent, ou cessent de commander, les matières premières.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Niveau du PMI", "Lecture"],
+        "lignes": [
+          ["Au-dessus de 55", "Expansion forte"],
+          ["Entre 50 et 55", "Expansion modérée"],
+          ["50", "Activité stable"],
+          ["Entre 45 et 50", "Contraction modérée"],
+          ["En dessous de 45", "Contraction forte, souvent associée à une récession"]
+        ],
+        "legende": "Repères usuels. Le sens de variation compte autant que le niveau."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. On interroge 100 entreprises sur leur production du mois.",
+        "40 répondent « en hausse », 35 « stable », 25 « en baisse ».",
+        "L'indice vaut : part des « hausse » + la moitié de la part des « stable » = 40 + 35 ÷ 2 = 57,5.",
+        "57,5 est au-dessus de 50 : l'activité progresse. Si le mois suivant l'indice tombe à 52, l'activité progresse toujours, mais moins vite : c'est un ralentissement, pas une contraction."
+      ],
+      "formules": [
+        {
+          "titre": "Un indice de diffusion",
+          "latex": "\\text{Indice} = \\%\\,\\text{hausse} + \\frac{\\%\\,\\text{stable}}{2}",
+          "legende": { "\\%\\,\\text{hausse}": "la part des entreprises qui déclarent une amélioration", "\\%\\,\\text{stable}": "la part de celles qui ne voient pas de changement" },
+          "en_francais": "On compte tous ceux qui voient une hausse et la moitié de ceux qui ne voient rien bouger. Si tout le monde répond « stable », l'indice vaut 50."
+        }
+      ],
+      "deux_minutes": "**Trois PMI par zone.** Le PMI **manufacturier** (l'industrie), le PMI des **services** et le PMI **composite**, qui combine les deux. En zone euro, les services pèsent bien plus lourd que l'industrie dans l'économie : le PMI des services est donc le plus important pour juger de la croissance.\n\n**Qui les publie.** Les PMI sont calculés par S&P Global dans la plupart des pays. Aux États-Unis, l'indice de référence est l'**ISM**, construit sur le même principe par l'Institute for Supply Management.\n\n**Le calendrier.** Les estimations rapides (*flash PMI*) sortent autour du 20 à 25 du mois, pour le mois en cours. C'est l'une des toutes premières informations disponibles sur le mois.\n\n**Les sous-indices.** On regarde aussi les **nouvelles commandes** (ce qui sera produit demain), l'**emploi**, et les **prix payés et facturés**, qui renseignent sur l'inflation à venir. Une banque centrale est attentive à un PMI où l'activité baisse mais où les prix montent : c'est une signature stagflationniste.\n\n**Limites.** C'est une enquête d'opinion : elle mesure combien d'entreprises vont mieux, pas de combien. Une grande entreprise pèse comme une petite. Et le moral peut être affecté par l'actualité sans que l'activité réelle suive.",
+      "piege": "Dire qu'un PMI qui passe de 56 à 52 signale une contraction. Il signale un **ralentissement** : au-dessus de 50, l'activité continue de croître. À l'inverse, un PMI qui remonte de 44 à 47 annonce une contraction moins forte, pas une reprise.",
+      "a_dire_en_entretien": "« Les PMI sont des enquêtes mensuelles auprès des directeurs d'achat. Au-dessus de 50, l'activité est en expansion ; en dessous, en contraction. On distingue le manufacturier, les services et le composite. Leur intérêt est d'être très précoces : les estimations flash sortent avant la fin du mois, bien avant le PIB. Aux États-Unis, l'équivalent de référence est l'ISM. »",
+      "liens": ["m1.cycle.pib", "m1.cycle.recession", "m1.forces.croissance"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.courbe-inversee",
+      "type": "fiche", "module": 1, "chapitre": "m1.cycle", "difficulte": 3, "tags": ["taux", "cycle", "indicateurs"],
+      "titre": "La courbe des taux inversée, signal de récession",
+      "une_phrase": "Quand les taux à court terme passent **au-dessus** des taux à long terme, la courbe des taux est « inversée » : le marché parie sur un ralentissement et des baisses de taux à venir.",
+      "trente_secondes": "Normalement, prêter longtemps rapporte plus que prêter sur une courte durée : on immobilise son argent et on prend plus de risque. Le taux à 10 ans est donc supérieur au taux à 2 ans. La courbe des taux est « croissante ».\n\nParfois, c'est l'inverse : le 2 ans rapporte plus que le 10 ans. Cela arrive quand la banque centrale a beaucoup monté ses taux courts et que les investisseurs pensent qu'elle devra bientôt les **baisser**, parce que l'économie va ralentir.\n\nAux États-Unis, chaque récession depuis les années 1970 a été précédée d'une inversion de la courbe.",
+      "analogie": "Un livret qui rapporterait 4 % si tu bloques ton argent 2 ans, mais seulement 3 % si tu le bloques 10 ans. Personne n'accepterait, sauf à penser que dans deux ans les taux seront tombés très bas et qu'il vaut mieux garantir 3 % pendant dix ans. Si beaucoup d'investisseurs pensent cela, c'est qu'ils voient venir un ralentissement.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Forme de la courbe", "Taux 2 ans", "Taux 10 ans", "Ce que pense le marché"],
+        "lignes": [
+          ["Normale (croissante)", "2,0 %", "3,5 %", "Croissance et inflation normales"],
+          ["Plate", "3,5 %", "3,6 %", "Fin de cycle, la banque centrale a beaucoup monté"],
+          ["Inversée", "4,5 %", "3,8 %", "Ralentissement et baisses de taux attendus"]
+        ],
+        "legende": "Exemple fictif."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Le taux d'État à 2 ans est de 4,50 % et le taux à 10 ans de 3,80 %.",
+        "La pente de la courbe se mesure par la différence : 3,80 % − 4,50 % = −0,70 %.",
+        "On dit que la pente « 2 ans – 10 ans » est de −70 points de base (1 point de base = 0,01 %).",
+        "Le signe négatif veut dire que la courbe est inversée : en moyenne, le marché s'attend à des taux courts plus bas dans les années à venir."
+      ],
+      "formules": [
+        {
+          "titre": "La pente de la courbe",
+          "latex": "\\text{Pente} = \\text{Taux à 10 ans} - \\text{Taux à 2 ans}",
+          "legende": { "\\text{Taux à 10 ans}": "le rendement de l'obligation d'État à 10 ans", "\\text{Taux à 2 ans}": "le rendement de l'obligation d'État à 2 ans, très lié au taux directeur attendu" },
+          "en_francais": "Si le résultat est positif, la courbe est normale. S'il est négatif, elle est inversée."
+        }
+      ],
+      "deux_minutes": "**Pourquoi le signal fonctionne.** Le taux à 10 ans est, en gros, la moyenne des taux courts que le marché attend sur dix ans, plus une prime. Une courbe inversée veut donc dire : « les taux courts vont baisser ». Or une banque centrale baisse ses taux quand l'économie va mal. Il y a aussi un effet direct : les banques empruntent à court terme et prêtent à long terme ; une courbe inversée écrase leur marge et freine le crédit.\n\n**Les mesures.** On regarde surtout l'écart entre le 10 ans et le 2 ans, et l'écart entre le 10 ans et le 3 mois, que privilégie la Fed de New York.\n\n**Ce n'est pas une horloge.** Le délai entre l'inversion et la récession a varié d'environ six mois à deux ans. Et le signal peut se tromper : la courbe américaine est restée inversée de l'été 2022 à l'été 2024, la plus longue inversion jamais observée, sans qu'une récession soit déclarée sur cette période.\n\n**Le retour à la normale n'est pas rassurant en soi.** Historiquement, la récession a souvent commencé au moment où la courbe se **repentifiait**, parce que les taux courts chutaient brutalement à l'approche des baisses de la banque centrale.\n\nLa courbe des taux, ses formes et les taux à terme sont étudiés en détail dans le module 3.",
+      "piege": "Présenter l'inversion comme une preuve qu'une récession arrive. C'est un **signal de probabilité**, avec un délai long et variable, et il a donné une fausse alerte en 2022-2024. Deuxième erreur : croire que c'est la banque centrale qui « inverse » la courbe ; elle ne fixe que le taux très court, le reste vient des anticipations du marché.",
+      "a_dire_en_entretien": "« Une courbe des taux est inversée quand les taux courts sont au-dessus des taux longs, par exemple le 2 ans au-dessus du 10 ans. Cela signifie que le marché anticipe des baisses de taux, donc un ralentissement. Aux États-Unis, toutes les récessions depuis les années 1970 ont été précédées d'une inversion. Mais le délai est variable, de six mois à deux ans, et le signal n'est pas infaillible : l'inversion de 2022 à 2024 n'a pas été suivie d'une récession. »",
+      "liens": ["m1.cycle.recession", "m1.cycle.cycle"],
+      "sources": [{ "titre": "Federal Reserve Bank of New York, « The Yield Curve as a Leading Indicator »", "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq" }],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.cycle.c01", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "recto": "Qu'est-ce que le PIB ?", "verso": "La valeur de tous les biens et services produits sur un territoire pendant une période. La croissance est sa variation hors inflation.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c02", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "Les quatre composantes du PIB côté demande ?", "verso": "Consommation, investissement, dépenses publiques, exportations moins importations.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c03", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "PIB : +0,4 % en Europe et +1,6 % aux États-Unis sur le même trimestre. Qui croît le plus vite ?", "verso": "Personne : c'est le même rythme. L'Europe publie la variation trimestrielle, les États-Unis un rythme annualisé.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c04", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "recto": "Comment calcule-t-on le taux de chômage ?", "verso": "Nombre de chômeurs divisé par la population active (personnes en emploi + chômeurs).", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c05", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "Pourquoi dit-on que le chômage est un indicateur retardé ?", "verso": "Les entreprises licencient et embauchent tard : le chômage monte après le début d'un ralentissement et continue de monter après la reprise.", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c06", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "recto": "Les quatre phases du cycle économique ?", "verso": "Expansion, pic, récession, creux (puis reprise).", "fiche": "m1.cycle.cycle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c07", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "recto": "Définition technique d'une récession ?", "verso": "Deux trimestres consécutifs de baisse du PIB réel.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c08", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "Définition de la récession selon le NBER ?", "verso": "Une baisse marquée de l'activité, répandue dans toute l'économie, qui dure plus de quelques mois. Elle regarde l'emploi, les revenus, la consommation, la production, pas seulement le PIB.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c09", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "recto": "PMI : quel est le seuil à retenir ?", "verso": "50. Au-dessus, l'activité progresse ; en dessous, elle recule.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c10", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "Pourquoi les marchés suivent-ils autant les PMI ?", "verso": "Parce qu'ils sont très précoces : l'estimation flash sort avant la fin du mois, bien avant le PIB.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c11", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "recto": "Qu'est-ce qu'une courbe des taux inversée ?", "verso": "Les taux courts sont au-dessus des taux longs (par exemple le 2 ans au-dessus du 10 ans). Le marché anticipe des baisses de taux, donc un ralentissement.", "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.c12", "type": "carte", "module": 1, "chapitre": "m1.cycle", "difficulte": 3, "recto": "La courbe inversée est-elle un signal infaillible de récession ?", "verso": "Non. Le délai varie de six mois à deux ans, et l'inversion américaine de 2022 à 2024 n'a pas été suivie d'une récession déclarée.", "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.cycle.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.cycle", "difficulte": 1,
+      "question": "Qu'est-ce qu'une récession ?",
+      "reponse_modele": "Techniquement, c'est deux trimestres consécutifs de baisse du PIB réel. Aux États-Unis, la référence est le NBER, qui retient une définition plus large : une baisse marquée de l'activité, répandue dans l'ensemble de l'économie et qui dure plus de quelques mois, en regardant aussi l'emploi, les revenus et la consommation. Les deux peuvent diverger : en 2022, le PIB américain a reculé deux trimestres de suite sans que le NBER parle de récession, car l'emploi restait solide.",
+      "points_cles": ["Deux trimestres consécutifs de baisse du PIB", "La définition du NBER : marquée, généralisée, durable", "Les deux peuvent diverger", "Un exemple : États-Unis 2022 ou 2020"],
+      "piege": "Ne donner que la règle des deux trimestres, ou confondre récession et simple ralentissement.",
+      "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.cycle", "difficulte": 2,
+      "question": "Quels indicateurs regardes-tu pour savoir où en est l'économie ?",
+      "reponse_modele": "Je distingue les indicateurs avancés, qui préviennent tôt, et les indicateurs retardés, qui confirment. En avance : les PMI, publiés avant la fin du mois, avec le seuil de 50, et la pente de la courbe des taux. En coïncident : le PIB, publié chaque trimestre. En retard : le chômage, qui réagit en dernier. J'y ajoute l'inflation totale et sous-jacente, parce que c'est elle qui détermine la réaction de la banque centrale. Aux États-Unis, le rapport mensuel sur l'emploi est le rendez-vous le plus suivi.",
+      "points_cles": ["Indicateurs avancés : PMI, courbe des taux", "PIB : complet mais tardif", "Chômage : retardé", "Inflation, pour anticiper la banque centrale", "Comparer au consensus"],
+      "piege": "Citer une liste sans dire à quoi sert chaque indicateur ni dans quel ordre ils arrivent.",
+      "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.cycle", "difficulte": 3,
+      "question": "Pourquoi une courbe des taux inversée annonce-t-elle une récession ?",
+      "reponse_modele": "Une courbe est inversée quand les taux courts dépassent les taux longs. Les taux longs reflètent la moyenne des taux courts attendus : s'ils sont plus bas, c'est que le marché anticipe des baisses de taux de la banque centrale, donc un ralentissement. Il y a aussi un effet mécanique : les banques empruntent court et prêtent long, donc leur marge se réduit et le crédit ralentit. Historiquement, les récessions américaines ont été précédées d'une inversion, mais avec un délai variable, et le signal de 2022-2024 ne s'est pas vérifié.",
+      "points_cles": ["Définition : taux courts au-dessus des taux longs", "Les taux longs reflètent les taux courts attendus", "Effet sur la marge des banques et le crédit", "Délai long et variable", "Fausse alerte en 2022-2024"],
+      "piege": "Présenter le signal comme une certitude, ou dire que la banque centrale décide de la forme de la courbe.",
+      "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.cycle.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.cycle", "difficulte": 2,
+      "question": "Un bon chiffre de l'emploi américain fait baisser les marchés d'actions. Comment l'expliques-tu ?",
+      "reponse_modele": "Parce que le marché regarde ce que le chiffre implique pour la Fed. Un emploi très solide signifie un marché du travail tendu, des salaires qui accélèrent et donc un risque d'inflation : la Fed gardera des taux élevés plus longtemps, voire les montera. Des taux plus hauts pèsent sur la valorisation des actions et font baisser le prix des obligations. C'est le principe « bonne nouvelle économique, mauvaise nouvelle pour les marchés ». Il s'applique surtout quand l'inflation est la préoccupation dominante.",
+      "points_cles": ["Le marché raisonne sur la réaction de la Fed", "Emploi fort → salaires → inflation", "Taux plus hauts plus longtemps", "Effet sur actions et obligations", "Valable quand l'inflation est le sujet principal"],
+      "piege": "Répondre que le marché est irrationnel. Il est cohérent : il anticipe la politique monétaire.",
+      "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.cycle.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "enonce": "Quelle est la définition technique d'une récession ?", "choix": ["Un trimestre de baisse du PIB", "Deux trimestres consécutifs de baisse du PIB", "Un chômage supérieur à 10 %", "Une inflation négative"], "bonne": 1, "explication": "Deux trimestres consécutifs de recul du PIB réel. Une inflation négative, c'est la déflation.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z02", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Un PMI qui passe de 56 à 52 indique que l'activité se contracte.", "vrai": false, "explication": "À 52, l'indice reste au-dessus de 50 : l'activité progresse encore, mais moins vite. C'est un ralentissement.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z03", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Un pays compte 27 millions de personnes en emploi et 3 millions de chômeurs. Quel est le taux de chômage, en % ?", "reponse": 10, "tolerance": 0.1, "unite": "%", "explication": "Population active = 27 + 3 = 30 millions. Taux = 3 ÷ 30 = 10 %.", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z04", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Le taux à 2 ans est à 4,2 % et le taux à 10 ans à 3,6 %. La courbe est…", "choix": ["normale", "plate", "inversée", "pentue"], "bonne": 2, "explication": "Le taux court dépasse le taux long : la pente est de −0,6 %, la courbe est inversée.", "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z05", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Lequel de ces indicateurs est disponible le plus tôt ?", "choix": ["Le PIB trimestriel", "Le taux de chômage", "Le PMI flash", "Le déficit public"], "bonne": 2, "explication": "Le PMI flash sort avant la fin du mois concerné. Le PIB arrive environ un mois après la fin du trimestre.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z06", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Aux États-Unis, c'est le NBER qui date officiellement les récessions, sans se limiter à la règle des deux trimestres.", "vrai": true, "explication": "Le comité du NBER retient une baisse marquée, généralisée et durable de l'activité, en regardant plusieurs indicateurs.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z07", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Remets les phases du cycle dans l'ordre, en partant de la reprise.", "etapes": ["Expansion : la croissance accélère, le chômage baisse", "Pic : l'économie tourne à plein, l'inflation monte", "La banque centrale monte ses taux", "Récession : l'activité recule, le chômage monte", "Creux : la banque centrale baisse ses taux"], "explication": "L'action de la banque centrale suit le cycle : elle freine en haut, elle relance en bas.", "fiche": "m1.cycle.cycle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.z08", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "enonce": "Le PIB nominal augmente de 5 % et les prix de 3 %. La croissance réelle est d'environ…", "choix": ["8 %", "5 %", "3 %", "2 %"], "bonne": 3, "explication": "Croissance réelle ≈ croissance nominale − inflation = 5 % − 3 % = 2 %.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.cycle.x01", "type": "exercice", "module": 1, "chapitre": "m1.cycle", "difficulte": 2,
+      "titre": "Comparer une croissance européenne et une croissance américaine",
+      "enonce": "Au troisième trimestre 2026, le PIB de la zone euro a progressé de 0,4 % par rapport au trimestre précédent (Eurostat). Exprime ce rythme à la manière américaine, c'est-à-dire en rythme annualisé. Puis, exemple fictif : si les États-Unis publient +2,0 % annualisé, quelle est leur croissance sur le trimestre ?",
+      "etapes": [
+        {
+          "titre": "Le principe de l'annualisation",
+          "texte": "On suppose que le rythme du trimestre se répète quatre fois de suite. Les hausses se cumulent : on multiplie quatre fois par 1,004."
+        },
+        {
+          "titre": "La zone euro en rythme annualisé",
+          "texte": "On élève à la puissance 4, puis on retire 1.",
+          "formule": { "latex": "(1 + 0{,}004)^4 - 1 = 0{,}0161", "legende": { "0{,}004": "la croissance du trimestre (0,4 %)", "4": "le nombre de trimestres dans une année" }, "en_francais": "Un trimestre à +0,4 % correspond à un rythme d'environ +1,6 % par an." },
+          "resultat": "+1,6 % annualisé",
+          "verif": { "fn": "taux.annualiser", "args": [0.4], "attendu": 1.61, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Les États-Unis sur le trimestre",
+          "texte": "Dans l'autre sens, une approximation suffit : on divise par 4. 2,0 % ÷ 4 = 0,5 % sur le trimestre.",
+          "resultat": "environ +0,5 % sur le trimestre",
+          "verif": { "fn": "taux.annualiser", "args": [0.5], "attendu": 2.0, "tolerance": 0.02 }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Les chiffres comparables sont +0,4 % contre +0,5 % sur le trimestre, ou +1,6 % contre +2,0 % en rythme annualisé. L'écart de croissance en faveur des États-Unis est réel, mais bien plus faible que ne le suggère la comparaison brute « 0,4 % contre 2,0 % »."
+        }
+      ],
+      "erreurs_a_eviter": ["Comparer directement 0,4 % et 2,0 %.", "Confondre le rythme annualisé et la croissance sur un an (ici +1,3 % pour la zone euro).", "Oublier que ces premières estimations sont révisées."],
+      "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.cycle.l-pib", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "PIB", "anglais": "GDP", "definition": "Produit intérieur brut : valeur des biens et services produits sur un territoire pendant une période.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-croissance-reelle", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "Croissance réelle", "anglais": "real growth", "definition": "Variation du PIB une fois l'inflation retirée (« en volume »).", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-croissance-potentielle", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "Croissance potentielle", "anglais": "potential growth", "definition": "Rythme de croissance qu'une économie peut soutenir durablement sans créer d'inflation.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-ecart-de-production", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 3, "terme": "Écart de production", "anglais": "output gap", "definition": "Différence entre le PIB réel et le PIB potentiel. Positif : surchauffe. Négatif : économie sous-utilisée.", "fiche": "m1.cycle.pib", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-population-active", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "Population active", "anglais": "labour force", "definition": "Personnes en emploi et personnes au chômage. Dénominateur du taux de chômage.", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-payrolls", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "Créations d'emplois non agricoles", "anglais": "non-farm payrolls (NFP)", "definition": "Nombre d'emplois créés sur un mois aux États-Unis, hors agriculture. Publié en général le premier vendredi du mois.", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-courbe-de-phillips", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 3, "terme": "Courbe de Phillips", "anglais": "Phillips curve", "definition": "Relation selon laquelle un chômage bas s'accompagne d'une inflation plus forte, via les salaires.", "fiche": "m1.cycle.chomage", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-recession", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "Récession", "anglais": "recession", "definition": "Recul de l'activité. Définition technique : deux trimestres consécutifs de baisse du PIB. Définition du NBER : baisse marquée, généralisée et durable.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-nber", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "NBER", "anglais": "National Bureau of Economic Research", "definition": "Organisme américain dont un comité date officiellement le début et la fin des récessions aux États-Unis.", "fiche": "m1.cycle.recession", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-pmi", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "PMI", "anglais": "Purchasing Managers' Index", "definition": "Indice mensuel tiré d'une enquête auprès des directeurs d'achat. Au-dessus de 50 : expansion ; en dessous : contraction.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-ism", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "ISM", "anglais": "Institute for Supply Management", "definition": "Indice américain de référence construit comme un PMI, pour l'industrie et pour les services.", "fiche": "m1.cycle.pmi", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-courbe-des-taux", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "Courbe des taux", "anglais": "yield curve", "definition": "Représentation des taux d'intérêt selon la durée du prêt, de quelques mois à trente ans.", "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-point-de-base", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 1, "terme": "Point de base", "anglais": "basis point (bp)", "definition": "Un centième de pour cent : 0,01 %. Une hausse de taux de 0,25 % est une hausse de 25 points de base.", "fiche": "m1.cycle.courbe-inversee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.cycle.l-atterrissage-brutal", "type": "lexique", "module": 1, "chapitre": "m1.cycle", "difficulte": 2, "terme": "Atterrissage brutal", "anglais": "hard landing", "definition": "Scénario où la lutte contre l'inflation provoque une récession. Le contraire de l'atterrissage en douceur.", "fiche": "m1.cycle.cycle", "maj": "2026-11-16", "version": 1 }
+  ]
+}
