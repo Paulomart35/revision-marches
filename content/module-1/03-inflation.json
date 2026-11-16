@@ -1,0 +1,633 @@
+{
+  "chapitre": {
+    "id": "m1.inflation",
+    "module": 1,
+    "ordre": 3,
+    "titre": "L'inflation",
+    "resume": "Ce qu'est l'inflation, comment on la mesure, d'où elle vient, pourquoi les banques centrales visent 2 %, et les mots à ne pas confondre : déflation, désinflation, stagflation, hyperinflation."
+  },
+  "elements": [
+    {
+      "id": "m1.inflation.definition",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 1,
+      "tags": ["inflation", "macro"],
+      "titre": "L'inflation : la définition à connaître par cœur",
+      "une_phrase": "L'inflation est la **hausse générale et durable des prix** : avec la même somme d'argent, on achète moins de choses.",
+      "trente_secondes": "Deux mots comptent dans la définition.\n\n**Générale** : ce n'est pas le prix d'un seul produit qui monte, c'est l'ensemble des prix, en moyenne. Si seul le prix du café augmente, ce n'est pas de l'inflation.\n\n**Durable** : la hausse se poursuit mois après mois. Une hausse ponctuelle, comme une augmentation de TVA, fait monter les prix une fois mais ne crée pas à elle seule une inflation durable.\n\nL'autre façon de le dire : l'inflation est une **perte de pouvoir d'achat de la monnaie**. Un billet de 100 euros achète un peu moins chaque année.",
+      "analogie": "L'inflation est un glaçon qui fond. Ton billet de 100 euros est le glaçon : il a toujours la même forme, « 100 » est toujours écrit dessus, mais il contient un peu moins chaque année. À 2 % par an, il fond lentement. À 10 %, il fond à vue d'œil.",
+      "visuel": { "type": "outil", "ref": "labo.pouvoir-achat", "legende": "Choisis un taux d'inflation et une durée : regarde ce que deviennent 100 euros." },
+      "exemple_chiffre": [
+        "Un panier de courses coûte 100 euros. L'inflation est de 4 % sur un an.",
+        "Un an plus tard, le même panier coûte 100 × (1 + 4 %) = 104 euros.",
+        "Si tu as gardé 100 euros sur un compte qui ne rapporte rien, tu ne peux plus acheter le panier entier, seulement 100 ÷ 104 = 96,2 % du panier.",
+        "Ton billet affiche toujours 100 euros, mais il a perdu 3,8 % de son pouvoir d'achat."
+      ],
+      "formules": [
+        {
+          "titre": "Le taux d'inflation sur un an",
+          "latex": "\\text{Inflation} = \\frac{P_{\\text{aujourd'hui}}}{P_{\\text{il y a un an}}} - 1",
+          "legende": {
+            "P_{\\text{aujourd'hui}}": "le niveau de l'indice des prix ce mois-ci",
+            "P_{\\text{il y a un an}}": "le niveau de l'indice des prix le même mois de l'année précédente"
+          },
+          "en_francais": "On compare le prix du panier aujourd'hui au prix du même panier il y a un an. Si le résultat est 0,04, les prix ont augmenté de 4 %."
+        }
+      ],
+      "deux_minutes": "Le chiffre d'inflation publié chaque mois est presque toujours un **glissement annuel** (*year-on-year*) : la hausse des prix par rapport au même mois de l'année précédente. On regarde aussi la variation sur un mois, plus réactive mais plus bruitée.\n\nL'inflation crée des gagnants et des perdants.\n\n- **Perdants** : ceux dont les revenus ne suivent pas les prix (salariés sans augmentation, retraités dont la pension n'est pas indexée) et les **épargnants** dont le placement rapporte moins que l'inflation.\n- **Gagnants** : les **emprunteurs à taux fixe**. Leur mensualité ne change pas alors que leurs revenus montent avec les prix : leur dette pèse moins lourd. C'est vrai aussi pour un État endetté.\n\nC'est pour cela qu'on raisonne en **taux réel** : le taux d'intérêt nominal moins l'inflation. Un livret à 3 % avec une inflation à 5 % a un taux réel d'environ −2 % : l'épargnant s'appauvrit.\n\nUne inflation modérée et stable ne pose pas de problème. C'est l'inflation **forte et imprévisible** qui est nuisible : elle brouille les prix, complique les décisions d'investissement et frappe d'abord les plus modestes.",
+      "piege": "Confondre un **niveau** de prix élevé et une **hausse** des prix. « La vie est chère » n'est pas de l'inflation. Et quand l'inflation « baisse » de 5 % à 2 %, les prix ne baissent pas : ils continuent de monter, moins vite.",
+      "a_dire_en_entretien": "« L'inflation est la hausse générale et durable du niveau des prix, autrement dit une perte de pouvoir d'achat de la monnaie. On la mesure par la variation sur un an d'un indice des prix à la consommation. Les banques centrales visent une inflation de 2 % à moyen terme. »",
+      "liens": ["m1.inflation.mesure", "m1.inflation.causes", "m1.inflation.cible-2", "m1.inflation.desinflation"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.mesure",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "indicateurs"],
+      "titre": "Comment on mesure l'inflation : IPCH, CPI, PCE",
+      "une_phrase": "On suit chaque mois le prix d'un **panier** de biens et services représentatif de la consommation des ménages ; l'inflation est la hausse du prix de ce panier sur un an.",
+      "trente_secondes": "Des enquêteurs relèvent chaque mois des centaines de milliers de prix. Chaque produit reçoit un **poids** (une pondération) qui correspond à sa part dans le budget des ménages : le loyer pèse plus que le sel.\n\nTrois indices sont à connaître.\n\n- **IPCH** (indice des prix à la consommation harmonisé, *HICP*) : calculé par Eurostat, c'est celui que regarde la BCE.\n- **CPI** (*Consumer Price Index*) : l'indice américain le plus médiatisé, calculé par le Bureau of Labor Statistics.\n- **PCE** (*Personal Consumption Expenditures*) : l'autre indice américain, celui que la Fed cible officiellement.",
+      "analogie": "Imagine que tu refais exactement le même plein de courses chaque mois : mêmes produits, mêmes quantités. Tu gardes les tickets de caisse. Si le total passe de 100 à 104 euros en un an, « ton » inflation est de 4 %. L'indice des prix fait cela pour le ménage moyen.",
+      "visuel": { "type": "outil", "ref": "labo.panier-inflation", "legende": "Fais varier la hausse des prix de chaque poste et regarde l'inflation totale et l'inflation sous-jacente." },
+      "exemple_chiffre": [
+        "Exemple fictif de hausses de prix, avec les poids approximatifs du panier de la zone euro : services 46 %, biens industriels hors énergie 26 %, alimentation, alcool et tabac 19 %, énergie 9 %.",
+        "Sur un an, les prix augmentent de 3 % dans les services, 1 % pour les biens industriels, 2 % pour l'alimentation et 20 % pour l'énergie.",
+        "Contribution de chaque poste = poids × hausse : services 46 % × 3 % = 1,38 point ; biens 26 % × 1 % = 0,26 point ; alimentation 19 % × 2 % = 0,38 point ; énergie 9 % × 20 % = 1,80 point.",
+        "Inflation totale = 1,38 + 0,26 + 0,38 + 1,80 = 3,82 %.",
+        "L'énergie ne pèse que 9 % du panier, mais elle explique presque la moitié de l'inflation : un petit poste qui bouge beaucoup compte autant qu'un gros poste qui bouge peu."
+      ],
+      "formules": [
+        {
+          "titre": "L'inflation comme moyenne pondérée",
+          "latex": "\\text{Inflation} = \\sum_{i} w_i \\times \\pi_i",
+          "legende": {
+            "w_i": "le poids du poste i dans le panier (la somme des poids vaut 100 %)",
+            "\\pi_i": "la hausse des prix du poste i sur un an",
+            "\\sum_{i}": "on additionne pour tous les postes"
+          },
+          "en_francais": "L'inflation totale est la somme des hausses de prix de chaque poste, chacune multipliée par le poids du poste dans le budget des ménages."
+        }
+      ],
+      "deux_minutes": "**Zone euro.** Eurostat publie une **estimation rapide** (*flash*) de l'IPCH autour de la fin du mois ou du tout début du mois suivant, puis un chiffre définitif environ deux semaines plus tard. Les poids sont révisés chaque année. « Harmonisé » veut dire que la méthode est la même dans tous les pays, pour pouvoir les comparer et les additionner. L'IPCH **n'inclut pas le coût du logement des propriétaires** (il inclut les loyers).\n\n**États-Unis.** Le CPI est publié vers le milieu du mois suivant ; c'est le chiffre qui fait le plus réagir les marchés. Il inclut un loyer fictif pour les propriétaires (*owners' equivalent rent*) : le logement y pèse environ un tiers, beaucoup plus qu'en Europe. Le PCE, publié en fin de mois par le Bureau of Economic Analysis, couvre un champ plus large (y compris les dépenses de santé payées par les employeurs et l'État) et tient compte du fait que les ménages changent de produits quand les prix montent. Il ressort en général quelques dixièmes sous le CPI.\n\n**France.** L'Insee publie l'IPC national, et l'IPCH pour la comparaison européenne.\n\nUn indice reste une **moyenne** : chaque ménage a sa propre inflation. Celui qui roule beaucoup souffre plus d'une hausse du carburant que la moyenne.",
+      "piege": "Dire que la Fed cible le CPI. Sa cible officielle de 2 % porte sur le **PCE**. Le CPI est le chiffre qui fait la une et fait bouger les marchés, mais ce n'est pas l'objectif de la Fed. Côté européen, ne dis pas « CPI » pour la zone euro : c'est l'IPCH (HICP en anglais).",
+      "a_dire_en_entretien": "« L'inflation se mesure par la variation sur un an d'un indice de prix à la consommation, calculé sur un panier pondéré selon les dépenses des ménages. En zone euro, c'est l'IPCH publié par Eurostat, que cible la BCE. Aux États-Unis, il y a le CPI, le plus suivi par les marchés, et le PCE, que la Fed cible officiellement. »",
+      "liens": ["m1.inflation.definition", "m1.inflation.sous-jacente"],
+      "sources": [
+        { "titre": "Eurostat, IPCH : méthodologie et pondérations (ordres de grandeur 2025)", "url": "https://ec.europa.eu/eurostat/fr/web/hicp" },
+        { "titre": "Réserve fédérale, déclaration sur les objectifs de long terme (cible de 2 % sur le PCE)", "url": "https://www.federalreserve.gov/monetarypolicy/review-of-monetary-policy-strategy-tools-and-communications-statement-on-longer-run-goals-monetary-policy-strategy.htm" }
+      ],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.sous-jacente",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "indicateurs", "banque centrale"],
+      "titre": "Inflation totale et inflation sous-jacente",
+      "une_phrase": "L'inflation **sous-jacente** est l'inflation calculée sans l'énergie ni l'alimentation, deux postes très volatils : elle montre la tendance de fond.",
+      "trente_secondes": "L'inflation **totale** (*headline*) porte sur tout le panier. C'est le chiffre qui fait la une et celui que la banque centrale a pour objectif.\n\nMais les prix de l'énergie et de l'alimentation font le yo-yo : ils dépendent de la météo, des guerres, des décisions des pays producteurs. Pour savoir si l'inflation est installée dans l'économie, on les retire. Ce qui reste est l'inflation **sous-jacente** (*core*).\n\nSi l'inflation totale bondit mais que la sous-jacente reste calme, le choc est sans doute temporaire. Si la sous-jacente monte aussi, l'inflation s'est diffusée et sera plus dure à faire redescendre.",
+      "analogie": "Tu veux savoir si tu grossis. Ton poids change de un ou deux kilos dans la journée selon ce que tu as mangé et bu : c'est le bruit. Ce qui t'intéresse, c'est la tendance, en te pesant toujours le matin à jeun. L'inflation sous-jacente est la pesée du matin à jeun.",
+      "visuel": { "type": "outil", "ref": "labo.panier-inflation", "legende": "Pousse l'énergie à +30 % : l'inflation totale s'envole, la sous-jacente ne bouge pas." },
+      "exemple_chiffre": [
+        "On reprend l'exemple fictif du panier : services 46 % (+3 %), biens industriels hors énergie 26 % (+1 %), alimentation 19 % (+2 %), énergie 9 % (+20 %). L'inflation totale est de 3,82 %.",
+        "Pour la sous-jacente, on ne garde que les services et les biens industriels. Leur poids total est 46 + 26 = 72 %.",
+        "On calcule la moyenne pondérée sur ces deux postes : (46 × 3 % + 26 × 1 %) ÷ 72 = 164 ÷ 72 = 2,28 %.",
+        "Lecture : l'inflation totale est à 3,8 %, presque le double de la cible, mais la tendance de fond est à 2,3 %. L'écart vient presque entièrement de l'énergie."
+      ],
+      "formules": [],
+      "deux_minutes": "Il existe plusieurs définitions. En zone euro, la mesure la plus citée est l'IPCH **hors énergie, alimentation, alcool et tabac**. Aux États-Unis, c'est le CPI ou le PCE **hors alimentation et énergie** (*core CPI*, *core PCE*).\n\nPourquoi la banque centrale la regarde-t-elle de si près, alors que son objectif porte sur l'inflation totale ? Parce que sa politique met un à deux ans à agir. Elle doit donc deviner où sera l'inflation dans deux ans, et la sous-jacente est un meilleur indicateur de cette tendance que le dernier prix du pétrole.\n\nDans la sous-jacente, le poste le plus surveillé est celui des **services**. Leur prix dépend surtout des salaires : une inflation des services élevée signale que la hausse des prix se nourrit d'elle-même, par les salaires.\n\nLimite importante : sous-jacente ne veut pas dire « à l'abri de l'énergie ». Une hausse durable de l'énergie finit par se retrouver dans le prix des transports, des restaurants, des produits industriels. C'est ce qu'on appelle les **effets de second tour** : avec quelques mois de retard, la sous-jacente monte à son tour.",
+      "piege": "Dire que la banque centrale « cible l'inflation sous-jacente ». Sa cible de 2 % porte sur l'inflation **totale**. La sous-jacente est un outil de diagnostic, pas l'objectif. Les ménages, eux, paient bien leur essence et leur alimentation.",
+      "a_dire_en_entretien": "« L'inflation totale porte sur l'ensemble du panier. L'inflation sous-jacente exclut l'énergie et l'alimentation, trop volatiles, pour faire ressortir la tendance de fond. La cible de la BCE porte sur l'inflation totale, mais elle surveille de près la sous-jacente, et en particulier les services, parce qu'elle indique si l'inflation s'est diffusée dans l'économie. »",
+      "liens": ["m1.inflation.mesure", "m1.inflation.boucle-prix-salaires", "m1.inflation.causes"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.causes",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "macro"],
+      "titre": "Les quatre causes de l'inflation",
+      "une_phrase": "L'inflation vient de la **demande** (trop d'acheteurs), des **coûts** (produire coûte plus cher), de la **boucle prix-salaires** ou des **anticipations**.",
+      "trente_secondes": "**Par la demande** (*demand-pull*) : les ménages et les entreprises veulent acheter plus que ce que l'économie peut produire. Les vendeurs montent leurs prix.\n\n**Par les coûts** (*cost-push*) : l'énergie, les matières premières ou les importations coûtent plus cher. Les entreprises répercutent la hausse dans leurs prix.\n\n**La boucle prix-salaires** : les prix montent, les salariés obtiennent des hausses de salaire, les entreprises remontent leurs prix pour les payer.\n\n**Les anticipations** : si tout le monde s'attend à de l'inflation, chacun monte ses prix et négocie ses salaires en conséquence, et l'inflation se réalise.",
+      "analogie": "Un concert affiche complet. Si dix mille personnes veulent les cinq mille places, les prix à la revente s'envolent : c'est la demande. Si la salle voit sa facture d'électricité tripler, elle augmente le prix des billets : ce sont les coûts. Si les musiciens exigent d'être mieux payés parce que tout augmente, et que la salle monte encore ses prix : c'est la boucle. Et si tout le monde achète vite parce que « ça va encore augmenter » : ce sont les anticipations.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Cause", "Le mécanisme", "Exemple historique", "Ce que peut faire la banque centrale"],
+        "lignes": [
+          ["Demande", "Trop d'acheteurs pour pas assez de produits", "Réouverture après le Covid, 2021", "Monter les taux freine la demande : efficace"],
+          ["Coûts (offre)", "Produire coûte plus cher", "Chocs pétroliers de 1973 et 1979, gaz en 2022", "Peu d'effet direct : les taux ne produisent pas de pétrole"],
+          ["Boucle prix-salaires", "Prix et salaires se poussent l'un l'autre", "Années 1970", "Monter les taux pour casser la boucle"],
+          ["Anticipations", "L'inflation attendue se réalise", "Années 1970", "Être crédible : sa parole compte autant que ses taux"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif d'inflation par les coûts. Un boulanger vend sa baguette 1,00 euro. Elle lui coûte 0,80 euro à produire, dont 0,10 euro d'énergie pour le four. Sa marge est de 0,20 euro.",
+        "Le prix de l'énergie double : le coût de l'énergie passe de 0,10 à 0,20 euro. Le coût de la baguette passe à 0,90 euro.",
+        "Pour garder sa marge de 0,20 euro, il doit vendre la baguette 1,10 euro : une hausse de 10 %.",
+        "Personne n'achète plus de pain qu'avant. La hausse vient uniquement du coût de production."
+      ],
+      "formules": [],
+      "deux_minutes": "Dans la réalité, les causes se mélangent et s'enchaînent. L'épisode de 2021-2023 en est le meilleur exemple.\n\n- **2021** : après le Covid, la demande repart très vite, portée par l'épargne accumulée et les plans de relance, alors que les usines et les ports sont encore désorganisés. Demande forte, offre contrainte.\n- **2022** : l'invasion de l'Ukraine fait flamber le gaz, le pétrole et les céréales. Choc de coûts. L'inflation atteint 10,6 % en zone euro en octobre 2022 et 9,1 % aux États-Unis en juin 2022.\n- **2023** : l'énergie reflue, mais les salaires accélèrent pour rattraper les prix et l'inflation des services reste élevée. La question devient celle de la boucle prix-salaires et des anticipations.\n\nLe diagnostic compte, parce que le remède n'est pas le même. Face à une inflation par la demande, monter les taux est efficace. Face à un choc de coûts, la banque centrale ne peut rien sur la cause ; elle agit pour éviter que le choc ne se transforme en boucle prix-salaires. C'est le **dilemme du choc d'offre**.\n\nUne cinquième explication, plus ancienne, est **monétaire** : trop de monnaie créée par rapport aux biens disponibles. Elle explique bien les hyperinflations, quand un État finance ses dépenses en faisant tourner la planche à billets.",
+      "piege": "Dire que la banque centrale monte ses taux pour faire baisser le prix de l'énergie. Elle ne le peut pas. Face à un choc de coûts, elle monte ses taux pour empêcher les **effets de second tour** : la contagion aux salaires, aux autres prix et aux anticipations.",
+      "a_dire_en_entretien": "« Il y a quatre grandes sources d'inflation. La demande, quand l'économie surchauffe. Les coûts, quand l'énergie ou les matières premières renchérissent. La boucle prix-salaires, quand les deux s'entraînent mutuellement. Et les anticipations, qui deviennent autoréalisatrices. Le diagnostic est important : une banque centrale agit bien sur la demande, mais face à un choc d'offre elle ne peut qu'empêcher qu'il se propage. »",
+      "liens": ["m1.inflation.boucle-prix-salaires", "m1.inflation.anticipations", "m1.inflation.stagflation", "m1.inflation.hyperinflation"],
+      "sources": [
+        { "titre": "Eurostat, inflation annuelle de la zone euro, octobre 2022", "url": "https://ec.europa.eu/eurostat/fr/web/hicp", "date": "2022-11-17" },
+        { "titre": "Bureau of Labor Statistics, CPI de juin 2022", "url": "https://www.bls.gov/cpi/", "date": "2022-07-13" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation zone euro (IPCH), pic", "valeur": "10,6 %", "date": "2022-10-31", "source": "Eurostat" },
+        { "libelle": "Inflation États-Unis (CPI), pic", "valeur": "9,1 %", "date": "2022-06-30", "source": "Bureau of Labor Statistics" }
+      ],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.boucle-prix-salaires",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "salaires", "banque centrale"],
+      "titre": "La boucle prix-salaires et les effets de second tour",
+      "une_phrase": "Quand les salaires montent pour rattraper les prix, et que les entreprises remontent leurs prix pour payer ces salaires, l'inflation s'auto-entretient : c'est la **boucle prix-salaires**.",
+      "trente_secondes": "Tout part d'un premier choc : par exemple, l'énergie augmente. C'est l'**effet de premier tour** : le plein et la facture de gaz coûtent plus cher.\n\nLes salariés perdent du pouvoir d'achat et demandent des augmentations. Les entreprises, dont les coûts salariaux montent, augmentent leurs prix. Les salariés redemandent des augmentations. Et ainsi de suite.\n\nCette propagation du choc initial aux salaires et aux autres prix s'appelle les **effets de second tour**. C'est eux que la banque centrale veut empêcher à tout prix, parce qu'une fois lancée, la boucle ne s'arrête pas toute seule.",
+      "analogie": "Dans un stade, un spectateur se lève pour mieux voir. Celui de derrière se lève aussi, puis toute la tribune. À la fin, tout le monde est debout, personne ne voit mieux qu'avant, et tout le monde est fatigué. Dans la boucle prix-salaires, chacun essaie de se protéger de la hausse des autres, et au total personne n'y gagne.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Choc initial", "texte": "L'énergie flambe : les prix montent (premier tour)." },
+          { "titre": "Les salariés perdent du pouvoir d'achat", "texte": "Ils demandent des hausses de salaire." },
+          { "titre": "Les coûts des entreprises montent", "texte": "Les salaires sont leur premier poste de coût." },
+          { "titre": "Les entreprises augmentent leurs prix", "texte": "Pour préserver leurs marges (second tour)." },
+          { "titre": "Retour à l'étape 2", "texte": "Les prix ont encore monté : la boucle recommence." }
+        ],
+        "legende": "La boucle se nourrit d'elle-même tant que personne ne la casse."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Dans une entreprise de services, les salaires représentent 60 % des coûts.",
+        "L'inflation est de 5 %. Les salariés obtiennent 5 % d'augmentation pour ne pas perdre de pouvoir d'achat.",
+        "Les coûts de l'entreprise augmentent de 60 % × 5 % = 3 %.",
+        "Pour garder la même marge, elle augmente ses prix de 3 %. Ces 3 % s'ajoutent à l'inflation de l'année suivante, qui justifiera de nouvelles hausses de salaire.",
+        "Si, en plus, ses autres coûts montent aussi de 5 %, tous ses coûts montent de 5 %, ses prix aussi, et l'inflation ne redescend jamais."
+      ],
+      "formules": [],
+      "deux_minutes": "La boucle s'enclenche plus facilement dans certaines conditions.\n\n- **Un marché du travail tendu** : quand le chômage est bas et que les entreprises peinent à recruter, les salariés sont en position de force pour négocier.\n- **L'indexation** : quand les salaires sont automatiquement indexés sur les prix (comme en Belgique, ou en France pour le salaire minimum), la transmission est mécanique.\n- **Des entreprises capables d'augmenter leurs prix** : c'est le cas quand la demande est forte.\n- **Des anticipations qui décrochent** : si salariés et entreprises pensent que l'inflation va durer, ils l'intègrent d'avance.\n\nLe scénario de référence est celui des **années 1970** : après les chocs pétroliers, l'indexation des salaires a installé une inflation à deux chiffres pendant une décennie.\n\nPour repérer une boucle, la banque centrale surveille trois choses : la progression des **salaires négociés**, l'inflation des **services** (très dépendants des salaires) et les **marges** des entreprises. Les entreprises peuvent en effet absorber une partie des hausses de salaires en réduisant leurs marges ; la boucle s'enclenche si elles répercutent tout.\n\nLe point de repère souvent cité : une hausse des salaires d'environ 3 % par an est compatible avec 2 % d'inflation, si la productivité progresse d'environ 1 % par an.",
+      "piege": "Présenter les hausses de salaires comme la cause de départ de l'inflation. Dans la plupart des épisodes, les salaires **suivent** les prix avec retard : ils sont un mécanisme de propagation, pas le déclencheur. Et une hausse de salaire compensée par des gains de productivité n'est pas inflationniste.",
+      "a_dire_en_entretien": "« Les effets de second tour, c'est la propagation d'un choc de prix initial, par exemple sur l'énergie, aux salaires puis à l'ensemble des prix. Si les salaires rattrapent les prix et que les entreprises répercutent ces hausses, l'inflation s'auto-entretient : c'est la boucle prix-salaires. C'est précisément ce qu'une banque centrale veut éviter quand elle monte ses taux face à un choc d'offre. »",
+      "liens": ["m1.inflation.causes", "m1.inflation.anticipations", "m1.inflation.sous-jacente"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.anticipations",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "banque centrale", "credibilite"],
+      "titre": "Les anticipations d'inflation et l'ancrage",
+      "une_phrase": "L'inflation que les gens **attendent** finit par se réaliser, parce qu'ils fixent leurs prix et leurs salaires en fonction d'elle ; la banque centrale cherche donc à « ancrer » les anticipations à 2 %.",
+      "trente_secondes": "Quand une entreprise fixe ses tarifs pour l'année prochaine, elle se demande de combien ses coûts vont augmenter. Quand un salarié négocie, il se demande de combien les prix vont monter. Tous deux raisonnent sur l'inflation **future**.\n\nSi tout le monde s'attend à 2 %, les hausses de prix et de salaires tournent autour de 2 %, et l'inflation reste à 2 %. Si tout le monde s'attend à 6 %, chacun se protège en augmentant de 6 %, et l'inflation est de 6 %.\n\nOn dit que les anticipations sont **ancrées** quand elles restent proches de 2 % même si l'inflation du moment s'en écarte. Cet ancrage repose sur la **crédibilité** de la banque centrale.",
+      "analogie": "Une rumeur annonce une pénurie d'essence. Tout le monde se précipite à la pompe pour faire le plein « au cas où ». Les stations sont vidées : la pénurie a bien lieu, uniquement parce que tout le monde y a cru. Les anticipations d'inflation fonctionnent comme cette rumeur : y croire suffit à la provoquer.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Anticipations ancrées", "Anticipations désancrées"],
+        "lignes": [
+          ["Ce que pensent les gens", "« La hausse est temporaire, on reviendra à 2 % »", "« Les prix vont continuer à monter fort »"],
+          ["Salaires négociés", "Proches de 2 à 3 %", "Calés sur l'inflation élevée"],
+          ["Prix fixés par les entreprises", "Hausses modérées", "Hausses préventives"],
+          ["Coût pour la banque centrale", "Un choc passe sans dégâts durables", "Il faut des taux très élevés et une récession"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un propriétaire signe un bail de 3 ans avec un loyer fixe. Aujourd'hui, le loyer de marché est de 1 000 euros.",
+        "S'il s'attend à 2 % d'inflation par an, il veut qu'en moyenne son loyer ne perde pas de valeur : il propose environ 1 020 euros.",
+        "S'il s'attend à 6 % par an, il propose environ 1 060 euros dès maintenant pour se protéger.",
+        "Le loyer a augmenté de 6 % tout de suite, alors que rien d'autre n'a changé que ce qu'il **pense** de l'avenir."
+      ],
+      "formules": [],
+      "deux_minutes": "On mesure les anticipations de deux façons.\n\n- **Par des enquêtes** : auprès des ménages (en zone euro, l'enquête de la BCE sur les anticipations des consommateurs ; aux États-Unis, celle de l'Université du Michigan) et auprès des prévisionnistes professionnels.\n- **Par les prix de marché** : l'écart entre le taux d'une obligation classique et celui d'une obligation indexée sur l'inflation donne l'inflation que le marché attend. On l'appelle le **point mort d'inflation** (*breakeven*). En zone euro, l'indicateur le plus suivi est le « 5 ans dans 5 ans » (*5y5y*) : l'inflation moyenne attendue sur cinq ans, à partir de dans cinq ans.\n\nL'ancrage explique beaucoup de choses dans le comportement des banques centrales.\n\n- Pourquoi elles **parlent** autant : annoncer clairement ce qu'elles feront (*forward guidance*) guide les anticipations.\n- Pourquoi elles sont **indépendantes** du pouvoir politique : pour qu'on croie qu'elles feront le nécessaire même si c'est impopulaire.\n- Pourquoi elles réagissent parfois à un choc d'énergie qu'elles ne peuvent pas corriger : pour montrer qu'elles ne laisseront pas l'inflation s'installer.\n\nLa leçon vient des États-Unis : à la fin des années 1970, les anticipations étaient désancrées. Pour rétablir sa crédibilité, la Fed de Paul Volcker a porté ses taux à près de 20 % en 1981, au prix d'une sévère récession.",
+      "piege": "Confondre l'inflation **anticipée** et l'inflation **constatée**. La banque centrale peut ne pas réagir à une inflation élevée si les anticipations restent ancrées (le choc est jugé temporaire), et réagir fortement à une inflation encore modérée si les anticipations décrochent.",
+      "a_dire_en_entretien": "« Les anticipations d'inflation sont autoréalisatrices : les entreprises et les salariés fixent leurs prix et leurs salaires selon l'inflation qu'ils attendent. La banque centrale cherche donc à les ancrer à 2 %. Tant qu'elles le sont, un choc reste temporaire. Si elles décrochent, il faut des hausses de taux bien plus fortes pour les ramener. C'est pour cela que la crédibilité et la communication de la banque centrale sont aussi importantes que ses taux. »",
+      "liens": ["m1.inflation.causes", "m1.inflation.boucle-prix-salaires", "m1.inflation.cible-2"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.cible-2",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "banque centrale"],
+      "titre": "Pourquoi viser 2 % et pas 0 % ?",
+      "une_phrase": "Les banques centrales visent **2 %** d'inflation : assez bas pour que les prix restent stables aux yeux de tous, assez haut pour garder une marge de sécurité contre la déflation.",
+      "trente_secondes": "On pourrait croire que l'idéal est 0 % : des prix qui ne bougent pas. Trois raisons font préférer 2 %.\n\n**Une marge contre la déflation.** La baisse générale des prix est bien plus dangereuse que 2 % d'inflation. Viser 2 % laisse de la distance avec zéro.\n\n**Une marge pour baisser les taux.** Avec 2 % d'inflation, les taux d'intérêt sont normalement plus hauts. La banque centrale a donc plus de place pour les baisser en cas de crise.\n\n**De la souplesse.** Un peu d'inflation facilite les ajustements de salaires et de prix entre secteurs et entre pays.",
+      "analogie": "Sur l'autoroute, tu ne roules pas collé à la glissière de sécurité. Tu gardes un mètre de marge, parce qu'un petit écart serait un accident. La déflation est la glissière, les 2 % sont la marge.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Niveau d'inflation", "Ce que ça donne", "Verdict"],
+        "lignes": [
+          ["Négative (déflation)", "Achats reportés, dettes plus lourdes, chômage", "Dangereux"],
+          ["0 %", "Aucune marge : le moindre choc fait basculer en déflation", "Trop risqué"],
+          ["2 %", "Prix prévisibles, marge de sécurité", "La cible"],
+          ["5 % et plus", "Pouvoir d'achat rongé, épargne pénalisée, prix illisibles", "Trop élevé"]
+        ]
+      },
+      "exemple_chiffre": [
+        "À 2 % par an, les prix augmentent lentement. Un panier à 100 euros coûte 100 × 1,02 = 102 euros au bout d'un an.",
+        "Au bout de 10 ans : 100 × 1,02 × 1,02 × … (dix fois) = 121,90 euros. Les prix ont augmenté de 22 % en dix ans.",
+        "Il faut environ 35 ans pour qu'ils doublent.",
+        "À 10 % par an, le même panier coûte 259,37 euros au bout de 10 ans, et les prix doublent en un peu plus de 7 ans. La différence entre « stable » et « instable » est là."
+      ],
+      "formules": [
+        {
+          "titre": "Niveau des prix après plusieurs années",
+          "latex": "P_n = P_0 \\times (1 + \\pi)^n",
+          "legende": {
+            "P_n": "le prix au bout de n années",
+            "P_0": "le prix de départ",
+            "\\pi": "le taux d'inflation annuel",
+            "n": "le nombre d'années"
+          },
+          "en_francais": "Chaque année, le prix est multiplié par 1 plus le taux d'inflation. Les hausses se cumulent : c'est le même mécanisme que les intérêts composés."
+        }
+      ],
+      "deux_minutes": "**La BCE.** Depuis sa revue stratégique de juillet 2021, sa cible est une inflation de **2 % à moyen terme**, de façon **symétrique** : elle considère qu'une inflation trop basse est aussi gênante qu'une inflation trop haute. Auparavant, l'objectif était « inférieur à, mais proche de 2 % ». « À moyen terme » signifie qu'elle ne cherche pas à corriger chaque écart mensuel, mais à ramener l'inflation à 2 % à un horizon de un à deux ans.\n\n**La Fed.** Elle a officialisé une cible de 2 % en janvier 2012, mesurée sur l'indice PCE.\n\nLe détail des trois raisons :\n\n- **La borne des taux** : les taux d'intérêt peuvent difficilement descendre très en dessous de zéro. Si l'inflation et les taux sont déjà proches de zéro en temps normal, la banque centrale n'a plus de munitions quand une récession arrive.\n- **Les salaires baissent rarement** : il est très difficile de réduire un salaire. Avec 2 % d'inflation, un salaire gelé baisse de 2 % en pouvoir d'achat, ce qui permet à un secteur en difficulté de s'ajuster sans licencier. En zone euro, cela aide aussi les pays qui doivent regagner en compétitivité.\n- **Le biais de mesure** : les indices de prix surestiment un peu la hausse réelle du coût de la vie, parce qu'ils captent mal l'amélioration de la qualité des produits. Une inflation mesurée de 0 % serait en réalité une légère déflation.\n\nLe chiffre de 2 % lui-même est une convention, adoptée d'abord par la Nouvelle-Zélande vers 1990 puis par la plupart des pays développés. Certains économistes plaident pour 3 %, mais changer de cible risquerait d'entamer la crédibilité.",
+      "piege": "Dire que la BCE veut une inflation « inférieure à 2 % ». C'était l'ancienne formulation. Depuis 2021, la cible est 2 %, symétrique. Autre erreur : croire que 2 % est un plafond à respecter chaque mois ; c'est un objectif à moyen terme.",
+      "a_dire_en_entretien": "« Les banques centrales visent 2 % et non zéro pour trois raisons. D'abord, garder une marge de sécurité contre la déflation, qui est plus dangereuse. Ensuite, conserver de la place pour baisser les taux en cas de récession. Enfin, faciliter les ajustements de salaires et de prix. La BCE vise 2 % à moyen terme, de façon symétrique depuis 2021. »",
+      "liens": ["m1.inflation.deflation", "m1.inflation.anticipations", "m1.inflation.definition"],
+      "sources": [{ "titre": "BCE, déclaration relative à la stratégie de politique monétaire (juillet 2021)", "url": "https://www.ecb.europa.eu/home/search/review/html/ecb.strategyreview_monpol_strategy_statement.fr.html", "date": "2021-07-08" }],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.deflation",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "macro", "crise"],
+      "titre": "La déflation : quand les prix baissent",
+      "une_phrase": "La déflation est la **baisse générale et durable des prix** ; elle paraît agréable mais elle enferme l'économie dans une spirale de reports d'achats, de faillites et de chômage.",
+      "trente_secondes": "Si tu es sûr qu'une voiture coûtera moins cher dans six mois, tu attends pour l'acheter. Si tout le monde attend, les entreprises vendent moins. Elles baissent encore leurs prix, réduisent les salaires, licencient. Les ménages, inquiets, dépensent encore moins. Les prix baissent encore.\n\nIl y a un deuxième piège : **les dettes ne baissent pas**. Un emprunteur doit toujours la même somme, alors que ses revenus diminuent. Sa dette devient plus lourde.\n\nC'est pour cela que les banques centrales craignent la déflation plus encore qu'un peu trop d'inflation.",
+      "analogie": "C'est un magasin en soldes permanents où tout le monde sait que les prix baisseront encore demain. Plus personne n'achète aujourd'hui. Le magasin finit par fermer, et ses vendeurs, qui étaient aussi les clients des autres magasins, n'ont plus de salaire.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Les prix baissent", "texte": "Et on s'attend à ce qu'ils baissent encore." },
+          { "titre": "Les achats sont reportés", "texte": "Pourquoi acheter aujourd'hui ce qui sera moins cher demain ?" },
+          { "titre": "Les entreprises vendent moins", "texte": "Elles baissent salaires et effectifs." },
+          { "titre": "Les dettes pèsent plus lourd", "texte": "Les revenus baissent, pas les mensualités : faillites." },
+          { "titre": "La demande chute encore", "texte": "Les prix rebaissent : retour à l'étape 1." }
+        ],
+        "legende": "La spirale déflationniste."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un ménage gagne 3 000 euros par mois et rembourse un crédit immobilier de 1 000 euros par mois, à taux fixe. La mensualité représente 1 000 ÷ 3 000 = 33,3 % de son revenu.",
+        "L'économie entre en déflation : les prix et les salaires baissent de 10 % en quelques années. Son salaire tombe à 2 700 euros.",
+        "La mensualité, elle, est toujours de 1 000 euros. Elle représente maintenant 1 000 ÷ 2 700 = 37,0 % du revenu.",
+        "Sa dette n'a pas changé sur le papier, mais elle pèse plus lourd. Il réduit ses autres dépenses, ce qui aggrave la baisse de la demande."
+      ],
+      "formules": [],
+      "deux_minutes": "Le mécanisme par lequel la baisse des prix alourdit les dettes, pousse aux ventes forcées et aux faillites a été décrit par l'économiste Irving Fisher en 1933 : c'est la **déflation par la dette** (*debt deflation*).\n\nDeux épisodes sont à connaître.\n\n- **La Grande Dépression** des années 1930 : aux États-Unis, les prix ont baissé d'environ un quart entre 1929 et 1933, avec des faillites bancaires en chaîne et un chômage de masse.\n- **Le Japon** : après l'éclatement de sa bulle immobilière et boursière vers 1990, le pays a connu de la fin des années 1990 jusqu'au début des années 2010 des prix stagnants ou en légère baisse, avec une croissance très faible. On parle de « décennies perdues ».\n\nLa banque centrale est mal armée contre la déflation. Son outil, c'est de baisser les taux, mais elle ne peut guère les descendre très en dessous de zéro. Même avec un taux à 0 %, si les prix baissent de 2 %, le **taux réel** est de +2 % : le crédit reste cher. C'est pour sortir de ce piège que les banques centrales ont inventé les **taux négatifs** et les **achats massifs d'obligations** (assouplissement quantitatif) : en zone euro, de 2014 à 2022, l'inflation était trop basse et la BCE a utilisé les deux.\n\nUne nuance : une baisse des prix due à des **gains de productivité** dans un secteur (les ordinateurs, les téléviseurs) n'est pas de la déflation. C'est une bonne nouvelle tant que l'ensemble des prix et des revenus ne baisse pas.",
+      "piege": "Confondre **déflation** et **désinflation**. Déflation : les prix baissent (inflation négative). Désinflation : les prix montent toujours, mais moins vite (l'inflation passe de 8 % à 3 %). Autre erreur : croire que la déflation est une bonne nouvelle pour le pouvoir d'achat ; les salaires et l'emploi baissent aussi.",
+      "a_dire_en_entretien": "« La déflation est une baisse générale et durable des prix. Elle est dangereuse parce qu'elle s'auto-entretient : les ménages reportent leurs achats, les entreprises vendent moins et licencient, et le poids réel des dettes augmente. La banque centrale a peu de moyens d'en sortir, puisqu'elle ne peut pas baisser ses taux très en dessous de zéro. C'est une des raisons pour lesquelles on vise 2 % d'inflation et non zéro. »",
+      "liens": ["m1.inflation.desinflation", "m1.inflation.cible-2", "m1.inflation.definition"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.desinflation",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 1,
+      "tags": ["inflation", "vocabulaire"],
+      "titre": "La désinflation : les prix montent moins vite",
+      "une_phrase": "La désinflation est le **ralentissement de l'inflation** : les prix continuent de monter, mais moins vite qu'avant.",
+      "trente_secondes": "Quand l'inflation passe de 8 % à 3 %, on parle de désinflation. Les prix n'ont pas baissé : ils augmentent de 3 % au lieu de 8 %.\n\nC'est ce que cherche une banque centrale quand elle monte ses taux : ramener l'inflation vers 2 %, pas faire baisser les prix.\n\nC'est aussi la source d'un malentendu fréquent. Les ménages entendent « l'inflation baisse » et constatent que les prix au supermarché sont toujours plus hauts qu'il y a deux ans. Les deux sont vrais.",
+      "analogie": "Une voiture roule à 130 km/h et ralentit à 50 km/h. Elle avance toujours, elle ne recule pas. La désinflation, c'est lever le pied. La déflation, ce serait passer la marche arrière.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Le mot", "L'inflation est…", "Les prix…", "Avec la voiture"],
+        "lignes": [
+          ["Inflation", "positive", "montent", "Elle avance"],
+          ["Désinflation", "positive mais en baisse (8 % → 3 %)", "montent moins vite", "Elle ralentit"],
+          ["Déflation", "négative (−1 %)", "baissent", "Elle recule"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un panier coûte 100 euros au départ.",
+        "Année 1 : l'inflation est de 8 %. Le panier coûte 100 × 1,08 = 108 euros.",
+        "Année 2 : l'inflation ralentit à 3 %. C'est de la désinflation. Le panier coûte 108 × 1,03 = 111,24 euros.",
+        "L'inflation a été divisée par plus de deux, et pourtant le panier coûte 11,24 % de plus qu'au départ. Pour qu'il revienne à 100 euros, il faudrait de la déflation."
+      ],
+      "formules": [],
+      "deux_minutes": "**L'exemple récent.** En zone euro, l'inflation est passée de 10,6 % en octobre 2022 à 2,9 % en décembre 2023 : une désinflation rapide, due au reflux des prix de l'énergie et à l'effet des hausses de taux.\n\n**Les effets de base.** Le chiffre d'inflation compare les prix à ceux d'il y a un an. Si les prix de l'énergie avaient bondi un an plus tôt, la comparaison se fait avec un point de départ élevé : l'inflation baisse mécaniquement, même si les prix ne bougent plus. C'est un **effet de base**.\n\n**Le « dernier kilomètre ».** Passer de 10 % à 3 % est souvent plus rapide que passer de 3 % à 2 %. La première partie vient de l'énergie et des biens, dont les prix se retournent vite. La seconde dépend des services et des salaires, beaucoup plus lents à ralentir.\n\n**Le coût.** Faire baisser l'inflation en freinant la demande a en général un prix en croissance et en emploi. Quand la désinflation se fait sans récession, on parle d'**atterrissage en douceur** (*soft landing*). L'exemple inverse est la désinflation Volcker du début des années 1980 aux États-Unis, obtenue au prix d'une forte récession.",
+      "piege": "Dire « les prix baissent » quand l'inflation baisse. Tant que l'inflation est positive, les prix montent. Le niveau des prix ne revient pas en arrière : les hausses passées restent acquises.",
+      "a_dire_en_entretien": "« La désinflation est un ralentissement de la hausse des prix : l'inflation diminue mais reste positive. Il ne faut pas la confondre avec la déflation, où les prix baissent réellement. Par exemple, en zone euro, l'inflation est passée de 10,6 % fin 2022 à moins de 3 % fin 2023 : c'est de la désinflation, les prix n'ont pas baissé pour autant. »",
+      "liens": ["m1.inflation.deflation", "m1.inflation.definition"],
+      "sources": [{ "titre": "Eurostat, inflation annuelle de la zone euro (IPCH)", "url": "https://ec.europa.eu/eurostat/fr/web/hicp" }],
+      "chiffres": [
+        { "libelle": "Inflation zone euro (IPCH)", "valeur": "10,6 %", "date": "2022-10-31", "source": "Eurostat" },
+        { "libelle": "Inflation zone euro (IPCH)", "valeur": "2,9 %", "date": "2023-12-31", "source": "Eurostat" }
+      ],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.stagflation",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "croissance", "banque centrale"],
+      "titre": "La stagflation : le pire des deux mondes",
+      "une_phrase": "La stagflation, c'est une **inflation forte** en même temps qu'une **croissance faible** et un chômage élevé : la banque centrale ne peut pas soigner l'un sans aggraver l'autre.",
+      "trente_secondes": "Le mot mélange « stagnation » et « inflation ». D'habitude, les deux ne vont pas ensemble : l'inflation monte quand l'économie tourne trop vite, et baisse quand elle ralentit.\n\nLa stagflation apparaît le plus souvent après un **choc d'offre** : l'énergie devient très chère. Les prix montent (inflation) et, en même temps, les ménages et les entreprises s'appauvrissent (stagnation).\n\nLa banque centrale est coincée. Si elle monte ses taux contre l'inflation, elle freine une économie déjà faible. Si elle les baisse pour soutenir la croissance, elle laisse filer l'inflation.",
+      "analogie": "Un médecin a devant lui un patient qui a à la fois de la fièvre et une grande faiblesse. Le médicament contre la fièvre fatigue encore plus ; le fortifiant fait monter la fièvre. Il doit choisir quel mal traiter d'abord, en sachant qu'il aggravera l'autre.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Situation", "Inflation", "Croissance", "Ce que fait la banque centrale"],
+        "lignes": [
+          ["Surchauffe", "Forte", "Forte", "Elle monte les taux : pas de dilemme"],
+          ["Récession classique", "Faible", "Faible", "Elle baisse les taux : pas de dilemme"],
+          ["Stagflation", "Forte", "Faible", "Dilemme : chaque décision aggrave l'un des deux"]
+        ]
+      },
+      "exemple_chiffre": [
+        "États-Unis, années 1970. Deux chocs pétroliers, en 1973 puis en 1979, font flamber le prix du pétrole.",
+        "L'inflation américaine atteint environ 13,5 % en moyenne en 1980, alors que l'économie est en récession.",
+        "Pour casser l'inflation, la Fed de Paul Volcker porte son taux directeur à près de 20 % en 1981.",
+        "L'inflation retombe sous 4 % en 1983, mais au prix d'une forte récession : le taux de chômage atteint 10,8 % fin 1982."
+      ],
+      "formules": [],
+      "deux_minutes": "Face à une stagflation, la plupart des banques centrales donnent la **priorité à l'inflation**, pour trois raisons.\n\n- Leur **mandat** : pour la BCE, la stabilité des prix est l'objectif premier.\n- **Les anticipations** : si elles laissent l'inflation s'installer, il faudra plus tard des taux encore plus hauts, et une récession encore plus forte, pour la faire redescendre. C'est la leçon des années 1970.\n- Leurs outils **n'agissent pas sur l'offre** : baisser les taux ne produit pas de pétrole. Soutenir la demande alors que l'offre est contrainte ne ferait que nourrir l'inflation.\n\nLa Fed, avec son **double mandat** (prix et emploi), est en théorie plus partagée : c'est dans une stagflation que la différence entre les deux banques centrales se voit le mieux.\n\nLes autres acteurs ont aussi un rôle : face à un choc d'énergie, c'est plutôt la **politique budgétaire** (aides ciblées aux ménages et aux entreprises) qui peut amortir le choc, la banque centrale se chargeant d'empêcher la propagation.\n\nPour un investisseur, la stagflation est le scénario le plus difficile : les obligations souffrent de l'inflation et de la hausse des taux, et les actions souffrent de la baisse des bénéfices.\n\nLe mot est parfois employé abusivement. Une inflation à 3 % avec une croissance à 1 % n'est pas de la stagflation au sens des années 1970 ; on parle alors plutôt de « risque stagflationniste ».",
+      "piege": "Confondre stagflation et récession. Dans une récession classique, l'inflation baisse, et la banque centrale peut baisser ses taux sans hésiter. La stagflation, c'est précisément le cas où elle ne le peut pas, parce que l'inflation est forte.",
+      "a_dire_en_entretien": "« La stagflation combine une inflation forte et une croissance faible. Elle apparaît en général après un choc d'offre, typiquement sur l'énergie. C'est le cas le plus difficile pour une banque centrale : monter les taux contre l'inflation aggrave le ralentissement, les baisser nourrit l'inflation. En pratique, elle donne la priorité à l'inflation pour garder les anticipations ancrées, comme la Fed de Volcker au début des années 1980. »",
+      "liens": ["m1.inflation.causes", "m1.inflation.anticipations", "m1.forces.energie"],
+      "sources": [
+        { "titre": "Bureau of Labor Statistics, séries historiques du CPI et du taux de chômage", "url": "https://www.bls.gov/data/" },
+        { "titre": "Federal Reserve History, « Volcker's Announcement of Anti-Inflation Measures »", "url": "https://www.federalreservehistory.org/essays/anti-inflation-measures" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation États-Unis (CPI), moyenne annuelle", "valeur": "environ 13,5 %", "date": "1980-12-31", "source": "Bureau of Labor Statistics" },
+        { "libelle": "Taux de chômage États-Unis", "valeur": "10,8 %", "date": "1982-12-31", "source": "Bureau of Labor Statistics" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.inflation.hyperinflation",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.inflation",
+      "difficulte": 2,
+      "tags": ["inflation", "crise", "histoire"],
+      "titre": "L'hyperinflation : quand la monnaie ne vaut plus rien",
+      "une_phrase": "L'hyperinflation est une hausse des prix **hors de contrôle**, par convention plus de 50 % par mois : la monnaie perd sa valeur si vite que plus personne n'en veut.",
+      "trente_secondes": "Dans une hyperinflation, les prix changent d'un jour à l'autre, parfois d'une heure à l'autre. Les gens dépensent leur salaire dès qu'ils le reçoivent, parce qu'il vaudra moins le lendemain. L'épargne est détruite. On finit par payer en dollars, en or ou par le troc.\n\nLa cause est presque toujours la même : un **État qui ne peut plus se financer** autrement qu'en faisant créer de la monnaie par sa banque centrale, souvent après une guerre, une chute de régime ou l'effondrement de ses recettes.\n\nPlus on crée de monnaie, plus elle perd de valeur, plus il faut en créer pour payer les mêmes dépenses.",
+      "analogie": "Imagine un jeu de société où le banquier distribue des liasses de billets supplémentaires à chaque tour. Très vite, les rues valent des millions, puis des milliards. Les billets ne manquent pas ; c'est leur valeur qui a disparu.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Mot", "Ordre de grandeur", "Exemple"],
+        "lignes": [
+          ["Inflation cible", "2 % par an", "Objectif de la BCE et de la Fed"],
+          ["Inflation élevée", "5 à 10 % par an", "Zone euro et États-Unis en 2022"],
+          ["Inflation galopante", "Plusieurs dizaines de % par an", "Turquie, Argentine dans les années 2020"],
+          ["Hyperinflation", "Plus de 50 % par mois", "Allemagne 1923, Zimbabwe 2008, Venezuela 2018"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Le seuil de 50 % par mois paraît abstrait. Regardons ce qu'il donne sur un an.",
+        "Un produit coûte 1 euro. Chaque mois, son prix est multiplié par 1,5.",
+        "Au bout de 12 mois : 1 × 1,5 × 1,5 × … (douze fois) = 129,75 euros.",
+        "Les prix ont été multipliés par environ 130 en un an, soit une inflation annuelle de près de 12 900 %. Un salaire versé en début de mois a perdu un tiers de sa valeur à la fin du mois."
+      ],
+      "formules": [],
+      "deux_minutes": "Le seuil de 50 % par mois vient de l'économiste Phillip Cagan (1956). C'est une convention, mais elle est universellement reprise.\n\n**Allemagne, 1923.** Écrasée par les réparations de guerre et privée des recettes de la Ruhr occupée, la République de Weimar finance ses dépenses par la création monétaire. En novembre 1923, il faut environ 4 200 milliards de marks pour un dollar. L'épisode a ruiné les classes moyennes et explique, encore aujourd'hui, l'attachement de l'Allemagne à la stabilité des prix et à l'indépendance de la banque centrale.\n\n**Zimbabwe, 2008** et **Venezuela, à partir de 2016-2018** : effondrement de la production, déficits financés par la création monétaire, fuite devant la monnaie.\n\nComment en sort-on ? Jamais par de simples hausses de taux. Il faut restaurer la confiance : une **réforme monétaire** (nouvelle monnaie ou adoption d'une monnaie étrangère), un **budget rééquilibré**, et une banque centrale à qui l'on **interdit de financer l'État**.\n\nC'est l'origine d'une règle centrale de la zone euro : les traités interdisent à la BCE de **financer directement les États** (elle ne peut pas leur prêter ni acheter leurs obligations au moment de l'émission). L'indépendance des banques centrales est la leçon directe des hyperinflations.",
+      "piege": "Employer « hyperinflation » pour toute inflation élevée. 10 % par an, comme en zone euro en 2022, est une inflation forte, pas une hyperinflation. L'hyperinflation se compte en dizaines de pour cent **par mois** et correspond à un effondrement de la confiance dans la monnaie.",
+      "a_dire_en_entretien": "« L'hyperinflation est une inflation hors de contrôle, par convention supérieure à 50 % par mois. Elle survient quand un État finance ses déficits par la création monétaire et que la population perd confiance dans la monnaie : l'Allemagne en 1923, le Zimbabwe en 2008, le Venezuela plus récemment. C'est ce risque qui justifie l'indépendance des banques centrales et l'interdiction, pour la BCE, de financer directement les États. »",
+      "liens": ["m1.inflation.causes", "m1.inflation.anticipations", "m1.inflation.definition"],
+      "sources": [{ "titre": "Phillip Cagan, « The Monetary Dynamics of Hyperinflation » (1956)" }, { "titre": "Traité sur le fonctionnement de l'Union européenne, article 123 (interdiction du financement monétaire)", "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:12016E123" }],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+
+    { "id": "m1.inflation.c01", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "recto": "Définis l'inflation.", "verso": "La hausse générale et durable des prix, c'est-à-dire une perte de pouvoir d'achat de la monnaie.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c02", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "recto": "Quel indice de prix la BCE regarde-t-elle ? Qui le calcule ?", "verso": "L'IPCH (indice des prix à la consommation harmonisé, HICP en anglais), calculé par Eurostat.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c03", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "CPI et PCE : lequel la Fed cible-t-elle ?", "verso": "Le PCE. Le CPI est le plus médiatisé et le plus suivi par les marchés, mais la cible officielle de 2 % porte sur le PCE.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c04", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "recto": "Qu'est-ce que l'inflation sous-jacente ?", "verso": "L'inflation hors énergie et alimentation, deux postes très volatils. Elle montre la tendance de fond.", "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c05", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "La cible de 2 % de la BCE porte-t-elle sur l'inflation totale ou sous-jacente ?", "verso": "Sur l'inflation totale. La sous-jacente est un outil de diagnostic.", "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c06", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "recto": "Cite les quatre causes de l'inflation.", "verso": "La demande, les coûts (l'offre), la boucle prix-salaires, les anticipations.", "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c07", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Que sont les effets de second tour ?", "verso": "La propagation d'un choc de prix initial (par exemple l'énergie) aux salaires, puis aux autres prix.", "fiche": "m1.inflation.boucle-prix-salaires", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c08", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Que veut dire « anticipations ancrées » ?", "verso": "Les ménages, les entreprises et les marchés continuent d'attendre une inflation proche de 2 % à moyen terme, même si l'inflation du moment s'en écarte.", "fiche": "m1.inflation.anticipations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c09", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Trois raisons de viser 2 % plutôt que 0 % ?", "verso": "Une marge contre la déflation, une marge pour baisser les taux en cas de crise, et de la souplesse pour ajuster salaires et prix (plus le biais de mesure).", "fiche": "m1.inflation.cible-2", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c10", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "recto": "Déflation ou désinflation : l'inflation passe de 8 % à 3 %.", "verso": "Désinflation. Les prix montent toujours, mais moins vite. La déflation, c'est une inflation négative : les prix baissent.", "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c11", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Pourquoi la déflation est-elle dangereuse ? (deux mécanismes)", "verso": "Les achats sont reportés, ce qui fait chuter la demande et l'emploi. Et les dettes pèsent plus lourd, car les revenus baissent mais pas les mensualités.", "fiche": "m1.inflation.deflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c12", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Qu'est-ce que la stagflation ? Pourquoi est-ce un dilemme ?", "verso": "Inflation forte et croissance faible en même temps. Monter les taux aggrave le ralentissement ; les baisser nourrit l'inflation.", "fiche": "m1.inflation.stagflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c13", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "À partir de quel seuil parle-t-on d'hyperinflation ? Quelle en est la cause habituelle ?", "verso": "Plus de 50 % par mois. Un État qui finance ses déficits par la création monétaire, et une perte de confiance dans la monnaie.", "fiche": "m1.inflation.hyperinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c14", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Qu'est-ce que le taux réel ?", "verso": "Le taux d'intérêt nominal moins l'inflation. Un livret à 3 % avec 5 % d'inflation a un taux réel d'environ −2 %.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c15", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Qui gagne et qui perd avec l'inflation ?", "verso": "Perdants : les épargnants et ceux dont les revenus ne suivent pas les prix. Gagnants : les emprunteurs à taux fixe, dont la dette pèse moins lourd.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.c16", "type": "carte", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "recto": "Quel a été le pic d'inflation en zone euro lors de l'épisode de 2022 ?", "verso": "10,6 % en octobre 2022 (IPCH, Eurostat). Aux États-Unis : 9,1 % en juin 2022 (CPI).", "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.inflation.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 1,
+      "question": "Qu'est-ce que l'inflation ?",
+      "reponse_modele": "C'est la hausse générale et durable des prix, qui fait perdre du pouvoir d'achat à la monnaie. Générale, parce qu'elle concerne l'ensemble des prix et pas un seul produit ; durable, parce qu'elle se poursuit dans le temps. En zone euro, on la mesure avec l'IPCH, un indice calculé par Eurostat sur un panier de biens et services. La BCE vise 2 % à moyen terme.",
+      "points_cles": ["Hausse générale et durable", "Perte de pouvoir d'achat de la monnaie", "Mesurée par l'IPCH (Eurostat)", "Cible de 2 %"],
+      "piege": "Dire seulement « les prix augmentent ». Les deux adjectifs, générale et durable, font la définition.",
+      "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "question": "Quelle différence entre inflation totale et inflation sous-jacente ? Laquelle la BCE regarde-t-elle ?",
+      "reponse_modele": "L'inflation totale porte sur tout le panier. La sous-jacente exclut l'énergie et l'alimentation, dont les prix sont très volatils, pour faire ressortir la tendance de fond. L'objectif de 2 % de la BCE porte sur l'inflation totale, mais elle regarde de très près la sous-jacente, et en particulier les services, parce qu'elle indique si la hausse des prix s'est diffusée dans l'économie et risque de durer.",
+      "points_cles": ["Totale : tout le panier", "Sous-jacente : hors énergie et alimentation", "La cible porte sur la totale", "La sous-jacente sert au diagnostic", "Services et salaires"],
+      "piege": "Dire que la BCE cible la sous-jacente.",
+      "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "question": "Quelles sont les causes de l'inflation ?",
+      "reponse_modele": "J'en distingue quatre. L'inflation par la demande, quand l'économie surchauffe et que les acheteurs sont plus nombreux que les produits. L'inflation par les coûts, quand l'énergie ou les matières premières renchérissent. La boucle prix-salaires, quand les salaires rattrapent les prix et que les entreprises répercutent. Et les anticipations, qui s'autoréalisent. L'épisode 2021-2023 les a enchaînées : réouverture après le Covid, puis choc énergétique, puis hausse des salaires et des prix des services.",
+      "points_cles": ["Demande", "Coûts (offre)", "Boucle prix-salaires", "Anticipations", "Un exemple qui les enchaîne"],
+      "piege": "Ne citer que « la planche à billets ». La création monétaire explique les hyperinflations, pas la plupart des épisodes courants.",
+      "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "question": "Pourquoi les banques centrales visent-elles 2 % d'inflation et pas 0 % ?",
+      "reponse_modele": "Pour trois raisons. D'abord, garder une marge de sécurité contre la déflation, qui est plus dangereuse qu'une inflation modérée. Ensuite, conserver de la place pour baisser les taux en cas de récession, puisque les taux peuvent difficilement descendre sous zéro. Enfin, donner de la souplesse à l'économie : comme les salaires baissent rarement, un peu d'inflation permet des ajustements. On ajoute souvent que les indices surestiment légèrement l'inflation réelle.",
+      "points_cles": ["Marge contre la déflation", "Marge pour baisser les taux", "Souplesse des salaires et des prix", "Biais de mesure", "BCE : 2 % symétrique à moyen terme"],
+      "piege": "Dire que la BCE vise « moins de 2 % » : la cible est 2 %, symétrique, depuis 2021.",
+      "fiche": "m1.inflation.cible-2", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 1,
+      "question": "Quelle différence entre déflation et désinflation ?",
+      "reponse_modele": "La désinflation est un ralentissement de l'inflation : les prix montent toujours, mais moins vite, par exemple quand l'inflation passe de 8 % à 3 %. La déflation est une baisse générale et durable des prix, donc une inflation négative. La désinflation est ce que cherche une banque centrale quand l'inflation est trop élevée. La déflation est ce qu'elle redoute, parce qu'elle entraîne report des achats, alourdissement des dettes et chômage.",
+      "points_cles": ["Désinflation : inflation positive qui ralentit", "Déflation : inflation négative", "Un exemple chiffré", "La déflation est dangereuse"],
+      "piege": "Inverser les deux mots, ou dire que les prix baissent pendant une désinflation.",
+      "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q06", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "question": "Qu'est-ce que la stagflation ? Pourquoi est-ce difficile pour une banque centrale ?",
+      "reponse_modele": "C'est la combinaison d'une inflation forte et d'une croissance faible. Elle survient en général après un choc d'offre, par exemple sur l'énergie. C'est le cas le plus difficile pour une banque centrale parce que ses deux objectifs possibles s'opposent : monter les taux contre l'inflation freine encore l'économie, les baisser pour soutenir l'activité nourrit l'inflation. En pratique, elle donne la priorité à l'inflation pour garder les anticipations ancrées. L'exemple de référence, ce sont les années 1970 et la réponse de Volcker.",
+      "points_cles": ["Inflation forte + croissance faible", "Origine : choc d'offre", "Le dilemme des taux", "Priorité à l'inflation et aux anticipations", "Années 1970, Volcker"],
+      "piege": "Confondre avec une récession classique, où l'inflation baisse.",
+      "fiche": "m1.inflation.stagflation", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q07", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 3,
+      "question": "Monter les taux ne fait pas baisser le prix du pétrole. Alors pourquoi une banque centrale monte-t-elle ses taux face à un choc d'énergie ?",
+      "reponse_modele": "Elle ne cherche pas à agir sur le prix de l'énergie, elle n'en a pas les moyens. Elle cherche à éviter les effets de second tour : que la hausse de l'énergie se propage aux salaires, puis à l'ensemble des prix, et que les anticipations d'inflation décrochent de 2 %. Elle accepte de freiner un peu la demande pour préserver sa crédibilité. C'est le dilemme du choc d'offre. Si les anticipations restent bien ancrées et que les salaires ne s'emballent pas, elle peut au contraire choisir de « regarder au travers » du choc.",
+      "points_cles": ["Elle ne peut pas agir sur la cause", "Empêcher les effets de second tour", "Garder les anticipations ancrées", "Crédibilité", "Possibilité de regarder au travers du choc"],
+      "piege": "Répondre que la hausse des taux fait baisser la demande de pétrole, donc son prix. Ce n'est pas le canal visé.",
+      "fiche": "m1.inflation.boucle-prix-salaires", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.q08", "type": "question_entretien", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "question": "Qui gagne et qui perd quand l'inflation est élevée ?",
+      "reponse_modele": "Les perdants sont ceux dont les revenus ne suivent pas les prix, comme les salariés non augmentés, et les épargnants dont le placement rapporte moins que l'inflation : leur taux réel est négatif. Les gagnants sont les emprunteurs à taux fixe, y compris les États : ils remboursent avec une monnaie qui vaut moins, alors que leurs revenus augmentent avec les prix. Pour une banque, cela veut dire des clients qui cherchent des placements protégés contre l'inflation et des emprunteurs qui veulent du taux fixe.",
+      "points_cles": ["Perdants : revenus fixes et épargnants", "Notion de taux réel", "Gagnants : emprunteurs à taux fixe, États", "Conséquence pour les clients d'une banque"],
+      "piege": "Dire que tout le monde y perd. L'inflation redistribue la richesse des créanciers vers les débiteurs.",
+      "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.inflation.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "enonce": "L'inflation passe de 6 % à 2 % en un an. Que font les prix ?", "choix": ["Ils baissent de 4 %", "Ils continuent de monter, mais moins vite", "Ils sont stables", "Ils baissent de 2 %"], "bonne": 1, "explication": "L'inflation reste positive : les prix montent toujours, de 2 % au lieu de 6 %. C'est de la désinflation.", "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z02", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "enonce": "Quel indice mesure l'inflation que la BCE a pour objectif ?", "choix": ["Le CPI", "Le PCE", "L'IPCH", "Le PMI"], "bonne": 2, "explication": "L'IPCH (HICP), calculé par Eurostat. Le CPI et le PCE sont américains ; le PMI est un indicateur d'activité.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z03", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "La Fed cible officiellement une inflation de 2 % mesurée par le CPI.", "vrai": false, "explication": "La cible de la Fed porte sur l'indice PCE. Le CPI est le plus médiatisé, mais ce n'est pas la mesure officielle de l'objectif.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z04", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "L'énergie pèse 9 % du panier et son prix augmente de 20 %. Quelle est sa contribution à l'inflation, en points de pourcentage ?", "reponse": 1.8, "tolerance": 0.05, "unite": "pt", "explication": "Contribution = poids × hausse = 9 % × 20 % = 1,8 point.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z05", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Le prix du gaz double à cause d'une guerre. De quel type d'inflation s'agit-il ?", "choix": ["Par la demande", "Par les coûts (offre)", "Par les anticipations", "Monétaire"], "bonne": 1, "explication": "Produire et se chauffer coûte plus cher, sans que la demande ait augmenté : c'est un choc d'offre, une inflation par les coûts.", "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z06", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Remets la boucle prix-salaires dans l'ordre.", "etapes": ["Un choc fait monter les prix (énergie)", "Les salariés perdent du pouvoir d'achat", "Ils obtiennent des hausses de salaire", "Les coûts des entreprises augmentent", "Les entreprises remontent leurs prix"], "explication": "Le choc initial est le premier tour. La propagation aux salaires puis aux prix est le second tour.", "fiche": "m1.inflation.boucle-prix-salaires", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z07", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "La déflation est une bonne nouvelle durable pour le pouvoir d'achat des ménages.", "vrai": false, "explication": "Les salaires et l'emploi baissent aussi, les achats sont reportés et les dettes pèsent plus lourd. C'est une spirale récessive.", "fiche": "m1.inflation.deflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z08", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Un livret rapporte 3 %. L'inflation est de 5 %. Quel est le taux réel approché, en % ?", "reponse": -2, "tolerance": 0.15, "unite": "%", "explication": "Taux réel ≈ taux nominal − inflation = 3 % − 5 % = −2 %. L'épargnant perd du pouvoir d'achat.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z09", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Inflation à 8 %, croissance nulle, chômage en hausse. Comment appelle-t-on cette situation ?", "choix": ["Déflation", "Désinflation", "Stagflation", "Surchauffe"], "bonne": 2, "explication": "Stagnation + inflation = stagflation. La banque centrale est face à un dilemme.", "fiche": "m1.inflation.stagflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z10", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Depuis 2021, quelle est la cible d'inflation de la BCE ?", "choix": ["Inférieure à, mais proche de 2 %", "2 % à moyen terme, de façon symétrique", "Entre 1 % et 3 %", "0 %"], "bonne": 1, "explication": "Depuis la revue stratégique de juillet 2021 : 2 % à moyen terme, symétrique. La première réponse est l'ancienne formulation.", "fiche": "m1.inflation.cible-2", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z11", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Une inflation de 10 % par an est une hyperinflation.", "vrai": false, "explication": "C'est une inflation forte. L'hyperinflation, c'est par convention plus de 50 % par mois.", "fiche": "m1.inflation.hyperinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.z12", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "enonce": "Qui est plutôt avantagé par une inflation plus forte que prévu ?", "choix": ["L'épargnant sur un livret à taux fixe", "L'emprunteur à taux fixe", "Le retraité à pension non indexée", "Le prêteur à taux fixe"], "bonne": 1, "explication": "L'emprunteur à taux fixe rembourse avec une monnaie qui vaut moins, alors que ses revenus suivent les prix.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.inflation.x01", "type": "exercice", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "titre": "Calculer l'inflation totale et la sous-jacente",
+      "enonce": "Exemple fictif. Le panier se compose de : services 46 %, biens industriels hors énergie 26 %, alimentation 19 %, énergie 9 %. Sur un an, les prix augmentent de 3 % (services), 1 % (biens), 2 % (alimentation) et 20 % (énergie). Calcule l'inflation totale, puis l'inflation sous-jacente.",
+      "etapes": [
+        {
+          "titre": "La contribution de chaque poste",
+          "texte": "Contribution = poids × hausse. Services : 46 % × 3 % = 1,38 point. Biens : 26 % × 1 % = 0,26 point. Alimentation : 19 % × 2 % = 0,38 point. Énergie : 9 % × 20 % = 1,80 point.",
+          "resultat": "1,38 ; 0,26 ; 0,38 ; 1,80",
+          "verif": { "fn": "inflation.contribution", "args": [9, 20], "attendu": 1.8, "tolerance": 0.001 }
+        },
+        {
+          "titre": "L'inflation totale",
+          "texte": "On additionne les contributions.",
+          "formule": { "latex": "1{,}38 + 0{,}26 + 0{,}38 + 1{,}80 = 3{,}82", "legende": { "1{,}80": "la contribution de l'énergie" }, "en_francais": "La somme des contributions donne l'inflation de l'ensemble du panier." },
+          "resultat": "3,82 %",
+          "verif": { "fn": "inflation.inflationPonderee", "args": [46, 3, 26, 1, 19, 2, 9, 20], "attendu": 3.82, "tolerance": 0.001 }
+        },
+        {
+          "titre": "L'inflation sous-jacente",
+          "texte": "On retire l'énergie et l'alimentation. Il reste les services et les biens, qui pèsent ensemble 46 + 26 = 72 %. On refait la moyenne pondérée sur ces deux postes seulement.",
+          "formule": { "latex": "\\frac{46 \\times 3 + 26 \\times 1}{46 + 26} = \\frac{164}{72} = 2{,}28", "legende": { "46 + 26": "le poids total des postes conservés" }, "en_francais": "On divise par 72 et non par 100, parce que le panier sous-jacent ne contient que ces deux postes." },
+          "resultat": "2,28 %",
+          "verif": { "fn": "inflation.inflationPonderee", "args": [46, 3, 26, 1], "attendu": 2.28, "tolerance": 0.005 }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Inflation totale 3,8 %, sous-jacente 2,3 %. L'écart vient de l'énergie, qui explique 1,80 point sur 3,82. La tendance de fond est proche de la cible : le choc est pour l'instant concentré sur un poste."
+        }
+      ],
+      "erreurs_a_eviter": ["Faire la moyenne simple des quatre hausses (6,5 %) en oubliant les poids.", "Diviser par 100 au lieu de 72 pour la sous-jacente.", "Conclure que la banque centrale peut ignorer l'énergie : elle surveille les effets de second tour."],
+      "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.inflation.x02", "type": "exercice", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "titre": "Ce que l'inflation fait à une épargne",
+      "enonce": "Exemple fictif. Tu laisses 10 000 euros sur un compte qui ne rapporte rien pendant 3 ans. L'inflation est de 5 % par an. Que vaut cette somme en pouvoir d'achat ? Et si elle avait été placée à 3 % ?",
+      "etapes": [
+        {
+          "titre": "De combien les prix ont-ils monté en 3 ans ?",
+          "texte": "Chaque année, les prix sont multipliés par 1,05. Sur 3 ans : 1,05 × 1,05 × 1,05 = 1,1576. Les prix ont monté de 15,76 %, pas de 15 % : les hausses se cumulent.",
+          "formule": { "latex": "100 \\times (1 + 0{,}05)^3 = 115{,}76", "legende": { "0{,}05": "l'inflation annuelle", "3": "le nombre d'années" }, "en_francais": "Ce qui coûtait 100 euros en coûte 115,76 trois ans plus tard." },
+          "resultat": "+15,76 %",
+          "verif": { "fn": "inflation.niveauPrix", "args": [5, 3], "attendu": 115.76, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Le pouvoir d'achat des 10 000 euros",
+          "texte": "On divise la somme par la hausse des prix.",
+          "formule": { "latex": "\\frac{10\\,000}{(1 + 0{,}05)^3} = 8\\,638", "legende": { "10\\,000": "la somme de départ, inchangée sur le compte" }, "en_francais": "Les 10 000 euros achètent ce que 8 638 euros achetaient trois ans plus tôt." },
+          "resultat": "8 638 € d'aujourd'hui : une perte de 13,6 % de pouvoir d'achat",
+          "verif": { "fn": "inflation.pouvoirAchat", "args": [10000, 5, 3], "attendu": 8638, "tolerance": 1 }
+        },
+        {
+          "titre": "Avec un placement à 3 %",
+          "texte": "Le taux réel approché est le taux nominal moins l'inflation : 3 % − 5 % = −2 % par an. Le calcul exact donne (1,03 ÷ 1,05) − 1 = −1,90 %.",
+          "resultat": "Taux réel ≈ −2 % par an",
+          "verif": { "fn": "inflation.tauxReelExact", "args": [3, 5], "attendu": -1.9, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Même placée à 3 %, l'épargne perd environ 2 % de pouvoir d'achat par an. Ce qui compte pour un épargnant, ce n'est pas le taux affiché, c'est le **taux réel**."
+        }
+      ],
+      "erreurs_a_eviter": ["Multiplier 5 % par 3 sans cumuler les hausses.", "Dire que 10 000 euros « valent » 8 500 euros en retirant 15 % : on divise par la hausse des prix, on ne soustrait pas.", "Regarder le taux nominal sans le comparer à l'inflation."],
+      "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1
+    },
+
+    {
+      "id": "m1.inflation.k01", "type": "cas_pratique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2,
+      "titre": "Un chef d'entreprise te demande ce que l'inflation change pour lui",
+      "situation": "L'inflation vient de sortir nettement au-dessus de 2 %, tirée par l'énergie. Le dirigeant d'une PME industrielle, cliente de la banque, te demande : « Concrètement, ça change quoi pour moi ? » Il a un crédit à taux variable, de la trésorerie placée, et il achète des matières premières en dollars.",
+      "questions_a_poser": [
+        "Votre crédit est-il à taux fixe ou variable ? Sur quel index, et pour quel montant restant ?",
+        "Où est placée votre trésorerie, et à quel taux ?",
+        "Quelle part de vos coûts vient de l'énergie et des matières premières ? Sont-elles payées en dollars ?",
+        "Pouvez-vous répercuter les hausses de coûts sur vos prix de vente ?",
+        "Vos salariés demandent-ils des augmentations ?"
+      ],
+      "proposition": "Dérouler la chaîne : inflation au-dessus de la cible → la banque centrale risque de monter ses taux, ou de les garder élevés plus longtemps → les taux courts montent.\n\n- **Son crédit à taux variable** va coûter plus cher : étudier une couverture de taux pour plafonner ou fixer son coût (les produits sont détaillés dans le module 3).\n- **Sa trésorerie** : vérifier que son placement rapporte au moins l'inflation, sinon son taux réel est négatif.\n- **Ses achats en dollars** : si l'euro baisse, l'inflation importée s'ajoute. Regarder une couverture de change à l'achat.\n- **Ses prix** : l'aider à raisonner sur ses marges si ses coûts montent plus vite que ses prix de vente.",
+      "scenario_defavorable": "S'il fixe son taux d'emprunt aujourd'hui et que l'inflation retombe vite, la banque centrale baissera ses taux et il paiera plus cher que s'il était resté à taux variable. S'il ne fait rien et que l'inflation s'installe, ses charges financières et ses coûts d'achat montent en même temps, alors que ses ventes ralentissent.",
+      "faisabilite": "Vérifier les montants et les échéances exacts du crédit et des achats en dollars avant toute proposition, ne couvrir que des flux réels, et s'assurer que le client comprend que la couverture supprime une incertitude sans garantir un gain.",
+      "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.inflation.l-inflation", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Inflation", "anglais": "inflation", "definition": "Hausse générale et durable des prix ; perte de pouvoir d'achat de la monnaie.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-pouvoir-d-achat", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Pouvoir d'achat", "anglais": "purchasing power", "definition": "Quantité de biens et de services qu'une somme d'argent permet d'acheter.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-ipch", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "IPCH", "anglais": "HICP", "definition": "Indice des prix à la consommation harmonisé, calculé par Eurostat. Mesure de l'inflation ciblée par la BCE.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-cpi", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "CPI", "anglais": "Consumer Price Index", "definition": "Indice des prix à la consommation américain, publié par le Bureau of Labor Statistics. Le plus suivi par les marchés.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-pce", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "PCE", "anglais": "Personal Consumption Expenditures", "definition": "Indice de prix américain publié par le Bureau of Economic Analysis. C'est sur lui que porte la cible de 2 % de la Fed.", "fiche": "m1.inflation.mesure", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-glissement-annuel", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Glissement annuel", "anglais": "year-on-year", "definition": "Variation d'un indicateur par rapport au même mois de l'année précédente.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-inflation-totale", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Inflation totale", "anglais": "headline inflation", "definition": "Inflation calculée sur l'ensemble du panier, énergie et alimentation comprises.", "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-inflation-sous-jacente", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Inflation sous-jacente", "anglais": "core inflation", "definition": "Inflation hors énergie et alimentation : la tendance de fond.", "fiche": "m1.inflation.sous-jacente", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-effets-de-second-tour", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Effets de second tour", "anglais": "second-round effects", "definition": "Propagation d'un choc de prix initial aux salaires et aux autres prix.", "fiche": "m1.inflation.boucle-prix-salaires", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-boucle-prix-salaires", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Boucle prix-salaires", "anglais": "wage-price spiral", "definition": "Enchaînement où hausses de prix et hausses de salaires s'entraînent mutuellement.", "fiche": "m1.inflation.boucle-prix-salaires", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-anticipations", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Anticipations d'inflation", "anglais": "inflation expectations", "definition": "Inflation que les ménages, les entreprises et les marchés s'attendent à voir à l'avenir.", "fiche": "m1.inflation.anticipations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-ancrage", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Ancrage des anticipations", "anglais": "anchoring", "definition": "Situation où les anticipations d'inflation restent proches de la cible de 2 %, grâce à la crédibilité de la banque centrale.", "fiche": "m1.inflation.anticipations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-point-mort", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 3, "terme": "Point mort d'inflation", "anglais": "breakeven inflation", "definition": "Inflation anticipée par le marché, déduite de l'écart entre le taux d'une obligation classique et celui d'une obligation indexée sur l'inflation.", "fiche": "m1.inflation.anticipations", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-choc-d-offre", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Choc d'offre", "anglais": "supply shock", "definition": "Événement qui renchérit ou réduit la production (flambée de l'énergie, pénurie). Il fait monter les prix et baisser l'activité.", "fiche": "m1.inflation.causes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-deflation", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Déflation", "anglais": "deflation", "definition": "Baisse générale et durable des prix (inflation négative).", "fiche": "m1.inflation.deflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-desinflation", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 1, "terme": "Désinflation", "anglais": "disinflation", "definition": "Ralentissement de l'inflation : les prix montent moins vite.", "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-effet-de-base", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 3, "terme": "Effet de base", "anglais": "base effect", "definition": "Variation mécanique du taux d'inflation annuel due au niveau des prix un an plus tôt, et non à leur évolution récente.", "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-stagflation", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Stagflation", "anglais": "stagflation", "definition": "Inflation forte et croissance faible en même temps.", "fiche": "m1.inflation.stagflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-hyperinflation", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Hyperinflation", "anglais": "hyperinflation", "definition": "Inflation hors de contrôle, par convention supérieure à 50 % par mois.", "fiche": "m1.inflation.hyperinflation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-taux-reel", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Taux réel", "anglais": "real interest rate", "definition": "Taux d'intérêt nominal moins l'inflation : ce que rapporte vraiment un placement en pouvoir d'achat.", "fiche": "m1.inflation.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.inflation.l-atterrissage", "type": "lexique", "module": 1, "chapitre": "m1.inflation", "difficulte": 2, "terme": "Atterrissage en douceur", "anglais": "soft landing", "definition": "Retour de l'inflation vers la cible sans récession.", "fiche": "m1.inflation.desinflation", "maj": "2026-11-16", "version": 1 }
+  ]
+}

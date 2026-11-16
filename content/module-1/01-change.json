@@ -1,0 +1,483 @@
+{
+  "chapitre": {
+    "id": "m1.change",
+    "module": 1,
+    "ordre": 1,
+    "titre": "Le change : lire un cours, exportateur et importateur",
+    "resume": "On part de la question piège : un exportateur payé en dollars veut-il un EUR/USD haut ou bas ? Pour y répondre sans hésiter, on apprend à lire un cours de change."
+  },
+  "elements": [
+    {
+      "id": "m1.change.lire-cotation",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 1,
+      "tags": ["change", "cotation"],
+      "titre": "Lire une cotation : EUR/USD = 1,10",
+      "une_phrase": "EUR/USD = 1,10 veut dire que **1 euro vaut 1,10 dollar** : c'est le prix d'un euro, exprimé en dollars.",
+      "trente_secondes": "Un cours de change s'écrit avec deux devises. La première (EUR) est la **devise de base** (*base currency*) : c'est la marchandise, celle dont on donne le prix. La seconde (USD) est la **devise de cotation** (*quote currency*) : c'est la monnaie dans laquelle le prix est exprimé.\n\nDonc EUR/USD = 1,10 se lit : « pour acheter 1 euro, il faut 1,10 dollar ». Quand le chiffre monte, c'est l'euro qui devient plus cher.",
+      "analogie": "C'est une étiquette de prix au supermarché. « Baguette : 1,10 € » veut dire qu'une baguette coûte 1,10 euro. « EUR/USD : 1,10 » veut dire qu'un euro coûte 1,10 dollar. La devise de base est la baguette ; la devise de cotation est la monnaie de l'étiquette.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Ce que tu vois", "Ce que ça veut dire", "Qui se renforce ?"],
+        "lignes": [
+          ["EUR/USD monte (1,10 → 1,20)", "Il faut plus de dollars pour acheter 1 euro", "L'euro (le dollar s'affaiblit)"],
+          ["EUR/USD baisse (1,10 → 1,00)", "Il faut moins de dollars pour acheter 1 euro", "Le dollar (l'euro s'affaiblit)"]
+        ],
+        "legende": "Le chiffre suit toujours la devise de base : s'il monte, la devise de base monte."
+      },
+      "exemple_chiffre": [
+        "Le cours est EUR/USD = 1,10. Tu as 1 000 euros et tu veux des dollars.",
+        "Chaque euro vaut 1,10 dollar, donc tu **multiplies** : 1 000 × 1,10 = 1 100 dollars.",
+        "Dans l'autre sens, tu as 1 100 dollars et tu veux des euros. Il faut 1,10 dollar pour faire 1 euro, donc tu **divises** : 1 100 ÷ 1,10 = 1 000 euros.",
+        "Vérification : on retombe bien sur la somme de départ."
+      ],
+      "formules": [
+        {
+          "titre": "Passer des dollars aux euros",
+          "latex": "\\text{Montant en euros} = \\frac{\\text{Montant en dollars}}{\\text{EUR/USD}}",
+          "legende": {
+            "\\text{EUR/USD}": "le cours : nombre de dollars pour 1 euro",
+            "\\text{Montant en dollars}": "la somme que tu veux convertir"
+          },
+          "en_francais": "Le cours dit combien de dollars valent 1 euro. Pour savoir combien d'euros font mes dollars, je compte combien de « paquets de 1,10 dollar » ils contiennent : je divise."
+        },
+        {
+          "titre": "Passer des euros aux dollars",
+          "latex": "\\text{Montant en dollars} = \\text{Montant en euros} \\times \\text{EUR/USD}",
+          "legende": {
+            "\\text{EUR/USD}": "le cours : nombre de dollars pour 1 euro",
+            "\\text{Montant en euros}": "la somme que tu veux convertir"
+          },
+          "en_francais": "Chaque euro vaut 1,10 dollar, donc je multiplie mon nombre d'euros par le cours."
+        }
+      ],
+      "deux_minutes": "L'ordre des deux devises est une **convention de marché**, on ne le choisit pas. L'euro est presque toujours devise de base (EUR/USD, EUR/GBP, EUR/JPY). Le dollar est devise de base face à la plupart des autres devises (USD/JPY, USD/CHF), sauf face à l'euro, à la livre sterling (GBP/USD) et au dollar australien (AUD/USD).\n\nConséquence pratique : pour USD/JPY = 150, c'est le dollar qui est la marchandise. Si USD/JPY monte, c'est le **dollar** qui se renforce et le yen qui s'affaiblit.\n\nOn distingue aussi deux façons de coter. La cotation **à l'incertain** donne le prix d'une unité de devise étrangère en monnaie nationale ; la cotation **au certain** donne le prix d'une unité de monnaie nationale en devise étrangère. Pour un Européen, EUR/USD est une cotation au certain : 1 euro (certain) = un nombre variable de dollars.\n\nEnfin, le cours affiché est le cours **au comptant** (*spot*) : l'échange réel des devises a lieu deux jours ouvrés plus tard.",
+      "piege": "Croire que « EUR/USD monte » veut dire « le dollar monte » parce que le mot dollar est dans le nom. C'est l'inverse : le chiffre est le prix de la **première** devise. EUR/USD qui monte, c'est l'euro qui monte.",
+      "a_dire_en_entretien": "« L'euro-dollar à 1,10 veut dire qu'un euro vaut 1,10 dollar. L'euro est la devise de base, le dollar la devise de cotation. Si le cours monte, il faut plus de dollars pour acheter un euro : l'euro se renforce et le dollar s'affaiblit. »",
+      "liens": ["m1.change.pip", "m1.change.euro-fort-faible", "m1.change.exportateur"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.pip",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 1,
+      "tags": ["change", "cotation"],
+      "titre": "Le pip : la plus petite marche du cours",
+      "une_phrase": "Un pip est la **quatrième décimale** du cours : passer de 1,1000 à 1,1001, c'est monter d'un pip.",
+      "trente_secondes": "Les cours de change bougent très peu en valeur : quelques millièmes par jour. Pour en parler simplement, les professionnels comptent en **pips** (*percentage in point*). Un pip vaut 0,0001 pour la plupart des paires, dont l'EUR/USD.\n\nDire « l'euro-dollar a pris 50 pips » est plus rapide que « il est passé de 1,1000 à 1,1050 ».",
+      "analogie": "C'est le centime du marché des changes. Personne ne dit « le prix a augmenté de 0,05 euro », on dit « de 5 centimes ». De la même façon, on ne dit pas « le cours a monté de 0,0050 », on dit « de 50 pips ».",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Mouvement de l'EUR/USD", "En pips", "Gain ou perte sur 1 million d'euros"],
+        "lignes": [
+          ["1,1000 → 1,1001", "1 pip", "100 $"],
+          ["1,1000 → 1,1050", "50 pips", "5 000 $"],
+          ["1,1000 → 1,1100", "100 pips (on dit « une figure »)", "10 000 $"]
+        ],
+        "legende": "Exemple fictif. Sur 1 million d'euros, chaque pip vaut 100 dollars."
+      },
+      "exemple_chiffre": [
+        "Tu achètes 1 000 000 d'euros contre dollars à 1,1000. Tu paies 1 000 000 × 1,1000 = 1 100 000 dollars.",
+        "Le cours monte à 1,1050, soit 50 pips. Tes euros valent maintenant 1 000 000 × 1,1050 = 1 105 000 dollars.",
+        "Ton gain est de 1 105 000 − 1 100 000 = 5 000 dollars.",
+        "Raccourci : 1 000 000 × 50 × 0,0001 = 5 000 dollars. Un pip sur 1 million d'euros vaut donc 100 dollars."
+      ],
+      "formules": [
+        {
+          "titre": "Valeur d'un mouvement en pips",
+          "latex": "\\text{Gain ou perte} = N \\times n \\times 0{,}0001",
+          "legende": {
+            "N": "le montant de la position, en devise de base (en euros pour l'EUR/USD)",
+            "n": "le nombre de pips dont le cours a bougé",
+            "0{,}0001": "la taille d'un pip (0,01 pour les paires en yen)"
+          },
+          "en_francais": "Le gain, exprimé dans la devise de cotation (en dollars pour l'EUR/USD), est le montant de la position multiplié par le mouvement du cours."
+        }
+      ],
+      "deux_minutes": "Deux exceptions et un mot de vocabulaire à connaître.\n\n- **Les paires en yen** : le cours USD/JPY s'écrit avec deux décimales (150,25). Le pip y est la deuxième décimale : 0,01.\n- **Les décimales en plus** : les plateformes affichent souvent une cinquième décimale (1,10005). Ce dixième de pip s'appelle parfois une *pipette*.\n- **La figure** (*big figure*) : 100 pips, soit un centime de dollar. « L'euro-dollar a perdu deux figures » veut dire qu'il a baissé de 0,02, par exemple de 1,10 à 1,08.\n\nAttention à ne pas confondre avec le **point de base** (*basis point*), qui vaut 0,01 % et sert pour les taux d'intérêt. Le pip sert pour les cours de change.",
+      "piege": "Oublier dans quelle devise s'exprime le gain. Sur l'EUR/USD, la valeur du pip est en **dollars** (la devise de cotation), pas en euros. Pour l'avoir en euros, il faut encore diviser par le cours.",
+      "a_dire_en_entretien": "« Le pip est la plus petite variation usuelle d'un cours de change : la quatrième décimale pour l'euro-dollar, la deuxième pour les paires en yen. Sur une position d'un million d'euros, un pip représente 100 dollars. »",
+      "liens": ["m1.change.lire-cotation", "m1.change.bid-ask"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.bid-ask",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 2,
+      "tags": ["change", "cotation", "banque"],
+      "titre": "Bid et ask : les deux prix de la banque",
+      "une_phrase": "La banque affiche toujours deux prix : le **bid**, auquel elle achète la devise de base, et l'**ask**, plus haut, auquel elle la vend ; l'écart entre les deux est sa rémunération.",
+      "trente_secondes": "Une cotation EUR/USD = 1,1000 / 1,1002 se lit du point de vue de la banque. À gauche, le **bid** (cours acheteur) : la banque achète 1 euro en payant 1,1000 dollar. À droite, l'**ask** ou *offer* (cours vendeur) : la banque vend 1 euro contre 1,1002 dollar.\n\nLa différence, ici 2 pips, s'appelle la **fourchette** (*bid-ask spread*). Le client, lui, traite toujours au prix qui l'arrange le moins : il achète cher et vend bon marché.",
+      "analogie": "C'est le bureau de change de l'aéroport, avec ses deux colonnes « nous achetons » et « nous vendons ». Il rachète tes dollars moins cher qu'il ne te les vend. L'écart paie son service. Une salle des marchés fait la même chose, avec un écart bien plus petit.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Le client veut…", "Sur l'EUR/USD, il…", "Il traite au…"],
+        "lignes": [
+          ["Vendre des dollars (exportateur)", "achète des euros", "ask : 1,1002 (le plus haut)"],
+          ["Acheter des dollars (importateur)", "vend des euros", "bid : 1,1000 (le plus bas)"]
+        ],
+        "legende": "Exemple fictif : EUR/USD = 1,1000 / 1,1002."
+      },
+      "exemple_chiffre": [
+        "La banque cote EUR/USD = 1,1000 / 1,1002.",
+        "Un exportateur vend 1 000 000 de dollars. Vendre des dollars, c'est acheter des euros : il paie l'ask. Il reçoit 1 000 000 ÷ 1,1002 = 908 926 euros.",
+        "Au même instant, un importateur achète 1 000 000 de dollars. Il vend des euros : il traite au bid. Il paie 1 000 000 ÷ 1,1000 = 909 091 euros.",
+        "La banque a reçu 909 091 euros d'un côté et versé 908 926 euros de l'autre : elle garde 165 euros, sans avoir pris de risque de change."
+      ],
+      "formules": [
+        {
+          "titre": "La fourchette",
+          "latex": "\\text{Fourchette} = \\text{Ask} - \\text{Bid}",
+          "legende": {
+            "\\text{Ask}": "le prix auquel la banque vend la devise de base",
+            "\\text{Bid}": "le prix auquel la banque achète la devise de base"
+          },
+          "en_francais": "La fourchette est l'écart entre le prix de vente et le prix d'achat de la banque : 1,1002 − 1,1000 = 0,0002, soit 2 pips."
+        }
+      ],
+      "deux_minutes": "La taille de la fourchette dépend de la **liquidité**, c'est-à-dire de la facilité à trouver une contrepartie.\n\n- Sur l'EUR/USD, la paire la plus échangée au monde, la fourchette entre banques est inférieure à un pip.\n- Sur une devise peu échangée (livre turque, rand sud-africain), elle est beaucoup plus large.\n- Elle s'élargit quand le marché est nerveux (annonce de banque centrale, crise) ou peu actif (nuit, jours fériés).\n\nLe **cours milieu** (*mid*) est la moyenne du bid et de l'ask. C'est lui qu'on cite dans la presse et dans les fiches de cette app quand on écrit « EUR/USD = 1,10 ».\n\nPour un client entreprise, la banque ajoute sa **marge commerciale** à la fourchette du marché. C'est ainsi qu'un vendeur (*sales*) de salle des marchés gagne de l'argent sur une opération de change.",
+      "piege": "Lire la cotation du point de vue du client. Bid et ask sont les prix **de la banque**. Le client qui achète des euros paie l'ask (le plus cher) ; celui qui en vend reçoit le bid (le moins cher). Si ton calcul donne au client le meilleur des deux prix, tu t'es trompé de côté.",
+      "a_dire_en_entretien": "« La banque cote deux prix. Le bid est le prix auquel elle achète la devise de base, l'ask le prix auquel elle la vend. L'écart entre les deux, la fourchette, est sa rémunération. Le client traite toujours du mauvais côté : il achète à l'ask et vend au bid. Plus la paire est liquide, plus la fourchette est serrée. »",
+      "liens": ["m1.change.pip", "m1.change.lire-cotation"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.euro-fort-faible",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 1,
+      "tags": ["change", "macro"],
+      "titre": "Euro fort, euro faible : qui gagne, qui perd",
+      "une_phrase": "« Euro fort » veut dire **EUR/USD haut** : un euro achète beaucoup de dollars ; « euro faible » veut dire **EUR/USD bas**.",
+      "trente_secondes": "Un euro fort rend tout ce qui est payé en dollars **moins cher** pour un Européen : le pétrole, les composants, les voyages aux États-Unis. C'est bon pour les importateurs et pour l'inflation, qui baisse.\n\nMais il rend les produits européens **plus chers** pour les acheteurs étrangers. C'est mauvais pour les exportateurs.\n\nAvec un euro faible, tout s'inverse : les exportateurs sont avantagés, les importations coûtent plus cher et l'inflation monte.",
+      "analogie": "Pense à un touriste. Avec un euro fort, un Français à New York trouve tout bon marché, et un Américain à Paris trouve tout cher. Les entreprises vivent la même chose : l'importateur est le Français qui fait ses courses à New York, l'exportateur est le commerçant parisien qui attend le client américain.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Euro fort (EUR/USD haut)", "Euro faible (EUR/USD bas)"],
+        "lignes": [
+          ["Exportateur européen", "Pénalisé", "Avantagé"],
+          ["Importateur européen", "Avantagé", "Pénalisé"],
+          ["Prix de l'énergie importée", "Baisse", "Monte"],
+          ["Inflation en zone euro", "Tirée vers le bas", "Tirée vers le haut"],
+          ["Touriste européen aux États-Unis", "Avantagé", "Pénalisé"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Un baril de pétrole coûte 80 dollars (le pétrole se paie en dollars partout dans le monde).",
+        "Avec un euro fort, EUR/USD = 1,20 : le baril coûte 80 ÷ 1,20 = 66,67 euros.",
+        "Avec un euro faible, EUR/USD = 1,00 : le même baril coûte 80 ÷ 1,00 = 80 euros.",
+        "Le prix du pétrole en dollars n'a pas bougé, mais l'Européen paie 20 % de plus (80 ÷ 66,67 = 1,20). C'est de l'**inflation importée**."
+      ],
+      "formules": [],
+      "deux_minutes": "L'effet d'un euro faible sur les exportateurs passe par deux canaux.\n\n- **La compétitivité** : une machine vendue 100 000 euros coûte 120 000 dollars à un client américain quand l'EUR/USD est à 1,20, mais seulement 100 000 dollars à 1,00. L'exportateur vend plus facilement.\n- **La conversion** : s'il facture en dollars, chaque dollar reçu vaut plus d'euros.\n\nCôté inflation, un euro faible renchérit les importations, en particulier l'énergie. C'est pour cela que la banque centrale surveille le change, même si elle n'a pas d'objectif de cours.\n\nLe vocabulaire à connaître : une monnaie qui monte **s'apprécie**, une monnaie qui baisse **se déprécie**. On réserve « dévaluation » et « réévaluation » aux décisions officielles d'un État dans un régime de change fixe.\n\nEnfin, « fort » ou « faible » se dit toujours **par rapport à une autre devise**. L'euro peut être fort face au yen et faible face au dollar le même jour.",
+      "piege": "Penser qu'une monnaie forte est toujours une bonne nouvelle. « Fort » décrit un niveau de prix, pas la santé de l'économie. Un euro fort pénalise les exportateurs ; un euro faible avantage les exportateurs mais fait monter l'inflation. Tout dépend de quel côté on se place.",
+      "a_dire_en_entretien": "« Un euro fort, c'est un euro-dollar haut. Il rend les importations moins chères, donc il aide les importateurs et freine l'inflation, mais il pénalise les exportateurs, dont les produits deviennent plus chers à l'étranger. Un euro faible fait exactement l'inverse. »",
+      "liens": ["m1.change.exportateur", "m1.change.importateur", "m1.forces.energie"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.exportateur",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 1,
+      "tags": ["change", "client", "piege"],
+      "titre": "La question piège : l'exportateur payé en dollars",
+      "une_phrase": "Un exportateur européen payé en dollars veut un **EUR/USD bas** (dollar fort) : chaque dollar qu'il reçoit lui rapporte alors plus d'euros.",
+      "trente_secondes": "L'exportateur vend à l'étranger et reçoit des dollars. Mais ses salaires, ses fournisseurs et ses impôts sont en euros. Il devra donc **vendre ses dollars pour acheter des euros**.\n\nComme tout vendeur, il veut que ce qu'il vend soit cher. Il veut des dollars chers, donc un dollar fort, donc un EUR/USD bas.\n\nSon **risque** est le contraire : que l'EUR/USD monte avant qu'il ne soit payé.",
+      "analogie": "Imagine que tu es payé en tickets-restaurant et que tu dois les revendre pour avoir des euros. Tu veux que le ticket se revende le plus cher possible. Pour l'exportateur, le dollar est ce ticket : plus il vaut cher en euros, mieux c'est.",
+      "visuel": { "type": "outil", "ref": "labo.fx-calculateur", "legende": "Bouge le curseur : regarde ce que reçoit l'exportateur quand l'EUR/USD baisse." },
+      "exemple_chiffre": [
+        "Une PME française vend des machines aux États-Unis. Son client lui paiera 1 000 000 de dollars dans 3 mois. Aujourd'hui, EUR/USD = 1,11.",
+        "Au cours d'aujourd'hui, ce million vaut 1 000 000 ÷ 1,11 = 900 901 euros.",
+        "Si dans 3 mois l'EUR/USD est **monté** à 1,25 (dollar plus faible), elle ne reçoit que 1 000 000 ÷ 1,25 = 800 000 euros. Elle a perdu 100 901 euros.",
+        "Si l'EUR/USD est **descendu** à 1,00 (dollar plus fort), elle reçoit 1 000 000 ÷ 1,00 = 1 000 000 euros. Elle a gagné 99 099 euros.",
+        "Pour la même vente, il y a 200 000 euros d'écart entre les deux scénarios. C'est cela, le risque de change."
+      ],
+      "formules": [
+        {
+          "titre": "Ce que reçoit l'exportateur",
+          "latex": "\\text{Recette en euros} = \\frac{\\text{Montant en dollars}}{\\text{EUR/USD}}",
+          "legende": {
+            "\\text{Montant en dollars}": "ce que le client étranger lui paie",
+            "\\text{EUR/USD}": "le cours le jour où il convertit"
+          },
+          "en_francais": "Le cours est au dénominateur : plus l'EUR/USD est bas, plus le résultat de la division est grand, donc plus l'exportateur reçoit d'euros."
+        }
+      ],
+      "deux_minutes": "La méthode pour ne jamais se tromper tient en trois questions, à poser dans cet ordre.\n\n- **Quelle devise le client va-t-il recevoir ou payer ?** L'exportateur reçoit des dollars.\n- **Que devra-t-il en faire ?** Les vendre contre des euros.\n- **Un vendeur veut-il un prix haut ou bas ?** Haut. Il veut un dollar fort, donc un EUR/USD bas.\n\nTout exportateur n'a pas ce risque. S'il **facture en euros**, c'est son client américain qui porte le risque de change. Mais son prix devient plus cher en dollars quand l'euro monte, et il risque de perdre des ventes : le risque est déplacé, pas supprimé.\n\nPour supprimer l'incertitude, l'exportateur peut **vendre ses dollars à terme** : il fixe dès aujourd'hui le cours auquel il les vendra dans 3 mois. Il peut aussi acheter une option, qui le protège contre une hausse de l'EUR/USD tout en le laissant profiter d'une baisse, moyennant une prime.",
+      "piege": "Répondre « haut » parce qu'un chiffre élevé semble toujours mieux. Le chiffre de l'EUR/USD est le prix de l'**euro**. Or l'exportateur n'a pas des euros à vendre, il a des dollars. Il veut un dollar cher, donc un prix de l'euro en dollars **bas**.",
+      "a_dire_en_entretien": "« Il veut un euro-dollar bas. Il va recevoir des dollars et devra les convertir en euros : plus le dollar est fort, plus chaque dollar lui rapporte d'euros. Par exemple, un million de dollars font un million d'euros à 1,00, mais seulement 800 000 euros à 1,25. Son risque est donc une hausse de l'euro-dollar, et je lui proposerais de vendre ses dollars à terme pour figer son cours. »",
+      "liens": ["m1.change.importateur", "m1.change.risque-couverture", "m1.change.euro-fort-faible"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.importateur",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 1,
+      "tags": ["change", "client"],
+      "titre": "L'importateur : le miroir de l'exportateur",
+      "une_phrase": "Un importateur européen qui paie en dollars veut un **EUR/USD haut** (euro fort) : les dollars qu'il doit acheter lui coûtent alors moins d'euros.",
+      "trente_secondes": "L'importateur achète à l'étranger et doit régler son fournisseur en dollars. Sa trésorerie est en euros : il devra **acheter des dollars avec ses euros**.\n\nComme tout acheteur, il veut que ce qu'il achète soit bon marché. Il veut des dollars pas chers, donc un euro fort, donc un EUR/USD haut.\n\nSon **risque** : que l'EUR/USD baisse avant qu'il ne paie.",
+      "analogie": "C'est toi avant un voyage à New York. Tu dois acheter des dollars pour payer l'hôtel. Si l'euro est fort, ton séjour te coûte moins cher. S'il baisse entre la réservation et le paiement, la même chambre te coûte plus d'euros.",
+      "visuel": { "type": "outil", "ref": "labo.fx-calculateur", "legende": "Regarde la ligne « importateur » : sa facture en euros baisse quand l'EUR/USD monte." },
+      "exemple_chiffre": [
+        "Une PME française achète des composants aux États-Unis pour 1 000 000 de dollars, payables dans 3 mois. Aujourd'hui, EUR/USD = 1,11.",
+        "Au cours d'aujourd'hui, la facture représente 1 000 000 ÷ 1,11 = 900 901 euros.",
+        "Si l'EUR/USD **monte** à 1,25, elle ne paie que 1 000 000 ÷ 1,25 = 800 000 euros. Elle économise 100 901 euros.",
+        "Si l'EUR/USD **baisse** à 1,00, elle paie 1 000 000 ÷ 1,00 = 1 000 000 euros. Sa facture a augmenté de 99 099 euros, alors que le prix en dollars n'a pas changé."
+      ],
+      "formules": [
+        {
+          "titre": "Ce que paie l'importateur",
+          "latex": "\\text{Coût en euros} = \\frac{\\text{Montant en dollars}}{\\text{EUR/USD}}",
+          "legende": {
+            "\\text{Montant en dollars}": "la facture du fournisseur étranger",
+            "\\text{EUR/USD}": "le cours le jour où il achète ses dollars"
+          },
+          "en_francais": "C'est la même division que pour l'exportateur, mais cette fois c'est un coût : plus l'EUR/USD est haut, plus le coût en euros est petit."
+        }
+      ],
+      "deux_minutes": "L'exportateur et l'importateur font le même calcul, mais l'un regarde une recette et l'autre un coût. Ce qui est bon pour l'un est mauvais pour l'autre.\n\n- Exportateur : il **vend** des dollars, veut un EUR/USD **bas**, craint une **hausse**.\n- Importateur : il **achète** des dollars, veut un EUR/USD **haut**, craint une **baisse**.\n\nBeaucoup d'entreprises sont les deux à la fois : elles achètent des matières premières en dollars et vendent une partie de leur production en dollars. Seule la différence entre les deux flux est exposée : c'est la **position nette**. Avant de proposer une couverture, on demande toujours au client ses flux dans les deux sens.\n\nPour se protéger, l'importateur peut **acheter ses dollars à terme** (il fixe son cours d'achat) ou acheter une option qui lui garantit un cours maximum d'achat tout en lui laissant profiter d'une hausse de l'euro.",
+      "piege": "Appliquer la règle de l'exportateur par réflexe. La bonne question n'est pas « exporte-t-il ou importe-t-il ? » mais « va-t-il **vendre** ou **acheter** des dollars ? ». Un exportateur qui facture en euros n'a aucun dollar à vendre.",
+      "a_dire_en_entretien": "« L'importateur doit acheter des dollars pour payer son fournisseur. Il veut donc des dollars bon marché, c'est-à-dire un euro fort et un euro-dollar haut. Son risque est une baisse de l'euro-dollar : sa facture en euros augmenterait. Il peut se couvrir en achetant ses dollars à terme. »",
+      "liens": ["m1.change.exportateur", "m1.change.risque-couverture"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.change.risque-couverture",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.change",
+      "difficulte": 2,
+      "tags": ["change", "client", "couverture"],
+      "titre": "Risque de change et couverture à terme",
+      "une_phrase": "Se couvrir, c'est **fixer aujourd'hui** le cours auquel on échangera ses devises plus tard, pour ne plus dépendre du marché.",
+      "trente_secondes": "Le **risque de change** est le risque de perdre de l'argent parce que le cours a bougé entre le jour où l'on signe un contrat et le jour où l'on est payé.\n\nLa couverture la plus simple est le **change à terme** (*forward*). L'entreprise et la banque se mettent d'accord aujourd'hui sur un montant, une date et un cours. Le jour venu, l'échange se fait à ce cours, quel que soit le cours du marché.\n\nL'entreprise renonce à un éventuel gain, mais elle sait exactement combien d'euros elle recevra.",
+      "analogie": "C'est comme réserver un billet de train trois mois à l'avance. Tu connais ton prix aujourd'hui. Si les prix montent ensuite, tu es content. S'ils baissent, tu as payé un peu trop cher, mais tu n'as jamais été dans l'incertitude. Une couverture achète de la tranquillité, pas un gain.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["EUR/USD dans 3 mois", "Sans couverture", "Avec vente à terme à 1,12", "Effet de la couverture"],
+        "lignes": [
+          ["1,05 (dollar plus fort)", "952 381 €", "892 857 €", "Manque à gagner : 59 524 €"],
+          ["1,12", "892 857 €", "892 857 €", "Aucun"],
+          ["1,20 (dollar plus faible)", "833 333 €", "892 857 €", "Perte évitée : 59 524 €"]
+        ],
+        "legende": "Exemple fictif : un exportateur vend 1 000 000 de dollars à terme. Avec la couverture, la recette est la même dans les trois cas."
+      },
+      "exemple_chiffre": [
+        "Un exportateur recevra 1 000 000 de dollars dans 3 mois. Sa banque lui propose un cours à terme de 1,12.",
+        "Il signe. Dans 3 mois, il livrera 1 000 000 de dollars et recevra 1 000 000 ÷ 1,12 = 892 857 euros, quoi qu'il arrive.",
+        "Scénario défavorable sans couverture : l'EUR/USD monte à 1,20. Il n'aurait reçu que 1 000 000 ÷ 1,20 = 833 333 euros. La couverture lui a évité une perte de 59 524 euros.",
+        "Scénario favorable sans couverture : l'EUR/USD baisse à 1,05. Il aurait reçu 1 000 000 ÷ 1,05 = 952 381 euros. Avec la couverture, il reste à 892 857 euros : il renonce à 59 524 euros.",
+        "Dans les deux cas, il peut calculer sa marge dès aujourd'hui. C'est l'objectif."
+      ],
+      "formules": [],
+      "deux_minutes": "On distingue trois moments dans la vie d'un flux en devise : la **commande** (le prix est fixé en dollars), la **facture**, puis le **paiement**. Le risque existe dès la commande, parce que le prix en dollars ne bougera plus alors que le cours, lui, bouge.\n\nLe cours à terme n'est pas égal au cours au comptant. Il s'en écarte de quelques dizaines ou centaines de pips, selon l'**écart de taux d'intérêt** entre les deux devises. Ce n'est pas une prévision de la banque sur le cours futur. Le mécanisme précis est détaillé dans le module 4 (change approfondi).\n\nUn engagement à terme est **ferme** : si la vente à l'étranger est annulée, l'entreprise doit quand même livrer les dollars, donc les acheter sur le marché. C'est pourquoi on ne couvre que des flux dont on est raisonnablement sûr, et parfois seulement une partie (par exemple 50 % à 70 % du flux prévu).\n\nL'alternative est l'**option de change** : elle donne le droit, sans l'obligation, d'échanger à un cours fixé. Elle protège contre le scénario défavorable tout en laissant profiter du scénario favorable, mais elle coûte une prime, payée au départ.",
+      "piege": "Dire qu'une couverture « fait gagner de l'argent ». Elle supprime l'incertitude, dans les deux sens. Si le marché évolue en faveur du client, la couverture lui fait rater ce gain. En entretien, explique toujours le scénario où le client regrette de s'être couvert.",
+      "a_dire_en_entretien": "« Le risque de change, c'est que le cours bouge entre la signature du contrat et le paiement. La couverture la plus simple est le change à terme : le client fixe aujourd'hui le cours auquel il échangera ses devises à une date future. Il renonce à un gain éventuel, mais il sécurise sa marge. S'il veut garder le bénéfice d'une évolution favorable, on peut lui proposer une option, qui a un coût : la prime. »",
+      "liens": ["m1.change.exportateur", "m1.change.importateur"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+
+    { "id": "m1.change.c01", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "EUR/USD = 1,10 : que veut dire ce chiffre ?", "verso": "1 euro vaut 1,10 dollar. C'est le prix d'un euro, exprimé en dollars.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c02", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "Dans EUR/USD, quelle est la devise de base ? La devise de cotation ?", "verso": "Base : l'euro (la marchandise dont on donne le prix). Cotation : le dollar (la monnaie dans laquelle le prix est exprimé).", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c03", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "L'EUR/USD monte. Quelle devise se renforce ?", "verso": "L'euro. Il faut plus de dollars pour acheter 1 euro. Le dollar s'affaiblit.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c04", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "Comment passer d'un montant en dollars à un montant en euros ?", "verso": "On divise par l'EUR/USD. Exemple : 1 100 $ ÷ 1,10 = 1 000 €.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c05", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "Qu'est-ce qu'un pip sur l'EUR/USD ?", "verso": "La quatrième décimale : 0,0001. Pour les paires en yen, c'est la deuxième décimale : 0,01.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c06", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Combien vaut un pip sur une position de 1 million d'euros en EUR/USD ?", "verso": "100 dollars : 1 000 000 × 0,0001.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c07", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Bid et ask : qui achète, qui vend, à quel prix ?", "verso": "Ce sont les prix de la banque. Bid : elle achète la devise de base. Ask : elle la vend, plus cher. Le client achète à l'ask et vend au bid.", "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c08", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "« Euro faible » : l'EUR/USD est-il haut ou bas ?", "verso": "Bas. Un euro achète peu de dollars. Euro faible = dollar fort = EUR/USD bas.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c09", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "Un exportateur européen payé en dollars veut-il un EUR/USD haut ou bas ?", "verso": "Bas. Il vend ses dollars : il les veut chers. Son risque est une hausse de l'EUR/USD.", "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c10", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 1, "recto": "Un importateur européen qui paie en dollars veut-il un EUR/USD haut ou bas ?", "verso": "Haut. Il achète des dollars : il les veut bon marché. Son risque est une baisse de l'EUR/USD.", "fiche": "m1.change.importateur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c11", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Pourquoi un euro faible fait-il monter l'inflation en zone euro ?", "verso": "Tout ce qui est importé et payé en dollars, surtout l'énergie, coûte plus d'euros. C'est l'inflation importée.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c12", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Qu'est-ce qu'un change à terme ?", "verso": "Un accord conclu aujourd'hui pour échanger un montant de devises à une date future, à un cours fixé dès maintenant. L'engagement est ferme.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c13", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Quel est l'inconvénient d'une couverture à terme ?", "verso": "Le client renonce au gain si le cours évolue en sa faveur, et il reste engagé même si son flux commercial est annulé.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.c14", "type": "carte", "module": 1, "chapitre": "m1.change", "difficulte": 2, "recto": "Que veut dire « l'euro-dollar a perdu une figure » ?", "verso": "Il a baissé de 100 pips, soit 0,01. Par exemple de 1,10 à 1,09.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.change.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 1, "tags": ["piege"],
+      "question": "Tu es exportateur, ton client te paie en dollars. Tu veux un euro-dollar haut ou bas ?",
+      "reponse_modele": "Bas. Je vais recevoir des dollars et les convertir en euros : plus le dollar est fort, donc plus l'euro-dollar est bas, plus j'obtiens d'euros. Un million de dollars font un million d'euros à 1,00, mais seulement 800 000 euros à 1,25. Mon risque est une hausse de l'euro-dollar ; je peux le couvrir en vendant mes dollars à terme.",
+      "points_cles": ["Je vends des dollars, donc je les veux chers", "Dollar fort = EUR/USD bas", "Un exemple chiffré (1,00 contre 1,25)", "Le risque : une hausse de l'EUR/USD", "La couverture : vente à terme"],
+      "piege": "Répondre « haut » par réflexe. Le chiffre est le prix de l'euro, pas celui du dollar.",
+      "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 1,
+      "question": "Et si tu es importateur et que tu paies ton fournisseur en dollars ?",
+      "reponse_modele": "Je veux un euro-dollar haut. Je dois acheter des dollars avec mes euros : je veux qu'ils soient bon marché, donc un euro fort. Mon risque est une baisse de l'euro-dollar, qui ferait monter ma facture en euros. Je peux acheter mes dollars à terme pour fixer mon coût, ou acheter une option si je veux garder le bénéfice d'une hausse de l'euro.",
+      "points_cles": ["J'achète des dollars, donc je les veux bon marché", "Euro fort = EUR/USD haut", "Le risque : une baisse de l'EUR/USD", "Couverture : achat à terme ou option"],
+      "piege": "Réciter la réponse de l'exportateur. Pose-toi la question : le client vend-il ou achète-t-il des dollars ?",
+      "fiche": "m1.change.importateur", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 1,
+      "question": "Comment lis-tu la cotation EUR/USD = 1,0850 ?",
+      "reponse_modele": "Un euro vaut 1,0850 dollar. L'euro est la devise de base, celle dont on donne le prix, et le dollar la devise de cotation. Si le cours monte, l'euro s'apprécie face au dollar. Le dernier chiffre est le pip : la quatrième décimale.",
+      "points_cles": ["1 euro = 1,0850 dollar", "Devise de base et devise de cotation", "Hausse du cours = hausse de l'euro", "Le pip est la quatrième décimale"],
+      "piege": "Lire le cours à l'envers (« 1 dollar vaut 1,0850 euro »).",
+      "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 2,
+      "question": "Qu'est-ce que le bid et l'ask ? À quel prix traite le client ?",
+      "reponse_modele": "Ce sont les deux prix affichés par la banque. Le bid est le prix auquel elle achète la devise de base, l'ask le prix, plus élevé, auquel elle la vend. L'écart, la fourchette, rémunère la banque. Le client traite du côté défavorable : il achète à l'ask et vend au bid. Sur l'euro-dollar, la paire la plus liquide, la fourchette est très serrée, inférieure à un pip entre banques.",
+      "points_cles": ["Deux prix, vus de la banque", "Bid : la banque achète ; ask : la banque vend", "La fourchette est la rémunération", "Le client achète à l'ask, vend au bid", "Fourchette serrée si la paire est liquide"],
+      "piege": "Se placer du point de vue du client pour lire la cotation.",
+      "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 2,
+      "question": "Un euro faible, est-ce une bonne ou une mauvaise nouvelle pour la zone euro ?",
+      "reponse_modele": "Ça dépend de quel côté on se place. C'est favorable aux exportateurs : leurs produits sont moins chers à l'étranger et leurs recettes en dollars valent plus d'euros. C'est défavorable aux importateurs et aux ménages : tout ce qui est payé en dollars, notamment l'énergie, coûte plus cher, ce qui alimente l'inflation. Pour la banque centrale, un euro faible complique donc la lutte contre l'inflation.",
+      "points_cles": ["Pas de réponse unique : gagnants et perdants", "Exportateurs avantagés", "Importateurs pénalisés", "Inflation importée, surtout via l'énergie"],
+      "piege": "Répondre « mauvaise, puisque faible ». Fort et faible décrivent un niveau de prix, pas un jugement.",
+      "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q06", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 2,
+      "question": "Un client s'est couvert à terme et le cours a évolué en sa faveur. Il te dit que la couverture lui a fait perdre de l'argent. Que réponds-tu ?",
+      "reponse_modele": "Je lui rappelle l'objectif : la couverture ne sert pas à gagner sur le change, elle sert à sécuriser sa marge commerciale. Le jour où il a signé, il ne pouvait pas savoir dans quel sens irait le cours. Grâce au terme, il connaissait son prix de revient et a pu fixer ses prix de vente sereinement. S'il veut à l'avenir profiter d'une évolution favorable, on peut regarder une option ou une couverture partielle, en lui expliquant ce que cela coûte.",
+      "points_cles": ["La couverture achète de la certitude, pas un gain", "On ne juge pas une couverture après coup", "Elle protège la marge commerciale", "Alternatives : option, couverture partielle"],
+      "piege": "Donner raison au client ou, à l'inverse, lui promettre que la prochaine fois le marché ira dans son sens.",
+      "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.q07", "type": "question_entretien", "module": 1, "chapitre": "m1.change", "difficulte": 3,
+      "question": "Un exportateur français facture ses clients américains en euros. A-t-il un risque de change ?",
+      "reponse_modele": "Il n'a pas de risque de conversion, puisqu'il reçoit des euros. Mais il garde un risque économique : si l'euro s'apprécie, son prix en dollars augmente pour ses clients américains, et il peut perdre des ventes face à des concurrents qui produisent en dollars. Le risque est donc transféré au client et se transforme en risque de compétitivité. Il ne se couvre pas avec un terme, mais il doit en tenir compte dans sa politique de prix.",
+      "points_cles": ["Pas de devise à convertir, donc pas de risque de conversion", "Le client étranger porte le risque de change", "Risque de compétitivité si l'euro monte", "Ce risque ne se couvre pas par un simple terme"],
+      "piege": "Répondre « non » sans nuance. La facturation en euros déplace le risque, elle ne le fait pas disparaître.",
+      "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.change.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.change", "difficulte": 1, "enonce": "EUR/USD passe de 1,10 à 1,15. Que s'est-il passé ?", "choix": ["L'euro s'est renforcé face au dollar", "Le dollar s'est renforcé face à l'euro", "Les deux devises se sont renforcées", "On ne peut pas savoir"], "bonne": 0, "explication": "Le chiffre est le prix d'un euro en dollars. S'il monte, il faut plus de dollars pour acheter 1 euro : l'euro s'est renforcé.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z02", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.change", "difficulte": 1, "enonce": "Un exportateur français recevra des dollars dans 3 mois. Que craint-il ?", "choix": ["Une baisse de l'EUR/USD", "Une hausse de l'EUR/USD", "Une baisse des taux de la BCE", "Rien, il est payé en dollars"], "bonne": 1, "explication": "Il devra vendre ses dollars. Si l'EUR/USD monte, le dollar vaut moins d'euros : sa recette en euros diminue.", "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z03", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.change", "difficulte": 1, "enonce": "« Euro faible » et « EUR/USD bas » veulent dire la même chose.", "vrai": true, "explication": "Oui. Un EUR/USD bas signifie qu'un euro achète peu de dollars : l'euro est faible et le dollar est fort.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z04", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "enonce": "EUR/USD = 1,25. Combien d'euros valent 1 000 000 de dollars ?", "reponse": 800000, "tolerance": 500, "unite": "€", "explication": "On divise les dollars par le cours : 1 000 000 ÷ 1,25 = 800 000 euros.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z05", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "Tu détiens 2 000 000 d'euros achetés contre dollars. L'EUR/USD monte de 30 pips. Quel est ton gain, en dollars ?", "reponse": 6000, "tolerance": 1, "unite": "$", "explication": "2 000 000 × 30 × 0,0001 = 6 000 dollars. Un pip vaut 200 dollars sur 2 millions d'euros.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z06", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "La banque cote EUR/USD = 1,0850 / 1,0853. Un importateur veut acheter des dollars. À quel cours traite-t-il ?", "choix": ["1,0850", "1,0853", "1,08515 (le milieu)", "Celui qu'il préfère"], "bonne": 0, "explication": "Acheter des dollars, c'est vendre des euros. La banque lui achète ses euros au bid : 1,0850. Il obtient moins de dollars par euro qu'au cours milieu.", "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z07", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "Une couverture à terme permet à un exportateur de profiter d'une baisse de l'EUR/USD.", "vrai": false, "explication": "Non. Le terme fige le cours dans les deux sens. Si l'EUR/USD baisse (ce qui l'aurait avantagé), il reste au cours fixé. Pour garder ce bénéfice, il faut une option.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z08", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "Remets dans l'ordre le raisonnement pour savoir ce que veut un client face à l'EUR/USD.", "etapes": ["Identifier la devise qu'il va recevoir ou payer", "En déduire s'il va vendre ou acheter des dollars", "Un vendeur veut un dollar cher, un acheteur un dollar bon marché", "Traduire en niveau d'EUR/USD : dollar cher = EUR/USD bas", "En déduire son risque et la couverture adaptée"], "explication": "On part toujours du flux réel du client, jamais de l'étiquette « exportateur » ou « importateur ».", "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z09", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "Le pétrole vaut 80 $ le baril. L'EUR/USD passe de 1,20 à 1,00. Pour un Européen, le baril…", "choix": ["coûte toujours le même prix", "coûte moins cher en euros", "coûte plus cher en euros", "n'est plus payé en dollars"], "bonne": 2, "explication": "80 ÷ 1,20 = 66,67 € ; 80 ÷ 1,00 = 80 €. L'euro s'est affaibli : la même marchandise en dollars coûte plus d'euros.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.z10", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.change", "difficulte": 2, "enonce": "Si USD/JPY monte, le yen se renforce.", "vrai": false, "explication": "Dans USD/JPY, la devise de base est le dollar. Si le cours monte, c'est le dollar qui se renforce et le yen qui s'affaiblit.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.change.x01", "type": "exercice", "module": 1, "chapitre": "m1.change", "difficulte": 1,
+      "titre": "Un exportateur face à trois scénarios",
+      "enonce": "Exemple fictif. Une PME française recevra 2 000 000 de dollars dans 6 mois. Aujourd'hui, EUR/USD = 1,08. Calcule ce qu'elle recevrait en euros au cours d'aujourd'hui, puis si l'EUR/USD vaut 1,02 ou 1,15 dans 6 mois. Quel scénario la pénalise ?",
+      "etapes": [
+        {
+          "titre": "La recette au cours d'aujourd'hui",
+          "texte": "Elle a des dollars et veut des euros : on divise par le cours.",
+          "formule": { "latex": "\\frac{2\\,000\\,000}{1{,}08} = 1\\,851\\,852", "legende": { "2\\,000\\,000": "le montant en dollars", "1{,}08": "l'EUR/USD d'aujourd'hui" }, "en_francais": "Deux millions de dollars divisés par 1,08 dollar par euro." },
+          "resultat": "1 851 852 €",
+          "verif": { "fn": "fx.usdVersEur", "args": [2000000, 1.08], "attendu": 1851852, "tolerance": 1 }
+        },
+        {
+          "titre": "Si l'EUR/USD baisse à 1,02",
+          "texte": "Le dollar s'est renforcé. Même calcul avec le nouveau cours.",
+          "formule": { "latex": "\\frac{2\\,000\\,000}{1{,}02} = 1\\,960\\,784", "legende": { "1{,}02": "l'EUR/USD dans 6 mois" }, "en_francais": "Le diviseur est plus petit, donc le résultat est plus grand." },
+          "resultat": "1 960 784 €, soit 108 932 € de plus",
+          "verif": { "fn": "fx.ecartEur", "args": [2000000, 1.08, 1.02], "attendu": 108932, "tolerance": 1 }
+        },
+        {
+          "titre": "Si l'EUR/USD monte à 1,15",
+          "texte": "Le dollar s'est affaibli. Même calcul.",
+          "formule": { "latex": "\\frac{2\\,000\\,000}{1{,}15} = 1\\,739\\,130", "legende": { "1{,}15": "l'EUR/USD dans 6 mois" }, "en_francais": "Le diviseur est plus grand, donc le résultat est plus petit." },
+          "resultat": "1 739 130 €, soit 112 721 € de moins",
+          "verif": { "fn": "fx.ecartEur", "args": [2000000, 1.08, 1.15], "attendu": -112721, "tolerance": 1 }
+        },
+        {
+          "titre": "Conclusion",
+          "texte": "C'est la **hausse** de l'EUR/USD qui la pénalise. Entre les deux scénarios, sa recette varie de 221 654 euros pour la même vente. Elle peut supprimer cette incertitude en vendant ses dollars à terme."
+        }
+      ],
+      "erreurs_a_eviter": ["Multiplier au lieu de diviser : on a des dollars, on veut des euros.", "Conclure que la hausse du chiffre est une bonne nouvelle.", "Oublier de comparer au cours de départ pour chiffrer le gain ou la perte."],
+      "fiche": "m1.change.exportateur", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.change.x02", "type": "exercice", "module": 1, "chapitre": "m1.change", "difficulte": 2,
+      "titre": "Un importateur, la fourchette et les pips",
+      "enonce": "Exemple fictif. Un importateur doit payer 500 000 dollars aujourd'hui. Sa banque cote EUR/USD = 1,0850 / 1,0853. Combien d'euros paie-t-il ? Et s'il avait attendu et que le cours avait baissé de 100 pips ?",
+      "etapes": [
+        {
+          "titre": "Choisir le bon côté de la fourchette",
+          "texte": "Il achète des dollars, donc il **vend des euros**. La banque achète la devise de base (l'euro) au **bid** : 1,0850."
+        },
+        {
+          "titre": "Le coût en euros aujourd'hui",
+          "texte": "On divise le montant en dollars par le cours.",
+          "formule": { "latex": "\\frac{500\\,000}{1{,}0850} = 460\\,829", "legende": { "500\\,000": "la facture en dollars", "1{,}0850": "le bid" }, "en_francais": "Cinq cent mille dollars divisés par 1,0850 dollar par euro." },
+          "resultat": "460 829 €",
+          "verif": { "fn": "fx.usdVersEur", "args": [500000, 1.085], "attendu": 460829, "tolerance": 1 }
+        },
+        {
+          "titre": "Le cours après une baisse de 100 pips",
+          "texte": "100 pips = 100 × 0,0001 = 0,0100. Le bid passe de 1,0850 à 1,0750.",
+          "resultat": "1,0750"
+        },
+        {
+          "titre": "Le nouveau coût",
+          "texte": "Même division avec le nouveau cours.",
+          "formule": { "latex": "\\frac{500\\,000}{1{,}0750} = 465\\,116", "legende": { "1{,}0750": "le bid après la baisse" }, "en_francais": "L'euro vaut moins de dollars, il en faut donc davantage pour payer la même facture." },
+          "resultat": "465 116 €, soit 4 287 € de plus",
+          "verif": { "fn": "fx.usdVersEur", "args": [500000, 1.075], "attendu": 465116, "tolerance": 1 }
+        }
+      ],
+      "erreurs_a_eviter": ["Prendre l'ask : le client qui vend des euros traite au bid.", "Convertir 100 pips en 0,10 au lieu de 0,0100.", "Croire qu'une baisse de l'EUR/USD arrange l'importateur."],
+      "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1
+    },
+
+    {
+      "id": "m1.change.k01", "type": "cas_pratique", "module": 1, "chapitre": "m1.change", "difficulte": 2,
+      "titre": "Une PME exportatrice reçoit 2 M$ dans 6 mois",
+      "situation": "Le directeur financier d'une PME française t'appelle. Il vient de signer une vente de 2 millions de dollars avec un client américain, payable dans 6 mois. Il n'a jamais fait de couverture de change. Que lui proposes-tu ?",
+      "questions_a_poser": [
+        "Le montant et la date sont-ils certains ? Le contrat est-il signé ?",
+        "Avez-vous aussi des achats en dollars sur la même période ? (pour connaître la position nette)",
+        "À quel cours avez-vous calculé votre prix de vente ? (son cours budget)",
+        "Quelle est votre marge sur cette vente ? Quelle baisse du dollar la ferait disparaître ?",
+        "Voulez-vous une certitude totale, ou garder une chance de profiter d'un dollar plus fort ?"
+      ],
+      "proposition": "Si le flux est certain et qu'il veut de la simplicité : une **vente à terme** de 2 millions de dollars à 6 mois. Il connaît dès aujourd'hui sa recette en euros, sans rien payer au départ.\n\nS'il veut garder une chance de profiter d'une baisse de l'EUR/USD : une **option** qui lui garantit un cours plancher de vente, contre le paiement d'une prime. On peut aussi partager : une partie à terme, une partie en option ou non couverte.",
+      "scenario_defavorable": "Avec le terme : si l'EUR/USD baisse (dollar plus fort), il aurait reçu plus d'euros sans couverture ; il doit le savoir avant de signer. Et si la vente est annulée, il reste engagé à livrer 2 millions de dollars à la banque.\n\nAvec l'option : si le cours ne bouge pas ou évolue en sa faveur, la prime est une dépense qui n'a « servi à rien », comme une assurance sans sinistre.",
+      "faisabilite": "Vérifier que l'entreprise dispose d'une ligne de crédit pour traiter des opérations à terme avec la banque, que le montant couvert ne dépasse pas le flux réel (on ne spécule pas), et que le client a bien compris le fonctionnement et le scénario défavorable.",
+      "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.change.l-cours-de-change", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Cours de change", "anglais": "exchange rate", "definition": "Prix d'une devise exprimé dans une autre. EUR/USD = 1,10 : 1 euro vaut 1,10 dollar.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-devise-de-base", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Devise de base", "anglais": "base currency", "definition": "Première devise d'une paire : celle dont on donne le prix. L'euro dans EUR/USD.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-devise-de-cotation", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Devise de cotation", "anglais": "quote currency", "definition": "Seconde devise d'une paire : celle dans laquelle le prix est exprimé. Le dollar dans EUR/USD.", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-comptant", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Comptant", "anglais": "spot", "definition": "Cours pour un échange immédiat (en pratique, livraison deux jours ouvrés plus tard).", "fiche": "m1.change.lire-cotation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-pip", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Pip", "anglais": "pip", "definition": "Plus petite variation usuelle d'un cours : 0,0001 pour l'EUR/USD, 0,01 pour les paires en yen.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-figure", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Figure", "anglais": "big figure", "definition": "100 pips, soit 0,01 sur l'EUR/USD.", "fiche": "m1.change.pip", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-bid", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Bid (cours acheteur)", "anglais": "bid", "definition": "Prix auquel la banque achète la devise de base. Le client qui vend traite à ce prix.", "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-ask", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Ask (cours vendeur)", "anglais": "ask, offer", "definition": "Prix auquel la banque vend la devise de base, supérieur au bid. Le client qui achète traite à ce prix.", "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-fourchette", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Fourchette", "anglais": "bid-ask spread", "definition": "Écart entre l'ask et le bid. Rémunère la banque ; d'autant plus serrée que la paire est liquide.", "fiche": "m1.change.bid-ask", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-euro-fort", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Euro fort / euro faible", "definition": "Euro fort : EUR/USD haut. Euro faible : EUR/USD bas.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-appreciation", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Appréciation / dépréciation", "anglais": "appreciation / depreciation", "definition": "Hausse / baisse de la valeur d'une monnaie sur le marché des changes.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-inflation-importee", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Inflation importée", "anglais": "imported inflation", "definition": "Hausse des prix due au renchérissement des produits importés, par exemple quand la monnaie se déprécie.", "fiche": "m1.change.euro-fort-faible", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-risque-de-change", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Risque de change", "anglais": "FX risk", "definition": "Risque de perte lié à la variation d'un cours de change entre la signature d'un contrat et son paiement.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-change-a-terme", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Change à terme", "anglais": "FX forward", "definition": "Engagement ferme d'échanger des devises à une date future, à un cours fixé aujourd'hui.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-couverture", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 1, "terme": "Couverture", "anglais": "hedging", "definition": "Opération qui réduit ou supprime un risque financier, par exemple le risque de change.", "fiche": "m1.change.risque-couverture", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.change.l-position-nette", "type": "lexique", "module": 1, "chapitre": "m1.change", "difficulte": 2, "terme": "Position nette", "anglais": "net exposure", "definition": "Différence entre les recettes et les dépenses dans une même devise : la seule partie réellement exposée au risque de change.", "fiche": "m1.change.importateur", "maj": "2026-11-16", "version": 1 }
+  ]
+}

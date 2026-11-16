@@ -1,0 +1,8 @@
+[
+  { "id": 1, "titre": "Politique monétaire, inflation, change et marché actuel", "court": "Politique monétaire", "disponible": true },
+  { "id": 2, "titre": "Options et grecques", "court": "Options", "disponible": false },
+  { "id": 3, "titre": "Taux, obligations et dérivés de taux", "court": "Taux", "disponible": false },
+  { "id": 4, "titre": "Change approfondi", "court": "Change", "disponible": false },
+  { "id": 5, "titre": "Produits structurés", "court": "Structurés", "disponible": false },
+  { "id": 6, "titre": "Culture bancaire et métiers", "court": "Banque", "disponible": false }
+]

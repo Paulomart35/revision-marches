@@ -1,0 +1,441 @@
+{
+  "chapitre": {
+    "id": "m1.forces",
+    "module": 1,
+    "ordre": 2,
+    "titre": "Ce qui fait bouger l'EUR/USD",
+    "resume": "Un cours de change est un prix. Cinq forces décident de la demande d'euros et de dollars : l'écart de taux, la croissance, la peur, l'énergie et la politique."
+  },
+  "elements": [
+    {
+      "id": "m1.forces.offre-demande",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 1,
+      "tags": ["change", "macro"],
+      "titre": "Un cours de change est un prix",
+      "une_phrase": "L'EUR/USD monte quand on demande plus d'euros que de dollars, et baisse dans le cas contraire : c'est un prix, fixé par l'offre et la demande.",
+      "trente_secondes": "Personne ne décide du cours de l'euro. Il résulte, à chaque seconde, de tous ceux qui achètent et vendent des devises : entreprises qui commercent, investisseurs qui placent leur argent, banques, banques centrales.\n\nSi beaucoup de monde veut des euros (pour acheter des produits européens ou placer en Europe), l'euro monte. Si beaucoup de monde veut des dollars, l'EUR/USD baisse.\n\nPour expliquer un mouvement, on cherche donc toujours : **qui a eu besoin d'acheter quelle devise, et pourquoi ?**",
+      "analogie": "C'est le prix des fraises au marché. S'il y a foule pour en acheter, le prix monte. Si les étals débordent et que personne n'en veut, il baisse. Une devise est une marchandise comme une autre : son prix monte quand elle est demandée.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["La force", "Ce qui se passe", "Effet sur l'EUR/USD"],
+        "lignes": [
+          ["1. Écart de taux", "Les taux américains montent plus que les taux européens", "Baisse"],
+          ["2. Croissance", "L'économie américaine croît plus vite que l'européenne", "Baisse"],
+          ["3. Peur", "Une crise éclate, les investisseurs cherchent un refuge", "Baisse"],
+          ["4. Énergie", "Le pétrole et le gaz flambent", "Baisse"],
+          ["5. Politique", "Crise budgétaire ou politique en zone euro", "Baisse"]
+        ],
+        "legende": "Chaque force joue aussi dans l'autre sens : si c'est l'Europe qui est avantagée, l'EUR/USD monte."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un fonds américain décide de placer 5 milliards de dollars en actions européennes.",
+        "Pour acheter ces actions, il lui faut des euros. Il vend donc 5 milliards de dollars et achète des euros.",
+        "Cette demande supplémentaire d'euros pousse le prix de l'euro vers le haut : l'EUR/USD passe, par exemple, de 1,1000 à 1,1020.",
+        "Le mouvement inverse se produit le jour où il vend ses actions et rapatrie ses dollars."
+      ],
+      "formules": [],
+      "deux_minutes": "Le marché des changes est le plus grand marché du monde : selon l'enquête triennale de la Banque des règlements internationaux (BRI), il s'y échangeait environ **7 500 milliards de dollars par jour** en avril 2022. L'EUR/USD est la paire la plus traitée.\n\nOn peut classer les acheteurs et vendeurs en deux familles.\n\n- **Les flux commerciaux** : entreprises qui exportent, importent, et ménages qui voyagent. Ils sont réguliers et prévisibles.\n- **Les flux financiers** : investisseurs qui déplacent leur épargne d'un pays à l'autre pour chercher du rendement ou de la sécurité. Ils sont beaucoup plus gros et plus rapides. Ce sont eux qui font l'essentiel des mouvements à court terme.\n\nC'est pour cela que les **taux d'intérêt** sont la première force : ils décident d'où l'argent se place.\n\nUn régime où le cours est fixé librement par le marché s'appelle un régime de **changes flottants**. C'est le cas de l'euro, du dollar, de la livre et du yen. D'autres pays fixent leur cours à une devise de référence (régime de change fixe).",
+      "piege": "Dire que « la BCE fixe le cours de l'euro ». Non : la BCE fixe des taux d'intérêt. Le cours de l'euro est fixé par le marché. Les taux de la BCE l'influencent, mais elle n'a pas d'objectif de change.",
+      "a_dire_en_entretien": "« L'euro-dollar est un prix, fixé par l'offre et la demande. Il monte quand les investisseurs et les entreprises demandent plus d'euros que de dollars. Les principaux moteurs sont l'écart de taux d'intérêt entre la Fed et la BCE, l'écart de croissance, l'aversion au risque, le prix de l'énergie et la situation politique et budgétaire. »",
+      "liens": ["m1.forces.ecart-taux", "m1.forces.croissance", "m1.forces.valeur-refuge", "m1.forces.energie", "m1.forces.politique"],
+      "sources": [{ "titre": "BRI, enquête triennale des banques centrales sur les marchés des changes (avril 2022)", "url": "https://www.bis.org/statistics/rpfx22.htm", "date": "2022-10-27" }],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.ecart-taux",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 2,
+      "tags": ["change", "taux", "banque centrale"],
+      "titre": "L'écart de taux : la force principale",
+      "une_phrase": "L'argent va là où il rapporte le plus : si les taux américains montent plus que les taux européens, les investisseurs achètent des dollars et **l'EUR/USD baisse**.",
+      "trente_secondes": "Un investisseur compare ce que rapporte un placement sans risque en dollars et en euros. La différence s'appelle l'**écart de taux** (*interest rate differential*).\n\nQuand la Fed monte ses taux plus que la BCE, placer en dollars devient plus intéressant. Les investisseurs vendent des euros pour acheter des dollars. Le dollar est plus demandé : il monte, donc l'EUR/USD baisse.\n\nCe qui compte n'est pas le niveau d'un seul taux, mais la **différence** entre les deux, et surtout la façon dont le marché pense qu'elle va évoluer.",
+      "analogie": "Deux banques sont dans la même rue. L'une propose un livret à 2 %, l'autre à 4 %. Les clients retirent leur argent de la première pour le déposer dans la seconde. Entre deux devises, c'est pareil, sauf que pour « changer de banque » il faut d'abord acheter la monnaie de l'autre, ce qui fait monter son prix.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "La Fed monte ses taux plus que la BCE", "texte": "Placer en dollars rapporte plus qu'en euros." },
+          { "titre": "Les investisseurs achètent des dollars", "texte": "Ils vendent des euros pour cela." },
+          { "titre": "Le dollar monte", "texte": "Plus de demande, donc un prix plus haut." },
+          { "titre": "L'EUR/USD baisse", "texte": "Un euro achète moins de dollars." }
+        ],
+        "legende": "La chaîne à savoir dérouler. Elle marche aussi à l'envers : si la BCE monte plus que la Fed, l'EUR/USD monte."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un placement à un an rapporte 2 % en euros et 4 % en dollars. L'écart de taux est de 2 points en faveur du dollar. EUR/USD = 1,10.",
+        "Un investisseur a 1 000 000 d'euros. S'il les place en euros : il gagne 1 000 000 × 2 % = 20 000 euros.",
+        "S'il les place en dollars : il achète 1 000 000 × 1,10 = 1 100 000 dollars, qui rapportent 1 100 000 × 4 % = 44 000 dollars.",
+        "Si le cours n'a pas bougé au bout d'un an, il revend 1 144 000 dollars ÷ 1,10 = 1 040 000 euros. Il a gagné 40 000 euros, deux fois plus.",
+        "Des milliers d'investisseurs font ce calcul en même temps : c'est leur achat de dollars qui fait baisser l'EUR/USD."
+      ],
+      "formules": [
+        {
+          "titre": "L'écart de taux",
+          "latex": "\\text{Écart de taux} = r_{\\text{USD}} - r_{\\text{EUR}}",
+          "legende": {
+            "r_{\\text{USD}}": "le taux d'intérêt en dollars (par exemple le taux à 2 ans américain)",
+            "r_{\\text{EUR}}": "le taux d'intérêt en euros de même durée (par exemple le taux à 2 ans allemand)"
+          },
+          "en_francais": "C'est le supplément de rendement qu'on obtient en plaçant en dollars plutôt qu'en euros. Quand il augmente, le dollar attire les capitaux."
+        }
+      ],
+      "deux_minutes": "**Le marché anticipe.** Le cours bouge quand les *attentes* de taux changent, pas le jour de la décision. Si tout le monde s'attend à une hausse de la Fed, elle est déjà « dans le prix » le jour J. C'est la surprise qui fait bouger le cours : un chiffre d'inflation américaine plus fort que prévu, par exemple, fait monter les taux attendus et donc le dollar. Pour cette raison, on regarde surtout l'écart entre les **taux à 2 ans**, qui reflètent les taux directeurs attendus.\n\n**L'exemple de 2022.** La Fed a relevé son taux directeur de 0 – 0,25 % en mars 2022 à 4,25 – 4,50 % en décembre 2022. La BCE a commencé plus tard : son taux de dépôt est passé de −0,50 % en juillet 2022 à 2,00 % en décembre 2022. L'écart s'est creusé en faveur du dollar, et l'EUR/USD est tombé d'environ 1,13 début 2022 à environ 0,96 fin septembre 2022, sous la parité.\n\n**Ce n'est pas de l'argent gratuit.** Le gain de taux peut être effacé par le change : dans l'exemple, si le dollar perd plus de 2 % dans l'année, le placement en dollars rapporte moins que le placement en euros. Et si l'investisseur se couvre à terme, le cours à terme lui reprend exactement l'écart de taux (module 4).\n\nEmprunter dans la devise à taux bas pour placer dans la devise à taux haut, sans se couvrir, s'appelle le **portage** (*carry trade*).",
+      "piege": "Se tromper de sens : « la Fed monte ses taux, donc ça pèse sur l'économie américaine, donc le dollar baisse ». À court terme, c'est le contraire : des taux plus hauts **attirent** les capitaux et font monter la monnaie. Deuxième piège : raisonner sur le niveau des taux au lieu de l'écart et des anticipations.",
+      "a_dire_en_entretien": "« Le premier moteur de l'euro-dollar est l'écart de taux entre la Fed et la BCE. Si la Fed monte ses taux plus que la BCE, les placements en dollars rapportent plus : les investisseurs achètent des dollars, le dollar s'apprécie et l'euro-dollar baisse. C'est ce qu'on a vu en 2022, quand il est passé sous la parité. Et ce sont les anticipations qui comptent : le cours bouge quand le marché révise ses attentes, pas seulement le jour de la décision. »",
+      "liens": ["m1.forces.offre-demande", "m1.forces.commenter-mouvement"],
+      "sources": [
+        { "titre": "Réserve fédérale, historique de la cible des Fed funds", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm" },
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html" }
+      ],
+      "chiffres": [
+        { "libelle": "Cible des Fed funds", "valeur": "4,25 – 4,50 %", "date": "2022-12-14", "source": "Réserve fédérale" },
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,00 %", "date": "2022-12-21", "source": "BCE" },
+        { "libelle": "EUR/USD, point bas", "valeur": "environ 0,96", "date": "2022-09-28", "source": "BCE, taux de référence" }
+      ],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.croissance",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 1,
+      "tags": ["change", "macro"],
+      "titre": "La croissance attire les capitaux",
+      "une_phrase": "Une économie qui croît plus vite que ses voisines attire les investisseurs, qui doivent acheter sa monnaie : celle-ci s'apprécie.",
+      "trente_secondes": "Quand l'économie américaine va mieux que l'économie européenne, les entreprises américaines font plus de bénéfices. Les investisseurs du monde entier veulent acheter leurs actions et financer leurs projets. Pour cela, il leur faut des dollars.\n\nLa croissance agit aussi **à travers les taux** : une économie dynamique pousse sa banque centrale à garder des taux plus élevés, ce qui renforce encore sa monnaie.\n\nRésultat : une croissance plus forte aux États-Unis qu'en zone euro fait baisser l'EUR/USD.",
+      "analogie": "Deux centres commerciaux : l'un est plein, de nouvelles boutiques ouvrent chaque mois ; l'autre se vide. Les commerçants veulent tous s'installer dans le premier, et les loyers y montent. La monnaie est le « ticket d'entrée » d'une économie : plus l'économie attire, plus le ticket est cher.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Les chiffres américains sont meilleurs que prévu", "texte": "Emploi, consommation, activité des entreprises." },
+          { "titre": "Les investisseurs veulent des actifs américains", "texte": "Actions, obligations, usines." },
+          { "titre": "La Fed a moins de raisons de baisser ses taux", "texte": "L'écart de taux joue dans le même sens." },
+          { "titre": "Le dollar monte, l'EUR/USD baisse", "texte": "Les deux effets s'additionnent." }
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Le marché attendait 150 000 créations d'emplois aux États-Unis ce mois-ci. Le chiffre publié est de 300 000.",
+        "Les investisseurs en concluent que l'économie américaine est solide et que la Fed gardera des taux élevés plus longtemps.",
+        "Dans la minute qui suit, ils achètent des dollars : l'EUR/USD passe de 1,1000 à 1,0940, soit une baisse de 60 pips.",
+        "Ce qui a fait bouger le cours, ce n'est pas le niveau du chiffre, c'est l'**écart avec ce qui était attendu**."
+      ],
+      "formules": [],
+      "deux_minutes": "Les indicateurs que le marché des changes regarde le plus sont ceux qui arrivent tôt et qui renseignent sur la croissance en cours.\n\n- **Le rapport sur l'emploi américain** (*non-farm payrolls*), publié en général le premier vendredi du mois : créations d'emplois, taux de chômage, salaires.\n- **Les indices PMI** (enquêtes auprès des directeurs d'achat) : au-dessus de 50, l'activité progresse ; en dessous, elle recule.\n- **Le PIB**, publié chaque trimestre, plus tardif.\n\nÀ chaque publication, on compare le chiffre au **consensus**, c'est-à-dire à la moyenne des prévisions des économistes. Un chiffre « bon » mais inférieur au consensus peut faire baisser la monnaie.\n\nAttention, le lien n'est pas mécanique. Une croissance forte tirée par la consommation creuse les importations, donc le déficit commercial, ce qui pèse à long terme sur la monnaie. À court terme, c'est l'effet « attraction des capitaux et taux plus hauts » qui domine.",
+      "piege": "Commenter un chiffre dans l'absolu : « l'emploi américain est bon, donc le dollar monte ». Si le marché attendait encore mieux, le dollar baisse. Compare toujours au consensus.",
+      "a_dire_en_entretien": "« Un écart de croissance en faveur des États-Unis soutient le dollar, pour deux raisons : les investisseurs veulent des actifs américains, et la Fed peut garder des taux plus élevés. Mais ce qui fait bouger le cours le jour d'une publication, c'est la surprise par rapport au consensus, pas le chiffre lui-même. »",
+      "liens": ["m1.forces.ecart-taux", "m1.forces.offre-demande"],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.valeur-refuge",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 2,
+      "tags": ["change", "risque"],
+      "titre": "La peur et les valeurs refuges",
+      "une_phrase": "Quand les investisseurs ont peur, ils vendent les actifs risqués et achètent des **valeurs refuges**, au premier rang desquelles le dollar : l'EUR/USD baisse.",
+      "trente_secondes": "L'**aversion au risque** (*risk-off*) désigne les moments où les investisseurs veulent avant tout protéger leur argent : crise financière, guerre, pandémie, krach boursier.\n\nIls vendent alors des actions et des devises de pays fragiles, et se replient sur ce qui leur semble le plus sûr et le plus facile à revendre : le **dollar** et les obligations d'État américaines, mais aussi le franc suisse, le yen et l'or.\n\nÀ l'inverse, quand la confiance revient (*risk-on*), ils ressortent du dollar pour chercher du rendement ailleurs.",
+      "analogie": "Quand l'orage éclate pendant un pique-nique, tout le monde court vers le même abri, même s'il n'est pas le plus confortable. Le dollar est cet abri : on y va parce qu'il est grand, solide, et que tout le monde sait où il est.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Climat de marché", "Ce que font les investisseurs", "Dollar", "EUR/USD"],
+        "lignes": [
+          ["Peur (risk-off)", "Vendent actions et devises fragiles, achètent du dollar, du franc suisse, du yen, de l'or", "Monte", "Baisse"],
+          ["Confiance (risk-on)", "Reviennent sur les actions et les devises à rendement élevé", "Baisse", "Monte"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Mars 2020, début de la pandémie de Covid-19 : les bourses mondiales chutent d'environ un tiers en un mois.",
+        "Les entreprises et les fonds du monde entier cherchent des dollars en urgence, pour rembourser leurs dettes en dollars et se mettre à l'abri.",
+        "L'EUR/USD, qui était monté vers 1,14 le 9 mars 2020, retombe vers 1,07 le 20 mars 2020 : environ 700 pips en deux semaines.",
+        "La Fed doit ouvrir des lignes de prêt en dollars aux autres banques centrales pour calmer cette « ruée vers le dollar »."
+      ],
+      "formules": [],
+      "deux_minutes": "Pourquoi le dollar, même quand la crise vient des États-Unis, comme en 2008 ? Trois raisons.\n\n- C'est la **monnaie de réserve** mondiale : la majorité des réserves des banques centrales, des échanges de matières premières et des dettes internationales est en dollars.\n- Le marché des obligations d'État américaines (*Treasuries*) est le plus **profond** et le plus **liquide** du monde : on peut y placer et en retirer des sommes énormes sans faire bouger les prix.\n- En cas de crise, ceux qui ont des **dettes en dollars** doivent en racheter, ce qui en augmente la demande.\n\nL'indicateur de peur le plus suivi est le **VIX**, qui mesure la volatilité attendue sur les actions américaines. Un VIX qui bondit accompagne en général un dollar qui monte.\n\nOn résume parfois le comportement du dollar par le **« sourire du dollar »** (*dollar smile*) : il monte quand le monde va très mal (refuge), il monte aussi quand l'économie américaine va très bien (croissance et taux), et il baisse entre les deux.\n\nCe statut n'est pas garanti pour toujours : si les investisseurs doutaient de la solidité des finances ou des institutions américaines, le dollar pourrait cesser de jouer ce rôle lors d'une crise.",
+      "piege": "Penser qu'une crise née aux États-Unis fait forcément baisser le dollar. En 2008, la crise est partie du marché immobilier américain, et pourtant le dollar a monté : dans la panique, le monde entier avait besoin de dollars.",
+      "a_dire_en_entretien": "« En période de stress, les investisseurs réduisent leurs risques et se réfugient sur le dollar, le franc suisse, le yen et l'or. Le dollar en profite parce qu'il est la monnaie de réserve mondiale et que le marché des Treasuries est le plus liquide. C'est pourquoi l'euro-dollar a tendance à baisser quand la peur monte, comme en mars 2020. »",
+      "liens": ["m1.forces.offre-demande", "m1.forces.commenter-mouvement"],
+      "sources": [{ "titre": "BCE, taux de change de référence de l'euro (historique EUR/USD)", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.fr.html" }],
+      "chiffres": [
+        { "libelle": "EUR/USD", "valeur": "environ 1,14", "date": "2020-03-09", "source": "BCE, taux de référence" },
+        { "libelle": "EUR/USD", "valeur": "environ 1,07", "date": "2020-03-20", "source": "BCE, taux de référence" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.energie",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 2,
+      "tags": ["change", "energie", "macro"],
+      "titre": "L'énergie : le point faible de l'euro",
+      "une_phrase": "L'Europe importe l'essentiel de son pétrole et de son gaz : quand l'énergie flambe, elle doit acheter plus de dollars et son économie souffre, donc **l'euro baisse**.",
+      "trente_secondes": "Le pétrole se paie en dollars partout dans le monde. La zone euro en produit très peu : elle doit en importer.\n\nQuand le prix de l'énergie monte, deux choses se produisent. D'abord, les Européens doivent **vendre plus d'euros pour acheter les dollars** nécessaires. Ensuite, la facture énergétique **appauvrit l'économie** : les ménages consomment moins, les usines produisent moins cher ailleurs.\n\nLes États-Unis, eux, produisent leur pétrole et leur gaz et en exportent : ils sont beaucoup moins touchés. L'écart joue contre l'euro.",
+      "analogie": "Deux voisins voient le prix du bois de chauffage doubler. Le premier possède une forêt : il se chauffe avec son bois et en vend même. Le second doit tout acheter : son budget est amputé. Les États-Unis sont le premier voisin, la zone euro le second.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Le pétrole et le gaz flambent", "texte": "Guerre, tensions sur l'offre, hiver rigoureux." },
+          { "titre": "La facture d'importation de l'Europe gonfle", "texte": "Il faut vendre plus d'euros pour payer en dollars." },
+          { "titre": "L'économie européenne ralentit", "texte": "Pouvoir d'achat en baisse, industrie pénalisée." },
+          { "titre": "L'euro baisse", "texte": "L'EUR/USD recule… ce qui renchérit encore l'énergie importée." }
+        ],
+        "legende": "Un cercle vicieux : énergie chère → euro faible → énergie encore plus chère en euros."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. La zone euro importe pour 300 milliards de dollars d'énergie par an quand le baril vaut 70 dollars.",
+        "Le prix de l'énergie augmente de 50 %. La facture passe à 300 × 1,5 = 450 milliards de dollars.",
+        "Les importateurs européens doivent acheter 150 milliards de dollars de plus dans l'année, donc vendre des euros en plus.",
+        "Cette vente supplémentaire d'euros pèse sur le cours. Et si l'EUR/USD passe de 1,10 à 1,00, la facture en euros passe de 450 ÷ 1,10 = 409 milliards à 450 ÷ 1,00 = 450 milliards : le change aggrave le choc."
+      ],
+      "formules": [],
+      "deux_minutes": "Le mot savant est **termes de l'échange** (*terms of trade*) : le rapport entre le prix de ce qu'un pays exporte et le prix de ce qu'il importe. Quand l'énergie monte, les termes de l'échange de la zone euro se dégradent : elle doit vendre plus de voitures et d'avions pour payer la même quantité de gaz.\n\n**L'exemple de 2022.** Après l'invasion de l'Ukraine par la Russie en février 2022, le prix du gaz en Europe a atteint des records à l'été 2022. La zone euro, habituellement en excédent commercial, a enregistré un **déficit commercial** record sur l'année. C'est l'une des deux raisons, avec l'écart de taux, du passage de l'EUR/USD sous la parité en 2022.\n\nPour la banque centrale, c'est une double peine : l'énergie chère fait monter l'inflation, et l'euro faible la fait monter encore (inflation importée), alors que l'activité ralentit. C'est le terrain de la **stagflation**.\n\nÀ l'inverse, les devises des pays exportateurs d'énergie ou de matières premières (couronne norvégienne, dollar canadien) ont tendance à monter avec le prix du pétrole.",
+      "piege": "Oublier le deuxième effet. L'énergie chère ne pèse pas sur l'euro seulement parce qu'il faut acheter des dollars : elle dégrade aussi la croissance européenne par rapport à la croissance américaine. Les deux canaux s'additionnent.",
+      "a_dire_en_entretien": "« La zone euro est importatrice nette d'énergie, payée en dollars. Quand le pétrole et le gaz montent, sa balance commerciale se dégrade et sa croissance ralentit, alors que les États-Unis sont producteurs. C'est donc négatif pour l'euro. On l'a vu en 2022 : choc gazier, déficit commercial, et euro-dollar sous la parité. »",
+      "liens": ["m1.change.euro-fort-faible", "m1.inflation.stagflation", "m1.forces.commenter-mouvement"],
+      "sources": [{ "titre": "Eurostat, commerce international de biens de la zone euro (2022)", "url": "https://ec.europa.eu/eurostat/fr/web/international-trade-in-goods" }],
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.politique",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 2,
+      "tags": ["change", "politique", "dette"],
+      "titre": "La politique et les finances publiques",
+      "une_phrase": "Une crise politique ou budgétaire inquiète les investisseurs, qui vendent les actifs du pays, donc sa monnaie.",
+      "trente_secondes": "Un investisseur étranger qui détient des obligations d'un État veut être sûr d'être remboursé, et de l'être dans une monnaie qui garde sa valeur.\n\nSi un gouvernement tombe, si le déficit dérape ou si une élection crée de l'incertitude, il demande un taux plus élevé pour continuer à prêter, ou il vend. En vendant, il se débarrasse aussi de la monnaie.\n\nLa monnaie baisse alors **alors même que les taux d'emprunt du pays montent** : ces taux plus hauts ne récompensent pas un placement attrayant, ils compensent un risque.",
+      "analogie": "Tu prêtes de l'argent à un ami. S'il change de travail tous les mois et dépense plus qu'il ne gagne, tu hésites à lui prêter à nouveau, ou tu lui demandes des garanties. Les investisseurs se comportent de la même façon avec un État.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Pourquoi les taux montent", "Ce que pensent les investisseurs", "Effet sur la monnaie"],
+        "lignes": [
+          ["La banque centrale relève ses taux contre l'inflation", "« Ce placement rapporte plus, et l'institution est crédible »", "Elle monte"],
+          ["L'État inquiète : déficit, crise politique", "« Je veux être payé pour le risque, ou je vends »", "Elle baisse"]
+        ],
+        "legende": "Des taux en hausse ne font monter la monnaie que s'ils reflètent un rendement, pas une peur."
+      },
+      "exemple_chiffre": [
+        "Royaume-Uni, 23 septembre 2022 : le gouvernement annonce de fortes baisses d'impôts non financées (le « mini-budget »).",
+        "Les investisseurs doutent de la trajectoire de la dette. Ils vendent les obligations d'État britanniques : leurs taux bondissent.",
+        "Ils vendent aussi la livre : le 26 septembre 2022, elle touche un plus bas historique face au dollar, vers 1,035 dollar pour une livre, contre environ 1,13 quelques jours plus tôt.",
+        "La Banque d'Angleterre doit intervenir en achetant des obligations ; le plan est abandonné et la Première ministre démissionne en octobre 2022."
+      ],
+      "formules": [],
+      "deux_minutes": "En zone euro, la particularité est qu'il y a **une seule monnaie pour plusieurs États**. Le stress sur un pays se lit d'abord dans son **spread souverain** : l'écart entre son taux d'emprunt à 10 ans et celui de l'Allemagne, considérée comme l'emprunteur le plus sûr. Pour la France, c'est l'écart OAT-Bund.\n\nUn spread qui s'écarte dans un pays ne fait pas forcément baisser l'euro. Il pèse sur la monnaie quand le marché craint une **contagion** ou un problème pour l'ensemble de la zone, comme pendant la crise de la dette de 2011-2012, quand l'existence même de l'euro était mise en doute.\n\nLes investisseurs surveillent aussi les **agences de notation** (S&P, Moody's, Fitch), qui évaluent la capacité des États à rembourser, et les **élections**, sources d'incertitude sur la politique économique à venir.\n\nLe sujet des finances publiques, des spreads et de la notation est développé dans un chapitre dédié de ce module.",
+      "piege": "Appliquer la règle « taux plus hauts = monnaie plus forte » à une crise budgétaire. Si les taux montent parce que le pays fait peur, la monnaie baisse. Demande-toi toujours **pourquoi** les taux montent.",
+      "a_dire_en_entretien": "« Le risque politique et budgétaire pèse sur une monnaie : quand les investisseurs doutent de la trajectoire de la dette ou de la stabilité politique, ils vendent les obligations du pays et sa devise. On voit alors les taux monter et la monnaie baisser en même temps, comme au Royaume-Uni en septembre 2022. En zone euro, on le lit d'abord dans les spreads souverains, comme l'écart OAT-Bund. »",
+      "liens": ["m1.forces.ecart-taux", "m1.forces.valeur-refuge", "m1.forces.commenter-mouvement"],
+      "sources": [{ "titre": "Banque d'Angleterre, intervention sur le marché des gilts (28 septembre 2022)", "url": "https://www.bankofengland.co.uk/news/2022/september/bank-of-england-announces-gilt-market-operation", "date": "2022-09-28" }],
+      "chiffres": [{ "libelle": "GBP/USD, plus bas historique", "valeur": "environ 1,035", "date": "2022-09-26", "source": "Cours de marché, plus bas en séance" }],
+      "exemple_fictif": false,
+      "maj": "2026-11-16",
+      "version": 1
+    },
+    {
+      "id": "m1.forces.commenter-mouvement",
+      "type": "fiche",
+      "module": 1,
+      "chapitre": "m1.forces",
+      "difficulte": 2,
+      "tags": ["change", "methode", "entretien"],
+      "titre": "La méthode pour commenter un mouvement de l'EUR/USD",
+      "une_phrase": "Pour expliquer un mouvement de change, donne le **sens**, puis **une ou deux forces** parmi les cinq, puis **la conséquence** pour un client.",
+      "trente_secondes": "En entretien, on te demandera « pourquoi l'euro-dollar a-t-il baissé ? » ou « où vois-tu l'euro-dollar ? ». On n'attend pas une prévision juste, on attend un **raisonnement clair**.\n\nUtilise toujours le même plan en trois temps. Un : le fait (« il est passé de tant à tant »). Deux : la cause, en déroulant une chaîne logique à partir des taux, de la croissance, du risque, de l'énergie ou de la politique. Trois : ce que ça change pour un exportateur ou un importateur.",
+      "analogie": "C'est le bulletin météo. Le présentateur dit d'abord le temps qu'il fait, puis pourquoi (« une dépression arrive de l'Atlantique »), puis ce que ça change pour toi (« prenez un parapluie »). Un bon commentaire de marché suit le même ordre.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Le fait", "texte": "« L'euro-dollar est passé de 1,13 à 0,96 en neuf mois. »" },
+          { "titre": "La force principale", "texte": "« La Fed a monté ses taux plus tôt et plus fort que la BCE. »" },
+          { "titre": "La force secondaire", "texte": "« Le choc gazier a pénalisé l'Europe. »" },
+          { "titre": "La conséquence client", "texte": "« Bon pour les exportateurs, mauvais pour les importateurs et l'inflation. »" }
+        ],
+        "legende": "Exemple avec l'année 2022."
+      },
+      "exemple_chiffre": [
+        "Fait : l'EUR/USD est passé d'environ 1,13 début janvier 2022 à environ 0,96 fin septembre 2022.",
+        "En pourcentage : 0,96 ÷ 1,13 − 1 = −15 %. L'euro a perdu 15 % de sa valeur face au dollar.",
+        "Conséquence pour un exportateur qui reçoit 1 000 000 de dollars : 1 000 000 ÷ 1,13 = 884 956 euros en janvier, 1 000 000 ÷ 0,96 = 1 041 667 euros en septembre. Il reçoit 156 711 euros de plus.",
+        "Conséquence pour un importateur : la même facture en dollars lui coûte 156 711 euros de plus."
+      ],
+      "formules": [
+        {
+          "titre": "Variation d'un cours en pourcentage",
+          "latex": "\\text{Variation} = \\frac{\\text{Cours final}}{\\text{Cours initial}} - 1",
+          "legende": {
+            "\\text{Cours final}": "le cours à la fin de la période",
+            "\\text{Cours initial}": "le cours au début de la période"
+          },
+          "en_francais": "On divise le cours d'arrivée par le cours de départ et on retire 1. Un résultat de −0,15 veut dire que la devise de base, l'euro, a perdu 15 % face au dollar."
+        }
+      ],
+      "deux_minutes": "Quelques réflexes pour un commentaire solide.\n\n- **Hiérarchise.** Cite d'abord l'écart de taux, presque toujours présent, puis une force secondaire. Ne récite pas les cinq.\n- **Sépare le court et le long terme.** À court terme : anticipations de taux, publications économiques, climat de risque. À moyen terme : croissance relative, énergie, finances publiques.\n- **Parle d'anticipations.** « Le marché a révisé à la hausse ses attentes de taux de la Fed » est plus juste que « la Fed a monté ses taux ».\n- **Donne les deux scénarios.** Si on te demande ta vue : « mon scénario central est… parce que… ; le risque à ce scénario est… ».\n- **Reste humble.** Personne ne sait prévoir un cours de change. On juge la logique, pas la prédiction.\n\nTermine par le client : un mouvement de change n'est intéressant, pour une banque, que par ce qu'il change pour ceux qu'elle sert.",
+      "piege": "Empiler toutes les causes possibles sans les relier. Un bon commentaire, c'est **une** chaîne de causalité déroulée proprement, pas une liste de mots-clés.",
+      "a_dire_en_entretien": "« En 2022, l'euro-dollar est passé d'environ 1,13 à moins de 1, soit une baisse de 15 %. La raison principale est l'écart de taux : la Fed a relevé ses taux plus tôt et plus vite que la BCE. La seconde est le choc gazier, qui a dégradé la balance commerciale et la croissance européennes. Pour les clients, cela a favorisé les exportateurs et pénalisé les importateurs, tout en alimentant l'inflation importée. »",
+      "liens": ["m1.forces.ecart-taux", "m1.forces.energie", "m1.forces.valeur-refuge", "m1.forces.politique", "m1.forces.croissance"],
+      "sources": [{ "titre": "BCE, taux de change de référence de l'euro (historique EUR/USD)", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.fr.html" }],
+      "chiffres": [
+        { "libelle": "EUR/USD", "valeur": "environ 1,13", "date": "2022-01-03", "source": "BCE, taux de référence" },
+        { "libelle": "EUR/USD", "valeur": "environ 0,96", "date": "2022-09-28", "source": "BCE, taux de référence" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16",
+      "version": 1
+    },
+
+    { "id": "m1.forces.c01", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "recto": "Quelles sont les cinq forces qui font bouger l'EUR/USD ?", "verso": "L'écart de taux (la principale), la croissance, la peur (valeur refuge), l'énergie, la politique et les finances publiques.", "fiche": "m1.forces.offre-demande", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c02", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "recto": "La Fed monte ses taux plus que la BCE. Que fait l'EUR/USD ?", "verso": "Il baisse. Placer en dollars rapporte plus : les investisseurs achètent des dollars, le dollar monte.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c03", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Déroule la chaîne de l'écart de taux en quatre étapes.", "verso": "1. La Fed monte plus que la BCE. 2. Les investisseurs achètent des dollars. 3. Le dollar monte. 4. L'EUR/USD baisse.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c04", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Pourquoi le cours bouge-t-il souvent avant la décision de la banque centrale ?", "verso": "Parce que le marché anticipe. Une décision attendue est déjà dans le prix ; seule la surprise fait bouger le cours.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c05", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "recto": "Qu'est-ce qu'une valeur refuge ? Cite-en quatre.", "verso": "Un actif acheté quand les investisseurs ont peur. Le dollar, le franc suisse, le yen, l'or.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c06", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Pourquoi le dollar monte-t-il pendant les crises ?", "verso": "Monnaie de réserve mondiale, marché des Treasuries le plus liquide, et besoin de dollars de ceux qui ont des dettes en dollars.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c07", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Le prix du pétrole flambe. Que fait l'euro, et pourquoi ?", "verso": "Il baisse. L'Europe importe son énergie en dollars : elle doit acheter plus de dollars et son économie ralentit, alors que les États-Unis sont producteurs.", "fiche": "m1.forces.energie", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c08", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Pourquoi l'EUR/USD est-il passé sous la parité en 2022 ?", "verso": "Deux raisons : la Fed a monté ses taux plus tôt et plus fort que la BCE, et le choc gazier a pénalisé l'économie européenne.", "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c09", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 3, "recto": "Les taux d'un pays montent et sa monnaie baisse. Comment est-ce possible ?", "verso": "Les taux montent parce que le pays fait peur (dette, crise politique), pas parce que le placement est attrayant. Les investisseurs vendent les obligations et la monnaie.", "fiche": "m1.forces.politique", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c10", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Qu'est-ce que le consensus ? Pourquoi compte-t-il ?", "verso": "La moyenne des prévisions des économistes. Le marché réagit à l'écart entre le chiffre publié et le consensus, pas au chiffre lui-même.", "fiche": "m1.forces.croissance", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c11", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "recto": "Les trois temps d'un commentaire de marché ?", "verso": "Le fait (de combien à combien), la cause (une ou deux forces, en chaîne logique), la conséquence pour un client.", "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.c12", "type": "carte", "module": 1, "chapitre": "m1.forces", "difficulte": 3, "recto": "Qu'est-ce que le portage (carry trade) ?", "verso": "Emprunter dans une devise à taux bas pour placer dans une devise à taux haut, sans se couvrir. On gagne l'écart de taux, mais on porte le risque de change.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.forces.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 1,
+      "question": "Que se passe-t-il pour l'euro-dollar si la Fed monte ses taux plus que la BCE ?",
+      "reponse_modele": "L'euro-dollar baisse. Les placements en dollars deviennent plus rémunérateurs que les placements en euros, donc les investisseurs vendent des euros pour acheter des dollars. Le dollar s'apprécie. C'est ce qui s'est passé en 2022 : la Fed a relevé ses taux plus tôt et plus vite que la BCE, et l'euro-dollar est passé sous la parité.",
+      "points_cles": ["L'EUR/USD baisse", "L'argent va là où il rapporte le plus", "Achat de dollars, vente d'euros", "Un exemple daté : 2022"],
+      "piege": "Dire que des taux plus hauts affaiblissent la monnaie parce qu'ils freinent l'économie. À court terme, ils attirent les capitaux.",
+      "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 2,
+      "question": "Quels sont les principaux facteurs qui font bouger l'euro-dollar ?",
+      "reponse_modele": "Le premier est l'écart de taux d'intérêt entre les États-Unis et la zone euro, donc les politiques de la Fed et de la BCE et surtout ce que le marché en attend. Viennent ensuite l'écart de croissance, l'aversion au risque, puisque le dollar est une valeur refuge, le prix de l'énergie, car l'Europe est importatrice, et le risque politique et budgétaire. Par exemple, si le pétrole flambe et que la Fed reste plus restrictive que la BCE, les deux facteurs poussent l'euro-dollar à la baisse.",
+      "points_cles": ["Écart de taux en premier", "Rôle des anticipations", "Croissance, risque, énergie, politique", "Un exemple qui relie deux facteurs"],
+      "piege": "Réciter une liste sans dire le sens de l'effet. Pour chaque facteur, précise s'il fait monter ou baisser le cours.",
+      "fiche": "m1.forces.offre-demande", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 2,
+      "question": "Pourquoi dit-on que le dollar est une valeur refuge ?",
+      "reponse_modele": "Parce qu'en période de crise, les investisseurs achètent du dollar. Il y a trois raisons : c'est la monnaie de réserve mondiale, le marché des obligations d'État américaines est le plus profond et le plus liquide, et beaucoup d'acteurs dans le monde ont des dettes en dollars qu'ils doivent pouvoir rembourser. En mars 2020, au début du Covid, l'euro-dollar a ainsi perdu environ 700 pips en deux semaines.",
+      "points_cles": ["Définition : actif acheté quand la peur monte", "Monnaie de réserve", "Liquidité des Treasuries", "Dettes mondiales en dollars", "Autres refuges : franc suisse, yen, or"],
+      "piege": "Croire que le dollar baisse quand la crise vient des États-Unis : en 2008, il a monté.",
+      "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 2,
+      "question": "Le prix du pétrole monte fortement. Quel effet sur l'euro ?",
+      "reponse_modele": "C'est négatif pour l'euro. La zone euro importe l'essentiel de son énergie et la paie en dollars : sa facture augmente, sa balance commerciale se dégrade et sa croissance ralentit. Les États-Unis, producteurs, sont moins touchés. L'euro-dollar a donc tendance à baisser. Et cette baisse aggrave le problème, puisque l'énergie coûte encore plus cher en euros : c'est de l'inflation importée.",
+      "points_cles": ["Europe importatrice, États-Unis producteurs", "Balance commerciale dégradée", "Croissance relative défavorable", "Cercle vicieux avec l'inflation importée"],
+      "piege": "Ne citer que le besoin d'acheter des dollars et oublier l'effet sur la croissance.",
+      "fiche": "m1.forces.energie", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 3,
+      "question": "La banque centrale monte ses taux comme prévu et pourtant la monnaie baisse. Comment l'expliques-tu ?",
+      "reponse_modele": "Parce que le marché anticipe. La hausse était déjà intégrée dans le cours avant la réunion. Ce qui fait bouger la monnaie le jour J, c'est l'écart par rapport aux attentes : si le discours qui accompagne la décision laisse entendre que c'est la dernière hausse, ou que des baisses approchent, le marché révise à la baisse la trajectoire de taux attendue, et la monnaie recule. On dit qu'il faut « acheter la rumeur et vendre la nouvelle ».",
+      "points_cles": ["Le marché anticipe : la décision est dans le prix", "C'est la surprise qui compte", "Importance du discours sur la suite", "La trajectoire attendue des taux, pas le taux du jour"],
+      "piege": "Raisonner comme si le marché découvrait l'information le jour de la décision.",
+      "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q06", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 3,
+      "question": "Un pays voit ses taux d'emprunt monter. Sa monnaie va-t-elle s'apprécier ?",
+      "reponse_modele": "Ça dépend de la raison de la hausse. Si les taux montent parce que la banque centrale lutte contre l'inflation et qu'elle est crédible, le placement devient plus attrayant et la monnaie s'apprécie. Si les taux montent parce que les investisseurs doutent de la dette ou de la stabilité politique du pays, ils exigent une prime de risque et vendent : la monnaie se déprécie. C'est ce qui est arrivé à la livre sterling en septembre 2022, après l'annonce du mini-budget.",
+      "points_cles": ["Ça dépend du pourquoi", "Taux de rendement contre prime de risque", "Rôle de la crédibilité", "Exemple : Royaume-Uni, septembre 2022"],
+      "piege": "Appliquer mécaniquement « taux plus hauts = monnaie plus forte ».",
+      "fiche": "m1.forces.politique", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.forces.q07", "type": "question_entretien", "module": 1, "chapitre": "m1.forces", "difficulte": 2,
+      "question": "Où vois-tu l'euro-dollar dans six mois ?",
+      "reponse_modele": "Personne ne peut le prévoir avec certitude, mais je peux donner un raisonnement. Je pars du niveau actuel, puis je regarde les deux ou trois forces dominantes : la trajectoire attendue des taux de la Fed et de la BCE, l'écart de croissance et le prix de l'énergie. J'en tire un scénario central avec son sens, puis je cite le principal risque qui l'invaliderait. Et je termine par ce que cela implique pour un client exportateur ou importateur. (Pour les chiffres du moment, prépare ta réponse avec l'onglet Marché.)",
+      "points_cles": ["Annoncer qu'on donne un raisonnement, pas une certitude", "Niveau actuel, daté", "Deux ou trois forces, avec leur sens", "Un scénario central et un risque", "La conséquence pour un client"],
+      "piege": "Refuser de répondre (« on ne peut pas savoir ») ou, à l'inverse, donner un chiffre sans raisonnement.",
+      "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.forces.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "enonce": "La BCE monte ses taux alors que la Fed ne bouge pas, et le marché ne s'y attendait pas. L'EUR/USD…", "choix": ["monte", "baisse", "ne bouge pas", "passe à la parité"], "bonne": 0, "explication": "L'écart de taux évolue en faveur de l'euro : placer en euros devient plus intéressant, les investisseurs achètent des euros, l'EUR/USD monte.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z02", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "enonce": "Laquelle de ces devises n'est PAS considérée comme une valeur refuge ?", "choix": ["Le dollar américain", "Le franc suisse", "Le yen", "La livre turque"], "bonne": 3, "explication": "Le dollar, le franc suisse et le yen sont achetés quand la peur monte. La livre turque est une devise de pays émergent, vendue dans ces périodes.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z03", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "enonce": "La BCE fixe le cours de l'euro face au dollar.", "vrai": false, "explication": "Le cours est fixé par le marché (changes flottants). La BCE fixe des taux d'intérêt, qui influencent le cours, mais elle n'a pas d'objectif de change.", "fiche": "m1.forces.offre-demande", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z04", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "Remets la chaîne de l'écart de taux dans l'ordre.", "etapes": ["La Fed monte ses taux plus que la BCE", "Placer en dollars rapporte plus qu'en euros", "Les investisseurs vendent des euros et achètent des dollars", "Le dollar s'apprécie", "L'EUR/USD baisse"], "explication": "Chaque étape découle de la précédente : rendement, flux de capitaux, demande de dollars, prix.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z05", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "Le marché attendait 200 000 créations d'emplois aux États-Unis. Le chiffre publié est 120 000. Réaction la plus probable de l'EUR/USD ?", "choix": ["Il monte", "Il baisse", "Il ne bouge pas, le chiffre reste positif", "Il est suspendu"], "bonne": 0, "explication": "Le chiffre est inférieur au consensus : l'économie américaine déçoit, le marché attend des taux de la Fed plus bas, le dollar recule, donc l'EUR/USD monte.", "fiche": "m1.forces.croissance", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z06", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "Une flambée du prix du gaz et du pétrole est plutôt favorable à l'euro.", "vrai": false, "explication": "La zone euro importe son énergie : sa facture en dollars gonfle et son économie ralentit. C'est défavorable à l'euro.", "fiche": "m1.forces.energie", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z07", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "L'EUR/USD passe de 1,13 à 0,96. De combien de pour cent l'euro a-t-il baissé face au dollar ? (réponse positive, en %)", "reponse": 15, "tolerance": 0.3, "unite": "%", "explication": "0,96 ÷ 1,13 − 1 = −0,150, soit une baisse de 15 %.", "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z08", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.forces", "difficulte": 3, "enonce": "Un gouvernement annonce un déficit bien plus élevé que prévu. Ses taux d'emprunt montent. Sa monnaie…", "choix": ["monte, car les taux sont plus hauts", "baisse, car les taux montent à cause d'une prime de risque", "ne bouge pas", "monte, car l'État dépense plus"], "bonne": 1, "explication": "Les taux montent parce que les investisseurs exigent d'être payés pour un risque accru. Ils vendent les obligations et la monnaie.", "fiche": "m1.forces.politique", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z09", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "Une hausse de taux parfaitement anticipée par le marché fait fortement monter la monnaie le jour de l'annonce.", "vrai": false, "explication": "Une décision attendue est déjà dans le prix. Seule une surprise (sur la décision ou sur le discours) fait bouger le cours.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.z10", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "enonce": "Quelles sont les deux raisons principales du passage de l'EUR/USD sous la parité en 2022 ?", "choix": ["Écart de taux en faveur du dollar et choc gazier en Europe", "Baisse des taux de la Fed et excédent commercial européen", "Intervention de la BCE et hausse du yen", "Récession américaine et hausse du franc suisse"], "bonne": 0, "explication": "La Fed a monté ses taux plus tôt et plus fort que la BCE, et le choc énergétique a dégradé la balance commerciale et la croissance européennes.", "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.forces.x01", "type": "exercice", "module": 1, "chapitre": "m1.forces", "difficulte": 2,
+      "titre": "L'écart de taux n'est pas de l'argent gratuit",
+      "enonce": "Exemple fictif. Tu as 1 000 000 d'euros à placer un an. Le taux est de 2 % en euros et de 4 % en dollars. EUR/USD = 1,10. Compare le placement en euros et le placement en dollars si, dans un an, l'EUR/USD vaut 1,10 puis 1,13.",
+      "etapes": [
+        {
+          "titre": "Le placement en euros",
+          "texte": "Capital plus intérêts : 1 000 000 × (1 + 2 %).",
+          "resultat": "1 020 000 €"
+        },
+        {
+          "titre": "Convertir en dollars aujourd'hui",
+          "texte": "On a des euros, on veut des dollars : on multiplie par le cours.",
+          "formule": { "latex": "1\\,000\\,000 \\times 1{,}10 = 1\\,100\\,000", "legende": { "1{,}10": "l'EUR/USD d'aujourd'hui" }, "en_francais": "Chaque euro donne 1,10 dollar." },
+          "resultat": "1 100 000 $",
+          "verif": { "fn": "fx.eurVersUsd", "args": [1000000, 1.10], "attendu": 1100000, "tolerance": 0.5 }
+        },
+        {
+          "titre": "Placer en dollars pendant un an",
+          "texte": "1 100 000 × (1 + 4 %).",
+          "resultat": "1 144 000 $"
+        },
+        {
+          "titre": "Reconvertir si l'EUR/USD est resté à 1,10",
+          "texte": "On divise les dollars par le cours.",
+          "formule": { "latex": "\\frac{1\\,144\\,000}{1{,}10} = 1\\,040\\,000", "legende": { "1{,}10": "l'EUR/USD dans un an" }, "en_francais": "Le cours n'a pas bougé : on garde tout l'avantage de taux." },
+          "resultat": "1 040 000 €, soit 20 000 € de mieux que le placement en euros",
+          "verif": { "fn": "fx.usdVersEur", "args": [1144000, 1.10], "attendu": 1040000, "tolerance": 1 }
+        },
+        {
+          "titre": "Reconvertir si l'EUR/USD est monté à 1,13",
+          "texte": "Le dollar s'est affaibli d'environ 2,7 %.",
+          "formule": { "latex": "\\frac{1\\,144\\,000}{1{,}13} = 1\\,012\\,389", "legende": { "1{,}13": "l'EUR/USD dans un an" }, "en_francais": "Chaque dollar vaut moins d'euros : la perte de change dépasse le gain de taux." },
+          "resultat": "1 012 389 €, soit 7 611 € de moins que le placement en euros",
+          "verif": { "fn": "fx.usdVersEur", "args": [1144000, 1.13], "attendu": 1012389, "tolerance": 1 }
+        },
+        {
+          "titre": "Conclusion",
+          "texte": "Le placement en dollars ne rapporte plus que si le dollar ne perd pas plus qu'environ 2 %, c'est-à-dire l'écart de taux. Le cours d'équilibre est 1 144 000 ÷ 1 020 000 = 1,1216. L'investisseur gagne l'écart de taux **en échange d'un risque de change**."
+        }
+      ],
+      "erreurs_a_eviter": ["Comparer 44 000 dollars et 20 000 euros sans reconvertir.", "Oublier que le cours peut bouger pendant l'année.", "Conclure que l'écart de taux est un gain sans risque."],
+      "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.forces.l-ecart-de-taux", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Écart de taux", "anglais": "interest rate differential", "definition": "Différence entre les taux d'intérêt de deux devises. Premier moteur des cours de change.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-changes-flottants", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Changes flottants", "anglais": "floating exchange rate", "definition": "Régime où le cours d'une monnaie est fixé librement par le marché, sans objectif officiel.", "fiche": "m1.forces.offre-demande", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-valeur-refuge", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "terme": "Valeur refuge", "anglais": "safe haven", "definition": "Actif acheté en période de peur : dollar, franc suisse, yen, or, obligations d'État américaines et allemandes.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-aversion-au-risque", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Aversion au risque", "anglais": "risk-off", "definition": "Climat de marché où les investisseurs vendent les actifs risqués pour se replier sur les valeurs refuges. Le contraire est le risk-on.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-monnaie-de-reserve", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Monnaie de réserve", "anglais": "reserve currency", "definition": "Monnaie détenue en grande quantité par les banques centrales du monde et utilisée pour le commerce international. Le dollar est la première.", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-consensus", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Consensus", "anglais": "consensus", "definition": "Moyenne des prévisions des économistes avant une publication. Le marché réagit à l'écart entre le chiffre publié et le consensus.", "fiche": "m1.forces.croissance", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-termes-de-l-echange", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 3, "terme": "Termes de l'échange", "anglais": "terms of trade", "definition": "Rapport entre le prix des exportations et le prix des importations d'un pays. Ils se dégradent en Europe quand l'énergie monte.", "fiche": "m1.forces.energie", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-portage", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 3, "terme": "Portage", "anglais": "carry trade", "definition": "Stratégie qui consiste à emprunter dans une devise à taux bas pour placer dans une devise à taux haut, sans couverture de change.", "fiche": "m1.forces.ecart-taux", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-parite", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 1, "terme": "Parité", "anglais": "parity", "definition": "Situation où 1 euro vaut exactement 1 dollar (EUR/USD = 1,00).", "fiche": "m1.forces.commenter-mouvement", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-spread-souverain", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Spread souverain", "anglais": "sovereign spread", "definition": "Écart entre le taux d'emprunt d'un État et celui d'un État de référence (l'Allemagne en zone euro). Mesure le risque perçu.", "fiche": "m1.forces.politique", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-prime-de-risque", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "Prime de risque", "anglais": "risk premium", "definition": "Supplément de rendement exigé par un investisseur pour accepter un risque.", "fiche": "m1.forces.politique", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.forces.l-vix", "type": "lexique", "module": 1, "chapitre": "m1.forces", "difficulte": 2, "terme": "VIX", "anglais": "VIX", "definition": "Indice qui mesure la volatilité attendue sur les actions américaines (S&P 500). Surnommé « indice de la peur ».", "fiche": "m1.forces.valeur-refuge", "maj": "2026-11-16", "version": 1 }
+  ]
+}
