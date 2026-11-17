@@ -5,3 +5,4 @@ dev-dist/
 sources/
 .env
 *.local
+*.code-workspace

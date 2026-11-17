@@ -1,0 +1,237 @@
+{
+  "chapitre": {
+    "id": "m2.vol",
+    "module": 2,
+    "ordre": 6,
+    "titre": "La volatilité",
+    "resume": "Volatilité réalisée et volatilité implicite, pourquoi les traders parlent en volatilité, le smile et le skew, et les indices de peur : VIX et VSTOXX."
+  },
+  "elements": [
+    {
+      "id": "m2.vol.realisee",
+      "type": "fiche", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "tags": ["volatilite", "calcul"],
+      "titre": "La volatilité réalisée (historique)",
+      "une_phrase": "La volatilité réalisée mesure **ce que le sous-jacent a vraiment bougé** : l'écart-type de ses rendements quotidiens passés, ramené à l'année.",
+      "trente_secondes": "On prend les cours de clôture sur une période (par exemple les 20 ou 60 derniers jours de bourse). On calcule le rendement de chaque jour. On mesure leur dispersion avec un **écart-type**. Puis on **annualise** en multipliant par √252, le nombre de jours de bourse dans l'année.\n\nUne action qui bouge typiquement de 1 % par jour a une volatilité d'environ 1 % × √252 ≈ 16 % par an.\n\nC'est une mesure **du passé**, calculée après coup. Elle ne dit pas, à elle seule, ce que le marché attend pour l'avenir.",
+      "analogie": "C'est le relevé des températures du mois dernier. Il te dit si le temps a été variable ou stable, et c'est une bonne base pour deviner le mois prochain. Mais il ne prévoit pas la tempête annoncée pour la semaine prochaine : pour cela, il faut regarder les prévisions, c'est-à-dire la volatilité implicite.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Mouvement quotidien typique", "Volatilité annuelle", "Exemple de sous-jacent"],
+        "lignes": [
+          ["0,4 %", "environ 6 %", "EUR/USD en période calme"],
+          ["1 %", "environ 16 %", "Un indice actions en temps normal"],
+          ["2 %", "environ 32 %", "Une action technologique, ou un indice en crise"],
+          ["5 %", "environ 80 %", "Un indice au pire d'un krach, une cryptomonnaie"]
+        ],
+        "legende": "Volatilité annuelle ≈ mouvement quotidien × √252 ≈ mouvement quotidien × 16."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une action clôture successivement à 100 ; 101,2 ; 100,5 ; 101,8 ; 100,9 ; 102,0 ; 101,3.",
+        "Rendements quotidiens (en logarithme) : +1,19 % ; −0,69 % ; +1,29 % ; −0,89 % ; +1,08 % ; −0,69 %.",
+        "Leur écart-type est de 1,07 % par jour.",
+        "Volatilité annualisée : 1,07 % × √252 = 1,07 % × 15,87 ≈ 17 %.",
+        "En pratique, on calcule sur 20 jours (un mois de bourse) ou plus : six rendements donnent une estimation très imprécise."
+      ],
+      "formules": [
+        {
+          "titre": "La volatilité réalisée",
+          "latex": "\\sigma_{\\text{réalisée}} = \\sqrt{252} \\times \\sqrt{\\frac{1}{n-1}\\sum_{t=1}^{n} \\left(r_t - \\bar{r}\\right)^2} \\qquad r_t = \\ln\\frac{S_t}{S_{t-1}}",
+          "legende": { "r_t": "le rendement du jour t", "\\bar{r}": "la moyenne des rendements sur la période", "n": "le nombre de rendements", "\\sqrt{252}": "le passage d'une volatilité par jour de bourse à une volatilité annuelle" },
+          "en_francais": "On calcule l'écart-type des rendements quotidiens, puis on le multiplie par la racine du nombre de jours de bourse dans l'année."
+        }
+      ],
+      "deux_minutes": "**Pourquoi √252.** Si les rendements quotidiens sont indépendants, leurs variances s'additionnent : sur 252 jours, la variance est 252 fois la variance quotidienne, et l'écart-type √252 fois l'écart-type quotidien. C'est la même racine carrée du temps que dans le prix des options.\n\n**Le choix de la fenêtre change tout.** Une volatilité calculée sur 10 jours réagit vite mais est bruitée ; sur 250 jours, elle est stable mais en retard. Les desks regardent plusieurs fenêtres, et des estimateurs qui donnent plus de poids aux jours récents.\n\n**La volatilité se regroupe.** Les périodes agitées suivent les périodes agitées, et les calmes suivent les calmes : c'est le *volatility clustering*. Après un choc, la volatilité réalisée reste élevée quelque temps, puis revient lentement vers sa moyenne. C'est pour cela qu'on peut, en partie, la prévoir.\n\n**L'usage sur un desk.** Un trader compare la volatilité réalisée récente à la volatilité implicite. Si l'implicite est très au-dessus de ce que le marché réalise, les options semblent chères ; si elle est en dessous, elles semblent bon marché. Ce n'est qu'un indice : l'implicite regarde vers l'avenir, la réalisée vers le passé.",
+      "piege": "Oublier d'annualiser, ou annualiser avec √365 au lieu de √252. Le marché est fermé le week-end : on compte en jours de bourse. Autre erreur : confondre la volatilité (l'ampleur des mouvements) avec la tendance (leur direction). Une action qui monte régulièrement de 0,1 % par jour a une volatilité presque nulle.",
+      "a_dire_en_entretien": "« La volatilité réalisée, ou historique, mesure ce que le sous-jacent a vraiment bougé : c'est l'écart-type de ses rendements quotidiens, annualisé en multipliant par racine de 252. Un mouvement typique de 1 % par jour correspond à environ 16 % par an. C'est une mesure du passé ; on la compare à la volatilité implicite, qui reflète ce que le marché anticipe. »",
+      "liens": ["m2.vol.implicite", "m2.couverture.implicite-realisee", "m2.prime.ordre-grandeur"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.implicite",
+      "type": "fiche", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "tags": ["volatilite", "pricing", "marche"],
+      "titre": "La volatilité implicite",
+      "une_phrase": "La volatilité implicite est la volatilité qu'il faut mettre dans Black-Scholes pour **retrouver le prix observé** de l'option : on ne la mesure pas, on la **déduit du prix**.",
+      "trente_secondes": "Tous les paramètres de Black-Scholes s'observent, sauf la volatilité future. Le marché fixe pourtant le prix des options, par l'offre et la demande. On fait alors le chemin inverse : on cherche la volatilité qui, mise dans la formule, redonne exactement ce prix.\n\nCette volatilité implicite résume **ce que le marché anticipe** pour les mouvements futurs, plus une **prime de risque**.\n\nC'est pour cela que les traders parlent en volatilité : « ce call se traite à 22 % de vol » est plus parlant qu'un prix en euros, qui dépend du cours, du strike et de la maturité. Acheter une option, c'est acheter de la volatilité implicite.",
+      "analogie": "Le prix d'une assurance habitation dans une région te dit, sans que personne ne l'annonce, quel risque de tempête les assureurs anticipent. Si la prime double, c'est qu'ils voient venir quelque chose. La volatilité implicite est ce risque perçu, lu dans le prix des options.",
+      "visuel": { "type": "outil", "ref": "labo.smile", "legende": "Chaque point de la courbe est une volatilité implicite, déduite du prix d'une option de strike donné." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, call de strike 100 à un an, taux nul.",
+        "Le call cote 8 : la volatilité implicite est de 20,1 %. L'approximation de tête le confirme : 8 ÷ (0,4 × 100 × 1) = 20 %.",
+        "Le même call cote 10 : la volatilité implicite passe à 25,1 %. L'option est « plus chère en volatilité ».",
+        "Le même call cote 6 : 15,1 %.",
+        "Un call à trois mois qui cote 5 correspond aussi à environ 25 % : 5 ÷ (0,4 × 100 × 0,5) = 25 %. Exprimés en volatilité, des prix très différents deviennent comparables."
+      ],
+      "formules": [
+        {
+          "titre": "La volatilité implicite : on inverse la formule",
+          "latex": "C_{\\text{BS}}(S, K, T, r, \\sigma_{\\text{imp}}) = C_{\\text{marché}}",
+          "legende": { "C_{\\text{BS}}": "le prix donné par la formule de Black-Scholes", "C_{\\text{marché}}": "le prix de l'option observé sur le marché", "\\sigma_{\\text{imp}}": "la seule inconnue : on la cherche par essais successifs, il n'y a pas de formule directe" },
+          "en_francais": "On cherche la volatilité qui, mise dans Black-Scholes, donne exactement le prix observé. Les ordinateurs le font en quelques itérations (méthode de Newton)."
+        }
+      ],
+      "deux_minutes": "**Ce que contient la volatilité implicite.** L'anticipation des mouvements futurs, plus une prime pour le risque (les vendeurs d'options exigent d'être payés pour le risque de krach), plus l'effet de l'offre et de la demande : quand tout le monde veut se protéger, les puts montent et leur volatilité implicite avec.\n\n**Elle bouge en permanence.** Elle monte avant les événements attendus (résultats d'une entreprise, réunion de banque centrale, élection) puis retombe une fois l'incertitude levée : c'est l'**écrasement de volatilité** (*vol crush*). Elle bondit lors des chocs : le VIX, la volatilité implicite du S&P 500, a dépassé 80 en mars 2020.\n\n**Ordres de grandeur.** EUR/USD : 5 à 10 % en général. Grands indices actions : 15 à 25 % en temps normal, beaucoup plus en crise. Actions individuelles : 20 à 50 %. Taux : on parle plutôt en points de base.\n\n**Pourquoi c'est important pour un desk qui sert des clients.**\n\n- Le **coupon d'un autocall** dépend de la volatilité implicite du put vendu par l'investisseur : plus elle est élevée, plus le coupon proposé est élevé.\n- Le **prix d'un cap** dépend de la volatilité implicite des taux.\n- Le **prix d'une option de change** pour un exportateur dépend de la volatilité implicite de l'EUR/USD.\n\nQuand la volatilité implicite est élevée, protéger coûte cher et vendre de la protection rapporte.",
+      "piege": "Dire que la volatilité implicite est une prévision. C'est un **prix** : elle contient une anticipation, mais aussi une prime de risque et les effets de l'offre et de la demande. Autre erreur : croire qu'il y a une seule volatilité implicite par sous-jacent ; elle dépend du strike et de la maturité.",
+      "a_dire_en_entretien": "« La volatilité implicite est la volatilité qu'il faut mettre dans Black-Scholes pour retrouver le prix de marché d'une option. On ne la mesure pas, on la déduit du prix. Elle reflète ce que le marché anticipe, plus une prime de risque. Les traders cotent les options en volatilité implicite parce que c'est comparable d'un strike ou d'une maturité à l'autre. Elle varie selon le strike et la maturité, ce qui donne le smile et le skew. »",
+      "liens": ["m2.vol.realisee", "m2.vol.smile-skew", "m2.vol.vix", "m2.prime.ordre-grandeur"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.smile-skew",
+      "type": "fiche", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "tags": ["volatilite", "smile", "skew"],
+      "titre": "Le smile et le skew",
+      "une_phrase": "Si Black-Scholes était parfait, la volatilité implicite serait la même pour tous les strikes ; en réalité, sur les actions, les **puts bas** ont une volatilité plus élevée (le **skew**), et en change les deux ailes sont plus chères (le **smile**).",
+      "trente_secondes": "Trace la volatilité implicite en fonction du strike, pour une même maturité.\n\n**Sur les actions**, la courbe **descend** : les strikes bas (les puts en dehors de la monnaie) se traitent à une volatilité plus élevée que les strikes hauts. On appelle cette pente le **skew**, ou la pente de volatilité.\n\n**Sur le change**, la courbe a souvent la forme d'un **sourire** : les deux extrémités sont plus élevées que le centre.\n\nCe que cela veut dire : le marché ne croit pas à la loi normale. Il juge les grands mouvements plus probables que ne le dit le modèle, surtout à la baisse sur les actions, et il fait payer en conséquence.",
+      "analogie": "Dans une station de ski, les forfaits du week-end des vacances de février coûtent plus cher que ceux d'un mardi de janvier, pour la même piste. Le prix reflète la demande, pas seulement le service. Les puts qui protègent contre un krach sont les forfaits de février : tout le monde les veut, ils se paient plus cher.",
+      "visuel": { "type": "outil", "ref": "labo.smile", "legende": "Compare les trois formes : Black-Scholes (plat), actions (skew), change (smile). Regarde le prix du put 85 selon la forme." },
+      "exemple_chiffre": [
+        "Exemple fictif : indice à 100, options à un an, taux 3 %. Volatilité à la monnaie : 20 %.",
+        "Avec une volatilité plate de 20 %, le put de strike 90 vaudrait 2,77.",
+        "Le marché le traite à 24 % de volatilité, à cause du skew. Son prix est alors de 3,99 : 44 % de plus.",
+        "Dans le même temps, le call de strike 110 se traite à 18 % au lieu de 20 % : 4,52 au lieu de 5,29.",
+        "La protection contre la baisse coûte plus cher que ce que dit le modèle, et le pari sur la hausse coûte moins cher."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi le skew existe sur les actions.**\n\n- **Les krachs** : les grandes baisses sont plus fréquentes et plus brutales que les grandes hausses. Depuis le krach de 1987, le marché intègre ce risque dans les puts.\n- **La demande de protection** : les investisseurs achètent massivement des puts pour protéger leurs portefeuilles. Les vendeurs se font payer.\n- **L'effet de levier** : quand une action baisse, l'entreprise devient plus endettée en proportion de sa valeur, donc plus risquée ; la volatilité monte dans les baisses.\n\n**Pourquoi le smile en change.** Il n'y a pas de direction « mauvaise » par nature : un grand mouvement de l'EUR/USD peut faire mal dans les deux sens. Les deux ailes sont chères. Le marché mesure l'asymétrie par le **risk reversal** (écart de volatilité entre le call et le put 25 delta) et la courbure par le **butterfly**.\n\n**La nappe de volatilité.** En ajoutant la maturité, on obtient une surface : une volatilité implicite pour chaque couple (strike, maturité). C'est elle que les desks utilisent pour valoriser tous leurs produits. Le skew est en général plus prononcé sur les maturités courtes.\n\n**Les conséquences pour les produits structurés.** Un autocall contient un put à barrière vendu par l'investisseur, à un strike bas : c'est précisément la partie chère de la courbe. Le skew augmente ce que l'investisseur « vend », donc le coupon proposé. Inversement, un produit qui achète des calls en dehors de la monnaie les paie relativement moins cher.",
+      "piege": "Dire que le skew vient de ce que les puts sont « plus risqués » pour l'acheteur. C'est l'inverse : les puts en dehors de la monnaie sont chers parce que le **vendeur** prend un risque important (un krach) et que la demande de protection est forte. Autre confusion : smile (deux ailes hautes, change) et skew (pente descendante, actions).",
+      "a_dire_en_entretien": "« Le smile, c'est le fait que la volatilité implicite dépend du strike, alors que Black-Scholes la suppose unique. Sur les actions, on a surtout un skew : les puts en dehors de la monnaie se traitent à une volatilité plus élevée, parce que les krachs sont plus brutaux que les hausses et que la demande de protection est forte. En change, la courbe a plutôt la forme d'un sourire. Cela montre que le marché ne croit pas à la loi normale : il valorise davantage les événements extrêmes. »",
+      "liens": ["m2.vol.implicite", "m2.bs.hypotheses", "m2.strategies.risk-reversal"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.vix",
+      "type": "fiche", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "tags": ["volatilite", "indices", "marche"],
+      "titre": "Le VIX, le VSTOXX et la structure par terme",
+      "une_phrase": "Le **VIX** mesure la volatilité implicite à 30 jours des options sur le S&P 500 ; le **VSTOXX** fait de même sur l'Euro Stoxx 50. On les surnomme les « **indices de la peur** ».",
+      "trente_secondes": "Le VIX est calculé par le Cboe à partir des prix de nombreuses options sur le S&P 500. Il donne la volatilité annuelle que le marché anticipe pour les 30 prochains jours.\n\nUn VIX de 16 correspond à un mouvement attendu d'environ 1 % par jour (16 ÷ √252). Un VIX de 40, à environ 2,5 % par jour.\n\nIl monte quand les marchés baissent et que les investisseurs achètent des protections. Il retombe quand le calme revient.\n\nRepères : 12 à 20 en temps calme, au-dessus de 30 en période de stress, au-dessus de 40 en crise.",
+      "analogie": "C'est le baromètre accroché dans l'entrée. Il ne dit pas s'il fera beau demain, mais quand l'aiguille plonge, tout le monde prend son parapluie. Le VIX est l'aiguille du baromètre de la Bourse américaine.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Niveau du VIX", "Mouvement quotidien attendu", "Lecture"],
+        "lignes": [
+          ["12 à 15", "0,8 à 0,9 %", "Marché très calme"],
+          ["16 à 20", "1,0 à 1,3 %", "Normal"],
+          ["25 à 30", "1,6 à 1,9 %", "Nervosité"],
+          ["40 et plus", "2,5 % et plus", "Crise"],
+          ["82,69 (16 mars 2020)", "plus de 5 %", "Record de clôture, début de la pandémie"]
+        ],
+        "legende": "Mouvement quotidien ≈ VIX ÷ √252 ≈ VIX ÷ 16."
+      },
+      "exemple_chiffre": [
+        "Le VIX a clôturé à 25,64 le 6 novembre 2026 (source de marché secondaire), après une forte baisse de Wall Street la veille.",
+        "Mouvement quotidien attendu : 25,64 ÷ √252 ≈ 1,6 % par jour pour le S&P 500.",
+        "Sur un mois (21 jours de bourse), cela représente un écart-type d'environ 25,64 % × √(21/252) ≈ 7,4 %.",
+        "Le 16 mars 2020, au début de la pandémie, le VIX a clôturé à 82,69, son record : le marché anticipait des mouvements de plus de 5 % par jour."
+      ],
+      "formules": [
+        {
+          "titre": "Le mouvement attendu sur une période",
+          "latex": "\\text{Mouvement attendu} \\approx \\text{VIX} \\times \\sqrt{\\frac{n}{252}}",
+          "legende": { "\\text{VIX}": "la volatilité implicite annuelle, en %", "n": "le nombre de jours de bourse de la période" },
+          "en_francais": "Pour passer de la volatilité annuelle à l'écart-type d'une période plus courte, on multiplie par la racine de la fraction d'année. Sur un jour, on divise donc par environ 16."
+        }
+      ],
+      "deux_minutes": "**La structure par terme de la volatilité.** On peut tracer la volatilité implicite selon la maturité, de quelques jours à plusieurs années. En temps calme, la courbe est en général **croissante** : la volatilité à court terme est basse, et le marché paie une prime pour l'incertitude lointaine. En crise, elle s'**inverse** : la volatilité à court terme bondit au-dessus de la volatilité longue, car le danger est immédiat. Une inversion de la structure par terme est un signe de stress.\n\n**Le VIX se traite.** Il existe des contrats à terme et des options sur le VIX et le VSTOXX. Ils permettent de parier sur la volatilité ou de s'en protéger, sans passer par les options sur l'indice.\n\n**Le lien avec la volatilité réalisée.** Le VIX est en général un peu au-dessus de la volatilité réalisée du S&P 500 : c'est la prime de risque de volatilité. Mais il est aussi plus **stable** : il ne suit pas chaque mouvement quotidien, il reflète une anticipation sur un mois.\n\n**Pour un commentaire de marché.** Le VIX est un indicateur de climat, au même titre que les spreads de crédit ou le cours de l'or. Citer son niveau et sa tendance montre que tu suis le sentiment des investisseurs, pas seulement les prix.",
+      "piege": "Croire que le VIX mesure la volatilité **passée** ou la baisse du marché. Il mesure la volatilité **attendue**, déduite des prix d'options. Il monte souvent quand le marché baisse, mais pas toujours : une forte hausse incertaine peut aussi le faire monter.",
+      "a_dire_en_entretien": "« Le VIX est la volatilité implicite à 30 jours des options sur le S&P 500, calculée par le Cboe ; le VSTOXX est son équivalent sur l'Euro Stoxx 50. Divisé par 16, il donne le mouvement quotidien attendu : un VIX de 16 correspond à environ 1 % par jour. Il est entre 12 et 20 en temps calme et dépasse 30 en période de stress ; son record de clôture est de 82,69, le 16 mars 2020. »",
+      "liens": ["m2.vol.implicite", "m1.marche.reperes", "m1.forces.valeur-refuge"],
+      "sources": [
+        { "titre": "Cboe, VIX Index : méthodologie et historique", "url": "https://www.cboe.com/tradable_products/vix/" },
+        { "titre": "Portfolio-terminal.com, clôture du 6 novembre 2026 (source secondaire)", "url": "https://portfolio-terminal.com/markets/stock-market-close/november-6-2026", "date": "2026-11-06" }
+      ],
+      "chiffres": [
+        { "libelle": "VIX, record de clôture", "valeur": "82,69", "date": "2020-03-16", "source": "Cboe" },
+        { "libelle": "VIX, clôture", "valeur": "25,64", "date": "2026-11-06", "source": "Portfolio-terminal.com (source secondaire)" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.vol.c01", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "recto": "Qu'est-ce que la volatilité réalisée ?", "verso": "L'écart-type des rendements quotidiens passés du sous-jacent, annualisé par √252.", "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c02", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "recto": "Un mouvement typique de 1 % par jour : quelle volatilité annuelle ?", "verso": "Environ 16 % : 1 % × √252.", "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c03", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "recto": "Qu'est-ce que la volatilité implicite ?", "verso": "La volatilité qu'il faut mettre dans Black-Scholes pour retrouver le prix de marché de l'option. On la déduit du prix.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c04", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "recto": "Pourquoi les traders cotent-ils les options en volatilité ?", "verso": "Parce qu'un prix en euros dépend du cours, du strike et de la maturité ; la volatilité implicite est comparable d'une option à l'autre.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c05", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "recto": "Qu'est-ce que l'écrasement de volatilité (vol crush) ?", "verso": "La chute de la volatilité implicite juste après un événement attendu (résultats, réunion de banque centrale), une fois l'incertitude levée.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c06", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "recto": "Qu'est-ce que le skew sur les actions ?", "verso": "Les puts en dehors de la monnaie (strikes bas) se traitent à une volatilité implicite plus élevée que les calls : la courbe descend.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c07", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "recto": "Trois raisons du skew sur les actions ?", "verso": "Les krachs sont plus brutaux que les hausses, la demande de protection est forte, et la volatilité monte quand l'action baisse (effet de levier).", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c08", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "recto": "Smile ou skew : lequel en change, lequel sur les actions ?", "verso": "Change : plutôt un smile (les deux ailes chères). Actions : un skew (les puts bas chers).", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c09", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "recto": "Que mesure le VIX ? Et le VSTOXX ?", "verso": "La volatilité implicite à 30 jours des options sur le S&P 500 (VIX) et sur l'Euro Stoxx 50 (VSTOXX).", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c10", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "recto": "Un VIX de 32 : quel mouvement quotidien attendu ?", "verso": "Environ 2 % par jour : 32 ÷ √252 ≈ 32 ÷ 16.", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.c11", "type": "carte", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "recto": "Que signifie une structure par terme de volatilité inversée ?", "verso": "La volatilité à court terme dépasse la volatilité longue : le danger est perçu comme immédiat. Signe de stress.", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.vol.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.vol", "difficulte": 2,
+      "question": "Quelle est la différence entre volatilité implicite et volatilité réalisée ?",
+      "reponse_modele": "La volatilité réalisée, ou historique, mesure ce que le sous-jacent a vraiment bougé : c'est l'écart-type annualisé de ses rendements passés. La volatilité implicite est celle contenue dans le prix d'une option : celle qu'il faut mettre dans Black-Scholes pour retrouver le prix de marché. La première regarde le passé, la seconde l'avenir, avec une prime de risque. En moyenne, l'implicite est un peu au-dessus de la réalisée. Un acheteur d'option couvert en delta gagne si la réalisée dépasse l'implicite qu'il a payée.",
+      "points_cles": ["Réalisée : mesurée sur le passé", "Implicite : déduite du prix", "Passé contre anticipation", "Prime de risque", "Lien avec le résultat d'une option couverte"],
+      "piege": "Dire que l'implicite est une prévision pure.",
+      "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.vol", "difficulte": 3,
+      "question": "Qu'est-ce que le smile de volatilité ? Pourquoi existe-t-il ?",
+      "reponse_modele": "Le smile, c'est le fait que la volatilité implicite dépend du strike, alors que Black-Scholes suppose une volatilité unique. Sur les actions, on observe surtout un skew : les puts en dehors de la monnaie se traitent à une volatilité plus élevée que les calls. Il existe parce que la distribution réelle des rendements n'est pas normale : les krachs sont plus fréquents et plus brutaux que les hausses ; parce que la demande de protection est forte ; et parce que la volatilité monte quand le marché baisse. En change, la courbe a plutôt la forme d'un sourire, car les grands mouvements sont redoutés dans les deux sens.",
+      "points_cles": ["Définition : la volatilité dépend du strike", "Skew sur les actions", "Queues épaisses, krachs", "Demande de protection", "Smile en change"],
+      "piege": "Décrire la forme sans en donner les raisons.",
+      "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.vol", "difficulte": 2,
+      "question": "Le VIX est à 30. Qu'est-ce que cela signifie ?",
+      "reponse_modele": "Le VIX est la volatilité implicite à 30 jours des options sur le S&P 500. À 30, le marché anticipe une volatilité annuelle de 30 %, soit un mouvement d'environ 1,9 % par jour, en divisant par racine de 252. C'est un niveau de nervosité marqué : en temps calme, il est entre 12 et 20. Concrètement, les protections coûtent cher, et les investisseurs vendeurs d'options, comme ceux des autocalls, sont mieux rémunérés mais exposés à une forte baisse.",
+      "points_cles": ["Définition du VIX", "30 % annualisé", "Environ 1,9 % par jour", "Repères : calme 12-20, stress au-delà de 30", "Conséquences : protection chère"],
+      "piege": "Dire que le marché va baisser de 30 %.",
+      "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.vol.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.vol", "difficulte": 3,
+      "question": "Pourquoi le coupon d'un autocall est-il plus élevé quand la volatilité implicite est élevée ?",
+      "reponse_modele": "Parce que l'investisseur finance son coupon en vendant à la banque un put à barrière sur l'indice. Quand la volatilité implicite est élevée, ce put vaut plus cher, et le skew le rend encore plus cher puisque son strike est bas. La banque peut donc payer plus pour ce put, ce qui se traduit par un coupon plus élevé. La contrepartie est que l'investisseur vend de la protection précisément quand le marché la juge précieuse : le risque de toucher la barrière est plus grand.",
+      "points_cles": ["L'investisseur vend un put à barrière", "Put plus cher si volatilité élevée", "Effet du skew", "Coupon plus élevé", "Risque plus élevé"],
+      "piege": "Dire que la banque « est généreuse » quand les marchés sont agités.",
+      "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.vol.z01", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "enonce": "Une action bouge typiquement de 1,5 % par jour. Quelle est sa volatilité annuelle approximative, en % ?", "reponse": 23.8, "tolerance": 0.5, "unite": "%", "explication": "1,5 % × √252 ≈ 1,5 % × 15,87 ≈ 23,8 %.", "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z02", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "enonce": "La volatilité implicite est mesurée en observant les variations passées du sous-jacent.", "vrai": false, "explication": "C'est la volatilité réalisée. L'implicite est déduite du prix des options.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z03", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "enonce": "Un call à la monnaie à un an sur une action à 100 cote 10 (taux nul). Volatilité implicite approximative, en % ?", "reponse": 25, "tolerance": 0.5, "unite": "%", "explication": "10 ÷ (0,4 × 100 × 1) = 25 %. Le calcul exact donne 25,1 %.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z04", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "enonce": "Sur un indice actions, quelle option a en général la volatilité implicite la plus élevée ?", "choix": ["Le call de strike 120 %", "Le call à la monnaie", "Le put de strike 80 %", "Elles ont toutes la même"], "bonne": 2, "explication": "C'est le skew : les puts en dehors de la monnaie se traitent à une volatilité plus élevée.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "enonce": "Juste après la publication de résultats très attendus, la volatilité implicite d'une action…", "choix": ["monte toujours", "baisse souvent nettement", "ne bouge jamais", "devient négative"], "bonne": 1, "explication": "L'incertitude levée, la volatilité implicite chute : c'est l'écrasement de volatilité (vol crush).", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z06", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "enonce": "Le VIX est à 24. Mouvement quotidien attendu du S&P 500, en % ? (une décimale)", "reponse": 1.5, "tolerance": 0.05, "unite": "%", "explication": "24 ÷ √252 ≈ 24 ÷ 15,87 ≈ 1,5 %.", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "enonce": "Dans le modèle de Black-Scholes pur, la courbe de volatilité implicite selon le strike est plate.", "vrai": true, "explication": "Le modèle suppose une volatilité unique. Le smile et le skew observés montrent ses limites.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.z08", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "enonce": "En pleine crise, la volatilité implicite à 1 mois est à 45 % et celle à 1 an à 28 %. La structure par terme est…", "choix": ["normale (croissante)", "plate", "inversée", "impossible"], "bonne": 2, "explication": "La volatilité courte dépasse la longue : le danger est immédiat. C'est typique des périodes de stress.", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.vol.x01", "type": "exercice", "module": 2, "chapitre": "m2.vol", "difficulte": 2,
+      "titre": "Calculer une volatilité réalisée et la comparer à l'implicite",
+      "enonce": "Exemple fictif. Une action a clôturé successivement à 100 ; 101,2 ; 100,5 ; 101,8 ; 100,9 ; 102,0 ; 101,3. Son call à la monnaie à un an cote 8 (taux nul). Calcule la volatilité réalisée sur ces six jours et la volatilité implicite. Les options semblent-elles chères ?",
+      "etapes": [
+        { "titre": "Les rendements quotidiens", "texte": "ln(101,2/100) = +1,19 % ; ln(100,5/101,2) = −0,69 % ; ln(101,8/100,5) = +1,29 % ; ln(100,9/101,8) = −0,89 % ; ln(102,0/100,9) = +1,08 % ; ln(101,3/102,0) = −0,69 %.", "resultat": "Six rendements, de moyenne +0,22 %" },
+        { "titre": "L'écart-type quotidien", "texte": "On mesure la dispersion des six rendements autour de leur moyenne, en divisant par n − 1 = 5.", "resultat": "1,07 % par jour" },
+        {
+          "titre": "L'annualisation",
+          "texte": "On multiplie par √252 ≈ 15,87.",
+          "formule": { "latex": "1{,}07\\,\\% \\times \\sqrt{252} \\approx 17\\,\\%", "legende": { "1{,}07\\,\\%": "l'écart-type quotidien", "\\sqrt{252}": "le nombre de jours de bourse par an, sous la racine" }, "en_francais": "Ces six jours correspondent à une volatilité d'environ 17 % par an." },
+          "resultat": "≈ 17 %"
+        },
+        {
+          "titre": "La volatilité implicite",
+          "texte": "Approximation : 8 ÷ (0,4 × 100 × 1) = 20 %. Le calcul exact par inversion de Black-Scholes donne 20,1 %.",
+          "resultat": "≈ 20 %",
+          "verif": { "fn": "options.volImpliciteCall", "args": [8, 100, 100, 1, 0], "attendu": 0.2009, "tolerance": 0.0002 }
+        },
+        { "titre": "Lecture", "texte": "L'implicite (20 %) dépasse la réalisée récente (17 %) : les options semblent un peu chères par rapport aux mouvements récents. Mais six jours sont un échantillon très court, et l'implicite regarde vers l'avenir : un événement attendu peut justifier cet écart." }
+      ],
+      "erreurs_a_eviter": ["Oublier d'annualiser.", "Utiliser √365 au lieu de √252.", "Conclure trop vite sur un échantillon de quelques jours."],
+      "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.vol.l-vol-realisee", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "terme": "Volatilité réalisée", "anglais": "realised volatility", "definition": "Écart-type annualisé des rendements passés du sous-jacent.", "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-vol-implicite", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 1, "terme": "Volatilité implicite", "anglais": "implied volatility", "definition": "Volatilité qui, mise dans Black-Scholes, redonne le prix de marché de l'option.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-vol-crush", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "terme": "Écrasement de volatilité", "anglais": "vol crush", "definition": "Chute de la volatilité implicite après un événement attendu.", "fiche": "m2.vol.implicite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-smile", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "terme": "Smile de volatilité", "anglais": "volatility smile", "definition": "Courbe de la volatilité implicite selon le strike, plus haute aux extrémités qu'au centre.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-skew", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 2, "terme": "Skew", "anglais": "skew", "definition": "Pente de la volatilité implicite selon le strike ; sur les actions, les puts bas ont une volatilité plus élevée.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-nappe", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "terme": "Nappe de volatilité", "anglais": "volatility surface", "definition": "Ensemble des volatilités implicites pour chaque strike et chaque maturité.", "fiche": "m2.vol.smile-skew", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-structure-terme", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "terme": "Structure par terme de la volatilité", "anglais": "volatility term structure", "definition": "Volatilité implicite selon la maturité. Croissante en temps calme, inversée en période de stress.", "fiche": "m2.vol.vix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.vol.l-volatility-clustering", "type": "lexique", "module": 2, "chapitre": "m2.vol", "difficulte": 3, "terme": "Regroupement de la volatilité", "anglais": "volatility clustering", "definition": "Tendance des périodes agitées à suivre des périodes agitées, et des calmes à suivre des calmes.", "fiche": "m2.vol.realisee", "maj": "2026-11-16", "version": 1 }
+  ]
+}

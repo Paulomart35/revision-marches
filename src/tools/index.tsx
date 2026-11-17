@@ -4,6 +4,7 @@ import { usdVersEur } from '../finance/fx';
 import { contribution, inflationPonderee, niveauPrix, pouvoirAchat } from '../finance/inflation';
 import { eur, nf } from '../lib';
 import { Gouverneur, Historique, Transmission } from './politique';
+import { ArbreBinomial, CouvertureDelta, Explorateur, GrecquesProfils, MonteCarlo, Smile, Strategies } from './options';
 
 function Curseur(p: { libelle: string; valeur: number; min: number; max: number; pas: number; affiche: string; onChange: (v: number) => void }) {
   return (
@@ -160,4 +161,11 @@ export const OUTILS: Record<string, { titre: string; resume: string; module: num
   'labo.gouverneur': { titre: 'Toi, gouverneur de la BCE', resume: 'Inflation, croissance, origine du choc : que décides-tu ?', module: 1, rendu: () => <Gouverneur />, fiche: 'm1.decision.choc-offre' },
   'labo.historique': { titre: 'Inflation et taux depuis 2014', resume: 'Les quatre grandes phases de la politique de la BCE.', module: 1, rendu: () => <Historique />, fiche: 'm1.episodes.vue-ensemble' },
   'labo.panier-inflation': { titre: 'Le panier d\'inflation', resume: 'Inflation totale et sous-jacente, poste par poste.', module: 1, rendu: () => <PanierInflation />, fiche: 'm1.inflation.mesure' },
+  'labo.explorateur': { titre: "L'explorateur d'option", resume: 'Prime, valeur temps et grecques, avec tous les curseurs.', module: 2, rendu: () => <Explorateur />, fiche: 'm2.bases.prime' },
+  'labo.grecques': { titre: 'Les grecques en images', resume: 'Delta, gamma, vega, thêta selon le sous-jacent et le temps restant.', module: 2, rendu: () => <GrecquesProfils />, fiche: 'm2.grecques.gamma' },
+  'labo.couverture-delta': { titre: 'La couverture en delta', resume: 'Marché agité contre marché calme : le gamma contre le thêta.', module: 2, rendu: () => <CouvertureDelta />, fiche: 'm2.couverture.gamma-theta' },
+  'labo.smile': { titre: 'Smile et skew', resume: 'La volatilité implicite selon le strike.', module: 2, rendu: () => <Smile />, fiche: 'm2.vol.smile-skew' },
+  'labo.strategies': { titre: 'Les stratégies optionnelles', resume: 'Spreads, straddle, strangle, butterfly, risk reversal, collar.', module: 2, rendu: () => <Strategies />, fiche: 'm2.strategies.spreads' },
+  'labo.binomial': { titre: "L'arbre binomial pas à pas", resume: 'Option européenne ou américaine, calculée nœud par nœud.', module: 2, rendu: () => <ArbreBinomial />, fiche: 'm2.modeles.binomial' },
+  'labo.monte-carlo': { titre: 'Monte Carlo en direct', resume: "Des trajectoires simulées et une marge d'erreur qui fond en 1/√n.", module: 2, rendu: () => <MonteCarlo />, fiche: 'm2.modeles.monte-carlo' },
 };

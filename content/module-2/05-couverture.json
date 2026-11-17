@@ -1,0 +1,249 @@
+{
+  "chapitre": {
+    "id": "m2.couverture",
+    "module": 2,
+    "ordre": 5,
+    "titre": "Couverture en delta, gamma et thêta",
+    "resume": "Comment un trader neutralise le risque directionnel d'une option, pourquoi il lui reste un pari sur l'amplitude des mouvements, et qui gagne : la volatilité réalisée contre la volatilité implicite."
+  },
+  "elements": [
+    {
+      "id": "m2.couverture.delta-hedging",
+      "type": "fiche", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "tags": ["couverture", "delta", "trading"],
+      "titre": "La couverture en delta",
+      "une_phrase": "Couvrir une option en delta (*delta hedging*), c'est détenir en face **l'opposé de son delta en sous-jacent**, et **réajuster** cette quantité à mesure que le delta change.",
+      "trente_secondes": "Une banque qui vend un call à un client ne veut pas parier sur la hausse ou la baisse. Elle neutralise le risque directionnel : si le call a un delta de 0,6, elle achète 0,6 unité de sous-jacent par call vendu.\n\nSi le cours monte un peu, elle perd sur le call et gagne autant sur le sous-jacent. Sa position est **neutre en delta**.\n\nMais le delta change quand le cours bouge (c'est le gamma) et quand le temps passe. La couverture se dérègle. Le trader la **réajuste** régulièrement : une à plusieurs fois par jour selon la taille de la position et la nervosité du marché.",
+      "analogie": "C'est un funambule avec son balancier. À chaque instant, il corrige légèrement sa position pour rester en équilibre. Il ne cherche pas à avancer plus vite ou à reculer : il cherche à ne pas tomber. Le delta hedging, c'est corriger sans cesse pour que la position ne penche ni d'un côté ni de l'autre.",
+      "visuel": { "type": "outil", "ref": "labo.couverture-delta", "legende": "Observe les ajustements : le trader vend quand le cours monte (triangles rouges) et rachète quand il baisse (triangles verts)." },
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque vend 1 000 calls à la monnaie (S = K = 100, un an, 20 %, taux 3 %). Delta d'un call : 0,599.",
+        "Couverture initiale : elle achète 1 000 × 0,599 = 599 actions.",
+        "Le lendemain, l'action monte à 101. Le delta passe à 0,618. Il faudrait maintenant 618 actions : elle en achète 19.",
+        "Le surlendemain, l'action revient à 100. Le delta revient à 0,599 : elle revend 19 actions.",
+        "Elle a acheté à 101 et revendu à 100 : une petite perte. C'est le coût d'être **short gamma**, compensé par le thêta qu'elle encaisse sur les calls vendus."
+      ],
+      "formules": [
+        {
+          "titre": "La quantité de couverture",
+          "latex": "\\text{Quantité de sous-jacent} = -\\,n \\times \\Delta",
+          "legende": { "n": "le nombre d'options détenues (négatif si elles sont vendues)", "\\Delta": "le delta d'une option" },
+          "en_francais": "Pour neutraliser le delta, on prend en sous-jacent l'opposé du delta total de la position. Un call vendu se couvre en achetant du sous-jacent ; un call acheté, en en vendant."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est le cœur du métier.** C'est l'idée de Black-Scholes mise en pratique : une option se réplique avec du sous-jacent. La banque qui vend une option et la couvre en delta n'a plus de pari directionnel. Elle gagne sa marge commerciale et gère les risques restants.\n\n**À quelle fréquence réajuster ?** C'est un arbitrage entre deux coûts.\n\n- Réajuster souvent coûte des **frais de transaction** (la fourchette achat-vente à chaque opération).\n- Réajuster rarement laisse la position exposée plus longtemps : le résultat devient plus **aléatoire**.\n\nEn pratique, les desks réajustent quand le delta s'écarte d'une tolérance, ou à heure fixe, et automatisent une grande partie de ce travail.\n\n**Ce que la couverture ne couvre pas.** Une position neutre en delta garde son gamma, son vega et son thêta. Elle reste exposée aux **sauts** de cours (une nouvelle qui fait chuter l'action de 20 % à l'ouverture ne laisse pas le temps d'ajuster) et à la **liquidité** (dans un marché paniqué, on ne peut pas toujours acheter ou vendre).\n\n**Le résultat d'un trader d'options** ne dépend donc pas de la direction du marché, mais de son **amplitude** : c'est le sujet des fiches suivantes.",
+      "piege": "Croire que la couverture se fait une fois pour toutes au moment de la vente. Le delta change en permanence : une couverture non réajustée redevient une position directionnelle. Autre erreur : se tromper de sens. Un call **vendu** se couvre par un **achat** de sous-jacent.",
+      "a_dire_en_entretien": "« Couvrir une option en delta, c'est détenir en face l'opposé de son delta en sous-jacent, pour que la position ne gagne ni ne perde sur une petite variation du cours. Comme le delta change avec le cours et le temps, on réajuste régulièrement. La fréquence est un compromis entre les frais et le risque résiduel. Une fois couverte en delta, la position reste exposée au gamma, au vega et au thêta. »",
+      "liens": ["m2.grecques.delta", "m2.couverture.long-short-gamma", "m2.bs.intuition"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.long-short-gamma",
+      "type": "fiche", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "tags": ["couverture", "gamma", "trading"],
+      "titre": "Long gamma, short gamma",
+      "une_phrase": "Couvert en delta, l'acheteur d'option est **long gamma** : il vend après les hausses et rachète après les baisses, donc **gagne quand le marché bouge** ; le vendeur est **short gamma** et fait l'inverse.",
+      "trente_secondes": "Prends un trader qui a **acheté** un call et l'a couvert en vendant du sous-jacent.\n\nLe marché monte : grâce au gamma, son delta augmente. Pour rester neutre, il doit vendre un peu plus de sous-jacent… **au prix haut**.\n\nLe marché redescend : son delta baisse. Il rachète ce qu'il avait vendu… **au prix bas**.\n\nIl a vendu haut et racheté bas : chaque aller-retour lui rapporte. Être long gamma, c'est **gagner sur les mouvements**, quel que soit leur sens.\n\nLe vendeur de l'option fait l'inverse : il achète après les hausses et vend après les baisses. Chaque aller-retour lui coûte.",
+      "analogie": "Imagine un commerçant qui achète des parapluies à bas prix les jours de soleil et les revend cher les jours de pluie. Il ne sait pas s'il pleuvra demain, mais il gagne à chaque changement de temps. Plus la météo est changeante, plus il gagne. Le trader long gamma est ce commerçant ; le trader short gamma fait l'inverse, et prie pour un temps stable.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Long gamma (option achetée)", "Short gamma (option vendue)"],
+        "lignes": [
+          ["Quand le marché monte", "Son delta monte : il vend du sous-jacent, haut", "Son delta baisse : il achète, haut"],
+          ["Quand le marché baisse", "Son delta baisse : il rachète, bas", "Son delta monte : il vend, bas"],
+          ["Résultat des allers-retours", "Gain", "Perte"],
+          ["Le temps qui passe", "Lui coûte le thêta", "Lui rapporte le thêta"],
+          ["Il espère", "Un marché agité", "Un marché calme"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un trader a acheté 1 000 calls à la monnaie de delta 0,599 et vendu 599 actions à 100.",
+        "Le marché monte à 102 : le delta passe à environ 0,637. Pour rester neutre, il vend 38 actions de plus, à 102.",
+        "Le marché revient à 100 : le delta revient à 0,599. Il rachète les 38 actions, à 100.",
+        "Gain de cet aller-retour : 38 × (102 − 100) = 76 euros.",
+        "Le vendeur des calls, couvert, a fait l'inverse : il a acheté 38 actions à 102 et les a revendues à 100. Il a perdu 76 euros."
+      ],
+      "formules": [],
+      "deux_minutes": "**Le gain de gamma ne dépend pas du sens.** Que le marché monte puis baisse, ou baisse puis monte, l'acheteur couvert gagne. Ce qui compte, c'est l'**amplitude** des mouvements. C'est pour cela que le résultat d'un desk d'options couvert est un pari sur la volatilité, et non sur la direction.\n\n**L'effet d'entraînement du short gamma.** Les acteurs short gamma doivent acheter quand le marché monte et vendre quand il baisse : ils **amplifient** les mouvements. Quand beaucoup d'acteurs sont dans cette situation (par exemple les teneurs de marché qui ont vendu beaucoup d'options à court terme), le marché peut devenir plus nerveux. À l'inverse, des acteurs long gamma achètent dans les baisses et vendent dans les hausses : ils **calment** le marché. On entend souvent dans les commentaires de marché « les teneurs de marché sont short gamma », pour expliquer des séances brutales.\n\n**Dans les produits structurés.** L'investisseur d'un autocall a vendu un put à barrière : il est short gamma et short volatilité. La banque émettrice est de l'autre côté : elle est long gamma la plupart du temps, mais près de la barrière, son gamma devient très instable et peut changer de signe. La gestion de ces positions est un métier en soi.\n\n**Le gamma n'est pas gratuit.** L'acheteur paie chaque jour le thêta. Toute la question est de savoir si les mouvements rapporteront plus que le thêta ne coûte : c'est la relation gamma-thêta.",
+      "piege": "Penser que le vendeur d'option couvert en delta ne prend aucun risque, puisqu'il est « couvert ». Il est short gamma : chaque grand mouvement lui coûte, car il doit acheter haut et vendre bas pour rester couvert. Sa couverture ne supprime pas le risque, elle le transforme en risque de volatilité.",
+      "a_dire_en_entretien": "« Une fois couvert en delta, l'acheteur d'option est long gamma : quand le marché monte, son delta augmente et il vend du sous-jacent au prix haut ; quand il baisse, il rachète au prix bas. Chaque aller-retour lui rapporte, quel que soit le sens. Le vendeur est short gamma et fait l'inverse : il achète haut et vend bas. L'acheteur paie ce gamma par le thêta ; le vendeur l'encaisse. »",
+      "liens": ["m2.couverture.delta-hedging", "m2.couverture.gamma-theta", "m2.grecques.gamma"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.gamma-theta",
+      "type": "fiche", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "tags": ["couverture", "gamma", "theta", "volatilite"],
+      "titre": "La relation gamma-thêta : le résultat d'une journée",
+      "une_phrase": "Le résultat d'une journée pour une option couverte en delta vaut environ **½ × Γ × (ΔS)² + Θ** : le gamma rapporte sur les mouvements, le thêta coûte le temps, et les deux s'équilibrent pour un mouvement égal à la **volatilité implicite du jour**.",
+      "trente_secondes": "Pour l'acheteur couvert en delta, deux effets s'opposent chaque jour.\n\n**Le gamma** : quel que soit le sens du mouvement ΔS, il rapporte ½ × Γ × (ΔS)². Le mouvement est au carré : une hausse et une baisse de même taille rapportent autant.\n\n**Le thêta** : il coûte la même somme chaque jour, que le marché bouge ou non.\n\nSi le marché bouge peu, le thêta l'emporte : l'acheteur perd. S'il bouge beaucoup, le gamma l'emporte : il gagne.\n\nLe mouvement qui équilibre les deux, le **point mort**, correspond exactement à la volatilité implicite ramenée à une journée.",
+      "analogie": "C'est un abonnement à une salle de sport payé à la journée. Chaque jour, tu paies le même prix (le thêta). Ce que tu en retires dépend de l'intensité de ta séance (les mouvements du marché). Une séance tranquille ne rentabilise pas le ticket ; une séance intense le rentabilise largement. Et ta séance « au prix juste » correspond à ce que le club a supposé en fixant son tarif : la volatilité implicite.",
+      "visuel": { "type": "outil", "ref": "labo.couverture-delta", "legende": "Compare « Marché agité » et « Marché calme » : la ligne verte (résultat couvert) passe au-dessus ou en dessous de la ligne du thêta seul." },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie acheté et couvert, S = K = 100, un an, volatilité implicite 20 %, taux nul. Gamma 0,0199 ; thêta −0,0158 par jour de bourse.",
+        "Le marché ne bouge pas : résultat = −0,0158, le thêta.",
+        "Le marché bouge de 1 (dans un sens ou dans l'autre) : ½ × 0,0199 × 1² − 0,0158 = −0,0058. Encore perdant.",
+        "Le marché bouge de 2 : ½ × 0,0199 × 4 − 0,0158 = +0,0239. Gagnant.",
+        "Le point mort est à 1,26 : c'est exactement 100 × 20 % ÷ √252, le mouvement quotidien que suppose une volatilité de 20 %."
+      ],
+      "formules": [
+        {
+          "titre": "Le résultat d'une journée, option couverte en delta",
+          "latex": "\\text{Résultat du jour} \\approx \\tfrac{1}{2}\\,\\Gamma\\,(\\Delta S)^2 + \\Theta_{\\text{jour}}",
+          "legende": { "\\Gamma": "le gamma de la position, positif si l'option est achetée", "\\Delta S": "la variation du sous-jacent dans la journée ; au carré, donc le sens ne compte pas", "\\Theta_{\\text{jour}}": "le thêta par jour, négatif pour l'acheteur" },
+          "en_francais": "L'acheteur gagne la moitié du gamma fois le mouvement au carré, et perd le thêta. Le vendeur a exactement le résultat inverse."
+        },
+        {
+          "titre": "Le point mort",
+          "latex": "|\\Delta S^{*}| \\approx S \\times \\frac{\\sigma_{\\text{imp}}}{\\sqrt{252}}",
+          "legende": { "\\Delta S^{*}": "le mouvement quotidien pour lequel gamma et thêta se compensent", "\\sigma_{\\text{imp}}": "la volatilité implicite payée dans la prime", "\\sqrt{252}": "pour passer d'une volatilité annuelle à une volatilité par jour de bourse" },
+          "en_francais": "L'acheteur gagne les jours où le sous-jacent bouge plus que ce qu'implique la volatilité payée, et perd les autres jours."
+        }
+      ],
+      "deux_minutes": "**C'est l'équation de Black-Scholes, lue par un trader.** Dans le modèle, pour une position couverte, la somme du gain de gamma et du thêta est exactement nulle si le sous-jacent bouge chaque jour comme le prévoit la volatilité implicite. Le prix de l'option est donc « juste » pour une volatilité réalisée égale à l'implicite.\n\n**La conséquence.** Sur la durée de l'option, l'acheteur couvert gagne en gros si la **volatilité réalisée** (les vrais mouvements) dépasse la **volatilité implicite** (celle qu'il a payée), et perd sinon. Acheter une option, c'est acheter de la volatilité à un prix donné ; la couvrir en delta, c'est encaisser la volatilité qui se réalise.\n\n**Pourquoi les mouvements sont au carré.** Le gain de gamma vient de l'achat bas et de la vente haut. Plus le mouvement est grand, plus la quantité réajustée est grande (proportionnelle au mouvement) et plus l'écart de prix est grand (aussi proportionnel) : le gain est proportionnel au produit, donc au carré.\n\n**Les limites de la formule.** Elle ne vaut que pour de petits mouvements et suppose que le vega ne joue pas : si la volatilité implicite change, la valeur de l'option change aussi. En cas de saut, le terme de gamma ne capture plus tout.\n\n**Un ordre de grandeur pratique.** À 20 % de volatilité, l'action doit bouger d'environ 1,26 % par jour pour que l'acheteur couvert rentre dans ses frais. À 40 %, il en faut le double.",
+      "piege": "Oublier que le mouvement est **au carré** : une hausse de 2 et une baisse de 2 rapportent exactement autant à l'acheteur couvert. Autre piège : croire que l'acheteur d'option gagne dès que le marché bouge. Il gagne seulement si le marché bouge **plus que le point mort**, fixé par la volatilité implicite qu'il a payée.",
+      "a_dire_en_entretien": "« Pour une option couverte en delta, le résultat d'une journée vaut environ un demi gamma fois le mouvement au carré, plus le thêta. L'acheteur gagne sur les mouvements et paie le temps. Les deux se compensent pour un mouvement quotidien égal à la volatilité implicite divisée par racine de 252 : environ 1,26 % par jour pour 20 % de volatilité. Donc l'acheteur couvert gagne si la volatilité réalisée dépasse l'implicite qu'il a payée, et le vendeur dans le cas contraire. »",
+      "liens": ["m2.couverture.long-short-gamma", "m2.couverture.implicite-realisee", "m2.grecques.theta", "m2.grecques.gamma"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.implicite-realisee",
+      "type": "fiche", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "tags": ["volatilite", "trading", "structures"],
+      "titre": "Qui gagne ? Volatilité réalisée contre volatilité implicite",
+      "une_phrase": "Un acheteur d'option couvert gagne si la **volatilité réalisée** dépasse la **volatilité implicite** qu'il a payée ; acheter une option, c'est parier que le marché bougera **plus que ce que le prix suppose**.",
+      "trente_secondes": "Il y a deux volatilités.\n\nLa **volatilité implicite** est celle contenue dans le prix de l'option au moment de l'achat : c'est ce que l'acheteur paie.\n\nLa **volatilité réalisée** est celle qui se produit ensuite, mesurée sur les vrais mouvements du sous-jacent : c'est ce que l'acheteur encaisse, s'il couvre son option en delta.\n\nSi la réalisée dépasse l'implicite, l'acheteur gagne : il a payé la volatilité moins cher qu'elle n'a valu. Sinon, c'est le vendeur.\n\nEn moyenne, l'implicite est un peu au-dessus de la réalisée : c'est la prime de risque que touchent les vendeurs. Ils gagnent souvent un peu, et perdent beaucoup lors des crises.",
+      "analogie": "Une assurance automobile est calculée sur un nombre moyen d'accidents prévu. Si l'année se passe avec moins d'accidents que prévu, l'assureur gagne. S'il y a une vague d'accidents, l'assuré a fait une bonne affaire. La volatilité implicite est la prévision d'accidents incluse dans la cotisation ; la volatilité réalisée est le nombre réel d'accidents.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Qui", "Gamma", "Thêta", "Il gagne si…"],
+        "lignes": [
+          ["Acheteur d'option (call ou put)", "Long", "Paie", "Le marché bouge plus que l'implicite payée"],
+          ["Vendeur d'option", "Short", "Encaisse", "Le marché reste plus calme que l'implicite"],
+          ["Entreprise qui achète un cap", "Long", "Paie (la prime)", "Les taux montent fortement"],
+          ["Investisseur d'un autocall", "Short (put vendu)", "Encaisse (le coupon)", "Le marché reste stable ou monte"],
+          ["Investisseur d'un capital garanti", "Long (call acheté)", "Paie (le rendement sacrifié)", "L'indice monte fortement"]
+        ],
+        "legende": "Les produits des clients d'une banque, lus en volatilité. Ils sont détaillés dans les modules 3 et 5."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un trader achète un call à un an au prix correspondant à une volatilité implicite de 20 %, et le couvre en delta chaque jour.",
+        "Scénario agité : l'action bouge en moyenne de 2,2 % par jour, soit une volatilité réalisée d'environ 2,2 % × √252 ≈ 35 %. Le gamma rapporte plus que le thêta ne coûte : le trader gagne.",
+        "Scénario calme : l'action bouge en moyenne de 0,5 % par jour, soit une volatilité réalisée d'environ 8 %. Le thêta l'emporte : le trader perd.",
+        "Le sens du marché n'a pas d'importance : une baisse régulière de 35 % de volatilité rapporte autant qu'une hausse de même volatilité."
+      ],
+      "formules": [
+        {
+          "titre": "La volatilité réalisée",
+          "latex": "\\sigma_{\\text{réalisée}} = \\sqrt{252} \\times \\text{écart-type}\\left(\\ln \\frac{S_t}{S_{t-1}}\\right)",
+          "legende": { "S_t": "le cours de clôture du jour t", "\\ln(S_t / S_{t-1})": "le rendement du jour", "\\sqrt{252}": "pour passer d'une volatilité quotidienne à une volatilité annuelle (252 jours de bourse)" },
+          "en_francais": "On mesure l'écart-type des rendements quotidiens observés, puis on le ramène à l'année. Un mouvement typique de 1 % par jour correspond à environ 16 % par an."
+        }
+      ],
+      "deux_minutes": "**La prime de risque de volatilité.** En moyenne, sur les indices actions, la volatilité implicite dépasse la volatilité réalisée de quelques points. Les vendeurs d'options sont payés pour supporter le risque de krach. C'est pourquoi les stratégies de vente d'options rapportent régulièrement… jusqu'au jour où elles perdent beaucoup d'un coup : février 2018, mars 2020.\n\n**Comment les desks l'utilisent.** Un trader compare chaque jour la volatilité implicite du marché à la volatilité qu'il **anticipe**. S'il pense que le marché va bouger plus que ce qu'implique le prix, il achète des options et les couvre en delta. Sinon, il en vend. C'est le métier de **trader de volatilité**.\n\n**Le lien avec les clients.** Les produits vendus aux clients contiennent des options. L'investisseur d'un autocall a vendu un put : il encaisse un coupon élevé quand la volatilité implicite est élevée, mais il porte le risque d'une forte baisse. L'entreprise qui achète un cap paie de la volatilité ; elle a raison de le faire si les taux bougent plus que prévu. Lire un produit en termes de volatilité, c'est savoir qui porte quel risque.\n\n**Une nuance.** Ce raisonnement suppose que l'on couvre en delta. Un acheteur qui ne se couvre pas a, en plus, un pari directionnel : il gagne si le marché va dans le bon sens, même calmement.",
+      "piege": "Confondre l'acheteur d'option **couvert** et l'acheteur **non couvert**. Le premier parie sur l'amplitude des mouvements, quel que soit leur sens. Le second parie aussi sur la direction. En entretien, précise toujours de quelle situation tu parles.",
+      "a_dire_en_entretien": "« La volatilité implicite est celle contenue dans le prix de l'option ; la réalisée est celle qui se produit ensuite. Un acheteur d'option couvert en delta gagne si la réalisée dépasse l'implicite qu'il a payée ; le vendeur dans le cas contraire. En moyenne, l'implicite est un peu au-dessus de la réalisée : c'est la prime de risque des vendeurs, qui gagnent souvent un peu et perdent beaucoup lors des crises. L'investisseur d'un autocall est dans cette position de vendeur. »",
+      "liens": ["m2.couverture.gamma-theta", "m2.vol.implicite", "m2.vol.realisee"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.couverture.c01", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 1, "recto": "Qu'est-ce que la couverture en delta ?", "verso": "Détenir l'opposé du delta de l'option en sous-jacent, et réajuster quand le delta change.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c02", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Pourquoi faut-il réajuster une couverture en delta ?", "verso": "Parce que le delta change quand le cours bouge (gamma) et quand le temps passe.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c03", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Fréquence de réajustement : quel compromis ?", "verso": "Réajuster souvent coûte des frais ; réajuster rarement laisse un risque résiduel plus grand.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c04", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Que fait un trader long gamma couvert quand le marché monte puis redescend ?", "verso": "Il vend du sous-jacent après la hausse et le rachète après la baisse : il vend haut, rachète bas, et gagne.", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c05", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Pourquoi dit-on que les acteurs short gamma amplifient les mouvements ?", "verso": "Pour rester couverts, ils achètent quand le marché monte et vendent quand il baisse.", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c06", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "recto": "Résultat d'une journée pour une option couverte en delta ?", "verso": "Environ ½ × Γ × (ΔS)² + Θ par jour.", "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c07", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "recto": "Où est le point mort de l'acheteur couvert ?", "verso": "À un mouvement quotidien d'environ S × σ_implicite / √252 : 1,26 % par jour pour 20 % de volatilité.", "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c08", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Quand l'acheteur d'option couvert en delta gagne-t-il ?", "verso": "Quand la volatilité réalisée dépasse la volatilité implicite qu'il a payée.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c09", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "Qu'est-ce que la prime de risque de volatilité ?", "verso": "L'écart, en moyenne positif, entre volatilité implicite et volatilité réalisée : la rémunération des vendeurs d'options.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.c10", "type": "carte", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "recto": "L'investisseur d'un autocall est-il long ou short volatilité ?", "verso": "Short : il a vendu un put (à barrière). Il encaisse le coupon et perd si le marché chute.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.couverture.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.couverture", "difficulte": 2,
+      "question": "Une banque vend un call à un client. Comment se couvre-t-elle ?",
+      "reponse_modele": "Elle ne garde pas le risque directionnel : elle le couvre en delta. Si le call a un delta de 0,6, elle achète 0,6 unité de sous-jacent par call vendu. Sa position ne craint plus une petite variation du cours. Comme le delta change avec le cours et le temps, elle réajuste régulièrement : elle achète quand le cours monte et revend quand il baisse. Il lui reste un risque de gamma, puisqu'elle est short gamma, compensé par le thêta qu'elle encaisse, et un risque de vega. Pour réduire ces risques, elle peut acheter d'autres options sur le marché.",
+      "points_cles": ["Achat de delta unités de sous-jacent", "Neutralité en delta", "Réajustements réguliers", "Short gamma, encaisse le thêta", "Risque de vega ; couverture par d'autres options"],
+      "piege": "Dire qu'elle vend du sous-jacent pour couvrir un call vendu.",
+      "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.couverture", "difficulte": 2,
+      "question": "Qu'est-ce qu'être long gamma ? Short gamma ?",
+      "reponse_modele": "Être long gamma, c'est avoir une position dont le delta augmente quand le marché monte et diminue quand il baisse : c'est le cas de l'acheteur d'option. Couvert en delta, il vend après les hausses et rachète après les baisses, donc il gagne à chaque mouvement, quel que soit le sens. En contrepartie, il paie du thêta. Être short gamma, c'est l'inverse : le vendeur d'option couvert doit acheter haut et vendre bas, il perd quand le marché bouge, mais il encaisse le thêta. Le long gamma veut un marché agité, le short gamma un marché calme.",
+      "points_cles": ["Définition par le comportement du delta", "Vendre haut, racheter bas", "Gain quel que soit le sens", "Contrepartie : le thêta", "Préférences : agité contre calme"],
+      "piege": "Confondre long gamma et long delta.",
+      "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.couverture", "difficulte": 3,
+      "question": "Tu as acheté une option et tu la couvres en delta. Quand gagnes-tu de l'argent ?",
+      "reponse_modele": "Je gagne si le sous-jacent bouge plus que ce que suppose la volatilité implicite que j'ai payée. Chaque jour, mon résultat vaut à peu près un demi gamma fois le mouvement au carré, moins le thêta. Le point mort est un mouvement quotidien égal à la volatilité implicite divisée par racine de 252 : environ 1,26 % par jour pour 20 % de volatilité. Sur la durée, je gagne si la volatilité réalisée dépasse la volatilité implicite. Le sens du marché n'a pas d'importance puisque je suis couvert. Je suis aussi exposé au vega : si la volatilité implicite monte, mon option prend de la valeur.",
+      "points_cles": ["½ Γ (ΔS)² + Θ", "Point mort : σ / √252", "Réalisée contre implicite", "Le sens ne compte pas", "Effet du vega en plus"],
+      "piege": "Répondre « quand le marché monte » : il est couvert en delta.",
+      "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.couverture", "difficulte": 3,
+      "question": "Pourquoi le résultat de gamma dépend-il du carré du mouvement ?",
+      "reponse_modele": "Parce que deux effets se multiplient. Quand le sous-jacent bouge de ΔS, le delta change de gamma fois ΔS : c'est la quantité de sous-jacent que je dois réajuster. Et cette quantité est achetée ou vendue avec un écart de prix lui-même proportionnel à ΔS. Le gain est donc proportionnel au produit des deux, soit à ΔS au carré, avec un facteur un demi parce que le delta évolue progressivement pendant le mouvement. Conséquence : une hausse et une baisse de même ampleur rapportent la même chose, et un mouvement deux fois plus grand rapporte quatre fois plus.",
+      "points_cles": ["Quantité réajustée : Γ × ΔS", "Écart de prix : ΔS", "Produit : (ΔS)²", "Le facteur ½", "Le sens ne compte pas"],
+      "piege": "Répondre sans expliquer d'où vient le carré.",
+      "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.couverture.q05", "type": "question_entretien", "module": 2, "chapitre": "m2.couverture", "difficulte": 2,
+      "question": "Un investisseur souscrit un autocall. Est-il acheteur ou vendeur de volatilité ? Et la banque ?",
+      "reponse_modele": "L'investisseur est vendeur de volatilité. Son coupon élevé est financé par la vente d'un put à barrière : il est short gamma et short vega, et il encaisse l'équivalent du thêta sous forme de coupon. Il gagne si le marché reste stable ou monte, et perd en cas de forte baisse. Quand la volatilité implicite est élevée, le put vaut plus cher, donc le coupon proposé est plus élevé. La banque émettrice est de l'autre côté : elle est longue de volatilité, et doit gérer un gamma qui devient très instable quand l'indice approche de la barrière.",
+      "points_cles": ["Investisseur : vendeur de volatilité", "Put à barrière vendu", "Coupon ≈ thêta encaissé", "Coupon plus élevé si volatilité élevée", "Banque : longue de volatilité, gamma instable près de la barrière"],
+      "piege": "Croire que l'investisseur achète une option parce qu'il « achète » un produit.",
+      "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.couverture.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.couverture", "difficulte": 1, "enonce": "Une banque a vendu 1 000 calls de delta 0,5. Pour se couvrir en delta, elle…", "choix": ["vend 500 actions", "achète 500 actions", "achète 1 000 actions", "ne fait rien"], "bonne": 1, "explication": "Delta de la position : −1 000 × 0,5 = −500. Elle achète 500 actions pour revenir à zéro.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z02", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "enonce": "Un acheteur d'option couvert en delta gagne de l'argent si le marché monte fortement, mais en perd s'il baisse fortement.", "vrai": false, "explication": "Couvert en delta, il est long gamma : il gagne sur les grands mouvements dans les deux sens.", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z03", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "enonce": "Option couverte : gamma 0,02, thêta −0,015 par jour. Le sous-jacent bouge de 2 dans la journée. Résultat du jour ?", "reponse": 0.025, "tolerance": 0.0005, "unite": "", "explication": "½ × 0,02 × 2² − 0,015 = 0,04 − 0,015 = 0,025.", "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z04", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "enonce": "Volatilité implicite de 32 %. Quel mouvement quotidien, en %, l'acheteur couvert doit-il voir pour être au point mort ? (une décimale)", "reponse": 2.0, "tolerance": 0.05, "unite": "%", "explication": "32 % ÷ √252 = 32 % ÷ 15,87 ≈ 2,0 % par jour.", "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "enonce": "Un vendeur d'options couvert en delta souhaite…", "choix": ["un marché très agité", "un marché calme", "une forte hausse", "une forte baisse"], "bonne": 1, "explication": "Short gamma, il perd sur les mouvements et encaisse le thêta : il veut un marché calme.", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "enonce": "Volatilité implicite payée : 20 %. Volatilité réalisée sur la vie de l'option : 30 %. L'acheteur couvert en delta…", "choix": ["gagne", "perd", "est à l'équilibre", "ne peut pas savoir"], "bonne": 0, "explication": "La réalisée dépasse l'implicite : les mouvements ont rapporté plus que le thêta n'a coûté.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z07", "type": "quiz", "forme": "ordre", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "enonce": "Remets dans l'ordre ce que fait un trader long gamma couvert sur un aller-retour du marché.", "etapes": ["Il est neutre en delta au départ", "Le marché monte : son delta augmente", "Il vend du sous-jacent au prix haut", "Le marché redescend : son delta diminue", "Il rachète le sous-jacent au prix bas"], "explication": "Vendre haut, racheter bas : c'est le gain de gamma, payé par le thêta.", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.z08", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "enonce": "En moyenne, la volatilité implicite des indices actions est un peu supérieure à la volatilité réalisée.", "vrai": true, "explication": "C'est la prime de risque de volatilité, qui rémunère les vendeurs d'options pour le risque de krach.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.couverture.x01", "type": "exercice", "module": 2, "chapitre": "m2.couverture", "difficulte": 3,
+      "titre": "Le résultat d'une journée pour un call couvert",
+      "enonce": "Exemple fictif. Tu as acheté un call à la monnaie (S = K = 100, un an, volatilité implicite 20 %, taux nul) et tu le couvres en delta. Calcule ton gamma et ton thêta par jour de bourse, puis ton résultat si le sous-jacent ne bouge pas, bouge de 1, de 2 ou de 3 dans la journée. Où est ton point mort ?",
+      "etapes": [
+        {
+          "titre": "Le gamma",
+          "texte": "Γ = φ(d₁) / (S σ √T). Avec un taux nul, d₁ = 0,10 et φ(0,10) = 0,397.",
+          "resultat": "Γ = 0,0199",
+          "verif": { "fn": "options.gamma", "args": [100, 100, 1, 0, 0.2], "attendu": 0.01985, "tolerance": 0.00001 }
+        },
+        {
+          "titre": "Le thêta par jour de bourse",
+          "texte": "Le thêta annuel est de −3,97 ; divisé par 252 jours de bourse.",
+          "resultat": "Θ = −0,0158 par jour",
+          "verif": { "fn": "options.thetaBourseCall", "args": [100, 100, 1, 0, 0.2], "attendu": -0.01575, "tolerance": 0.00001 }
+        },
+        {
+          "titre": "Les quatre scénarios",
+          "texte": "Résultat = ½ × 0,0199 × (ΔS)² − 0,0158. ΔS = 0 : −0,0158. ΔS = 1 : 0,0099 − 0,0158 = −0,0058. ΔS = 2 : 0,0397 − 0,0158 = +0,0239. ΔS = 3 : 0,0893 − 0,0158 = +0,0736.",
+          "resultat": "−0,016 ; −0,006 ; +0,024 ; +0,074",
+          "verif": { "fn": "options.pnlCouvert", "args": [0.01985, 2, -0.01575], "attendu": 0.0239, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le point mort",
+          "texte": "On cherche ΔS tel que ½ × 0,0199 × (ΔS)² = 0,0158, soit (ΔS)² = 1,587.",
+          "formule": { "latex": "|\\Delta S^{*}| = \\sqrt{\\frac{2 \\times 0{,}0158}{0{,}0199}} \\approx 1{,}26 = 100 \\times \\frac{0{,}20}{\\sqrt{252}}", "legende": { "0{,}0158": "le thêta par jour, en valeur absolue", "0{,}0199": "le gamma" }, "en_francais": "Le point mort est exactement le mouvement quotidien que suppose une volatilité de 20 % : la volatilité implicite payée." },
+          "resultat": "Point mort : ±1,26 par jour"
+        },
+        { "titre": "Lecture", "texte": "Les jours où l'action bouge de moins de 1,26 %, tu perds ; au-delà, tu gagnes, quel que soit le sens. Le vendeur de ce call a exactement la courbe inverse." }
+      ],
+      "erreurs_a_eviter": ["Oublier le ½ devant le gamma.", "Mélanger thêta par jour calendaire et mouvements par jour de bourse.", "Croire qu'un mouvement de −2 donne un résultat différent d'un mouvement de +2."],
+      "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.couverture.l-delta-hedging", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "terme": "Couverture en delta", "anglais": "delta hedging", "definition": "Neutralisation du delta d'une option par une position opposée en sous-jacent, réajustée régulièrement.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.l-reajustement", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "terme": "Réajustement", "anglais": "rebalancing", "definition": "Achat ou vente de sous-jacent pour ramener le delta d'une position à zéro.", "fiche": "m2.couverture.delta-hedging", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.l-long-gamma", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "terme": "Long gamma / short gamma", "anglais": "long / short gamma", "definition": "Long gamma : gagne sur les mouvements, paie le thêta (acheteur d'option). Short gamma : l'inverse (vendeur).", "fiche": "m2.couverture.long-short-gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.l-gamma-pnl", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "terme": "Résultat de gamma", "anglais": "gamma P&L", "definition": "Gain d'une position couverte en delta dû aux mouvements du sous-jacent : environ ½ Γ (ΔS)².", "fiche": "m2.couverture.gamma-theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.l-prime-vol", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 3, "terme": "Prime de risque de volatilité", "anglais": "volatility risk premium", "definition": "Écart moyen positif entre volatilité implicite et volatilité réalisée, qui rémunère les vendeurs d'options.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.couverture.l-trader-vol", "type": "lexique", "module": 2, "chapitre": "m2.couverture", "difficulte": 2, "terme": "Trader de volatilité", "anglais": "volatility trader", "definition": "Trader qui achète ou vend des options couvertes en delta selon qu'il anticipe une volatilité réalisée supérieure ou inférieure à l'implicite.", "fiche": "m2.couverture.implicite-realisee", "maj": "2026-11-16", "version": 1 }
+  ]
+}

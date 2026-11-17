@@ -1,0 +1,283 @@
+{
+  "chapitre": {
+    "id": "m2.bases",
+    "module": 2,
+    "ordre": 1,
+    "titre": "Les bases : call, put et prime",
+    "resume": "Ce qu'est une option, le call et le put, ce que gagnent et risquent l'acheteur et le vendeur, et ce que contient la prime : valeur intrinsèque et valeur temps."
+  },
+  "elements": [
+    {
+      "id": "m2.bases.definition",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "vocabulaire"],
+      "titre": "Une option, c'est quoi ?",
+      "une_phrase": "Une option est un contrat qui donne **le droit, mais pas l'obligation**, d'acheter ou de vendre un actif à un prix fixé d'avance, contre le paiement d'une **prime**.",
+      "trente_secondes": "Tout est dans les mots « droit » et « pas l'obligation ». L'acheteur de l'option choisit, à l'échéance, s'il l'utilise ou non. Il ne l'utilise que si cela l'arrange.\n\nCe droit a un prix : la **prime**, payée au départ au vendeur de l'option. Le vendeur, lui, n'a pas le choix : si l'acheteur exerce, il doit s'exécuter.\n\nCinq caractéristiques définissent une option : le **sous-jacent** (l'actif concerné), le **sens** (droit d'acheter : *call* ; droit de vendre : *put*), le **prix d'exercice** (*strike*), l'**échéance** et le **nominal** (la quantité).",
+      "analogie": "C'est une option d'achat sur une maison. Tu verses 5 000 euros au propriétaire pour qu'il te réserve la maison à 300 000 euros pendant trois mois. Si les prix du quartier montent, tu achètes à 300 000 et tu fais une bonne affaire. S'ils baissent, tu renonces : tu as perdu tes 5 000 euros, pas plus. Le propriétaire, lui, a encaissé 5 000 euros mais s'est engagé à vendre si tu le demandes.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Caractéristique", "Ce que c'est", "Exemple"],
+        "lignes": [
+          ["Sous-jacent", "L'actif sur lequel porte l'option", "Une action, un indice, l'EUR/USD, un taux"],
+          ["Sens", "Droit d'acheter (call) ou de vendre (put)", "Un call"],
+          ["Strike", "Le prix auquel on pourra acheter ou vendre", "100"],
+          ["Échéance", "La date limite pour exercer", "Dans un an"],
+          ["Nominal", "La quantité de sous-jacent couverte", "1 000 actions"],
+          ["Style", "Exercice à l'échéance seulement (européenne) ou à tout moment (américaine)", "Européenne"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une action vaut 100 euros. Tu achètes un call d'échéance un an et de strike 100 : le droit d'acheter l'action à 100 dans un an. La prime est de 9,41 euros.",
+        "Dans un an, l'action vaut 130. Tu exerces : tu achètes à 100 une action qui vaut 130. Gain : 30 − 9,41 = 20,59 euros.",
+        "Dans un an, l'action vaut 80. Tu n'exerces pas : personne n'achète à 100 ce qui vaut 80. Perte : la prime, 9,41 euros, et rien de plus.",
+        "Avec 9,41 euros, tu t'es exposé à la hausse d'une action de 100 euros, sans risquer plus que ta mise. C'est l'**effet de levier** de l'option."
+      ],
+      "formules": [],
+      "deux_minutes": "**Européenne ou américaine.** Une option européenne ne peut être exercée qu'à l'échéance ; une option américaine, à tout moment jusqu'à l'échéance. Ces noms n'ont rien de géographique : on trouve les deux partout. La plupart des options sur indices sont européennes, la plupart des options sur actions individuelles cotées sont américaines.\n\n**Deux lieux d'échange.** Les options **listées** se traitent sur des marchés organisés (Eurex, Euronext, CBOE), avec des caractéristiques standardisées et une chambre de compensation qui garantit la bonne fin. Les options **de gré à gré** (*OTC*) sont négociées directement entre une banque et son client, sur mesure : c'est le cas des options de change ou de taux vendues aux entreprises, et des options logées dans les produits structurés.\n\n**Livraison physique ou en espèces.** À l'exercice, on peut livrer réellement le sous-jacent, ou seulement verser la différence entre le cours et le strike. Sur un indice, c'est toujours en espèces : on ne livre pas « le CAC 40 ».\n\n**Pourquoi c'est important.** Les options sont la brique de base de la finance de marché : elles servent à se couvrir (un importateur, un épargnant), à spéculer avec effet de levier, et à fabriquer des produits structurés. Comprendre leur prix, c'est comprendre l'essentiel du métier d'un desk de dérivés.",
+      "piege": "Confondre une option avec un contrat à terme. Le contrat à terme (*forward*, *future*) **oblige** les deux parties. L'option ne crée une obligation que pour le vendeur ; l'acheteur garde le choix. C'est pour ce choix qu'il paie une prime, alors qu'un contrat à terme ne coûte rien au départ.",
+      "a_dire_en_entretien": "« Une option donne à son acheteur le droit, mais pas l'obligation, d'acheter, pour un call, ou de vendre, pour un put, un sous-jacent à un prix fixé, le strike, à ou jusqu'à une date donnée. L'acheteur paie une prime au vendeur, qui s'engage à s'exécuter si l'option est exercée. Contrairement à un contrat à terme, l'acheteur ne peut pas perdre plus que sa prime. »",
+      "liens": ["m2.bases.call", "m2.bases.put", "m2.bases.prime", "m2.exotiques.americaine"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.call",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "call", "payoff"],
+      "titre": "Le call : le droit d'acheter",
+      "une_phrase": "Un **call** donne le droit d'acheter le sous-jacent au strike K ; il gagne si le sous-jacent **finit au-dessus de K**.",
+      "trente_secondes": "À l'échéance, le détenteur du call compare deux prix : le cours du sous-jacent, noté S, et le strike K.\n\nSi S est au-dessus de K, il exerce : il achète à K quelque chose qui vaut S. Son gain est S − K.\n\nSi S est en dessous de K, il n'exerce pas : son gain est nul.\n\nLe gain à l'échéance, qu'on appelle le **payoff**, est donc le plus grand des deux nombres : S − K ou zéro. Il ne peut jamais être négatif. Pour obtenir le résultat net, on retire la prime payée au départ.",
+      "analogie": "C'est un bon de réduction pour acheter une console à 300 euros. Si la console se vend 400 euros en magasin, ton bon vaut 100 euros. Si elle est soldée à 250, ton bon ne vaut rien : tu l'achètes au prix du magasin. Ton bon ne peut pas te coûter plus que ce que tu l'as payé.",
+      "visuel": { "type": "outil", "ref": "labo.explorateur", "legende": "Choisis « Call » et « Achat » : la courbe en pointillés est le gain à l'échéance, plat à zéro sous le strike, puis en pente de 1." },
+      "exemple_chiffre": [
+        "Exemple fictif. Call de strike 100 sur une action, échéance un an, prime 9,41.",
+        "À l'échéance, S = 120 : payoff = max(120 − 100, 0) = 20. Résultat net = 20 − 9,41 = +10,59.",
+        "S = 105 : payoff = 5. Résultat net = 5 − 9,41 = −4,41. On exerce quand même : cela réduit la perte.",
+        "S = 90 : payoff = 0. Résultat net = −9,41, la prime.",
+        "Le point mort est à 100 + 9,41 = 109,41 : l'action doit monter de plus de 9,41 % pour que le call soit rentable."
+      ],
+      "formules": [
+        {
+          "titre": "Le gain du call à l'échéance (payoff)",
+          "latex": "\\text{Payoff}_{\\text{call}} = \\max(S_T - K,\\ 0)",
+          "legende": { "S_T": "le prix du sous-jacent à l'échéance", "K": "le strike, prix d'exercice", "\\max": "le plus grand des deux nombres" },
+          "en_francais": "À l'échéance, le call rapporte l'écart entre le cours et le strike si cet écart est positif, et rien sinon."
+        }
+      ],
+      "deux_minutes": "**Le profil en « crosse de hockey ».** Sur un graphique avec S en abscisse, le payoff du call est plat à zéro jusqu'à K, puis monte en pente de 1. Le gain est illimité à la hausse, la perte limitée à la prime. C'est cette **asymétrie** qui fait toute la valeur d'une option.\n\n**Qui achète des calls ?**\n\n- Un investisseur qui croit à la hausse et veut limiter sa perte possible.\n- Un investisseur qui veut du levier : avec 9,41 euros de prime, il profite de la hausse d'une action de 100 euros.\n- Un importateur qui doit acheter des dollars plus tard : un call sur le dollar lui garantit un prix maximum.\n- Le fabricant d'un produit structuré à capital garanti : le call apporte la participation à la hausse.\n\n**Le vendeur de call** encaisse la prime et s'engage à livrer à K. Si le cours s'envole, sa perte est en théorie illimitée. Un investisseur qui détient déjà l'action peut vendre un call dessus pour toucher un revenu : c'est le *covered call*. Il renonce alors aux gains au-dessus du strike.\n\n**Exercer ou revendre.** Avant l'échéance, l'option vaut plus que son gain d'exercice immédiat (sa valeur temps). Pour une option américaine, il vaut donc en général mieux la **revendre** que l'exercer tôt.",
+      "piege": "Confondre le payoff et le résultat net. Le payoff (max(S − K, 0)) ne tient pas compte de la prime. Le call n'est rentable qu'au-dessus de **K plus la prime**, pas au-dessus de K. Entre K et K + prime, on exerce, mais on reste perdant.",
+      "a_dire_en_entretien": "« Un call donne le droit d'acheter le sous-jacent au strike. À l'échéance, il vaut max(S − K, 0) : l'acheteur exerce si le cours dépasse le strike. Son gain est illimité à la hausse et sa perte limitée à la prime ; il devient rentable au-dessus de K plus la prime. Le vendeur encaisse la prime mais s'expose à une perte illimitée si le marché monte. »",
+      "liens": ["m2.bases.put", "m2.bases.acheteur-vendeur", "m2.bases.prime"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.put",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "put", "payoff", "couverture"],
+      "titre": "Le put : le droit de vendre, une assurance",
+      "une_phrase": "Un **put** donne le droit de vendre le sous-jacent au strike K ; il gagne si le sous-jacent **finit sous K** : c'est une **assurance contre la baisse**.",
+      "trente_secondes": "À l'échéance, si le cours S est sous le strike K, le détenteur du put exerce : il vend à K quelque chose qui ne vaut que S. Son gain est K − S.\n\nSi S est au-dessus de K, il n'exerce pas : il vendrait moins cher que le marché.\n\nLe payoff du put est donc max(K − S, 0).\n\nC'est exactement le fonctionnement d'une assurance. Celui qui possède une action et achète un put de strike 90 est sûr de pouvoir la vendre au moins 90, quoi qu'il arrive. La prime du put est le prix de cette assurance.",
+      "analogie": "C'est l'assurance de ta voiture. Tu paies une cotisation chaque année. Si tu n'as pas d'accident, tu as « perdu » ta cotisation, mais tu as été protégé. Si la voiture est détruite, l'assurance te rembourse sa valeur. Le put rembourse la baisse du sous-jacent sous le strike ; le strike joue le rôle de la franchise.",
+      "visuel": { "type": "outil", "ref": "labo.explorateur", "legende": "Choisis « Put » et « Achat » : le gain à l'échéance monte quand le sous-jacent baisse sous le strike." },
+      "exemple_chiffre": [
+        "Exemple fictif. Tu détiens une action à 100. Tu achètes un put de strike 90, échéance un an, pour une prime de 2,77.",
+        "À l'échéance, l'action est tombée à 60. Le put vaut max(90 − 60, 0) = 30. Ton action a perdu 40, ton put a gagné 30 : ta perte est limitée à 10, plus la prime, soit 12,77.",
+        "À l'échéance, l'action est à 120. Le put ne vaut rien. Tu as gagné 20 sur l'action, moins 2,77 de prime : +17,23.",
+        "Quoi qu'il arrive, tu ne peux pas perdre plus de 10 + 2,77 = 12,77. Tu as acheté un plancher."
+      ],
+      "formules": [
+        {
+          "titre": "Le gain du put à l'échéance (payoff)",
+          "latex": "\\text{Payoff}_{\\text{put}} = \\max(K - S_T,\\ 0)",
+          "legende": { "S_T": "le prix du sous-jacent à l'échéance", "K": "le strike, prix d'exercice" },
+          "en_francais": "À l'échéance, le put rapporte l'écart entre le strike et le cours si le cours est plus bas, et rien sinon."
+        }
+      ],
+      "deux_minutes": "**Le gain maximal est limité.** Un sous-jacent ne peut pas tomber sous zéro : le gain maximal du put est K moins la prime. Celui du call, lui, est illimité.\n\n**Qui achète des puts ?**\n\n- Un investisseur qui veut **protéger un portefeuille** contre une chute (on dit qu'il achète une protection).\n- Un spéculateur qui parie sur la baisse, avec une perte limitée à la prime.\n- Un exportateur payé en dollars : un put sur le dollar lui garantit un prix minimum de vente.\n\n**Le vendeur de put** encaisse la prime et s'engage à acheter à K. Si le marché s'effondre, il achète cher quelque chose qui ne vaut plus grand-chose. C'est la position de l'investisseur dans de nombreux **produits structurés** : en échange d'un coupon attractif, il vend un put sur un indice, souvent un put à barrière. Il est payé pour assurer les autres contre un krach.\n\n**Pourquoi les puts sont « chers ».** Sur les marchés d'actions, la demande de protection est forte et les baisses sont souvent brutales. Les puts en dehors de la monnaie se traitent donc à une volatilité implicite plus élevée que les calls : c'est le **skew**, vu dans le chapitre sur la volatilité.",
+      "piege": "Croire qu'acheter un put suppose de posséder le sous-jacent. On peut acheter un put « à nu » pour parier sur la baisse. Autre confusion fréquente : **vendre un put** n'est pas parier sur la baisse, c'est l'inverse ; le vendeur de put gagne si le marché monte ou reste stable.",
+      "a_dire_en_entretien": "« Un put donne le droit de vendre le sous-jacent au strike. À l'échéance, il vaut max(K − S, 0). Pour celui qui détient le sous-jacent, c'est une assurance : il fixe un prix minimum de revente, et la prime est le coût de cette assurance. Le vendeur de put encaisse la prime mais doit acheter au strike si le marché chute : c'est la position de l'investisseur dans beaucoup de produits structurés. »",
+      "liens": ["m2.bases.call", "m2.bases.acheteur-vendeur", "m2.strategies.collar", "m2.vol.smile-skew"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.acheteur-vendeur",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "payoff", "risque"],
+      "titre": "Acheteur et vendeur : qui risque quoi",
+      "une_phrase": "L'acheteur d'une option a une **perte limitée** à la prime ; le vendeur a un **gain limité** à la prime et une perte qui peut être très grande : c'est un jeu à somme nulle.",
+      "trente_secondes": "Chaque option a deux côtés. Ce que gagne l'acheteur, le vendeur le perd, et inversement.\n\nOn parle de position **longue** (*long*) pour l'acheteur et **courte** (*short*) pour le vendeur.\n\nIl y a donc quatre positions de base : acheteur de call (long call), vendeur de call (short call), acheteur de put (long put), vendeur de put (short put).\n\nL'acheteur paie pour avoir le choix. Le vendeur est payé pour prendre un risque. Il gagne souvent un peu, et perd parfois beaucoup.",
+      "analogie": "L'acheteur d'une option est l'assuré, le vendeur est l'assureur. L'assureur encaisse des cotisations toute l'année et gagne de l'argent la plupart du temps. Mais l'année d'une grande tempête, il doit payer d'un coup bien plus que ce qu'il a encaissé.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Position", "Vue de marché", "Gain maximal", "Perte maximale"],
+        "lignes": [
+          ["Achat de call", "Hausse", "Illimité", "La prime"],
+          ["Vente de call", "Stabilité ou baisse", "La prime", "Illimitée"],
+          ["Achat de put", "Baisse, ou se protéger", "Le strike moins la prime", "La prime"],
+          ["Vente de put", "Stabilité ou hausse", "La prime", "Le strike moins la prime"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un call de strike 100, prime 9,41. L'acheteur paie 9,41 au vendeur.",
+        "Le sous-jacent finit à 150 : l'acheteur gagne 50 − 9,41 = +40,59 ; le vendeur perd exactement 40,59.",
+        "Le sous-jacent finit à 100 ou moins : l'acheteur perd 9,41 ; le vendeur gagne 9,41.",
+        "La somme des deux résultats est toujours nulle : 40,59 − 40,59 = 0, et −9,41 + 9,41 = 0. L'option ne crée ni ne détruit de richesse, elle la transfère."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi quelqu'un accepte-t-il de vendre ?** Parce que la prime le rémunère pour le risque, et qu'en moyenne, les options se vendent un peu plus cher que ce qu'elles rapportent : la volatilité implicite est en général un peu au-dessus de la volatilité réalisée. Le vendeur d'options touche cette **prime de risque**, au prix de pertes rares mais lourdes, lors des krachs.\n\n**La banque est au milieu.** Quand un client achète une option, la banque la lui vend. Elle ne garde pas le pari : elle le **couvre**, en achetant ou en vendant le sous-jacent (couverture en delta) ou d'autres options. Son métier n'est pas de deviner la direction du marché, mais de gérer les risques qui restent : gamma, vega, thêta. C'est le sujet des chapitres sur les grecques et la couverture.\n\n**Les appels de marge.** Sur un marché organisé, le vendeur d'option doit déposer des garanties, ajustées chaque jour, car son risque de perte est élevé. L'acheteur, qui a déjà tout payé, n'en dépose pas.\n\n**Long et short, au-delà des options.** On dit qu'on est « long » d'un risque quand on gagne s'il augmente, et « short » quand on y perd. L'acheteur d'option est long volatilité et long gamma ; le vendeur est short volatilité et short gamma.",
+      "piege": "Penser que le vendeur d'options est « le perdant » parce qu'il a une perte potentielle illimitée. La plupart du temps, c'est lui qui gagne : la majorité des options finissent sans valeur ou avec une valeur inférieure à leur prime. Son risque n'est pas d'avoir tort souvent, c'est d'avoir tort une fois, très fort.",
+      "a_dire_en_entretien": "« L'acheteur d'une option a une perte limitée à la prime et un gain potentiellement important ; le vendeur encaisse la prime mais peut perdre beaucoup. C'est un jeu à somme nulle. Le vendeur est rémunéré pour porter un risque, comme un assureur : il gagne souvent un peu et perd rarement beaucoup. Une banque qui vend une option à un client ne garde pas le pari : elle le couvre. »",
+      "liens": ["m2.bases.call", "m2.bases.put", "m2.couverture.delta-hedging"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.prime",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "prime", "valeur temps"],
+      "titre": "La prime : valeur intrinsèque et valeur temps",
+      "une_phrase": "La prime d'une option se découpe en deux : la **valeur intrinsèque**, ce que rapporterait un exercice immédiat, et la **valeur temps**, ce que vaut la chance que la situation s'améliore d'ici l'échéance.",
+      "trente_secondes": "**La valeur intrinsèque** est le gain qu'on obtiendrait en exerçant tout de suite : S − K pour un call, K − S pour un put, et zéro si ce nombre est négatif.\n\n**La valeur temps** est tout le reste : prime moins valeur intrinsèque. Elle paie l'espoir. Tant qu'il reste du temps, le sous-jacent peut bouger dans le bon sens, et l'acheteur, protégé à la baisse, profite de tout mouvement favorable.\n\nLa valeur temps est toujours positive avant l'échéance, maximale quand l'option est **à la monnaie**, et elle **fond** à mesure que l'échéance approche, pour être nulle le dernier jour.",
+      "analogie": "Un billet pour un match de foot à guichets fermés. Sa valeur intrinsèque est ce que vaudrait le billet si le match se jouait maintenant. Sa valeur temps est l'espoir qu'une affiche se décide d'ici là, que l'équipe se qualifie, que la demande explose. Le soir du match, il ne reste que la valeur intrinsèque : l'espoir a disparu.",
+      "visuel": { "type": "outil", "ref": "labo.explorateur", "legende": "Regarde le découpage de la prime. Réduis la maturité à quelques jours : la valeur temps fond, il ne reste que la valeur intrinsèque." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, échéance un an, volatilité 20 %, taux 3 %. Prix calculés avec Black-Scholes.",
+        "Call de strike 90 : prime 15,43. Valeur intrinsèque 100 − 90 = 10. Valeur temps 15,43 − 10 = 5,43.",
+        "Call de strike 100 : prime 9,41. Valeur intrinsèque 0. Toute la prime est de la valeur temps : 9,41.",
+        "Call de strike 110 : prime 5,29. Valeur intrinsèque 0 (exercer à 110 ce qui vaut 100 n'aurait aucun sens). Valeur temps 5,29.",
+        "C'est à la monnaie que la valeur temps est la plus grande : 9,41, contre 5,43 et 5,29."
+      ],
+      "formules": [
+        {
+          "titre": "Le découpage de la prime",
+          "latex": "\\text{Prime} = \\underbrace{\\max(S - K,\\ 0)}_{\\text{valeur intrinsèque}} + \\text{valeur temps}",
+          "legende": { "S": "le prix actuel du sous-jacent", "K": "le strike", "\\text{valeur temps}": "la part de la prime qui paie la possibilité d'une évolution favorable" },
+          "en_francais": "La prime d'un call est ce qu'il rapporterait si on l'exerçait maintenant, plus un supplément pour le temps qui reste. Pour un put, on remplace S − K par K − S."
+        }
+      ],
+      "deux_minutes": "**Pourquoi la valeur temps est maximale à la monnaie.** Loin dans la monnaie, l'option ressemble au sous-jacent lui-même : elle sera presque sûrement exercée, l'asymétrie ne sert plus. Loin en dehors, elle a très peu de chances de finir dans la monnaie. C'est à la monnaie que l'incertitude, donc le choix, a le plus de valeur.\n\n**De quoi dépend la valeur temps.** De la **durée** restante (plus de temps, plus de chances), de la **volatilité** (plus le sous-jacent bouge, plus le choix vaut cher) et, plus faiblement, des taux et des dividendes.\n\n**Elle fond, et de plus en plus vite.** La perte de valeur temps par jour qui passe s'appelle le **thêta**. Pour une option à la monnaie, elle s'accélère à l'approche de l'échéance, à peu près comme la racine carrée du temps restant : une option à 3 mois vaut environ la moitié d'une option à 1 an, pas le quart.\n\n**Cas particulier.** Pour un put européen très dans la monnaie, ou quand les taux sont élevés, la prime peut être légèrement **inférieure** à la valeur intrinsèque : la valeur temps est alors négative. Le détenteur aimerait encaisser tout de suite, mais ne peut pas exercer avant l'échéance. C'est ce qui rend l'exercice anticipé d'un put américain parfois optimal.",
+      "piege": "Croire qu'une option en dehors de la monnaie ne vaut rien parce que sa valeur intrinsèque est nulle. Elle vaut sa valeur temps : le call de strike 110 coûte 5,29. Autre erreur : penser que la valeur temps diminue au même rythme chaque jour ; elle fond de plus en plus vite.",
+      "a_dire_en_entretien": "« La prime se décompose en valeur intrinsèque, ce que rapporterait un exercice immédiat, et valeur temps, qui rémunère la possibilité d'une évolution favorable d'ici l'échéance. La valeur temps dépend de la durée restante et de la volatilité. Elle est maximale à la monnaie et s'annule à l'échéance, en fondant de plus en plus vite : c'est le thêta. »",
+      "liens": ["m2.bases.moneyness", "m2.prime.sensibilites", "m2.grecques.theta"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.moneyness",
+      "type": "fiche", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "tags": ["options", "vocabulaire"],
+      "titre": "Dans, à et en dehors de la monnaie",
+      "une_phrase": "Une option est **dans la monnaie** si l'exercer maintenant rapporterait quelque chose, **à la monnaie** si le strike est égal au cours, et **en dehors de la monnaie** si l'exercer ne rapporterait rien.",
+      "trente_secondes": "Ce vocabulaire compare le strike K au cours actuel S.\n\nPour un **call** : dans la monnaie (*in the money*, ITM) si S > K ; à la monnaie (*at the money*, ATM) si S = K ; en dehors de la monnaie (*out of the money*, OTM) si S < K.\n\nPour un **put**, c'est l'inverse : dans la monnaie si S < K, en dehors si S > K.\n\nQuand le cours est à 100, un call 90 et un put 110 sont dans la monnaie ; un call 110 et un put 90 sont en dehors.",
+      "analogie": "Un bon de réduction de 50 euros valable sur les achats de plus de 200 euros. Si ton panier fait 260 euros, ton bon est « dans la monnaie » : il sert tout de suite. S'il fait 200 euros pile, il est « à la monnaie ». S'il fait 150 euros, il est « en dehors » : pour l'instant, il ne sert à rien, mais tu peux encore remplir ton panier.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Cours S = 100", "Call", "Put"],
+        "lignes": [
+          ["Strike 80", "Très dans la monnaie (delta 0,91)", "Très en dehors (delta −0,09)"],
+          ["Strike 90", "Dans la monnaie (delta 0,78)", "En dehors (delta −0,22)"],
+          ["Strike 100", "À la monnaie (delta 0,60)", "À la monnaie (delta −0,40)"],
+          ["Strike 110", "En dehors (delta 0,41)", "Dans la monnaie (delta −0,59)"],
+          ["Strike 120", "Très en dehors (delta 0,25)", "Très dans la monnaie (delta −0,75)"]
+        ],
+        "legende": "Exemple fictif : un an, volatilité 20 %, taux 3 %. Le delta, vu plus loin, mesure à quel point l'option se comporte comme le sous-jacent."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : l'action vaut 100. Options à un an, volatilité 20 %, taux 3 %.",
+        "Call 80 (très dans la monnaie) : prime 23,22, dont 20 de valeur intrinsèque. Il se comporte presque comme l'action.",
+        "Call 100 (à la monnaie) : prime 9,41, entièrement en valeur temps.",
+        "Call 120 (très en dehors) : prime 2,77, entièrement en valeur temps. Il faut une hausse de plus de 22 % pour qu'il soit rentable : 120 + 2,77 = 122,77.",
+        "Plus l'option est en dehors de la monnaie, moins elle coûte, et plus elle a un effet de levier élevé… mais moins elle a de chances de rapporter."
+      ],
+      "formules": [],
+      "deux_minutes": "**À la monnaie : par rapport à quoi ?** On compare en général le strike au cours au comptant (*ATM spot*). Les professionnels utilisent aussi le cours **à terme** (*ATM forward*) : avec des taux positifs, le prix à terme d'une action sans dividende est au-dessus du cours comptant (103,05 à un an avec des taux à 3 %). Un call de strike 103,05 est « à la monnaie forward ». Sur le marché des changes, on raisonne presque toujours ainsi.\n\n**Les options de trader parlent en delta.** Plutôt que « le put de strike 90 », on dit souvent « le put 25 delta » : le put en dehors de la monnaie dont le delta vaut −0,25. C'est une façon de comparer des options quel que soit le niveau du sous-jacent, très utilisée en change.\n\n**Pourquoi c'est utile.**\n\n- Les options **en dehors de la monnaie** sont bon marché : elles servent à se protéger contre des événements extrêmes ou à spéculer avec un fort levier.\n- Les options **à la monnaie** ont la valeur temps, le gamma et le vega les plus élevés : elles sont les plus sensibles au passage du temps et à la volatilité.\n- Les options **dans la monnaie** se comportent comme le sous-jacent, avec un coût d'entrée plus faible.\n\n**Le terme en anglais** à connaître : *moneyness*, le degré de « monnaie » d'une option.",
+      "piege": "Inverser le vocabulaire pour les puts. Un put de strike 110 quand le cours est à 100 est **dans** la monnaie (exercer rapporterait 10), alors que le call de même strike est en dehors. Raisonne toujours en te demandant : « si j'exerçais maintenant, gagnerais-je quelque chose ? »",
+      "a_dire_en_entretien": "« Une option est dans la monnaie si son exercice immédiat rapporterait quelque chose : pour un call, quand le cours est au-dessus du strike ; pour un put, quand il est en dessous. Elle est à la monnaie quand le strike est égal au cours, et en dehors de la monnaie sinon. À la monnaie, l'option n'a que de la valeur temps, et c'est là que sa valeur temps, son gamma et son vega sont maximaux. »",
+      "liens": ["m2.bases.prime", "m2.grecques.delta"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bases.c01", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Qu'est-ce qu'une option ?", "verso": "Un contrat qui donne le droit, mais pas l'obligation, d'acheter (call) ou de vendre (put) un sous-jacent à un prix fixé (strike), contre une prime.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c02", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Option européenne ou américaine : la différence ?", "verso": "Européenne : exercice à l'échéance seulement. Américaine : exercice possible à tout moment jusqu'à l'échéance.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c03", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Payoff d'un call à l'échéance ?", "verso": "max(S − K, 0). Il gagne si le sous-jacent finit au-dessus du strike.", "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c04", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Payoff d'un put à l'échéance ?", "verso": "max(K − S, 0). Il gagne si le sous-jacent finit sous le strike : c'est une assurance contre la baisse.", "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c05", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Point mort d'un call acheté ?", "verso": "Le strike plus la prime. Entre K et K + prime, on exerce mais on reste perdant.", "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c06", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Gain et perte maximum de l'acheteur et du vendeur d'un call ?", "verso": "Acheteur : gain illimité, perte limitée à la prime. Vendeur : gain limité à la prime, perte illimitée.", "fiche": "m2.bases.acheteur-vendeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c07", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Les deux composantes de la prime ?", "verso": "La valeur intrinsèque (gain d'un exercice immédiat) et la valeur temps (la chance que la situation s'améliore d'ici l'échéance).", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c08", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "recto": "Où la valeur temps est-elle maximale ? Que devient-elle à l'échéance ?", "verso": "Maximale à la monnaie. Nulle à l'échéance : elle fond de plus en plus vite à mesure qu'on s'en approche.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c09", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "recto": "Cours à 100 : un put de strike 110 est-il dans ou en dehors de la monnaie ?", "verso": "Dans la monnaie : l'exercer maintenant rapporterait 10.", "fiche": "m2.bases.moneyness", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c10", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "recto": "Que veut dire « ATM forward » ?", "verso": "Un strike égal au prix à terme du sous-jacent, et non à son cours comptant. Usage courant en change.", "fiche": "m2.bases.moneyness", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.c11", "type": "carte", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "recto": "Différence entre une option et un contrat à terme ?", "verso": "Le contrat à terme oblige les deux parties et ne coûte rien au départ. L'option ne crée d'obligation que pour le vendeur, et l'acheteur paie une prime pour ce choix.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.bases.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.bases", "difficulte": 1,
+      "question": "Qu'est-ce qu'un call ? Et un put ?",
+      "reponse_modele": "Un call est une option qui donne le droit, mais pas l'obligation, d'acheter un sous-jacent à un prix fixé, le strike, à une date donnée. À l'échéance il vaut max(S − K, 0) : il gagne si le sous-jacent monte au-dessus du strike. Un put donne le droit de vendre : il vaut max(K − S, 0) et gagne si le sous-jacent baisse. Pour celui qui détient l'actif, le put est une assurance contre la baisse. Dans les deux cas, l'acheteur paie une prime et ne peut pas perdre plus que cette prime.",
+      "points_cles": ["Droit et non obligation", "Call : droit d'acheter, max(S − K, 0)", "Put : droit de vendre, max(K − S, 0)", "Le put comme assurance", "Perte de l'acheteur limitée à la prime"],
+      "piege": "Oublier de préciser que l'acheteur paie une prime et que le vendeur, lui, a une obligation.",
+      "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.bases", "difficulte": 1,
+      "question": "Qu'est-ce que la valeur temps d'une option ?",
+      "reponse_modele": "C'est la part de la prime qui dépasse la valeur intrinsèque, c'est-à-dire ce que rapporterait un exercice immédiat. Elle rémunère la possibilité que le sous-jacent évolue favorablement d'ici l'échéance. Elle dépend de la durée restante et de la volatilité. Elle est maximale à la monnaie et nulle à l'échéance. Par exemple, avec une action à 100, un call de strike 90 à un an coûte environ 15,4 : 10 de valeur intrinsèque et 5,4 de valeur temps.",
+      "points_cles": ["Prime moins valeur intrinsèque", "Paie l'espoir d'une évolution favorable", "Dépend du temps et de la volatilité", "Maximale à la monnaie", "Nulle à l'échéance"],
+      "piege": "Dire qu'une option en dehors de la monnaie ne vaut rien.",
+      "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.bases", "difficulte": 1,
+      "question": "Tu achètes un call de strike 100 pour 5. Le sous-jacent finit à 103. Exerces-tu ? Quel est ton résultat ?",
+      "reponse_modele": "Oui, j'exerce : j'achète à 100 quelque chose qui vaut 103, ce qui me rapporte 3. Mais j'ai payé 5 de prime, donc mon résultat net est de −2. Exercer réduit ma perte de 5 à 2. Mon point mort est à 105 : il fallait que le sous-jacent finisse au-dessus de 105 pour que le call soit rentable.",
+      "points_cles": ["On exerce dès que S > K", "Payoff : 3", "Résultat net : 3 − 5 = −2", "Point mort : K + prime = 105"],
+      "piege": "Répondre « non, je suis perdant, donc je n'exerce pas ». La prime est déjà payée : exercer réduit la perte.",
+      "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.bases", "difficulte": 2,
+      "question": "Pourquoi quelqu'un accepte-t-il de vendre des options, avec une perte potentielle illimitée ?",
+      "reponse_modele": "Parce qu'il est rémunéré pour ce risque, comme un assureur. La prime encaissée contient en moyenne une prime de risque : la volatilité implicite payée par les acheteurs est en général un peu supérieure à la volatilité qui se réalise ensuite. Le vendeur gagne donc souvent un peu, et perd rarement mais beaucoup, lors des krachs. Une banque qui vend des options ne garde d'ailleurs pas ce risque directionnel : elle le couvre en delta et gère les risques résiduels.",
+      "points_cles": ["Logique d'assureur", "Prime de risque : implicite au-dessus de la réalisée", "Gains fréquents, pertes rares mais lourdes", "La banque couvre son risque"],
+      "piege": "Dire que vendre des options est irrationnel ou forcément perdant.",
+      "fiche": "m2.bases.acheteur-vendeur", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bases.q05", "type": "question_entretien", "module": 2, "chapitre": "m2.bases", "difficulte": 2,
+      "question": "Un client détient un portefeuille d'actions et craint une baisse dans les six mois. Que lui proposes-tu avec des options ?",
+      "reponse_modele": "La solution de base est d'acheter des puts : ils lui garantissent un prix minimum de revente, comme une assurance, et il garde le bénéfice d'une hausse. Le choix du strike fixe la franchise : un put à la monnaie protège tout de suite mais coûte cher ; un put à 90 % coûte moins cher mais laisse une première baisse de 10 % à sa charge. S'il trouve la prime trop chère, on peut la financer en vendant un call au-dessus du cours, ce qui donne un collar : il renonce alors aux gains au-delà de ce strike.",
+      "points_cles": ["Achat de puts : un plancher", "Garde le potentiel de hausse", "Le strike comme franchise", "Coût de la prime", "Alternative : collar"],
+      "piege": "Proposer de vendre des calls seuls : cela rapporte une prime mais ne protège pas d'une forte baisse.",
+      "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bases.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "Quel est le payoff d'un put de strike 100 si le sous-jacent finit à 85 ?", "choix": ["0", "15", "85", "−15"], "bonne": 1, "explication": "max(100 − 85, 0) = 15. Le détenteur vend à 100 ce qui ne vaut que 85.", "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z02", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "L'acheteur d'un call peut perdre plus que la prime qu'il a payée.", "vrai": false, "explication": "Sa perte maximale est la prime : s'il n'a pas intérêt à exercer, il abandonne l'option.", "fiche": "m2.bases.acheteur-vendeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z03", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "Un call de strike 100 coûte 9,41. À partir de quel cours à l'échéance est-il rentable ?", "reponse": 109.41, "tolerance": 0.01, "unite": "", "explication": "Point mort = strike + prime = 100 + 9,41 = 109,41.", "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z04", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "Action à 100. Un call de strike 90 coûte 15,43. Quelle est sa valeur temps ?", "reponse": 5.43, "tolerance": 0.01, "unite": "", "explication": "Valeur intrinsèque : 100 − 90 = 10. Valeur temps : 15,43 − 10 = 5,43.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "Le cours est à 100. Laquelle de ces options est en dehors de la monnaie ?", "choix": ["Un call de strike 90", "Un put de strike 110", "Un put de strike 90", "Un call de strike 100"], "bonne": 2, "explication": "Exercer un put 90 quand le cours est à 100 ne rapporterait rien. Le call 90 et le put 110 sont dans la monnaie ; le call 100 est à la monnaie.", "fiche": "m2.bases.moneyness", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "enonce": "Qui gagne si le marché reste parfaitement stable jusqu'à l'échéance ?", "choix": ["L'acheteur d'un call à la monnaie", "L'acheteur d'un put à la monnaie", "Le vendeur d'un put à la monnaie", "Personne"], "bonne": 2, "explication": "Les options à la monnaie finissent sans valeur : les acheteurs perdent leur prime, les vendeurs la gardent.", "fiche": "m2.bases.acheteur-vendeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "enonce": "Une option à la monnaie n'a que de la valeur temps.", "vrai": true, "explication": "Sa valeur intrinsèque est nulle (S = K) : toute la prime est de la valeur temps, et elle y est maximale.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.z08", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "enonce": "Vendre un put, c'est avoir une vue…", "choix": ["baissière", "haussière ou stable", "sur une forte volatilité", "neutre sur tout"], "bonne": 1, "explication": "Le vendeur de put garde la prime si le sous-jacent ne baisse pas sous le strike. Il perd si le marché chute.", "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.bases.x01", "type": "exercice", "module": 2, "chapitre": "m2.bases", "difficulte": 1,
+      "titre": "Protéger une action avec un put",
+      "enonce": "Exemple fictif. Tu détiens 1 000 actions à 100 euros. Tu achètes 1 000 puts de strike 90 à un an, pour une prime de 2,77 euros chacun. Calcule ton résultat total à l'échéance si l'action finit à 60, à 95, puis à 120.",
+      "etapes": [
+        { "titre": "Le coût de l'assurance", "texte": "1 000 × 2,77 = 2 770 euros, payés au départ.", "resultat": "2 770 €" },
+        { "titre": "Si l'action finit à 60", "texte": "Les actions perdent 1 000 × (60 − 100) = −40 000 euros. Les puts valent 1 000 × max(90 − 60, 0) = 30 000 euros. Avec la prime : −40 000 + 30 000 − 2 770.", "resultat": "−12 770 € (au lieu de −40 000 € sans protection)" },
+        { "titre": "Si l'action finit à 95", "texte": "Les actions perdent 1 000 × (95 − 100) = −5 000 euros. Les puts ne valent rien, car 95 est au-dessus de 90. Avec la prime : −5 000 − 2 770.", "resultat": "−7 770 €" },
+        { "titre": "Si l'action finit à 120", "texte": "Les actions gagnent 20 000 euros. Les puts ne valent rien. Avec la prime : 20 000 − 2 770.", "resultat": "+17 230 €" },
+        { "titre": "Lecture", "texte": "La perte maximale est de 12 770 euros : la franchise de 10 euros par action, plus la prime. Le potentiel de hausse est intact, diminué seulement du coût de l'assurance. C'est exactement le comportement d'une assurance avec franchise." }
+      ],
+      "erreurs_a_eviter": ["Oublier la prime dans le résultat.", "Croire que le put rembourse toute la baisse : il ne couvre que ce qui est sous le strike.", "Exercer le put quand l'action est au-dessus du strike."],
+      "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bases.l-option", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Option", "anglais": "option", "definition": "Droit, mais pas obligation, d'acheter ou de vendre un actif à un prix fixé, contre une prime.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-call", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Call", "anglais": "call option", "definition": "Option d'achat. Payoff à l'échéance : max(S − K, 0).", "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-put", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Put", "anglais": "put option", "definition": "Option de vente. Payoff à l'échéance : max(K − S, 0).", "fiche": "m2.bases.put", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-strike", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Strike (prix d'exercice)", "anglais": "strike", "definition": "Prix auquel l'acheteur de l'option peut acheter (call) ou vendre (put) le sous-jacent.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-prime", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Prime", "anglais": "premium", "definition": "Prix de l'option, payé par l'acheteur au vendeur.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-sous-jacent", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Sous-jacent", "anglais": "underlying", "definition": "Actif sur lequel porte un produit dérivé : action, indice, devise, taux, matière première.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-payoff", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Payoff", "anglais": "payoff", "definition": "Gain d'une option à l'échéance, hors prime.", "fiche": "m2.bases.call", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-valeur-intrinseque", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Valeur intrinsèque", "anglais": "intrinsic value", "definition": "Ce que rapporterait l'exercice immédiat de l'option, ou zéro.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-valeur-temps", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Valeur temps", "anglais": "time value", "definition": "Part de la prime au-delà de la valeur intrinsèque : la valeur de la possibilité d'une évolution favorable.", "fiche": "m2.bases.prime", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-dans-la-monnaie", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Dans / à / en dehors de la monnaie", "anglais": "ITM / ATM / OTM", "definition": "Selon que l'exercice immédiat rapporterait quelque chose, que le strike égale le cours, ou que l'exercice ne rapporterait rien.", "fiche": "m2.bases.moneyness", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-long-short", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 1, "terme": "Long / short", "anglais": "long / short", "definition": "Être acheteur (long) ou vendeur (short) d'un actif ou d'un risque.", "fiche": "m2.bases.acheteur-vendeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-otc", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "terme": "Gré à gré", "anglais": "over the counter (OTC)", "definition": "Négocié directement entre deux parties, sur mesure, hors d'un marché organisé.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bases.l-effet-de-levier", "type": "lexique", "module": 2, "chapitre": "m2.bases", "difficulte": 2, "terme": "Effet de levier", "anglais": "leverage", "definition": "Possibilité de s'exposer à un montant important de sous-jacent avec une mise faible : la prime.", "fiche": "m2.bases.definition", "maj": "2026-11-16", "version": 1 }
+  ]
+}

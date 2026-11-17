@@ -189,10 +189,14 @@ function Labo({ refOutil }: { refOutil?: string }) {
     <div className="page">
       <h1>Labo</h1>
       <p className="note">Les outils à manipuler, regroupés. Chacun est aussi dans la fiche qu'il illustre.</p>
-      <div className="grille">
-        {Object.entries(OUTILS).map(([ref, x]) => <a key={ref} className="tuile" href={`#/labo/${ref}`}><b>{x.titre}</b><span>{x.resume}</span></a>)}
-      </div>
-      <p className="note">À venir avec le module 2 : explorateur d'option, grecques, couverture en delta, arbre binomial, Monte Carlo.</p>
+      {MODULES.filter((m) => Object.values(OUTILS).some((x) => x.module === m.id)).map((m) => (
+        <section key={m.id}>
+          <h2>{m.id}. {m.court}</h2>
+          <div className="grille">
+            {Object.entries(OUTILS).filter(([, x]) => x.module === m.id).map(([ref, x]) => <a key={ref} className="tuile" href={`#/labo/${ref}`}><b>{x.titre}</b><span>{x.resume}</span></a>)}
+          </div>
+        </section>
+      ))}
     </div>
   );
 }

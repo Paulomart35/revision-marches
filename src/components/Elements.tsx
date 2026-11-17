@@ -17,7 +17,7 @@ export function Formule({ f }: { f: TFormule }) {
   return (
     <div className="formule">
       {f.titre && <div className="t">{f.titre}</div>}
-      <div className="eq" dangerouslySetInnerHTML={tex(f.latex, true)} />
+      {f.latex.split('\\qquad').map((morceau, i) => <div key={i} className="eq" dangerouslySetInnerHTML={tex(morceau.trim(), true)} />)}
       <dl>
         {Object.entries(f.legende).map(([symbole, sens]) => (
           <div key={symbole}><dt dangerouslySetInnerHTML={tex(symbole, false)} /><dd>{sens}</dd></div>

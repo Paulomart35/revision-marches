@@ -1,0 +1,340 @@
+{
+  "chapitre": {
+    "id": "m2.grecques",
+    "module": 2,
+    "ordre": 4,
+    "titre": "Les grecques",
+    "resume": "Delta, gamma, vega, thêta, rho : ce que mesure chaque sensibilité, son signe pour l'acheteur et le vendeur, son profil, son ordre de grandeur et l'usage qu'en fait un trader."
+  },
+  "elements": [
+    {
+      "id": "m2.grecques.delta",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "delta", "couverture"],
+      "titre": "Le delta",
+      "une_phrase": "Le delta mesure de combien varie le prix de l'option quand le sous-jacent **monte de 1** ; c'est aussi la **quantité de sous-jacent** qu'il faut détenir pour couvrir l'option.",
+      "trente_secondes": "Un call a un delta compris entre **0 et 1** : s'il vaut 0,6, le call gagne environ 0,60 euro quand l'action gagne 1 euro.\n\nUn put a un delta compris entre **−1 et 0** : il perd de la valeur quand le sous-jacent monte.\n\nÀ la monnaie, le delta du call est proche de 0,5 ; très dans la monnaie, il tend vers 1 (l'option se comporte comme l'action) ; très en dehors, il tend vers 0.\n\nPour un trader, le delta est d'abord une **quantité** : pour couvrir un call vendu de delta 0,6, il achète 0,6 action. Sa position ne gagne ni ne perd plus pour une petite variation du cours : elle est **neutre en delta**.",
+      "analogie": "Le delta est le rapport de vitesse entre deux voitures. Si l'action roule à 100 km/h et que le call a un delta de 0,6, le call roule à 60 km/h dans la même direction. Un call très dans la monnaie suit l'action à la même vitesse ; un call très en dehors reste presque à l'arrêt.",
+      "visuel": { "type": "outil", "ref": "labo.grecques", "legende": "Choisis « Delta » et « Selon le sous-jacent » : le delta du call passe de 0 à 1, de plus en plus brutalement près de l'échéance." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, call de strike 100, un an, volatilité 20 %, taux 3 %. Prix : 9,41. Delta : 0,599.",
+        "L'action passe à 101. Le delta annonce une hausse du call d'environ 0,60. Le vrai prix passe à 10,02, soit +0,61.",
+        "Le put de même strike a un delta de 0,599 − 1 = −0,401 : il perd environ 0,40 quand l'action gagne 1.",
+        "Une banque a vendu 1 000 de ces calls à un client. Pour se couvrir, elle achète 1 000 × 0,599 ≈ 599 actions. Si l'action monte de 1, elle perd environ 600 sur les calls et gagne 599 sur les actions."
+      ],
+      "formules": [
+        {
+          "titre": "Le delta",
+          "latex": "\\Delta = \\frac{\\partial C}{\\partial S} = N(d_1) \\qquad \\Delta_{\\text{put}} = N(d_1) - 1",
+          "legende": { "\\partial C / \\partial S": "la variation du prix de l'option pour une petite variation du sous-jacent, tout le reste étant fixe", "N(d_1)": "la fonction de répartition de la loi normale en d₁, comme dans Black-Scholes" },
+          "en_francais": "Le delta du call est N(d₁), compris entre 0 et 1. Celui du put s'en déduit en retirant 1 : il est compris entre −1 et 0."
+        }
+      ],
+      "deux_minutes": "**Trois lectures du delta.**\n\n- **Une sensibilité** : la variation de l'option pour une variation de 1 du sous-jacent.\n- **Une quantité de couverture** : le nombre de sous-jacents qui réplique l'option. C'est l'usage principal sur un desk.\n- **Une probabilité approximative** : le delta d'un call est proche de la probabilité qu'il finisse dans la monnaie. C'est une approximation (la vraie probabilité risque-neutre est N(d₂), un peu plus faible), mais les traders l'utilisent : « un call 25 delta a environ une chance sur quatre de finir dans la monnaie ».\n\n**Le delta d'un portefeuille** est la somme des deltas de ses positions. Un trader regarde chaque jour son delta global, souvent exprimé en euros : 599 actions à 100 euros représentent un « delta de 59 900 euros », l'équivalent d'une exposition de 59 900 euros à l'action.\n\n**Le delta bouge.** Il change quand le cours bouge (c'est le gamma), quand le temps passe, et quand la volatilité change. Une couverture en delta doit donc être ajustée régulièrement.\n\n**Le delta à l'échéance** devient brutal : 1 si l'option finit dans la monnaie, 0 sinon. Près de l'échéance, pour une option à la monnaie, il bascule au moindre mouvement : c'est là que la couverture est la plus difficile.",
+      "piege": "Croire qu'une position neutre en delta est sans risque. Elle ne craint pas une **petite** variation du cours, mais elle reste exposée aux grands mouvements (gamma), au temps qui passe (thêta) et à la volatilité (vega). Autre piège : oublier le signe négatif du delta d'un put.",
+      "a_dire_en_entretien": "« Le delta mesure la variation du prix de l'option quand le sous-jacent monte de 1. Il est compris entre 0 et 1 pour un call, entre −1 et 0 pour un put, et proche de 0,5 à la monnaie. Pour un trader, c'est surtout une quantité : pour couvrir un call vendu de delta 0,6, il achète 0,6 sous-jacent. Il change avec le cours, donc la couverture doit être ajustée : c'est le rôle du gamma. »",
+      "liens": ["m2.grecques.gamma", "m2.couverture.delta-hedging", "m2.bs.formule"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.gamma",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "gamma", "couverture"],
+      "titre": "Le gamma",
+      "une_phrase": "Le gamma mesure de combien varie le **delta** quand le sous-jacent monte de 1 ; il dit à quelle vitesse la couverture se dérègle, et il est **maximal à la monnaie près de l'échéance**.",
+      "trente_secondes": "Le delta n'est pas fixe : quand l'action monte, le delta d'un call augmente. Le gamma mesure cette accélération.\n\nUn gamma de 0,02 veut dire que si l'action monte de 1, le delta passe par exemple de 0,60 à 0,62.\n\nLe gamma est **positif pour l'acheteur** d'une option, call ou put, et négatif pour le vendeur. Il a la même valeur pour un call et un put de même strike.\n\nSon profil est une **cloche** centrée sur le strike. Plus l'échéance approche, plus la cloche devient haute et étroite : une option à la monnaie qui expire dans quelques jours a un gamma énorme.",
+      "analogie": "Si le delta est la vitesse d'une voiture, le gamma est l'accélération. Une voiture à vitesse constante est facile à suivre. Une voiture qui accélère et freine sans cesse oblige celui qui la suit à corriger en permanence. Un trader short gamma est ce suiveur, sur une route pleine de virages.",
+      "visuel": { "type": "outil", "ref": "labo.grecques", "legende": "Choisis « Gamma » : la cloche s'affine et monte quand l'échéance approche (courbe « 2 semaines »)." },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, un an, volatilité 20 %, taux 3 %. Delta 0,599, gamma 0,0193.",
+        "L'action passe à 101 : le gamma annonce un delta de 0,599 + 0,019 = 0,618. Le vrai delta est de 0,618.",
+        "L'action passe de 100 à 105. Avec le delta seul, on estimerait le call à 9,41 + 5 × 0,599 = 12,41. En ajoutant le gamma : 12,41 + ½ × 0,0193 × 5² = 12,65. Le vrai prix est 12,64.",
+        "La même option à la monnaie, à des maturités différentes : gamma 0,019 à un an, 0,040 à trois mois, 0,069 à un mois, 0,144 à une semaine. Il est multiplié par plus de sept entre un an et une semaine."
+      ],
+      "formules": [
+        {
+          "titre": "Le gamma",
+          "latex": "\\Gamma = \\frac{\\partial^2 C}{\\partial S^2} = \\frac{\\varphi(d_1)}{S\\,\\sigma\\sqrt{T}}",
+          "legende": { "\\partial^2 C / \\partial S^2": "la variation du delta pour une petite variation du sous-jacent", "\\varphi(d_1)": "la densité de la loi normale en d₁, maximale quand d₁ est proche de 0, donc à la monnaie", "S\\,\\sigma\\sqrt{T}": "l'écart-type du sous-jacent sur la durée restante" },
+          "en_francais": "Le gamma est grand quand l'option est proche de la monnaie et quand il reste peu de temps : le dénominateur devient petit. Il est identique pour le call et le put."
+        },
+        {
+          "titre": "L'approximation delta-gamma",
+          "latex": "\\Delta C \\approx \\Delta \\times \\Delta S + \\tfrac{1}{2}\\,\\Gamma \\times (\\Delta S)^2",
+          "legende": { "\\Delta C": "la variation du prix de l'option", "\\Delta S": "la variation du sous-jacent", "\\Delta": "le delta", "\\Gamma": "le gamma" },
+          "en_francais": "La variation de l'option vaut, à peu près, le delta fois le mouvement, plus un demi-gamma fois le mouvement au carré. Le terme de gamma est toujours positif pour l'acheteur : quel que soit le sens, le mouvement lui profite."
+        }
+      ],
+      "deux_minutes": "**Long gamma, short gamma.** L'acheteur d'option est **long gamma** : son delta monte quand le marché monte et baisse quand il baisse. Couvert en delta, il vend après les hausses et rachète après les baisses : il **gagne quand le marché bouge**. Le vendeur est **short gamma** : il doit acheter après les hausses et vendre après les baisses, et il perd quand le marché bouge. Ce mécanisme est détaillé dans le chapitre sur la couverture.\n\n**Le prix du gamma est le thêta.** On ne peut pas être long gamma gratuitement : l'acheteur paie de la valeur temps chaque jour. Gamma et thêta sont deux faces de la même médaille.\n\n**Le gamma explose près des barrières et des échéances.** Pour une option à barrière ou une digitale, le prix change brutalement autour d'un niveau précis : le gamma y devient très grand, et peut changer de signe. C'est le cauchemar des desks qui gèrent des produits structurés, notamment les autocalls près de leur barrière.\n\n**Le gamma en euros.** Les traders expriment souvent le gamma comme la variation de leur delta, en euros, pour une variation de 1 % du sous-jacent : « mon gamma est de 2 millions par point ». C'est plus parlant qu'un chiffre unitaire.",
+      "piege": "Confondre le delta et le gamma. Le delta dit **dans quel sens** on gagne ; le gamma dit si l'on gagne **quand ça bouge**, quel que soit le sens. Une position peut avoir un delta nul et un gamma très fort.",
+      "a_dire_en_entretien": "« Le gamma est la sensibilité du delta au sous-jacent : la dérivée seconde du prix. Il est positif pour l'acheteur d'option, call ou put, et maximal à la monnaie, d'autant plus que l'échéance est proche. Il mesure la vitesse à laquelle la couverture en delta se dérègle. L'acheteur est long gamma : couvert en delta, il gagne quand le marché bouge, et il paie ce gamma par le thêta. »",
+      "liens": ["m2.grecques.delta", "m2.grecques.theta", "m2.couverture.long-short-gamma", "m2.couverture.gamma-theta"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.vega",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "vega", "volatilite"],
+      "titre": "Le vega",
+      "une_phrase": "Le vega mesure de combien varie le prix de l'option quand la **volatilité implicite monte d'un point** ; il est positif pour l'acheteur, maximal à la monnaie, et d'autant plus grand que l'échéance est **lointaine**.",
+      "trente_secondes": "Si la volatilité implicite passe de 20 % à 21 %, une option de vega 0,39 gagne environ 0,39 euro.\n\nLe vega est **positif pour l'acheteur** d'un call comme d'un put : plus de volatilité, plus de valeur. Il a la même valeur pour un call et un put de même strike.\n\nIl est maximal à la monnaie, et il **croît avec la maturité** : une option longue est avant tout un pari sur la volatilité, alors qu'une option qui expire demain n'y est presque plus sensible.\n\nLe vega n'est pas une lettre grecque : c'est un nom inventé par les traders, qui a gardé sa place.",
+      "analogie": "Le vega est la sensibilité d'une assurance au niveau de risque perçu. Si une région est soudain jugée plus exposée aux tempêtes, toutes les polices d'assurance habitation y valent plus cher, même si aucune tempête n'a eu lieu. La volatilité implicite est ce niveau de risque perçu, et le vega mesure de combien le prix de la police réagit.",
+      "visuel": { "type": "outil", "ref": "labo.grecques", "legende": "Choisis « Vega » : il est en cloche autour du strike et diminue fortement quand l'échéance approche." },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, un an, volatilité 20 %, taux 3 %. Prix : 9,41. Vega : 0,387 par point.",
+        "La volatilité implicite monte à 21 % : le prix passe à 9,80, soit +0,39. Le vega l'annonçait.",
+        "La même option à trois mois a un vega de 0,198 ; à deux ans, de 0,530. Le vega croît comme la racine carrée de la maturité.",
+        "Un desk qui a vendu 10 000 calls à un an est short 10 000 × 0,387 = 3 870 euros de vega par point. Si la volatilité implicite monte de 5 points lors d'une crise, il perd environ 19 350 euros, même si l'action n'a pas bougé."
+      ],
+      "formules": [
+        {
+          "titre": "Le vega",
+          "latex": "\\mathcal{V} = \\frac{\\partial C}{\\partial \\sigma} = S\\,\\varphi(d_1)\\sqrt{T}",
+          "legende": { "\\partial C / \\partial \\sigma": "la variation du prix pour une petite variation de la volatilité", "\\varphi(d_1)": "la densité de la loi normale en d₁", "\\sqrt{T}": "la racine de la maturité : le vega croît avec le temps restant" },
+          "en_francais": "Le vega est maximal à la monnaie et croît comme la racine carrée de la maturité. Calculé pour une volatilité exprimée en décimal, il faut le diviser par 100 pour obtenir l'effet d'un point."
+        }
+      ],
+      "deux_minutes": "**Long vega, short vega.** L'acheteur d'options est **long vega** : il gagne si la volatilité implicite monte. Le vendeur est **short vega**. Un investisseur dans un produit structuré de type autocall a vendu, sans le savoir, un put : il est short vega. Quand la volatilité monte lors d'une crise, la valeur de son produit baisse.\n\n**Vega et gamma : deux paris sur la volatilité, à des horizons différents.** Le gamma rapporte si la volatilité **réalisée**, les vrais mouvements, est forte. Le vega rapporte si la volatilité **implicite**, celle que le marché paie, monte. Une option courte est surtout du gamma ; une option longue surtout du vega.\n\n**La nappe de volatilité.** En réalité, la volatilité implicite n'est pas une seule valeur : elle dépend du strike et de la maturité. Les desks mesurent donc leur vega **par maturité** et **par strike**, et non globalement. Une hausse de la volatilité à un mois n'a pas le même effet qu'une hausse à cinq ans.\n\n**Le vega des produits structurés.** Ces produits contiennent des options longues, souvent de plusieurs années : leur vega est important. Les conditions offertes aux clients (le coupon d'un autocall, la participation d'un capital garanti) dépendent donc fortement du niveau de la volatilité implicite au moment du lancement.",
+      "piege": "Confondre le vega avec la volatilité elle-même, ou croire que le vega d'un put est négatif. Le vega est positif pour tout acheteur d'option, call ou put. Et le vega d'une option proche de l'échéance est très faible : ce n'est pas elle qui craint une hausse de la volatilité implicite.",
+      "a_dire_en_entretien": "« Le vega mesure la sensibilité du prix d'une option à la volatilité implicite, en général pour un point. Il est positif pour l'acheteur, call comme put, maximal à la monnaie, et croît avec la racine carrée de la maturité. Un vendeur d'options est short vega : si la volatilité implicite monte lors d'une crise, il perd même si le sous-jacent n'a pas bougé. C'est le cas de l'investisseur d'un autocall, qui a vendu un put. »",
+      "liens": ["m2.vol.implicite", "m2.grecques.gamma", "m2.vol.smile-skew"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.theta",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "theta", "valeur temps"],
+      "titre": "Le thêta",
+      "une_phrase": "Le thêta mesure la **perte de valeur de l'option chaque jour qui passe**, toutes choses égales par ailleurs : c'est le coût de détenir une option, et le revenu de celui qui l'a vendue.",
+      "trente_secondes": "Une option perd sa valeur temps à mesure que l'échéance approche. Le thêta mesure cette érosion, en général **par jour**.\n\nUn thêta de −0,015 veut dire que, si rien d'autre ne change, l'option perd 0,015 euro d'ici demain.\n\nLe thêta est **négatif pour l'acheteur** et positif pour le vendeur. Il est le plus fort pour les options **à la monnaie**, et il **s'accélère** à l'approche de l'échéance : la valeur temps fond de plus en plus vite.",
+      "analogie": "Le thêta est le loyer d'un appartement de vacances que tu réserves « au cas où ». Chaque nuit qui passe sans que tu l'utilises est payée pour rien. Et plus on approche de la fin du séjour, plus chaque nuit restante représente une part importante de ce qui reste.",
+      "visuel": { "type": "outil", "ref": "labo.grecques", "legende": "Choisis « Thêta » et « Selon le temps restant » : à la monnaie, l'érosion s'accélère dans les dernières semaines." },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, un an, volatilité 20 %, taux 3 %. Prix 9,41, thêta −0,0147 par jour.",
+        "Le lendemain, à cours inchangé, le call vaut 9,40 : il a perdu 0,0147.",
+        "La même option à la monnaie, selon le temps restant : −0,015 par jour à un an, −0,026 à trois mois, −0,042 à un mois, −0,083 à une semaine.",
+        "Le put de même strike a un thêta de −0,0068 par jour seulement : avec des taux positifs, le put se rapproche aussi de sa valeur intrinsèque actualisée, ce qui compense en partie l'érosion."
+      ],
+      "formules": [
+        {
+          "titre": "Le thêta du call",
+          "latex": "\\Theta = \\frac{\\partial C}{\\partial t} = -\\frac{S\\,\\varphi(d_1)\\,\\sigma}{2\\sqrt{T}} - r K e^{-rT} N(d_2)",
+          "legende": { "\\partial C / \\partial t": "la variation du prix quand le temps passe, par an : diviser par 365 pour un jour", "\\varphi(d_1)": "la densité de la loi normale en d₁", "r K e^{-rT} N(d_2)": "le terme lié aux taux : le strike se rapproche dans le temps" },
+          "en_francais": "Le premier terme, lié à la volatilité, est l'érosion de la valeur temps : il grandit quand il reste peu de temps. Le second vient des taux. Pour le put, ce second terme change de signe."
+        }
+      ],
+      "deux_minutes": "**Le thêta est le prix du gamma.** L'acheteur d'une option à la monnaie a un gamma élevé et un thêta très négatif ; le vendeur l'inverse. Dans le monde de Black-Scholes, pour une position couverte en delta, les deux se compensent exactement en moyenne si la volatilité réalisée égale la volatilité implicite. Le chapitre sur la couverture détaille cette relation.\n\n**L'accélération finale.** La valeur temps d'une option à la monnaie est à peu près proportionnelle à √T. Sa perte par jour est donc proportionnelle à 1/√T : elle double quand le temps restant est divisé par quatre. Les dernières semaines coûtent très cher à l'acheteur.\n\n**Jours calendaires ou jours de bourse ?** Le temps passe aussi le week-end, mais le marché est fermé. Les desks choisissent une convention : thêta par jour calendaire (÷ 365) ou par jour de bourse (÷ 252). Le vendredi, une partie du thêta du week-end est souvent déjà dans les prix.\n\n**Le vendeur encaisse le thêta.** C'est le revenu des stratégies de vente d'options, et des investisseurs de produits structurés, qui touchent un coupon en échange d'une option vendue. Il est régulier, mais il se paie par des pertes lors des grands mouvements.",
+      "piege": "Dire que le thêta est la même chose que la valeur temps. La valeur temps est un **stock** (ce qu'il reste à perdre) ; le thêta est un **flux** (ce qu'on perd chaque jour). Autre erreur : penser que le thêta est constant ; il s'accélère à l'approche de l'échéance.",
+      "a_dire_en_entretien": "« Le thêta mesure la perte de valeur de l'option à chaque jour qui passe, à marché inchangé. Il est négatif pour l'acheteur, positif pour le vendeur, maximal à la monnaie, et il s'accélère à l'approche de l'échéance. C'est la contrepartie du gamma : l'acheteur paie du thêta pour être long gamma, le vendeur encaisse du thêta mais perd quand le marché bouge. »",
+      "liens": ["m2.grecques.gamma", "m2.bases.prime", "m2.couverture.gamma-theta"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.rho",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "rho", "taux"],
+      "titre": "Le rho",
+      "une_phrase": "Le rho mesure de combien varie le prix de l'option quand les **taux d'intérêt montent d'un point** ; il est positif pour un call, négatif pour un put, et surtout important pour les options **longues**.",
+      "trente_secondes": "Une hausse des taux rend le strike, payé à l'échéance, moins coûteux en valeur d'aujourd'hui. Le call, qui paie ce strike, gagne de la valeur : son rho est **positif**. Le put, qui reçoit le strike, en perd : son rho est **négatif**.\n\nPour une option courte sur action, le rho est faible : on le néglige souvent. Il devient important pour les options **longues**, pour les produits structurés (qui contiennent une obligation zéro-coupon très sensible aux taux), et bien sûr pour toutes les options dont le sous-jacent est un taux.",
+      "analogie": "Si tu dois payer une facture dans un an, une hausse des taux d'intérêt te fait plaisir : la somme à mettre de côté aujourd'hui pour la régler est plus petite. Le détenteur d'un call est dans cette situation : il paiera le strike plus tard.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Option (S = K = 100, σ = 20 %)", "Rho pour 1 point"],
+        "lignes": [
+          ["Call 1 an", "+0,50"],
+          ["Put 1 an", "−0,47"],
+          ["Call 3 mois (environ)", "+0,13"]
+        ],
+        "legende": "Exemple fictif, taux 3 %. Le rho croît à peu près avec la maturité."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, un an, volatilité 20 %, taux 3 %. Prix 9,41, rho 0,505 par point.",
+        "Les taux passent de 3 % à 4 % : le call vaut 9,93, soit +0,51.",
+        "Le put de même strike a un rho de −0,466 : il perd environ 0,47 pour la même hausse.",
+        "Comparaison : pour la même option, un point de volatilité vaut 0,39 (le vega) et une variation de 1 du cours vaut 0,60 (le delta). Le rho n'est pas négligeable sur un an, mais les taux bougent rarement d'un point d'un coup."
+      ],
+      "formules": [
+        {
+          "titre": "Le rho",
+          "latex": "\\rho_{\\text{call}} = K T e^{-rT} N(d_2) \\qquad \\rho_{\\text{put}} = -K T e^{-rT} N(-d_2)",
+          "legende": { "K T e^{-rT}": "le strike actualisé, multiplié par la maturité : le rho grandit avec T", "N(d_2)": "la probabilité risque-neutre d'exercer le call" },
+          "en_francais": "Le rho est d'autant plus grand que le strike est élevé, que la maturité est longue, et que l'option a de chances d'être exercée. Diviser par 100 pour l'effet d'un point de taux."
+        }
+      ],
+      "deux_minutes": "**Quand le rho compte.**\n\n- **Les produits structurés** : un capital garanti combine une obligation zéro-coupon et un call. Quand les taux montent, le zéro-coupon coûte moins cher, ce qui laisse plus d'argent pour acheter des options : la participation offerte au client augmente. C'est pour cela que les produits à capital garanti, devenus rares avec les taux négatifs, sont revenus après 2022.\n- **Les options de change** : elles ont deux rhos, un pour chaque devise. Une hausse du taux domestique augmente le call ; une hausse du taux étranger le diminue.\n- **Les dérivés de taux** : pour un cap ou une swaption, la sensibilité aux taux est le risque principal, et on la mesure plutôt par le **DV01** (la variation de valeur pour un point de base), détaillé dans le module 3.\n\n**Pourquoi on le néglige souvent pour les actions.** Une option à un mois a un rho minuscule, et les taux bougent peu en un mois. Le delta, le gamma et le vega dominent.",
+      "piege": "Dire que le rho d'un put est positif « comme pour le call ». Il est négatif : le put reçoit le strike à l'échéance, et une hausse des taux diminue la valeur actuelle de ce qu'il recevra.",
+      "a_dire_en_entretien": "« Le rho mesure la sensibilité du prix d'une option aux taux d'intérêt. Il est positif pour un call, négatif pour un put, et croît avec la maturité. Il est souvent négligeable pour les options courtes sur actions, mais il compte pour les options longues et pour les produits structurés : quand les taux montent, le zéro-coupon d'un capital garanti coûte moins cher, ce qui permet d'offrir plus de participation au client. »",
+      "liens": ["m2.grecques.tableau", "m2.prime.sensibilites", "m2.bs.garman-kohlhagen"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.tableau",
+      "type": "fiche", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "tags": ["grecques", "synthese", "entretien"],
+      "titre": "Le tableau des signes des grecques",
+      "une_phrase": "Une règle suffit : l'**acheteur** d'une option, call ou put, est **long gamma, long vega et paie du thêta** ; le vendeur est l'inverse. Seuls le delta et le rho dépendent du type d'option.",
+      "trente_secondes": "Pour retrouver le tableau sans l'apprendre par cœur, retiens deux idées.\n\n**Ce qui ne dépend que de la position (acheteur ou vendeur)** : le gamma, le vega et le thêta. L'acheteur profite du mouvement (gamma positif) et de la volatilité (vega positif), et il paie le temps qui passe (thêta négatif). Le vendeur a tous les signes inversés.\n\n**Ce qui dépend du type d'option** : le delta et le rho. Le call aime la hausse du sous-jacent et des taux ; le put les craint. Le vendeur inverse.",
+      "analogie": "Pense à l'assuré et à l'assureur. Quel que soit le contrat (incendie ou dégât des eaux), l'assuré paie une cotisation régulière (thêta) et profite des sinistres (gamma, vega). L'assureur encaisse et paie les sinistres. Le type de contrat ne change que **quel** sinistre est couvert : la hausse (call) ou la baisse (put).",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Achat de call", "Vente de call", "Achat de put", "Vente de put"],
+        "lignes": [
+          ["Delta", "+ (entre 0 et 1)", "−", "− (entre −1 et 0)", "+"],
+          ["Gamma", "+", "−", "+", "−"],
+          ["Vega", "+", "−", "+", "−"],
+          ["Thêta", "− (il paie le temps)", "+", "− en général", "+"],
+          ["Rho", "+", "−", "−", "+"]
+        ],
+        "legende": "Gamma, vega et thêta : même signe pour le call et le put. Delta et rho : signes opposés."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : un trader a acheté 100 calls et vendu 100 puts, tous à la monnaie, de strike 100, à un an.",
+        "Delta : 100 × 0,599 + 100 × (+0,401) = +100. Vendre un put ajoute du delta positif : la position se comporte comme 100 actions.",
+        "Gamma : 100 × 0,0193 − 100 × 0,0193 = 0. Vega : 100 × 0,387 − 100 × 0,387 = 0. Les deux s'annulent.",
+        "C'est logique : un call acheté et un put vendu de même strike équivalent à un achat à terme (parité call-put). Un contrat à terme a un delta de 1 et aucun gamma, aucun vega."
+      ],
+      "formules": [],
+      "deux_minutes": "**Les grecques s'additionnent.** Le delta, le gamma, le vega ou le thêta d'un portefeuille est la somme de ceux de ses positions, chacune multipliée par sa quantité, avec un signe négatif pour les ventes. C'est ce qui permet à un trader de gérer des milliers d'options avec quelques chiffres.\n\n**Comment un desk se couvre.**\n\n- Le **delta** se couvre avec le sous-jacent lui-même (actions, contrats à terme), car il est linéaire.\n- Le **gamma** et le **vega** ne se couvrent qu'avec d'**autres options** : le sous-jacent n'a ni gamma ni vega. Un trader trop short gamma doit acheter des options.\n- Le **thêta** ne se couvre pas : c'est le prix du gamma.\n\n**L'exception au thêta du put.** Un put européen très dans la monnaie, avec des taux élevés, peut avoir un thêta positif : sa valeur se rapproche du strike actualisé, qui monte avec le temps. C'est rare et sans importance pratique, mais c'est pour cela que l'on écrit « en général ».\n\n**Les grecques de second ordre.** Les desks suivent aussi le **vanna** (sensibilité du delta à la volatilité) et le **volga** ou *vomma* (sensibilité du vega à la volatilité). On peut te les citer ; il suffit de savoir qu'ils existent et qu'ils comptent pour les produits exotiques.",
+      "piege": "Dire que le vendeur d'un put est « short delta » parce qu'il a vendu quelque chose. Le put a un delta négatif ; le vendre donne un delta **positif**. Le vendeur de put gagne quand le marché monte. Raisonne toujours : signe de l'option × signe de la position.",
+      "a_dire_en_entretien": "« L'acheteur d'une option, call ou put, est long gamma et long vega, et il paie du thêta ; le vendeur a les signes inverses. Seuls le delta et le rho dépendent du type d'option : positifs pour le call acheté, négatifs pour le put acheté. Les grecques s'additionnent sur un portefeuille. Le delta se couvre avec le sous-jacent ; le gamma et le vega ne se couvrent qu'avec d'autres options. »",
+      "liens": ["m2.grecques.delta", "m2.grecques.gamma", "m2.grecques.vega", "m2.grecques.theta", "m2.grecques.rho"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.grecques.c01", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "recto": "Que mesure le delta ?", "verso": "La variation du prix de l'option quand le sous-jacent monte de 1. C'est aussi la quantité de sous-jacent qui couvre l'option.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c02", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "recto": "Valeurs possibles du delta d'un call ? D'un put ? À la monnaie ?", "verso": "Call : entre 0 et 1. Put : entre −1 et 0. À la monnaie : environ 0,5 pour le call, −0,5 pour le put.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c03", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Une banque vend 1 000 calls de delta 0,6. Comment se couvre-t-elle en delta ?", "verso": "Elle achète 600 unités du sous-jacent.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c04", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "recto": "Que mesure le gamma ?", "verso": "La variation du delta quand le sous-jacent monte de 1 : la dérivée seconde du prix.", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c05", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Où le gamma est-il maximal ?", "verso": "À la monnaie, et d'autant plus que l'échéance est proche.", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c06", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Approximation delta-gamma de la variation d'une option ?", "verso": "ΔC ≈ Δ × ΔS + ½ × Γ × (ΔS)².", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c07", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "recto": "Que mesure le vega ?", "verso": "La variation du prix de l'option pour une hausse d'un point de volatilité implicite.", "fiche": "m2.grecques.vega", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c08", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Comment le vega évolue-t-il avec la maturité ?", "verso": "Il croît comme la racine carrée de la maturité : une option longue est surtout un pari sur la volatilité.", "fiche": "m2.grecques.vega", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c09", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "recto": "Que mesure le thêta ? Son signe pour l'acheteur ?", "verso": "La perte de valeur de l'option par jour qui passe. Négatif pour l'acheteur, positif pour le vendeur.", "fiche": "m2.grecques.theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c10", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Comment évolue le thêta d'une option à la monnaie près de l'échéance ?", "verso": "Il s'accélère : la perte par jour croît comme 1/√T.", "fiche": "m2.grecques.theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c11", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Signe du rho d'un call ? D'un put ?", "verso": "Positif pour le call, négatif pour le put.", "fiche": "m2.grecques.rho", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c12", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "La règle pour retrouver les signes des grecques ?", "verso": "L'acheteur, call ou put, est long gamma, long vega et paie du thêta. Seuls le delta et le rho dépendent du type d'option.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c13", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Avec quoi couvre-t-on le delta ? Le gamma et le vega ?", "verso": "Le delta avec le sous-jacent. Le gamma et le vega seulement avec d'autres options.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.c14", "type": "carte", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "recto": "Le vendeur d'un put a-t-il un delta positif ou négatif ?", "verso": "Positif : le put a un delta négatif, le vendre l'inverse. Il gagne quand le marché monte.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.grecques.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.grecques", "difficulte": 1,
+      "question": "Cite les grecques et dis ce que mesure chacune.",
+      "reponse_modele": "Le delta mesure la variation du prix de l'option quand le sous-jacent monte de 1 ; c'est aussi la quantité de sous-jacent pour la couvrir. Le gamma mesure la variation du delta : la vitesse à laquelle la couverture se dérègle. Le vega mesure la sensibilité à la volatilité implicite, pour un point. Le thêta mesure la perte de valeur par jour qui passe. Le rho mesure la sensibilité aux taux. L'acheteur d'une option est long gamma et long vega et paie du thêta ; le vendeur a les signes inverses.",
+      "points_cles": ["Delta : sous-jacent, et quantité de couverture", "Gamma : variation du delta", "Vega : volatilité implicite", "Thêta : temps qui passe", "Rho : taux", "Signes pour l'acheteur"],
+      "piege": "Réciter les définitions sans les signes ni l'usage par un trader.",
+      "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.grecques", "difficulte": 2,
+      "question": "Quel est le delta d'un call à la monnaie ? Pourquoi n'est-il pas exactement 0,5 ?",
+      "reponse_modele": "Il est proche de 0,5, mais un peu au-dessus. Dans Black-Scholes, le delta est N(d₁), et à la monnaie d₁ vaut (r + σ²/2)√T / σ, qui est positif dès que les taux sont positifs ou que la volatilité n'est pas nulle. Par exemple, avec 3 % de taux, 20 % de volatilité et un an, d₁ = 0,25 et le delta vaut 0,60. Le call est « à la monnaie » par rapport au cours comptant, mais un peu dans la monnaie par rapport au prix à terme. Le call à la monnaie forward a un delta plus proche de 0,5.",
+      "points_cles": ["Delta = N(d₁)", "d₁ positif à la monnaie", "Rôle des taux et de la volatilité", "Exemple : 0,60", "Lien avec le prix à terme"],
+      "piege": "Répondre « 0,5 » sans nuance.",
+      "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.grecques", "difficulte": 2,
+      "question": "Où le gamma d'une option est-il le plus élevé, et pourquoi est-ce un problème pour un trader ?",
+      "reponse_modele": "Le gamma est maximal à la monnaie, et il explose quand l'échéance approche : une option à la monnaie qui expire dans quelques jours a un delta qui bascule entre 0 et 1 au moindre mouvement. Pour un trader short gamma, c'est-à-dire qui a vendu l'option, cela veut dire qu'il doit ajuster sa couverture très souvent, en achetant après les hausses et en vendant après les baisses : il perd à chaque aller-retour. Le même phénomène apparaît près d'une barrière, dans les produits structurés : le gamma y devient très grand et instable.",
+      "points_cles": ["Maximal à la monnaie", "Explose près de l'échéance", "Delta qui bascule", "Short gamma : acheter haut, vendre bas", "Barrières des structurés"],
+      "piege": "Dire que le gamma est maximal loin de la monnaie, ou oublier l'effet de l'échéance.",
+      "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.grecques", "difficulte": 2,
+      "question": "Une option à un an et une option à une semaine, toutes deux à la monnaie : laquelle a le plus de vega ? Le plus de gamma ? Le plus de thêta ?",
+      "reponse_modele": "L'option à un an a beaucoup plus de vega : le vega croît avec la racine carrée de la maturité, donc une option longue est surtout sensible à la volatilité implicite. L'option à une semaine a beaucoup plus de gamma et un thêta beaucoup plus négatif par jour : son delta bascule au moindre mouvement et sa valeur temps fond très vite. Avec 20 % de volatilité, le gamma passe d'environ 0,02 à un an à 0,14 à une semaine. On résume souvent : une option courte est du gamma, une option longue est du vega.",
+      "points_cles": ["Vega : l'option longue", "Gamma : l'option courte", "Thêta par jour : l'option courte", "Ordres de grandeur", "Courte = gamma, longue = vega"],
+      "piege": "Croire que toutes les grecques augmentent avec la maturité.",
+      "fiche": "m2.grecques.vega", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.q05", "type": "question_entretien", "module": 2, "chapitre": "m2.grecques", "difficulte": 3,
+      "question": "Ton portefeuille est neutre en delta. Es-tu sans risque ?",
+      "reponse_modele": "Non. Je suis protégé contre une petite variation du sous-jacent, mais il me reste plusieurs risques. Le gamma : si le marché fait un grand mouvement, mon delta change et je gagne ou je perds selon que je suis long ou short gamma. Le vega : si la volatilité implicite bouge, la valeur de mes options change. Le thêta : le temps qui passe me coûte ou me rapporte. Et des risques que les grecques ne capturent pas bien : un saut du cours, une variation de la forme du smile, la liquidité. Pour réduire le gamma et le vega, il faudrait acheter ou vendre d'autres options.",
+      "points_cles": ["Neutre en delta ≠ sans risque", "Gamma : grands mouvements", "Vega : volatilité implicite", "Thêta : le temps", "Couverture du gamma et du vega par des options"],
+      "piege": "Répondre oui.",
+      "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.grecques.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "enonce": "Le delta d'un put acheté est…", "choix": ["entre 0 et 1", "entre −1 et 0", "toujours égal à −0,5", "toujours positif"], "bonne": 1, "explication": "Le put perd de la valeur quand le sous-jacent monte : son delta est négatif, entre −1 et 0.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z02", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "enonce": "Un call a un delta de 0,6. Le sous-jacent monte de 2. De combien varie environ le prix du call ?", "reponse": 1.2, "tolerance": 0.01, "unite": "", "explication": "0,6 × 2 = 1,2 (sans tenir compte du gamma).", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z03", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Le gamma d'un put acheté est négatif.", "vrai": false, "explication": "Le gamma est positif pour tout acheteur d'option, call ou put. Il est identique pour un call et un put de même strike.", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z04", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Un call vaut 9,41, delta 0,599, gamma 0,0193. Le sous-jacent monte de 5. Prix estimé avec l'approximation delta-gamma ? (deux décimales)", "reponse": 12.65, "tolerance": 0.02, "unite": "", "explication": "9,41 + 0,599 × 5 + ½ × 0,0193 × 25 = 9,41 + 2,995 + 0,241 = 12,65. Le vrai prix est 12,64.", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Quelle option a le vega le plus élevé ?", "choix": ["Un call à la monnaie à 1 semaine", "Un call à la monnaie à 2 ans", "Un call très en dehors de la monnaie à 1 mois", "Un call très dans la monnaie à 1 semaine"], "bonne": 1, "explication": "Le vega est maximal à la monnaie et croît avec la maturité.", "fiche": "m2.grecques.vega", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Quelle est la position d'un vendeur de put en grecques ?", "choix": ["Delta négatif, gamma positif", "Delta positif, gamma négatif, thêta positif", "Delta négatif, vega positif", "Delta nul, gamma nul"], "bonne": 1, "explication": "Le put a un delta négatif ; le vendre donne un delta positif. Le vendeur est short gamma et short vega, et encaisse le thêta.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "On peut réduire le gamma d'un portefeuille en achetant ou vendant le sous-jacent.", "vrai": false, "explication": "Le sous-jacent a un gamma nul : il ne sert qu'à couvrir le delta. Pour le gamma, il faut d'autres options.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z08", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Les taux d'intérêt montent d'un point. Quelle position en profite ?", "choix": ["L'acheteur de put", "L'acheteur de call", "Le vendeur de call", "Aucune"], "bonne": 1, "explication": "Le rho du call est positif : le strike payé à l'échéance vaut moins aujourd'hui.", "fiche": "m2.grecques.rho", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.z09", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "enonce": "Pour une option à la monnaie, quand le thêta par jour est-il le plus fort ?", "choix": ["À un an de l'échéance", "À six mois", "À un mois", "À une semaine"], "bonne": 3, "explication": "L'érosion s'accélère à l'approche de l'échéance, à peu près comme 1/√T.", "fiche": "m2.grecques.theta", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.grecques.x01", "type": "exercice", "module": 2, "chapitre": "m2.grecques", "difficulte": 2,
+      "titre": "Prévoir la variation d'une option avec ses grecques",
+      "enonce": "Exemple fictif. Tu détiens 1 000 calls à la monnaie : action à 100, strike 100, un an, volatilité 20 %, taux 3 %. Calcule le delta et le gamma, puis estime la variation de valeur de ta position si l'action monte à 105. Compare au vrai prix.",
+      "etapes": [
+        {
+          "titre": "Le delta",
+          "texte": "Delta = N(d₁) = N(0,25).",
+          "resultat": "0,5987",
+          "verif": { "fn": "options.deltaCall", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.5987, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le gamma",
+          "texte": "Gamma = φ(d₁) / (S σ √T) = φ(0,25) / (100 × 0,20 × 1) = 0,3867 / 20.",
+          "resultat": "0,0193",
+          "verif": { "fn": "options.gamma", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.01933, "tolerance": 0.00001 }
+        },
+        {
+          "titre": "L'estimation avec le delta seul",
+          "texte": "Variation par call ≈ 0,5987 × 5 = 2,99. Pour 1 000 calls : 2 994 euros.",
+          "resultat": "+2 994 €"
+        },
+        {
+          "titre": "L'estimation delta-gamma",
+          "texte": "On ajoute ½ × Γ × (ΔS)² = ½ × 0,0193 × 25 = 0,24 par call.",
+          "formule": { "latex": "0{,}5987 \\times 5 + \\tfrac{1}{2} \\times 0{,}0193 \\times 5^2 = 2{,}99 + 0{,}24 = 3{,}24", "legende": { "0{,}5987 \\times 5": "l'effet du delta", "\\tfrac{1}{2} \\times 0{,}0193 \\times 5^2": "l'effet du gamma, toujours favorable à l'acheteur" }, "en_francais": "Le gamma ajoute 0,24 par call : en montant, le call devient de plus en plus sensible à l'action." },
+          "resultat": "+3 235 € pour 1 000 calls"
+        },
+        {
+          "titre": "Le vrai prix",
+          "texte": "Black-Scholes à S = 105 donne 12,64, soit +3,23 par call et +3 225 euros au total. L'approximation delta-gamma est juste à 10 euros près ; le delta seul se trompait de 230 euros.",
+          "verif": { "fn": "options.call", "args": [105, 100, 1, 0.03, 0.2], "attendu": 12.6388, "tolerance": 0.0001 }
+        }
+      ],
+      "erreurs_a_eviter": ["Oublier le terme de gamma pour un mouvement important.", "Oublier le ½ devant le gamma.", "Multiplier le gamma par ΔS au lieu de (ΔS)²."],
+      "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.grecques.x02", "type": "exercice", "module": 2, "chapitre": "m2.grecques", "difficulte": 2,
+      "titre": "Les grecques d'un livre d'options",
+      "enonce": "Exemple fictif. Un trader a vendu 10 000 calls à la monnaie à un an (S = K = 100, σ = 20 %, r = 3 %) à un client. Calcule ses grecques globales : delta, vega par point, thêta par jour. Que doit-il faire pour être neutre en delta ? Que reste-t-il comme risques ?",
+      "etapes": [
+        {
+          "titre": "Le delta de la position",
+          "texte": "Un call a un delta de 0,599. Vendu, il donne −0,599. Pour 10 000 calls : −10 000 × 0,599 = −5 987.",
+          "resultat": "Delta : −5 987 actions",
+          "verif": { "fn": "options.deltaCall", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.5987, "tolerance": 0.0001 }
+        },
+        { "titre": "La couverture en delta", "texte": "Il achète 5 987 actions, soit environ 598 700 euros. Sa position ne craint plus une petite variation du cours.", "resultat": "Achat de 5 987 actions" },
+        {
+          "titre": "Le vega",
+          "texte": "Vega par point d'un call : 0,387. Position : −10 000 × 0,387.",
+          "resultat": "−3 867 € par point de volatilité",
+          "verif": { "fn": "options.vegaPoint", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.3867, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le thêta",
+          "texte": "Thêta par jour d'un call : −0,0147. Vendu : +0,0147. Position : 10 000 × 0,0147.",
+          "resultat": "+147 € par jour",
+          "verif": { "fn": "options.thetaJourCall", "args": [100, 100, 1, 0.03, 0.2], "attendu": -0.01474, "tolerance": 0.00001 }
+        },
+        { "titre": "Les risques restants", "texte": "Couvert en delta, le trader encaisse 147 euros par jour de thêta. Mais il est **short gamma** (il perd si le marché fait de grands mouvements) et **short vega** (il perd 3 867 euros par point de hausse de la volatilité implicite). Pour réduire ces risques, il devrait acheter d'autres options sur le marché." }
+      ],
+      "erreurs_a_eviter": ["Oublier le signe négatif dû à la vente.", "Vendre des actions pour couvrir un call vendu : il faut en acheter.", "Croire qu'une fois couvert en delta, il n'a plus de risque."],
+      "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.grecques.l-grecques", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "terme": "Grecques", "anglais": "greeks", "definition": "Sensibilités du prix d'une option à ses paramètres : delta, gamma, vega, thêta, rho.", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-delta", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 1, "terme": "Delta", "anglais": "delta", "definition": "Variation du prix de l'option pour une hausse de 1 du sous-jacent ; quantité de sous-jacent pour la couvrir.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-gamma", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "terme": "Gamma", "anglais": "gamma", "definition": "Variation du delta pour une hausse de 1 du sous-jacent. Maximal à la monnaie près de l'échéance.", "fiche": "m2.grecques.gamma", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-vega", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "terme": "Vega", "anglais": "vega", "definition": "Variation du prix de l'option pour une hausse d'un point de volatilité implicite.", "fiche": "m2.grecques.vega", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-theta", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "terme": "Thêta", "anglais": "theta", "definition": "Perte de valeur de l'option par jour qui passe, toutes choses égales par ailleurs.", "fiche": "m2.grecques.theta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-rho", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "terme": "Rho", "anglais": "rho", "definition": "Variation du prix de l'option pour une hausse d'un point des taux d'intérêt.", "fiche": "m2.grecques.rho", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-neutre-delta", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 2, "terme": "Neutre en delta", "anglais": "delta neutral", "definition": "Position dont le delta total est nul : elle ne craint pas une petite variation du sous-jacent.", "fiche": "m2.grecques.delta", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.grecques.l-vanna-volga", "type": "lexique", "module": 2, "chapitre": "m2.grecques", "difficulte": 3, "terme": "Vanna, volga", "anglais": "vanna, volga (vomma)", "definition": "Grecques de second ordre : sensibilité du delta à la volatilité (vanna) et du vega à la volatilité (volga).", "fiche": "m2.grecques.tableau", "maj": "2026-11-16", "version": 1 }
+  ]
+}

@@ -332,3 +332,30 @@ details.chiffre p { font-size: .92rem; margin: 0 0 6px; }
 .agenda b { font: 700 .82rem Archivo; color: var(--blue); }
 .agenda span { font-weight: 600; }
 .agenda small { color: var(--mut); font-size: .88rem; }
+
+/* Outils du module 2 */
+.outil svg.graphe .zero { stroke: var(--mut); stroke-width: 1; }
+.outil svg .courbe.c2 { stroke: var(--ok); }
+.outil svg .courbe.ok { stroke: var(--ok); stroke-width: 3; }
+.outil svg .courbe.fin { stroke-width: 1; opacity: .45; }
+.outil svg .bande { fill: var(--soft-yel); }
+.outil svg .pt-vert { fill: var(--ok); }
+.outil svg .pt-rouge { fill: var(--ko); }
+.legende { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .78rem; color: var(--mut); margin-top: -4px; }
+.legende span { display: inline-flex; align-items: center; gap: 6px; }
+.trait.c2, .trait.ok, .trait.vert { background: var(--ok); }
+.trait.rouge { background: var(--ko); }
+.trait.bande { background: var(--soft-yel); height: 10px; }
+.trait.pointille { background: repeating-linear-gradient(90deg, var(--blue) 0 4px, transparent 4px 7px); }
+.trait.c1.pointille { background: repeating-linear-gradient(90deg, var(--c1) 0 4px, transparent 4px 7px); }
+.duo.trois { grid-template-columns: repeat(3, 1fr); }
+.duo.trois b { font-size: 1rem; }
+table.grecques { font-size: .85rem; background: var(--bg); border-radius: 8px; }
+table.grecques th, table.grecques td { padding: 6px 8px; }
+table.grecques td.n { font: 500 .9rem 'IBM Plex Mono', monospace; white-space: nowrap; text-align: right; }
+table.grecques td:last-child:not(.n) { color: var(--mut); font-size: .8rem; }
+.jambes { margin: 0; padding-left: 1.1em; font-size: .9rem; }
+.arbre .noeud rect { fill: var(--bg); stroke: var(--line); }
+.arbre .noeud.calcule rect { stroke: var(--blue); }
+.arbre .noeud.exerce rect { fill: var(--soft-yel); stroke: var(--dur); }
+.arbre .noeud .val { fill: var(--blue); font-weight: 700; }

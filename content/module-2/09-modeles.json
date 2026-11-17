@@ -1,0 +1,279 @@
+{
+  "chapitre": {
+    "id": "m2.modeles",
+    "module": 2,
+    "ordre": 9,
+    "titre": "Les méthodes de calcul des prix",
+    "resume": "Quand il n'y a pas de formule : l'arbre binomial, Monte Carlo et les différences finies. Puis comment on calcule les grecques : formules fermées, bump and reprice, différentiation automatique. En intuition, sans code."
+  },
+  "elements": [
+    {
+      "id": "m2.modeles.binomial",
+      "type": "fiche", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "tags": ["modeles", "binomial", "americaine"],
+      "titre": "L'arbre binomial",
+      "une_phrase": "L'arbre binomial découpe le temps en étapes où le sous-jacent ne peut que **monter ou baisser** ; on calcule l'option à l'échéance, puis on **remonte l'arbre** nœud par nœud jusqu'à aujourd'hui.",
+      "trente_secondes": "À chaque étape, le cours est multiplié par un facteur de hausse u ou de baisse d. Au bout de n étapes, on obtient un éventail de cours possibles à l'échéance.\n\nÀ l'échéance, l'option vaut son payoff : facile. On remonte ensuite : à chaque nœud, la valeur est la **moyenne** des deux nœuds suivants, pondérée par une probabilité risque-neutre p, et **actualisée** d'une étape.\n\nPour une option **américaine**, on ajoute une comparaison à chaque nœud : si exercer tout de suite rapporte plus que continuer, on exerce. C'est la grande force de l'arbre.\n\nPlus on met d'étapes, plus le prix se rapproche de Black-Scholes pour une option européenne.",
+      "analogie": "C'est un jeu de l'oie où chaque case mène à deux cases possibles. Pour savoir ce que vaut ta position aujourd'hui, tu pars de l'arrivée, où tu connais tous les gains, et tu remontes case par case en faisant chaque fois la moyenne des deux suivantes. Quand tu arrives au départ, tu as le prix.",
+      "visuel": { "type": "outil", "ref": "labo.binomial", "legende": "Calcule l'arbre étape par étape, puis passe en « Américaine » pour voir les nœuds où l'exercice anticipé est optimal." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, call de strike 100 à un an, volatilité 20 %, taux 3 %, une seule étape.",
+        "Facteurs : u = e^(0,20) = 1,2214 et d = 1/u = 0,8187. L'action vaut 122,14 ou 81,87 dans un an.",
+        "Probabilité risque-neutre de hausse : p = (e^(0,03) − 0,8187) / (1,2214 − 0,8187) = 0,526.",
+        "Le call vaut 22,14 en haut et 0 en bas. Prix : e^(−0,03) × (0,526 × 22,14 + 0,474 × 0) = 11,30.",
+        "Avec plus d'étapes, le prix se stabilise : 8,51 avec 2 étapes, 9,80 avec 5, 9,22 avec 10, 9,39 avec 100, 9,41 avec 1 000. Black-Scholes donne 9,41."
+      ],
+      "formules": [
+        {
+          "titre": "Les paramètres de l'arbre (Cox-Ross-Rubinstein)",
+          "latex": "u = e^{\\sigma\\sqrt{\\Delta t}} \\qquad d = \\frac{1}{u} \\qquad p = \\frac{e^{r\\Delta t} - d}{u - d}",
+          "legende": { "u, d": "les facteurs de hausse et de baisse à chaque étape", "\\Delta t": "la durée d'une étape : la maturité divisée par le nombre d'étapes", "p": "la probabilité risque-neutre de hausse, choisie pour que le sous-jacent rapporte en moyenne le taux sans risque" },
+          "en_francais": "L'écart entre hausse et baisse reflète la volatilité ; la probabilité p n'est pas la vraie chance de hausse, c'est celle qui rend le calcul cohérent avec l'absence d'arbitrage."
+        },
+        {
+          "titre": "La remontée de l'arbre",
+          "latex": "V = e^{-r\\Delta t}\\big[p\\,V_{\\text{haut}} + (1-p)\\,V_{\\text{bas}}\\big] \\qquad V_{\\text{américaine}} = \\max(V,\\ \\text{gain immédiat})",
+          "legende": { "V_{\\text{haut}}, V_{\\text{bas}}": "les valeurs de l'option aux deux nœuds suivants", "\\text{gain immédiat}": "ce que rapporterait l'exercice au nœud courant" },
+          "en_francais": "À chaque nœud, l'option vaut la moyenne pondérée de ses deux valeurs futures, actualisée. Pour une option américaine, on garde le plus grand de cette valeur et de l'exercice immédiat."
+        }
+      ],
+      "deux_minutes": "**Le lien avec Black-Scholes.** Quand le nombre d'étapes tend vers l'infini, la distribution des cours finaux de l'arbre tend vers une loi lognormale, et le prix d'une option européenne tend vers celui de Black-Scholes. L'arbre est une version discrète du même modèle. Il converge en oscillant, d'où les prix qui sautent d'un nombre d'étapes à l'autre.\n\n**La réplication, étape par étape.** À chaque nœud, on peut reproduire l'option avec une quantité de sous-jacent (le delta du nœud) et du cash. C'est l'argument de Black-Scholes, rendu visible : le delta d'un nœud est (V_haut − V_bas) / (S_haut − S_bas).\n\n**Ses forces.** Il est intuitif, il gère naturellement l'exercice anticipé (options américaines et bermudéennes), et il donne directement le delta et le gamma à partir des premiers nœuds.\n\n**Ses limites.** Il devient lourd quand il y a plusieurs sous-jacents (l'arbre explose en taille) ou quand le payoff dépend de tout le chemin (une moyenne, une barrière observée chaque jour). Pour ces cas, on préfère Monte Carlo.\n\n**Variantes.** Les arbres trinomiaux (trois branches par nœud) convergent plus régulièrement. Les arbres de taux, comme celui de Hull-White, servent aux dérivés de taux.",
+      "piege": "Utiliser la « vraie » probabilité de hausse de l'action dans l'arbre. On utilise la probabilité **risque-neutre** p, déduite des taux et de la volatilité. Autre erreur : oublier d'actualiser à chaque étape.",
+      "a_dire_en_entretien": "« L'arbre binomial découpe le temps en étapes où le sous-jacent monte ou baisse d'un facteur fixé par la volatilité. On calcule le payoff à l'échéance, puis on remonte : chaque nœud vaut la moyenne de ses deux successeurs, pondérée par la probabilité risque-neutre et actualisée. Pour une option américaine, on compare à chaque nœud avec l'exercice immédiat. Quand le nombre d'étapes augmente, le prix d'une option européenne converge vers Black-Scholes. »",
+      "liens": ["m2.exotiques.americaine", "m2.bs.intuition", "m2.modeles.monte-carlo"],
+      "sources": [{ "titre": "J. Cox, S. Ross et M. Rubinstein, « Option Pricing: A Simplified Approach », Journal of Financial Economics, 1979" }],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.monte-carlo",
+      "type": "fiche", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "tags": ["modeles", "monte carlo", "simulation"],
+      "titre": "La méthode de Monte Carlo",
+      "une_phrase": "Monte Carlo simule des **milliers de trajectoires** possibles du sous-jacent, calcule le gain de l'option sur chacune, et prend la **moyenne actualisée** ; la précision s'améliore comme **1/√n**.",
+      "trente_secondes": "On ne cherche pas de formule : on fait tourner le hasard. L'ordinateur tire au sort un grand nombre de scénarios d'évolution du sous-jacent, en respectant sa volatilité et une dérive égale au taux sans risque.\n\nPour chaque scénario, on calcule ce que paie l'option. On fait la moyenne de tous ces gains, et on l'actualise : c'est le prix.\n\nLe résultat n'est pas exact : c'est une **estimation**, avec une **marge d'erreur**. Cette marge diminue comme 1 sur la racine du nombre de simulations : pour être 10 fois plus précis, il faut 100 fois plus de trajectoires.\n\nSa force : il gère n'importe quel payoff, même très compliqué, et plusieurs sous-jacents à la fois.",
+      "analogie": "Pour estimer la durée moyenne de ton trajet domicile-travail, tu pourrais modéliser chaque feu rouge. Ou bien tu fais le trajet cent fois et tu calcules la moyenne. Monte Carlo fait le trajet des millions de fois, dans un ordinateur. Plus tu fais d'essais, plus ta moyenne est fiable, mais elle s'améliore de plus en plus lentement.",
+      "visuel": { "type": "outil", "ref": "labo.monte-carlo", "legende": "Ajoute des trajectoires : l'estimation se rapproche de Black-Scholes, et la bande d'erreur se resserre en 1/√n." },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, un an, volatilité 20 %, taux 3 %. Black-Scholes donne 9,41.",
+        "Avec 100 trajectoires : 9,44, avec une marge d'erreur (un écart-type) de ±1,28. Très imprécis.",
+        "Avec 10 000 trajectoires : 9,47 ± 0,14.",
+        "Avec 100 000 trajectoires : 9,43 ± 0,045.",
+        "Multiplier par 100 le nombre de trajectoires (de 1 000 à 100 000) divise l'erreur par 10 environ (de 0,45 à 0,045)."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix estimé et sa marge d'erreur",
+          "latex": "\\hat{C} = e^{-rT}\\,\\frac{1}{n}\\sum_{i=1}^{n} \\max\\big(S_T^{(i)} - K,\\ 0\\big) \\qquad \\text{erreur} \\approx \\frac{s}{\\sqrt{n}}",
+          "legende": { "S_T^{(i)}": "le cours final de la trajectoire numéro i", "n": "le nombre de trajectoires simulées", "s": "l'écart-type des gains actualisés observés sur les trajectoires" },
+          "en_francais": "Le prix est la moyenne des gains simulés, actualisée. L'erreur de cette moyenne est l'écart-type des gains divisé par la racine du nombre de simulations : elle diminue lentement."
+        }
+      ],
+      "deux_minutes": "**Comment on simule un cours.** Sous les hypothèses de Black-Scholes, le cours final s'écrit S × exp((r − σ²/2)T + σ√T × Z), où Z est un tirage au hasard selon une loi normale. Pour un payoff qui dépend du chemin (barrière, moyenne), on découpe le temps en pas et on simule le cours pas à pas.\n\n**Quand l'utiliser.**\n\n- Les payoffs qui dépendent du **chemin** : options asiatiques, barrières observées chaque jour, autocalls avec leurs dates de constatation.\n- Les produits sur **plusieurs sous-jacents** : un worst-of sur trois indices, où il faut simuler les trois ensemble avec leurs corrélations. C'est le cas typique des produits structurés.\n- Les **calculs de risque** à l'échelle d'une banque : valeur en risque, ajustements de valorisation pour le risque de contrepartie.\n\n**Ses limites.** Il est **lent** (la précision coûte cher), il gère mal l'exercice anticipé (il faut des méthodes spéciales comme Longstaff-Schwartz), et le calcul des grecques par simulation est bruité.\n\n**Accélérer.** Les desks utilisent des techniques de **réduction de variance** : variables antithétiques (on simule Z et −Z), variables de contrôle (on simule en même temps une option dont on connaît le prix exact pour corriger l'erreur), et des suites quasi aléatoires mieux réparties que le hasard pur.",
+      "piege": "Croire qu'en doublant le nombre de simulations, on divise l'erreur par deux. Il faut les **quadrupler**. La convergence en 1/√n est lente : passer d'une précision de 0,1 à 0,01 demande 100 fois plus de calcul.",
+      "a_dire_en_entretien": "« Monte Carlo simule un grand nombre de trajectoires du sous-jacent sous la probabilité risque-neutre, calcule le payoff de l'option sur chacune, et prend la moyenne actualisée. C'est une estimation, dont l'erreur diminue comme un sur racine de n : pour être dix fois plus précis, il faut cent fois plus de simulations. Sa force est de gérer des payoffs dépendant du chemin et plusieurs sous-jacents, ce qui en fait l'outil de base des produits structurés. Sa faiblesse est la lenteur et la difficulté avec l'exercice anticipé. »",
+      "liens": ["m2.modeles.binomial", "m2.exotiques.asiatiques", "m2.exotiques.barrieres", "m2.modeles.grecques-calcul"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.edp",
+      "type": "fiche", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "tags": ["modeles", "edp", "differences finies"],
+      "titre": "L'équation de Black-Scholes et les différences finies",
+      "une_phrase": "Le prix d'une option vérifie une **équation aux dérivées partielles** (EDP) qui relie thêta, gamma et delta ; les **différences finies** la résolvent sur une **grille** de cours et de dates, en partant de l'échéance.",
+      "trente_secondes": "Black et Scholes ont montré que le prix V d'une option, vu comme une fonction du cours S et du temps t, doit vérifier une équation : celle qui dit qu'un portefeuille couvert en delta rapporte exactement le taux sans risque.\n\nCette équation fait intervenir le thêta (la dérivée en temps), le delta et le gamma. Avec un taux nul, elle se lit simplement : **thêta = −½ × σ² × S² × gamma**. C'est la relation gamma-thêta que vit chaque jour un trader.\n\nPour la résoudre sans formule, on construit une **grille** : des cours possibles en ligne, des dates en colonne. On connaît la valeur à l'échéance (le payoff), et on recule date par date en remplaçant les dérivées par des écarts entre points voisins : ce sont les **différences finies**.",
+      "analogie": "C'est comme la prévision météo. On ne connaît pas de formule pour la température de demain partout, mais on connaît les lois qui relient la température d'un point à celle de ses voisins un instant plus tard. On découpe la carte en carrés et on fait avancer le calcul pas à pas. Ici, on fait reculer le temps, de l'échéance vers aujourd'hui.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Méthode", "Point fort", "Point faible", "Usage typique"],
+        "lignes": [
+          ["Formule fermée", "Instantanée et exacte", "N'existe que pour des cas simples", "Vanilles européennes"],
+          ["Arbre binomial", "Intuitif, gère l'exercice anticipé", "Lourd en plusieurs dimensions", "Options américaines"],
+          ["Différences finies (EDP)", "Précis et rapide en 1 ou 2 dimensions, gère barrières et exercice anticipé", "Difficile au-delà de 2 ou 3 sous-jacents", "Barrières, américaines, taux"],
+          ["Monte Carlo", "Gère n'importe quel payoff et beaucoup de sous-jacents", "Lent, résultat bruité", "Produits structurés multi-sous-jacents"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Vérifions la relation gamma-thêta sur un exemple fictif : call à la monnaie, S = 100, un an, volatilité 20 %, taux nul.",
+        "Gamma : 0,01985. Thêta annuel : −3,97.",
+        "½ × σ² × S² × gamma = ½ × 0,04 × 10 000 × 0,01985 = 3,97.",
+        "On retrouve exactement le thêta, au signe près : thêta = −½ σ² S² Γ. L'érosion quotidienne de l'option est la contrepartie exacte de son gamma, pour la volatilité implicite.",
+        "Avec des taux positifs, s'ajoutent les termes r × S × delta et −r × V : le portage du sous-jacent et l'actualisation."
+      ],
+      "formules": [
+        {
+          "titre": "L'équation de Black-Scholes",
+          "latex": "\\frac{\\partial V}{\\partial t} + \\tfrac{1}{2}\\sigma^2 S^2 \\frac{\\partial^2 V}{\\partial S^2} + r S \\frac{\\partial V}{\\partial S} - r V = 0",
+          "legende": { "\\partial V / \\partial t": "le thêta : l'évolution de la valeur avec le temps", "\\partial^2 V / \\partial S^2": "le gamma", "\\partial V / \\partial S": "le delta", "r V": "le rendement sans risque que doit produire la position couverte" },
+          "en_francais": "Thêta + ½ σ² S² gamma + r S delta = r V. Pour une position couverte en delta, ce que coûte le temps est exactement compensé par ce que rapportent les mouvements, au niveau de volatilité supposé : la position rapporte le taux sans risque."
+        }
+      ],
+      "deux_minutes": "**Comment fonctionne une grille.** On choisit un intervalle de cours (par exemple de 0 à 300) découpé en pas réguliers, et la durée de vie découpée en pas de temps. À l'échéance, chaque point vaut le payoff. On remplace le gamma par (V(S + h) − 2V(S) + V(S − h)) / h², le delta par (V(S + h) − V(S − h)) / 2h, et on en déduit les valeurs à la date précédente. On recommence jusqu'à aujourd'hui.\n\n**Explicite, implicite, Crank-Nicolson.** Le schéma **explicite** calcule directement chaque point à partir de la date suivante : simple, mais instable si le pas de temps est trop grand. Le schéma **implicite** est toujours stable mais demande de résoudre un système d'équations à chaque pas. **Crank-Nicolson**, la moyenne des deux, est le plus utilisé : stable et précis.\n\n**Ce que la grille gère bien.**\n\n- Une **barrière** : on impose une valeur nulle sur la ligne de la barrière.\n- L'**exercice anticipé** : à chaque date, on prend le maximum entre la valeur calculée et l'exercice immédiat.\n- Les **grecques** : delta et gamma se lisent directement sur la grille, sans recalcul.\n\n**Sa limite : la dimension.** Une grille à un sous-jacent compte quelques centaines de points par date ; à deux, des dizaines de milliers ; à cinq, des milliards. Au-delà de deux ou trois sous-jacents, on passe à Monte Carlo.",
+      "piege": "Présenter l'EDP comme une méthode différente du modèle de Black-Scholes. C'est le **même modèle**, écrit sous forme d'équation plutôt que de formule. La formule fermée n'est qu'une solution particulière de cette équation, pour le payoff d'un call ou d'un put européen.",
+      "a_dire_en_entretien": "« Le prix d'une option vérifie l'équation aux dérivées partielles de Black-Scholes, qui relie le thêta, le gamma et le delta : avec un taux nul, thêta égale moins un demi sigma carré S carré gamma, ce qui est exactement la relation gamma-thêta du trader. Quand il n'y a pas de formule, on la résout par différences finies sur une grille de cours et de dates, en partant du payoff à l'échéance et en reculant dans le temps. C'est rapide et précis en une ou deux dimensions, et cela gère bien les barrières et l'exercice anticipé. »",
+      "liens": ["m2.couverture.gamma-theta", "m2.modeles.binomial", "m2.modeles.grecques-calcul"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.grecques-calcul",
+      "type": "fiche", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "tags": ["modeles", "grecques", "risque"],
+      "titre": "Comment on calcule les grecques",
+      "une_phrase": "On calcule les grecques de trois façons : par **formule fermée** quand elle existe, par **bump and reprice** (on décale un paramètre et on recalcule le prix), ou par **différentiation automatique**, qui obtient toutes les sensibilités en une seule passe.",
+      "trente_secondes": "**Formule fermée** : pour une option vanille dans Black-Scholes, chaque grecque a sa formule. C'est exact et instantané.\n\n**Bump and reprice** (« décaler et recalculer ») : on décale un paramètre d'un petit montant, on recalcule le prix, et on divise l'écart par le décalage. Delta ≈ (prix avec S + h − prix avec S − h) ÷ 2h. Simple et universel, mais il faut recalculer le prix pour chaque paramètre, et le choix de h est délicat.\n\n**Différentiation automatique** (*automatic differentiation*, souvent appelée AAD dans les banques) : l'ordinateur applique la règle de dérivation des fonctions composées à chaque opération du calcul du prix. Il obtient les dérivées **exactes**, et en mode « adjoint », **toutes** les sensibilités pour le coût de quelques calculs de prix.",
+      "analogie": "Pour savoir comment le prix d'un gâteau réagit au prix de chaque ingrédient, tu peux refaire le calcul du coût total en augmentant le beurre, puis la farine, puis le sucre : autant de recalculs que d'ingrédients. C'est le bump and reprice. Ou bien tu remarques, en suivant la recette une seule fois à l'envers, ce que chaque ingrédient pèse dans le total : c'est l'idée de la différentiation automatique en mode adjoint.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Méthode", "Précision", "Coût pour n sensibilités", "Quand"],
+        "lignes": [
+          ["Formule fermée", "Exacte", "Négligeable", "Vanilles dans un modèle simple"],
+          ["Bump and reprice", "Approchée, dépend du décalage h", "Environ 2n recalculs du prix", "Universel, simple à mettre en place"],
+          ["Différentiation automatique (mode adjoint)", "Exacte à la précision de la machine", "Quelques recalculs, quel que soit n", "Gros portefeuilles, Monte Carlo, centaines de sensibilités"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, S = 100, un an, volatilité 20 %, taux 3 %. Delta exact (formule) : 0,598706.",
+        "Bump and reprice avec h = 1 : (prix à 101 − prix à 99) ÷ 2 = 0,598634. Erreur : 0,00007.",
+        "Avec h = 0,01 : 0,598706, identique à la formule.",
+        "Mais avec Monte Carlo, un décalage trop petit fait exploser le bruit : l'écart entre deux prix simulés est dominé par l'erreur de simulation. On utilise alors les mêmes tirages aléatoires pour les deux prix.",
+        "Pour un livre de 10 000 options et 200 paramètres de marché (points de courbe, volatilités), le bump and reprice demande environ 400 réévaluations complètes ; la différentiation automatique, quelques-unes."
+      ],
+      "formules": [
+        {
+          "titre": "Le delta par différence centrée (bump and reprice)",
+          "latex": "\\Delta \\approx \\frac{V(S + h) - V(S - h)}{2h} \\qquad \\Gamma \\approx \\frac{V(S + h) - 2V(S) + V(S - h)}{h^2}",
+          "legende": { "V(S + h)": "le prix recalculé avec le sous-jacent décalé de +h", "h": "le décalage (le bump) : assez petit pour être précis, assez grand pour ne pas être noyé dans les erreurs d'arrondi ou de simulation" },
+          "en_francais": "On décale le paramètre dans les deux sens, on recalcule le prix, et on mesure la pente. Le gamma utilise la courbure entre les trois prix."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est un enjeu.** Une banque doit calculer chaque soir les sensibilités de tout son portefeuille à des centaines de paramètres : chaque point de la courbe des taux, chaque volatilité de la nappe, chaque cours de change. Pour des produits valorisés par Monte Carlo, chaque recalcul prend du temps. Le coût du bump and reprice croît avec le nombre de paramètres ; c'est vite des heures de calcul.\n\n**Le principe de la différentiation automatique.** Tout calcul de prix est une suite d'opérations élémentaires (additions, multiplications, exponentielles). On connaît la dérivée de chacune. En les enchaînant avec la règle de dérivation des fonctions composées, on obtient la dérivée exacte du prix.\n\n- En mode **direct** (*forward*), on propage les dérivées dans le sens du calcul : il faut une passe par paramètre.\n- En mode **adjoint** (*reverse*), on enregistre le calcul, puis on le parcourt à l'envers : une seule passe arrière donne la sensibilité du prix à **tous** les paramètres. Son coût est de l'ordre de quelques fois celui d'un seul prix.\n\nLes grandes banques l'utilisent depuis les années 2010 pour leurs calculs de risque, notamment les ajustements de valorisation liés au risque de contrepartie.\n\n**Les difficultés.** Les payoffs discontinus (digitales, barrières) n'ont pas de dérivée propre au point de saut : on les lisse avant de dériver. Et le mode adjoint consomme beaucoup de mémoire, puisqu'il faut garder la trace de tout le calcul.",
+      "piege": "Penser que plus le décalage h est petit, meilleur est le bump and reprice. En dessous d'un certain seuil, les erreurs d'arrondi de l'ordinateur ou le bruit de simulation dominent, et le résultat se dégrade. Autre confusion : la différentiation automatique n'est pas une approximation numérique ; elle donne la dérivée exacte du calcul effectué.",
+      "a_dire_en_entretien": "« Pour une option vanille, les grecques ont une formule fermée. Sinon, la méthode la plus simple est le bump and reprice : on décale un paramètre, on recalcule le prix, et on mesure la pente ; mais il faut deux recalculs par paramètre et le choix du décalage est délicat, surtout avec Monte Carlo. La différentiation automatique applique la dérivation des fonctions composées à chaque opération du calcul : elle donne des dérivées exactes et, en mode adjoint, toutes les sensibilités pour le coût de quelques calculs de prix. Les banques l'utilisent pour leurs calculs de risque sur de gros portefeuilles. »",
+      "liens": ["m2.grecques.tableau", "m2.modeles.monte-carlo", "m2.modeles.edp"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.modeles.c01", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Comment remonte-t-on un arbre binomial ?", "verso": "Chaque nœud vaut la moyenne de ses deux successeurs, pondérée par la probabilité risque-neutre p et actualisée d'une étape.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c02", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Comment l'arbre binomial gère-t-il une option américaine ?", "verso": "À chaque nœud, il compare la valeur de continuation et l'exercice immédiat, et garde la plus grande.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c03", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "recto": "Paramètres de l'arbre de Cox-Ross-Rubinstein ?", "verso": "u = e^(σ√Δt), d = 1/u, p = (e^(rΔt) − d) / (u − d).", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c04", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Principe de Monte Carlo pour une option ?", "verso": "Simuler de nombreuses trajectoires risque-neutres, calculer le payoff sur chacune, faire la moyenne et l'actualiser.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c05", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Comment l'erreur de Monte Carlo diminue-t-elle avec le nombre de simulations ?", "verso": "Comme 1/√n : 100 fois plus de simulations pour être 10 fois plus précis.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c06", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Quand préférer Monte Carlo à un arbre ou une grille ?", "verso": "Pour les payoffs qui dépendent du chemin et les produits sur plusieurs sous-jacents (worst-of, autocalls).", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c07", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "recto": "Écris l'équation de Black-Scholes.", "verso": "∂V/∂t + ½σ²S²∂²V/∂S² + rS∂V/∂S − rV = 0 : thêta + ½σ²S²gamma + rS delta = rV.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c08", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "recto": "Pourquoi les différences finies ne marchent-elles pas au-delà de 2 ou 3 sous-jacents ?", "verso": "La grille explose en taille : le nombre de points est multiplié à chaque dimension ajoutée.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c09", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "recto": "Qu'est-ce que le bump and reprice ?", "verso": "Décaler un paramètre d'un petit montant, recalculer le prix, et diviser l'écart par le décalage pour obtenir la sensibilité.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.c10", "type": "carte", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "recto": "Avantage de la différentiation automatique en mode adjoint ?", "verso": "Des dérivées exactes, et toutes les sensibilités pour le coût de quelques calculs de prix, quel que soit leur nombre.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.modeles.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.modeles", "difficulte": 2,
+      "question": "Comment valoriserais-tu une option qui n'a pas de formule fermée ?",
+      "reponse_modele": "Il y a trois grandes familles de méthodes. L'arbre binomial, qui découpe le temps en étapes où le cours monte ou baisse, et qu'on remonte depuis l'échéance : il est idéal pour les options américaines. Les différences finies, qui résolvent l'équation de Black-Scholes sur une grille de cours et de dates : précises et rapides pour un ou deux sous-jacents, elles gèrent bien les barrières. Et Monte Carlo, qui simule des milliers de trajectoires et fait la moyenne des gains : plus lent, mais il gère n'importe quel payoff, y compris dépendant du chemin, et plusieurs sous-jacents. Le choix dépend du produit : exercice anticipé, dépendance au chemin, nombre de sous-jacents.",
+      "points_cles": ["Arbre binomial : options américaines", "Différences finies : une ou deux dimensions, barrières", "Monte Carlo : chemin et multi-sous-jacents", "Critères de choix"],
+      "piege": "Ne citer qu'une méthode sans dire quand l'utiliser.",
+      "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.modeles", "difficulte": 2,
+      "question": "Ton Monte Carlo donne un prix avec une erreur de 0,10. Combien de simulations de plus pour descendre à 0,01 ?",
+      "reponse_modele": "L'erreur décroît comme un sur racine de n. Pour la diviser par 10, il faut multiplier le nombre de simulations par 100. Si j'ai aujourd'hui 10 000 trajectoires, il m'en faut un million. C'est pour cela que Monte Carlo est coûteux en précision, et qu'on utilise des techniques de réduction de variance, comme les variables antithétiques ou les variables de contrôle, pour obtenir la même précision avec moins de calculs.",
+      "points_cles": ["Erreur en 1/√n", "Diviser par 10 = ×100", "Exemple chiffré", "Réduction de variance"],
+      "piege": "Répondre « dix fois plus ».",
+      "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.modeles", "difficulte": 3,
+      "question": "Comment calcule-t-on les grecques d'un produit valorisé par Monte Carlo ?",
+      "reponse_modele": "La méthode la plus simple est le bump and reprice : on décale le paramètre, on relance la simulation et on mesure la pente. Mais avec Monte Carlo, l'écart entre deux prix simulés est noyé dans le bruit si l'on change les tirages : il faut réutiliser exactement les mêmes nombres aléatoires pour les deux calculs. Le coût croît avec le nombre de paramètres, ce qui devient très lourd pour un gros portefeuille. Les banques utilisent donc la différentiation automatique en mode adjoint, qui donne toutes les sensibilités exactes pour le coût de quelques simulations. Pour les payoffs discontinus, comme les digitales, il faut lisser le payoff avant de dériver.",
+      "points_cles": ["Bump and reprice", "Mêmes tirages aléatoires", "Coût proportionnel au nombre de paramètres", "Différentiation automatique adjointe", "Payoffs discontinus à lisser"],
+      "piege": "Oublier le problème du bruit de simulation.",
+      "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.modeles", "difficulte": 3,
+      "question": "Quel lien vois-tu entre l'équation de Black-Scholes et le métier de trader d'options ?",
+      "reponse_modele": "L'équation dit que pour une position couverte en delta, le thêta plus un demi sigma carré S carré gamma, plus les termes de taux, égalent le rendement sans risque. Avec un taux nul, le thêta est exactement moins un demi sigma carré S carré gamma. C'est la relation gamma-thêta que vit le trader chaque jour : son option couverte lui coûte du thêta et lui rapporte du gamma sur les mouvements. Les deux s'équilibrent si le marché bouge exactement comme le suppose la volatilité implicite. Le trader gagne ou perd selon que la volatilité réalisée dépasse ou non l'implicite.",
+      "points_cles": ["L'équation", "Thêta = −½σ²S²Γ à taux nul", "Relation gamma-thêta", "Équilibre à la volatilité implicite", "Réalisée contre implicite"],
+      "piege": "Réciter l'équation sans la relier à la couverture.",
+      "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.modeles.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "enonce": "Quelle méthode est la plus naturelle pour une option américaine sur une action ?", "choix": ["Monte Carlo simple", "L'arbre binomial", "La formule de Black-Scholes", "La parité call-put"], "bonne": 1, "explication": "L'arbre compare à chaque nœud continuation et exercice immédiat. Monte Carlo demande une méthode spéciale.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z02", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "enonce": "Monte Carlo avec 10 000 trajectoires donne une erreur de 0,14. Quelle erreur avec 1 000 000 de trajectoires ?", "reponse": 0.014, "tolerance": 0.0005, "unite": "", "explication": "100 fois plus de trajectoires : erreur divisée par √100 = 10. 0,14 ÷ 10 = 0,014.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z03", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "enonce": "Dans un arbre binomial, on utilise la probabilité réelle de hausse de l'action.", "vrai": false, "explication": "On utilise la probabilité risque-neutre p, déduite du taux et des facteurs u et d.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z04", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "enonce": "Un autocall sur le moins bon de trois indices (worst-of) se valorise en pratique avec…", "choix": ["la formule de Black-Scholes", "un arbre binomial à une dimension", "Monte Carlo", "la parité call-put"], "bonne": 2, "explication": "Trois sous-jacents corrélés et des observations à plusieurs dates : c'est le terrain de Monte Carlo.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z05", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "enonce": "Avec un taux nul, l'équation de Black-Scholes donne thêta = −½ σ² S² gamma.", "vrai": true, "explication": "Les termes en r disparaissent : il reste thêta + ½σ²S²Γ = 0.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "enonce": "Pour obtenir 200 sensibilités d'un portefeuille, la méthode la moins coûteuse en calcul est…", "choix": ["le bump and reprice", "la différentiation automatique en mode adjoint", "la différentiation automatique en mode direct", "relancer Monte Carlo 200 fois avec de nouveaux tirages"], "bonne": 1, "explication": "Le mode adjoint donne toutes les sensibilités en une passe arrière, pour le coût de quelques calculs de prix.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z07", "type": "quiz", "forme": "ordre", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "enonce": "Remets dans l'ordre le calcul d'une option par Monte Carlo.", "etapes": ["Choisir le nombre de trajectoires et de pas de temps", "Simuler chaque trajectoire du sous-jacent sous la probabilité risque-neutre", "Calculer le payoff de l'option sur chaque trajectoire", "Faire la moyenne des payoffs et l'actualiser", "Calculer la marge d'erreur : écart-type divisé par √n"], "explication": "Simuler, évaluer, moyenner, actualiser, puis mesurer la précision.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.z08", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "enonce": "Dans le bump and reprice, plus le décalage h est petit, plus le résultat est précis, sans limite.", "vrai": false, "explication": "En dessous d'un seuil, les erreurs d'arrondi ou le bruit de simulation dominent et le résultat se dégrade.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.modeles.x01", "type": "exercice", "module": 2, "chapitre": "m2.modeles", "difficulte": 2,
+      "titre": "Un arbre binomial à une puis deux étapes",
+      "enonce": "Exemple fictif. Action à 100, strike 100, un an, volatilité 20 %, taux 3 %. (a) Calcule le call européen avec une seule étape. (b) Avec deux étapes, compare le put européen et le put américain.",
+      "etapes": [
+        { "titre": "Les paramètres à une étape", "texte": "Δt = 1. u = e^(0,20) = 1,2214, d = 0,8187. p = (e^(0,03) − 0,8187) / (1,2214 − 0,8187) = (1,0305 − 0,8187) / 0,4027 = 0,526.", "resultat": "u = 1,2214 ; d = 0,8187 ; p = 0,526" },
+        {
+          "titre": "Le call à une étape",
+          "texte": "En haut : max(122,14 − 100, 0) = 22,14. En bas : 0.",
+          "formule": { "latex": "C = e^{-0{,}03} \\times (0{,}526 \\times 22{,}14 + 0{,}474 \\times 0) = 11{,}30", "legende": { "0{,}526": "la probabilité risque-neutre de hausse", "22{,}14": "le payoff en cas de hausse" }, "en_francais": "Une seule étape donne un prix grossier : 11,30 au lieu de 9,41 avec Black-Scholes." },
+          "resultat": "11,30",
+          "verif": { "fn": "options.binomialCallEu", "args": [100, 100, 1, 0.03, 0.2, 1], "attendu": 11.2972, "tolerance": 0.0001 }
+        },
+        { "titre": "L'arbre à deux étapes", "texte": "Δt = 0,5. u = e^(0,20 × √0,5) = 1,1519, d = 0,8681, p = 0,518. Cours possibles : à mi-parcours 115,19 ou 86,81 ; à l'échéance 132,69 ; 100 ; 75,36.", "resultat": "p = 0,518" },
+        {
+          "titre": "Le put européen",
+          "texte": "Payoffs à l'échéance : 0 ; 0 ; 24,64. Nœud bas de mi-parcours : e^(−0,015) × 0,482 × 24,64 = 11,70. Nœud haut : 0. Aujourd'hui : e^(−0,015) × 0,482 × 11,70.",
+          "resultat": "5,56",
+          "verif": { "fn": "options.binomialPutEu", "args": [100, 100, 1, 0.03, 0.2, 2], "attendu": 5.5554, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le put américain",
+          "texte": "Au nœud bas de mi-parcours (cours 86,81), l'exercice immédiat rapporte 100 − 86,81 = 13,19, plus que la continuation (11,70). On exerce : le nœud vaut 13,19. Aujourd'hui : e^(−0,015) × 0,482 × 13,19.",
+          "resultat": "6,26",
+          "verif": { "fn": "options.binomialPutAm", "args": [100, 100, 1, 0.03, 0.2, 2], "attendu": 6.2624, "tolerance": 0.0001 }
+        },
+        { "titre": "Lecture", "texte": "Le droit d'exercer tôt vaut 6,26 − 5,56 = 0,70 dans cet arbre grossier. Avec 1 000 étapes, on trouve 6,74 pour l'américain et 6,46 pour l'européen : l'écart réel est de 0,28. Deux étapes suffisent pour comprendre le mécanisme, pas pour avoir le bon prix." }
+      ],
+      "erreurs_a_eviter": ["Oublier d'actualiser à chaque étape.", "Utiliser une probabilité de 50 % au lieu de p.", "Oublier la comparaison avec l'exercice immédiat pour l'américaine."],
+      "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.modeles.x02", "type": "exercice", "module": 2, "chapitre": "m2.modeles", "difficulte": 2,
+      "titre": "La précision de Monte Carlo et le bump and reprice",
+      "enonce": "Exemple fictif. (a) Sur un call à la monnaie, l'écart-type des gains actualisés simulés est de 14,06. Quelle est l'erreur avec 10 000 trajectoires ? Combien en faut-il pour une erreur de 0,01 ? (b) Calcule le delta du même call par bump and reprice avec un décalage de 1, et compare à la formule.",
+      "etapes": [
+        {
+          "titre": "L'erreur avec 10 000 trajectoires",
+          "texte": "Erreur = écart-type ÷ √n = 14,06 ÷ 100.",
+          "resultat": "0,14",
+          "verif": { "fn": "options.erreurMC", "args": [14.06, 10000], "attendu": 0.1406, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le nombre de trajectoires pour 0,01",
+          "texte": "On cherche n tel que 14,06 ÷ √n = 0,01, soit √n = 1 406 et n = 1 406² ≈ 2 millions.",
+          "formule": { "latex": "n = \\left(\\frac{14{,}06}{0{,}01}\\right)^2 \\approx 1{,}98 \\times 10^6", "legende": { "14{,}06": "l'écart-type des gains", "0{,}01": "l'erreur visée" }, "en_francais": "Pour une erreur de 0,01, il faut environ deux millions de trajectoires, deux cents fois plus que pour 0,14." },
+          "resultat": "≈ 2 millions",
+          "verif": { "fn": "options.erreurMC", "args": [14.06, 1976836], "attendu": 0.01, "tolerance": 0.00001 }
+        },
+        {
+          "titre": "Le delta par bump and reprice",
+          "texte": "Prix à S = 101 : 10,0217. Prix à S = 99 : 8,8244 (Black-Scholes). Delta ≈ (10,0217 − 8,8245) ÷ 2.",
+          "resultat": "0,5986",
+          "verif": { "fn": "options.deltaBumpCall", "args": [100, 100, 1, 0.03, 0.2, 1], "attendu": 0.598634, "tolerance": 0.000001 }
+        },
+        {
+          "titre": "La comparaison",
+          "texte": "Le delta exact est N(d₁) = 0,598706. L'erreur du bump and reprice est de 0,00007 : négligeable. Avec un prix calculé par Monte Carlo, ce même calcul serait noyé dans l'erreur de 0,14 de chaque prix, sauf à réutiliser les mêmes tirages aléatoires.",
+          "verif": { "fn": "options.deltaCall", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.598706, "tolerance": 0.000001 }
+        }
+      ],
+      "erreurs_a_eviter": ["Croire qu'il suffit de multiplier les trajectoires par 14 pour diviser l'erreur par 14.", "Diviser par h au lieu de 2h dans la différence centrée.", "Recalculer les deux prix Monte Carlo avec des tirages différents."],
+      "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.modeles.l-arbre-binomial", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "terme": "Arbre binomial", "anglais": "binomial tree", "definition": "Modèle où, à chaque étape, le sous-jacent monte ou baisse ; on valorise l'option en remontant l'arbre depuis l'échéance.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-proba-risque-neutre", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "Probabilité risque-neutre", "anglais": "risk-neutral probability", "definition": "Probabilité fictive sous laquelle le sous-jacent rapporte en moyenne le taux sans risque ; elle sert à calculer les prix.", "fiche": "m2.modeles.binomial", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-monte-carlo", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "terme": "Monte Carlo", "anglais": "Monte Carlo simulation", "definition": "Méthode qui estime un prix en faisant la moyenne des gains sur un grand nombre de scénarios simulés.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-reduction-variance", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "Réduction de variance", "anglais": "variance reduction", "definition": "Techniques qui améliorent la précision de Monte Carlo à nombre de simulations égal : variables antithétiques, variables de contrôle.", "fiche": "m2.modeles.monte-carlo", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-edp", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "EDP de Black-Scholes", "anglais": "Black-Scholes PDE", "definition": "Équation aux dérivées partielles que vérifie le prix d'une option : thêta + ½σ²S²gamma + rS delta − rV = 0.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-differences-finies", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "Différences finies", "anglais": "finite differences", "definition": "Résolution d'une EDP sur une grille, en remplaçant les dérivées par des écarts entre points voisins.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-crank-nicolson", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "Crank-Nicolson", "definition": "Schéma de différences finies stable et précis, moyenne des schémas explicite et implicite.", "fiche": "m2.modeles.edp", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-bump-reprice", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 2, "terme": "Bump and reprice", "definition": "Calcul d'une sensibilité en décalant un paramètre et en recalculant le prix.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.modeles.l-aad", "type": "lexique", "module": 2, "chapitre": "m2.modeles", "difficulte": 3, "terme": "Différentiation automatique", "anglais": "automatic differentiation (AAD en mode adjoint)", "definition": "Calcul exact des dérivées d'un programme par application de la dérivation en chaîne à chaque opération ; en mode adjoint, toutes les sensibilités en une passe arrière.", "fiche": "m2.modeles.grecques-calcul", "maj": "2026-11-16", "version": 1 }
+  ]
+}

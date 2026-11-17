@@ -1,0 +1,239 @@
+{
+  "chapitre": {
+    "id": "m2.exotiques",
+    "module": 2,
+    "ordre": 8,
+    "titre": "Les options exotiques",
+    "resume": "Les options qui ne sont pas des calls et des puts classiques : digitales, options à barrière, asiatiques, et le cas des options américaines. Ce sont les briques des produits structurés."
+  },
+  "elements": [
+    {
+      "id": "m2.exotiques.digitales",
+      "type": "fiche", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "tags": ["exotiques", "digitale", "structures"],
+      "titre": "Les options digitales (binaires)",
+      "une_phrase": "Une option digitale paie un **montant fixe** si le sous-jacent finit au-dessus (ou en dessous) d'un strike, et **rien** sinon : c'est du **tout ou rien**.",
+      "trente_secondes": "Un call classique paie S − K : plus le cours monte, plus il rapporte. Une **digitale** paie un montant fixe, par exemple 10 euros, dès que S dépasse K, que ce soit d'un centime ou de 50 euros.\n\nSon prix est simple à lire : c'est le montant payé, multiplié par la **probabilité** (risque-neutre) de finir dans la monnaie, actualisée. Dans Black-Scholes, cette probabilité est N(d₂).\n\nLes digitales sont partout dans les produits structurés : le **coupon conditionnel** d'un Phoenix (« 5 % si l'indice est au-dessus de 70 % ») est une digitale.",
+      "analogie": "C'est un pari sur le résultat d'un match : tu gagnes 10 euros si ton équipe gagne, peu importe le score. Gagner 1-0 ou 5-0 rapporte autant. Le prix juste du pari est la mise multipliée par la probabilité de victoire.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Cours à l'échéance", "Call classique (K = 100)", "Digitale qui paie 10 (K = 100)"],
+        "lignes": [
+          ["90", "0", "0"],
+          ["99,99", "0", "0"],
+          ["100,01", "0,01", "10"],
+          ["130", "30", "10"]
+        ],
+        "legende": "Le gain de la digitale saute d'un coup au strike."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, digitale qui paie 10 euros si l'action est au-dessus de 100 dans un an. Volatilité 20 %, taux 3 %.",
+        "Probabilité risque-neutre de finir au-dessus de 100 : N(d₂) = N(0,05) = 0,52.",
+        "Prix : 10 × 0,52 × e^(−0,03) = 10 × 0,5046 = 5,05 euros.",
+        "Une semaine avant l'échéance, avec l'action à 100 pile, la digitale vaut environ 5,03. Si l'action passe à 101, elle vaut 6,42 ; à 99, 3,61. Un mouvement de 1 % fait varier son prix de près de 30 % : le delta et le gamma sont énormes près du strike."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix d'une digitale (cash or nothing)",
+          "latex": "D_{\\text{call}} = M \\times e^{-rT} N(d_2) \\qquad D_{\\text{put}} = M \\times e^{-rT} N(-d_2)",
+          "legende": { "M": "le montant fixe payé si l'option finit dans la monnaie", "N(d_2)": "la probabilité risque-neutre que le sous-jacent finisse au-dessus du strike", "e^{-rT}": "l'actualisation" },
+          "en_francais": "La digitale vaut le montant promis, multiplié par la probabilité de le recevoir, ramené à aujourd'hui. La digitale call et la digitale put ensemble paient M à coup sûr : leur somme vaut M actualisé."
+        }
+      ],
+      "deux_minutes": "**Le problème de la couverture.** Juste avant l'échéance, si le cours est près du strike, le prix de la digitale bascule entre 0 et M au moindre mouvement. Son delta devient gigantesque et change de signe en un instant : impossible à couvrir proprement. C'est le cauchemar du trader.\n\n**La solution des desks : le call spread.** Une digitale qui paie 10 au-dessus de 100 ressemble à un call spread très serré : 10 calls achetés à 99,5 et 10 calls vendus à 100,5. Le call spread paie 10 au-dessus de 100,5, rien en dessous de 99,5, et une pente entre les deux. Les banques **valorisent et couvrent** leurs digitales comme des call spreads, en se plaçant du côté prudent : le client paie un peu plus que la digitale « pure ». On appelle cela le *overhedge*.\n\n**Le lien avec le skew.** Le prix d'une digitale dépend de la pente de la volatilité implicite autour du strike, puisqu'elle est la limite d'un call spread. Avec le skew des actions, une digitale call vaut un peu plus que ce que donne la formule à volatilité unique.\n\n**Dans les produits structurés.** Les coupons conditionnels des produits **Phoenix**, les seuils de rappel des **autocalls**, les produits « à seuil » qui paient un rendement fixe si un indice ne baisse pas trop : ce sont des digitales. Elles sont détaillées dans le module 5.",
+      "piege": "Croire que le delta d'une digitale est petit parce que son gain est plafonné. Près du strike et de l'échéance, c'est l'inverse : il devient énorme. Autre erreur : utiliser N(d₁) au lieu de N(d₂) pour la probabilité d'exercice.",
+      "a_dire_en_entretien": "« Une digitale paie un montant fixe si le sous-jacent finit dans la monnaie, rien sinon. Son prix est ce montant multiplié par la probabilité risque-neutre de finir dans la monnaie, N(d₂), actualisé. Elle est difficile à couvrir près du strike et de l'échéance, parce que son delta y explose ; les banques la répliquent avec un call spread serré, en se plaçant du côté prudent. Les coupons conditionnels des produits structurés sont des digitales. »",
+      "liens": ["m2.exotiques.barrieres", "m2.strategies.spreads", "m2.bs.formule"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.barrieres",
+      "type": "fiche", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "tags": ["exotiques", "barriere", "structures"],
+      "titre": "Les options à barrière",
+      "une_phrase": "Une option à barrière **apparaît** (*knock-in*) ou **disparaît** (*knock-out*) si le sous-jacent touche un niveau donné : elle coûte moins cher qu'une option classique, parce qu'elle ne paie que dans certains scénarios.",
+      "trente_secondes": "On ajoute une condition à un call ou à un put classique : une **barrière**.\n\n- **Knock-out** (« désactivante ») : l'option meurt si le sous-jacent touche la barrière. Exemple : un call qui disparaît si l'action dépasse 130.\n- **Knock-in** (« activante ») : l'option n'existe que si le sous-jacent touche la barrière. Exemple : un put qui ne s'active que si l'indice tombe à 70.\n\nOn précise aussi le sens : *up* (barrière au-dessus du cours) ou *down* (barrière en dessous).\n\nComme elle paie dans moins de scénarios, une option à barrière est **moins chère** que l'option classique. Et une option knock-in plus la knock-out de même barrière font exactement l'option classique.",
+      "analogie": "C'est un billet de train valable « sauf en cas de grève » : il coûte moins cher qu'un billet flexible, parce que le transporteur ne te rembourse pas dans un scénario précis. Le knock-in, c'est l'inverse : une indemnité qui ne s'active que si l'événement redouté se produit.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Put de strike 100, un an", "Prix", "Ce qu'il faut pour qu'il paie"],
+        "lignes": [
+          ["Put classique", "6,46", "Finir sous 100"],
+          ["Put down-and-in, barrière 80", "4,69", "Toucher 80 et finir sous 100"],
+          ["Put down-and-in, barrière 70", "1,94", "Toucher 70 et finir sous 100"],
+          ["Put down-and-in, barrière 60", "0,36", "Toucher 60 et finir sous 100"],
+          ["Put down-and-out, barrière 70", "4,51", "Ne jamais toucher 70 et finir sous 100"]
+        ],
+        "legende": "Exemple fictif : indice à 100, volatilité 20 %, taux 3 %, barrière observée en continu. Down-and-in + down-and-out = put classique (1,94 + 4,51 = 6,46)."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : un investisseur souscrit un produit qui contient, sans qu'il le sache, un put down-and-in de strike 100 et de barrière 70 sur un indice à 100, à un an. Il l'a **vendu** à la banque.",
+        "Ce put vaut 1,94 : c'est ce que l'investisseur « encaisse », sous forme de coupon, pour accepter le risque.",
+        "Tant que l'indice ne touche pas 70, le put n'existe pas : l'investisseur ne perd rien sur son capital.",
+        "Si l'indice touche 70 et finit à 65, le put s'est activé et vaut 35 : l'investisseur perd 35 % de son capital, comme s'il avait détenu l'indice depuis le début.",
+        "Près de la barrière, le prix change brutalement : avec l'indice à 72, le put vaut 24,28 ; à 70,5, il vaut 26,61. Pour la banque, le gamma y devient très difficile à gérer."
+      ],
+      "formules": [
+        {
+          "titre": "La parité in-out",
+          "latex": "\\text{Knock-in} + \\text{Knock-out} = \\text{Vanille}",
+          "legende": { "\\text{Knock-in}": "l'option qui s'active si la barrière est touchée", "\\text{Knock-out}": "l'option qui disparaît si la même barrière est touchée", "\\text{Vanille}": "l'option classique de même strike et même échéance" },
+          "en_francais": "Dans tous les scénarios, l'une des deux exactement est vivante : ensemble, elles reproduisent l'option classique. Si l'on connaît le prix de l'une, on connaît celui de l'autre."
+        }
+      ],
+      "deux_minutes": "**Surveillance continue ou discrète.** La barrière peut être observée en continu (le moindre contact en séance compte), chaque jour à la clôture, ou seulement à l'échéance (on parle alors de barrière **européenne**, ce qui revient à une digitale). Une barrière observée moins souvent est moins souvent touchée : cela change le prix. Les formules fermées supposent une observation continue ; on corrige pour une observation discrète, ou on utilise Monte Carlo.\n\n**Pourquoi elles sont partout dans les produits structurés.** Le put down-and-in est la brique centrale des **autocalls** et des **reverse convertibles** : l'investisseur ne perd son capital que si l'indice a baissé de plus de 30 ou 40 %. Le knock-out sert aux couvertures de change moins chères pour les entreprises.\n\n**Le risque pour la banque.** Près de la barrière, la valeur de l'option change brutalement : le delta et le gamma deviennent énormes et instables, et la couverture doit traiter de gros volumes au pire moment. Quand beaucoup de produits ont des barrières au même niveau, les couvertures des banques peuvent accentuer le mouvement du marché autour de ce niveau.\n\n**Le vega peut changer de signe.** Un call knock-out a parfois un vega **négatif** : plus de volatilité augmente la chance de toucher la barrière et de tout perdre. C'est un exemple où l'intuition des options classiques ne marche plus.",
+      "piege": "Croire qu'une barrière à 70 % protège « jusqu'à −30 % ». Elle protège tant que la barrière n'est **pas touchée**. Une fois touchée, l'investisseur perd toute la baisse depuis le niveau initial, pas seulement ce qui dépasse 30 %. C'est l'effet falaise des produits à barrière.",
+      "a_dire_en_entretien": "« Une option à barrière s'active ou se désactive quand le sous-jacent touche un niveau donné. Elle coûte moins cher que l'option classique, et une knock-in plus la knock-out de même barrière redonnent l'option classique. Le put down-and-in est la brique des autocalls : l'investisseur, qui l'a vendu, ne perd son capital que si l'indice touche la barrière, mais il perd alors toute la baisse. Pour la banque, le delta et le gamma près de la barrière sont très difficiles à gérer. »",
+      "liens": ["m2.exotiques.digitales", "m2.couverture.implicite-realisee", "m2.modeles.monte-carlo"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.asiatiques",
+      "type": "fiche", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "tags": ["exotiques", "asiatique", "matieres premieres"],
+      "titre": "Les options asiatiques",
+      "une_phrase": "Une option asiatique paie en fonction de la **moyenne** des cours sur une période, et non du cours final : elle est **moins chère**, car une moyenne bouge moins qu'un cours.",
+      "trente_secondes": "Le payoff d'un call asiatique est max(moyenne − K, 0), où la moyenne est calculée sur des observations régulières, par exemple chaque jour ou chaque mois.\n\nUne moyenne lisse les mouvements : sa volatilité est plus faible que celle du cours. Pour une moyenne continue sur toute la vie de l'option, elle vaut environ σ/√3, soit 58 % de la volatilité du sous-jacent. L'option coûte donc nettement moins cher.\n\nElle est aussi plus difficile à **manipuler** : personne ne peut faire bouger une moyenne sur trois mois en achetant massivement le dernier jour.",
+      "analogie": "C'est la différence entre noter un élève sur le dernier examen de l'année et le noter sur la moyenne de l'année. La moyenne est moins risquée : une mauvaise journée ne ruine pas tout. Et un élève ne peut pas tout jouer sur une seule copie.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Call à la monnaie, un an", "Prix"],
+        "lignes": [
+          ["Call classique (cours final)", "9,41"],
+          ["Call asiatique (moyenne géométrique continue)", "5,09"]
+        ],
+        "legende": "Exemple fictif : sous-jacent à 100, volatilité 20 %, taux 3 %. L'asiatique coûte environ 46 % de moins."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une compagnie aérienne achète du kérosène tous les jours. Ce qui compte pour elle, c'est le **prix moyen** payé sur le trimestre, pas le prix du dernier jour.",
+        "Elle achète un call asiatique sur le prix moyen du trimestre, de strike 800 dollars la tonne.",
+        "Si le prix moyen du trimestre est de 860, l'option lui rapporte 60 dollars par tonne : exactement le surcoût moyen qu'elle a payé au-delà de 800.",
+        "Une option classique sur le prix du dernier jour la protégerait mal : le prix pourrait avoir été à 900 tout le trimestre et redescendre à 790 le dernier jour.",
+        "Et l'asiatique lui coûte beaucoup moins cher : dans l'exemple de référence à un an, 5,09 au lieu de 9,41."
+      ],
+      "formules": [
+        {
+          "titre": "Le payoff d'un call asiatique",
+          "latex": "\\text{Payoff} = \\max\\left(\\frac{1}{n}\\sum_{i=1}^{n} S_{t_i} - K,\\ 0\\right)",
+          "legende": { "S_{t_i}": "le cours aux dates d'observation", "n": "le nombre d'observations", "K": "le strike" },
+          "en_francais": "On fait la moyenne des cours relevés aux dates prévues, puis on applique le payoff d'un call classique à cette moyenne."
+        }
+      ],
+      "deux_minutes": "**Pas de formule simple pour la moyenne arithmétique.** La somme de variables lognormales n'est pas lognormale : il n'y a pas de formule fermée exacte. On utilise des approximations, ou **Monte Carlo**, qui gère sans difficulté n'importe quelle définition de la moyenne. Pour une moyenne **géométrique**, il existe une formule exacte (Kemna-Vorst), qui sert de point de comparaison.\n\n**Où on les trouve.**\n\n- **Matières premières et énergie** : compagnies aériennes, transporteurs, industriels, dont les coûts dépendent d'un prix moyen.\n- **Change** : une entreprise qui encaisse des dollars toute l'année se couvre sur le cours moyen.\n- **Produits structurés** : la performance d'un indice est souvent calculée sur une moyenne de constatations de fin de période (*averaging*), pour lisser le risque d'un mauvais dernier jour, et réduire le coût de l'option.\n\n**Les grecques.** Au fil de la période de moyenne, une partie des cours est déjà fixée : l'option devient de moins en moins sensible aux mouvements futurs. Son delta et son vega diminuent à mesure que les observations s'accumulent.",
+      "piege": "Croire qu'une asiatique protège moins bien parce qu'elle est moins chère. Pour un client dont le risque porte réellement sur une moyenne, elle protège **mieux** qu'une option classique : elle correspond à son exposition. C'est l'adéquation au besoin qui compte, pas le prix.",
+      "a_dire_en_entretien": "« Une option asiatique paie sur la moyenne des cours d'une période plutôt que sur le cours final. Comme une moyenne est moins volatile qu'un cours, elle coûte nettement moins cher. Elle convient aux clients dont l'exposition porte sur un prix moyen, comme une compagnie aérienne pour son kérosène, et elle est difficile à manipuler. Pour une moyenne arithmétique, il n'y a pas de formule exacte : on utilise Monte Carlo. »",
+      "liens": ["m2.exotiques.barrieres", "m2.modeles.monte-carlo"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.americaine",
+      "type": "fiche", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "tags": ["exotiques", "americaine", "exercice anticipe"],
+      "titre": "Les options américaines et l'exercice anticipé",
+      "une_phrase": "Une option américaine peut être exercée **à tout moment** ; ce droit en plus a une valeur pour un **put**, mais **aucune** pour un call sur une action sans dividende, qu'il ne faut jamais exercer avant l'échéance.",
+      "trente_secondes": "Une option américaine vaut au moins autant que l'européenne de mêmes caractéristiques, puisqu'elle offre un choix supplémentaire.\n\n**Pour un call sur une action sans dividende**, ce choix ne vaut rien : exercer tôt fait perdre la valeur temps et oblige à payer le strike plus tôt. Mieux vaut revendre le call. Américain et européen ont le même prix.\n\n**Pour un put**, c'est différent. Si l'action s'est effondrée, le détenteur peut avoir intérêt à exercer tout de suite pour **encaisser le strike** et le placer, plutôt que d'attendre. Le put américain vaut donc plus que l'européen.\n\nIl n'y a pas de formule de Black-Scholes pour une option américaine : on utilise un **arbre binomial** ou des différences finies.",
+      "analogie": "Tu as un bon d'achat pour un téléviseur à 500 euros, valable un an. Tant que le prix reste incertain, tu n'as aucune raison de l'utiliser tôt : tu peux toujours le revendre. Mais si tu as un bon de reprise de ton vieux téléviseur à 500 euros et qu'il ne vaut plus rien, mieux vaut encaisser les 500 euros tout de suite et les placer.",
+      "visuel": { "type": "outil", "ref": "labo.binomial", "legende": "Choisis « Put » et « Américaine » : les nœuds en jaune sont ceux où exercer tout de suite vaut plus que continuer." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, strike 100, un an, volatilité 20 %, taux 3 %, pas de dividende.",
+        "Call européen : 9,41. Call américain (arbre binomial) : 9,41. Exactement le même prix.",
+        "Put européen : 6,46. Put américain : 6,74. Le droit d'exercer tôt vaut 0,28.",
+        "Si l'action tombe à 70, le put européen vaut 27,40, **moins** que sa valeur intrinsèque de 30 : le strike n'est reçu que dans un an. Le put américain, lui, vaut 30 : on l'exerce immédiatement.",
+        "Avec des taux à 8 % et l'action à 80, l'écart est encore plus grand : put européen 14,70, put américain 20 (exercé tout de suite)."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi le call n'est jamais exercé tôt (sans dividende).** Trois raisons. L'exercice fait perdre la valeur temps, qui est toujours positive pour un call. Il oblige à payer le strike plus tôt, donc à renoncer aux intérêts. Et il fait perdre la protection contre une baisse. Revendre le call rapporte toujours au moins autant qu'exercer.\n\n**Avec des dividendes, ça change.** Juste avant le détachement d'un dividende important, exercer un call américain très dans la monnaie peut être optimal : on récupère l'action, et donc le dividende, que le détenteur du call n'aurait pas touché.\n\n**Pourquoi le put peut être exercé tôt.** Quand le put est très dans la monnaie, sa valeur temps peut devenir négative : l'intérêt gagné en encaissant le strike tout de suite dépasse la valeur de l'option restante. Plus les taux sont élevés, plus l'exercice anticipé est intéressant.\n\n**Comment on calcule.** Dans un arbre binomial, à chaque nœud, on compare la valeur de continuation (la moyenne actualisée des deux nœuds suivants) et la valeur d'un exercice immédiat, et on garde la plus grande. On obtient ainsi la **frontière d'exercice** : le cours en dessous duquel il faut exercer le put. Monte Carlo s'adapte plus difficilement à ce problème (il existe une méthode dédiée, celle de Longstaff-Schwartz).\n\n**Où on les trouve.** Les options sur actions individuelles cotées sont en général américaines. Les options sur indices et la plupart des options de gré à gré sont européennes. Les **bermudéennes**, exerçables à certaines dates seulement, sont courantes en taux (swaptions bermudéennes).",
+      "piege": "Dire qu'une option américaine vaut toujours plus que l'européenne. Elle vaut **au moins** autant ; pour un call sans dividende, exactement autant. Autre piège : penser qu'exercer tôt un call profondément dans la monnaie est une bonne idée ; il vaut mieux le revendre.",
+      "a_dire_en_entretien": "« Une option américaine peut être exercée à tout moment. Pour un call sur une action sans dividende, ce droit ne vaut rien : exercer tôt fait perdre la valeur temps et avancer le paiement du strike, donc le call américain vaut le call européen. Pour un put, l'exercice anticipé peut être optimal quand il est très dans la monnaie : on encaisse le strike tout de suite et on le place. Le put américain vaut donc plus. Il n'y a pas de formule fermée : on utilise un arbre binomial ou des différences finies. »",
+      "liens": ["m2.modeles.binomial", "m2.bases.definition", "m2.bases.prime"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.exotiques.c01", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "recto": "Qu'est-ce qu'une option digitale ?", "verso": "Une option qui paie un montant fixe si elle finit dans la monnaie, et rien sinon.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c02", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "recto": "Prix d'une digitale call qui paie M ?", "verso": "M × e^(−rT) × N(d₂) : le montant fois la probabilité risque-neutre de finir dans la monnaie, actualisé.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c03", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "recto": "Comment une banque couvre-t-elle une digitale ?", "verso": "Comme un call spread très serré, en se plaçant du côté prudent (overhedge).", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c04", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "recto": "Knock-in et knock-out : la différence ?", "verso": "Knock-in : l'option s'active si la barrière est touchée. Knock-out : elle disparaît si la barrière est touchée.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c05", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "recto": "Qu'est-ce que la parité in-out ?", "verso": "Knock-in + knock-out de même barrière = option classique.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c06", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "recto": "Quelle option à barrière se trouve au cœur des autocalls ?", "verso": "Un put down-and-in, vendu par l'investisseur à la banque.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c07", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "recto": "Pourquoi une option asiatique est-elle moins chère ?", "verso": "Parce qu'elle porte sur une moyenne de cours, moins volatile que le cours final (environ σ/√3 pour une moyenne continue).", "fiche": "m2.exotiques.asiatiques", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c08", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "recto": "Faut-il exercer tôt un call américain sur une action sans dividende ?", "verso": "Jamais : on perd la valeur temps et on paie le strike plus tôt. Mieux vaut le revendre. Il vaut le même prix que l'européen.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.c09", "type": "carte", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "recto": "Pourquoi un put américain peut-il être exercé tôt ?", "verso": "Très dans la monnaie, encaisser le strike tout de suite et le placer rapporte plus que la valeur temps restante.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.exotiques.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2,
+      "question": "Qu'est-ce qu'une option à barrière ? Pourquoi est-elle moins chère ?",
+      "reponse_modele": "C'est une option classique à laquelle on ajoute une condition : elle s'active, pour une knock-in, ou disparaît, pour une knock-out, si le sous-jacent touche un niveau donné pendant sa vie. Elle est moins chère parce qu'elle paie dans moins de scénarios. Une knock-in plus la knock-out de même barrière redonnent exactement l'option classique. Par exemple, un put de strike 100 à un an vaut 6,46 avec 20 % de volatilité, mais le même put qui ne s'active qu'à 70 ne vaut que 1,94. C'est la brique des autocalls : l'investisseur vend ce put à barrière.",
+      "points_cles": ["Knock-in et knock-out", "Moins de scénarios, donc moins cher", "Parité in-out", "Exemple chiffré", "Lien avec les autocalls"],
+      "piege": "Dire qu'une barrière à 70 % protège jusqu'à −30 % puis seulement au-delà.",
+      "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3,
+      "question": "Pourquoi les digitales et les barrières sont-elles difficiles à couvrir pour une banque ?",
+      "reponse_modele": "Parce que leur valeur change brutalement autour d'un niveau précis : le strike de la digitale près de l'échéance, ou la barrière. À ces endroits, le delta devient énorme et peut changer de signe en un instant, et le gamma explose. La banque doit alors acheter ou vendre de grosses quantités de sous-jacent au moment où le marché est le plus nerveux, avec un risque de saut qu'aucune couverture ne rattrape. En pratique, elle réplique la digitale par un call spread et décale légèrement les barrières dans le sens prudent, ce qui est facturé au client.",
+      "points_cles": ["Discontinuité autour d'un niveau", "Delta énorme et instable", "Gamma qui explose", "Risque de saut", "Call spread, décalage prudent"],
+      "piege": "Répondre que c'est difficile « parce que c'est exotique » sans expliquer le mécanisme.",
+      "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3,
+      "question": "Exercerais-tu un call américain très dans la monnaie avant l'échéance ?",
+      "reponse_modele": "Non, si l'action ne verse pas de dividende. En exerçant, je perds la valeur temps de l'option, je paie le strike plus tôt et je renonce aux intérêts, et je perds ma protection contre une baisse. Revendre le call me rapporte au moins autant qu'exercer. C'est pour cela qu'un call américain sans dividende vaut exactement le call européen. La seule exception est juste avant le détachement d'un dividende important : exercer peut alors permettre de toucher le dividende. Pour un put, c'est différent : un put très dans la monnaie peut avoir intérêt à être exercé tôt.",
+      "points_cles": ["Non, sans dividende", "Perte de la valeur temps", "Paiement anticipé du strike", "Revendre plutôt qu'exercer", "Exception : le dividende ; cas du put"],
+      "piege": "Répondre oui parce que l'option « rapporte déjà ».",
+      "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.exotiques.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2,
+      "question": "Une compagnie aérienne veut se couvrir contre la hausse du kérosène. Quelle option lui proposes-tu ?",
+      "reponse_modele": "Un call asiatique sur le prix moyen du kérosène sur la période de couverture, par exemple chaque trimestre. Son exposition réelle porte sur le prix moyen qu'elle paie, puisqu'elle achète tous les jours : une option sur la moyenne correspond exactement à son risque, alors qu'une option sur le prix d'un seul jour la protégerait mal. En plus, l'asiatique coûte nettement moins cher qu'une option classique, parce que la moyenne est moins volatile. Je lui proposerais aussi de comparer avec un swap sur le prix moyen, qui fixe son coût sans prime, et avec un tunnel.",
+      "points_cles": ["Call asiatique", "Correspond à une exposition sur un prix moyen", "Moins cher qu'une option classique", "Alternatives : swap, tunnel"],
+      "piege": "Proposer une option classique sans discuter de l'adéquation au besoin.",
+      "fiche": "m2.exotiques.asiatiques", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.exotiques.z01", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Une digitale paie 100 euros si l'action finit au-dessus de 100. e^(−rT) N(d₂) = 0,5046. Quel est son prix ?", "reponse": 50.46, "tolerance": 0.01, "unite": "€", "explication": "100 × 0,5046 = 50,46 euros.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z02", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Un put classique vaut 6,46 et le put down-and-in de barrière 70 vaut 1,94. Que vaut le put down-and-out de même barrière ?", "reponse": 4.52, "tolerance": 0.02, "unite": "", "explication": "Parité in-out : 6,46 − 1,94 = 4,52 (4,51 avant arrondi).", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z03", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Un put down-and-in de barrière 70 et de strike 100. L'indice finit à 85 sans avoir jamais touché 70. Que paie le put ?", "choix": ["15", "0", "30", "85"], "bonne": 1, "explication": "La barrière n'a jamais été touchée : le put ne s'est jamais activé et ne paie rien.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z04", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Même put, mais l'indice a touché 68 en cours de route et finit à 85. Que paie le put ?", "choix": ["15", "0", "32", "17"], "bonne": 0, "explication": "La barrière a été touchée : le put est activé et paie max(100 − 85, 0) = 15.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z05", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Une option asiatique est en général plus chère que l'option classique correspondante.", "vrai": false, "explication": "La moyenne est moins volatile que le cours final : l'asiatique est moins chère.", "fiche": "m2.exotiques.asiatiques", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "enonce": "Sur une action sans dividende, le call américain vaut…", "choix": ["plus que le call européen", "exactement le call européen", "moins que le call européen", "sa valeur intrinsèque"], "bonne": 1, "explication": "L'exercice anticipé d'un call sans dividende n'est jamais optimal : le droit supplémentaire ne vaut rien.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "enonce": "Un put européen très dans la monnaie peut valoir moins que sa valeur intrinsèque.", "vrai": true, "explication": "Le strike n'est reçu qu'à l'échéance : avec des taux positifs, la valeur temps peut devenir négative. Le put américain, lui, serait exercé.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.z08", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "enonce": "Le coupon conditionnel d'un produit Phoenix (« 5 % si l'indice est au-dessus de 70 % ») est économiquement…", "choix": ["un call classique", "une option digitale", "un put asiatique", "un swap"], "bonne": 1, "explication": "Un montant fixe versé si une condition est remplie : c'est une digitale.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.exotiques.x01", "type": "exercice", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3,
+      "titre": "Ce que vaut le put à barrière d'un produit structuré",
+      "enonce": "Exemple fictif. Indice à 100, un an, volatilité 20 %, taux 3 %. Un investisseur vend à la banque un put down-and-in de strike 100 et de barrière 70, sur un nominal de 100 000 euros. Que vaut ce put ? Comparer au put classique, puis donner la valeur du put down-and-out.",
+      "etapes": [
+        {
+          "titre": "Le put classique",
+          "texte": "Black-Scholes donne 6,46 pour 100 de nominal.",
+          "resultat": "6,46 %",
+          "verif": { "fn": "options.put", "args": [100, 100, 1, 0.03, 0.2], "attendu": 6.458, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le put down-and-in",
+          "texte": "Formule fermée des options à barrière (surveillance continue). Le put ne paie que si l'indice touche 70, ce qui est peu probable sur un an avec 20 % de volatilité.",
+          "resultat": "1,94 % du nominal",
+          "verif": { "fn": "options.putDownIn", "args": [100, 100, 70, 1, 0.03, 0.2], "attendu": 1.9436, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le put down-and-out, par la parité in-out",
+          "texte": "6,46 − 1,94 = 4,51 (avant arrondi).",
+          "resultat": "4,51 %",
+          "verif": { "fn": "options.putDownOut", "args": [100, 100, 70, 1, 0.03, 0.2], "attendu": 4.5144, "tolerance": 0.0001 }
+        },
+        { "titre": "En euros", "texte": "Sur 100 000 euros, le put down-and-in vaut 1 940 euros. C'est le montant que la banque peut reverser à l'investisseur, sous forme de coupon, en échange du risque qu'il accepte (avant sa marge).", "resultat": "≈ 1 940 €" },
+        { "titre": "Lecture", "texte": "L'investisseur encaisse 1,94 % pour un risque rare mais lourd : si l'indice touche 70 et finit à 60, il perd 40 000 euros. Le prix du put est faible parce que l'événement est peu probable, pas parce que la perte serait petite." }
+      ],
+      "erreurs_a_eviter": ["Penser que la barrière limite la perte à ce qui dépasse 30 %.", "Additionner au lieu de soustraire dans la parité in-out.", "Oublier que la valeur dépend fortement de la volatilité : à 30 %, le put à barrière vaut beaucoup plus."],
+      "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.exotiques.l-exotique", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "terme": "Option exotique", "anglais": "exotic option", "definition": "Option dont le payoff ou les conditions diffèrent d'un call ou d'un put classique (digitale, barrière, asiatique…).", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-vanille", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 1, "terme": "Option vanille", "anglais": "vanilla option", "definition": "Call ou put classique, européen ou américain, sans condition particulière.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-digitale", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "terme": "Digitale (binaire)", "anglais": "digital, binary option", "definition": "Option qui paie un montant fixe si elle finit dans la monnaie, rien sinon.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-overhedge", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "terme": "Surcouverture", "anglais": "overhedge", "definition": "Valorisation prudente d'une digitale ou d'une barrière, par un call spread décalé, pour couvrir le risque de discontinuité.", "fiche": "m2.exotiques.digitales", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-barriere", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "terme": "Option à barrière", "anglais": "barrier option", "definition": "Option qui s'active (knock-in) ou se désactive (knock-out) si le sous-jacent touche un niveau donné.", "fiche": "m2.exotiques.barrieres", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-asiatique", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "terme": "Option asiatique", "anglais": "Asian option", "definition": "Option dont le payoff dépend de la moyenne des cours sur une période.", "fiche": "m2.exotiques.asiatiques", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-americaine", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 2, "terme": "Option américaine / bermudéenne", "anglais": "American / Bermudan option", "definition": "Américaine : exerçable à tout moment. Bermudéenne : exerçable à certaines dates seulement.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.exotiques.l-frontiere", "type": "lexique", "module": 2, "chapitre": "m2.exotiques", "difficulte": 3, "terme": "Frontière d'exercice", "anglais": "exercise boundary", "definition": "Cours en deçà duquel il devient optimal d'exercer un put américain avant l'échéance.", "fiche": "m2.exotiques.americaine", "maj": "2026-11-16", "version": 1 }
+  ]
+}

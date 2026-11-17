@@ -1,0 +1,329 @@
+{
+  "chapitre": {
+    "id": "m2.bs",
+    "module": 2,
+    "ordre": 3,
+    "titre": "Le modèle de Black-Scholes",
+    "resume": "La formule, sa lecture terme à terme, ses hypothèses et leurs limites, puis ses deux variantes du quotidien : Black pour les taux, Garman-Kohlhagen pour le change."
+  },
+  "elements": [
+    {
+      "id": "m2.bs.formule",
+      "type": "fiche", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "tags": ["black-scholes", "pricing", "formule"],
+      "titre": "La formule de Black-Scholes",
+      "une_phrase": "Black-Scholes donne le prix d'une option européenne à partir de cinq paramètres ; le call vaut **ce que je reçois** (le sous-jacent, pondéré par une probabilité) **moins ce que je paie** (le strike actualisé, pondéré par la probabilité d'exercer).",
+      "trente_secondes": "Publiée en 1973 par Fischer Black et Myron Scholes, complétée par Robert Merton, la formule a valu le prix Nobel d'économie 1997 à Scholes et Merton.\n\nElle prend en entrée le cours S, le strike K, la maturité T, le taux r et la volatilité σ, et donne le prix du call et du put.\n\nSa lecture est simple : le call vaut le sous-jacent, multiplié par N(d₁), moins le strike actualisé, multiplié par N(d₂). N(d₂) est, en gros, la probabilité que l'option finisse dans la monnaie ; N(d₁) est le **delta**, la quantité de sous-jacent qui la réplique.\n\nTu n'as pas à la calculer de tête. Tu dois savoir l'écrire, dire ce que représente chaque terme, et donner l'ordre de grandeur.",
+      "analogie": "C'est comme évaluer un ticket qui te permettra peut-être d'acheter une voiture à prix fixé. Ce qu'il vaut, c'est la valeur de la voiture que tu recevras, pondérée par la chance de l'acheter, moins le prix que tu paieras, ramené à aujourd'hui et pondéré par la même chance. Black-Scholes fait ce calcul proprement, avec deux pondérations légèrement différentes.",
+      "visuel": { "type": "outil", "ref": "labo.explorateur", "legende": "C'est cette formule qui tourne dans l'explorateur : bouge les curseurs et regarde le prix réagir." },
+      "exemple_chiffre": [
+        "Exemple fictif : S = 100, K = 100, T = 1 an, r = 3 %, σ = 20 %.",
+        "d₁ = [ln(100/100) + (0,03 + 0,20²/2) × 1] / (0,20 × 1) = (0 + 0,05) / 0,20 = 0,25.",
+        "d₂ = d₁ − σ√T = 0,25 − 0,20 = 0,05.",
+        "Dans la table de la loi normale : N(0,25) = 0,5987 et N(0,05) = 0,5199.",
+        "Strike actualisé : 100 × e^(−0,03) = 97,04.",
+        "Call = 100 × 0,5987 − 97,04 × 0,5199 = 59,87 − 50,45 = 9,41.",
+        "Put = 97,04 × N(−0,05) − 100 × N(−0,25) = 97,04 × 0,4801 − 100 × 0,4013 = 46,59 − 40,13 = 6,46."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix du call et du put",
+          "latex": "C = S\\,N(d_1) - K e^{-rT} N(d_2) \\qquad P = K e^{-rT} N(-d_2) - S\\,N(-d_1)",
+          "legende": { "C, P": "les prix du call et du put européens", "S": "le prix actuel du sous-jacent", "K": "le strike", "K e^{-rT}": "le strike actualisé à aujourd'hui", "N(x)": "la probabilité qu'une loi normale centrée réduite soit inférieure à x", "r": "le taux sans risque, en continu", "T": "la maturité en années" },
+          "en_francais": "Le call vaut le sous-jacent pondéré par N(d₁), moins le strike actualisé pondéré par N(d₂). Le put est le miroir : strike actualisé reçu, moins sous-jacent livré, avec les probabilités contraires."
+        },
+        {
+          "titre": "Les deux paramètres d₁ et d₂",
+          "latex": "d_1 = \\frac{\\ln(S/K) + \\left(r + \\frac{\\sigma^2}{2}\\right)T}{\\sigma\\sqrt{T}} \\qquad d_2 = d_1 - \\sigma\\sqrt{T}",
+          "legende": { "\\ln(S/K)": "à quel point l'option est dans ou en dehors de la monnaie", "\\sigma": "la volatilité annuelle", "\\sigma\\sqrt{T}": "l'écart-type du rendement du sous-jacent sur la durée de l'option" },
+          "en_francais": "d₁ et d₂ mesurent, en nombre d'écarts-types, la distance entre le cours et le strike, en tenant compte de la dérive due aux taux. Plus ils sont grands, plus l'option est dans la monnaie."
+        }
+      ],
+      "deux_minutes": "**Le résultat le plus profond : la réplication.** Black et Scholes ont montré qu'on peut reproduire exactement le gain d'une option avec un portefeuille de sous-jacent et de cash, ajusté en permanence : on détient N(d₁) unités de sous-jacent, financées en partie par un emprunt. Si ce portefeuille réplique l'option, l'option doit coûter ce que coûte le portefeuille. C'est cette idée, et non la formule, qui a fondé le métier de trader d'options : vendre une option et la couvrir en delta.\n\n**Le rendement attendu de l'action n'apparaît pas.** Que l'on pense que l'action va monter de 10 % ou baisser, le prix de l'option est le même. La raison : on peut couvrir l'option, donc son prix ne dépend que de ce qu'il en coûte de la couvrir. On calcule alors comme si tous les actifs rapportaient le taux sans risque : c'est l'**évaluation risque-neutre**.\n\n**La formule est le prix d'une espérance.** Le call vaut l'espérance de max(S_T − K, 0), calculée dans ce monde risque-neutre et actualisée. La fonction N vient de l'hypothèse que le rendement du sous-jacent suit une loi normale.\n\n**Avec un dividende continu q**, on remplace S par S·e^(−qT) et r par r − q dans d₁. C'est cette version qui donne, en change, la formule de Garman-Kohlhagen.",
+      "piege": "Dire que N(d₁) est la probabilité d'exercer. C'est N(d₂) qui joue ce rôle (dans le monde risque-neutre). N(d₁) est le **delta** du call. Autre piège : confondre volatilité en pourcentage et en décimal dans d₁ (0,20 et non 20).",
+      "a_dire_en_entretien": "« Black-Scholes donne le prix d'une option européenne à partir du cours, du strike, de la maturité, du taux et de la volatilité. Le call vaut S fois N(d₁) moins le strike actualisé fois N(d₂) : ce que je reçois moins ce que je paie, chacun pondéré par une probabilité. N(d₂) est la probabilité risque-neutre d'exercer et N(d₁) le delta. L'idée clé est la réplication : on reproduit l'option avec du sous-jacent et du cash, donc son prix ne dépend pas du rendement attendu de l'action. »",
+      "liens": ["m2.bs.intuition", "m2.bs.hypotheses", "m2.prime.ordre-grandeur", "m2.grecques.delta"],
+      "sources": [{ "titre": "F. Black et M. Scholes, « The Pricing of Options and Corporate Liabilities », Journal of Political Economy, 1973" }],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.intuition",
+      "type": "fiche", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "tags": ["black-scholes", "risque-neutre", "replication"],
+      "titre": "L'intuition : réplication et monde risque-neutre",
+      "une_phrase": "Une option se **réplique** avec du sous-jacent et du cash ; son prix est donc le coût de cette réplication, ce qui revient à calculer **comme si** tous les actifs rapportaient le taux sans risque.",
+      "trente_secondes": "Imagine que tu vends un call. Tu as un risque : si l'action monte, tu perds. Pour le neutraliser, tu achètes un peu d'action, exactement la quantité qui compense une petite variation du call : le **delta**. Quand l'action bouge, tu ajustes.\n\nSi tu ajustes en continu, ta position (call vendu + delta actions) ne craint plus aucun mouvement : elle est **sans risque**. Elle doit donc rapporter le taux sans risque, sinon il y aurait un arbitrage.\n\nCette seule condition suffit à fixer le prix de l'option. Et elle ne fait jamais intervenir le rendement attendu de l'action : seulement le taux, la volatilité et le temps.",
+      "analogie": "Un traiteur te demande combien coûte le gâteau qu'il veut commander. Tu n'as pas besoin de deviner si le gâteau lui plaira : il te suffit d'additionner le prix des ingrédients et du travail pour le fabriquer. Le prix d'une option, c'est le coût de ses ingrédients : du sous-jacent et du cash, dosés en permanence.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Je vends un call", "texte": "Je perds si l'action monte." },
+          { "titre": "J'achète delta actions", "texte": "Pour une petite variation, le gain sur les actions compense la perte sur le call." },
+          { "titre": "J'ajuste en continu", "texte": "Le delta change avec le cours : je rachète ou revends des actions." },
+          { "titre": "Ma position est sans risque", "texte": "Elle doit rapporter exactement le taux sans risque." },
+          { "titre": "Le prix de l'option est fixé", "texte": "Sans jamais utiliser le rendement attendu de l'action : c'est le monde risque-neutre." }
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif d'un monde à une seule période, pour voir l'idée. Une action vaut 100. Dans un an, elle vaudra 120 ou 90. Le taux est nul. On veut le prix d'un call de strike 100, qui vaudra 20 ou 0.",
+        "On cherche un portefeuille de Δ actions et de B euros de cash qui vaille 20 si l'action monte et 0 si elle baisse : 120Δ + B = 20 et 90Δ + B = 0.",
+        "En soustrayant : 30Δ = 20, donc Δ = 0,667. Puis B = −90 × 0,667 = −60 : on emprunte 60.",
+        "Coût du portefeuille aujourd'hui : 100 × 0,667 − 60 = 6,67. C'est le prix du call.",
+        "On n'a jamais eu besoin de savoir si l'action avait plus de chances de monter ou de baisser."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix comme espérance risque-neutre",
+          "latex": "C = e^{-rT}\\, \\mathbb{E}^{\\mathbb{Q}}\\big[\\max(S_T - K,\\ 0)\\big]",
+          "legende": { "\\mathbb{E}^{\\mathbb{Q}}": "la moyenne calculée dans le monde risque-neutre, où le sous-jacent rapporte en moyenne le taux r", "S_T": "le prix du sous-jacent à l'échéance", "e^{-rT}": "l'actualisation au taux sans risque" },
+          "en_francais": "Le prix de l'option est la moyenne de ses gains futurs, calculée comme si le sous-jacent rapportait le taux sans risque, puis ramenée à aujourd'hui."
+        }
+      ],
+      "deux_minutes": "**Pourquoi « risque-neutre » n'est pas une hypothèse sur les investisseurs.** On ne suppose pas que les gens sont indifférents au risque. On constate que, puisqu'on peut couvrir l'option, son prix ne dépend pas de leurs préférences. On a donc le droit de faire le calcul dans un monde fictif où tous les actifs rapportent r. Dans l'exemple à une période, la probabilité risque-neutre de hausse est q tel que 120q + 90(1 − q) = 100, soit q = 1/3. Le call vaut 20 × 1/3 = 6,67 : on retrouve le prix de la réplication.\n\n**Ce qui ne se réplique pas a un prix plus fragile.** La réplication suppose qu'on peut ajuster en continu, sans frais, et que le cours ne fait pas de sauts. Dans la réalité, la couverture est discrète et imparfaite : il reste un risque de gamma et un risque de volatilité, que la banque gère et facture.\n\n**La même logique partout.** L'arbre binomial, Monte Carlo et les équations aux dérivées partielles calculent tous la même chose : une espérance risque-neutre, actualisée. Ils diffèrent seulement par la méthode de calcul.\n\n**Ce qu'il faut retenir pour l'entretien.** Le prix d'une option n'est pas un pari sur la direction : c'est le coût de sa fabrication. C'est ce qui permet à une banque de vendre des options à ses clients sans prendre de position sur le marché.",
+      "piege": "Croire que si l'on pense que l'action va monter, le call doit valoir plus cher dans le modèle. Le rendement attendu n'intervient pas : seule la volatilité compte. Autre confusion : prendre la probabilité risque-neutre pour la « vraie » probabilité de hausse.",
+      "a_dire_en_entretien": "« L'intuition de Black-Scholes est la réplication. Une option peut être reproduite par un portefeuille de sous-jacent, dosé selon le delta, et de cash, ajusté en continu. Une position option plus couverture est donc sans risque et doit rapporter le taux sans risque. Son prix ne dépend pas du rendement attendu de l'action, ce qui permet de calculer comme dans un monde risque-neutre : le prix est l'espérance des gains, actualisée au taux sans risque. »",
+      "liens": ["m2.bs.formule", "m2.couverture.delta-hedging", "m2.modeles.binomial"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.hypotheses",
+      "type": "fiche", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "tags": ["black-scholes", "limites", "modeles"],
+      "titre": "Les hypothèses de Black-Scholes et leurs limites",
+      "une_phrase": "Black-Scholes suppose une **volatilité constante**, des **taux constants**, des rendements **normaux sans sauts**, une couverture **continue et sans frais** ; aucune n'est vraie, et pourtant tout le marché l'utilise, comme une **langue commune**.",
+      "trente_secondes": "Les hypothèses principales :\n\n- le rendement du sous-jacent suit une loi normale, avec une **volatilité constante** et connue ;\n- le **taux** sans risque est constant ;\n- on peut acheter et vendre le sous-jacent **en continu**, sans frais, par petites quantités, et vendre à découvert ;\n- le cours ne fait **pas de sauts** ;\n- pas de dividende, et une option **européenne**.\n\nDans la réalité, la volatilité change, les krachs existent, et la couverture coûte. Les traders le savent. Ils utilisent la formule comme un **convertisseur** entre un prix et une volatilité, et ils corrigent ses défauts en utilisant une volatilité différente selon le strike et la maturité.",
+      "analogie": "La carte du métro n'est pas fidèle à la géographie de la ville : les distances sont fausses, les lignes droites n'existent pas. Mais tout le monde l'utilise, parce qu'elle est simple et que tout le monde parle le même langage. Black-Scholes est la carte du métro des options.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Hypothèse", "La réalité", "Ce que fait le marché"],
+        "lignes": [
+          ["Volatilité constante", "Elle change chaque jour, et dépend du strike", "Une volatilité implicite par strike et par maturité : la nappe de volatilité"],
+          ["Pas de sauts, rendements normaux", "Les krachs existent : les queues de distribution sont épaisses", "Les puts en dehors de la monnaie sont plus chers : le skew"],
+          ["Couverture continue sans frais", "On ajuste quelques fois par jour, avec une fourchette à payer", "Le risque de gamma est géré, et facturé dans le prix"],
+          ["Taux constant", "Les taux bougent", "Négligeable pour les options courtes sur actions ; modèles de taux pour les dérivés de taux"],
+          ["Option européenne", "Beaucoup d'options sont américaines ou exotiques", "Arbres, Monte Carlo, différences finies"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Un exemple d'écart à l'hypothèse de normalité : le krach du 19 octobre 1987.",
+        "Ce jour-là, le Dow Jones a perdu 22,6 % en une séance.",
+        "Avec une volatilité annuelle d'environ 20 %, l'écart-type d'une séance est d'environ 20 % ÷ √252 ≈ 1,26 %.",
+        "Une baisse de 22,6 % représente donc environ 18 écarts-types. Dans une loi normale, un tel événement ne devrait pratiquement jamais se produire, même sur des milliards d'années.",
+        "C'est depuis ce krach que les puts en dehors de la monnaie se traitent à une volatilité implicite plus élevée : le marché « paie » pour ce que la loi normale ignore."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi le modèle a survécu.** Il est simple, rapide, il ne demande qu'un paramètre non observable, et ce paramètre est intuitif : une volatilité. Les traders ne l'utilisent pas pour **découvrir** un prix, mais pour **exprimer** un prix. Le marché fixe le prix, la formule le traduit en volatilité implicite, et c'est cette volatilité qu'on compare d'une option à l'autre.\n\n**Comment on corrige ses défauts.**\n\n- La **nappe de volatilité** : une volatilité implicite différente pour chaque strike et chaque maturité. On garde la formule, mais on change le paramètre.\n- Des **modèles plus riches** pour les produits exotiques : volatilité locale (la volatilité dépend du cours et du temps), volatilité stochastique (la volatilité est elle-même aléatoire, comme dans le modèle de Heston), modèles à sauts.\n- Le **modèle normal** (Bachelier) pour les taux, quand ceux-ci peuvent devenir négatifs : les variations sont supposées normales en points de base, et non en pourcentage.\n\n**La phrase à connaître.** « Tous les modèles sont faux, certains sont utiles » (George Box). Le travail d'un desk de dérivés est de savoir où son modèle se trompe et de s'en protéger : réserves de prudence, ajustements de valorisation, limites de risque.",
+      "piege": "Rejeter Black-Scholes parce que « ses hypothèses sont fausses ». La bonne réponse en entretien est nuancée : les hypothèses sont fausses, le marché le sait, et il corrige par la volatilité implicite propre à chaque strike. Le modèle reste la langue commune des options vanilles.",
+      "a_dire_en_entretien": "« Black-Scholes suppose une volatilité et des taux constants, des rendements normaux sans sauts, et une couverture continue et sans frais. Aucune de ces hypothèses n'est vraie : les krachs existent, la volatilité change, la couverture coûte. Le marché s'en accommode en utilisant la formule comme un convertisseur entre prix et volatilité, avec une volatilité implicite différente par strike et maturité, ce qui donne le smile et le skew. Pour les produits plus complexes, on utilise des modèles à volatilité locale ou stochastique. »",
+      "liens": ["m2.bs.formule", "m2.vol.smile-skew", "m2.vol.implicite"],
+      "sources": [{ "titre": "Federal Reserve History, « Stock Market Crash of 1987 »", "url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987" }],
+      "chiffres": [{ "libelle": "Baisse du Dow Jones le 19 octobre 1987", "valeur": "−22,6 %", "date": "1987-10-19", "source": "Federal Reserve History" }],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.black",
+      "type": "fiche", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "tags": ["black", "taux", "caps"],
+      "titre": "Le modèle de Black pour les taux",
+      "une_phrase": "Le modèle de **Black (1976)** applique Black-Scholes à un **prix à terme** : c'est la formule standard pour coter les **caps**, les **floors** et les **swaptions**, en remplaçant le cours par le taux à terme.",
+      "trente_secondes": "Pour une option sur taux, le sous-jacent n'est pas un actif qu'on peut acheter : c'est un taux futur, comme l'Euribor 3 mois dans un an. Ce qu'on connaît aujourd'hui, c'est son **niveau à terme** F, tiré de la courbe des taux.\n\nFischer Black a adapté la formule : on remplace S par F, et il n'y a plus de terme de dérive dans d₁, puisqu'un prix à terme n'a pas de coût de portage.\n\nUn **caplet** est un call sur un taux : il paie si l'Euribor dépasse un plafond. Un **cap** est une série de caplets. Un **floor** est une série de puts. Une **swaption** est une option sur un taux de swap.\n\nLes traders de taux cotent ces produits en volatilité, exactement comme les traders d'actions.",
+      "analogie": "C'est la même recette de cuisine, avec un ingrédient différent. Au lieu de cuisiner une action qu'on a dans le frigo (le cours d'aujourd'hui), on cuisine une commande livrée plus tard (le taux à terme). La recette ne change pas ; seule la façon de compter le temps de conservation change.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Produit", "Ce que c'est", "Pour qui"],
+        "lignes": [
+          ["Caplet", "Call sur un taux pour une période", "Une brique du cap"],
+          ["Cap", "Série de caplets : un plafond sur un taux variable", "Un emprunteur à taux variable qui veut plafonner son coût"],
+          ["Floor", "Série de puts sur un taux : un plancher", "Un prêteur, ou un placeur, qui veut garantir un rendement minimum"],
+          ["Swaption", "Option d'entrer dans un swap à un taux fixé", "Une entreprise qui prévoit d'emprunter plus tard"]
+        ],
+        "legende": "Ces produits sont détaillés dans le module 3."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif d'un caplet. Une entreprise veut se protéger contre un Euribor 3 mois au-dessus de 3 %, pour le trimestre qui commence dans un an, sur un nominal de 1 000 000 d'euros.",
+        "Le taux à terme de ce trimestre est F = 3 %, le strike K = 3 %, la volatilité implicite (en relatif) 20 %, le taux d'actualisation 3 %.",
+        "La formule de Black donne 0,2319 % (en taux annuel) : F × N(d₁) − K × N(d₂), actualisé, avec d₁ = 0,10 et d₂ = −0,10.",
+        "Le caplet couvre un trimestre : on multiplie par 0,25 et par le nominal. Prime ≈ 0,002319 × 0,25 × 1 000 000 ≈ 580 euros (en actualisant sur un an pour simplifier).",
+        "Un cap sur cinq ans, avec ses vingt caplets trimestriels, coûterait donc plusieurs milliers d'euros, payés au départ."
+      ],
+      "formules": [
+        {
+          "titre": "La formule de Black (1976)",
+          "latex": "C = e^{-rT}\\big[F\\,N(d_1) - K\\,N(d_2)\\big] \\qquad d_1 = \\frac{\\ln(F/K) + \\frac{\\sigma^2}{2}T}{\\sigma\\sqrt{T}}",
+          "legende": { "F": "le niveau à terme du sous-jacent : taux à terme, prix à terme d'une matière première", "K": "le strike", "e^{-rT}": "l'actualisation jusqu'au paiement", "d_2": "d₁ − σ√T, comme dans Black-Scholes" },
+          "en_francais": "C'est Black-Scholes appliqué au niveau à terme : on remplace le cours par F, et la dérive disparaît de d₁. Le tout est actualisé jusqu'à la date de paiement."
+        }
+      ],
+      "deux_minutes": "**Volatilité « lognormale » ou « normale ».** Le modèle de Black suppose des variations proportionnelles au niveau du taux. Il ne fonctionne pas quand les taux sont nuls ou négatifs : le logarithme d'un nombre négatif n'existe pas. De 2014 à 2022, avec un Euribor négatif, le marché est passé au **modèle normal** de Bachelier, où les variations sont supposées normales en **points de base**. On cote alors la volatilité en points de base par an : « la swaption 1 an dans 5 ans se traite à 95 points de base de vol ».\n\n**Ordre de grandeur utile.** Une volatilité normale de 100 points de base par an correspond, pour un taux à 3 %, à une volatilité lognormale d'environ 100 ÷ 300 ≈ 33 %.\n\n**Les autres usages.** Le modèle de Black sert aussi pour les options sur **contrats à terme** (pétrole, céréales, futures sur obligations). La méthode est identique.\n\n**Le lien avec le client.** Quand un emprunteur à taux variable achète un cap, il paie une prime calculée avec la formule de Black. Si la volatilité des taux est élevée, comme en 2022-2023, les caps coûtent cher ; c'est souvent à ce moment que les clients préfèrent un swap, qui ne coûte rien au départ, ou un tunnel.",
+      "piege": "Utiliser le taux comptant au lieu du **taux à terme** comme sous-jacent. Le caplet sur l'Euribor dans un an porte sur le taux attendu dans un an, qui peut être très différent de l'Euribor du jour, notamment si le marché anticipe des mouvements de la banque centrale.",
+      "a_dire_en_entretien": "« Le modèle de Black est l'adaptation de Black-Scholes à un sous-jacent à terme. Pour les dérivés de taux, on l'applique au taux à terme : un caplet est un call sur un Euribor futur, un cap une série de caplets, une swaption une option sur un taux de swap. Le marché cote ces options en volatilité. Depuis la période des taux négatifs, on utilise souvent le modèle normal de Bachelier, avec une volatilité exprimée en points de base. »",
+      "liens": ["m2.bs.formule", "m2.bs.garman-kohlhagen", "m1.outils.estr-euribor"],
+      "sources": [{ "titre": "F. Black, « The Pricing of Commodity Contracts », Journal of Financial Economics, 1976" }],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.garman-kohlhagen",
+      "type": "fiche", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "tags": ["change", "options", "garman-kohlhagen"],
+      "titre": "Garman-Kohlhagen : les options de change",
+      "une_phrase": "Pour une option de change, la devise étrangère rapporte son propre taux d'intérêt, qui joue le rôle d'un dividende : c'est la formule de **Garman-Kohlhagen** (1983).",
+      "trente_secondes": "Une option sur l'EUR/USD donne le droit d'échanger des euros contre des dollars à un cours fixé. On peut acheter des euros et les placer : ils rapportent le taux de l'euro. C'est comme une action qui verserait un dividende égal à ce taux.\n\nGarman et Kohlhagen ont donc repris Black-Scholes avec un dividende : le taux **domestique** (celui de la devise de cotation, le dollar pour l'EUR/USD) sert à actualiser, et le taux **étranger** (celui de la devise de base, l'euro) joue le rôle du dividende.\n\nUne particularité : une option de change est toujours **deux options à la fois**. Un call EUR / put USD donne le droit d'acheter des euros, donc de vendre des dollars.",
+      "analogie": "Une action qui verse un dividende vaut un peu moins à terme, car celui qui la détient encaisse le dividende en attendant. Une devise étrangère, c'est pareil : celui qui détient des euros encaisse les intérêts de l'euro en attendant. Le modèle traite le taux étranger comme un dividende.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Client", "Ce qu'il doit faire", "Son risque", "L'option qui le protège"],
+        "lignes": [
+          ["Exportateur payé en dollars", "Vendre des dollars, acheter des euros", "EUR/USD qui monte", "Call EUR / put USD"],
+          ["Importateur qui paie en dollars", "Acheter des dollars, vendre des euros", "EUR/USD qui baisse", "Put EUR / call USD"]
+        ],
+        "legende": "Le lien avec le module 1 : on choisit l'option qui couvre le scénario défavorable du client."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. EUR/USD = 1,10. Taux du dollar 4 %, taux de l'euro 2,5 %, volatilité 8 %, échéance six mois.",
+        "Cours à terme : 1,10 × e^((0,04 − 0,025) × 0,5) = 1,1083. Le dollar rapporte plus que l'euro, donc l'euro vaut plus de dollars à terme.",
+        "Call EUR / put USD de strike 1,10 : 0,02869 dollar par euro. Put EUR / call USD de strike 1,10 : 0,02058 dollar par euro.",
+        "Le call est plus cher que le put : il est dans la monnaie par rapport au cours à terme (1,10 < 1,1083).",
+        "Un importateur qui doit payer des dollars et achète un put EUR de strike 1,08 sur 1 000 000 d'euros paie 0,01282 × 1 000 000 = 12 820 dollars de prime, environ 11 650 euros."
+      ],
+      "formules": [
+        {
+          "titre": "La formule de Garman-Kohlhagen",
+          "latex": "C = S\\,e^{-r_f T} N(d_1) - K\\,e^{-r_d T} N(d_2) \\qquad d_1 = \\frac{\\ln(S/K) + \\left(r_d - r_f + \\frac{\\sigma^2}{2}\\right)T}{\\sigma\\sqrt{T}}",
+          "legende": { "S": "le cours de change au comptant (dollars pour 1 euro pour l'EUR/USD)", "r_d": "le taux domestique, celui de la devise de cotation (le dollar)", "r_f": "le taux étranger, celui de la devise de base (l'euro)", "K": "le cours d'exercice" },
+          "en_francais": "C'est Black-Scholes où le taux de la devise étrangère joue le rôle d'un dividende. Le prix est exprimé dans la devise de cotation, par unité de devise de base."
+        }
+      ],
+      "deux_minutes": "**Le marché des options de change parle en delta.** Les volatilités se cotent pour l'option à la monnaie et pour les options « 25 delta » et « 10 delta ». Deux combinaisons résument le smile :\n\n- le **risk reversal** : la différence de volatilité entre le call 25 delta et le put 25 delta. Il dit de quel côté le marché paie plus cher la protection ;\n- le **butterfly** : la moyenne des deux ailes moins la volatilité à la monnaie. Il mesure la courbure du smile.\n\n**Ordres de grandeur.** La volatilité implicite de l'EUR/USD est en général de 5 à 10 %, bien moins que celle des actions. Les paires de pays émergents sont plus volatiles.\n\n**Le lien avec la parité des taux.** Le cours à terme utilisé dans la formule est celui de la parité des taux d'intérêt, détaillée dans le module 4. À la monnaie forward, le call et le put ont le même prix.\n\n**Pour le client.** Une option de change protège contre le scénario défavorable tout en laissant profiter du favorable, contre une prime payée au départ. Beaucoup d'entreprises refusent de payer cette prime : les banques leur proposent alors des **tunnels** à prime nulle, qui combinent une option achetée et une option vendue.",
+      "piege": "Inverser les taux domestique et étranger. Pour l'EUR/USD, le prix est en dollars par euro : le dollar est la devise domestique (taux d'actualisation), l'euro la devise étrangère (le « dividende »). Autre piège : oublier qu'un call EUR est aussi un put USD.",
+      "a_dire_en_entretien": "« Les options de change se valorisent avec Garman-Kohlhagen, qui est Black-Scholes avec un dividende : le taux de la devise étrangère joue le rôle du dividende, et le taux domestique sert à actualiser. Une option de change est toujours un call sur une devise et un put sur l'autre. Un importateur européen qui paie en dollars craint une baisse de l'euro-dollar : il achète un put EUR / call USD, qui lui garantit un cours minimum pour ses euros. »",
+      "liens": ["m2.bs.formule", "m1.change.risque-couverture", "m2.strategies.risk-reversal"],
+      "sources": [{ "titre": "M. Garman et S. Kohlhagen, « Foreign Currency Option Values », Journal of International Money and Finance, 1983" }],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bs.c01", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Écris la formule de Black-Scholes pour un call.", "verso": "C = S·N(d₁) − K·e^(−rT)·N(d₂), avec d₁ = [ln(S/K) + (r + σ²/2)T] / (σ√T) et d₂ = d₁ − σ√T.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c02", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Que représentent N(d₁) et N(d₂) ?", "verso": "N(d₁) : le delta du call. N(d₂) : la probabilité risque-neutre que le call finisse dans la monnaie.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c03", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Lecture de la formule du call en une phrase ?", "verso": "Ce que je reçois (le sous-jacent, pondéré par N(d₁)) moins ce que je paie (le strike actualisé, pondéré par la probabilité d'exercer N(d₂)).", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c04", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "recto": "Pourquoi le rendement attendu de l'action n'apparaît-il pas dans Black-Scholes ?", "verso": "Parce que l'option se réplique avec du sous-jacent et du cash : son prix est le coût de la réplication, qui ne dépend que du taux, de la volatilité et du temps.", "fiche": "m2.bs.intuition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c05", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Les principales hypothèses de Black-Scholes ?", "verso": "Volatilité et taux constants, rendements normaux sans sauts, couverture continue sans frais, pas de dividende, option européenne.", "fiche": "m2.bs.hypotheses", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c06", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Comment le marché corrige-t-il les défauts de Black-Scholes pour les options vanilles ?", "verso": "En utilisant une volatilité implicite différente pour chaque strike et chaque maturité : la nappe de volatilité (smile, skew).", "fiche": "m2.bs.hypotheses", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c07", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "recto": "À quoi sert le modèle de Black (1976) ?", "verso": "À valoriser des options sur un prix à terme : caps, floors et swaptions sur taux, options sur contrats à terme.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c08", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "recto": "Pourquoi le marché des taux a-t-il adopté le modèle normal (Bachelier) ?", "verso": "Parce que les taux sont devenus négatifs : le modèle lognormal de Black ne fonctionne pas sous zéro. La volatilité se cote alors en points de base.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c09", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "recto": "Dans Garman-Kohlhagen, quel taux joue le rôle du dividende ?", "verso": "Le taux de la devise étrangère (la devise de base). Le taux domestique sert à actualiser.", "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.c10", "type": "carte", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "recto": "Un importateur européen qui paie en dollars : quelle option de change achète-t-il ?", "verso": "Un put EUR / call USD : il le protège contre une baisse de l'EUR/USD.", "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.bs.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.bs", "difficulte": 2,
+      "question": "Peux-tu écrire la formule de Black-Scholes et l'expliquer ?",
+      "reponse_modele": "Le call vaut S fois N(d₁) moins K e^(−rT) fois N(d₂), avec d₁ égal au logarithme de S sur K plus (r + σ²/2) T, le tout divisé par σ√T, et d₂ = d₁ − σ√T. Le put vaut K e^(−rT) N(−d₂) moins S N(−d₁). La lecture : le call vaut ce que je reçois, le sous-jacent pondéré par N(d₁), moins ce que je paie, le strike actualisé pondéré par N(d₂), qui est la probabilité risque-neutre d'exercer. N(d₁) est aussi le delta, la quantité de sous-jacent qui réplique l'option. Pour une action à 100, un strike de 100, un an, 3 % de taux et 20 % de volatilité, on trouve un call d'environ 9,41.",
+      "points_cles": ["La formule du call et du put", "d₁ et d₂", "Lecture : reçu moins payé", "N(d₂) probabilité d'exercice, N(d₁) delta", "Un ordre de grandeur"],
+      "piege": "Écrire la formule sans pouvoir la lire, ou inverser N(d₁) et N(d₂).",
+      "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.bs", "difficulte": 2,
+      "question": "Quelles sont les hypothèses de Black-Scholes ? Sont-elles réalistes ?",
+      "reponse_modele": "Le modèle suppose une volatilité et des taux constants, des rendements normaux sans sauts, une couverture continue sans frais de transaction, pas de dividende, et une option européenne. Aucune n'est vraie : la volatilité change, les krachs créent des queues épaisses, et la couverture se fait par à-coups et coûte. Le marché s'en accommode en utilisant la formule comme une langue commune : il cote les options en volatilité implicite, et utilise une volatilité différente par strike et par maturité, ce qui donne le smile et le skew. Pour les exotiques, on passe à des modèles à volatilité locale ou stochastique.",
+      "points_cles": ["Liste des hypothèses", "Pourquoi elles sont fausses", "La formule comme convertisseur prix-volatilité", "La nappe de volatilité", "Modèles plus riches pour les exotiques"],
+      "piege": "Conclure que le modèle ne sert à rien.",
+      "fiche": "m2.bs.hypotheses", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.bs", "difficulte": 3,
+      "question": "Si je suis convaincu qu'une action va monter de 20 % cette année, son call doit-il valoir plus cher ?",
+      "reponse_modele": "Non, pas dans le prix de marché. Le prix d'une option ne dépend pas du rendement attendu de l'action, parce qu'on peut la répliquer avec de l'action et du cash : son prix est le coût de cette réplication, qui ne dépend que du taux, de la volatilité et du temps. C'est le principe de l'évaluation risque-neutre. Ta conviction ne change pas le prix ; elle te dit seulement que, selon toi, le call est une bonne affaire à ce prix. Ce qui ferait bouger le prix, c'est que le marché anticipe plus de volatilité.",
+      "points_cles": ["Non", "Réplication", "Évaluation risque-neutre", "Le prix ne dépend pas de la direction", "Seule la volatilité anticipée compte"],
+      "piege": "Répondre oui par intuition : c'est l'erreur que la question cherche à faire commettre.",
+      "fiche": "m2.bs.intuition", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.bs", "difficulte": 3,
+      "question": "Comment valorise-t-on une option de change ? Et un cap de taux ?",
+      "reponse_modele": "Pour une option de change, on utilise Garman-Kohlhagen : c'est Black-Scholes où le taux de la devise étrangère joue le rôle d'un dividende, et où le taux domestique sert à actualiser. Pour un cap, on le décompose en caplets, chacun étant un call sur un Euribor futur, et on valorise chaque caplet avec le modèle de Black, appliqué au taux à terme de la période. Le cap vaut la somme des caplets. Depuis l'épisode des taux négatifs, le marché des taux utilise souvent le modèle normal, avec une volatilité en points de base.",
+      "points_cles": ["Change : Garman-Kohlhagen", "Taux étranger comme dividende", "Cap = somme de caplets", "Caplet : Black sur le taux à terme", "Modèle normal pour les taux"],
+      "piege": "Appliquer Black-Scholes avec le taux comptant ou sans tenir compte du taux étranger.",
+      "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bs.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "Dans la formule du call, N(d₂) représente…", "choix": ["le delta", "la probabilité risque-neutre d'exercer", "la volatilité", "le gamma"], "bonne": 1, "explication": "N(d₂) est la probabilité, dans le monde risque-neutre, que le call finisse dans la monnaie. Le delta est N(d₁).", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z02", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "S = K = 100, r = 3 %, σ = 20 %, T = 1. Que vaut d₁ ?", "reponse": 0.25, "tolerance": 0.001, "unite": "", "explication": "ln(1) = 0. (0,03 + 0,02) × 1 / 0,20 = 0,05 / 0,20 = 0,25.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z03", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "Dans Black-Scholes, si le rendement attendu de l'action augmente, le prix du call augmente.", "vrai": false, "explication": "Le rendement attendu n'apparaît pas dans la formule : le prix est le coût de la réplication.", "fiche": "m2.bs.intuition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z04", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "Laquelle de ces hypothèses ne fait PAS partie de Black-Scholes ?", "choix": ["Volatilité constante", "Pas de frais de transaction", "Des sauts de prix fréquents", "Taux sans risque constant"], "bonne": 2, "explication": "Black-Scholes suppose au contraire une évolution continue, sans sauts.", "fiche": "m2.bs.hypotheses", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "enonce": "Quel modèle utilise-t-on classiquement pour un caplet ?", "choix": ["Garman-Kohlhagen", "Black (1976) sur le taux à terme", "Black-Scholes sur l'Euribor du jour", "L'arbre binomial américain"], "bonne": 1, "explication": "Le caplet est un call sur un taux futur : on applique la formule de Black au taux à terme de la période.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "enonce": "Pour une option sur l'EUR/USD, quel taux sert d'actualisation dans Garman-Kohlhagen ?", "choix": ["Le taux de l'euro", "Le taux du dollar", "La moyenne des deux", "Le taux de la BCE uniquement"], "bonne": 1, "explication": "Le prix est en dollars par euro : le dollar est la devise domestique. Le taux de l'euro joue le rôle du dividende.", "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "Un call EUR / put USD et un call USD / put EUR désignent la même option.", "vrai": false, "explication": "Le call EUR est un put USD : droit d'acheter des euros en vendant des dollars. Le call USD est l'option inverse.", "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.z08", "type": "quiz", "forme": "ordre", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "enonce": "Remets dans l'ordre le calcul d'un call avec Black-Scholes.", "etapes": ["Calculer d₁ à partir de S, K, r, σ et T", "En déduire d₂ = d₁ − σ√T", "Lire N(d₁) et N(d₂) dans la table de la loi normale", "Actualiser le strike : K·e^(−rT)", "Calculer S·N(d₁) − K·e^(−rT)·N(d₂)"], "explication": "On calcule les deux paramètres, on lit leurs probabilités, puis on assemble.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.bs.x01", "type": "exercice", "module": 2, "chapitre": "m2.bs", "difficulte": 2,
+      "titre": "Calculer un call et un put avec Black-Scholes, pas à pas",
+      "enonce": "Exemple fictif. S = 100, K = 100, T = 1 an, r = 3 %, σ = 20 %. Calcule d₁, d₂, le prix du call, puis celui du put. Vérifie avec la parité call-put.",
+      "etapes": [
+        {
+          "titre": "Calculer d₁",
+          "texte": "ln(S/K) = ln(1) = 0. Le numérateur vaut (r + σ²/2) × T = (0,03 + 0,02) × 1 = 0,05. Le dénominateur vaut σ√T = 0,20.",
+          "formule": { "latex": "d_1 = \\frac{0 + 0{,}05}{0{,}20} = 0{,}25", "legende": { "0{,}05": "r + σ²/2", "0{,}20": "σ√T" }, "en_francais": "L'option est à la monnaie ; d₁ est positif uniquement grâce à la dérive due au taux et à la volatilité." },
+          "resultat": "d₁ = 0,25",
+          "verif": { "fn": "options.d1", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.25, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Calculer d₂",
+          "texte": "d₂ = d₁ − σ√T = 0,25 − 0,20.",
+          "resultat": "d₂ = 0,05",
+          "verif": { "fn": "options.d2", "args": [100, 100, 1, 0.03, 0.2], "attendu": 0.05, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Lire la loi normale",
+          "texte": "N(0,25) = 0,5987 et N(0,05) = 0,5199. Le delta du call est donc d'environ 0,60, et la probabilité risque-neutre d'exercice d'environ 52 %.",
+          "resultat": "N(d₁) = 0,5987 ; N(d₂) = 0,5199",
+          "verif": { "fn": "options.N", "args": [0.25], "attendu": 0.5987, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le prix du call",
+          "texte": "Strike actualisé : 100 × e^(−0,03) = 97,04.",
+          "formule": { "latex": "C = 100 \\times 0{,}5987 - 97{,}04 \\times 0{,}5199 = 59{,}87 - 50{,}45 = 9{,}41", "legende": { "59{,}87": "ce que je reçois, pondéré", "50{,}45": "ce que je paie, pondéré" }, "en_francais": "Le call vaut 9,41, soit 9,41 % du prix de l'action." },
+          "resultat": "C = 9,41",
+          "verif": { "fn": "options.call", "args": [100, 100, 1, 0.03, 0.2], "attendu": 9.4134, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Le prix du put",
+          "texte": "P = 97,04 × N(−0,05) − 100 × N(−0,25) = 97,04 × 0,4801 − 100 × 0,4013 = 46,59 − 40,13.",
+          "resultat": "P = 6,46",
+          "verif": { "fn": "options.put", "args": [100, 100, 1, 0.03, 0.2], "attendu": 6.458, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Vérification par la parité",
+          "texte": "C − P = 9,41 − 6,46 = 2,96, et S − K·e^(−rT) = 100 − 97,04 = 2,96. La parité est respectée.",
+          "verif": { "fn": "options.parite", "args": [100, 100, 1, 0.03], "attendu": 2.9554, "tolerance": 0.0001 }
+        }
+      ],
+      "erreurs_a_eviter": ["Utiliser 20 au lieu de 0,20 pour la volatilité.", "Oublier d'actualiser le strike.", "Prendre N(d₁) pour la probabilité d'exercice.", "Oublier le signe moins dans N(−d₁) et N(−d₂) pour le put."],
+      "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.bs.x02", "type": "exercice", "module": 2, "chapitre": "m2.bs", "difficulte": 3,
+      "titre": "Une option de change pour un importateur",
+      "enonce": "Exemple fictif. Une PME doit payer 1 100 000 dollars dans six mois. EUR/USD = 1,10, taux du dollar 4 %, taux de l'euro 2,5 %, volatilité 8 %. Elle veut se protéger contre une baisse de l'euro sous 1,08, tout en profitant d'une hausse. Quelle option, et combien coûte-t-elle ?",
+      "etapes": [
+        { "titre": "Identifier le risque", "texte": "Elle doit acheter des dollars avec ses euros. Si l'EUR/USD baisse, ses dollars lui coûtent plus d'euros. Il lui faut le droit de vendre ses euros à 1,08 au minimum : un **put EUR / call USD** de strike 1,08." },
+        { "titre": "Le nominal en euros", "texte": "Au strike, 1 100 000 dollars correspondent à 1 100 000 ÷ 1,08 = 1 018 519 euros. On arrondit, pour l'exemple, à un nominal d'un million d'euros.", "resultat": "Nominal ≈ 1 000 000 €" },
+        {
+          "titre": "La prime unitaire",
+          "texte": "Garman-Kohlhagen donne un put EUR de strike 1,08 à 0,01282 dollar par euro. Les autres valeurs utiles : le cours à terme est de 1,1083, le strike est donc en dehors de la monnaie.",
+          "resultat": "0,01282 $ par euro",
+          "verif": { "fn": "options.gkPut", "args": [1.1, 1.08, 0.5, 0.04, 0.025, 0.08], "attendu": 0.01282, "tolerance": 0.00001 }
+        },
+        { "titre": "La prime totale", "texte": "0,01282 × 1 000 000 = 12 820 dollars, soit environ 12 820 ÷ 1,10 = 11 650 euros, payés au départ.", "resultat": "≈ 11 650 €" },
+        { "titre": "Le scénario défavorable et le favorable", "texte": "Si l'euro tombe à 1,00, elle exerce et vend ses euros à 1,08 : son coût est plafonné. Si l'euro monte à 1,20, elle abandonne l'option et achète ses dollars au marché, moins cher : elle a seulement perdu la prime. C'est l'avantage de l'option sur le terme, au prix de la prime." }
+      ],
+      "erreurs_a_eviter": ["Acheter un call EUR, qui protège l'exportateur et non l'importateur.", "Inverser les taux domestique et étranger.", "Oublier que la prime est exprimée en dollars par euro."],
+      "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.bs.l-black-scholes", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "terme": "Black-Scholes", "anglais": "Black-Scholes model", "definition": "Modèle de 1973 donnant le prix d'une option européenne à partir du cours, du strike, de la maturité, du taux et de la volatilité.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-risque-neutre", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Évaluation risque-neutre", "anglais": "risk-neutral pricing", "definition": "Méthode qui calcule le prix d'un dérivé comme l'espérance de ses gains dans un monde fictif où tous les actifs rapportent le taux sans risque.", "fiche": "m2.bs.intuition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-replication", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Réplication", "anglais": "replication", "definition": "Reproduction exacte des gains d'un produit à l'aide d'autres instruments (sous-jacent et cash pour une option).", "fiche": "m2.bs.intuition", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-loi-normale", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "terme": "N(x)", "definition": "Fonction de répartition de la loi normale centrée réduite : la probabilité qu'une variable normale soit inférieure à x.", "fiche": "m2.bs.formule", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-black76", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Modèle de Black", "anglais": "Black-76", "definition": "Version de Black-Scholes pour un sous-jacent à terme, utilisée pour les caps, floors et swaptions.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-bachelier", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Modèle normal (Bachelier)", "anglais": "normal model", "definition": "Modèle où les variations du sous-jacent sont normales en valeur absolue ; utilisé pour les taux, avec une volatilité en points de base.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-caplet", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 2, "terme": "Cap, caplet, floor", "anglais": "cap, caplet, floor", "definition": "Caplet : call sur un taux pour une période. Cap : série de caplets, un plafond. Floor : série de puts sur taux, un plancher.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-swaption", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Swaption", "anglais": "swaption", "definition": "Option donnant le droit d'entrer dans un swap de taux à un taux fixé d'avance.", "fiche": "m2.bs.black", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-garman-kohlhagen", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Garman-Kohlhagen", "definition": "Version de Black-Scholes pour les options de change, où le taux de la devise étrangère joue le rôle d'un dividende.", "fiche": "m2.bs.garman-kohlhagen", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.bs.l-volatilite-locale", "type": "lexique", "module": 2, "chapitre": "m2.bs", "difficulte": 3, "terme": "Volatilité locale / stochastique", "anglais": "local / stochastic volatility", "definition": "Modèles plus riches que Black-Scholes : la volatilité dépend du cours et du temps (locale), ou est elle-même aléatoire (stochastique, comme Heston).", "fiche": "m2.bs.hypotheses", "maj": "2026-11-16", "version": 1 }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "chapitre": {
+    "id": "m2.prime",
+    "module": 2,
+    "ordre": 2,
+    "titre": "Ce qui fait bouger la prime",
+    "resume": "Les cinq facteurs qui déterminent le prix d'une option, la parité call-put qui relie le call et le put, et l'ordre de grandeur à savoir calculer de tête."
+  },
+  "elements": [
+    {
+      "id": "m2.prime.sensibilites",
+      "type": "fiche", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "tags": ["options", "prime", "sensibilites"],
+      "titre": "Les cinq facteurs du prix d'une option",
+      "une_phrase": "Le prix d'une option dépend de cinq facteurs : le **sous-jacent**, le **strike**, la **volatilité**, la **maturité** et les **taux** (plus les dividendes) ; seule la volatilité ne se lit sur aucun écran.",
+      "trente_secondes": "**Le sous-jacent** : s'il monte, le call vaut plus et le put moins.\n\n**Le strike** : un strike plus haut rend le call moins cher (acheter plus cher est moins intéressant) et le put plus cher (vendre plus cher l'est davantage).\n\n**La volatilité** : plus le sous-jacent bouge, plus le call et le put valent cher. L'acheteur profite des grands mouvements favorables et ne subit pas les défavorables, puisque sa perte est limitée à la prime.\n\n**La maturité** : plus de temps, plus de chances de finir dans la monnaie. Le call et le put valent en général plus cher.\n\n**Les taux** : ils augmentent le call et diminuent le put, parce que le strike payé plus tard vaut moins aujourd'hui.",
+      "analogie": "Une option est un billet de loterie dont tu ne peux pas perdre plus que le prix du billet. Plus le tirage est imprévisible (volatilité) et plus il reste de temps avant le tirage (maturité), plus le billet vaut cher, car tu gardes les bons numéros et tu ignores les mauvais.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Si ceci augmente…", "Call", "Put", "Pourquoi"],
+        "lignes": [
+          ["Sous-jacent", "↑", "↓", "Le call se rapproche de la monnaie, le put s'en éloigne"],
+          ["Strike", "↓", "↑", "Acheter plus cher est moins intéressant, vendre plus cher l'est plus"],
+          ["Volatilité", "↑", "↑", "Plus de chances de grand gain, perte toujours limitée à la prime"],
+          ["Maturité", "↑", "↑ en général", "Plus de temps pour finir dans la monnaie"],
+          ["Taux", "↑", "↓", "Le strike payé (ou reçu) plus tard vaut moins aujourd'hui"],
+          ["Dividendes", "↓", "↑", "Le cours baisse du montant du dividende détaché"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : call à la monnaie, action à 100, strike 100. Référence : un an, volatilité 20 %, taux 3 % → prime 9,41.",
+        "Volatilité 10 % : 5,58. Volatilité 30 % : 13,28. La volatilité est le facteur le plus puissant : la prime varie presque proportionnellement.",
+        "Maturité 3 mois : 4,36. Maturité 2 ans : 14,07. Doubler la maturité ne double pas la prime : elle augmente comme la racine carrée du temps.",
+        "Taux 5 % au lieu de 3 % : le call passe de 9,41 à 10,45, le put de 6,46 à 5,57.",
+        "Action à 101 au lieu de 100 : le call passe de 9,41 à 10,02, soit +0,61. C'est le delta."
+      ],
+      "formules": [],
+      "deux_minutes": "**Chaque sensibilité a un nom : ce sont les grecques.**\n\n- Sensibilité au sous-jacent : le **delta**. Sensibilité du delta lui-même : le **gamma**.\n- Sensibilité à la volatilité : le **vega**.\n- Sensibilité au temps qui passe : le **thêta**.\n- Sensibilité aux taux : le **rho**.\n\nElles font l'objet d'un chapitre entier.\n\n**La volatilité est à part.** Le cours, le strike, la maturité et les taux se lisent sur un écran. La volatilité **future**, elle, n'est connue de personne. Le marché fixe le prix de l'option, et on en déduit la volatilité qu'il suppose : la **volatilité implicite**. C'est pourquoi les traders d'options cotent souvent en volatilité plutôt qu'en euros : « ce call se traite à 22 % de vol ».\n\n**Pourquoi la volatilité augmente aussi le put et le call.** Ce n'est pas un pari sur le sens. L'option profite de la **dispersion** des résultats : avec plus de volatilité, les très bons scénarios deviennent plus probables, et les très mauvais ne coûtent pas plus cher, puisque la perte est plafonnée à la prime.\n\n**Une exception sur la maturité.** Un put européen très dans la monnaie peut valoir moins cher avec une maturité plus longue : on attend plus longtemps pour encaisser le strike. C'est un cas d'école, qui n'arrive pas avec un call sans dividende.",
+      "piege": "Dire que la volatilité augmente le prix du call et diminue celui du put, par analogie avec le sous-jacent. La volatilité augmente **les deux** : elle n'a pas de sens. Autre erreur : penser que la prime est proportionnelle à la maturité ; elle croît comme la racine carrée du temps.",
+      "a_dire_en_entretien": "« La prime dépend du prix du sous-jacent, du strike, de la volatilité, de la maturité et des taux, ainsi que des dividendes. Une hausse du sous-jacent fait monter le call et baisser le put. La volatilité et la maturité font monter les deux, parce que l'acheteur profite des grands mouvements sans subir de perte au-delà de la prime. Les taux font monter le call et baisser le put. Chacune de ces sensibilités correspond à une grecque. »",
+      "liens": ["m2.prime.parite", "m2.prime.ordre-grandeur", "m2.grecques.tableau", "m2.vol.implicite"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.parite",
+      "type": "fiche", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "tags": ["options", "arbitrage", "parite"],
+      "titre": "La parité call-put",
+      "une_phrase": "Pour un même strike et une même échéance, **call moins put égale sous-jacent moins strike actualisé** : C − P = S − K·e^(−rT). Sinon, il existerait un gain sans risque.",
+      "trente_secondes": "Achète un call et vends un put de même strike K et même échéance. À l'échéance :\n\n- si S finit au-dessus de K, le call vaut S − K et le put ne vaut rien ;\n- si S finit sous K, le call ne vaut rien et le put vendu te coûte K − S.\n\nDans les deux cas, ta position vaut S − K. C'est exactement ce que vaut un **contrat à terme** : acheter le sous-jacent à K à l'échéance.\n\nDeux positions qui rapportent toujours la même chose doivent coûter la même chose aujourd'hui. Le contrat à terme vaut S − K·e^(−rT) aujourd'hui. D'où la parité.",
+      "analogie": "Deux chemins mènent au même endroit, à la même heure, à coup sûr. S'ils n'ont pas le même prix de péage, tout le monde prend le moins cher, et le gestionnaire du plus cher doit baisser son tarif. Sur les marchés, les « arbitragistes » sont ces automobilistes : ils obligent les deux chemins à coûter le même prix.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["À l'échéance", "Call acheté", "Put vendu", "Total"],
+        "lignes": [
+          ["S = 80 (sous K = 100)", "0", "−20", "−20 = 80 − 100"],
+          ["S = 100", "0", "0", "0 = 100 − 100"],
+          ["S = 130 (au-dessus de K)", "+30", "0", "+30 = 130 − 100"]
+        ],
+        "legende": "Call acheté plus put vendu de strike 100 : le résultat est toujours S − 100, comme un achat à terme à 100."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, strike 100, un an, taux 3 %, volatilité 20 %.",
+        "Black-Scholes donne : call 9,41, put 6,46. Différence : 9,41 − 6,46 = 2,96 (avant arrondi : 9,4134 − 6,4580 = 2,9554).",
+        "Côté droit de la parité : S − K·e^(−rT) = 100 − 100 × e^(−0,03) = 100 − 97,04 = 2,96.",
+        "Les deux côtés sont égaux. Si un teneur de marché cotait le call à 10,50 avec le put à 6,46, on vendrait le call, on achèterait le put et le sous-jacent, et on encaisserait environ 1,09 sans risque. Ces écarts disparaissent en quelques secondes."
+      ],
+      "formules": [
+        {
+          "titre": "La parité call-put (options européennes, sans dividende)",
+          "latex": "C - P = S - K\\,e^{-rT}",
+          "legende": { "C": "le prix du call", "P": "le prix du put de même strike et même échéance", "S": "le prix actuel du sous-jacent", "K\\,e^{-rT}": "le strike actualisé : la somme à placer aujourd'hui pour disposer de K à l'échéance", "r": "le taux sans risque", "T": "la maturité en années" },
+          "en_francais": "Un call acheté et un put vendu équivalent à un achat à terme du sous-jacent au prix K. Leur différence de prix est donc la valeur d'aujourd'hui de cet achat à terme."
+        }
+      ],
+      "deux_minutes": "**Ce que la parité permet.**\n\n- **Déduire un prix de l'autre.** Si tu connais le call, tu connais le put, sans aucun modèle de volatilité.\n- **Fabriquer des positions synthétiques.** Call acheté + put vendu = sous-jacent acheté à terme. Sous-jacent + put = call (plus du cash). C'est ainsi que les desks transforment une position en une autre.\n- **Comprendre pourquoi call et put ont la même volatilité implicite** à strike égal : sinon, la parité serait violée.\n\n**Avec des dividendes**, on retire la valeur actualisée des dividendes au sous-jacent : C − P = S − D − K·e^(−rT), ou, avec un rendement continu q, S·e^(−qT) − K·e^(−rT). En change, q est le taux d'intérêt de la devise étrangère.\n\n**À la monnaie forward**, quand K est égal au prix à terme, le call et le put ont exactement le même prix.\n\n**Une relation d'arbitrage, pas un modèle.** La parité ne suppose rien sur la façon dont le sous-jacent évolue : elle découle seulement de l'absence de gain sans risque. Elle ne vaut que pour les options **européennes**. Pour les américaines, on n'a qu'un encadrement.",
+      "piege": "Oublier d'actualiser le strike : écrire C − P = S − K. L'écart vient du fait que le strike n'est payé qu'à l'échéance. Avec des taux à 3 % sur un an, cela fait près de 3 de différence sur un strike de 100 : ce n'est pas un détail.",
+      "a_dire_en_entretien": "« La parité call-put dit que, pour un même strike et une même échéance, le call moins le put vaut le sous-jacent moins le strike actualisé. La raison : un call acheté et un put vendu rapportent toujours S − K à l'échéance, comme un achat à terme. Deux positions identiques à l'échéance doivent avoir le même prix aujourd'hui, sinon il y aurait un arbitrage. Elle ne dépend d'aucun modèle, et elle permet de passer d'un call à un put ou de fabriquer des positions synthétiques. »",
+      "liens": ["m2.prime.sensibilites", "m2.bs.formule", "m2.bs.garman-kohlhagen"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.ordre-grandeur",
+      "type": "fiche", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "tags": ["options", "calcul mental", "entretien"],
+      "titre": "L'ordre de grandeur : 0,4 × S × σ × √T",
+      "une_phrase": "Une option à la monnaie vaut environ **0,4 × S × σ × √T** : action à 100, volatilité 20 %, un an, le call vaut à peu près 8.",
+      "trente_secondes": "C'est la formule de poche du trader d'options. Elle donne en deux secondes le prix d'une option à la monnaie.\n\nS est le prix du sous-jacent, σ la volatilité annuelle, T la maturité en années.\n\nExemple : 0,4 × 100 × 0,20 × √1 = 8.\n\nElle montre aussi d'un coup d'œil deux propriétés essentielles : la prime est **proportionnelle à la volatilité**, et elle croît comme la **racine carrée du temps**. Une option à 3 mois vaut la moitié d'une option à un an, pas le quart.",
+      "analogie": "C'est la règle des 10 % pour le pourboire : pas exacte au centime, mais assez juste pour vérifier une addition de tête. En entretien comme sur un desk, elle sert à vérifier qu'un prix calculé par un ordinateur n'est pas aberrant.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["S", "σ", "T", "0,4 × S × σ × √T", "Black-Scholes exact (taux nul)"],
+        "lignes": [
+          ["100", "20 %", "1 an", "8,00", "7,97"],
+          ["100", "20 %", "3 mois", "4,00", "3,99"],
+          ["100", "40 %", "1 an", "16,00", "15,85"],
+          ["5 000", "18 %", "6 mois", "254,6", "253,7"]
+        ],
+        "legende": "Exemple fictif. L'approximation est excellente tant que la volatilité et la maturité restent raisonnables."
+      },
+      "exemple_chiffre": [
+        "Un indice actions vaut 5 000 points. La volatilité implicite à six mois est de 18 %. Combien coûte le call à la monnaie ?",
+        "√T = √0,5 ≈ 0,71.",
+        "0,4 × 5 000 × 0,18 × 0,71 ≈ 255 points.",
+        "Soit environ 5,1 % du niveau de l'indice. Black-Scholes, avec un taux nul, donne 253,7 : l'écart est inférieur à 1 %.",
+        "Dans l'autre sens : si ce call cote 300 points, la volatilité implicite est d'environ 300 ÷ (0,4 × 5 000 × 0,71) ≈ 21 %."
+      ],
+      "formules": [
+        {
+          "titre": "Le prix approché d'une option à la monnaie",
+          "latex": "C \\approx P \\approx 0{,}4 \\times S \\times \\sigma \\times \\sqrt{T}",
+          "legende": { "C, P": "le prix du call et du put à la monnaie", "S": "le prix du sous-jacent", "\\sigma": "la volatilité annuelle, en décimal (0,20 pour 20 %)", "T": "la maturité en années", "0{,}4": "arrondi de 1/√(2π) ≈ 0,399" },
+          "en_francais": "Le prix d'une option à la monnaie est d'environ 40 % de l'écart-type du sous-jacent sur la période. Cet écart-type vaut S × σ × √T."
+        }
+      ],
+      "deux_minutes": "**D'où vient le 0,4.** Sur la durée de l'option, le sous-jacent varie d'environ S × σ × √T, un écart-type. Une option à la monnaie rapporte en moyenne la moitié de la valeur absolue de cette variation, c'est-à-dire, pour une loi normale, 1/√(2π) ≈ 0,399 écart-type. D'où 0,4.\n\n**Pourquoi la racine carrée du temps.** Les variations quotidiennes d'un cours sont en grande partie indépendantes : elles se compensent en partie. La variance s'additionne avec le temps, et l'écart-type croît donc comme sa racine carrée. C'est la même raison pour laquelle on annualise une volatilité quotidienne en multipliant par √252.\n\n**Quand l'approximation est la meilleure.** Pour une option **à la monnaie forward** : strike égal au prix à terme. Avec des taux à 3 %, un call à un an de strike 100 sur une action à 100 vaut 9,41, au-dessus de 8, parce qu'il est un peu dans la monnaie par rapport au prix à terme (103,05). Le call de strike 103,05 vaut, lui, 7,97.\n\n**L'usage inverse, le plus utile.** Diviser un prix par 0,4 × S × √T donne une volatilité implicite approximative. C'est ce qu'un trader fait de tête quand on lui annonce un prix.\n\n**Les limites.** Pour des volatilités ou des maturités élevées, ou pour des options loin de la monnaie, il faut le vrai modèle.",
+      "piege": "Oublier la racine carrée : multiplier par T au lieu de √T. Une option à 4 ans ne vaut pas quatre fois une option à un an, mais deux fois. Autre piège : utiliser la volatilité en pourcentage (20) au lieu de la décimale (0,20).",
+      "a_dire_en_entretien": "« Une option à la monnaie vaut environ 0,4 fois S fois sigma fois racine de T. Pour une action à 100, avec 20 % de volatilité sur un an, cela donne 8. La formule montre que la prime est proportionnelle à la volatilité et croît comme la racine carrée du temps. Dans l'autre sens, elle permet d'estimer de tête la volatilité implicite à partir d'un prix. »",
+      "liens": ["m2.prime.sensibilites", "m2.bs.formule", "m2.vol.implicite"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.prime.c01", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "recto": "Les facteurs du prix d'une option ?", "verso": "Le sous-jacent, le strike, la volatilité, la maturité, les taux, et les dividendes.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c02", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "recto": "La volatilité augmente : que font le call et le put ?", "verso": "Ils montent tous les deux. L'acheteur profite des grands mouvements, sa perte reste limitée à la prime.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c03", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "recto": "Les taux montent : que font le call et le put ?", "verso": "Le call monte, le put baisse : le strike payé ou reçu à l'échéance vaut moins aujourd'hui.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c04", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "recto": "Énonce la parité call-put.", "verso": "C − P = S − K·e^(−rT), pour un même strike et une même échéance (options européennes, sans dividende).", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c05", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "recto": "Call acheté + put vendu de même strike, c'est quoi ?", "verso": "Un achat à terme synthétique du sous-jacent au prix K.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c06", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "recto": "Prix approché d'une option à la monnaie ?", "verso": "0,4 × S × σ × √T. Action à 100, 20 %, un an : environ 8.", "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.c07", "type": "carte", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "recto": "Une option à 3 mois vaut combien par rapport à la même option à un an ?", "verso": "Environ la moitié : la prime croît comme √T, et √(1/4) = 1/2.", "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.prime.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.prime", "difficulte": 1,
+      "question": "Qu'est-ce qui fait varier le prix d'une option ?",
+      "reponse_modele": "Cinq facteurs principaux : le prix du sous-jacent, le strike, la volatilité, la maturité et les taux, auxquels s'ajoutent les dividendes. Une hausse du sous-jacent augmente le call et diminue le put. Une hausse de la volatilité ou de la maturité augmente les deux, car l'acheteur profite des grands mouvements sans risquer plus que sa prime. Une hausse des taux augmente le call et diminue le put. Chaque sensibilité correspond à une grecque : delta, vega, thêta, rho. La volatilité est le seul paramètre non observable : on la déduit du prix de marché.",
+      "points_cles": ["Les cinq facteurs, plus les dividendes", "Le sens de chaque effet sur le call et le put", "La volatilité augmente les deux", "Le lien avec les grecques", "La volatilité n'est pas observable"],
+      "piege": "Dire que la volatilité fait baisser le put.",
+      "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.prime", "difficulte": 2,
+      "question": "Démontre la parité call-put.",
+      "reponse_modele": "Je construis deux portefeuilles. Le premier : un call acheté et un put vendu, de même strike K et même échéance. Le second : le sous-jacent acheté, financé par un emprunt de K·e^(−rT). À l'échéance, le premier vaut S − K dans tous les cas : si S > K, le call vaut S − K et le put zéro ; si S < K, le call vaut zéro et le put vendu coûte K − S. Le second vaut aussi S − K : le sous-jacent moins le remboursement de l'emprunt. Deux portefeuilles qui valent toujours la même chose à l'échéance doivent valoir la même chose aujourd'hui, sinon on achèterait le moins cher et on vendrait l'autre pour un gain sans risque. D'où C − P = S − K·e^(−rT).",
+      "points_cles": ["Deux portefeuilles", "Même valeur à l'échéance dans tous les cas", "Absence d'arbitrage", "Strike actualisé", "Aucun modèle nécessaire"],
+      "piege": "Oublier d'actualiser le strike, ou démontrer la relation avec Black-Scholes : elle n'a besoin d'aucun modèle.",
+      "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.prime", "difficulte": 2,
+      "question": "Combien vaut à peu près un call à la monnaie à un an sur une action à 50 euros, avec 30 % de volatilité ?",
+      "reponse_modele": "J'utilise l'approximation 0,4 × S × σ × √T : 0,4 × 50 × 0,30 × 1 = 6 euros, soit 12 % du prix de l'action. C'est une approximation pour une option à la monnaie forward ; avec des taux positifs, le call de strike égal au cours vaut un peu plus. Si on me demandait la même option à 3 mois, je dirais la moitié, environ 3 euros, puisque la prime croît comme la racine carrée du temps.",
+      "points_cles": ["La formule 0,4 × S × σ × √T", "Le calcul : 6 euros", "En pourcentage : 12 %", "La racine carrée du temps"],
+      "piege": "Se lancer dans Black-Scholes de tête. On attend l'ordre de grandeur et le raisonnement.",
+      "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.prime", "difficulte": 2,
+      "question": "Pourquoi une hausse de la volatilité fait-elle monter à la fois le call et le put ?",
+      "reponse_modele": "Parce qu'une option a un profil asymétrique : l'acheteur profite des mouvements favorables, et ses pertes sont plafonnées à la prime. Une volatilité plus forte rend les grands mouvements plus probables, dans les deux sens. Les grands mouvements favorables augmentent la valeur de l'option ; les grands mouvements défavorables ne la font pas descendre sous zéro. Au total, l'espérance de gain augmente, pour le call comme pour le put. C'est pourquoi on dit que l'acheteur d'option est long volatilité, ou long vega.",
+      "points_cles": ["Profil asymétrique", "Perte plafonnée à la prime", "La dispersion profite à l'acheteur", "Vrai pour le call et le put", "Long vega"],
+      "piege": "Raisonner sur le sens du marché : la volatilité n'a pas de sens.",
+      "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.prime.z01", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "enonce": "Les taux d'intérêt montent, tout le reste étant égal. Le prix d'un put…", "choix": ["monte", "baisse", "ne bouge pas", "devient nul"], "bonne": 1, "explication": "Le strike reçu à l'échéance vaut moins aujourd'hui : le put baisse. Le call, lui, monte.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z02", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "enonce": "Une hausse de la volatilité fait monter le prix du call mais baisser celui du put.", "vrai": false, "explication": "Elle fait monter les deux : la volatilité n'a pas de sens, et l'acheteur profite des grands mouvements.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z03", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "enonce": "Prix approché d'un call à la monnaie : action à 100, volatilité 25 %, maturité un an ?", "reponse": 10, "tolerance": 0.05, "unite": "", "explication": "0,4 × 100 × 0,25 × 1 = 10.", "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z04", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "enonce": "Même option qu'une option à un an valant 8, mais à 3 mois. Prix approché ?", "reponse": 4, "tolerance": 0.05, "unite": "", "explication": "La prime croît comme √T : √(0,25) = 0,5, donc 8 × 0,5 = 4.", "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z05", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "enonce": "S = 100, K = 100, un an, taux 3 %. Le call vaut 9,41. Que vaut le put ? (deux décimales)", "reponse": 6.46, "tolerance": 0.02, "unite": "", "explication": "P = C − S + K·e^(−rT) = 9,41 − 100 + 97,04 = 6,45 à 6,46 selon l'arrondi.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "enonce": "Un call acheté et un put vendu, de même strike et même échéance, équivalent à…", "choix": ["un straddle", "un achat à terme du sous-jacent", "une vente à terme du sous-jacent", "un placement sans risque"], "bonne": 1, "explication": "La position vaut toujours S − K à l'échéance : c'est un achat à terme au prix K.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "enonce": "La parité call-put suppose que le sous-jacent suit le modèle de Black-Scholes.", "vrai": false, "explication": "Elle découle uniquement de l'absence d'arbitrage. Elle est vraie quel que soit le modèle, pour des options européennes.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.z08", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "enonce": "Une action détache un dividende important pendant la vie de l'option. Le call…", "choix": ["vaut plus cher", "vaut moins cher", "ne change pas", "devient américain"], "bonne": 1, "explication": "Le cours baisse du montant du dividende au détachement : le call vaut moins, le put plus.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.prime.x01", "type": "exercice", "module": 2, "chapitre": "m2.prime", "difficulte": 2,
+      "titre": "Repérer un arbitrage avec la parité call-put",
+      "enonce": "Exemple fictif. Une action vaut 100. Un call et un put européens de strike 100, à un an, cotent respectivement 10,50 et 6,46. Le taux sans risque est de 3 %. La parité est-elle respectée ? Si non, quel arbitrage fais-tu ?",
+      "etapes": [
+        {
+          "titre": "Le côté droit de la parité",
+          "texte": "On calcule S − K·e^(−rT).",
+          "formule": { "latex": "100 - 100 \\times e^{-0{,}03} = 100 - 97{,}04 = 2{,}96", "legende": { "100 \\times e^{-0{,}03}": "le strike actualisé sur un an à 3 %" }, "en_francais": "Un achat à terme à 100 dans un an vaut 2,96 aujourd'hui." },
+          "resultat": "2,96",
+          "verif": { "fn": "options.parite", "args": [100, 100, 1, 0.03], "attendu": 2.9554, "tolerance": 0.0001 }
+        },
+        { "titre": "Le côté gauche, avec les prix cotés", "texte": "C − P = 10,50 − 6,46 = 4,04.", "resultat": "4,04" },
+        { "titre": "Diagnostic", "texte": "4,04 ≠ 2,96 : le call est trop cher de 1,09 par rapport au put. La parité n'est pas respectée." },
+        { "titre": "L'arbitrage", "texte": "On vend ce qui est cher et on achète ce qui est bon marché : on **vend le call** (10,50), on **achète le put** (6,46) et on **achète l'action** (100). Il faut 100 + 6,46 − 10,50 = 95,96, qu'on emprunte à 3 %. À l'échéance, quel que soit le cours, l'action plus le put moins le call valent exactement 100.", "resultat": "On récupère 100 et on rembourse 95,96 × e^(0,03) = 98,88" },
+        { "titre": "Le gain sans risque", "texte": "100 − 98,88 = 1,12 à l'échéance, soit 1,09 en valeur d'aujourd'hui. Dans la réalité, des programmes informatiques font cet arbitrage en quelques millisecondes, ce qui maintient la parité." }
+      ],
+      "erreurs_a_eviter": ["Oublier d'actualiser le strike.", "Acheter ce qui est cher au lieu de le vendre.", "Croire que l'arbitrage dépend du sens du marché : le gain est le même quel que soit le cours final."],
+      "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.prime.x02", "type": "exercice", "module": 2, "chapitre": "m2.prime", "difficulte": 1,
+      "titre": "Calculer de tête le prix d'options à la monnaie",
+      "enonce": "Exemple fictif. Estime le prix d'un call à la monnaie avec la formule de poche dans trois cas : (a) action à 100, volatilité 20 %, un an ; (b) même action, 3 mois ; (c) indice à 5 000 points, volatilité 18 %, six mois.",
+      "etapes": [
+        {
+          "titre": "Cas (a)",
+          "texte": "0,4 × 100 × 0,20 × √1.",
+          "resultat": "8",
+          "verif": { "fn": "options.approxATM", "args": [100, 0.2, 1], "attendu": 8, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Cas (b)",
+          "texte": "√0,25 = 0,5. 0,4 × 100 × 0,20 × 0,5. La prime est divisée par deux quand la maturité est divisée par quatre.",
+          "resultat": "4",
+          "verif": { "fn": "options.approxATM", "args": [100, 0.2, 0.25], "attendu": 4, "tolerance": 0.0001 }
+        },
+        {
+          "titre": "Cas (c)",
+          "texte": "√0,5 ≈ 0,707. 0,4 × 5 000 × 0,18 × 0,707.",
+          "formule": { "latex": "0{,}4 \\times 5\\,000 \\times 0{,}18 \\times \\sqrt{0{,}5} \\approx 254{,}6", "legende": { "5\\,000": "le niveau de l'indice", "0{,}18": "la volatilité", "\\sqrt{0{,}5}": "la racine de la maturité en années" }, "en_francais": "Environ 255 points, soit à peu près 5 % du niveau de l'indice." },
+          "resultat": "environ 255 points",
+          "verif": { "fn": "options.approxATM", "args": [5000, 0.18, 0.5], "attendu": 254.56, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Vérification avec le modèle complet",
+          "texte": "Avec Black-Scholes et un taux nul, le cas (a) donne 7,97 : l'approximation est à moins de 0,5 % du vrai prix.",
+          "verif": { "fn": "options.call", "args": [100, 100, 1, 0, 0.2], "attendu": 7.9656, "tolerance": 0.0001 }
+        }
+      ],
+      "erreurs_a_eviter": ["Multiplier par T au lieu de √T.", "Écrire 20 au lieu de 0,20 pour la volatilité.", "Appliquer la formule à une option loin de la monnaie."],
+      "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.prime.l-parite", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "terme": "Parité call-put", "anglais": "put-call parity", "definition": "Relation C − P = S − K·e^(−rT) entre un call et un put européens de même strike et même échéance.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.l-arbitrage", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "terme": "Arbitrage", "anglais": "arbitrage", "definition": "Opération qui rapporte un gain sans risque en exploitant un écart de prix entre deux positions équivalentes.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.l-synthetique", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "terme": "Position synthétique", "anglais": "synthetic position", "definition": "Combinaison d'instruments qui reproduit exactement un autre instrument, par exemple un achat à terme avec un call acheté et un put vendu.", "fiche": "m2.prime.parite", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.l-volatilite", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "terme": "Volatilité", "anglais": "volatility", "definition": "Ampleur des variations d'un prix, mesurée par l'écart-type annualisé de ses rendements.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.l-maturite", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 1, "terme": "Maturité", "anglais": "maturity, tenor", "definition": "Durée restant jusqu'à l'échéance de l'option.", "fiche": "m2.prime.sensibilites", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.prime.l-racine-du-temps", "type": "lexique", "module": 2, "chapitre": "m2.prime", "difficulte": 2, "terme": "Racine carrée du temps", "anglais": "square root of time", "definition": "Règle selon laquelle l'incertitude, et donc la valeur d'une option à la monnaie, croît comme √T.", "fiche": "m2.prime.ordre-grandeur", "maj": "2026-11-16", "version": 1 }
+  ]
+}

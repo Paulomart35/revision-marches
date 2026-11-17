@@ -1,0 +1,239 @@
+{
+  "chapitre": {
+    "id": "m2.strategies",
+    "module": 2,
+    "ordre": 7,
+    "titre": "Les stratégies optionnelles",
+    "resume": "Combiner des options pour exprimer une vue précise : spreads, straddle et strangle, butterfly, risk reversal et collar. Pour chacune : le profil, le coût, les points morts et à qui elle sert."
+  },
+  "elements": [
+    {
+      "id": "m2.strategies.spreads",
+      "type": "fiche", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "tags": ["strategies", "spreads"],
+      "titre": "Call spread et put spread",
+      "une_phrase": "Un **call spread** combine un call acheté et un call vendu à un strike plus haut : on parie sur une hausse **modérée**, pour moins cher qu'un call seul, en acceptant un **gain plafonné**.",
+      "trente_secondes": "**Le call spread** : achat d'un call de strike 100, vente d'un call de strike 110. Le call vendu rapporte une prime qui réduit le coût. En échange, on renonce aux gains au-delà de 110. Le gain maximal est l'écart entre les strikes, moins le coût.\n\n**Le put spread** : achat d'un put de strike 100, vente d'un put de strike 90. Il protège contre une baisse **jusqu'à 90**, pour moins cher qu'un put seul. Au-delà, on n'est plus protégé.\n\nLes spreads servent à exprimer une vue **précise** et à **réduire le coût**, au prix d'un potentiel limité.",
+      "analogie": "C'est une assurance avec un plafond de remboursement. Elle coûte moins cher qu'une assurance tous risques, et elle suffit pour les sinistres courants. Mais en cas de catastrophe, elle ne rembourse que jusqu'au plafond. Le put spread est cette assurance plafonnée.",
+      "visuel": { "type": "outil", "ref": "labo.strategies", "legende": "Choisis « Call spread » puis « Put spread » : le profil est plafonné des deux côtés." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, options à un an, volatilité 20 %, taux 3 %.",
+        "Call 100 : 9,41. Call 110 : 5,29. Le call spread 100/110 coûte 9,41 − 5,29 = 4,12, soit 44 % de moins que le call seul.",
+        "Gain maximal (au-dessus de 110 à l'échéance) : 10 − 4,12 = 5,88. Perte maximale (sous 100) : 4,12. Point mort : 104,12.",
+        "Put 100 : 6,46. Put 90 : 2,77. Le put spread 100/90 coûte 3,69. Il rembourse jusqu'à 10 si l'action finit à 90 ou en dessous : gain maximal 6,31. Point mort : 96,31."
+      ],
+      "formules": [
+        {
+          "titre": "Le gain maximal d'un spread",
+          "latex": "\\text{Gain max} = (K_2 - K_1) - \\text{coût net}",
+          "legende": { "K_1, K_2": "les deux strikes, K₂ au-dessus de K₁", "\\text{coût net}": "la prime de l'option achetée moins celle de l'option vendue" },
+          "en_francais": "Un spread rapporte au maximum l'écart entre ses deux strikes, moins ce qu'il a coûté. Sa perte maximale est son coût."
+        }
+      ],
+      "deux_minutes": "**Pourquoi un spread plutôt qu'une option seule.**\n\n- **Le coût** : la vente de la seconde option finance une partie de la première.\n- **La vue** : si l'on pense que l'action montera de 5 à 10 %, payer pour les scénarios à +50 % n'a pas de sens.\n- **La volatilité** : un spread a beaucoup moins de vega qu'une option seule, puisqu'on achète et qu'on vend de la volatilité. On parie sur la direction plus que sur la volatilité.\n- **Le skew** : dans un put spread, on achète un put proche de la monnaie et on revend un put plus bas, dont la volatilité implicite est plus élevée à cause du skew. On récupère une partie de cette prime.\n\n**Les variantes.** Un spread acheté avec un call et vendu avec un call s'appelle un *bull call spread* (vue haussière). On parle aussi de *bear put spread* (vue baissière). En vendant le spread au lieu de l'acheter, on prend la vue inverse avec une prime encaissée.\n\n**L'usage pour les clients.** Le put spread est une protection économique courante pour un portefeuille. Le call spread est la brique de nombreux produits structurés : il donne une participation à la hausse **plafonnée**, ce qui coûte moins cher et permet d'offrir plus de participation jusqu'au plafond.",
+      "piege": "Oublier que le put spread **ne protège plus** au-delà du strike vendu. Si le marché s'effondre de 40 %, le put spread 100/90 rembourse 10, pas 40. Il faut toujours dire au client à partir d'où il n'est plus couvert.",
+      "a_dire_en_entretien": "« Un call spread, c'est un call acheté et un call de strike plus élevé vendu. Il coûte moins cher qu'un call seul, au prix d'un gain plafonné à l'écart entre les strikes. Le put spread est l'équivalent pour se protéger d'une baisse modérée. Ces stratégies servent à exprimer une vue précise et à réduire le coût ; elles ont peu de vega, puisqu'on achète et vend de la volatilité en même temps. »",
+      "liens": ["m2.strategies.straddle-strangle", "m2.strategies.collar", "m2.bases.call"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.straddle-strangle",
+      "type": "fiche", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "tags": ["strategies", "volatilite"],
+      "titre": "Straddle et strangle : parier sur un grand mouvement",
+      "une_phrase": "Un **straddle** combine un call et un put de **même strike** : on gagne si le marché fait un **grand mouvement, dans un sens ou dans l'autre** ; le **strangle** fait de même avec deux strikes écartés, pour moins cher.",
+      "trente_secondes": "**Le straddle** : achat d'un call 100 et d'un put 100. Si l'action finit à 130 ou à 70, l'une des deux options rapporte 30. Si elle finit à 100, aucune ne rapporte rien et on a perdu les deux primes.\n\nC'est un **pari sur la volatilité**, pas sur la direction. L'acheteur de straddle est long gamma et long vega : il veut que le marché bouge beaucoup, ou que la volatilité implicite monte.\n\n**Le strangle** : achat d'un put 90 et d'un call 110. Il coûte moins cher, mais il faut un mouvement plus grand pour être gagnant.\n\nLe **vendeur** d'un straddle ou d'un strangle parie au contraire sur un marché calme. Son gain est limité aux primes ; sa perte peut être très grande.",
+      "analogie": "Tu paries sur un match de football, non pas sur le vainqueur, mais sur un écart de buts important, dans un sens ou dans l'autre. Si le match finit 0-0, tu perds ta mise. Si l'une des équipes écrase l'autre, tu gagnes, peu importe laquelle.",
+      "visuel": { "type": "outil", "ref": "labo.strategies", "legende": "Choisis « Straddle » puis « Strangle » : profil en V ou en V à fond plat, gagnant aux extrémités." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, options à un an, volatilité 20 %, taux 3 %.",
+        "Straddle 100 : call 9,41 + put 6,46 = 15,87. Points morts : 100 − 15,87 = 84,13 et 100 + 15,87 = 115,87. L'action doit bouger de près de 16 % dans un sens ou dans l'autre.",
+        "Strangle 90/110 : put 90 à 2,77 + call 110 à 5,29 = 8,06. Points morts : 90 − 8,06 = 81,94 et 110 + 8,06 = 118,06.",
+        "Le strangle coûte deux fois moins cher, mais il faut un mouvement d'environ 18 % pour qu'il soit rentable."
+      ],
+      "formules": [
+        {
+          "titre": "Les points morts d'un straddle acheté",
+          "latex": "S^{*} = K \\pm (C + P)",
+          "legende": { "K": "le strike commun", "C + P": "le coût total : la prime du call plus celle du put" },
+          "en_francais": "Le straddle est rentable à l'échéance si le sous-jacent s'écarte du strike de plus que le coût total des deux options."
+        }
+      ],
+      "deux_minutes": "**Quand acheter un straddle.** Avant un événement susceptible de provoquer un grand mouvement : publication de résultats, décision d'une autorité, élection, réunion de banque centrale. Mais attention : le marché le sait aussi, et la volatilité implicite est souvent déjà élevée avant l'événement. Après, elle s'écrase (le *vol crush*). L'acheteur doit donc avoir un mouvement **plus grand que ce que le marché attendait**, pas seulement un grand mouvement.\n\n**Le straddle et le prix du mouvement attendu.** Le prix d'un straddle à la monnaie divisé par le cours donne une estimation du mouvement que le marché anticipe : ici 15,87 %, soit environ 0,8 × σ × √T. C'est une lecture rapide utilisée par les traders.\n\n**Le straddle couvert en delta** est l'outil type du trader de volatilité : à la monnaie, son delta est presque nul, et il ne reste que le gamma, le vega et le thêta. Il gagne si la volatilité réalisée dépasse l'implicite.\n\n**La vente de straddle ou de strangle** rapporte les primes tant que le marché reste calme. C'est une stratégie de **vente de volatilité**, rentable souvent, dangereuse lors des crises. Le strangle vendu laisse une zone plus large sans perte, mais rapporte moins.",
+      "piege": "Croire qu'un straddle gagne dès que le marché bouge. Il gagne si le mouvement **dépasse le coût des deux primes**, environ 16 % ici. Et avant un événement, ce coût est souvent gonflé par une volatilité implicite élevée qui s'effondrera ensuite.",
+      "a_dire_en_entretien": "« Un straddle, c'est l'achat d'un call et d'un put de même strike : on gagne si le sous-jacent fait un grand mouvement, peu importe le sens. C'est un pari sur la volatilité : l'acheteur est long gamma et long vega. Le strangle utilise deux strikes écartés : il coûte moins cher mais demande un mouvement plus grand. Le vendeur de straddle parie sur un marché calme, avec un gain limité aux primes et une perte potentiellement forte. »",
+      "liens": ["m2.strategies.spreads", "m2.strategies.butterfly", "m2.couverture.implicite-realisee"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.butterfly",
+      "type": "fiche", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "tags": ["strategies", "volatilite"],
+      "titre": "Le butterfly : parier sur un marché stable, à risque limité",
+      "une_phrase": "Un **butterfly** achète un call 90, vend deux calls 100 et achète un call 110 : il gagne si le marché **reste près de 100**, avec un risque **limité au coût** de la stratégie.",
+      "trente_secondes": "Le butterfly (« papillon ») a un profil en **pointe** : le gain est maximal si le sous-jacent finit exactement au strike du milieu, et nul s'il finit en dehors des strikes extérieurs.\n\nC'est une façon de **vendre de la volatilité sans risque illimité**. Le vendeur d'un straddle gagne aussi si le marché reste stable, mais il peut perdre beaucoup en cas de grand mouvement. Le butterfly coûte un peu au départ, et sa perte ne peut jamais dépasser ce coût.\n\nIl se construit aussi avec des puts, ou en combinant un straddle vendu et un strangle acheté (on l'appelle alors *iron butterfly*).",
+      "analogie": "C'est un pari sur la note exacte d'un examen : tu gagnes beaucoup si la note tombe sur 12, un peu si elle est entre 10 et 14, rien au-delà. Ta mise est petite et tu ne peux pas perdre plus. Le butterfly est ce pari ciblé.",
+      "visuel": { "type": "outil", "ref": "labo.strategies", "legende": "Choisis « Butterfly » : une pointe centrée sur 100, et une perte plafonnée au coût de chaque côté." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, calls à un an, volatilité 20 %, taux 3 %.",
+        "Achat du call 90 : −15,43. Vente de deux calls 100 : +2 × 9,41 = +18,83. Achat du call 110 : −5,29. Coût net : 1,90.",
+        "Si l'action finit à 100 : le call 90 vaut 10, les autres rien. Gain : 10 − 1,90 = 8,10, plus de quatre fois la mise.",
+        "Si elle finit sous 90 ou au-dessus de 110 : toutes les options s'annulent. Perte : 1,90, le coût.",
+        "Points morts : 90 + 1,90 = 91,90 et 110 − 1,90 = 108,10."
+      ],
+      "formules": [],
+      "deux_minutes": "**Le butterfly et la probabilité.** Le prix d'un butterfly très serré, divisé par l'écart entre ses strikes, mesure la probabilité que le marché attribue à un cours final proche du strike central. C'est ainsi que les traders lisent, dans les prix des options, la distribution de probabilité du sous-jacent. Le résultat est connu sous le nom de formule de Breeden-Litzenberger.\n\n**Le butterfly et le smile.** En change, le « butterfly 25 delta » coté par le marché est une mesure de la **courbure** du smile : il dit à quel point les ailes sont chères par rapport au centre.\n\n**Les grecques.** À la monnaie, le butterfly acheté est short gamma et short vega au centre (il veut le calme), et il encaisse du thêta quand le marché reste près du strike central. Son risque est limité, contrairement au straddle vendu.\n\n**Pour qui.** Un investisseur qui pense qu'un marché va rester dans une fourchette étroite jusqu'à une date donnée, sans vouloir prendre le risque d'une vente d'options à découvert.",
+      "piege": "Croire que le butterfly gagne « tant que le marché reste stable » sans regarder l'échéance. Avant l'échéance, sa valeur évolue peu : le profil en pointe n'apparaît que dans les dernières semaines. Le gain maximal n'est atteint que si le cours finit exactement au strike central.",
+      "a_dire_en_entretien": "« Un butterfly, c'est par exemple un call 90 acheté, deux calls 100 vendus et un call 110 acheté. Il gagne si le sous-jacent finit près du strike central, et sa perte est limitée à son coût. C'est une façon de vendre de la volatilité à risque limité, contrairement à la vente d'un straddle. En change, le butterfly coté mesure la courbure du smile. »",
+      "liens": ["m2.strategies.straddle-strangle", "m2.vol.smile-skew"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.risk-reversal",
+      "type": "fiche", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "tags": ["strategies", "skew", "change"],
+      "titre": "Le risk reversal",
+      "une_phrase": "Un **risk reversal** achète un call en dehors de la monnaie et vend un put en dehors de la monnaie (ou l'inverse) : c'est une position **directionnelle** à coût faible, et son prix **mesure le skew**.",
+      "trente_secondes": "Achat d'un call 110, vente d'un put 90. La prime du put vendu finance celle du call acheté.\n\nSi le marché monte au-delà de 110, on profite de la hausse. Entre 90 et 110, rien ne se passe. S'il tombe sous 90, on perd comme si l'on détenait le sous-jacent.\n\nC'est une **exposition à la hausse financée** par la prise d'un risque de baisse. Le profil ressemble à celui du sous-jacent, avec une zone neutre au milieu.\n\nSur les marchés, le risk reversal sert surtout d'**indicateur** : l'écart de volatilité implicite entre le call et le put de même delta dit de quel côté le marché paie plus cher la protection.",
+      "analogie": "Tu loues ta place de parking quand tu n'en as pas besoin, et tu utilises l'argent pour réserver un billet de concert qui ne sert que si ton groupe préféré passe en ville. Tu ne débourses presque rien, mais si un jour tu as besoin de ta place, tu ne l'as plus. Le put vendu, c'est la place louée ; le call acheté, c'est le billet.",
+      "visuel": { "type": "outil", "ref": "labo.strategies", "legende": "Choisis « Risk reversal » : profil plat entre 90 et 110, en pente de chaque côté." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, options à un an, volatilité 20 % pour tous les strikes, taux 3 %.",
+        "Call 110 : 5,29. Put 90 : 2,77. Le risk reversal (call acheté, put vendu) coûte 5,29 − 2,77 = 2,52.",
+        "Avec le skew réel des actions, le put 90 se traite plutôt à 24 % de volatilité (3,99) et le call 110 à 18 % (4,52). Le même risk reversal coûte alors 4,52 − 3,99 = 0,53.",
+        "Le skew a rendu la vente du put beaucoup plus rentable : la stratégie devient presque gratuite. C'est exactement ce que mesure le risk reversal coté par le marché."
+      ],
+      "formules": [],
+      "deux_minutes": "**Le risk reversal coté en change.** Le marché cote le « risk reversal 25 delta » : la volatilité du call 25 delta moins celle du put 25 delta. Sur l'EUR/USD, un risk reversal négatif veut dire que les puts EUR (les protections contre une baisse de l'euro) sont plus chers que les calls : le marché craint davantage une baisse de l'euro qu'une hausse. C'est un baromètre du sentiment.\n\n**Pour les entreprises.** Le risk reversal est la structure du **tunnel** de change (*collar* en anglais) proposé aux exportateurs et aux importateurs : acheter la protection, vendre l'option opposée pour la financer. Un importateur achète un call USD (put EUR) et vend un put USD (call EUR) : il est protégé au-delà d'un cours, et renonce aux gains au-delà d'un autre, souvent pour une prime nulle. Ces produits sont détaillés dans le module 4.\n\n**Pour un investisseur actions.** Le risk reversal haussier (call acheté, put vendu) est un pari directionnel à faible coût. Mais la vente du put expose à toute la baisse sous le strike : ce n'est pas une position prudente.\n\n**Les grecques.** Le delta est fortement positif, le vega proche de zéro si les deux volatilités bougent ensemble, mais la position est sensible à un changement du **skew** lui-même.",
+      "piege": "Présenter le risk reversal comme « gratuit, donc sans risque ». Le put vendu expose à toute la baisse au-delà de son strike, exactement comme si l'on détenait le sous-jacent. Une prime nulle ne veut jamais dire un risque nul.",
+      "a_dire_en_entretien": "« Un risk reversal, c'est l'achat d'un call en dehors de la monnaie financé par la vente d'un put en dehors de la monnaie, ou l'inverse. C'est une position directionnelle à faible coût, mais le put vendu expose à toute la baisse sous son strike. Le marché cote le risk reversal en volatilité : l'écart entre la volatilité du call et celle du put de même delta mesure le skew, c'est-à-dire de quel côté la protection est la plus chère. »",
+      "liens": ["m2.vol.smile-skew", "m2.strategies.collar", "m2.bs.garman-kohlhagen"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.collar",
+      "type": "fiche", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "tags": ["strategies", "couverture", "client"],
+      "titre": "Le collar : se protéger sans payer de prime",
+      "une_phrase": "Le détenteur d'un actif achète un **put** pour se protéger et vend un **call** pour le financer : il obtient un **plancher** et un **plafond**, souvent pour une **prime nulle**.",
+      "trente_secondes": "Un investisseur détient une action à 100. Il veut se protéger d'une baisse, mais refuse de payer une prime.\n\nIl achète un put 90 : il ne peut plus perdre plus de 10. Il vend un call 120 : il encaisse une prime qui paie le put, mais il renonce à tout gain au-delà de 120.\n\nRésultat : sa valeur à l'échéance est **encadrée entre 90 et 120**. On choisit souvent le strike du call pour que les deux primes s'annulent : c'est le **collar à coût nul**, ou *zero-cost collar*.\n\nEn change et en taux, la même structure s'appelle un **tunnel**.",
+      "analogie": "C'est un contrat avec un garagiste : il s'engage à te racheter ta voiture au moins 9 000 euros dans un an quoi qu'il arrive, et toi tu t'engages à la lui revendre au plus 12 000 euros si les prix montent. Aucun argent ne change de main aujourd'hui : chacun a cédé quelque chose de valeur égale.",
+      "visuel": { "type": "outil", "ref": "labo.strategies", "legende": "Choisis « Collar » : le résultat est encadré entre −10 et +20, pour un coût presque nul." },
+      "exemple_chiffre": [
+        "Exemple fictif : action à 100, options à un an, volatilité 20 %, taux 3 %.",
+        "Le put 90 coûte 2,77. Pour le financer, on cherche le call qui rapporte la même prime : c'est le call de strike 120 (2,77). Coût net : zéro.",
+        "L'action finit à 60 : le put rapporte 30. Valeur totale : 60 + 30 = 90. Perte limitée à 10.",
+        "L'action finit à 150 : le call vendu coûte 30. Valeur totale : 150 − 30 = 120. Gain plafonné à 20.",
+        "Entre 90 et 120, rien ne se passe : l'investisseur garde son action et ses variations."
+      ],
+      "formules": [
+        {
+          "titre": "La valeur à l'échéance d'un collar",
+          "latex": "\\text{Valeur} = \\min\\big(\\max(S_T,\\ K_{\\text{put}}),\\ K_{\\text{call}}\\big)",
+          "legende": { "S_T": "le cours de l'action à l'échéance", "K_{\\text{put}}": "le strike du put acheté, le plancher", "K_{\\text{call}}": "le strike du call vendu, le plafond" },
+          "en_francais": "La valeur de la position est le cours de l'action, ramené dans la fourchette entre le strike du put et celui du call."
+        }
+      ],
+      "deux_minutes": "**Le choix des strikes.** Plus le plancher est haut (meilleure protection), plus le put coûte cher, donc plus le plafond doit être bas pour le financer. Avec le skew des actions, le put est cher et le call en dehors de la monnaie bon marché : le plafond d'un collar à coût nul est souvent assez proche du cours. Le choix est un arbitrage entre protection et potentiel, à discuter avec le client.\n\n**Pour qui.**\n\n- Un dirigeant ou un investisseur qui détient une grosse position dans une action et veut la protéger sans la vendre (par exemple pour des raisons fiscales ou de contrôle).\n- Un gérant qui veut sécuriser une performance acquise en fin d'année.\n- En change, un exportateur ou un importateur : c'est le **tunnel**, très utilisé par les entreprises parce qu'il ne coûte rien au départ.\n- En taux, un emprunteur à taux variable : un cap acheté financé par un floor vendu, le **tunnel de taux**.\n\n**Ce qu'il faut expliquer au client.** Le scénario défavorable n'est pas seulement la baisse (qui est limitée) : c'est aussi la **forte hausse**, où il regrettera d'avoir plafonné son gain. Un collar à coût nul n'est pas gratuit : on paie la protection en renonçant à une partie de la hausse.",
+      "piege": "Dire au client que le collar à coût nul est « gratuit ». Il paie sa protection en renonçant aux gains au-delà du strike du call. Si l'action monte de 50 %, il n'en touchera que 20. C'est le scénario à présenter avant la signature.",
+      "a_dire_en_entretien": "« Un collar, c'est la combinaison d'un put acheté et d'un call vendu sur un actif qu'on détient. Le put fixe un plancher, le call un plafond, et la prime du call finance celle du put, souvent pour un coût nul. Le client est protégé contre la baisse sous le strike du put, mais il renonce aux gains au-delà du strike du call. En change et en taux, la même structure s'appelle un tunnel. »",
+      "liens": ["m2.strategies.risk-reversal", "m2.strategies.spreads", "m2.bases.put"],
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.strategies.c01", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 1, "recto": "Qu'est-ce qu'un call spread ?", "verso": "Un call acheté et un call de strike plus élevé vendu : moins cher qu'un call seul, gain plafonné à l'écart des strikes moins le coût.", "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c02", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "recto": "Jusqu'où un put spread 100/90 protège-t-il ?", "verso": "Jusqu'à 90. Au-delà, la baisse n'est plus couverte : le remboursement est plafonné à 10.", "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c03", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 1, "recto": "Qu'est-ce qu'un straddle ? Sur quoi parie-t-il ?", "verso": "Un call et un put de même strike achetés. Il parie sur un grand mouvement, dans un sens ou dans l'autre : sur la volatilité.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c04", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "recto": "Différence entre straddle et strangle ?", "verso": "Le strangle utilise deux strikes écartés (put bas, call haut) : moins cher, mais il faut un mouvement plus grand.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c05", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "recto": "Points morts d'un straddle acheté ?", "verso": "Strike moins le coût total, et strike plus le coût total.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c06", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "recto": "Comment construit-on un butterfly avec des calls ?", "verso": "Un call bas acheté, deux calls du milieu vendus, un call haut acheté (par exemple 90 / 2 × 100 / 110).", "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c07", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "recto": "Butterfly acheté et straddle vendu : point commun et différence ?", "verso": "Les deux gagnent si le marché reste stable. Le butterfly a une perte limitée à son coût ; le straddle vendu, non.", "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c08", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "recto": "Qu'est-ce qu'un risk reversal ?", "verso": "Un call en dehors de la monnaie acheté, financé par un put en dehors de la monnaie vendu (ou l'inverse). Son prix en volatilité mesure le skew.", "fiche": "m2.strategies.risk-reversal", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c09", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 1, "recto": "Qu'est-ce qu'un collar ?", "verso": "Sur un actif détenu : un put acheté (plancher) financé par un call vendu (plafond), souvent à coût nul.", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c10", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "recto": "Un collar à coût nul est-il gratuit ?", "verso": "Non : la protection est payée en renonçant aux gains au-delà du strike du call vendu.", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.c11", "type": "carte", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "recto": "Comment s'appelle le collar en change et en taux ?", "verso": "Un tunnel.", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.strategies.q01", "type": "question_entretien", "module": 2, "chapitre": "m2.strategies", "difficulte": 2,
+      "question": "Un client pense que le marché va bouger fortement après une annonce, mais ne sait pas dans quel sens. Que lui proposes-tu ?",
+      "reponse_modele": "Un straddle : l'achat d'un call et d'un put à la monnaie, de même échéance. Il gagne si le marché fait un grand mouvement, peu importe le sens, et sa perte est limitée au coût des deux primes. S'il trouve le straddle trop cher, un strangle, avec un put plus bas et un call plus haut, coûte moins cher mais demande un mouvement plus grand. Je le préviendrais d'un point important : avant une annonce, la volatilité implicite est souvent élevée et elle s'effondre juste après. Il faut donc un mouvement plus grand que celui que le marché anticipe déjà.",
+      "points_cles": ["Straddle : call + put à la monnaie", "Pari sur l'amplitude, pas le sens", "Perte limitée aux primes", "Alternative : strangle", "Risque du vol crush"],
+      "piege": "Proposer un call ou un put seul : ce serait un pari directionnel.",
+      "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.q02", "type": "question_entretien", "module": 2, "chapitre": "m2.strategies", "difficulte": 2,
+      "question": "Qu'est-ce qu'un call spread, et pourquoi le préférer à un call ?",
+      "reponse_modele": "C'est l'achat d'un call et la vente d'un call de strike plus élevé, même échéance. La prime du call vendu réduit le coût : par exemple, un call 100 à 9,41 et un call 110 à 5,29 font un call spread à 4,12, plus de 40 % moins cher. En échange, le gain est plafonné à l'écart entre les strikes moins le coût. On le préfère quand on attend une hausse modérée : payer pour les scénarios extrêmes n'a pas de sens. Il a aussi beaucoup moins de vega qu'un call seul.",
+      "points_cles": ["Call acheté + call plus haut vendu", "Coût réduit", "Gain plafonné", "Adapté à une hausse modérée", "Peu de vega"],
+      "piege": "Oublier de dire que le gain est plafonné.",
+      "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.q03", "type": "question_entretien", "module": 2, "chapitre": "m2.strategies", "difficulte": 2,
+      "question": "Un client veut protéger une grosse position en actions, mais refuse de payer une prime. Que proposes-tu ?",
+      "reponse_modele": "Un collar à coût nul : il achète un put, par exemple à 90 % du cours, qui lui garantit un prix minimum, et il vend un call en dehors de la monnaie, dont la prime finance celle du put. Avec une volatilité de 20 %, un put 90 à un an se finance avec un call autour de 120. Sa valeur est alors encadrée entre 90 et 120. Je lui expliquerais clairement le scénario défavorable : en cas de forte hausse, il ne touchera rien au-delà de 120. Je vérifierais aussi qu'il a bien l'intention de garder les actions jusqu'à l'échéance, et les éventuelles contraintes de détention.",
+      "points_cles": ["Put acheté + call vendu", "Coût nul", "Plancher et plafond", "Scénario défavorable : la forte hausse", "Vérifier l'horizon et les contraintes du client"],
+      "piege": "Présenter le collar comme gratuit sans parler du plafond.",
+      "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m2.strategies.q04", "type": "question_entretien", "module": 2, "chapitre": "m2.strategies", "difficulte": 3,
+      "question": "Quelle différence entre vendre un straddle et acheter un butterfly ?",
+      "reponse_modele": "Les deux sont des paris sur un marché calme : ils gagnent si le sous-jacent finit près du strike central. La vente de straddle encaisse deux primes importantes, mais sa perte n'est pas limitée : en cas de grand mouvement, elle peut être très lourde. Le butterfly ajoute l'achat d'options plus éloignées, qui coupent la perte de chaque côté : il coûte un peu au départ, son gain maximal est plus faible, mais sa perte est limitée à son coût. C'est une vente de volatilité à risque limité.",
+      "points_cles": ["Même vue : marché stable", "Straddle vendu : perte illimitée", "Butterfly : ailes achetées", "Perte limitée au coût", "Vente de volatilité à risque limité"],
+      "piege": "Dire que ce sont des positions opposées.",
+      "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.strategies.z01", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "enonce": "Call 100 à 9,41, call 110 à 5,29. Quel est le gain maximal du call spread 100/110 ?", "reponse": 5.88, "tolerance": 0.01, "unite": "", "explication": "Coût : 9,41 − 5,29 = 4,12. Gain maximal : 10 − 4,12 = 5,88.", "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z02", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.strategies", "difficulte": 1, "enonce": "Quelle stratégie gagne si le marché fait un grand mouvement, quel que soit le sens ?", "choix": ["Le call spread", "Le straddle acheté", "Le collar", "Le butterfly acheté"], "bonne": 1, "explication": "Le straddle acheté (call + put de même strike) gagne aux deux extrémités.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z03", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "enonce": "Straddle de strike 100 : call 9,41 + put 6,46. Quel est le point mort haut ?", "reponse": 115.87, "tolerance": 0.01, "unite": "", "explication": "100 + 15,87 = 115,87. Le point mort bas est 84,13.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z04", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "enonce": "La perte d'un butterfly acheté peut dépasser le coût de la stratégie.", "vrai": false, "explication": "Les ailes achetées limitent la perte au coût initial.", "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z05", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "enonce": "Un collar sur une action à 100 : put 90 acheté, call 120 vendu. L'action finit à 140. Valeur de la position ?", "choix": ["90", "120", "140", "160"], "bonne": 1, "explication": "Le call vendu plafonne la valeur à 120 : 140 − 20 = 120.", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z06", "type": "quiz", "forme": "qcm", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "enonce": "En change, un risk reversal 25 delta négatif sur l'EUR/USD signifie que…", "choix": ["les calls EUR sont plus chers que les puts EUR", "les puts EUR sont plus chers que les calls EUR", "la volatilité est nulle", "l'euro va forcément baisser"], "bonne": 1, "explication": "Volatilité du call moins volatilité du put négative : la protection contre une baisse de l'euro est plus chère. C'est un sentiment, pas une prévision.", "fiche": "m2.strategies.risk-reversal", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z07", "type": "quiz", "forme": "vrai_faux", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "enonce": "Un put spread 100/90 protège entièrement un portefeuille contre une baisse de 30 %.", "vrai": false, "explication": "Il ne rembourse que jusqu'à 90 : au-delà, la baisse n'est plus couverte.", "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.z08", "type": "quiz", "forme": "numerique", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "enonce": "Butterfly 90/100/110 avec des calls à 15,43, 9,41 et 5,29. Quel est son coût net ? (deux décimales)", "reponse": 1.9, "tolerance": 0.02, "unite": "", "explication": "15,43 − 2 × 9,41 + 5,29 = 1,90.", "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m2.strategies.x01", "type": "exercice", "module": 2, "chapitre": "m2.strategies", "difficulte": 2,
+      "titre": "Construire un collar à coût nul",
+      "enonce": "Exemple fictif. Un client détient 10 000 actions à 100. Il veut un plancher à 90 dans un an et ne veut payer aucune prime. Volatilité 20 %, taux 3 %. Le put 90 coûte 2,77. Les calls cotent : strike 110 → 5,29 ; strike 115 → 3,86 ; strike 120 → 2,77. Quel collar proposes-tu, et que vaut la position à l'échéance si l'action finit à 70, 105 ou 150 ?",
+      "etapes": [
+        {
+          "titre": "Trouver le call qui finance le put",
+          "texte": "Il faut un call dont la prime vaut celle du put 90, soit 2,77. C'est le call de strike 120.",
+          "resultat": "Collar 90/120 à coût nul",
+          "verif": { "fn": "options.put", "args": [100, 90, 1, 0.03, 0.2], "attendu": 2.7693, "tolerance": 0.0001 }
+        },
+        { "titre": "Si l'action finit à 70", "texte": "Le put rapporte 90 − 70 = 20 par action. Valeur : 70 + 20 = 90 par action, soit 900 000 euros. Sans protection, il aurait 700 000 euros.", "resultat": "900 000 €" },
+        { "titre": "Si l'action finit à 105", "texte": "Ni le put ni le call ne servent. Valeur : 105 par action.", "resultat": "1 050 000 €" },
+        { "titre": "Si l'action finit à 150", "texte": "Le call vendu est exercé : il doit livrer à 120. Valeur : 120 par action. Sans collar, il aurait 1 500 000 euros.", "resultat": "1 200 000 € (manque à gagner de 300 000 €)" },
+        { "titre": "Ce qu'il faut dire au client", "texte": "Sa valeur est encadrée entre 900 000 et 1 200 000 euros, sans rien payer. Le prix de cette protection est le renoncement aux gains au-delà de 120. Si cette limite le gêne, on peut abaisser le plancher (put 85) pour remonter le plafond, ou accepter de payer une petite prime." }
+      ],
+      "erreurs_a_eviter": ["Choisir un call trop proche du cours, qui rapporterait plus qu'il ne faut et plafonnerait inutilement le gain.", "Oublier de présenter le scénario de forte hausse.", "Confondre le cours de l'action et la valeur totale de la position."],
+      "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1
+    },
+
+    {
+      "id": "m2.strategies.k01", "type": "cas_pratique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2,
+      "titre": "Un client privé veut protéger son portefeuille d'actions avant une échéance incertaine",
+      "situation": "Un client de banque privée détient 2 millions d'euros d'actions de grandes entreprises européennes, très corrélées à l'Euro Stoxx 50. Il a bien gagné cette année et craint une forte baisse dans les six prochains mois, à cause de la situation politique et budgétaire. Il ne veut pas vendre ses titres. Que lui proposes-tu ?",
+      "questions_a_poser": [
+        "Quelle baisse êtes-vous prêt à accepter avant d'être protégé (5 %, 10 %, 20 %) ?",
+        "Êtes-vous prêt à payer une prime ? Si oui, quel budget ?",
+        "Acceptez-vous de plafonner vos gains si le marché monte ?",
+        "Sur quelle durée voulez-vous être protégé ?",
+        "Votre portefeuille ressemble-t-il vraiment à l'indice, ou contient-il des valeurs très spécifiques ?"
+      ],
+      "proposition": "Trois solutions, de la plus chère à la moins chère, à adapter à ses réponses.\n\n- **Achat de puts** sur l'Euro Stoxx 50, strike 90 % : protection sous −10 % et potentiel de hausse intact, contre une prime de l'ordre de 1,5 à 2 % du montant protégé, selon la volatilité.\n- **Put spread** 95 %/80 % : protection entre −5 % et −20 %, pour une prime plus faible, mais plus de couverture au-delà de −20 %.\n- **Collar à coût nul** : put 90 % acheté, call vendu autour de 110 à 115 % sur six mois pour le financer. Aucune prime, mais un plafond de gain.\n\nOn utilise des options sur l'indice, plus liquides et moins chères que des options sur chaque action.",
+      "scenario_defavorable": "Avec des puts : si le marché monte ou reste stable, la prime est perdue, comme une assurance sans sinistre. Avec le put spread : en cas de krach de plus de 20 %, la protection ne couvre que la tranche entre −5 et −20 %. Avec le collar : en cas de forte hausse, il renonce aux gains au-delà du plafond. Dans tous les cas, la protection porte sur l'indice : si ses actions baissent plus que l'indice, l'écart n'est pas couvert (risque de base).",
+      "faisabilite": "Vérifier son profil d'investisseur et sa connaissance des produits dérivés (obligations de la réglementation MiFID II), qu'il dispose des garanties nécessaires si des options sont vendues, que le nominal de la couverture correspond à la valeur de son portefeuille ajustée de sa sensibilité à l'indice, et que l'échéance correspond à son horizon.",
+      "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m2.strategies.l-call-spread", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "terme": "Call spread / put spread", "anglais": "call spread / put spread", "definition": "Achat d'une option et vente d'une option de même type à un strike plus éloigné : coût réduit, gain plafonné.", "fiche": "m2.strategies.spreads", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-straddle", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "terme": "Straddle", "anglais": "straddle", "definition": "Call et put de même strike et même échéance. Acheté : pari sur un grand mouvement.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-strangle", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "terme": "Strangle", "anglais": "strangle", "definition": "Put en dehors de la monnaie et call en dehors de la monnaie : un straddle moins cher, qui demande un plus grand mouvement.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-butterfly", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "terme": "Butterfly", "anglais": "butterfly", "definition": "Combinaison de trois strikes (1 acheté, 2 vendus, 1 acheté) qui gagne si le marché finit près du strike central, à perte limitée.", "fiche": "m2.strategies.butterfly", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-risk-reversal", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "terme": "Risk reversal", "anglais": "risk reversal", "definition": "Call acheté et put vendu en dehors de la monnaie (ou l'inverse). Coté en volatilité, il mesure le skew.", "fiche": "m2.strategies.risk-reversal", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-collar", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 2, "terme": "Collar (tunnel)", "anglais": "collar", "definition": "Put acheté et call vendu sur un actif détenu : un plancher et un plafond, souvent à coût nul.", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-point-mort", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 1, "terme": "Point mort", "anglais": "breakeven", "definition": "Cours du sous-jacent à l'échéance pour lequel une stratégie ne gagne ni ne perd, primes comprises.", "fiche": "m2.strategies.straddle-strangle", "maj": "2026-11-16", "version": 1 },
+    { "id": "m2.strategies.l-risque-de-base", "type": "lexique", "module": 2, "chapitre": "m2.strategies", "difficulte": 3, "terme": "Risque de base", "anglais": "basis risk", "definition": "Risque qu'une couverture sur un instrument proche (un indice) ne suive pas exactement la position couverte (un portefeuille).", "fiche": "m2.strategies.collar", "maj": "2026-11-16", "version": 1 }
+  ]
+}
