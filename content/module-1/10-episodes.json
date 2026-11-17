@@ -1,0 +1,377 @@
+{
+  "chapitre": {
+    "id": "m1.episodes",
+    "module": 1,
+    "ordre": 10,
+    "titre": "Les grands épisodes, de 2008 à aujourd'hui",
+    "resume": "Six épisodes à savoir raconter en une minute chacun : 2008, la crise de la dette, les taux négatifs, l'inflation de 2022, les baisses de 2024-2025 et la situation de 2026."
+  },
+  "elements": [
+    {
+      "id": "m1.episodes.vue-ensemble",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "tags": ["histoire", "BCE", "synthese"],
+      "titre": "Vue d'ensemble : inflation et taux de la BCE depuis 2014",
+      "une_phrase": "En douze ans, la BCE a connu **quatre régimes** : des taux négatifs, une hausse record, un cycle de baisses, puis de nouvelles hausses ; à chaque fois, c'est l'inflation qui a commandé.",
+      "trente_secondes": "Le fil conducteur est simple : la BCE suit l'inflation par rapport à sa cible de 2 %.\n\n**2014-2021** : l'inflation est trop basse. Taux négatifs et achats d'obligations.\n\n**2022-2023** : l'inflation explose à 10,6 %. Le taux de dépôt passe de −0,50 % à 4,00 % en quatorze mois.\n\n**2024-2025** : l'inflation revient vers 2 %. Huit baisses, de 4,00 % à 2,00 %.\n\n**2026** : un choc d'énergie fait remonter l'inflation à 4,0 %. Deux hausses, à 2,50 %.\n\nSavoir raconter ces quatre phases, c'est montrer que tu comprends comment une banque centrale raisonne.",
+      "analogie": "C'est le journal de bord d'un capitaine. Par mer d'huile, il met toutes les voiles (taux négatifs). Quand la tempête se lève, il les réduit en urgence (hausse record). Quand le vent retombe, il les remet peu à peu (baisses). Et à la bourrasque suivante, il réduit à nouveau, plus tôt cette fois, parce qu'il a retenu la leçon.",
+      "visuel": { "type": "outil", "ref": "labo.historique", "legende": "Appuie sur chaque période pour la situer sur le graphique." },
+      "exemple_chiffre": [
+        "Le taux de dépôt de la BCE à quelques dates clés.",
+        "Juin 2014 : il passe sous zéro pour la première fois, à −0,10 %. Il descendra jusqu'à −0,50 % en septembre 2019.",
+        "Juillet 2022 : première hausse depuis onze ans, il revient à 0,00 %.",
+        "Septembre 2023 : il atteint 4,00 %, son plus haut niveau historique.",
+        "Juin 2025 : après huit baisses, il est à 2,00 %.",
+        "Septembre 2026 : après deux hausses, il est à 2,50 %."
+      ],
+      "formules": [],
+      "deux_minutes": "**Ce que chaque phase a appris.**\n\n- Des taux négatifs sont possibles, mais leur efficacité s'épuise et ils ont des effets secondaires (prix de l'immobilier, rentabilité des banques).\n- Une banque centrale peut se tromper sur la durée d'un choc : l'inflation de 2021 n'était pas « transitoire ».\n- Une désinflation rapide sans récession est possible quand le choc d'offre se retourne : c'est l'atterrissage en douceur de 2023-2024.\n- La période d'inflation très basse des années 2010 n'était pas un nouvel état permanent : les chocs d'offre sont de retour.\n\n**Avant 2014.** Pour compléter le récit, deux épisodes fondateurs : la **crise financière de 2008**, qui a ouvert l'ère des taux zéro et des achats d'obligations, et la **crise de la dette de 2011-2012**, qui a failli emporter l'euro et fait de la BCE le garant de la monnaie unique.\n\n**Le parallèle avec la Fed.** Même séquence, avec des écarts : taux à zéro de 2008 à 2015 puis de 2020 à 2022, hausses de 0–0,25 % à 5,25–5,50 % entre mars 2022 et juillet 2023, baisses à partir de septembre 2024 jusqu'à 3,50–3,75 % fin 2025, puis hausse en septembre 2026. La Fed a commencé à monter plus tôt et est montée plus haut que la BCE : c'est ce décalage qui a fait baisser l'euro en 2022, puis à nouveau en 2026.\n\n**Comment s'en servir en entretien.** Quand on te pose une question sur la situation actuelle, la replacer en une phrase dans cette séquence montre du recul : « après le cycle de baisses de 2024-2025, la BCE a dû remonter ses taux en 2026 face à un nouveau choc d'énergie ».",
+      "piege": "Mélanger les dates et les niveaux. Trois chiffres suffisent pour ancrer le récit : **−0,50 %** (le point bas), **4,00 %** (le sommet de septembre 2023), **2,50 %** (aujourd'hui). Et retiens que le taux cité est le taux de **dépôt**.",
+      "a_dire_en_entretien": "« Depuis 2014, la BCE a traversé quatre phases. De 2014 à 2021, l'inflation était trop basse : taux négatifs jusqu'à −0,50 % et achats d'obligations. En 2022-2023, face à une inflation à plus de 10 %, elle a relevé son taux de dépôt à 4 % en quatorze mois. En 2024-2025, l'inflation revenant vers 2 %, elle l'a ramené à 2 %. Et en 2026, un nouveau choc d'énergie l'a conduite à le remonter à 2,50 %. »",
+      "liens": ["m1.episodes.crise-2008", "m1.episodes.dette-2011", "m1.episodes.taux-negatifs", "m1.episodes.inflation-2022", "m1.episodes.baisses-2024", "m1.episodes.situation-2026"],
+      "sources": [
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Eurostat, inflation annuelle de la zone euro (IPCH)", "url": "https://ec.europa.eu/eurostat/fr/web/hicp" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE, point bas", "valeur": "−0,50 %", "date": "2019-09-18", "source": "BCE" },
+        { "libelle": "Taux de dépôt de la BCE, sommet", "valeur": "4,00 %", "date": "2023-09-20", "source": "BCE" },
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.crise-2008",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["histoire", "crise", "banque"],
+      "titre": "2008 : la crise financière",
+      "une_phrase": "En 2008, l'effondrement des **crédits immobiliers américains à risque** a provoqué une crise bancaire mondiale ; les banques centrales ont répondu par des taux à zéro et les premiers achats massifs d'obligations.",
+      "trente_secondes": "Aux États-Unis, des banques avaient prêté à des ménages peu solvables pour acheter leur logement : les crédits **subprimes**. Ces crédits étaient ensuite regroupés, découpés et revendus à des investisseurs du monde entier, sous forme de titres bien notés.\n\nQuand les prix de l'immobilier ont baissé et que les ménages ont cessé de rembourser, ces titres ont perdu leur valeur. Personne ne savait quelle banque en détenait : les banques ont cessé de se prêter entre elles.\n\nLe 15 septembre 2008, la banque d'affaires **Lehman Brothers** fait faillite. La panique devient mondiale, le crédit se bloque, l'économie plonge dans la pire récession depuis les années 1930.",
+      "analogie": "Dans une cantine, quelques plats sont avariés, mais personne ne sait lesquels. Tout le monde arrête de manger, même les plats sains. Ce n'est pas la quantité de nourriture avariée qui affame la cantine, c'est le doute. En 2008, le doute sur le contenu des bilans a gelé tout le système bancaire.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Crédits immobiliers à risque", "texte": "Accordés à des ménages fragiles, puis revendus sous forme de titres." },
+          { "titre": "L'immobilier américain se retourne", "texte": "Les défauts de remboursement se multiplient à partir de 2007." },
+          { "titre": "Les titres perdent leur valeur", "texte": "Personne ne sait qui porte les pertes." },
+          { "titre": "Les banques ne se prêtent plus", "texte": "Faillite de Lehman Brothers le 15 septembre 2008 : panique." },
+          { "titre": "Le crédit se bloque, l'économie plonge", "texte": "Récession mondiale, chômage en forte hausse." },
+          { "titre": "Les banques centrales et les États interviennent", "texte": "Taux à zéro, achats d'obligations, sauvetages bancaires, plans de relance." }
+        ]
+      },
+      "exemple_chiffre": [
+        "La réponse de la Fed, en chiffres.",
+        "Août 2007 : son taux directeur est à 5,25 %.",
+        "16 décembre 2008 : il est abaissé dans une fourchette de 0 % à 0,25 %. Il y restera sept ans, jusqu'en décembre 2015.",
+        "Les taux étant au plancher, la Fed lance des achats massifs d'obligations : c'est le premier « QE ». Son bilan passe d'environ 900 milliards de dollars avant la crise à plus de 2 000 milliards fin 2008.",
+        "Le taux de chômage américain grimpe jusqu'à 10 % en octobre 2009."
+      ],
+      "formules": [],
+      "deux_minutes": "**La réponse de la BCE** a été plus lente. Elle avait même monté son taux en juillet 2008, par crainte de l'inflation liée au pétrole. Après Lehman, elle abaisse son taux de refinancement de 4,25 % à 1,00 % entre octobre 2008 et mai 2009, et prête aux banques des montants illimités à taux fixe.\n\n**La réponse des États.** Recapitalisation ou nationalisation de banques, garanties sur les dépôts, plans de relance. Aux États-Unis, un plan de sauvetage de 700 milliards de dollars est voté en octobre 2008. Le résultat : les dettes publiques bondissent partout, ce qui préparera la crise suivante en Europe.\n\n**Ce que la crise a changé durablement.**\n\n- **La politique monétaire** : les taux zéro et les achats d'obligations entrent dans la boîte à outils. Les bilans des banques centrales ne reviendront jamais à leur taille d'avant.\n- **La réglementation bancaire** : les accords de **Bâle III** imposent aux banques plus de fonds propres et des réserves de liquidité. En Europe, la supervision des grandes banques est confiée à la BCE en 2014.\n- **Les produits dérivés** : obligation de passer par des chambres de compensation et de déclarer les transactions (règlement EMIR en Europe).\n- **Le vocabulaire** : « trop grosse pour faire faillite » (*too big to fail*), « risque systémique », « aléa moral ».\n\n**Les mots à connaître.** *Subprime* : crédit immobilier à un emprunteur risqué. *Titrisation* : transformation de crédits en titres vendus à des investisseurs. *Crise de liquidité* : on ne trouve plus à emprunter. *Crise de solvabilité* : les pertes dépassent les fonds propres.",
+      "piege": "Dire que la crise de 2008 a été causée par une hausse des taux ou par l'inflation. Sa cause est un **excès de crédit** et une mauvaise évaluation des risques, qui ont fait douter de la solidité des banques. C'est une crise financière, pas une crise d'inflation. Ne la confonds pas non plus avec la crise de la dette des États, qui vient après.",
+      "a_dire_en_entretien": "« La crise de 2008 part des crédits immobiliers à risque américains, les subprimes, qui avaient été titrisés et diffusés dans tout le système financier. Quand l'immobilier s'est retourné, les banques ont cessé de se faire confiance. La faillite de Lehman Brothers, le 15 septembre 2008, a provoqué une panique mondiale. Les banques centrales ont ramené leurs taux à zéro et lancé les premiers achats massifs d'obligations ; les États ont sauvé les banques. La crise a débouché sur un durcissement de la réglementation, avec Bâle III. »",
+      "liens": ["m1.episodes.dette-2011", "m1.outils.qe-qt", "m1.bc.roles", "m1.episodes.vue-ensemble"],
+      "sources": [
+        { "titre": "Réserve fédérale, historique de la cible des Fed funds", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm" },
+        { "titre": "Federal Reserve History, « The Great Recession and Its Aftermath »", "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath" },
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" }
+      ],
+      "chiffres": [
+        { "libelle": "Faillite de Lehman Brothers", "valeur": "15 septembre 2008", "date": "2008-09-15", "source": "Federal Reserve History" },
+        { "libelle": "Cible des Fed funds", "valeur": "0 % – 0,25 %", "date": "2008-12-16", "source": "Réserve fédérale" },
+        { "libelle": "Taux de chômage américain, pic", "valeur": "10,0 %", "date": "2009-10-31", "source": "Bureau of Labor Statistics" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.dette-2011",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["histoire", "dette", "BCE"],
+      "titre": "2011-2012 : la crise de la dette en zone euro",
+      "une_phrase": "De 2010 à 2012, les investisseurs ont douté de la capacité de plusieurs États de la zone euro à rembourser leur dette ; la crise s'est arrêtée quand la BCE a promis de faire « tout ce qu'il faudra » pour sauver l'euro.",
+      "trente_secondes": "Fin 2009, la **Grèce** révèle que son déficit est bien plus élevé qu'annoncé. Les investisseurs exigent des taux de plus en plus élevés pour lui prêter, puis cessent de prêter.\n\nLe doute gagne l'**Irlande**, le **Portugal**, puis les grands pays : l'**Espagne** et l'**Italie**, dont les taux à 10 ans dépassent 7 %. À ce niveau, la dette devient impossible à tenir.\n\nLe problème de fond : ces pays ont une monnaie commune mais pas de budget commun, et leur banque centrale n'a pas le droit de financer les États. Les marchés se mettent à parier sur l'éclatement de l'euro.\n\nLe 26 juillet 2012, Mario Draghi, président de la BCE, met fin à la panique en une phrase.",
+      "analogie": "Des alpinistes sont encordés. L'un d'eux glisse. Si la corde tient, tout le monde est sauvé ; si chacun pense qu'elle va céder, chacun veut se détacher, et c'est alors que tout le monde tombe. Pendant deux ans, personne n'a su si la corde tiendrait. La phrase de Draghi a été l'annonce qu'il y avait un point d'ancrage solide en haut.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "Fin 2009 : la Grèce révèle son vrai déficit", "texte": "Les investisseurs doutent de sa capacité à rembourser." },
+          { "titre": "2010-2011 : plans de sauvetage", "texte": "Grèce, Irlande, Portugal reçoivent des prêts européens et du FMI contre des plans d'austérité." },
+          { "titre": "2011-2012 : contagion", "texte": "Les taux de l'Espagne et de l'Italie dépassent 7 %. On parie sur la fin de l'euro." },
+          { "titre": "26 juillet 2012 : « whatever it takes »", "texte": "La BCE promet de faire tout ce qu'il faudra pour préserver l'euro." },
+          { "titre": "Les taux refluent", "texte": "Sans que la BCE ait eu à acheter une seule obligation dans ce cadre." }
+        ]
+      },
+      "exemple_chiffre": [
+        "Ce que représente un taux de 7 %, avec un exemple fictif.",
+        "Un État a une dette de 2 000 milliards d'euros. Tant qu'il emprunte à 2 %, ses intérêts lui coûtent, à terme, 2 000 × 2 % = 40 milliards par an.",
+        "Si les marchés exigent 7 %, chaque emprunt renouvelé coûte 7 %. Une fois toute la dette renouvelée, la charge atteint 2 000 × 7 % = 140 milliards par an.",
+        "Cela fait 100 milliards de plus chaque année à trouver, en impôts ou en économies. C'est intenable.",
+        "Or plus le marché doute, plus le taux monte, et plus le taux monte, plus le doute est justifié. C'est une prophétie autoréalisatrice, que seule la banque centrale peut briser."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi le doute était si destructeur.** Un État qui emprunte dans sa propre monnaie peut toujours compter, en dernier recours, sur sa banque centrale. Les États de la zone euro, eux, empruntent dans une monnaie qu'ils ne contrôlent pas. Ils sont donc exposés à une **crise de liquidité** : si plus personne ne veut prêter, ils peuvent faire défaut même en étant solvables.\n\n**La boucle entre banques et États.** Les banques d'un pays détiennent beaucoup de dette de leur État. Quand cette dette perd de la valeur, les banques sont fragilisées ; l'État doit les soutenir, ce qui dégrade encore ses finances. C'est le « cercle vicieux » que l'union bancaire européenne a ensuite cherché à casser.\n\n**L'erreur de 2011.** La BCE, alors présidée par Jean-Claude Trichet, monte ses taux deux fois, en avril et en juillet 2011, à cause de la hausse du pétrole, en pleine crise. Mario Draghi, arrivé en novembre 2011, les rebaisse aussitôt.\n\n**Le tournant.** Le 26 juillet 2012 à Londres, Mario Draghi déclare : « Dans le cadre de son mandat, la BCE est prête à faire tout ce qu'il faudra pour préserver l'euro. Et croyez-moi, ce sera suffisant. » En septembre, la BCE crée l'**OMT** : des achats potentiellement illimités de dette d'un État qui accepte un programme d'aide. Il n'a jamais servi.\n\n**Ce qui en est resté.** Le Mécanisme européen de stabilité, fonds de secours permanent ; la supervision bancaire unique confiée à la BCE ; des règles budgétaires renforcées ; et l'idée que la BCE est le garant de l'intégrité de la zone euro, prolongée en 2022 par le **TPI**.\n\n**Le coût.** Les plans d'austérité ont provoqué une seconde récession en zone euro en 2011-2013, et un chômage dépassant 25 % en Grèce et en Espagne.",
+      "piege": "Confondre la crise de 2008 et celle de 2011-2012. La première est une crise **bancaire**, née aux États-Unis. La seconde est une crise des **dettes publiques**, propre à la zone euro. La seconde découle en partie de la première : les États s'étaient endettés pour sauver leurs banques et relancer leur économie.",
+      "a_dire_en_entretien": "« La crise de la dette commence fin 2009 avec la Grèce, puis s'étend à l'Irlande, au Portugal, à l'Espagne et à l'Italie. Les marchés doutaient de la capacité de ces États à rembourser, dans une union monétaire sans budget commun ni prêteur en dernier ressort pour les États. Les taux italiens et espagnols ont dépassé 7 %. Le tournant a été le « whatever it takes » de Mario Draghi, le 26 juillet 2012, suivi de la création de l'OMT : la simple promesse d'intervention a fait refluer les spreads. »",
+      "liens": ["m1.episodes.crise-2008", "m1.episodes.taux-negatifs", "m1.outils.tpi", "m1.budget.spread"],
+      "sources": [
+        { "titre": "BCE, discours de Mario Draghi à Londres, 26 juillet 2012", "url": "https://www.ecb.europa.eu/press/key/date/2012/html/sp120726.en.html", "date": "2012-07-26" },
+        { "titre": "BCE, communiqué sur les caractéristiques techniques des OMT, 6 septembre 2012", "url": "https://www.ecb.europa.eu/press/pr/date/2012/html/pr120906_1.en.html", "date": "2012-09-06" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.taux-negatifs",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["histoire", "taux", "BCE"],
+      "titre": "2014-2022 : huit ans de taux négatifs",
+      "une_phrase": "De juin 2014 à juillet 2022, le taux de dépôt de la BCE a été **négatif** : les banques payaient pour laisser leur argent à la banque centrale, afin de les pousser à le prêter.",
+      "trente_secondes": "Après la crise de la dette, l'économie de la zone euro reste molle et l'inflation tombe bien en dessous de 2 %, frôlant zéro. Le risque est la **déflation**.\n\nLa BCE a déjà ramené ses taux à zéro. Elle va plus loin : en juin 2014, elle fixe son taux de dépôt à −0,10 %, puis le descend par étapes jusqu'à **−0,50 %** en septembre 2019.\n\nUn taux négatif signifie qu'une banque qui laisse 100 euros à la BCE n'en récupère que 99,50 un an plus tard. L'objectif est de la décourager de garder son argent inactif.\n\nÀ partir de mars 2015, la BCE y ajoute des achats massifs d'obligations.",
+      "analogie": "C'est un parking qui ferait payer de plus en plus cher les voitures qui restent garées, pour les obliger à rouler. La BCE taxe l'argent qui dort dans ses coffres, pour qu'il circule dans l'économie sous forme de crédits.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Date d'entrée en vigueur", "Taux de dépôt", "Contexte"],
+        "lignes": [
+          ["11 juin 2014", "−0,10 %", "Première banque centrale majeure sous zéro"],
+          ["10 septembre 2014", "−0,20 %", "Inflation proche de zéro"],
+          ["9 décembre 2015", "−0,30 %", "Les achats d'obligations ont commencé en mars 2015"],
+          ["16 mars 2016", "−0,40 %", "Inflation toujours très faible"],
+          ["18 septembre 2019", "−0,50 %", "Le point bas"],
+          ["27 juillet 2022", "0,00 %", "Fin des taux négatifs"]
+        ],
+        "legende": "Source : BCE."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque dépose 1 milliard d'euros à la BCE pendant un an, avec un taux de dépôt de −0,50 %.",
+        "Elle « reçoit » 1 000 000 000 × (−0,50 %) = −5 000 000 euros. Autrement dit, elle paie 5 millions d'euros à la BCE.",
+        "Si elle prête ce milliard à des entreprises à 1,5 %, elle gagne au contraire 15 millions d'euros.",
+        "L'écart entre les deux choix est de 20 millions d'euros : c'est l'incitation à prêter.",
+        "Dans la réalité, les banques n'ont répercuté les taux négatifs que sur les dépôts des grandes entreprises, presque jamais sur les comptes des particuliers."
+      ],
+      "formules": [],
+      "deux_minutes": "**Les effets visibles.** Tous les taux ont suivi. L'Euribor est devenu négatif. Les États bien notés ont emprunté à taux négatif : le Bund allemand à 10 ans est descendu vers −0,85 % en mars 2020, et la France a emprunté à taux négatif jusqu'à 10 ans. Des investisseurs acceptaient de **perdre** un peu pour mettre leur argent en sécurité.\n\n**Ce que la BCE a ajouté.** Des achats d'obligations à partir de mars 2015 (60 milliards d'euros par mois au départ), des prêts à long terme très avantageux pour les banques qui prêtaient à l'économie, et l'engagement de garder les taux bas longtemps. En mars 2020, face au Covid, le programme d'urgence PEPP.\n\n**Ce que les taux négatifs ont permis.** Un crédit très bon marché, une reprise de l'emploi, des États capables de s'endetter pendant le Covid sans crise, et un euro plus faible qui a soutenu les exportations.\n\n**Leurs effets secondaires.**\n\n- Les **prix des actifs** se sont envolés : immobilier, actions. Cela a creusé les inégalités de patrimoine.\n- La **rentabilité des banques** a été comprimée : elles payaient sur leurs réserves sans pouvoir faire payer les déposants.\n- Les **épargnants** et les assureurs-vie ont vu leurs rendements disparaître.\n- Des entreprises fragiles ont survécu grâce au crédit presque gratuit.\n\n**Pourquoi l'inflation est restée basse.** Malgré tout cela, l'inflation est restée sous 2 % pendant presque toute la période. La mondialisation, le vieillissement et un chômage encore élevé tiraient les prix vers le bas. Cette expérience a pesé lourd en 2021 : les banquiers centraux, habitués à une inflation trop faible, ont mis du temps à croire à son retour.\n\n**Le Japon, la Suisse, le Danemark et la Suède** ont eux aussi pratiqué les taux négatifs. La Fed et la Banque d'Angleterre ne sont jamais descendues sous zéro.",
+      "piege": "Croire que les particuliers payaient pour avoir de l'argent sur leur compte, ou qu'on les payait pour emprunter. Le taux négatif s'appliquait aux **dépôts des banques à la BCE**. Les crédits aux particuliers sont restés à taux positif, parce que les banques ajoutent leur marge.",
+      "a_dire_en_entretien": "« De juin 2014 à juillet 2022, le taux de dépôt de la BCE a été négatif, jusqu'à −0,50 %. L'inflation était durablement inférieure à 2 % et la BCE voulait écarter le risque de déflation : en faisant payer les banques sur leurs réserves, elle les incitait à prêter. Elle a complété par des achats d'obligations à partir de 2015. Cela a soutenu le crédit et l'emploi, mais au prix d'une hausse des prix des actifs et d'une pression sur la rentabilité des banques. »",
+      "liens": ["m1.episodes.dette-2011", "m1.episodes.inflation-2022", "m1.outils.qe-qt", "m1.inflation.deflation"],
+      "sources": [{ "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" }],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE, premier taux négatif", "valeur": "−0,10 %", "date": "2014-06-11", "source": "BCE" },
+        { "libelle": "Taux de dépôt de la BCE, point bas", "valeur": "−0,50 %", "date": "2019-09-18", "source": "BCE" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.inflation-2022",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["histoire", "inflation", "taux"],
+      "titre": "2022-2023 : l'inflation et la hausse record des taux",
+      "une_phrase": "En 2022, l'inflation a dépassé **10 %** en zone euro ; la BCE a relevé son taux de dépôt de **−0,50 % à 4,00 %** en quatorze mois, le resserrement le plus rapide de son histoire.",
+      "trente_secondes": "Deux chocs se sont enchaînés.\n\n**2021** : après le Covid, la demande repart très fort, portée par l'épargne accumulée et les plans de relance, alors que les usines et les ports tournent encore au ralenti. Les prix commencent à monter. Les banques centrales jugent la hausse « transitoire ».\n\n**2022** : la Russie envahit l'Ukraine en février. Les prix du gaz, du pétrole et des céréales s'envolent. L'inflation atteint **10,6 %** en zone euro en octobre 2022 et **9,1 %** aux États-Unis en juin.\n\nLes banques centrales, en retard, montent leurs taux à marche forcée.",
+      "analogie": "Un pompier arrive tard sur un incendie qu'il croyait être un simple feu de broussailles. Pour rattraper son retard, il doit ouvrir les lances au maximum. Les hausses de 0,50 et 0,75 point de 2022, au lieu des 0,25 habituels, sont ces lances grandes ouvertes.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "BCE", "Fed"],
+        "lignes": [
+          ["Première hausse", "Juillet 2022", "Mars 2022"],
+          ["Point de départ", "−0,50 %", "0 % – 0,25 %"],
+          ["Sommet", "4,00 % (septembre 2023)", "5,25 % – 5,50 % (juillet 2023)"],
+          ["Ampleur", "4,50 points en 14 mois", "5,25 points en 16 mois"],
+          ["Pic d'inflation", "10,6 % (octobre 2022)", "9,1 % (juin 2022)"]
+        ],
+        "legende": "Sources : BCE, Réserve fédérale, Eurostat, Bureau of Labor Statistics."
+      },
+      "exemple_chiffre": [
+        "Le rythme des hausses de la BCE, d'après ses décisions.",
+        "Juillet 2022 : +0,50 point, première hausse depuis onze ans. Le taux de dépôt passe de −0,50 % à 0,00 %.",
+        "Septembre et octobre 2022 : deux hausses de 0,75 point, du jamais vu. Le taux atteint 1,50 %.",
+        "De décembre 2022 à mars 2023 : trois hausses de 0,50 point, jusqu'à 3,00 %.",
+        "De mai à septembre 2023 : quatre hausses de 0,25 point. Le taux atteint 4,00 % le 20 septembre 2023.",
+        "Total : dix hausses consécutives, 4,50 points en quatorze mois."
+      ],
+      "formules": [],
+      "deux_minutes": "**L'erreur du « transitoire ».** En 2021, la Fed et la BCE ont estimé que la hausse des prix venait de blocages temporaires et qu'elle s'éteindrait d'elle-même. Elles sortaient de dix ans d'inflation trop basse. Elles ont donc attendu, ce qui les a obligées ensuite à frapper beaucoup plus fort. Cette erreur a marqué leur comportement : en 2026, elles ont réagi bien plus tôt.\n\n**Pourquoi la BCE a agi après la Fed.** L'inflation américaine venait surtout de la demande, celle de la zone euro surtout de l'énergie importée. La BCE hésitait à durcir sa politique face à un choc d'offre qui appauvrissait déjà les ménages. Ce décalage a creusé l'écart de taux et fait tomber l'**EUR/USD sous la parité**, vers 0,96 fin septembre 2022.\n\n**Les dégâts collatéraux.**\n\n- Les **obligations** ont connu une de leurs pires années en 2022.\n- En mars 2023, la banque américaine **Silicon Valley Bank** fait faillite, minée par ses pertes sur des obligations longues. Dans la foulée, **Credit Suisse**, déjà fragile, est racheté en urgence par UBS.\n- Les crédits immobiliers s'effondrent, les prix de l'immobilier reculent.\n\n**Le résultat.** L'inflation est retombée vite : 2,9 % en zone euro en décembre 2023. L'énergie avait reflué, et la hausse des taux a freiné la demande. Surtout, la récession annoncée n'a pas eu lieu, ou très peu : c'est l'**atterrissage en douceur**.\n\n**Le débat qui reste.** L'inflation serait-elle retombée de toute façon, avec la fin du choc d'énergie ? Sans doute en partie. Mais en agissant fort, les banques centrales ont empêché les anticipations de décrocher et la boucle prix-salaires de s'installer.",
+      "piege": "Attribuer l'inflation de 2022 à une seule cause. Il y en a deux, dans l'ordre : la **demande** d'après-Covid en 2021, puis le **choc d'énergie** de 2022. Et ne dis pas que la BCE est montée « à 4,50 % » : le taux de dépôt a culminé à 4,00 % ; 4,50 %, c'était le taux de refinancement.",
+      "a_dire_en_entretien": "« L'inflation de 2022 a deux origines successives : une demande très forte à la sortie du Covid face à une offre désorganisée, puis le choc d'énergie lié à la guerre en Ukraine. Elle a atteint 10,6 % en zone euro en octobre 2022. Les banques centrales, qui l'avaient d'abord jugée transitoire, ont dû rattraper leur retard : la BCE a relevé son taux de dépôt de −0,50 % à 4 % en quatorze mois, la Fed jusqu'à 5,25 % – 5,50 %. L'inflation est retombée sous 3 % fin 2023, sans récession marquée. »",
+      "liens": ["m1.episodes.taux-negatifs", "m1.episodes.baisses-2024", "m1.inflation.causes", "m1.transmission.obligations"],
+      "sources": [
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Réserve fédérale, historique de la cible des Fed funds", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm" },
+        { "titre": "Eurostat, inflation annuelle de la zone euro (IPCH)", "url": "https://ec.europa.eu/eurostat/fr/web/hicp" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation zone euro (IPCH), pic", "valeur": "10,6 %", "date": "2022-10-31", "source": "Eurostat" },
+        { "libelle": "Taux de dépôt de la BCE, sommet", "valeur": "4,00 %", "date": "2023-09-20", "source": "BCE" },
+        { "libelle": "Cible des Fed funds, sommet", "valeur": "5,25 % – 5,50 %", "date": "2023-07-26", "source": "Réserve fédérale" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.baisses-2024",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["histoire", "taux", "BCE"],
+      "titre": "2024-2025 : le cycle de baisses",
+      "une_phrase": "De juin 2024 à juin 2025, l'inflation revenant vers 2 %, la BCE a baissé son taux de dépôt **huit fois**, de **4,00 % à 2,00 %**.",
+      "trente_secondes": "Mi-2024, l'inflation de la zone euro est retombée autour de 2,5 % et la croissance est faible. Garder des taux à 4 % freinerait trop longtemps.\n\nLa BCE commence à baisser en **juin 2024**, par pas de 0,25 point. Elle n'attend pas que l'inflation soit exactement à 2 % : comme ses décisions agissent avec retard, elle se fie à ses prévisions.\n\nEn **juin 2025**, après huit baisses, le taux de dépôt est à **2,00 %**, un niveau jugé neutre. Elle s'arrête là.\n\nLa Fed suit le même chemin avec trois mois de retard : première baisse en septembre 2024, et une fourchette ramenée à 3,50 % – 3,75 % fin 2025.",
+      "analogie": "Le conducteur a freiné fort dans la descente. La route redevient plate : s'il garde le pied sur le frein, la voiture va s'arrêter. Il relâche donc progressivement, sans attendre d'être à l'arrêt, jusqu'à retrouver une allure normale. Le taux de 2 %, c'est le pied levé : ni frein, ni accélérateur.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Date d'entrée en vigueur", "Taux de dépôt"],
+        "lignes": [
+          ["12 juin 2024", "3,75 %"],
+          ["18 septembre 2024", "3,50 %"],
+          ["23 octobre 2024", "3,25 %"],
+          ["18 décembre 2024", "3,00 %"],
+          ["5 février 2025", "2,75 %"],
+          ["12 mars 2025", "2,50 %"],
+          ["23 avril 2025", "2,25 %"],
+          ["11 juin 2025", "2,00 %"]
+        ],
+        "legende": "Les huit baisses de 0,25 point. Source : BCE."
+      },
+      "exemple_chiffre": [
+        "Ce que le cycle de baisses a changé pour un emprunteur, avec un exemple fictif de contrat.",
+        "Une entreprise a un crédit de 2 000 000 d'euros indexé sur l'Euribor 3 mois, avec une marge de 1 %.",
+        "Fin 2023, l'Euribor 3 mois est proche de 3,9 %. Son taux est d'environ 4,9 % : 98 000 euros d'intérêts par an.",
+        "Mi-2025, l'Euribor 3 mois est proche de 2 %. Son taux est d'environ 3 % : 60 000 euros par an.",
+        "Sans rien faire, elle économise environ 38 000 euros par an. C'est la transmission d'une baisse de taux, vue du côté du client."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi baisser avant d'être à 2 %.** Attendre que l'inflation soit exactement à la cible aurait été trop tard : compte tenu des délais de transmission, l'inflation serait ensuite passée **sous** 2 %. La cible étant symétrique, c'est une erreur aussi grave que de rester au-dessus.\n\n**Pourquoi s'arrêter à 2 %.** C'est le milieu de la fourchette du taux neutre estimée par les services de la BCE (1,75 % à 2,25 %). L'inflation étant revenue à la cible et l'économie n'étant pas en récession, il n'y avait pas de raison de passer en territoire accommodant.\n\n**Le contexte.** La croissance de la zone euro est restée faible, l'industrie allemande en difficulté, et la hausse des droits de douane américains en 2025 a créé de l'incertitude. En moyenne annuelle, l'inflation a été de 2,4 % en 2024 et 2,1 % en 2025.\n\n**La Fed.** Elle commence en septembre 2024 par une baisse de 0,50 point, puis ramène sa fourchette à 4,25 % – 4,50 % fin 2024. Après une longue pause, elle reprend à l'automne 2025 et termine l'année à 3,50 % – 3,75 %. Elle est donc restée nettement au-dessus de la BCE.\n\n**Sur les marchés.** Les obligations ont regagné de la valeur avec la baisse des taux courts. Mais les taux longs ont peu baissé, voire remonté, à cause des besoins de financement des États : la courbe des taux s'est **repentifiée**. L'euro, lui, s'est nettement apprécié en 2025, repassant au-dessus de 1,15 dollar, quand les investisseurs ont douté de la politique économique américaine.\n\n**Ce que personne n'avait prévu.** Fin 2025, le scénario dominant était celui d'une longue stabilité des taux. Le choc d'énergie de 2026 a ouvert un nouveau chapitre.",
+      "piege": "Dire que la BCE a baissé ses taux « parce que l'économie allait mal ». La condition première était le **retour de l'inflation vers 2 %**. Sans cela, la faiblesse de la croissance n'aurait pas suffi : son mandat porte sur les prix.",
+      "a_dire_en_entretien": "« Entre juin 2024 et juin 2025, la BCE a baissé son taux de dépôt huit fois, de 4 % à 2 %. L'inflation était revenue vers la cible et la croissance était faible : maintenir des taux aussi élevés aurait trop freiné l'économie. Elle a commencé avant que l'inflation soit exactement à 2 %, à cause des délais de transmission, et s'est arrêtée à 2 %, un niveau considéré comme neutre. La Fed a suivi à partir de septembre 2024, en restant plus haut, à 3,50 % – 3,75 % fin 2025. »",
+      "liens": ["m1.episodes.inflation-2022", "m1.episodes.situation-2026", "m1.decision.taux-neutre", "m1.transmission.chaine"],
+      "sources": [
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Réserve fédérale, historique de la cible des Fed funds", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de dépôt de la BCE après la première baisse", "valeur": "3,75 %", "date": "2024-06-12", "source": "BCE" },
+        { "libelle": "Taux de dépôt de la BCE en fin de cycle", "valeur": "2,00 %", "date": "2025-06-11", "source": "BCE" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.situation-2026",
+      "type": "fiche", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "tags": ["actualite", "inflation", "taux"],
+      "titre": "2026 : le retour des hausses",
+      "une_phrase": "En 2026, un **choc d'énergie** lié au conflit au Moyen-Orient a fait remonter l'inflation à 4 % en zone euro ; la BCE et la Fed ont recommencé à monter leurs taux.",
+      "trente_secondes": "Début 2026, l'inflation est à la cible et les taux sont stables : 2,00 % pour la BCE, 3,50 % – 3,75 % pour la Fed.\n\nLe conflit au Moyen-Orient fait flamber les prix de l'énergie. En zone euro, ils augmentent de plus de 20 % sur un an, et l'inflation remonte à **4,0 %** en octobre.\n\nLes banques centrales réagissent plus tôt qu'en 2022. La **BCE** monte en juin puis en septembre, à **2,50 %**. La **Fed** monte en septembre, à **3,75 % – 4,00 %**. La **Banque d'Angleterre** suit en novembre, à 4,00 %.\n\nFin octobre, la BCE et la Fed font une pause. Les prochaines réunions, en décembre, sont très attendues.",
+      "analogie": "C'est le même incendie qu'en 2022, mais les pompiers ont changé de méthode. La dernière fois, ils avaient attendu et tout avait brûlé. Cette fois, ils arrosent dès les premières flammes, quitte à mouiller des pièces qui n'en avaient pas besoin. Le débat de 2026 est de savoir s'ils en font juste assez ou trop.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Date", "Événement"],
+        "lignes": [
+          ["11 juin 2026", "BCE : première hausse depuis 2023, taux de dépôt à 2,25 %"],
+          ["10 septembre 2026", "BCE : deuxième hausse, à 2,50 %"],
+          ["16 septembre 2026", "Fed : hausse à 3,75 % – 4,00 %"],
+          ["23 octobre 2026", "Écart OAT-Bund à 176 points de base, plus haut depuis 2011"],
+          ["28 et 29 octobre 2026", "Fed et BCE : statu quo. Christine Lagarde annonce son départ pour février 2027"],
+          ["4 novembre 2026", "Banque d'Angleterre : hausse à 4,00 %. L'Assemblée nationale rejette le budget 2027"],
+          ["13 novembre 2026", "EUR/USD à 1,1052, au plus bas depuis un an"]
+        ]
+      },
+      "exemple_chiffre": [
+        "L'inflation d'octobre 2026 en zone euro, d'après l'estimation rapide d'Eurostat.",
+        "Inflation totale : 4,0 %, après 3,8 % en septembre.",
+        "Énergie : +20,8 % sur un an. Services : +3,3 %. Alimentation, alcool et tabac : +1,6 %. Biens industriels hors énergie : +1,2 %.",
+        "Inflation sous-jacente : 2,5 %, inchangée.",
+        "Lecture : avec un poids d'environ 9 % dans le panier, l'énergie contribue à elle seule pour près de 2 points. Le choc est très concentré, et il ne s'est pas encore largement diffusé."
+      ],
+      "formules": [],
+      "deux_minutes": "**Pourquoi l'euro baisse malgré les hausses de la BCE.** Trois raisons. La Fed reste nettement plus haute (près de 1,40 point d'écart) et son ton est plus ferme : deux de ses membres voulaient encore monter en octobre. L'Europe, importatrice d'énergie, souffre plus du choc que les États-Unis. Et la crise budgétaire française pèse sur la confiance. L'EUR/USD est passé de près de 1,20 au plus haut des douze derniers mois à 1,1052 le 13 novembre 2026.\n\n**Les taux longs.** Le taux américain à 10 ans dépasse 5 % (5,15 % le 13 novembre). En France, l'OAT à 10 ans est autour de 4,7 %, et l'écart avec le Bund a atteint 176 points de base le 23 octobre, après les difficultés du budget 2027, rejeté par l'Assemblée nationale le 4 novembre.\n\n**L'activité.** La zone euro croît encore : +0,4 % au troisième trimestre, +1,3 % sur un an, mais la France recule de 0,1 %. Le chômage est à 6,5 %. Aux États-Unis, l'emploi résiste : 165 000 créations en octobre, chômage à 4,1 %.\n\n**Le dilemme.** C'est un choc d'offre : monter les taux ne fait pas baisser le prix du pétrole et freine une économie fragile. La BCE a agi pour éviter les effets de second tour, puis s'est arrêtée en constatant que l'inflation sous-jacente restait stable. C'est un cas d'école du risque de **stagflation**.\n\n**Ce qui est en jeu en décembre.** La Fed se réunit les 8 et 9 décembre, la BCE le 17. Les Euribor, au-dessus du taux de dépôt, montrent que le marché attend encore une hausse de la BCE.\n\n**La succession.** Christine Lagarde quittera la BCE le 7 février 2027. Le choix de son successeur pèsera sur l'orientation future.\n\nPour les chiffres à jour et la synthèse du mois, vois l'onglet **Marché**.",
+      "piege": "Réciter cette fiche plusieurs semaines après sa date. Les chiffres bougent : vérifie les taux, l'inflation et l'EUR/USD la veille d'un entretien. Autre erreur : dire que les banques centrales « combattent le prix du pétrole » ; elles cherchent à empêcher la propagation.",
+      "a_dire_en_entretien": "« En 2026, un choc d'énergie lié au Moyen-Orient a fait remonter l'inflation à 4 % en zone euro, avec une énergie en hausse de plus de 20 % sur un an, alors que la sous-jacente reste à 2,5 %. La BCE a relevé son taux de dépôt deux fois, à 2,50 %, puis fait une pause fin octobre ; la Fed est à 3,75 % – 4,00 %. Comme la Fed reste plus restrictive et que l'Europe souffre davantage du choc, l'euro est tombé vers 1,10 dollar. En France s'ajoute une crise budgétaire qui a porté l'écart OAT-Bund à 176 points de base fin octobre. »",
+      "liens": ["m1.episodes.baisses-2024", "m1.decision.choc-offre", "m1.marche.vue-30s", "m1.inflation.stagflation"],
+      "sources": [
+        { "titre": "BCE, décisions de politique monétaire du 11 juin 2026", "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260611~4d41bd5e83.en.html", "date": "2026-06-11" },
+        { "titre": "Réserve fédérale, communiqué du FOMC du 28 octobre 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm", "date": "2026-10-28" },
+        { "titre": "Eurostat, estimation rapide de l'inflation d'octobre 2026", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap", "date": "2026-11-04" },
+        { "titre": "Banque d'Angleterre, Monetary Policy Report, novembre 2026", "url": "https://www.bankofengland.co.uk/monetary-policy-report/2026/November-2026", "date": "2026-11-05" },
+        { "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html", "date": "2026-11-13" },
+        { "titre": "Yahoo Finance / Euronews, « ECB raises interest rates for the first time in three years as Iran war fuels inflation »", "url": "https://uk.finance.yahoo.com/news/ecb-raises-interest-rates-first-121732531.html", "date": "2026-06-11" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation zone euro (IPCH, estimation rapide)", "valeur": "4,0 %", "date": "2026-10-31", "source": "Eurostat" },
+        { "libelle": "Prix de l'énergie en zone euro, sur un an", "valeur": "+20,8 %", "date": "2026-10-31", "source": "Eurostat" },
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" },
+        { "libelle": "Fourchette des Fed funds", "valeur": "3,75 % – 4,00 %", "date": "2026-10-28", "source": "Réserve fédérale" },
+        { "libelle": "EUR/USD (taux de référence)", "valeur": "1,1052", "date": "2026-11-13", "source": "BCE" },
+        { "libelle": "Taux américain à 10 ans", "valeur": "5,15 %", "date": "2026-11-13", "source": "Forbes Advisor (source secondaire)" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.episodes.c01", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Les quatre phases de la politique de la BCE depuis 2014 ?", "verso": "2014-2021 : taux négatifs. 2022-2023 : hausse record jusqu'à 4 %. 2024-2025 : huit baisses jusqu'à 2 %. 2026 : retour des hausses, à 2,50 %.", "fiche": "m1.episodes.vue-ensemble", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c02", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Trois niveaux du taux de dépôt de la BCE à retenir ?", "verso": "−0,50 % (point bas, 2019-2022), 4,00 % (sommet, septembre 2023), 2,50 % (depuis septembre 2026).", "fiche": "m1.episodes.vue-ensemble", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c03", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Quelle est l'origine de la crise de 2008 ?", "verso": "Les crédits immobiliers à risque américains (subprimes), titrisés et diffusés dans tout le système financier.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c04", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Date de la faillite de Lehman Brothers ?", "verso": "Le 15 septembre 2008.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c05", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "Comment les banques centrales ont-elles répondu à la crise de 2008 ?", "verso": "Taux ramenés à zéro, prêts illimités aux banques, et premiers achats massifs d'obligations (QE).", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c06", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "Différence entre la crise de 2008 et celle de 2011-2012 ?", "verso": "2008 : crise bancaire, née aux États-Unis. 2011-2012 : crise des dettes publiques, propre à la zone euro.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c07", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "Qu'est-ce qui a mis fin à la crise de la dette en zone euro ?", "verso": "Le « whatever it takes » de Mario Draghi, le 26 juillet 2012, suivi de la création de l'OMT.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c08", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "De quand à quand le taux de dépôt de la BCE a-t-il été négatif ? Pourquoi ?", "verso": "De juin 2014 à juillet 2022. L'inflation était durablement sous 2 % ; il fallait pousser les banques à prêter.", "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c09", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "À qui s'appliquait le taux négatif de la BCE ?", "verso": "Aux dépôts des banques à la BCE, pas aux comptes des particuliers.", "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c10", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Les deux causes successives de l'inflation de 2021-2022 ?", "verso": "La demande très forte d'après-Covid face à une offre désorganisée (2021), puis le choc d'énergie de la guerre en Ukraine (2022).", "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c11", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "De combien la BCE et la Fed ont-elles monté leurs taux en 2022-2023 ?", "verso": "BCE : de −0,50 % à 4,00 %. Fed : de 0 – 0,25 % à 5,25 – 5,50 %.", "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c12", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Le cycle de baisses de la BCE en 2024-2025 ?", "verso": "Huit baisses de 0,25 point, de 4,00 % à 2,00 %, entre juin 2024 et juin 2025.", "fiche": "m1.episodes.baisses-2024", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c13", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "recto": "Pourquoi les banques centrales ont-elles remonté leurs taux en 2026 ?", "verso": "Un choc d'énergie lié au conflit au Moyen-Orient a fait remonter l'inflation : 4,0 % en zone euro en octobre 2026.", "fiche": "m1.episodes.situation-2026", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.c14", "type": "carte", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "recto": "Quelles hausses de taux en 2026 ?", "verso": "BCE : juin (2,25 %) et septembre (2,50 %). Fed : septembre (3,75 % – 4,00 %). Banque d'Angleterre : novembre (4,00 %).", "fiche": "m1.episodes.situation-2026", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.episodes.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.episodes", "difficulte": 2,
+      "question": "Peux-tu me retracer la politique monétaire de la BCE ces dix dernières années ?",
+      "reponse_modele": "Je distingue quatre phases. De 2014 à 2021, l'inflation était trop basse : la BCE a pratiqué des taux négatifs, jusqu'à −0,50 %, et des achats d'obligations. En 2022-2023, face à une inflation qui a atteint 10,6 %, elle a relevé son taux de dépôt à 4 % en quatorze mois. En 2024-2025, l'inflation revenant vers 2 %, elle l'a ramené à 2 % en huit baisses. Enfin, en 2026, un choc d'énergie a fait remonter l'inflation à 4 % et elle a repris les hausses, à 2,50 %. Dans chaque phase, c'est l'écart de l'inflation à la cible qui a guidé la décision.",
+      "points_cles": ["Quatre phases, dans l'ordre", "Un niveau de taux par phase", "La cause de chaque phase", "Le fil conducteur : l'inflation par rapport à 2 %", "La situation actuelle"],
+      "piege": "Se perdre dans les dates. Quatre phases et trois niveaux de taux suffisent.",
+      "fiche": "m1.episodes.vue-ensemble", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.episodes", "difficulte": 2,
+      "question": "Que s'est-il passé en 2008 ?",
+      "reponse_modele": "La crise est partie des crédits immobiliers à risque aux États-Unis, les subprimes. Ils avaient été titrisés, c'est-à-dire transformés en titres et vendus à des investisseurs du monde entier. Quand l'immobilier américain s'est retourné, ces titres ont perdu leur valeur et les banques ont cessé de se prêter entre elles, faute de savoir qui portait les pertes. La faillite de Lehman Brothers, le 15 septembre 2008, a déclenché une panique mondiale. Les banques centrales ont ramené leurs taux à zéro et lancé les achats d'obligations ; les États ont sauvé les banques. La réglementation a ensuite été durcie, avec Bâle III.",
+      "points_cles": ["Subprimes et titrisation", "Crise de confiance entre banques", "Lehman Brothers, 15 septembre 2008", "Réponse : taux zéro, QE, sauvetages", "Suite : Bâle III"],
+      "piege": "La confondre avec la crise de la dette de 2011-2012.",
+      "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.episodes", "difficulte": 2,
+      "question": "Pourquoi l'inflation a-t-elle explosé en 2022, et comment les banques centrales ont-elles réagi ?",
+      "reponse_modele": "Deux chocs se sont enchaînés. En 2021, la demande est repartie très fort à la sortie du Covid, alors que la production et les transports étaient encore désorganisés. En 2022, la guerre en Ukraine a fait flamber l'énergie et les matières premières. L'inflation a atteint 10,6 % en zone euro et 9,1 % aux États-Unis. Les banques centrales, qui avaient d'abord jugé la hausse transitoire, ont dû rattraper leur retard : la BCE est passée de −0,50 % à 4 % en quatorze mois, la Fed de zéro à 5,25 % – 5,50 %. L'inflation est retombée sous 3 % fin 2023, sans récession marquée.",
+      "points_cles": ["Demande d'après-Covid, puis choc d'énergie", "Les deux pics d'inflation", "L'erreur du « transitoire »", "L'ampleur des hausses", "Atterrissage en douceur"],
+      "piege": "Ne citer que la guerre en Ukraine : l'inflation avait commencé à monter en 2021.",
+      "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.episodes", "difficulte": 2,
+      "question": "Pourquoi la BCE a-t-elle eu des taux négatifs ? Était-ce une bonne idée ?",
+      "reponse_modele": "De 2014 à 2022, l'inflation de la zone euro était durablement inférieure à 2 %, avec un risque de déflation, et les taux étaient déjà à zéro. En appliquant un taux négatif aux dépôts des banques, jusqu'à −0,50 %, la BCE les incitait à prêter plutôt qu'à garder leurs liquidités. Les effets positifs : un crédit bon marché, une reprise de l'emploi, et des États capables de traverser le Covid. Les effets négatifs : une hausse des prix de l'immobilier et des actions, une pression sur la rentabilité des banques et sur les épargnants. Le bilan est discuté, mais la déflation a été évitée.",
+      "points_cles": ["Contexte : inflation trop basse, taux déjà à zéro", "Mécanisme : inciter les banques à prêter", "Complété par le QE", "Effets positifs", "Effets secondaires"],
+      "piege": "Dire que les particuliers payaient pour déposer leur argent.",
+      "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.episodes.q05", "type": "question_entretien", "module": 1, "chapitre": "m1.episodes", "difficulte": 2,
+      "question": "Que se passe-t-il sur les marchés en ce moment ?",
+      "reponse_modele": "Le marché est dominé par un choc d'énergie, lié au conflit au Moyen-Orient, qui a fait remonter l'inflation à 4 % en zone euro en octobre. La BCE a relevé son taux de dépôt deux fois, à 2,50 %, et la Fed est à 3,75 % – 4,00 % ; toutes deux ont marqué une pause fin octobre et se réunissent en décembre. Comme la Fed reste plus restrictive et que l'Europe souffre davantage du choc, l'euro est tombé vers 1,10 dollar, au plus bas depuis un an. En France s'ajoute une crise budgétaire, avec un écart OAT-Bund qui a atteint 176 points de base fin octobre. Pour les clients, c'est le moment de regarder les couvertures de taux et de change.",
+      "points_cles": ["Le fait dominant : choc d'énergie et inflation à 4 %", "Les taux de la BCE et de la Fed", "L'euro vers 1,10 et pourquoi", "La France : budget et écart OAT-Bund", "La conséquence pour les clients"],
+      "piege": "Empiler des chiffres sans fil conducteur, ou donner des chiffres périmés.",
+      "fiche": "m1.episodes.situation-2026", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.episodes.z01", "type": "quiz", "forme": "ordre", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "enonce": "Remets ces épisodes dans l'ordre chronologique.", "etapes": ["Faillite de Lehman Brothers", "« Whatever it takes » de Mario Draghi", "Premier taux négatif de la BCE", "Inflation à 10,6 % en zone euro", "Huit baisses de taux de la BCE", "Retour des hausses de taux"], "explication": "2008, 2012, 2014, 2022, 2024-2025, 2026.", "fiche": "m1.episodes.vue-ensemble", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z02", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "enonce": "Quel a été le niveau le plus haut du taux de dépôt de la BCE ?", "choix": ["2,00 %", "3,25 %", "4,00 %", "5,50 %"], "bonne": 2, "explication": "4,00 %, atteint le 20 septembre 2023. 5,50 % était le haut de la fourchette de la Fed.", "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z03", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "enonce": "La crise de 2008 a été provoquée par une forte inflation.", "vrai": false, "explication": "C'est une crise financière née d'un excès de crédit immobilier à risque et d'une perte de confiance entre banques.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z04", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "enonce": "Qu'a fait la BCE en 2011, en pleine crise de la dette, et qui est aujourd'hui considéré comme une erreur ?", "choix": ["Elle a baissé ses taux à zéro", "Elle a monté ses taux deux fois", "Elle a lancé le QE", "Elle a créé le TPI"], "bonne": 1, "explication": "Elle a monté ses taux en avril et en juillet 2011 face à la hausse du pétrole, puis a dû les rebaisser dès novembre.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z05", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "enonce": "De combien de points la BCE a-t-elle relevé son taux de dépôt entre juillet 2022 et septembre 2023 ?", "reponse": 4.5, "tolerance": 0.05, "unite": "points", "explication": "De −0,50 % à 4,00 % : 4,50 points.", "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z06", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "enonce": "Pendant la période des taux négatifs, les particuliers payaient des intérêts sur leur compte courant.", "vrai": false, "explication": "Le taux négatif s'appliquait aux dépôts des banques à la BCE. Les banques ne l'ont presque jamais répercuté sur les particuliers.", "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z07", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "enonce": "À quel niveau la BCE a-t-elle arrêté son cycle de baisses en juin 2025 ?", "choix": ["0,00 %", "1,00 %", "2,00 %", "3,00 %"], "bonne": 2, "explication": "2,00 %, un niveau considéré comme neutre.", "fiche": "m1.episodes.baisses-2024", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.z08", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "enonce": "En octobre 2026, l'inflation de la zone euro est à 4,0 %. Quel poste l'explique principalement ?", "choix": ["Les services", "L'alimentation", "L'énergie", "Les biens industriels"], "bonne": 2, "explication": "L'énergie augmente de 20,8 % sur un an. L'inflation sous-jacente est stable à 2,5 %.", "fiche": "m1.episodes.situation-2026", "maj": "2026-11-16", "version": 1 },
+
+    { "id": "m1.episodes.l-subprime", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Subprime", "anglais": "subprime", "definition": "Crédit immobilier accordé à un emprunteur peu solvable. À l'origine de la crise de 2008.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-titrisation", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Titrisation", "anglais": "securitisation", "definition": "Transformation d'un ensemble de crédits en titres vendus à des investisseurs.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-risque-systemique", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Risque systémique", "anglais": "systemic risk", "definition": "Risque que la défaillance d'un établissement entraîne celle de tout le système financier.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-too-big-to-fail", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Trop grosse pour faire faillite", "anglais": "too big to fail", "definition": "Se dit d'une banque si importante que l'État se sent obligé de la sauver, pour éviter une crise générale.", "fiche": "m1.episodes.crise-2008", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-crise-de-liquidite", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Crise de liquidité", "anglais": "liquidity crisis", "definition": "Situation où un acteur solvable ne trouve plus à emprunter. À distinguer d'une crise de solvabilité, où les pertes dépassent les fonds propres.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-omt", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 3, "terme": "OMT", "anglais": "Outright Monetary Transactions", "definition": "Programme de la BCE (2012) permettant d'acheter sans limite la dette d'un État sous programme d'aide. Jamais activé.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-austerite", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 1, "terme": "Austérité", "anglais": "austerity", "definition": "Politique de réduction rapide du déficit public, par des baisses de dépenses et des hausses d'impôts.", "fiche": "m1.episodes.dette-2011", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-taux-negatif", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Taux négatif", "anglais": "negative interest rate", "definition": "Taux directeur inférieur à zéro : les banques paient pour déposer leurs liquidités à la banque centrale.", "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-pepp", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 3, "terme": "PEPP", "anglais": "Pandemic Emergency Purchase Programme", "definition": "Programme d'achats d'obligations lancé par la BCE en mars 2020 face au Covid, d'une enveloppe de 1 850 milliards d'euros.", "fiche": "m1.episodes.taux-negatifs", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.episodes.l-transitoire", "type": "lexique", "module": 1, "chapitre": "m1.episodes", "difficulte": 2, "terme": "Inflation transitoire", "anglais": "transitory inflation", "definition": "Qualificatif employé en 2021 par les banques centrales pour une hausse des prix qu'elles pensaient temporaire, et qui ne l'a pas été.", "fiche": "m1.episodes.inflation-2022", "maj": "2026-11-16", "version": 1 }
+  ]
+}

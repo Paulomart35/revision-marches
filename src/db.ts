@@ -1,7 +1,7 @@
 // Stockage local (IndexedDB) : tout ce qui est propre à l'appareil.
 import Dexie, { type Table } from 'dexie';
 import type { Card } from 'ts-fsrs';
-import type { TElement } from './schema';
+import type { TElement, TPackActu } from './schema';
 
 export interface EtatCarte { id: string; carte: Card; echeance: number }
 export type Note = 'pas' | 'moitie' | 'savais';
@@ -14,6 +14,7 @@ export interface Clarif {
 }
 export interface Override { id: string; element: TElement; historique: { element: TElement | null; date: number }[]; date: number }
 export interface Reglage { cle: string; valeur: unknown }
+export interface PackImporte { id: string; pack: TPackActu; date: number }
 
 class Base extends Dexie {
   cartes!: Table<EtatCarte, string>;
@@ -23,6 +24,7 @@ class Base extends Dexie {
   clarifs!: Table<Clarif, number>;
   overrides!: Table<Override, string>;
   reglages!: Table<Reglage, string>;
+  packs!: Table<PackImporte, string>;
   constructor() {
     super('revision-marches');
     this.version(1).stores({
@@ -34,11 +36,12 @@ class Base extends Dexie {
       overrides: 'id',
       reglages: 'cle',
     });
+    this.version(2).stores({ packs: 'id' });
   }
 }
 export const db = new Base();
 
-const TABLES = ['cartes', 'reponses', 'fiches', 'marques', 'clarifs', 'overrides', 'reglages'] as const;
+const TABLES = ['cartes', 'reponses', 'fiches', 'marques', 'clarifs', 'overrides', 'reglages', 'packs'] as const;
 
 /** Sauvegarde complète des données de l'appareil. */
 export async function exporterTout(): Promise<string> {

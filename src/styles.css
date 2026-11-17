@@ -304,3 +304,31 @@ select, textarea, .recherche { width: 100%; min-height: 48px; border: 1px solid 
 .outil .chaine li { background: var(--bg); }
 .outil .chaine li.on { background: var(--soft-yel); }
 .outil .ligne { margin: 0; }
+
+/* Marché */
+.marche-bref { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-decoration: none; color: var(--ink); }
+.marche-bref span { background: var(--card); border-radius: 10px; padding: 10px; display: grid; align-content: start; }
+.marche-bref small { color: var(--mut); font-size: .74rem; line-height: 1.25; }
+.marche-bref b { font: 800 1.15rem Archivo; font-variant-numeric: tabular-nums; white-space: nowrap; }
+h3.groupe { color: var(--mut); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; margin: 18px 0 6px; }
+details.chiffre { margin: 6px 0; padding: 0 14px; background: var(--card); border-color: transparent; }
+details.chiffre summary { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 10px 0; min-height: 56px; align-items: baseline; list-style: none; font: inherit; }
+details.chiffre summary::-webkit-details-marker { display: none; }
+.chiffre .lib { font: 600 .95rem 'IBM Plex Sans'; }
+.chiffre summary b { font: 800 1.15rem Archivo; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.chiffre .tend { grid-column: 1 / -1; font: 400 .85rem 'IBM Plex Sans'; }
+.chiffre .tend.hausse { color: var(--c1); }
+.chiffre .tend.baisse { color: var(--blue); }
+.chiffre .tend.stable { color: var(--mut); }
+.chiffre .quand { grid-column: 1 / -1; font: 400 .76rem 'IBM Plex Sans'; color: var(--mut); }
+details.chiffre[open] { padding-bottom: 8px; }
+details.chiffre p { font-size: .92rem; margin: 0 0 6px; }
+.impacts { display: grid; gap: 8px; }
+.impacts div { background: var(--card); border-radius: 8px; padding: 12px 14px; border-left: 4px solid var(--yel); }
+.impacts b { font-family: Archivo; }
+.impacts p { margin: 4px 0 0; font-size: .93rem; }
+.agenda { list-style: none; padding: 0; margin: 0; }
+.agenda li { display: grid; gap: 1px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.agenda b { font: 700 .82rem Archivo; color: var(--blue); }
+.agenda span { font-weight: 600; }
+.agenda small { color: var(--mut); font-size: .88rem; }

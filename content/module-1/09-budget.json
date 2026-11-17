@@ -1,0 +1,287 @@
+{
+  "chapitre": {
+    "id": "m1.budget",
+    "module": 1,
+    "ordre": 9,
+    "titre": "Politique budgétaire, dette et spreads souverains",
+    "resume": "La différence entre politique budgétaire et politique monétaire, le déficit et la dette, l'écart OAT-Bund et la notation des États."
+  },
+  "elements": [
+    {
+      "id": "m1.budget.policy-mix",
+      "type": "fiche", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "tags": ["budget", "banque centrale"],
+      "titre": "Politique budgétaire contre politique monétaire",
+      "une_phrase": "La **politique monétaire** est menée par la banque centrale avec les taux d'intérêt ; la **politique budgétaire** est menée par le gouvernement avec les impôts et les dépenses publiques.",
+      "trente_secondes": "Ce sont les deux leviers pour agir sur l'économie, et ils n'ont pas le même pilote.\n\n**La politique monétaire** : la BCE décide du prix de l'argent. Elle est indépendante, agit vite, mais ses effets mettent un à deux ans à arriver et touchent tout le monde de la même façon.\n\n**La politique budgétaire** : le gouvernement et le Parlement décident des impôts et des dépenses. Elle peut cibler précisément (aider tel secteur, telle catégorie de ménages), mais elle est lente à voter et limitée par la dette.\n\nEn zone euro, il y a **une** politique monétaire et **21** politiques budgétaires nationales.",
+      "analogie": "Dans une voiture, la banque centrale tient l'accélérateur et le frein : elle règle la vitesse générale. Le gouvernement tient le volant : il choisit la direction, où va l'argent public. Si l'un accélère pendant que l'autre freine, la voiture avance mal et l'essence est gaspillée.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Politique monétaire", "Politique budgétaire"],
+        "lignes": [
+          ["Qui décide", "La banque centrale, indépendante", "Le gouvernement et le Parlement, élus"],
+          ["Outils", "Taux directeurs, achats d'obligations, communication", "Impôts, dépenses publiques, aides"],
+          ["Objectif", "Stabilité des prix", "Croissance, emploi, redistribution, services publics"],
+          ["Vitesse de décision", "Rapide : une réunion toutes les six semaines", "Lente : un budget par an, voté au Parlement"],
+          ["Ciblage", "Aucun : le même taux pour tous", "Précis : un secteur, une région, une catégorie"],
+          ["Limite", "Agit mal sur un choc d'offre, plancher des taux", "Le niveau de la dette et la confiance des prêteurs"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. L'énergie flambe et l'inflation monte à 5 %.",
+        "La banque centrale monte ses taux pour freiner la demande : politique monétaire **restrictive**.",
+        "Dans le même temps, le gouvernement verse 30 milliards d'euros d'aides à tous les ménages pour compenser la hausse des factures : politique budgétaire **expansionniste**.",
+        "Ces 30 milliards soutiennent la consommation, donc la demande que la banque centrale essaie justement de freiner. Elle devra monter ses taux davantage.",
+        "Avec des aides **ciblées** sur les ménages les plus modestes, 8 milliards par exemple, l'État protège ceux qui en ont besoin sans relancer toute la demande. Les deux politiques ne se contrarient plus."
+      ],
+      "formules": [],
+      "deux_minutes": "**Le dosage des deux politiques** s'appelle le *policy mix*. Quatre combinaisons existent.\n\n- **Tout pour la relance** : taux bas et déficits élevés. C'était la réponse au Covid en 2020-2021 ; efficace contre la récession, elle a contribué à l'inflation qui a suivi.\n- **Tout pour le freinage** : taux hauts et réduction des déficits. Efficace contre l'inflation, coûteux en croissance.\n- **Monétaire restrictive, budgétaire expansionniste** : les deux se contrarient. Les taux doivent monter plus haut, et la dette coûte plus cher. C'est la situation de plusieurs pays en 2022-2023, et le risque de 2026.\n- **Monétaire accommodante, budgétaire restrictive** : la zone euro de 2011 à 2014, avec une croissance très faible.\n\n**Les stabilisateurs automatiques.** Sans aucune décision, le budget amortit le cycle : en récession, les recettes fiscales baissent et les dépenses de chômage montent, ce qui soutient les revenus.\n\n**La particularité européenne.** Chaque État garde son budget, mais doit respecter des règles communes : un déficit public inférieur à **3 %** du PIB et une dette inférieure à **60 %** du PIB, ou en voie de s'y ramener. Ces règles existent parce qu'une dette incontrôlée dans un pays ferait peser un risque sur toute la zone. La Commission européenne peut ouvrir une **procédure pour déficit excessif** ; la France en fait l'objet depuis 2024.\n\n**La domination budgétaire.** C'est la crainte des banquiers centraux : une dette publique si élevée que la banque centrale n'oserait plus monter ses taux, de peur de mettre l'État en difficulté. Elle perdrait alors son indépendance de fait. C'est pourquoi la BCE insiste pour que ses décisions ne dépendent que de l'inflation.",
+      "piege": "Attribuer une décision au mauvais acteur : « la BCE a baissé les impôts » ou « le gouvernement a monté les taux ». La BCE ne touche ni aux impôts ni aux dépenses. Le gouvernement ne fixe pas les taux directeurs. En entretien, nomme toujours qui décide quoi.",
+      "a_dire_en_entretien": "« La politique monétaire est conduite par la banque centrale, avec les taux d'intérêt, pour assurer la stabilité des prix. La politique budgétaire est conduite par le gouvernement, avec les impôts et les dépenses publiques. En zone euro, il y a une seule politique monétaire mais 21 politiques budgétaires, encadrées par des règles communes : 3 % de déficit et 60 % de dette. L'enjeu est leur cohérence : si le budget soutient la demande pendant que la BCE cherche à la freiner, les taux doivent monter plus haut. »",
+      "liens": ["m1.budget.deficit-dette", "m1.budget.spread", "m1.decision.choc-offre", "m1.bc.independance"],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.deficit-dette",
+      "type": "fiche", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "tags": ["budget", "dette"],
+      "titre": "Déficit et dette publique",
+      "une_phrase": "Le **déficit** est ce que l'État dépense en plus de ses recettes **sur une année** ; la **dette** est la somme de tous les déficits accumulés, qu'il doit encore rembourser.",
+      "trente_secondes": "Le déficit est un **flux** : il se mesure sur une année. La dette est un **stock** : elle se mesure à une date.\n\nChaque année où l'État est en déficit, il emprunte la différence sur les marchés, en émettant des obligations. La dette augmente d'autant.\n\nOn exprime les deux en **pourcentage du PIB**, parce que ce qui compte n'est pas le montant en euros mais la capacité du pays à le supporter. Une dette de 3 000 milliards n'a pas le même sens pour la France que pour le Luxembourg.\n\nLes règles européennes fixent deux repères : 3 % du PIB pour le déficit, 60 % pour la dette.",
+      "analogie": "Pense à une baignoire. Le robinet qui coule est le déficit de l'année : c'est un débit. Le niveau d'eau dans la baignoire est la dette : c'est ce qui s'est accumulé. Réduire le déficit, c'est fermer un peu le robinet : le niveau monte moins vite, mais il monte encore. Pour qu'il baisse, il faut que la bonde évacue plus que le robinet n'apporte.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["", "Déficit", "Dette"],
+        "lignes": [
+          ["Nature", "Un flux, sur une année", "Un stock, à une date"],
+          ["Définition", "Dépenses publiques moins recettes", "Total de ce que l'État doit encore rembourser"],
+          ["Repère européen", "3 % du PIB", "60 % du PIB"],
+          ["France", "5,1 % du PIB en 2025", "Proche de 120 % du PIB"],
+          ["Pour le réduire", "Dépenser moins ou prélever plus", "Dégager des excédents, ou croître plus vite que les taux"]
+        ],
+        "legende": "Ordres de grandeur pour la France à l'automne 2026."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif pour comprendre l'effet « boule de neige ». Un État a une dette de 115 % du PIB. Il paie en moyenne 3,5 % d'intérêts sur cette dette. Son PIB, inflation comprise, augmente de 2,5 % par an.",
+        "Les intérêts font grossir la dette de 3,5 %, alors que le PIB ne grossit que de 2,5 %. À eux seuls, ils font passer le ratio de 115 % à 115 × 1,035 ÷ 1,025 = 116,1 %.",
+        "L'État a en plus un déficit hors intérêts (dit « primaire ») de 2 % du PIB. La dette atteint 116,1 % + 2 % = 118,1 % du PIB.",
+        "En un an, la dette a augmenté de 3 points de PIB. Pour la stabiliser, il faudrait que le budget hors intérêts soit en **excédent** d'environ 1,1 % du PIB.",
+        "Si la croissance était plus forte que le taux d'intérêt, l'effet jouerait dans l'autre sens : la dette fondrait toute seule."
+      ],
+      "formules": [
+        {
+          "titre": "La dynamique de la dette",
+          "latex": "d_{t+1} = d_t \\times \\frac{1 + r}{1 + g} + p",
+          "legende": { "d_t": "la dette cette année, en % du PIB", "d_{t+1}": "la dette l'année suivante, en % du PIB", "r": "le taux d'intérêt moyen payé sur la dette", "g": "la croissance du PIB en valeur (croissance réelle plus inflation)", "p": "le déficit primaire, hors intérêts, en % du PIB" },
+          "en_francais": "La dette de l'an prochain est celle d'aujourd'hui, grossie par les intérêts et diluée par la croissance, à laquelle s'ajoute le nouveau déficit hors intérêts. Tout se joue dans la comparaison entre le taux d'intérêt et la croissance."
+        }
+      ],
+      "deux_minutes": "**Taux contre croissance.** C'est la clé de la soutenabilité. Tant que le taux d'intérêt est inférieur à la croissance, un État peut avoir de petits déficits sans que sa dette augmente en proportion du PIB. C'était le cas dans les années 2010, avec des taux proches de zéro. Quand les taux passent au-dessus de la croissance, comme depuis 2022, la dette s'emballe à déficit inchangé. D'où l'inquiétude actuelle.\n\n**La charge de la dette.** Ce sont les intérêts payés chaque année. Elle n'augmente pas d'un coup quand les taux montent, car seule la dette **renouvelée** est émise au nouveau taux. La durée moyenne de la dette française est d'environ huit ans : la hausse des taux se diffuse lentement, mais sûrement.\n\n**La situation française à l'automne 2026.** Le déficit public a été de 5,1 % du PIB en 2025. Le projet de budget pour 2027 visait 5 %. Le 4 novembre 2026, l'Assemblée nationale a rejeté la partie recettes du texte par 458 voix contre 0, ce qui a renvoyé le texte au Sénat dans sa version initiale. Cette crise budgétaire a fait monter les taux d'emprunt de l'État.\n\n**Qui détient la dette.** Environ la moitié de la dette négociable de l'État français est détenue par des investisseurs étrangers. Cela permet d'emprunter à bon compte, mais rend le pays dépendant de leur confiance.\n\n**Le vocabulaire.** *Déficit primaire* : hors intérêts. *Déficit structurel* : corrigé des effets du cycle. *Soutenabilité* : capacité à stabiliser la dette sans mesure brutale. *Consolidation* ou *ajustement budgétaire* : réduction du déficit.",
+      "piege": "Confondre déficit et dette. « La France a réduit son déficit » ne veut pas dire que sa dette baisse : elle continue d'augmenter, moins vite. Autre erreur : comparer les dettes en milliards d'euros ; seul le ratio au PIB a un sens.",
+      "a_dire_en_entretien": "« Le déficit est un flux : l'écart entre les dépenses et les recettes publiques sur une année. La dette est le stock accumulé de ces déficits. On les rapporte au PIB : les repères européens sont 3 % pour le déficit et 60 % pour la dette. La France est à 5,1 % de déficit en 2025 et à près de 120 % de dette. Ce qui rend la situation délicate, c'est que les taux d'intérêt sont repassés au-dessus de la croissance : à déficit inchangé, la dette augmente plus vite. »",
+      "liens": ["m1.budget.policy-mix", "m1.budget.spread", "m1.budget.notation"],
+      "sources": [
+        { "titre": "France 24, « L'agence Moody's maintient la note souveraine de la France à Aa3 avec perspective négative » (déficit 2025)", "url": "https://www.france24.com/fr/france/20261022-notation-de-la-france-un-abaissement-de-la-note-par-moody-s-jug%C3%A9-tr%C3%A8s-plausible", "date": "2026-10-23" },
+        { "titre": "France 24, « L'Assemblée nationale rejette le budget de l'État 2027 à l'unanimité en première lecture »", "url": "https://www.france24.com/fr/france/20261104-assemblee-nationale-rejette-unanimite-en-premiere-lecture-budget-etat-2027-pib-finances", "date": "2026-11-04" },
+        { "titre": "LCP, « Budget 2027 rejeté : quelles sont les prochaines étapes au Parlement ? »", "url": "https://lcp.fr/actualites/budget-2027-rejete-quelles-sont-les-prochaines-etapes-au-parlement-444753", "date": "2026-11-05" }
+      ],
+      "chiffres": [
+        { "libelle": "Déficit public de la France en 2025", "valeur": "5,1 % du PIB", "date": "2026-10-23", "source": "France 24" },
+        { "libelle": "Vote de l'Assemblée nationale sur la partie recettes du budget 2027", "valeur": "rejet par 458 voix contre 0", "date": "2026-11-04", "source": "France 24" }
+      ],
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.spread",
+      "type": "fiche", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "tags": ["dette", "taux", "spread"],
+      "titre": "Les spreads souverains : l'écart OAT-Bund",
+      "une_phrase": "L'écart OAT-Bund est la différence entre le taux auquel la **France** emprunte à 10 ans et celui de l'**Allemagne** ; il mesure la confiance des investisseurs dans la dette française.",
+      "trente_secondes": "Une **OAT** (obligation assimilable du Trésor) est une obligation de l'État français. Le **Bund** est l'obligation de l'État allemand. L'Allemagne, peu endettée et notée AAA, est l'emprunteur de référence de la zone euro.\n\nComme les deux pays partagent la même monnaie et la même banque centrale, la différence entre leurs taux ne peut venir que d'une chose : le **risque** que les investisseurs attribuent à la France.\n\nCet écart s'appelle un *spread*. On le mesure en **points de base** : 1 point de base = 0,01 %. Quand il s'élargit, la France inquiète. Quand il se resserre, la confiance revient.",
+      "analogie": "Deux frères empruntent à la même banque. L'aîné, très prudent, obtient 3 %. Le cadet, plus dépensier, obtient 4,5 %. Le point et demi d'écart est le prix de l'inquiétude du banquier. Si le cadet promet de réduire ses dépenses et tient parole, l'écart diminue. S'il se dispute avec sa famille au sujet de son budget, il augmente.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Niveau de l'écart OAT-Bund", "Lecture"],
+        "lignes": [
+          ["Environ 50 points de base", "Niveau habituel avant l'été 2024"],
+          ["Environ 80 points de base", "Après la dissolution de juin 2024 et les premières difficultés budgétaires"],
+          ["Environ 140 à 150 points de base", "Mi-novembre 2026"],
+          ["176 points de base", "Pic du 23 octobre 2026, plus haut depuis 2011"]
+        ],
+        "legende": "Repères. Les chiffres de 2026 viennent de sources de marché secondaires, qui diffèrent de quelques points."
+      },
+      "exemple_chiffre": [
+        "Le 10 novembre 2026, d'après un site de suivi des marchés : l'OAT à 10 ans rapporte 4,66 % et le Bund à 10 ans 3,24 %.",
+        "L'écart est de 4,66 % − 3,24 % = 1,42 %, soit 142 points de base.",
+        "Ce que cela coûte : exemple fictif, si l'État français émet 10 milliards d'euros d'obligations à 10 ans, il paie chaque année 10 000 000 000 × 1,42 % = 142 millions d'euros d'intérêts de plus que s'il empruntait au taux allemand.",
+        "Sur les dix ans de l'emprunt, cela représente 1,42 milliard d'euros pour cette seule émission."
+      ],
+      "formules": [
+        {
+          "titre": "L'écart de taux souverain",
+          "latex": "\\text{Écart} = \\text{OAT 10 ans} - \\text{Bund 10 ans}",
+          "legende": { "\\text{OAT 10 ans}": "le rendement de l'obligation de l'État français à 10 ans", "\\text{Bund 10 ans}": "le rendement de l'obligation de l'État allemand à 10 ans" },
+          "en_francais": "C'est le supplément de rendement que les investisseurs exigent pour prêter à la France plutôt qu'à l'Allemagne. On multiplie par 100 pour l'exprimer en points de base."
+        }
+      ],
+      "deux_minutes": "**Ce qui fait bouger un spread.** La trajectoire du déficit et de la dette, la stabilité politique, les décisions des agences de notation, et le climat général : quand les marchés ont peur, ils vendent les dettes les moins sûres et achètent du Bund, ce qui élargit tous les spreads en même temps.\n\n**Deux façons pour un spread de s'élargir.** Le taux français peut monter, ou le taux allemand peut baisser parce que les investisseurs s'y réfugient. Regarde toujours les deux jambes : un spread qui s'élargit avec un taux français stable n'a pas la même signification.\n\n**Les autres spreads à connaître.** L'écart **BTP-Bund** pour l'Italie est le baromètre historique du risque en zone euro. Fait marquant : depuis 2024-2025, la France emprunte à des taux proches de ceux de l'Italie, voire supérieurs, alors qu'elle empruntait beaucoup moins cher auparavant.\n\n**Les précédents.** Pendant la crise de la dette, l'écart italien a dépassé 500 points de base fin 2011 et l'écart français a frôlé 190 points de base. C'est le « tout ce qu'il faudra » de Mario Draghi, en juillet 2012, qui a fait refluer les spreads.\n\n**Pourquoi une banque s'y intéresse.**\n\n- Le taux de l'État est le **plancher** des taux d'emprunt du pays : quand l'OAT monte, les entreprises et les banques françaises empruntent plus cher aussi.\n- Les banques et les assureurs détiennent beaucoup d'OAT : leur valeur baisse quand le taux monte.\n- Un spread qui s'emballe peut amener la BCE à s'interroger sur la fragmentation, donc sur le TPI.\n\n**Taux OAT et taux de la BCE.** La BCE fixe les taux courts. Le taux à 10 ans est un taux de marché : il reflète les taux courts attendus, l'inflation attendue, et la prime de risque propre à l'État.",
+      "piege": "Dire que « la BCE fixe le taux de l'OAT ». Le taux à 10 ans de la France est fixé par le marché. Et ne confonds pas le **niveau** du taux français (qui peut monter parce que tous les taux montent) avec l'**écart** au Bund (qui isole le risque propre à la France).",
+      "a_dire_en_entretien": "« L'écart OAT-Bund est la différence entre les taux à 10 ans de la France et de l'Allemagne. Comme les deux pays ont la même monnaie, il mesure la prime de risque que les investisseurs demandent pour détenir de la dette française. Il était autour de 50 points de base avant 2024 ; il a atteint 176 points de base fin octobre 2026, au plus haut depuis 2011, pendant la crise budgétaire, et se situe autour de 145 mi-novembre. Pour une banque, cela compte parce que le taux de l'État sert de plancher à tous les emprunteurs français. »",
+      "liens": ["m1.budget.deficit-dette", "m1.budget.notation", "m1.outils.tpi", "m1.forces.politique"],
+      "sources": [
+        { "titre": "Ideal-investisseur.fr, « OAT / Bund spread today » (niveaux du 10 novembre 2026)", "url": "https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html", "date": "2026-11-10" },
+        { "titre": "Admiral Markets, « OAT-Bund Spread: French Bond Stress and the Euro 2026 » (pic du 23 octobre 2026)", "url": "https://admiralmarkets.com/analytics/traders-blog/oat-bund-spread-france-euro", "date": "2026-10-23" },
+        { "titre": "Agence France Trésor, présentation des OAT", "url": "https://www.aft.gouv.fr/fr/oat-presentation" }
+      ],
+      "chiffres": [
+        { "libelle": "Taux de l'OAT à 10 ans", "valeur": "4,66 %", "date": "2026-11-10", "source": "Ideal-investisseur.fr (source secondaire)" },
+        { "libelle": "Taux du Bund à 10 ans", "valeur": "3,24 %", "date": "2026-11-10", "source": "Ideal-investisseur.fr (source secondaire)" },
+        { "libelle": "Écart OAT-Bund", "valeur": "142 points de base", "date": "2026-11-10", "source": "Ideal-investisseur.fr (source secondaire)" },
+        { "libelle": "Écart OAT-Bund, pic", "valeur": "176 points de base", "date": "2026-10-23", "source": "Admiral Markets (source secondaire)" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.notation",
+      "type": "fiche", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "tags": ["dette", "notation", "credit"],
+      "titre": "La notation des États",
+      "une_phrase": "Les agences de notation attribuent à chaque État une **note**, de AAA à D, qui résume sa capacité à rembourser sa dette ; moins la note est bonne, plus l'État emprunte cher.",
+      "trente_secondes": "Trois agences dominent : **S&P**, **Moody's** et **Fitch**. Elles notent les États comme elles notent les entreprises.\n\nLa meilleure note est **AAA** (« triple A ») : risque quasi nul. On descend ensuite par crans : AA, A, BBB, puis BB, B, CCC… jusqu'à D, le défaut.\n\nLa frontière qui compte est entre **BBB−** et **BB+**. Au-dessus, on est en « catégorie investissement » (*investment grade*). En dessous, en « catégorie spéculative ». Beaucoup d'investisseurs n'ont pas le droit de détenir des titres spéculatifs.\n\nChaque note est accompagnée d'une **perspective** : positive, stable ou négative, qui annonce le sens probable du prochain changement.",
+      "analogie": "C'est la note d'un restaurant dans un guide, donnée par des inspecteurs. Elle ne garantit rien, mais beaucoup de clients s'y fient. Perdre une étoile ne change pas la cuisine du jour au lendemain, mais certains clients ne viendront plus, et il faudra baisser les prix pour remplir la salle. Pour un État, « baisser les prix » veut dire payer un taux plus élevé.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["S&P et Fitch", "Moody's", "Signification"],
+        "lignes": [
+          ["AAA", "Aaa", "Qualité maximale (Allemagne, Pays-Bas)"],
+          ["AA+, AA, AA−", "Aa1, Aa2, Aa3", "Très haute qualité"],
+          ["A+, A, A−", "A1, A2, A3", "Qualité moyenne supérieure"],
+          ["BBB+, BBB, BBB−", "Baa1, Baa2, Baa3", "Dernier étage de la catégorie investissement"],
+          ["BB+ et en dessous", "Ba1 et en dessous", "Catégorie spéculative"]
+        ],
+        "legende": "Les deux échelles se correspondent cran par cran."
+      },
+      "exemple_chiffre": [
+        "La notation de la France à l'automne 2026.",
+        "**Moody's : Aa3**, perspective négative. L'agence a maintenu sa note le 23 octobre 2026, alors que beaucoup attendaient un abaissement.",
+        "**S&P : A+**, perspective stable. Sa prochaine revue est prévue le 27 novembre 2026.",
+        "**Fitch : A+**.",
+        "Aa3 correspond à AA− : Moody's place donc la France un cran au-dessus des deux autres agences. En cas d'abaissement d'un cran par Moody's, les trois seraient alignées sur A+."
+      ],
+      "formules": [],
+      "deux_minutes": "**Ce que regardent les agences.** Le niveau et la trajectoire de la dette, le déficit, la croissance potentielle, la solidité des institutions, la stabilité politique, et la capacité à voter et tenir un budget. C'est ce dernier point qui pèse sur la France depuis 2024.\n\n**Le calendrier.** En Europe, les agences doivent publier à l'avance les dates de leurs revues des États, deux fois par an, le vendredi soir après la clôture des marchés. Ces dates sont connues et attendues.\n\n**L'effet sur les marchés.** Un abaissement est souvent **déjà anticipé** : le spread s'est élargi avant, et la réaction le jour même peut être faible. Les agences suivent le marché plus qu'elles ne le précèdent. Les vrais chocs viennent des abaissements surprise, ou du franchissement d'un seuil.\n\n**Les seuils qui comptent.**\n\n- La perte du **AAA** est symbolique : la France l'a perdu en 2012, les États-Unis en 2011 chez S&P.\n- Le passage de la catégorie **AA** à la catégorie **A** fait sortir le pays de certains portefeuilles et augmente le capital que certains investisseurs doivent immobiliser.\n- La perte de la **catégorie investissement** déclenche des ventes forcées : c'est ce qui est arrivé à la Grèce en 2010.\n\n**Pour la BCE.** Elle n'accepte en garantie de ses prêts que des titres d'une qualité minimale, en se fondant sur ces notes.\n\n**Les critiques.** Les agences ont très bien noté des produits liés aux crédits immobiliers à risque avant 2008, et elles sont payées par les émetteurs qu'elles notent. Leurs notes d'États sont plus solides, mais elles restent des opinions, pas des garanties.\n\n**Le lien avec le crédit d'entreprise.** Les mêmes échelles servent pour les entreprises. Une entreprise est rarement mieux notée que son État : c'est le « plafond souverain ». Le spread de crédit et le risque de défaut sont traités dans le module 3.",
+      "piege": "Confondre la **note** et la **perspective**. « Perspective négative » n'est pas un abaissement : c'est un avertissement que la note pourrait baisser. Autre erreur : croire qu'un abaissement fait forcément bondir les taux ; s'il était attendu, il est déjà dans les prix.",
+      "a_dire_en_entretien": "« Trois agences, S&P, Moody's et Fitch, notent la capacité des États à rembourser, de AAA à D, avec une frontière importante entre la catégorie investissement et la catégorie spéculative. La France est notée Aa3 avec perspective négative par Moody's, et A+ par S&P et Fitch. Une note plus basse renchérit le coût d'emprunt, mais l'effet est souvent anticipé par le marché : le spread s'élargit avant la décision. »",
+      "liens": ["m1.budget.spread", "m1.budget.deficit-dette", "m1.forces.politique"],
+      "sources": [
+        { "titre": "France 24, « L'agence Moody's maintient la note souveraine de la France à Aa3 avec perspective négative »", "url": "https://www.france24.com/fr/france/20261022-notation-de-la-france-un-abaissement-de-la-note-par-moody-s-jug%C3%A9-tr%C3%A8s-plausible", "date": "2026-10-23" },
+        { "titre": "Agence France Trésor, notations de la France", "url": "https://www.aft.gouv.fr/en/frances-credit-ratings" }
+      ],
+      "chiffres": [
+        { "libelle": "Note de la France chez Moody's", "valeur": "Aa3, perspective négative", "date": "2026-10-23", "source": "Moody's, via France 24" },
+        { "libelle": "Note de la France chez S&P", "valeur": "A+, perspective stable", "date": "2026-05-29", "source": "S&P, via l'Agence France Trésor" },
+        { "libelle": "Note de la France chez Fitch", "valeur": "A+", "date": "2026-10-30", "source": "Fitch, via l'Agence France Trésor" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.budget.c01", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "recto": "Politique monétaire et politique budgétaire : qui décide, avec quels outils ?", "verso": "Monétaire : la banque centrale, avec les taux. Budgétaire : le gouvernement et le Parlement, avec les impôts et les dépenses publiques.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c02", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Qu'est-ce que le policy mix ?", "verso": "Le dosage entre politique monétaire et politique budgétaire. Si elles se contrarient, les taux doivent monter plus haut.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c03", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "recto": "Les deux repères budgétaires européens ?", "verso": "Un déficit public inférieur à 3 % du PIB et une dette publique inférieure à 60 % du PIB.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c04", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "recto": "Différence entre déficit et dette ?", "verso": "Le déficit est un flux annuel (dépenses moins recettes). La dette est le stock accumulé de tous les déficits passés.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c05", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 3, "recto": "Qu'est-ce que l'effet boule de neige de la dette ?", "verso": "Quand le taux d'intérêt payé sur la dette dépasse la croissance du PIB, la dette augmente en proportion du PIB même sans nouveau déficit primaire.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c06", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Qu'est-ce que le déficit primaire ?", "verso": "Le déficit hors intérêts de la dette.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c07", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "recto": "Qu'est-ce qu'une OAT ? Un Bund ?", "verso": "Une OAT est une obligation de l'État français. Un Bund est une obligation de l'État allemand, la référence de la zone euro.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c08", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Que mesure l'écart OAT-Bund ?", "verso": "La prime de risque que les investisseurs demandent pour prêter à la France plutôt qu'à l'Allemagne. Il s'exprime en points de base.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c09", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Niveaux repères de l'écart OAT-Bund ?", "verso": "Environ 50 points de base avant 2024 ; pic à 176 le 23 octobre 2026 (plus haut depuis 2011) ; environ 145 mi-novembre 2026.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c10", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "recto": "Les trois grandes agences de notation ?", "verso": "S&P, Moody's et Fitch.", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c11", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Où se situe la frontière entre catégorie investissement et catégorie spéculative ?", "verso": "Entre BBB− et BB+ (Baa3 et Ba1 chez Moody's).", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.c12", "type": "carte", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "recto": "Notes de la France à l'automne 2026 ?", "verso": "Moody's : Aa3, perspective négative. S&P : A+, perspective stable. Fitch : A+.", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.budget.q01", "type": "question_entretien", "module": 1, "chapitre": "m1.budget", "difficulte": 1,
+      "question": "Quelle différence entre politique monétaire et politique budgétaire ?",
+      "reponse_modele": "La politique monétaire est conduite par la banque centrale, qui agit sur les taux d'intérêt et les conditions de financement pour assurer la stabilité des prix. La politique budgétaire est conduite par le gouvernement et le Parlement, qui décident des impôts et des dépenses publiques. La première est rapide à décider mais ne peut pas cibler ; la seconde peut cibler mais elle est lente et limitée par la dette. En zone euro, il y a une politique monétaire unique et 21 politiques budgétaires nationales, encadrées par les règles des 3 % et des 60 %.",
+      "points_cles": ["Qui décide : banque centrale ou gouvernement", "Outils : taux contre impôts et dépenses", "Forces et limites de chacune", "Une monnaie, 21 budgets", "Règles européennes"],
+      "piege": "Attribuer une mesure fiscale à la BCE ou une décision de taux au gouvernement.",
+      "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.q02", "type": "question_entretien", "module": 1, "chapitre": "m1.budget", "difficulte": 2,
+      "question": "Qu'est-ce que le spread OAT-Bund et où en est-il ?",
+      "reponse_modele": "C'est l'écart entre le taux à 10 ans de l'État français et celui de l'État allemand, exprimé en points de base. Comme les deux pays partagent la même monnaie, il mesure la prime de risque attachée à la dette française. Il tournait autour de 50 points de base avant 2024. Avec la crise budgétaire, il a atteint 176 points de base le 23 octobre 2026, son plus haut depuis 2011, et il se situe autour de 145 mi-novembre. Cela renchérit le financement de l'État, mais aussi celui des banques et des entreprises françaises.",
+      "points_cles": ["Définition et unité", "Ce qu'il mesure : la prime de risque", "Niveau habituel", "Niveau actuel et pic récent, datés", "Conséquence pour les emprunteurs français"],
+      "piege": "Confondre le niveau du taux français et l'écart avec l'Allemagne.",
+      "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.q03", "type": "question_entretien", "module": 1, "chapitre": "m1.budget", "difficulte": 2,
+      "question": "Pourquoi une dette publique élevée est-elle un problème quand les taux montent ?",
+      "reponse_modele": "Parce que la dette doit être renouvelée en permanence. Quand les taux montent, chaque emprunt qui arrive à échéance est remplacé par un emprunt plus cher : la charge d'intérêts augmente progressivement et prend la place d'autres dépenses. Surtout, si le taux d'intérêt devient supérieur à la croissance, la dette augmente en proportion du PIB même à déficit primaire nul : c'est l'effet boule de neige. Il faut alors dégager des excédents primaires pour la stabiliser. Et si les investisseurs doutent, ils exigent une prime de risque, ce qui aggrave encore le coût.",
+      "points_cles": ["La dette se renouvelle au taux du moment", "Charge d'intérêts croissante", "Taux contre croissance : effet boule de neige", "Excédent primaire nécessaire", "Prime de risque et cercle vicieux"],
+      "piege": "Dire que la charge de la dette augmente d'un coup : la hausse se diffuse sur plusieurs années.",
+      "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.budget.q04", "type": "question_entretien", "module": 1, "chapitre": "m1.budget", "difficulte": 2,
+      "question": "Quelle est la note de la France, et que se passerait-il en cas d'abaissement ?",
+      "reponse_modele": "La France est notée Aa3 avec perspective négative par Moody's, qui a maintenu sa note le 23 octobre 2026, et A+ par S&P et Fitch. Un abaissement renchérit en principe le coût d'emprunt et peut faire sortir la dette de certains portefeuilles. Mais l'effet immédiat est souvent limité, parce que le marché l'a anticipé : le spread s'est élargi avant. Ce qui compterait davantage, c'est un abaissement surprise ou la perte d'une catégorie entière. La prochaine échéance est la revue de S&P, le 27 novembre 2026.",
+      "points_cles": ["Les trois notes et leur perspective", "Effet théorique : coût d'emprunt", "Souvent déjà dans les prix", "Importance des seuils", "Prochaine échéance"],
+      "piege": "Confondre perspective négative et abaissement.",
+      "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.budget.z01", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "enonce": "Qui décide du niveau des impôts en France ?", "choix": ["La BCE", "Le gouvernement et le Parlement", "La Banque de France", "La Commission européenne"], "bonne": 1, "explication": "C'est de la politique budgétaire. La BCE ne décide que de la politique monétaire.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z02", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "enonce": "Si le déficit public passe de 5 % à 4 % du PIB, la dette publique diminue.", "vrai": false, "explication": "Tant qu'il y a un déficit, l'État emprunte encore : la dette continue d'augmenter, moins vite.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z03", "type": "quiz", "forme": "numerique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "enonce": "L'OAT à 10 ans rapporte 4,66 % et le Bund à 10 ans 3,24 %. Quel est l'écart, en points de base ?", "reponse": 142, "tolerance": 0.5, "unite": "pb", "explication": "4,66 % − 3,24 % = 1,42 %, soit 142 points de base.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z04", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "enonce": "L'écart OAT-Bund s'élargit alors que le taux français ne bouge pas. Que s'est-il passé ?", "choix": ["Le taux allemand a baissé", "Le taux allemand a monté", "La BCE a baissé ses taux", "La France a été mieux notée"], "bonne": 0, "explication": "Écart = taux français − taux allemand. Si le premier est stable et que l'écart augmente, c'est que le taux allemand a baissé, par exemple parce que les investisseurs se réfugient sur le Bund.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z05", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "enonce": "Laquelle de ces notes est en catégorie spéculative ?", "choix": ["AA−", "A+", "BBB−", "BB+"], "bonne": 3, "explication": "La catégorie investissement s'arrête à BBB−. BB+ est le premier cran spéculatif.", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z06", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "enonce": "La note Aa3 de Moody's est équivalente à la note AA− de S&P.", "vrai": true, "explication": "Oui. Aa1, Aa2, Aa3 correspondent à AA+, AA, AA−. La France est donc notée un cran plus haut chez Moody's (Aa3) que chez S&P et Fitch (A+).", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z07", "type": "quiz", "forme": "qcm", "module": 1, "chapitre": "m1.budget", "difficulte": 3, "enonce": "Un État a un budget primaire à l'équilibre. Le taux d'intérêt de sa dette est de 4 % et la croissance de son PIB en valeur de 2 %. Sa dette en % du PIB…", "choix": ["baisse", "reste stable", "augmente", "disparaît en dix ans"], "bonne": 2, "explication": "Le taux dépasse la croissance : la dette grossit plus vite que le PIB. C'est l'effet boule de neige.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.z08", "type": "quiz", "forme": "vrai_faux", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "enonce": "La BCE fixe le taux de l'OAT à 10 ans.", "vrai": false, "explication": "C'est un taux de marché. La BCE fixe les taux courts ; le taux à 10 ans reflète les taux attendus, l'inflation attendue et la prime de risque de l'État.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+
+    {
+      "id": "m1.budget.x01", "type": "exercice", "module": 1, "chapitre": "m1.budget", "difficulte": 3,
+      "titre": "La dette fait-elle boule de neige ?",
+      "enonce": "Exemple fictif. Un État a une dette de 115 % du PIB, un taux d'intérêt moyen de 3,5 % et une croissance du PIB en valeur de 2,5 %. Son déficit primaire est de 2 % du PIB. Calcule sa dette dans un an. Puis refais le calcul avec un taux d'intérêt de 1,5 %, comme dans les années 2010.",
+      "etapes": [
+        {
+          "titre": "L'effet des intérêts et de la croissance",
+          "texte": "Les intérêts multiplient la dette par 1,035 ; la croissance multiplie le PIB par 1,025. Le ratio est multiplié par 1,035 ÷ 1,025.",
+          "formule": { "latex": "115 \\times \\frac{1{,}035}{1{,}025} = 116{,}12", "legende": { "1{,}035": "1 plus le taux d'intérêt", "1{,}025": "1 plus la croissance du PIB en valeur" }, "en_francais": "À eux seuls, les intérêts font monter la dette de 1,1 point de PIB, parce que le taux dépasse la croissance." },
+          "resultat": "116,1 % du PIB"
+        },
+        {
+          "titre": "On ajoute le déficit primaire",
+          "texte": "116,12 % + 2 % de déficit primaire.",
+          "resultat": "118,1 % du PIB : +3,1 points en un an",
+          "verif": { "fn": "taux.detteSuivante", "args": [115, 3.5, 2.5, 2], "attendu": 118.12, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Avec un taux d'intérêt de 1,5 %",
+          "texte": "Le taux est cette fois inférieur à la croissance : 115 × 1,015 ÷ 1,025 = 113,88 %. On ajoute le déficit primaire de 2 %.",
+          "resultat": "115,9 % du PIB : +0,9 point seulement",
+          "verif": { "fn": "taux.detteSuivante", "args": [115, 1.5, 2.5, 2], "attendu": 115.88, "tolerance": 0.01 }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Avec le même déficit primaire, la dette augmente de 3,1 points quand le taux dépasse la croissance, et de 0,9 point seulement quand il lui est inférieur. La remontée des taux depuis 2022 a changé la donne pour tous les États endettés : pour stabiliser sa dette, celui-ci devrait passer d'un déficit primaire de 2 % à un **excédent** d'environ 1,1 %."
+        }
+      ],
+      "erreurs_a_eviter": ["Additionner simplement taux et déficit sans tenir compte de la croissance.", "Utiliser la croissance réelle : il faut la croissance en valeur, inflation comprise.", "Confondre le déficit primaire et le déficit total."],
+      "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.budget.l-politique-budgetaire", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "Politique budgétaire", "anglais": "fiscal policy", "definition": "Décisions du gouvernement sur les impôts et les dépenses publiques.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-policy-mix", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Policy mix", "anglais": "policy mix", "definition": "Combinaison de la politique monétaire et de la politique budgétaire.", "fiche": "m1.budget.policy-mix", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-deficit", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "Déficit public", "anglais": "budget deficit", "definition": "Excès des dépenses publiques sur les recettes, sur une année. Exprimé en % du PIB.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-dette", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "Dette publique", "anglais": "public debt", "definition": "Total des emprunts de l'État et des administrations publiques restant à rembourser.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-deficit-primaire", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Déficit primaire", "anglais": "primary deficit", "definition": "Déficit public hors paiement des intérêts de la dette.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-charge-de-la-dette", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Charge de la dette", "anglais": "debt service", "definition": "Intérêts payés chaque année par l'État sur sa dette.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-boule-de-neige", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 3, "terme": "Effet boule de neige", "anglais": "snowball effect", "definition": "Hausse mécanique du ratio de dette quand le taux d'intérêt dépasse la croissance du PIB.", "fiche": "m1.budget.deficit-dette", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-oat", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "OAT", "anglais": "French government bond", "definition": "Obligation assimilable du Trésor : obligation émise par l'État français.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-bund", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "Bund", "anglais": "German government bond", "definition": "Obligation de l'État allemand. Référence sans risque de la zone euro.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-ecart-oat-bund", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Écart OAT-Bund", "anglais": "OAT-Bund spread", "definition": "Différence entre les taux à 10 ans de la France et de l'Allemagne : surcoût d'emprunt de la France.", "fiche": "m1.budget.spread", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-agence-de-notation", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 1, "terme": "Agence de notation", "anglais": "rating agency", "definition": "Société qui évalue la capacité d'un émetteur à rembourser sa dette : S&P, Moody's, Fitch.", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-investment-grade", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Catégorie investissement", "anglais": "investment grade", "definition": "Notes de AAA à BBB−. En dessous, on parle de catégorie spéculative (high yield).", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.budget.l-perspective", "type": "lexique", "module": 1, "chapitre": "m1.budget", "difficulte": 2, "terme": "Perspective", "anglais": "outlook", "definition": "Indication donnée par une agence sur le sens probable du prochain changement de note : positive, stable ou négative.", "fiche": "m1.budget.notation", "maj": "2026-11-16", "version": 1 }
+  ]
+}

@@ -39,6 +39,26 @@ L'identifiant de chaque élément commence par celui de son chapitre : `m1.chang
 - **cas_pratique** : `titre`, `situation`, `questions_a_poser[]`, `proposition`, `scenario_defavorable`, `faisabilite`, `fiche?`.
 - **lexique** : `terme`, `anglais?`, `definition`, `fiche?`.
 
+## Pack actu mensuel
+
+`content/actu/AAAA-MM.json`, un fichier par mois. Le plus récent alimente l'onglet Marché ; les autres restent en archive.
+
+| Champ | Rôle |
+|---|---|
+| `id`, `mois`, `arrete_le`, `titre` | `actu.2026-11`, `2026-11`, date de la photo, « Novembre 2026 » |
+| `histoire` | Exactement 5 phrases |
+| `vue_30s` | Le paragraphe à dire à voix haute |
+| `chiffres[]` | `cle`, `groupe`, `libelle`, `valeur`, `date`, `source`, `url?`, `tendance` (`hausse`, `baisse`, `stable`), `tendance_texte`, `definition`, `pourquoi` |
+| `evenements[]` | `date`, `titre`, `texte` |
+| `calendrier[]` | `date` (texte libre), `evenement`, `pourquoi` |
+| `impacts[]` | `client`, `texte` |
+| `sources[]` | `titre`, `url?`, `date?` |
+| `elements[]` | Questions d'entretien et quiz d'actualité, d'identifiant `m1.marche.…` |
+
+Groupes possibles : Banques centrales, Taux courts, Inflation, Change, Taux longs, Matières premières et actions.
+
+Depuis l'app, l'onglet Marché permet de copier la demande à coller dans Claude, d'importer sa réponse, puis d'exporter le pack au format du dépôt.
+
 ## Règles
 
 - **Formules** : jamais dans le texte. Uniquement `{ titre?, latex, legende: { "symbole LaTeX": "sens" }, en_francais }`.

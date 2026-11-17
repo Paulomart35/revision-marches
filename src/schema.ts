@@ -137,6 +137,35 @@ export const Chapitre = z.object({
 
 export const FichierChapitre = z.object({ chapitre: Chapitre, elements: z.array(Element) });
 
+/** Un chiffre du tableau de bord : daté, sourcé, avec sa définition et son intérêt. */
+export const ChiffreMarche = Chiffre.extend({
+  cle: z.string().min(1),
+  groupe: z.enum(['Banques centrales', 'Taux courts', 'Inflation', 'Change', 'Taux longs', 'Matières premières et actions']),
+  tendance: z.enum(['hausse', 'baisse', 'stable']),
+  tendance_texte: z.string().min(1),
+  definition: z.string().min(1),
+  pourquoi: z.string().min(1),
+});
+
+/** Pack actu mensuel : la photo du marché sur une fenêtre d'un mois. */
+export const PackActu = z.object({
+  id: z.string().regex(/^actu\.\d{4}-\d{2}$/, 'identifiant du type actu.2026-11'),
+  type: z.literal('pack_actu'),
+  mois: z.string().regex(/^\d{4}-\d{2}$/),
+  arrete_le: date,
+  titre: z.string().min(1),
+  histoire: z.array(z.string().min(1)).length(5),
+  vue_30s: z.string().min(1),
+  chiffres: z.array(ChiffreMarche).min(1),
+  evenements: z.array(z.object({ date, titre: z.string().min(1), texte: z.string().min(1) })).min(1),
+  calendrier: z.array(z.object({ date: z.string().min(1), evenement: z.string().min(1), pourquoi: z.string().min(1) })).min(1),
+  impacts: z.array(z.object({ client: z.string().min(1), texte: z.string().min(1) })).min(1),
+  sources: z.array(Source).min(1),
+  elements: z.array(z.union([QuestionEntretien, Quiz])).default([]),
+  maj: date,
+  version: z.number().int().min(1),
+});
+
 export const Module = z.object({ id: z.number().int(), titre: z.string(), court: z.string(), disponible: z.boolean() });
 
 export type TChiffre = z.infer<typeof Chiffre>;
@@ -152,6 +181,8 @@ export type TLexique = z.infer<typeof Lexique>;
 export type TElement = z.infer<typeof Element>;
 export type TChapitre = z.infer<typeof Chapitre>;
 export type TModule = z.infer<typeof Module>;
+export type TPackActu = z.infer<typeof PackActu>;
+export type TChiffreMarche = z.infer<typeof ChiffreMarche>;
 
 export const NOMS_TYPES: Record<TElement['type'], string> = {
   fiche: 'Fiche',

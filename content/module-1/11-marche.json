@@ -1,0 +1,114 @@
+{
+  "chapitre": {
+    "id": "m1.marche",
+    "module": 1,
+    "ordre": 11,
+    "titre": "Le marché actuel",
+    "resume": "La méthode pour construire ta vue de marché en 30 secondes et les grands repères à connaître. Les chiffres du mois sont dans l'onglet Marché."
+  },
+  "elements": [
+    {
+      "id": "m1.marche.vue-30s",
+      "type": "fiche", "module": 1, "chapitre": "m1.marche", "difficulte": 2, "tags": ["actualite", "methode", "entretien"],
+      "titre": "Construire ta vue de marché en 30 secondes",
+      "une_phrase": "Une vue de marché tient en quatre temps : **le fait dominant**, **ce que font les banques centrales**, **ce que cela donne sur les prix**, et **ce que cela change pour les clients**.",
+      "trente_secondes": "« Que se passe-t-il sur les marchés ? » est la question la plus probable d'un entretien en finance de marché. On n'attend pas un journal télévisé, on attend une **histoire qui se tient**.\n\nCommence par le fait qui explique tout le reste : aujourd'hui, un choc d'énergie. Enchaîne sur la réaction des banques centrales, avec leurs taux. Donne ensuite deux ou trois prix qui en découlent : l'euro, les taux longs. Termine par la conséquence pour un client.\n\nQuatre phrases, cinq chiffres au maximum, chacun avec son ordre de grandeur. Et une date : « mi-novembre ».",
+      "analogie": "C'est un bulletin météo, pas un relevé de station. Le présentateur ne lit pas trente températures : il dit « un anticyclone s'installe, donc il fera beau et froid, donc couvrez-vous ». Une cause, un enchaînement, une conséquence pratique. Ta vue de marché doit avoir cette forme.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          { "titre": "1. Le fait dominant", "texte": "« Un choc d'énergie a fait remonter l'inflation à 4 % en zone euro. »" },
+          { "titre": "2. Les banques centrales", "texte": "« La BCE a remonté son taux à 2,50 %, la Fed est à 3,75 – 4,00 % ; toutes deux font une pause. »" },
+          { "titre": "3. Les prix", "texte": "« La Fed restant plus restrictive, l'euro est tombé vers 1,10 dollar ; l'écart OAT-Bund s'est élargi avec la crise budgétaire. »" },
+          { "titre": "4. Les clients", "texte": "« C'est le moment de regarder les couvertures de taux variable et les flux en dollars. »" }
+        ],
+        "legende": "Le plan en quatre temps, rempli avec la situation de mi-novembre 2026."
+      },
+      "exemple_chiffre": [
+        "Les cinq chiffres à avoir en tête mi-novembre 2026, et pas un de plus.",
+        "Inflation de la zone euro : 4,0 % en octobre (sous-jacente : 2,5 %).",
+        "Taux de dépôt de la BCE : 2,50 %.",
+        "Fourchette de la Fed : 3,75 % – 4,00 %.",
+        "EUR/USD : environ 1,10 (1,1052 le 13 novembre), au plus bas depuis un an.",
+        "Écart OAT-Bund : environ 145 points de base, après un pic à 176 fin octobre."
+      ],
+      "formules": [],
+      "deux_minutes": "**Comment préparer ta vue.**\n\n- La veille de l'entretien, ouvre l'onglet **Marché** et vérifie les cinq chiffres. Un chiffre périmé se remarque.\n- Lis « l'histoire du mois » et dis-la à voix haute, sans regarder.\n- Entraîne-toi à la dire en 30 secondes, puis en 2 minutes. La version longue ajoute la croissance, l'emploi américain, les taux longs et le calendrier.\n\n**Les relances probables, et quoi répondre.**\n\n- « Et selon vous, que va faire la BCE ? » : donne un scénario central, sa justification, et le risque qui l'invaliderait. Personne ne te demandera d'avoir raison.\n- « Pourquoi l'euro baisse alors que la BCE monte ses taux ? » : l'écart de taux avec la Fed et le choc d'énergie.\n- « Quel impact pour nos clients ? » : emprunteurs à taux variable, exportateurs, importateurs, placeurs.\n- « Et la France ? » : budget, écart OAT-Bund, notation.\n\n**Les trois défauts à éviter.**\n\n- **La liste** : aligner dix chiffres sans les relier.\n- **Le flou** : « les taux sont assez hauts ». Donne le niveau.\n- **La certitude** : annoncer ce que fera la BCE comme une évidence. Parle de probabilités : « le marché attend », « mon scénario central ».\n\n**Arrondis.** « Autour de 1,10 », « environ 4 % », « un peu moins de 150 points de base » : c'est plus naturel à l'oral qu'une décimale apprise par cœur, et tu risques moins l'erreur.\n\n**Si tu ne sais pas.** Dis-le, puis raisonne : « je n'ai pas le dernier chiffre en tête, mais la logique est la suivante… ». Un raisonnement juste sur un chiffre approximatif vaut mieux qu'un chiffre exact sans explication.",
+      "piege": "Réciter une vue apprise il y a un mois. Les marchés bougent : une réunion de banque centrale ou un chiffre d'inflation peut rendre ta vue fausse du jour au lendemain. Date toujours ton propos (« mi-novembre ») et vérifie les chiffres la veille.",
+      "a_dire_en_entretien": "« Le marché est dominé par un choc d'énergie qui a fait remonter l'inflation à 4 % en zone euro, alors que la sous-jacente reste à 2,5 %. La BCE a relevé son taux de dépôt deux fois cette année, à 2,50 %, et la Fed est à 3,75 % – 4,00 % ; les deux ont marqué une pause fin octobre et se réunissent en décembre. Comme la Fed reste plus restrictive, l'euro est tombé vers 1,10 dollar, au plus bas depuis un an. En France, la crise budgétaire a élargi l'écart OAT-Bund. Pour nos clients, c'est le moment de couvrir les crédits à taux variable et les flux en dollars. »",
+      "liens": ["m1.episodes.situation-2026", "m1.forces.commenter-mouvement", "m1.transmission.clients", "m1.marche.reperes"],
+      "sources": [
+        { "titre": "Eurostat, estimation rapide de l'inflation d'octobre 2026", "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap", "date": "2026-11-04" },
+        { "titre": "BCE, historique des taux directeurs", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html" },
+        { "titre": "Réserve fédérale, communiqué du FOMC du 28 octobre 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm", "date": "2026-10-28" },
+        { "titre": "BCE, taux de change de référence de l'euro", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.fr.html", "date": "2026-11-13" }
+      ],
+      "chiffres": [
+        { "libelle": "Inflation zone euro (IPCH, estimation rapide)", "valeur": "4,0 %", "date": "2026-10-31", "source": "Eurostat" },
+        { "libelle": "Taux de dépôt de la BCE", "valeur": "2,50 %", "date": "2026-09-16", "source": "BCE" },
+        { "libelle": "Fourchette des Fed funds", "valeur": "3,75 % – 4,00 %", "date": "2026-10-28", "source": "Réserve fédérale" },
+        { "libelle": "EUR/USD (taux de référence)", "valeur": "1,1052", "date": "2026-11-13", "source": "BCE" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+    {
+      "id": "m1.marche.reperes",
+      "type": "fiche", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "tags": ["actualite", "indices", "vocabulaire"],
+      "titre": "Les repères de marché à connaître",
+      "une_phrase": "Au-delà des taux et du change, il faut savoir situer quelques **indices boursiers**, le **Brent**, les **taux à 10 ans** et le **VIX**, et dire ce que chacun mesure.",
+      "trente_secondes": "**Les indices actions** résument le cours d'un panier de grandes entreprises. Le **CAC 40** : les 40 plus grandes sociétés cotées à Paris. L'**Euro Stoxx 50** : 50 grandes sociétés de la zone euro. Le **S&P 500** : 500 grandes sociétés américaines, la référence mondiale.\n\n**Le Brent** est le pétrole de la mer du Nord : son prix, en dollars par baril, sert de référence pour l'Europe.\n\n**Les taux à 10 ans** des États (Bund, OAT, *Treasury* américain) donnent le coût de l'argent à long terme.\n\n**Le VIX** mesure la nervosité du marché américain des actions : on le surnomme « l'indice de la peur ».",
+      "analogie": "C'est le tableau de bord d'une voiture. Les indices actions sont le compteur de vitesse : l'humeur de l'économie. Le Brent est la jauge d'essence : le coût de l'énergie. Les taux à 10 ans sont la température du moteur : le coût de l'argent. Le VIX est le voyant d'alerte : il s'allume quand quelque chose inquiète.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": ["Repère", "Ce que c'est", "Ce qu'il dit"],
+        "lignes": [
+          ["CAC 40", "40 grandes sociétés françaises", "La santé des grandes entreprises cotées à Paris, très tournées vers l'international"],
+          ["Euro Stoxx 50", "50 grandes sociétés de la zone euro", "Le marché actions de la zone euro ; sous-jacent de nombreux produits structurés"],
+          ["S&P 500", "500 grandes sociétés américaines", "La référence mondiale des actions"],
+          ["Brent", "Pétrole de la mer du Nord, en dollars par baril", "Le coût de l'énergie, donc une partie de l'inflation à venir"],
+          ["Bund 10 ans", "Taux de l'État allemand à 10 ans", "Le taux long sans risque de la zone euro"],
+          ["Treasury 10 ans", "Taux de l'État américain à 10 ans", "Le taux long de référence mondial"],
+          ["VIX", "Volatilité attendue sur le S&P 500", "Le niveau d'inquiétude : calme sous 15 à 20, stress au-dessus de 30"]
+        ]
+      },
+      "exemple_chiffre": [
+        "Lire une variation d'indice, avec les clôtures du CAC 40 de la semaine du 9 novembre 2026.",
+        "Vendredi 13 novembre 2026, le CAC 40 clôture à 8 368,91 points.",
+        "Sur la semaine, il gagne 2,82 % : il valait donc environ 8 368,91 ÷ 1,0282 = 8 139 points le vendredi précédent.",
+        "En points, la hausse de la semaine est d'environ 230 points.",
+        "À l'oral, on dit : « le CAC est autour de 8 370 points, après une semaine de forte hausse ». Le niveau exact n'a pas d'intérêt ; le sens et l'ordre de grandeur, si."
+      ],
+      "formules": [],
+      "deux_minutes": "**Un indice n'est pas un prix.** Son niveau en points n'a pas de signification en soi : 8 000 points ne veut pas dire que les actions sont chères. Ce qui compte, c'est sa **variation**, en pourcentage.\n\n**Ce que les indices ne disent pas.** Les sociétés du CAC 40 réalisent l'essentiel de leur chiffre d'affaires hors de France : l'indice reflète l'économie mondiale plus que l'économie française. Et ces indices sont pondérés par la taille : quelques très grandes valeurs peuvent faire l'essentiel du mouvement, comme les valeurs technologiques dans le S&P 500.\n\n**Actions et taux.** En général, des taux qui montent pèsent sur les actions : les bénéfices futurs valent moins aujourd'hui, et les obligations redeviennent une alternative. Mais si les taux montent parce que la croissance est forte, les actions peuvent monter aussi.\n\n**Le Brent et le WTI.** Le Brent est la référence européenne et mondiale ; le WTI est la référence américaine, en général quelques dollars en dessous. Mi-novembre 2026, le Brent est proche de 96 dollars le baril : un niveau élevé, qui explique l'inflation actuelle.\n\n**Le VIX et le VSTOXX.** Le VIX est calculé à partir du prix des options sur le S&P 500 : il donne la volatilité que le marché attend sur les trente prochains jours. Le **VSTOXX** est son équivalent pour l'Euro Stoxx 50. Ces deux indices sont étudiés avec la volatilité implicite dans le module 2.\n\n**Les taux à 10 ans.** Le taux américain à 10 ans, au-dessus de 5 % mi-novembre 2026, est le prix de l'argent le plus regardé au monde : il influence les crédits immobiliers américains, la valorisation des actions et les flux vers le dollar.",
+      "piege": "Donner un niveau d'indice au point près en se trompant de plusieurs centaines. Mieux vaut un ordre de grandeur juste (« autour de 8 400 ») et le sens de la tendance. Autre erreur : croire que le CAC 40 mesure l'économie française.",
+      "a_dire_en_entretien": "« Je suis trois familles de repères. Les indices actions : le CAC 40, autour de 8 400 points, l'Euro Stoxx 50 et le S&P 500. Les taux longs : le Bund et l'OAT à 10 ans, et le Treasury américain, repassé au-dessus de 5 %. Et deux indicateurs de contexte : le Brent, proche de 96 dollars, qui explique l'inflation actuelle, et le VIX, qui mesure la nervosité du marché. »",
+      "liens": ["m1.marche.vue-30s", "m1.budget.spread", "m1.forces.valeur-refuge"],
+      "sources": [
+        { "titre": "Boursorama, « Cinq sur cinq pour le CAC 40 sur la semaine »", "url": "https://www.boursorama.com/bourse/actualites/cinq-sur-cinq-pour-le-cac-40-sur-la-semaine-de2fcbec62e3ccc0a2e58f1c60018d85", "date": "2026-11-13" },
+        { "titre": "Forbes Advisor, « Treasury Rates Today: November 13, 2026 »", "url": "https://www.forbes.com/advisor/investing/treasury-rates/", "date": "2026-11-13" }
+      ],
+      "chiffres": [
+        { "libelle": "CAC 40, clôture", "valeur": "8 368,91 points", "date": "2026-11-13", "source": "Boursorama" },
+        { "libelle": "Brent, contrat de janvier", "valeur": "95,89 $ le baril", "date": "2026-11-13", "source": "Boursorama" },
+        { "libelle": "Taux américain à 10 ans", "valeur": "5,15 %", "date": "2026-11-13", "source": "Forbes Advisor (source secondaire)" }
+      ],
+      "exemple_fictif": false,
+      "maj": "2026-11-16", "version": 1
+    },
+
+    { "id": "m1.marche.c01", "type": "carte", "module": 1, "chapitre": "m1.marche", "difficulte": 2, "recto": "Les quatre temps d'une vue de marché en 30 secondes ?", "verso": "Le fait dominant, ce que font les banques centrales, ce que cela donne sur les prix (change, taux), ce que cela change pour les clients.", "fiche": "m1.marche.vue-30s", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.c02", "type": "carte", "module": 1, "chapitre": "m1.marche", "difficulte": 2, "recto": "Les trois défauts d'une mauvaise vue de marché ?", "verso": "La liste (des chiffres sans lien), le flou (pas de niveau), la certitude (annoncer l'avenir comme une évidence).", "fiche": "m1.marche.vue-30s", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.c03", "type": "carte", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "recto": "CAC 40, Euro Stoxx 50, S&P 500 : que regroupe chacun ?", "verso": "CAC 40 : 40 grandes sociétés françaises. Euro Stoxx 50 : 50 grandes sociétés de la zone euro. S&P 500 : 500 grandes sociétés américaines.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.c04", "type": "carte", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "recto": "Qu'est-ce que le Brent ?", "verso": "Le pétrole de la mer du Nord. Son prix en dollars par baril est la référence pour l'Europe.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.c05", "type": "carte", "module": 1, "chapitre": "m1.marche", "difficulte": 2, "recto": "Que mesure le VIX ? Et le VSTOXX ?", "verso": "La volatilité attendue sur le S&P 500 pour le VIX, sur l'Euro Stoxx 50 pour le VSTOXX. Ils montent quand le marché s'inquiète.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+
+    { "id": "m1.marche.l-cac-40", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "CAC 40", "definition": "Indice des 40 plus grandes sociétés cotées à la Bourse de Paris.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-euro-stoxx-50", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "Euro Stoxx 50", "definition": "Indice de 50 grandes sociétés de la zone euro. Sous-jacent fréquent des produits structurés.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-sp-500", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "S&P 500", "definition": "Indice de 500 grandes sociétés américaines. Référence mondiale des marchés d'actions.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-brent", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "Brent", "anglais": "Brent crude", "definition": "Pétrole de la mer du Nord, référence de prix pour l'Europe, coté en dollars par baril.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-treasury", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "Treasury", "anglais": "US Treasury", "definition": "Obligation de l'État américain. Le taux du Treasury à 10 ans est le taux long de référence mondial.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-vstoxx", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 2, "terme": "VSTOXX", "definition": "Indice de volatilité attendue sur l'Euro Stoxx 50 : l'équivalent européen du VIX.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 },
+    { "id": "m1.marche.l-indice-boursier", "type": "lexique", "module": 1, "chapitre": "m1.marche", "difficulte": 1, "terme": "Indice boursier", "anglais": "stock index", "definition": "Mesure de l'évolution du cours d'un panier d'actions. On regarde sa variation en pourcentage, pas son niveau en points.", "fiche": "m1.marche.reperes", "maj": "2026-11-16", "version": 1 }
+  ]
+}

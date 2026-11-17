@@ -45,10 +45,10 @@
         },
         {
           "titre": "Passer des euros aux dollars",
-          "latex": "\\text{Montant en dollars} = \\text{Montant en euros} \\times \\text{EUR/USD}",
+          "latex": "\\text{Dollars} = \\text{Euros} \\times \\text{EUR/USD}",
           "legende": {
             "\\text{EUR/USD}": "le cours : nombre de dollars pour 1 euro",
-            "\\text{Montant en euros}": "la somme que tu veux convertir"
+            "\\text{Euros}": "la somme en euros que tu veux convertir"
           },
           "en_francais": "Chaque euro vaut 1,10 dollar, donc je multiplie mon nombre d'euros par le cours."
         }

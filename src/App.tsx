@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import MiniSearch from 'minisearch';
-import { CHAPITRES, MODULES, chapitreDe, useContenu, type Contenu } from './content';
+import { CHAPITRES, MODULES, chapitreDe, useContenu, usePacks, type Contenu } from './content';
 import { db, ecrireReglage, exporterTout, restaurerTout } from './db';
 import { maitrisee } from './srs';
 import { Rendu } from './components/Elements';
 import { Entrainer, PageGenre, Session } from './pages/Entrainer';
 import { Clarifier } from './pages/Clarifier';
+import { Marche } from './pages/Marche';
 import { OUTILS } from './tools';
-import { Points, lireFichier, normaliser, telecharger, useRoute } from './lib';
+import { Points, dateFr, lireFichier, normaliser, telecharger, useRoute } from './lib';
 import { NOMS_TYPES, titreDe, type TElement } from './schema';
 
 /* ---------- Progression : fiches comprises, cartes maîtrisées, questions sues ---------- */
@@ -53,6 +54,8 @@ function Accueil({ contenu }: { contenu: Contenu }) {
   const nbClarifs = useLiveQuery(() => db.clarifs.where('statut').equals('ouvert').count(), [], 0);
   const fiches = contenu.deType('fiche');
   const reprendre = fiches.find((f) => prog.fiches.get(f.id)?.statut !== 'comprise');
+  const pack = usePacks()[0];
+  const cles = ['bce-depot', 'inflation-ze', 'eurusd'].map((k) => pack?.chiffres.find((c) => c.cle === k)).filter((c) => !!c);
   return (
     <div className="page accueil">
       <div className="sessions">
@@ -65,6 +68,15 @@ function Accueil({ contenu }: { contenu: Contenu }) {
         <>
           <h2>{prog.fiches.size ? 'Reprendre' : 'Commencer'}</h2>
           <a className="tuile" href={`#/fiche/${reprendre.id}`}><b>{reprendre.titre}</b><span>{chapitreDe(reprendre.chapitre)?.titre}</span></a>
+        </>
+      )}
+
+      {pack && cles.length > 0 && (
+        <>
+          <h2>Le marché · {dateFr(pack.arrete_le)}</h2>
+          <a className="marche-bref" href="#/marche">
+            {cles.map((c) => <span key={c.cle}><small>{c.libelle}</small><b>{c.valeur}</b></span>)}
+          </a>
         </>
       )}
 
@@ -107,7 +119,6 @@ function Apprendre({ contenu }: { contenu: Contenu }) {
                 <li key={c.id}><a href={`#/chapitre/${c.id}`}><b>{c.module}.{c.ordre} {c.titre}</b><Jauge pct={prog.pct((e) => e.chapitre === c.id)} /></a></li>
               ))}
             </ul>
-            {m.id === 1 && <p className="note">Chapitres suivants du module 1 (croissance et cycle, banques centrales, outils, transmission, décisions de taux, budget et dette, grands épisodes, marché actuel) : en cours de rédaction.</p>}
           </section>
         );
       })}
@@ -181,23 +192,7 @@ function Labo({ refOutil }: { refOutil?: string }) {
       <div className="grille">
         {Object.entries(OUTILS).map(([ref, x]) => <a key={ref} className="tuile" href={`#/labo/${ref}`}><b>{x.titre}</b><span>{x.resume}</span></a>)}
       </div>
-      <p className="note">À venir avec les prochains chapitres : « Toi, gouverneur de la BCE », chaîne de transmission animée, graphique inflation et taux depuis 2014, puis les outils d'options.</p>
-    </div>
-  );
-}
-
-/* ---------- Marché ---------- */
-function Marche() {
-  return (
-    <div className="page">
-      <h1>Le marché actuel</h1>
-      <section className="cle">
-        <h2>Pas encore de chiffres ici</h2>
-        <p>Cette page affichera le tableau de bord (taux directeurs, inflation, EUR/USD, taux à 10 ans, indices), « l'histoire du mois » et « ta vue en 30 secondes ».</p>
-        <p>Elle reste vide tant que chaque chiffre n'a pas été vérifié, daté et sourcé : aucun chiffre de marché n'est inventé dans cette app.</p>
-      </section>
-      <p>En attendant, les fiches contiennent des épisodes historiques datés et sourcés (2020, 2022, 2023) pour t'entraîner à commenter un mouvement.</p>
-      <a className="btn g" href="#/fiche/m1.forces.commenter-mouvement">La méthode pour commenter un mouvement</a>
+      <p className="note">À venir avec le module 2 : explorateur d'option, grecques, couverture en delta, arbre binomial, Monte Carlo.</p>
     </div>
   );
 }

@@ -175,7 +175,7 @@ export function Historique() {
         {[0, 2, 4, 6, 8, 10].map((v) => (
           <g key={v}><line x1={x0} x2={x0 + w} y1={Y(v)} y2={Y(v)} className={v === 2 ? 'cible' : 'axe'} /><text x={x0 - 4} y={Y(v) + 3} className="petit" textAnchor="end">{v} %</text></g>
         ))}
-        <text x={x0 + w} y={Y(2) - 3} className="petit cibletxt" textAnchor="end">cible 2 %</text>
+        <text x={x0 + 4} y={Y(2) - 4} className="petit cibletxt">cible 2 %</text>
         {[2014, 2016, 2018, 2020, 2022, 2024, 2026].map((a) => <text key={a} x={X(a)} y={H - 6} className="petit" textAnchor="middle">{a}</text>)}
         <path d={inf} className="courbe c1" />
         <path d={dep} className="courbe" />

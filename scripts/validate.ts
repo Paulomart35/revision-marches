@@ -3,7 +3,8 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import katex from 'katex';
-import { FichierChapitre, Module, type TElement, type TFormule } from '../src/schema';
+import { FichierChapitre, Module, PackActu, type TElement, type TFormule } from '../src/schema';
+import { existsSync } from 'node:fs';
 import { REGISTRE } from '../src/finance/registre';
 
 const erreurs: string[] = [];
@@ -33,6 +34,25 @@ for (const dossier of readdirSync('content').filter((d) => d.startsWith('module-
       if (!e.id.startsWith(chapitre.id + '.')) err(e.id, `l'identifiant doit commencer par ${chapitre.id}.`);
     }
     elements.push(...els);
+  }
+}
+
+// Packs actu : même contrôle, et leurs questions rejoignent les éléments.
+let nbPacks = 0;
+if (existsSync('content/actu')) {
+  for (const fichier of readdirSync('content/actu').filter((f) => f.endsWith('.json'))) {
+    const chemin = join('content', 'actu', fichier);
+    const res = PackActu.safeParse(JSON.parse(readFileSync(chemin, 'utf8')));
+    if (!res.success) {
+      for (const i of res.error.issues) err(chemin, `${i.path.join('.')} → ${i.message}`);
+      continue;
+    }
+    nbPacks++;
+    const p = res.data;
+    if (fichier !== p.mois + '.json') err(chemin, 'le nom du fichier doit être le mois du pack');
+    if (new Set(p.chiffres.map((c) => c.cle)).size !== p.chiffres.length) err(chemin, 'clé de chiffre en double');
+    for (const e of p.elements) if (!e.id.startsWith('m1.marche.')) err(e.id, "l'identifiant doit commencer par m1.marche.");
+    elements.push(...p.elements);
   }
 }
 
@@ -90,7 +110,7 @@ for (const e of elements) {
 
 const compte: Record<string, number> = {};
 for (const e of elements) compte[e.type] = (compte[e.type] ?? 0) + 1;
-console.log(`Contenu : ${chapitres.size} chapitres, ${elements.length} éléments`, compte);
+console.log(`Contenu : ${chapitres.size} chapitres, ${nbPacks} pack(s) actu, ${elements.length} éléments`, compte);
 
 if (erreurs.length) {
   console.error(`\n${erreurs.length} erreur(s) :`);
