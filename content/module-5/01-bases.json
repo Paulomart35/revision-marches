@@ -1,0 +1,585 @@
+{
+  "chapitre": {
+    "id": "m5.bases",
+    "module": 5,
+    "ordre": 1,
+    "titre": "Briques, acteurs et cycle de vie",
+    "resume": "Ce qu'est un produit structuré, les quatre briques qui le composent, qui fait quoi entre l'émetteur et le client, et les étapes de sa vie."
+  },
+  "elements": [
+    {
+      "id": "m5.bases.briques",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "tags": [
+        "produits structurés",
+        "zéro-coupon",
+        "options"
+      ],
+      "titre": "Les briques d'un produit structuré",
+      "une_phrase": "Un **produit structuré**, c'est une **obligation** (ou un dépôt) et une ou plusieurs **options**, emballées dans un seul titre : l'obligation protège tout ou partie du capital, les options créent le rendement.",
+      "trente_secondes": "Quatre briques suffisent à construire presque tous les produits :\n\n1. **Le zéro-coupon** : acheté sous 100, il rend 100 à l'échéance. Il sert à **protéger le capital**. Plus les taux sont hauts, moins il coûte.\n2. **L'option vanille** : un call pour **participer à la hausse**, un put pour se protéger, ou, s'il est **vendu** par l'investisseur, pour encaisser une prime en prenant un risque.\n3. **L'option digitale** : elle paie un **montant fixe** si une condition est remplie (l'indice au-dessus d'un seuil). C'est la brique des **coupons conditionnels**.\n4. **L'option à barrière** : elle s'**active** (*knock-in*) ou **disparaît** (*knock-out*) si le sous-jacent touche un niveau. Moins chère qu'une vanille, c'est la brique de la **protection conditionnelle**.\n\nLe structureur assemble ces briques pour répondre à un besoin : protection, rendement, vue de marché.",
+      "analogie": "Des briques de construction : avec les mêmes quatre pièces, on construit une maison très sûre (capital garanti) ou une maison plus audacieuse avec vue sur la mer (autocall), selon ce que veut l'habitant.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Brique",
+          "Ce qu'elle fait",
+          "Où on la trouve"
+        ],
+        "lignes": [
+          [
+            "Zéro-coupon",
+            "Rend 100 à l'échéance",
+            "Tous les produits : protection du capital"
+          ],
+          [
+            "Call acheté",
+            "Participe à la hausse",
+            "Capital garanti"
+          ],
+          [
+            "Digitale",
+            "Paie un coupon fixe si une condition est remplie",
+            "Coupons d'autocall et de Phoenix"
+          ],
+          [
+            "Put à barrière vendu",
+            "Rapporte une prime, fait perdre sous la barrière",
+            "Autocall, Phoenix, reverse convertible"
+          ]
+        ],
+        "legende": "Les quatre briques et leur rôle."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un client investit 100 sur 5 ans. Taux à 5 ans : 3 %.",
+        "Le zéro-coupon qui rendra 100 dans 5 ans coûte 100 / 1,03⁵ = **86,26**.",
+        "Il reste 13,74. Après 2 de marges et frais, **11,74** servent à acheter des options.",
+        "Avec un call sur l'indice qui coûte 16 pour 100 de nominal, on peut en acheter 11,74 / 16 = 73 % : c'est un capital garanti avec **73 % de participation** à la hausse."
+      ],
+      "deux_minutes": "**Le principe d'équilibre.** Le client paie 100. La banque doit pouvoir construire le produit pour moins de 100 : zéro-coupon + options achetées − options vendues + marges = 100. Tout se joue sur ce budget : si le zéro-coupon coûte cher (taux bas), il reste peu pour les options.\n\n**Acheter ou vendre des options.**\n\n- Quand l'investisseur **achète** des options (capital garanti), il paie la volatilité : il obtient moins quand elle est élevée.\n- Quand il **vend** des options (autocall, reverse convertible), il encaisse la volatilité : il obtient un coupon plus élevé quand elle est élevée, mais il prend un risque de perte.\n\n**La couverture par la banque.** L'émetteur ne garde pas le risque : son desk de dérivés couvre les options en delta, gère le vega, le gamma et le risque de corrélation. Le prix du produit dépend donc de toutes les grecques vues dans le module 2.\n\n**Le support juridique.** Le plus souvent un **EMTN** (titre de dette émis sous un programme), parfois un dépôt à terme ou une unité de compte d'assurance-vie.",
+      "piege": "Croire que la protection du capital vient des options : elle vient du zéro-coupon. Et oublier que l'investisseur peut être **vendeur** d'options, donc exposé à des pertes.",
+      "a_dire_en_entretien": "« Un produit structuré, c'est une obligation plus des options dans un seul titre. Le zéro-coupon protège le capital, les options créent le rendement : un call pour participer à la hausse, des digitales pour les coupons conditionnels, des barrières pour une protection conditionnelle. Tout se joue sur le budget : ce que coûte le zéro-coupon détermine ce qu'il reste pour les options. »",
+      "liens": [
+        "m5.bases.acteurs",
+        "m5.bases.cycle",
+        "m3.obligations.zero-coupon",
+        "m2.exotiques.digitales"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.acteurs",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "tags": [
+        "produits structurés",
+        "émetteur",
+        "distributeur"
+      ],
+      "titre": "Qui fait quoi : émetteur, distributeur, agents",
+      "une_phrase": "L'**émetteur** fabrique et garantit le produit, le **distributeur** le conseille et le vend, l'**agent de calcul** constate les niveaux et calcule les montants, l'**agent payeur** verse les flux.",
+      "trente_secondes": "- **L'investisseur** : une trésorerie d'entreprise, un institutionnel (assureur, mutuelle, caisse de retraite), un client de banque privée ou de banque de détail. Il paie 100 et reçoit les coupons et le remboursement.\n- **Le distributeur** : la banque ou le conseiller qui présente le produit, vérifie qu'il convient au client, le vend et le documente. Il perçoit une **commission**.\n- **L'émetteur** : en général une entité d'une grande banque. Il **doit** les flux au client : c'est sur lui que repose la garantie. Son desk de dérivés **structure** le produit et en **couvre** le risque sur les marchés.\n- **L'agent de calcul** (*calculation agent*) : il relève les cours aux dates d'observation (les *fixings*), vérifie les barrières, calcule les coupons et les montants de remboursement, gère les événements sur le sous-jacent (dividende exceptionnel, fusion, changement d'indice).\n- **L'agent payeur** : il verse les montants aux porteurs, via les dépositaires.",
+      "analogie": "Un voyage organisé : le voyagiste conçoit et garantit le séjour (l'émetteur), l'agence de voyages le vend et te conseille (le distributeur), le guide vérifie que chaque étape se déroule comme prévu (l'agent de calcul), et le caissier te rembourse si besoin (l'agent payeur).",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          {
+            "titre": "Investisseur",
+            "texte": "Paie 100, reçoit coupons et remboursement."
+          },
+          {
+            "titre": "Distributeur",
+            "texte": "Conseille, vérifie l'adéquation, vend, perçoit une commission."
+          },
+          {
+            "titre": "Émetteur et structureur",
+            "texte": "Conçoit le produit, doit les flux, couvre le risque sur les marchés."
+          },
+          {
+            "titre": "Agent de calcul et agent payeur",
+            "texte": "Constatent les niveaux, calculent et versent les montants."
+          }
+        ],
+        "legende": "La chaîne des acteurs d'un produit structuré."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un client place 1 000 000 € dans un autocall émis par une filiale d'une grande banque et distribué par sa banque privée.",
+        "Coût de construction : 96 % du nominal. Marge de l'émetteur : 1 %. Commission du distributeur : 3 % (souvent étalée, par exemple 0,6 % par an sur 5 ans).",
+        "À chaque date anniversaire, l'agent de calcul relève la clôture de l'indice et notifie : rappel ou non, coupon ou non.",
+        "Si l'émetteur faisait défaut, le client deviendrait un créancier de l'émetteur, pas du distributeur."
+      ],
+      "deux_minutes": "**Le risque de crédit de l'émetteur.** Le client prête son argent à l'émetteur. La « garantie » du capital n'est jamais meilleure que la solidité de l'émetteur : il faut regarder sa note et son spread. La faillite de Lehman Brothers en 2008 a rappelé que des produits dits garantis pouvaient perdre l'essentiel de leur valeur.\n\n**Les documents.** Le **term sheet** résume les caractéristiques ; le **prospectus** de base et les **conditions définitives** (*final terms*) font foi juridiquement ; le **document d'informations clés** (DIC, ou *KID* en anglais, issu de la réglementation PRIIPs) présente au client particulier les scénarios de performance, les coûts et un indicateur de risque.\n\n**La liquidité.** L'émetteur s'engage souvent à racheter le produit pendant sa vie, au prix de marché moins une fourchette : le client peut sortir, mais pas forcément à 100.\n\n**L'agent de calcul** est souvent l'émetteur lui-même ; les règles de calcul sont décrites précisément dans la documentation, pour éviter tout conflit d'intérêts.",
+      "piege": "Croire que le distributeur garantit le produit : c'est l'émetteur. Et confondre l'agent de calcul (qui calcule) et l'agent payeur (qui paie).",
+      "a_dire_en_entretien": "« Dans un produit structuré, l'émetteur fabrique le produit, doit les flux et couvre le risque sur les marchés ; le distributeur conseille et vend, en vérifiant l'adéquation ; l'agent de calcul relève les niveaux, vérifie les barrières et calcule les montants ; l'agent payeur verse les flux. Le client porte le risque de crédit de l'émetteur, ce qu'il faut toujours dire. »",
+      "liens": [
+        "m5.bases.briques",
+        "m5.bases.cycle",
+        "m3.credit.defaut"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.cycle",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "tags": [
+        "produits structurés",
+        "cycle de vie"
+      ],
+      "titre": "Le cycle de vie d'un produit structuré",
+      "une_phrase": "Un produit structuré passe par six étapes : le **besoin** du client, la **structuration**, la **cotation et la souscription**, l'**émission**, la **vie du produit** (fixings, coupons, rappels) et le **paiement final**.",
+      "trente_secondes": "1. **Besoin** : rendement visé, protection voulue, horizon, vue de marché, contraintes du client.\n2. **Structuration** : choix du sous-jacent, des barrières, du coupon ; une **term sheet indicative** est proposée.\n3. **Cotation et souscription** : la banque donne un prix ferme ; on vérifie l'**adéquation** au client et on remet le **DIC** (KID).\n4. **Émission** : conditions définitives, code **ISIN**, règlement-livraison du titre contre paiement.\n5. **Vie du produit** : à chaque date d'observation, l'agent de calcul relève le niveau du sous-jacent ; coupons, rappels anticipés, barrières ; gestion des événements sur le sous-jacent.\n6. **Paiements et échéance** : versements par l'agent payeur, remboursement final ou anticipé.\n\nLe **sales** est présent surtout aux étapes 1 à 3, les **opérations** (middle et back office) surtout aux étapes 4 à 6.",
+      "analogie": "La construction d'une maison sur mesure : on écoute le besoin, on dessine les plans, on signe le devis, on construit, on entretient pendant des années, puis on remet les clés.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          {
+            "titre": "1. Besoin",
+            "texte": "Rendement, protection, horizon, vue de marché."
+          },
+          {
+            "titre": "2. Structuration",
+            "texte": "Sous-jacent, barrières, coupon ; term sheet indicative."
+          },
+          {
+            "titre": "3. Cotation et souscription",
+            "texte": "Prix ferme, adéquation, document d'informations clés."
+          },
+          {
+            "titre": "4. Émission",
+            "texte": "Conditions définitives, ISIN, règlement."
+          },
+          {
+            "titre": "5. Vie du produit",
+            "texte": "Fixings, coupons, rappels, barrières, événements."
+          },
+          {
+            "titre": "6. Paiements et échéance",
+            "texte": "Agent payeur, remboursement."
+          }
+        ],
+        "legende": "Les six étapes."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une mutuelle veut 4 % par an sur 5 ans, sans risque en capital au-delà d'une baisse de 40 % du marché.",
+        "Structuration : autocall sur l'Euro Stoxx 50, coupon 6 % par an, barrière de capital 60 %. Term sheet envoyée le lundi.",
+        "Cotation ferme le jeudi : le coupon est ajusté à 5,8 % car la volatilité a baissé entre-temps.",
+        "Émission deux semaines plus tard ; première observation dans un an : l'indice est à 104 % de son niveau initial, le produit est rappelé avec 5,8 % de coupon."
+      ],
+      "deux_minutes": "**Pourquoi le prix change entre l'indicatif et le ferme.** Les conditions dépendent des marchés : taux, volatilité, dividendes, spread de l'émetteur. Une term sheet indicative n'engage pas ; le prix ferme vit quelques minutes à quelques heures.\n\n**Les contrôles.** Avant la vente : adéquation du client (MiFID II), gouvernance produit (le produit doit correspondre à un marché cible défini). Pendant la vie : contrôle des fixings, rapprochement avec les données de marché, notification des événements au client.\n\n**Les événements sur le sous-jacent.** Une action qui fait l'objet d'une fusion, un indice qui change de méthode, un marché fermé un jour d'observation : la documentation prévoit des règles d'ajustement, appliquées par l'agent de calcul.\n\n**Le marché secondaire.** Pendant la vie du produit, l'émetteur publie un prix indicatif et peut racheter le produit ; ce prix dépend des marchés et peut être inférieur à 100, même pour un capital garanti, avant l'échéance.",
+      "piege": "Croire que le produit est figé une fois vendu : sa vie est faite de nombreux événements à constater et à calculer, et son prix évolue chaque jour.",
+      "a_dire_en_entretien": "« Un produit structuré vit en six étapes : le besoin du client, la structuration, la cotation et la souscription avec l'adéquation et le DIC, l'émission, la vie du produit avec les fixings, coupons et rappels, puis le remboursement. Le sales intervient surtout au début, les équipes d'opérations et l'agent de calcul pendant la vie du produit. »",
+      "liens": [
+        "m5.bases.acteurs",
+        "m5.bases.briques",
+        "m5.conditions.parametres"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "recto": "Produit structuré ?",
+      "verso": "Obligation (zéro-coupon) + options, dans un seul titre.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "recto": "Les quatre briques ?",
+      "verso": "Zéro-coupon, vanille, digitale, barrière.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "recto": "Rôle de la digitale ?",
+      "verso": "Payer un coupon fixe si une condition est remplie.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "recto": "Rôle de la barrière ?",
+      "verso": "Protection conditionnelle : l'option s'active ou disparaît à un niveau.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "recto": "Qui garantit le produit ?",
+      "verso": "L'émetteur : le client porte son risque de crédit.",
+      "fiche": "m5.bases.acteurs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "recto": "Agent de calcul ?",
+      "verso": "Relève les niveaux, vérifie barrières et conditions, calcule les montants.",
+      "fiche": "m5.bases.acteurs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c07",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "recto": "DIC (KID) ?",
+      "verso": "Document d'informations clés remis au client particulier : risques, scénarios, coûts.",
+      "fiche": "m5.bases.acteurs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.c08",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "recto": "Les six étapes du cycle de vie ?",
+      "verso": "Besoin, structuration, cotation et souscription, émission, vie du produit, échéance.",
+      "fiche": "m5.bases.cycle",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "question": "Qu'est-ce qu'un produit structuré ?",
+      "reponse_modele": "C'est un placement qui combine une obligation, souvent un zéro-coupon, et une ou plusieurs options, dans un seul titre. L'obligation protège tout ou partie du capital à l'échéance, les options créent le rendement selon l'évolution d'un sous-jacent, par exemple un indice actions. On peut ainsi construire un produit à capital garanti qui participe à la hausse, ou un autocall qui verse un coupon élevé en échange d'un risque en capital sous une barrière. Le client porte aussi le risque de crédit de l'émetteur.",
+      "points_cles": [
+        "Obligation + options",
+        "Zéro-coupon = protection",
+        "Options = rendement",
+        "Exemples",
+        "Risque de l'émetteur"
+      ],
+      "piege": "Oublier le risque de crédit de l'émetteur.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "question": "Quelles sont les briques d'un produit structuré et à quoi sert chacune ?",
+      "reponse_modele": "Quatre briques. Le zéro-coupon, pour rendre 100 à l'échéance : il protège le capital. L'option vanille : un call acheté pour participer à la hausse, ou un put vendu pour encaisser une prime en prenant un risque. L'option digitale, qui paie un montant fixe si une condition est remplie : c'est la brique des coupons conditionnels. Et l'option à barrière, qui s'active ou disparaît si le sous-jacent touche un niveau : c'est la brique de la protection conditionnelle, comme le put down-and-in vendu dans un autocall.",
+      "points_cles": [
+        "Zéro-coupon",
+        "Vanille achetée ou vendue",
+        "Digitale",
+        "Barrière"
+      ],
+      "piege": "Dire que c'est l'option qui protège le capital.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.q03",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "question": "Quel est le rôle de l'agent de calcul ?",
+      "reponse_modele": "Il relève les niveaux du sous-jacent aux dates d'observation, vérifie si les barrières sont touchées et si les conditions de coupon ou de rappel sont remplies, puis calcule les montants dus. Il gère aussi les événements sur le sous-jacent, comme une fusion ou un changement d'indice, selon les règles de la documentation, et transmet les montants à l'agent payeur. C'est un rôle de rigueur : une erreur de fixing se traduit directement par un mauvais paiement au client.",
+      "points_cles": [
+        "Fixings",
+        "Barrières, coupons, rappels",
+        "Calcul des montants",
+        "Événements sur le sous-jacent",
+        "Rigueur"
+      ],
+      "piege": "Le confondre avec l'agent payeur.",
+      "fiche": "m5.bases.acteurs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.q04",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "question": "Pourquoi le coupon proposé dans une term sheet indicative peut-il changer au moment de la cotation ferme ?",
+      "reponse_modele": "Parce qu'il dépend des conditions de marché au moment où la banque achète sa couverture : taux, volatilité, dividendes, corrélation et spread de crédit de l'émetteur. Si la volatilité baisse entre l'indicatif et le ferme, le put vendu par le client vaut moins, et le coupon d'un autocall baisse. C'est pourquoi l'indicatif n'engage pas, et le prix ferme ne vit que peu de temps.",
+      "points_cles": [
+        "Dépend des paramètres de marché",
+        "Couverture achetée au moment du ferme",
+        "Exemple de la volatilité",
+        "Indicatif non engageant"
+      ],
+      "piege": "Y voir une manœuvre commerciale.",
+      "fiche": "m5.bases.cycle",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "enonce": "Dans un produit structuré, la protection du capital vient…",
+      "choix": [
+        "du call acheté",
+        "du zéro-coupon",
+        "de la digitale",
+        "du distributeur"
+      ],
+      "bonne": 1,
+      "explication": "Le zéro-coupon rend 100 à l'échéance ; les options créent le rendement.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "enonce": "Quelle brique crée un coupon conditionnel (payé si l'indice est au-dessus d'un seuil) ?",
+      "choix": [
+        "Le zéro-coupon",
+        "Le put vendu",
+        "L'option digitale",
+        "Le call vanille"
+      ],
+      "bonne": 2,
+      "explication": "La digitale paie un montant fixe si une condition est remplie.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "enonce": "Si l'émetteur d'un produit à capital garanti fait défaut, le distributeur rembourse le client.",
+      "vrai": false,
+      "explication": "Le client est créancier de l'émetteur : il porte son risque de crédit.",
+      "fiche": "m5.bases.acteurs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.z04",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "enonce": "Remets dans l'ordre le cycle de vie d'un produit structuré.",
+      "etapes": [
+        "Analyse du besoin du client",
+        "Structuration et term sheet indicative",
+        "Cotation ferme et souscription",
+        "Émission (ISIN, règlement)",
+        "Vie du produit : fixings, coupons, rappels",
+        "Paiements et échéance"
+      ],
+      "explication": "Le sales intervient surtout au début, les opérations pendant la vie du produit.",
+      "fiche": "m5.bases.cycle",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.z05",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 2,
+      "enonce": "Taux 5 ans à 3 %. Combien coûte le zéro-coupon qui rend 100 dans 5 ans (deux décimales) ?",
+      "reponse": 86.26,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "100 / 1,03⁵ = 86,26.",
+      "fiche": "m5.bases.briques",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-produit-structure",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Produit structuré",
+      "definition": "Placement qui combine une obligation et des options dans un seul titre.",
+      "fiche": "m5.bases.briques",
+      "anglais": "structured product",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-option-digitale",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Option digitale",
+      "definition": "Option qui paie un montant fixe si une condition est remplie.",
+      "fiche": "m5.bases.briques",
+      "anglais": "digital option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-option-a-barriere",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Option à barrière",
+      "definition": "Option qui s'active ou disparaît si le sous-jacent touche un niveau.",
+      "fiche": "m5.bases.briques",
+      "anglais": "barrier option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-emtn",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "EMTN",
+      "definition": "Titre de dette émis sous un programme, support fréquent des produits structurés.",
+      "fiche": "m5.bases.briques",
+      "anglais": "euro medium term note",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-emetteur",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Émetteur",
+      "definition": "Entité qui émet le produit et en doit les flux.",
+      "fiche": "m5.bases.acteurs",
+      "anglais": "issuer",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-distributeur",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Distributeur",
+      "definition": "Banque ou conseiller qui présente et vend le produit au client.",
+      "fiche": "m5.bases.acteurs",
+      "anglais": "distributor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-agent-de-calcul",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Agent de calcul",
+      "definition": "Entité qui constate les niveaux et calcule les montants dus.",
+      "fiche": "m5.bases.acteurs",
+      "anglais": "calculation agent",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-term-sheet",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Term sheet",
+      "definition": "Document résumant les caractéristiques d'un produit.",
+      "fiche": "m5.bases.cycle",
+      "anglais": "term sheet",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-fixing",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Fixing",
+      "definition": "Niveau officiel du sous-jacent relevé à une date d'observation.",
+      "fiche": "m5.bases.cycle",
+      "anglais": "fixing",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.bases.l-code-isin",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.bases",
+      "difficulte": 1,
+      "terme": "Code ISIN",
+      "definition": "Identifiant international d'un titre financier.",
+      "fiche": "m5.bases.cycle",
+      "anglais": "ISIN",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

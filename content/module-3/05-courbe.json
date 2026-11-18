@@ -1,0 +1,487 @@
+{
+  "chapitre": {
+    "id": "m3.courbe",
+    "module": 3,
+    "ordre": 5,
+    "titre": "La courbe des taux",
+    "resume": "Les taux de toutes les maturités sur un seul graphique : ses formes, ce qu'elles racontent, et les taux forward qu'elle contient."
+  },
+  "elements": [
+    {
+      "id": "m3.courbe.formes",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "tags": [
+        "courbe des taux",
+        "pente",
+        "inversion"
+      ],
+      "titre": "Les formes de la courbe des taux",
+      "une_phrase": "La **courbe des taux** relie le taux d'intérêt à la maturité ; sa **pente** dit ce que le marché attend de la banque centrale et de l'économie.",
+      "trente_secondes": "On place en abscisse les maturités (3 mois, 2 ans, 5 ans, 10 ans, 30 ans) et en ordonnée les taux correspondants, pour un même émetteur (l'État, ou la courbe des swaps).\n\nQuatre formes :\n\n- **Normale (pentue)** : les taux longs dépassent les taux courts. Le marché attend des taux courts stables ou en hausse, et demande une prime pour prêter longtemps.\n- **Plate** : taux courts et longs proches. Souvent une phase de transition.\n- **Inversée** : les taux courts dépassent les taux longs. La banque centrale a monté ses taux et le marché anticipe qu'elle devra les baisser, souvent par crainte d'un ralentissement.\n- **En bosse** : les taux moyens dépassent les courts et les longs.\n\nLe court de la courbe est piloté par la **banque centrale** ; le long dépend des **anticipations** de croissance et d'inflation, et d'une **prime de terme**.",
+      "analogie": "La courbe des taux, c'est la météo vue par le marché : la partie courte, c'est le temps qu'il fait (décidé par la banque centrale) ; la partie longue, c'est le climat attendu pour les années à venir.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.courbe",
+        "legende": "Passe d'une forme à l'autre et observe les taux forward."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Taux 2 ans à 2,2 %, taux 10 ans à 3,2 % : pente 10 ans − 2 ans de **+100 pb**, courbe normale.",
+        "La banque centrale monte fortement ses taux : le 2 ans passe à 4,0 %, le 10 ans à 3,6 %. Pente : **−40 pb**, courbe inversée.",
+        "Le marché lit : « les taux courts sont trop hauts pour durer, ils devront baisser ».",
+        "Une banque qui prête à 10 ans en se finançant à court terme gagne moins, voire perd, quand la courbe s'inverse."
+      ],
+      "formules": [
+        {
+          "titre": "La pente de la courbe",
+          "latex": "\\text{Pente}_{2\\text{-}10} = y_{10\\,\\text{ans}} - y_{2\\,\\text{ans}}",
+          "legende": {
+            "y_{10\\,\\text{ans}}": "le taux à 10 ans",
+            "y_{2\\,\\text{ans}}": "le taux à 2 ans"
+          },
+          "en_francais": "La pente se mesure le plus souvent par l'écart entre le 10 ans et le 2 ans, en points de base. Négative : courbe inversée."
+        }
+      ],
+      "deux_minutes": "**Les mouvements de la courbe.** Le marché parle de :\n\n- **Pentification** (*steepening*) : l'écart long-court augmente.\n- **Aplatissement** (*flattening*) : l'écart diminue.\n- *Bear* (taux en hausse) ou *bull* (taux en baisse) selon le sens. Un **bear flattening** typique : la banque centrale monte ses taux, le court monte plus que le long. Un **bull steepening** : la banque centrale baisse ses taux, le court baisse plus vite.\n\n**L'inversion et la récession.** Aux États-Unis, une courbe inversée (10 ans sous le 2 ans ou sous le 3 mois) a précédé la plupart des récessions depuis les années 1970. Ce n'est pas une loi : l'inversion de 2022-2024 n'a pas été suivie d'une récession américaine immédiate.\n\n**Pourquoi les banques y tiennent.** Une banque de détail prête à long terme (crédits immobiliers) et se finance à court terme (dépôts) : elle vit de la pente. Une courbe plate ou inversée comprime sa marge d'intérêt.\n\n**La prime de terme** est la part du taux long qui ne vient pas des anticipations de taux courts : elle monte quand l'incertitude sur l'inflation ou sur les finances publiques augmente, ou quand l'offre de dette longue est abondante.",
+      "piege": "Croire que la banque centrale fixe toute la courbe : elle pilote directement le court terme, mais le long terme est fixé par le marché. Et dire que l'inversion « provoque » la récession : elle traduit des anticipations.",
+      "a_dire_en_entretien": "« La courbe des taux donne le taux de chaque maturité. Normalement elle monte : prêter longtemps rapporte plus. Le court terme suit la banque centrale, le long terme reflète les anticipations de croissance et d'inflation plus une prime de terme. Une courbe inversée veut dire que le marché attend des baisses de taux, souvent par crainte d'un ralentissement ; c'est aussi une mauvaise nouvelle pour les marges des banques. »",
+      "liens": [
+        "m3.courbe.forward",
+        "m3.interets.actualisation",
+        "m1.transmission.chaine"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.forward",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "tags": [
+        "taux forward",
+        "anticipations"
+      ],
+      "titre": "Les taux forward",
+      "une_phrase": "Le **taux forward** est le taux, fixé **aujourd'hui**, pour un prêt qui commencera **plus tard** ; il se déduit de la courbe par arbitrage.",
+      "trente_secondes": "Tu peux placer ton argent 2 ans à 3 %, ou 1 an à 2,5 % puis réinvestir un an à un taux encore inconnu. Quel taux, dans un an, rendrait les deux stratégies équivalentes ?\n\nC'est le **taux forward 1 an dans 1 an** : environ 3,50 %. Si on pouvait placer à plus, tout le monde ferait la deuxième stratégie ; à moins, la première.\n\nLes forwards sont **contenus dans la courbe** : ils ne sont pas une opinion, ils sont fixés par l'absence d'arbitrage.\n\nRègle visuelle : quand la courbe monte, les forwards sont **au-dessus** d'elle ; quand elle descend, **en dessous**.",
+      "analogie": "Un aller-retour Paris-Marseille en deux billets ou un billet direct : si le direct coûte 100 € et le Paris-Lyon 40 €, alors le Lyon-Marseille « vaut » 60 € pour que les deux trajets coûtent pareil. Le taux forward, c'est ce deuxième billet.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.courbe",
+        "legende": "La courbe pointillée donne les taux forward à un an, maturité par maturité."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Taux zéro-coupon 1 an : 2,5 %. Taux zéro-coupon 2 ans : 3,0 %.",
+        "Placer 2 ans : 100 × 1,03² = 106,09.",
+        "Placer 1 an puis 1 an au forward f : 100 × 1,025 × (1 + f).",
+        "Égalité : 1 + f = 106,09 / 102,5 = 1,03502, donc **f = 3,50 %**.",
+        "Approximation rapide : 2 × 3,0 − 1 × 2,5 = 3,5 %."
+      ],
+      "formules": [
+        {
+          "titre": "Taux forward entre deux dates",
+          "latex": "(1 + f_{t_1,t_2})^{t_2 - t_1} = \\frac{(1 + r_{t_2})^{t_2}}{(1 + r_{t_1})^{t_1}}",
+          "legende": {
+            "f_{t_1,t_2}": "le taux forward pour un prêt de t1 à t2",
+            "r_{t_1}": "le taux zéro-coupon de maturité t1",
+            "r_{t_2}": "le taux zéro-coupon de maturité t2"
+          },
+          "en_francais": "Placer jusqu'à t2 d'un coup doit rapporter autant que placer jusqu'à t1, puis réinvestir au forward jusqu'à t2."
+        }
+      ],
+      "deux_minutes": "**Forward et anticipations.** Selon la théorie des anticipations, le forward serait la prévision du marché pour le taux futur. En pratique, il contient aussi une **prime de terme** : il surestime souvent les taux futurs. On peut néanmoins en tirer ce que le marché « price » pour la banque centrale : les desks parlent du nombre de hausses ou de baisses « dans les prix ».\n\n**Les instruments du forward.**\n\n- Le **FRA** (*forward rate agreement*) : contrat qui fixe aujourd'hui le taux d'une période future (par exemple l'Euribor 3 mois dans 6 mois).\n- Les **futures sur Euribor** ou sur €STR : cotés en bourse, prix = 100 − taux.\n- Le **swap à départ décalé** : un swap qui commence dans le futur.\n\n**Le lien avec le swap.** Le taux d'un swap est une moyenne pondérée des taux forward sur sa durée : c'est pour ça qu'avec une courbe pentue, le taux d'un swap 5 ans est au-dessus de l'Euribor du jour.\n\n**Lien avec le change.** Le cours de change à terme se fabrique de la même façon, par arbitrage entre deux taux : ce n'est pas une prévision non plus.",
+      "piege": "Présenter le taux forward comme une prévision : c'est un prix d'arbitrage, qui contient une prime de terme.",
+      "a_dire_en_entretien": "« Le taux forward, c'est le taux fixé aujourd'hui pour un prêt futur. Il se déduit de la courbe par arbitrage : placer 2 ans d'un coup doit rapporter autant que placer 1 an puis réinvestir au forward. Avec 2,5 % à 1 an et 3 % à 2 ans, le forward 1 an dans 1 an est d'environ 3,5 %. On en tire ce que le marché anticipe pour la banque centrale, avec une prime de terme. »",
+      "liens": [
+        "m3.courbe.formes",
+        "m3.swap.taux-swap",
+        "m3.options-taux.futures",
+        "m4.terme.fabrication"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "recto": "Courbe des taux ?",
+      "verso": "Taux d'un même émetteur selon la maturité.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "recto": "Courbe normale ?",
+      "verso": "Taux longs > taux courts : la forme la plus fréquente.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "recto": "Courbe inversée : que lit le marché ?",
+      "verso": "Des baisses de taux à venir, souvent par crainte d'un ralentissement.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "recto": "Bear flattening ?",
+      "verso": "Taux en hausse, le court monte plus que le long : typique d'une banque centrale qui resserre.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "recto": "Qui fixe les taux longs ?",
+      "verso": "Le marché : anticipations de taux courts + prime de terme.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "recto": "Taux forward ?",
+      "verso": "Taux fixé aujourd'hui pour un prêt futur, déduit de la courbe par arbitrage.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "recto": "Forward 1 an dans 1 an, approximation ?",
+      "verso": "2 × taux 2 ans − taux 1 an.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "recto": "FRA ?",
+      "verso": "Contrat qui fixe aujourd'hui le taux d'une période future.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "question": "Que signifie une courbe des taux inversée ?",
+      "reponse_modele": "Les taux courts sont plus élevés que les taux longs. Cela arrive en général quand la banque centrale a fortement monté ses taux pour lutter contre l'inflation, et que le marché anticipe qu'elle devra les baisser plus tard, souvent parce qu'il craint un ralentissement. Aux États-Unis, l'inversion a souvent précédé les récessions, mais ce n'est pas une règle absolue. C'est aussi un problème pour les banques, qui prêtent long et se financent court : leur marge se comprime.",
+      "points_cles": [
+        "Taux courts > taux longs",
+        "Banque centrale restrictive",
+        "Anticipation de baisses de taux",
+        "Signal de ralentissement, pas une loi",
+        "Marge des banques comprimée"
+      ],
+      "piege": "Dire que l'inversion provoque la récession.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "question": "Le taux 1 an est à 2 % et le taux 2 ans à 2,5 %. Quel est le taux 1 an dans 1 an ? Est-ce la prévision du marché ?",
+      "reponse_modele": "Par arbitrage, 1,025² = 1,02 × (1 + f), donc f = 1,050625 / 1,02 − 1 = 3,0 %. Environ 2 × 2,5 − 2 = 3 %. Ce n'est pas une prévision pure : c'est le taux qui rend équivalents un placement de 2 ans et deux placements d'un an, et il contient une prime de terme. On l'utilise néanmoins pour lire ce que le marché anticipe de la banque centrale.",
+      "points_cles": [
+        "Égalité des deux stratégies",
+        "f ≈ 3,0 %",
+        "Prix d'arbitrage",
+        "Prime de terme"
+      ],
+      "piege": "Faire la moyenne des deux taux (2,25 %).",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "question": "Qui fixe les taux courts et qui fixe les taux longs ?",
+      "reponse_modele": "Les taux courts sont pilotés par la banque centrale : en zone euro, le taux de la facilité de dépôt guide l'€STR et, avec les anticipations, l'Euribor. Les taux longs sont fixés par le marché : ils reflètent les anticipations sur la trajectoire future des taux directeurs, sur la croissance et l'inflation, plus une prime de terme qui dépend de l'incertitude et de l'offre de dette. La banque centrale peut influencer les taux longs indirectement, par sa communication ou par des achats de titres.",
+      "points_cles": [
+        "Court : banque centrale",
+        "Long : marché",
+        "Anticipations + prime de terme",
+        "Influence indirecte : communication, achats de titres"
+      ],
+      "piege": "Dire que la BCE fixe le taux de l'OAT 10 ans.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "enonce": "Le 2 ans est à 3,8 % et le 10 ans à 3,3 %. La courbe est…",
+      "choix": [
+        "normale",
+        "plate",
+        "inversée",
+        "en bosse"
+      ],
+      "bonne": 2,
+      "explication": "Le court dépasse le long : courbe inversée, pente 10 ans − 2 ans de −50 pb.",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "enonce": "La banque centrale monte ses taux et les taux courts montent plus que les taux longs. C'est un…",
+      "choix": [
+        "bull steepening",
+        "bear flattening",
+        "bull flattening",
+        "bear steepening"
+      ],
+      "bonne": 1,
+      "explication": "Taux en hausse (bear) et écart long-court qui diminue (flattening).",
+      "fiche": "m3.courbe.formes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "enonce": "Zéro-coupon 1 an à 2,5 %, 2 ans à 3,0 %. Taux forward 1 an dans 1 an, en % (deux décimales) ?",
+      "reponse": 3.5,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "1,03² / 1,025 − 1 = 3,50 %.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "enonce": "Quand la courbe des taux monte, les taux forward sont au-dessus de la courbe.",
+      "vrai": true,
+      "explication": "Pour que le taux moyen monte, les taux des périodes suivantes doivent être plus hauts que la moyenne déjà atteinte.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.z05",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 2,
+      "enonce": "Le taux forward est la prévision officielle du marché pour les taux futurs.",
+      "vrai": false,
+      "explication": "C'est un prix d'arbitrage, qui contient une prime de terme.",
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 3,
+      "titre": "Lire les forwards dans une courbe",
+      "enonce": "Exemple fictif. Taux zéro-coupon : 1 an 2,5 %, 2 ans 3,0 %, 5 ans 3,4 %. (1) Taux forward 1 an dans 1 an ? (2) Taux forward 3 ans dans 2 ans (de l'année 2 à l'année 5), en taux annuel ? (3) Que lit-on ?",
+      "etapes": [
+        {
+          "titre": "Le forward 1 an dans 1 an",
+          "texte": "1,03² / 1,025 − 1.",
+          "resultat": "3,50 %",
+          "verif": {
+            "fn": "taux.tauxForward",
+            "args": [
+              2.5,
+              1,
+              3,
+              2
+            ],
+            "attendu": 3.5024,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Le forward 3 ans dans 2 ans",
+          "texte": "On égalise 1,034⁵ et 1,03² × (1 + f)³, puis on prend la racine cubique.",
+          "formule": {
+            "latex": "(1+f)^{3} = \\frac{1{,}034^{5}}{1{,}03^{2}}",
+            "legende": {
+              "f": "le taux forward annuel entre l'année 2 et l'année 5"
+            },
+            "en_francais": "Les trois années entre 2 et 5 doivent rapporter ce qui manque pour aller de 2 ans à 5 ans."
+          },
+          "resultat": "3,67 %",
+          "verif": {
+            "fn": "taux.tauxForward",
+            "args": [
+              3,
+              2,
+              3.4,
+              5
+            ],
+            "attendu": 3.6675,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Les forwards (3,50 % puis 3,67 %) sont au-dessus de la courbe : la courbe monte. Le marché price des taux courts plus élevés dans le futur, plus une prime de terme."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Soustraire simplement les taux (3,4 − 3,0).",
+        "Oublier la puissance : un taux 5 ans se compose sur 5 ans.",
+        "Interpréter les forwards comme une prévision certaine."
+      ],
+      "fiche": "m3.courbe.forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-courbe-des-taux",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "Courbe des taux",
+      "definition": "Taux d'intérêt d'un même émetteur selon la maturité.",
+      "fiche": "m3.courbe.formes",
+      "anglais": "yield curve",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-pente",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "Pente",
+      "definition": "Écart entre un taux long et un taux court, souvent 10 ans − 2 ans.",
+      "fiche": "m3.courbe.formes",
+      "anglais": "slope",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-courbe-inversee",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "Courbe inversée",
+      "definition": "Courbe où les taux courts dépassent les taux longs.",
+      "fiche": "m3.courbe.formes",
+      "anglais": "inverted yield curve",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-prime-de-terme",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "Prime de terme",
+      "definition": "Supplément de rendement demandé pour prêter longtemps, au-delà des anticipations de taux courts.",
+      "fiche": "m3.courbe.formes",
+      "anglais": "term premium",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-taux-forward",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "Taux forward",
+      "definition": "Taux fixé aujourd'hui pour un prêt qui commencera plus tard.",
+      "fiche": "m3.courbe.forward",
+      "anglais": "forward rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.courbe.l-fra",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.courbe",
+      "difficulte": 1,
+      "terme": "FRA",
+      "definition": "Contrat de gré à gré qui fixe aujourd'hui le taux d'une période future.",
+      "fiche": "m3.courbe.forward",
+      "anglais": "forward rate agreement",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

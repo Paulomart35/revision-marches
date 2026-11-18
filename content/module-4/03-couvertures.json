@@ -1,0 +1,718 @@
+{
+  "chapitre": {
+    "id": "m4.couvertures",
+    "module": 4,
+    "ordre": 3,
+    "titre": "Couvrir un client contre le risque de change",
+    "resume": "Terme, option, tunnel, terme participatif et accumulateur : ce que chacun garantit, ce qu'il coûte, et pour quel client."
+  },
+  "elements": [
+    {
+      "id": "m4.couvertures.terme-option",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "tags": [
+        "couverture",
+        "change à terme",
+        "option de change"
+      ],
+      "titre": "Terme ou option : les deux couvertures de base",
+      "une_phrase": "Le **terme** fixe un cours certain sans prime mais supprime tout gain ; l'**option** garantit un cours plancher (ou plafond) contre une **prime**, en gardant le gain si le marché va dans le bon sens.",
+      "trente_secondes": "Deux clients, deux peurs :\n\n- L'**exportateur** reçoit des dollars : il craint un **EUR/USD haut** (ses dollars valent moins d'euros). Il **vend des dollars à terme**, ou achète un **call EUR / put USD**.\n- L'**importateur** paie des dollars : il craint un **EUR/USD bas** (ses dollars lui coûtent plus d'euros). Il **achète des dollars à terme**, ou achète un **put EUR / call USD**.\n\n**Le terme** : cours connu dès aujourd'hui, aucune prime, mais obligation de livrer et aucun gain si le marché tourne en sa faveur.\n\n**L'option** : un **droit**, pas une obligation. Il est protégé au strike, garde le gain si le cours va dans son sens, et peut ne pas l'exercer si le flux n'arrive pas. En contrepartie, il paie une **prime**, et son cours garanti est moins bon que le terme.",
+      "analogie": "Le terme, c'est réserver un billet de train non remboursable au prix d'aujourd'hui. L'option, c'est un billet remboursable : plus cher, mais tu peux en racheter un moins cher si les prix baissent, ou ne pas partir.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.couvertures-fx",
+        "legende": "Choisis le client et la couverture, puis bouge le cours final."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un importateur paiera 1 000 000 $ dans un an. Comptant 1,12, terme 1,1333.",
+        "**Terme** : coût certain de 1 000 000 / 1,1333 = **882 379 €**.",
+        "**Option** put EUR / call USD de strike 1,12, prime 13 000 €. Si l'EUR/USD finit à 1,06 : il exerce, 1 000 000 / 1,12 + 13 000 = **905 857 €** (sans couverture : 943 396 €).",
+        "Si l'EUR/USD finit à 1,18 : il abandonne l'option et achète au marché, 1 000 000 / 1,18 + 13 000 = **860 458 €**.",
+        "Le terme est meilleur si le dollar monte (EUR/USD bas) ; l'option gagne si le dollar baisse beaucoup."
+      ],
+      "formules": [
+        {
+          "titre": "Coût d'un importateur couvert par une option",
+          "latex": "\\text{Coût} = \\frac{M}{\\max(S_T, K)} + \\text{prime}",
+          "legende": {
+            "M": "le montant à payer en dollars",
+            "S_T": "l'EUR/USD à l'échéance",
+            "K": "le strike de l'option (put EUR / call USD)",
+            "\\text{prime}": "la prime payée, en euros"
+          },
+          "en_francais": "L'importateur obtient le meilleur des deux cours, le strike ou le marché, et paie la prime en plus."
+        }
+      ],
+      "deux_minutes": "**Quand préférer l'option ?**\n\n- Quand le **flux est incertain** (appel d'offres, commande non confirmée) : avec un terme, il devrait livrer des dollars qu'il n'a pas.\n- Quand le client veut **garder une chance de gain** et peut payer une prime.\n\n**Le prix de l'option** se calcule avec le modèle de **Garman-Kohlhagen** (Black-Scholes avec deux taux, un par devise). Il augmente avec la volatilité de l'EUR/USD et la durée, et dépend du strike : plus le strike est proche du terme, plus l'option est chère.\n\n**Le cours budgétaire.** En pratique, on part du cours budgétaire de l'entreprise : on choisit un strike qui le protège, et on regarde la prime.\n\n**Couvrir une partie.** Beaucoup d'entreprises couvrent par tranches : 50 % à terme, 25 % en options, 25 % non couvert, ou un pourcentage croissant à mesure que l'échéance approche.\n\n**Vocabulaire des options de change** : on nomme les deux devises. Un put EUR / call USD donne le droit de vendre des euros et d'acheter des dollars à un cours fixé.",
+      "piege": "Se tromper de sens : l'exportateur craint un EUR/USD **haut**, l'importateur un EUR/USD **bas**. Et dire qu'une couverture fait gagner : elle remplace une incertitude par un coût connu ou plafonné.",
+      "a_dire_en_entretien": "« Pour couvrir un flux en dollars, il y a deux briques. Le terme fixe un cours certain, sans prime, mais le client ne profite plus d'un mouvement favorable et doit livrer. L'option lui garantit un cours plancher ou plafond, garde le gain, et ne l'oblige à rien si le flux n'arrive pas, mais elle coûte une prime. Pour un flux incertain, je préfère l'option. »",
+      "liens": [
+        "m4.terme.fabrication",
+        "m4.couvertures.tunnel",
+        "m4.couvertures.participatif",
+        "m2.bs.garman-kohlhagen",
+        "m1.change.risque-couverture"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.tunnel",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "tags": [
+        "couverture",
+        "tunnel",
+        "prime nulle"
+      ],
+      "titre": "Le tunnel de change",
+      "une_phrase": "Le **tunnel de change** (*collar*) associe l'**achat d'une option** de protection et la **vente d'une option** en sens inverse : le cours final reste entre deux bornes, souvent pour une **prime nulle**.",
+      "trente_secondes": "Le client veut une protection mais **pas de prime**. Il achète l'option qui le protège et vend une autre option, dont la prime finance la première.\n\nPour un **exportateur** (peur d'un EUR/USD haut) :\n\n- il achète un call EUR / put USD de strike 1,16 : au pire, il vend ses dollars à 1,16 ;\n- il vend un put EUR / call USD de strike 1,10 : au mieux, il les vend à 1,10.\n\nSon cours final est donc **entre 1,10 et 1,16** : protégé au-dessus de 1,16, il garde le gain jusqu'à 1,10, mais pas au-delà.\n\nLe tunnel offre une **zone de participation** que le terme n'offre pas, mais une protection moins bonne que le terme.",
+      "analogie": "Un contrat de location avec un loyer qui suit le marché, mais ne peut ni dépasser un plafond ni descendre sous un plancher : le locataire est protégé, le propriétaire aussi.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.couvertures-fx",
+        "legende": "Choisis « Tunnel » : la courbe est plate sous 1,10 et au-dessus de 1,16."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Exportateur, 1 000 000 $ dans un an. Tunnel 1,10 – 1,16 à prime nulle. Terme : 1,1333.",
+        "EUR/USD à 1,22 : il vend à 1,16, reçoit **862 069 €** (sans couverture : 819 672 €).",
+        "EUR/USD à 1,13 : il vend au marché, reçoit **884 956 €**.",
+        "EUR/USD à 1,05 : il vend à 1,10, reçoit **909 091 €** (sans couverture : 952 381 €).",
+        "Avec le terme, il aurait reçu 882 379 € dans tous les cas."
+      ],
+      "formules": [
+        {
+          "titre": "Euros reçus par un exportateur couvert par un tunnel",
+          "latex": "\\text{Euros} = \\frac{M}{\\min\\big(\\max(S_T, B),\\, H\\big)}",
+          "legende": {
+            "M": "le montant reçu en dollars",
+            "S_T": "l'EUR/USD à l'échéance",
+            "B": "la borne basse (strike de l'option vendue)",
+            "H": "la borne haute (strike de l'option achetée)"
+          },
+          "en_francais": "Le cours appliqué est le cours du marché, ramené entre les deux bornes."
+        }
+      ],
+      "deux_minutes": "**Le réglage.** Plus la protection est bonne (borne haute basse pour l'exportateur), plus il faut vendre une option chère, donc plus la borne basse remonte : on renonce à plus de gain. À l'extrême, les deux bornes se rejoignent au cours à terme : le tunnel devient un terme.\n\n**Le client est vendeur d'option.** S'il n'a pas de flux réel à l'échéance, l'option vendue peut l'obliger à livrer des devises qu'il n'a pas. Le tunnel doit donc couvrir un flux **certain**, et le nominal ne doit pas dépasser le besoin réel.\n\n**Les variantes** : tunnel à prime réduite (bornes plus larges, petite prime), tunnel asymétrique (nominaux différents sur les deux options : à manier avec prudence, c'est un levier).\n\nLe même mécanisme existe en **taux** (achat de cap, vente de floor).",
+      "piege": "Présenter le tunnel comme gratuit sans dire que le client renonce au gain au-delà de la borne et qu'il est vendeur d'une option.",
+      "a_dire_en_entretien": "« Le tunnel combine l'achat d'une option de protection et la vente d'une option dans l'autre sens. Le cours final reste entre deux bornes, et la prime de l'option vendue finance celle de l'option achetée : on obtient souvent une prime nulle. Le client garde une zone de gain que le terme ne lui donne pas, mais il est vendeur d'option : il faut un flux certain en face. »",
+      "liens": [
+        "m4.couvertures.terme-option",
+        "m3.options-taux.tunnel",
+        "m4.couvertures.participatif"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.participatif",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "tags": [
+        "couverture",
+        "terme participatif"
+      ],
+      "titre": "Le terme participatif",
+      "une_phrase": "Le **terme participatif** garantit un cours un peu **moins bon que le terme**, et laisse au client une **participation** (par exemple 50 %) à l'évolution favorable du marché, pour une **prime nulle**.",
+      "trente_secondes": "Le client hésite : le terme supprime tout gain, l'option coûte une prime. Le terme participatif est un compromis.\n\nPour un **exportateur** (terme à 1,1333) :\n\n- cours garanti : **1,1450** (moins bon que le terme : il reçoit moins d'euros au pire) ;\n- si l'EUR/USD finit **sous 1,1450**, il vend **la moitié** de ses dollars à 1,1450 et **l'autre moitié au marché**, plus favorable.\n\nEn options, c'est l'achat d'un call EUR / put USD de strike 1,1450 sur 100 % du montant, et la vente d'un put EUR / call USD de même strike sur 50 % : la prime de l'option vendue finance l'option achetée.",
+      "analogie": "Un salaire fixe un peu plus bas qu'ailleurs, mais avec une prime sur les bons résultats : tu acceptes un plancher moins élevé pour profiter en partie de la réussite.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.couvertures-fx",
+        "legende": "Choisis « Participatif » : au pire 1,1450, et la moitié du gain quand l'EUR/USD baisse."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Exportateur, 1 000 000 $ dans un an. Terme 1,1333. Terme participatif : garanti 1,1450, participation 50 %.",
+        "EUR/USD à 1,08 : 500 000 / 1,145 + 500 000 / 1,08 = 436 681 + 462 963 = **899 644 €** (terme : 882 379 € ; sans couverture : 925 926 €).",
+        "EUR/USD à 1,20 : tout au cours garanti, 1 000 000 / 1,145 = **873 362 €** (sans couverture : 833 333 €).",
+        "Coût de la participation : au pire, 873 362 € au lieu de 882 379 € avec le terme, soit 9 017 € de moins."
+      ],
+      "formules": [
+        {
+          "titre": "Euros reçus par un exportateur, terme participatif",
+          "latex": "\\text{Euros} = \\begin{cases} \\dfrac{M}{G} & \\text{si } S_T \\geq G \\\\[2mm] (1-p)\\dfrac{M}{G} + p\\,\\dfrac{M}{S_T} & \\text{si } S_T < G \\end{cases}",
+          "legende": {
+            "M": "le montant en dollars",
+            "G": "le cours garanti",
+            "p": "le taux de participation",
+            "S_T": "l'EUR/USD à l'échéance"
+          },
+          "en_francais": "Si le marché est défavorable, tout passe au cours garanti ; s'il est favorable, une part p est vendue au marché."
+        }
+      ],
+      "deux_minutes": "**Le réglage.** Plus la participation est élevée, plus le cours garanti s'éloigne du terme. Avec 0 % de participation, on retrouve le terme ; avec 100 %, on a une option (et il faut payer une prime).\n\n**Pour un importateur**, c'est symétrique : cours garanti un peu plus bas que le terme (il obtient moins de dollars par euro au pire), et participation si l'EUR/USD monte.\n\n**Bien expliquer.** Le client doit comprendre que, dans le scénario défavorable, il est **moins bien couvert qu'avec un terme**. C'est le prix de la participation.\n\n**Pourquoi c'est populaire auprès des PME** : prime nulle, protection totale du montant, et la possibilité de profiter en partie d'un mouvement favorable, ce qui rend la couverture plus facile à accepter en interne.",
+      "piege": "Oublier que le cours garanti est **moins bon** que le terme : dans le scénario défavorable, le client reçoit moins qu'avec un terme.",
+      "a_dire_en_entretien": "« Le terme participatif garantit un cours un peu moins bon que le terme, mais le client profite d'une partie, par exemple la moitié, de l'évolution favorable. Il n'y a pas de prime : en options, il achète une protection sur tout le montant et vend une option sur la moitié. C'est un compromis entre le terme et l'option, à expliquer avec le pire scénario. »",
+      "liens": [
+        "m4.couvertures.terme-option",
+        "m4.couvertures.tunnel"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.accumulateur",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "tags": [
+        "couverture",
+        "accumulateur",
+        "déontologie"
+      ],
+      "titre": "L'accumulateur et ses dangers",
+      "une_phrase": "L'**accumulateur** offre un cours très avantageux, mais le client achète (ou vend) **deux fois plus** quand le marché va contre lui, et le produit **s'arrête** quand le marché va dans son sens : un levier dangereux.",
+      "trente_secondes": "Sur une série de dates (souvent chaque semaine pendant un an), le client achète un montant de devises à un **cours amélioré**, nettement meilleur que le terme.\n\nMais trois clauses changent tout :\n\n- **Doublement** : quand le marché est **plus favorable** que le cours amélioré (donc quand le client aurait préféré acheter au marché), il doit acheter **deux fois** le montant à ce cours.\n- **Désactivation** (*knock-out*) : si le marché va fortement **dans le sens du client**, le produit s'arrête, et avec lui la protection.\n- **Engagement long** : les fixings continuent tant que la barrière n'est pas touchée.\n\nRésultat : le client gagne **peu** et **pas longtemps** quand le marché lui est favorable, et accumule de **gros montants à un mauvais cours** quand il lui est défavorable.",
+      "analogie": "Une promotion « deux pour le prix d'un » imposée chaque semaine, même quand tu n'as plus de place dans le frigo, et qui s'arrête justement le jour où le prix devient intéressant.",
+      "exemple_chiffre": [
+        "Exemple fictif. Importateur qui a besoin de 100 000 $ par semaine. Comptant 1,12, terme 1,1333. Accumulateur sur 52 semaines : cours amélioré 1,16 ; si l'EUR/USD est au-dessus de 1,16 lors d'un fixing, il achète 200 000 $ ; désactivation si l'EUR/USD passe sous 1,09.",
+        "Scénario « favorable » : l'EUR/USD baisse à 1,09 en semaine 8. Il a acheté 800 000 $ à 1,16, puis le produit s'arrête. Le reste de l'année, il achète au marché, sous 1,09 : la protection a disparu au pire moment.",
+        "Scénario défavorable : l'EUR/USD monte à 1,25 et y reste. Chaque semaine, il achète 200 000 $ à 1,16 alors que le marché donne 1,25. Sur l'année : 10,4 M$, soit le **double** de son besoin.",
+        "Manque à gagner par dollar : 1/1,16 − 1/1,25 = 0,062 € ; sur 10,4 M$, environ **645 000 €**, et 5,2 M$ dont il n'a pas l'usage."
+      ],
+      "deux_minutes": "**Pourquoi le cours est si attractif.** Le client vend implicitement beaucoup d'options à la banque (le doublement) et accepte une barrière qui coupe ses gains : la valeur de ces options vendues finance le cours amélioré.\n\n**Pour qui ?** Pour presque personne dans une PME. Un accumulateur ne doit être proposé qu'à un client qui comprend parfaitement le pire scénario, dont le **besoin réel couvre le montant doublé**, et à qui on a montré les chiffres. Ces produits ont provoqué de lourdes pertes chez des entreprises et des clients privés lors de mouvements de change brutaux.\n\n**Le cadre réglementaire.** MiFID II impose de vérifier l'**adéquation** du produit au client (connaissance, expérience, objectifs, capacité à supporter des pertes) et de documenter le conseil. Un dérivé client doit **couvrir un risque réel** : proposer un accumulateur à un client sans flux, pour « profiter d'un bon cours », c'est de la spéculation.\n\n**La bonne attitude du sales :** montrer le pire scénario chiffré, alerter le chargé d'affaires, proposer une couverture proportionnée au flux réel.",
+      "piege": "Présenter l'accumulateur par son cours amélioré sans montrer le doublement et la désactivation. Et le proposer à un client qui n'a pas de flux réel.",
+      "a_dire_en_entretien": "« L'accumulateur affiche un cours très avantageux, mais le client achète deux fois plus quand le marché va contre lui, et le produit s'arrête quand le marché va dans son sens. C'est un fort levier, financé par les options que le client vend. Je ne le proposerais qu'à un client qui comprend parfaitement le pire scénario et dont le besoin réel couvre le montant doublé ; un dérivé client doit couvrir un risque, pas spéculer. »",
+      "liens": [
+        "m4.couvertures.terme-option",
+        "m4.couvertures.participatif"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c01",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "recto": "Peur de l'exportateur payé en dollars ?",
+      "verso": "Un EUR/USD haut.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c02",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "recto": "Peur de l'importateur qui paie en dollars ?",
+      "verso": "Un EUR/USD bas.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c03",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "recto": "Option de protection d'un exportateur ?",
+      "verso": "Call EUR / put USD.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c04",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "recto": "Option de protection d'un importateur ?",
+      "verso": "Put EUR / call USD.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c05",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "recto": "Terme ou option pour un flux incertain ?",
+      "verso": "L'option : pas d'obligation de livrer.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c06",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "recto": "Tunnel de change ?",
+      "verso": "Achat d'une option de protection + vente d'une option inverse : cours entre deux bornes, souvent à prime nulle.",
+      "fiche": "m4.couvertures.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c07",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "recto": "Terme participatif ?",
+      "verso": "Cours garanti un peu moins bon que le terme + participation (ex. 50 %) au gain, prime nulle.",
+      "fiche": "m4.couvertures.participatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c08",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "recto": "Les deux pièges de l'accumulateur ?",
+      "verso": "Montant doublé quand le marché est contre le client, désactivation quand il est pour lui.",
+      "fiche": "m4.couvertures.accumulateur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.c09",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "recto": "Règle d'or d'un dérivé client ?",
+      "verso": "Il doit couvrir un risque réel, pas spéculer.",
+      "fiche": "m4.couvertures.accumulateur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.q01",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "question": "Un exportateur recevra des dollars dans 6 mois. De quoi a-t-il peur, et comment le couvrir ?",
+      "reponse_modele": "Il a peur que l'EUR/USD monte, c'est-à-dire que le dollar baisse : ses dollars lui rapporteraient moins d'euros. Il peut vendre ses dollars à terme : cours connu tout de suite, sans prime, mais plus de gain possible si le dollar monte. Ou acheter un call EUR / put USD : il est protégé au strike, garde le gain si le dollar monte, contre une prime. À prime nulle, un tunnel ou un terme participatif sont des compromis.",
+      "points_cles": [
+        "Peur d'un EUR/USD haut",
+        "Vente à terme",
+        "Call EUR / put USD",
+        "Tunnel, terme participatif"
+      ],
+      "piege": "Dire qu'il a peur que l'euro baisse.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.q02",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "question": "Pourquoi un client préférerait-il une option à un terme, alors qu'elle coûte une prime ?",
+      "reponse_modele": "Pour trois raisons. D'abord si le flux est incertain : avec un terme, il devra livrer les devises même si la vente ne se fait pas ; avec une option, il laisse simplement l'option. Ensuite s'il veut garder le gain d'un mouvement favorable. Enfin si son cours budgétaire lui laisse de la marge : il choisit un strike qui protège ce budget, et la prime peut être raisonnable. Le terme reste la solution la moins chère pour un flux certain.",
+      "points_cles": [
+        "Flux incertain",
+        "Garder le gain",
+        "Strike au niveau du cours budgétaire",
+        "Terme moins cher pour un flux certain"
+      ],
+      "piege": "Dire que l'option est toujours meilleure.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.q03",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "question": "Explique le terme participatif à un dirigeant de PME, avec des chiffres.",
+      "reponse_modele": "Vous recevrez 1 M$ dans un an. Le terme vous garantirait 1,1333, soit 882 379 €, sans aucun gain possible. Le terme participatif vous garantit un cours un peu moins bon, 1,1450, soit au pire 873 362 €. En échange, si l'euro baisse, vous vendez la moitié de vos dollars au marché : à 1,08, vous recevriez 899 644 €. Il n'y a pas de prime. Le prix de cette participation, c'est environ 9 000 € de moins que le terme dans le pire scénario.",
+      "points_cles": [
+        "Comparaison avec le terme",
+        "Cours garanti moins bon",
+        "Participation 50 %",
+        "Scénarios chiffrés",
+        "Prime nulle"
+      ],
+      "piege": "Ne pas dire que le cours garanti est moins bon que le terme.",
+      "fiche": "m4.couvertures.participatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.q04",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "question": "Un client sans flux en dollars veut un accumulateur pour « profiter d'un bon cours ». Que fais-tu ?",
+      "reponse_modele": "Je refuse de l'accompagner sur ce produit. Un dérivé client doit couvrir un risque réel ; sans flux, c'est de la spéculation à fort levier. Je lui montre le pire scénario chiffré : il achèterait deux fois le montant à un mauvais cours si le marché va contre lui, et le produit s'arrêterait s'il va dans son sens. J'alerte le chargé d'affaires et je reste dans le cadre de MiFID II, qui impose de vérifier l'adéquation. S'il a un vrai besoin futur, je propose une couverture proportionnée à ce besoin.",
+      "points_cles": [
+        "Pas de flux = spéculation",
+        "Pire scénario chiffré",
+        "Doublement et désactivation",
+        "Alerte, adéquation MiFID II",
+        "Couverture proportionnée"
+      ],
+      "piege": "Accepter parce que le client insiste ou parce que le produit rapporte une marge.",
+      "fiche": "m4.couvertures.accumulateur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "enonce": "Un importateur qui paie des dollars craint…",
+      "choix": [
+        "un EUR/USD haut",
+        "un EUR/USD bas",
+        "une hausse des taux euro",
+        "rien, il est payé en euros"
+      ],
+      "bonne": 1,
+      "explication": "EUR/USD bas : chaque euro achète moins de dollars, ses achats lui coûtent plus cher.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z02",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "enonce": "Importateur, 1 000 000 $ dans un an, put EUR / call USD strike 1,12, prime 13 000 €. L'EUR/USD finit à 1,06. Coût total en euros ?",
+      "reponse": 905857,
+      "tolerance": 2,
+      "unite": "€",
+      "explication": "Il exerce : 1 000 000 / 1,12 = 892 857 €, + 13 000 € = 905 857 €.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "enonce": "Exportateur, 1 000 000 $, tunnel 1,10 – 1,16. L'EUR/USD finit à 1,22. Euros reçus ?",
+      "reponse": 862069,
+      "tolerance": 2,
+      "unite": "€",
+      "explication": "Cours ramené à 1,16 : 1 000 000 / 1,16 = 862 069 €.",
+      "fiche": "m4.couvertures.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "enonce": "Dans un terme participatif, le cours garanti est meilleur que le cours à terme.",
+      "vrai": false,
+      "explication": "Il est moins bon : c'est le prix de la participation au mouvement favorable.",
+      "fiche": "m4.couvertures.participatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "enonce": "Le flux en dollars d'un client dépend d'un appel d'offres pas encore gagné. La couverture la plus adaptée est…",
+      "choix": [
+        "une vente à terme",
+        "un tunnel",
+        "une option",
+        "un accumulateur"
+      ],
+      "bonne": 2,
+      "explication": "L'option n'oblige à rien : si le contrat n'est pas gagné, le client laisse l'option.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z06",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "enonce": "Dans un accumulateur, le montant acheté double quand le marché est favorable au client.",
+      "vrai": false,
+      "explication": "Il double quand le marché est défavorable par rapport au cours amélioré : le client aurait préféré acheter au marché.",
+      "fiche": "m4.couvertures.accumulateur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.z07",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "enonce": "Exportateur, 1 000 000 $, terme participatif garanti 1,1450, participation 50 %. L'EUR/USD finit à 1,08. Euros reçus (arrondi à l'euro) ?",
+      "reponse": 899644,
+      "tolerance": 2,
+      "unite": "€",
+      "explication": "500 000 / 1,145 + 500 000 / 1,08 = 436 681 + 462 963 = 899 644 €.",
+      "fiche": "m4.couvertures.participatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.x01",
+      "type": "exercice",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "titre": "Option de change pour un importateur",
+      "enonce": "Exemple fictif. Un importateur paiera 1 000 000 USD dans un an. Il achète un put EUR / call USD de strike 1,12 pour une prime de 13 000 €. Calcule son coût total si l'EUR/USD finit à 1,06, puis à 1,18, et compare à l'absence de couverture et au terme à 1,1333.",
+      "etapes": [
+        {
+          "titre": "EUR/USD à 1,06",
+          "texte": "Le marché est défavorable : il exerce et achète ses dollars à 1,12. 1 000 000 / 1,12 + 13 000.",
+          "resultat": "905 857 € (sans couverture : 943 396 €)",
+          "verif": {
+            "fn": "fx.coutImportateurOption",
+            "args": [
+              1000000,
+              1.12,
+              13000,
+              1.06
+            ],
+            "attendu": 905857,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "EUR/USD à 1,18",
+          "texte": "Le marché est favorable : il abandonne l'option et achète au comptant. 1 000 000 / 1,18 + 13 000.",
+          "resultat": "860 458 € (sans couverture : 847 458 €)",
+          "verif": {
+            "fn": "fx.coutImportateurOption",
+            "args": [
+              1000000,
+              1.12,
+              13000,
+              1.18
+            ],
+            "attendu": 860458,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Le terme",
+          "texte": "1 000 000 / 1,1333 = 882 379 € dans tous les cas.",
+          "resultat": "882 379 €"
+        },
+        {
+          "titre": "Lecture",
+          "texte": "L'option plafonne le coût à 905 857 € et laisse profiter de la baisse du dollar, moins la prime. Le terme est moins cher dans le scénario défavorable, mais ne laisse aucun gain."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier la prime.",
+        "Exercer l'option quand le marché est plus favorable que le strike.",
+        "Multiplier les dollars par le cours au lieu de diviser."
+      ],
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.x02",
+      "type": "exercice",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "titre": "Terme participatif pour un exportateur",
+      "enonce": "Exemple fictif. Un exportateur encaissera 1 000 000 USD dans un an. Terme : 1,1333. Terme participatif : cours garanti 1,1450, participation 50 % si l'EUR/USD finit sous 1,1450. Calcule les euros reçus à 1,08 et à 1,20, et compare au terme et à l'absence de couverture.",
+      "etapes": [
+        {
+          "titre": "EUR/USD à 1,08 (favorable)",
+          "texte": "La moitié au cours garanti, la moitié au marché : 500 000 / 1,145 + 500 000 / 1,08.",
+          "resultat": "899 644 € (terme : 882 379 € ; sans couverture : 925 926 €)",
+          "verif": {
+            "fn": "fx.exportateurParticipatif",
+            "args": [
+              1000000,
+              1.145,
+              50,
+              1.08
+            ],
+            "attendu": 899644,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "EUR/USD à 1,20 (défavorable)",
+          "texte": "Tout au cours garanti : 1 000 000 / 1,145.",
+          "resultat": "873 362 € (sans couverture : 833 333 €)",
+          "verif": {
+            "fn": "fx.exportateurParticipatif",
+            "args": [
+              1000000,
+              1.145,
+              50,
+              1.2
+            ],
+            "attendu": 873362,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le terme participatif fait mieux que le terme quand le marché est favorable (+17 265 € à 1,08), moins bien quand il est défavorable (−9 017 € à 1,20). Sans prime."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Appliquer la participation quand le marché est défavorable.",
+        "Oublier que le cours garanti est moins bon que le terme."
+      ],
+      "fiche": "m4.couvertures.participatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.k01",
+      "type": "cas_pratique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 2,
+      "titre": "Un importateur doit payer 2 M$ dans 6 mois",
+      "situation": "Exemple fictif. Une PME de distribution importe du matériel des États-Unis. Elle doit payer 2 000 000 $ à son fournisseur dans 6 mois. Son budget est construit sur un EUR/USD de 1,10. Le comptant est à 1,12 et le taux euro est sous le taux dollar.",
+      "questions_a_poser": [
+        "Le paiement est-il certain, en montant et en date ?",
+        "Quel est votre cours budgétaire, et quelle marge pouvez-vous perdre ?",
+        "Avez-vous un budget pour une prime ?",
+        "Avez-vous des recettes en dollars qui pourraient compenser ?",
+        "Couvrez-vous habituellement tout le montant, ou par tranches ?"
+      ],
+      "proposition": "Si le paiement est certain : **achat de dollars à terme**. L'euro étant en report (taux euro sous le taux dollar), le terme est un peu meilleur que le comptant pour un importateur : il obtient plus de 1,12 dollar par euro, au-dessus de son cours budgétaire de 1,10. Alternatives : un **put EUR / call USD** de strike proche de 1,10 (protection du budget et gain si l'euro monte, contre une prime), ou un **tunnel** ou un **terme participatif** à prime nulle. Si le paiement est incertain, je préfère l'option.",
+      "scenario_defavorable": "Avec le terme, si l'euro monte fortement (par exemple à 1,20), il paiera plus cher que sans couverture : c'est le prix de la certitude. Avec l'option, si l'euro baisse, il paie au strike plus la prime. Avec le tunnel, il ne profite pas d'une hausse de l'euro au-delà de la borne haute.",
+      "faisabilite": "Ligne de risque change du client, convention-cadre signée, adéquation du produit (MiFID II) ; montant et date alignés sur la facture fournisseur ; prévoir la possibilité de lever le terme par anticipation ou de le proroger si la date de paiement bouge.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.k02",
+      "type": "cas_pratique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 3,
+      "titre": "Un exportateur qui répond à un appel d'offres en dollars",
+      "situation": "Exemple fictif. Une ETI répond à un appel d'offres aux États-Unis : si elle gagne, elle encaissera 5 000 000 $ dans 9 mois. Le résultat sera connu dans 2 mois. Elle a calculé son prix sur un EUR/USD de 1,13 et sa marge est faible. Le directeur financier veut « bloquer le cours tout de suite ».",
+      "questions_a_poser": [
+        "Quelle est la probabilité de gagner l'appel d'offres ?",
+        "Quel cours rend votre offre rentable, et à partir de quel cours perdez-vous de l'argent ?",
+        "Pouvez-vous payer une prime ? Pouvez-vous l'intégrer dans le prix de l'offre ?",
+        "Si vous gagnez, les paiements seront-ils échelonnés ?"
+      ],
+      "proposition": "Le flux est **incertain** : un terme l'obligerait à livrer 5 M$ qu'elle n'aura peut-être pas, et à racheter ces dollars au marché si elle perd. Je propose une **option** call EUR / put USD de strike autour de 1,13 : la protection du prix de l'offre, sans engagement si l'appel d'offres est perdu (elle peut même revendre l'option si elle a encore de la valeur). Une fois le contrat gagné, elle pourra transformer tout ou partie de la couverture en terme, moins cher.",
+      "scenario_defavorable": "Si l'appel d'offres est perdu et que l'euro a baissé, la prime est perdue. Si elle avait choisi un terme et perdu l'appel d'offres, elle aurait dû racheter 5 M$ au marché pour livrer : une perte potentiellement bien plus lourde si l'euro avait monté.",
+      "faisabilite": "Budget de prime, ligne de risque, adéquation ; calendrier aligné sur la date probable d'encaissement ; montant limité au montant de l'offre ; revue de la couverture dès l'annonce du résultat.",
+      "fiche": "m4.couvertures.terme-option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.l-option-de-change",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "terme": "Option de change",
+      "definition": "Droit d'acheter ou de vendre une devise à un cours fixé, contre une prime.",
+      "fiche": "m4.couvertures.terme-option",
+      "anglais": "FX option",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.l-tunnel-de-change",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "terme": "Tunnel de change",
+      "definition": "Achat et vente d'options de change de sens opposé : cours final entre deux bornes.",
+      "fiche": "m4.couvertures.tunnel",
+      "anglais": "FX collar",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.l-terme-participatif",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "terme": "Terme participatif",
+      "definition": "Cours garanti moins bon que le terme, avec une participation au mouvement favorable, sans prime.",
+      "fiche": "m4.couvertures.participatif",
+      "anglais": "participating forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.l-accumulateur",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "terme": "Accumulateur",
+      "definition": "Achat périodique de devises à un cours amélioré, avec doublement du montant et désactivation : produit à fort levier.",
+      "fiche": "m4.couvertures.accumulateur",
+      "anglais": "accumulator",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.couvertures.l-desactivante",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.couvertures",
+      "difficulte": 1,
+      "terme": "Désactivante",
+      "definition": "Clause qui annule un produit si le cours touche une barrière.",
+      "fiche": "m4.couvertures.accumulateur",
+      "anglais": "knock-out",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

@@ -1,0 +1,678 @@
+{
+  "chapitre": {
+    "id": "m5.autocall",
+    "module": 5,
+    "ordre": 3,
+    "titre": "Autocall et Phoenix",
+    "resume": "Les produits les plus vendus en Europe : rappel anticipé, coupons conditionnels, effet mémoire et barrière de capital, date par date."
+  },
+  "elements": [
+    {
+      "id": "m5.autocall.athena",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "tags": [
+        "autocall",
+        "Athena",
+        "rappel anticipé"
+      ],
+      "titre": "L'autocall (Athena)",
+      "une_phrase": "Un **autocall** est **remboursé par anticipation** avec un coupon dès que l'indice est au-dessus de son niveau initial à une date d'observation ; s'il n'est jamais rappelé, le capital est protégé à l'échéance tant que l'indice n'a pas franchi une **barrière** (par exemple −40 %).",
+      "trente_secondes": "Chaque année, à la date anniversaire, on regarde l'indice :\n\n- **au-dessus de 100 %** de son niveau initial : le produit s'arrête, le client récupère **100 + un coupon par année écoulée** (avec 7 % par an : 107 en année 1, 114 en année 2…) ;\n- **en dessous** : le produit continue jusqu'à l'observation suivante.\n\nÀ l'échéance (par exemple 5 ans), si le produit n'a jamais été rappelé :\n\n- indice ≥ 100 % : 100 + tous les coupons (135) ;\n- indice entre 60 % et 100 % : **100**, sans coupon ;\n- indice **sous 60 %** : le client **perd comme l'indice** (à 52 %, il récupère 52).\n\nLe coupon est élevé parce que le client **vend un put à barrière** à la banque : il accepte de perdre en cas de forte baisse.",
+      "analogie": "Un pari avec un ami : « Chaque année où la Bourse est au-dessus de son niveau de départ, tu me rends ma mise avec 7 % par an écoulé. Si elle s'effondre de plus de 40 % au bout de 5 ans, je perds comme elle. » Tu gagnes souvent un peu, tu perds rarement, mais beaucoup.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.autocall",
+        "legende": "Choisis un scénario et avance date par date."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Autocall 5 ans sur l'Euro Stoxx 50, coupon 7 % par an, rappel si l'indice ≥ 100 %, barrière de capital 60 % à l'échéance.",
+        "Scénario A : indice à 95 % en année 1, 104 % en année 2. Rappel en année 2 : le client reçoit **114**, soit un rendement annuel de (114 / 100)^(1/2) − 1 = **6,77 %**.",
+        "Scénario B : jamais rappelé, l'indice finit à 75 %, au-dessus de la barrière. Le client récupère **100**, sans coupon.",
+        "Scénario C : l'indice finit à 52 %, sous la barrière. Le client récupère **52** : une perte de 48 %."
+      ],
+      "formules": [
+        {
+          "titre": "Le montant reçu en cas de rappel à la date t",
+          "latex": "R_t = 100 + t \\times c",
+          "legende": {
+            "R_t": "le montant reçu si le produit est rappelé à l'observation t",
+            "t": "le numéro de l'observation (en années)",
+            "c": "le coupon annuel, en points"
+          },
+          "en_francais": "En cas de rappel, le client récupère son capital plus un coupon pour chaque année écoulée."
+        },
+        {
+          "titre": "Le remboursement à l'échéance, sans rappel",
+          "latex": "R_T = \\begin{cases} 100 + T c & \\text{si } S_T \\geq 100 \\\\ 100 & \\text{si } B \\leq S_T < 100 \\\\ S_T & \\text{si } S_T < B \\end{cases}",
+          "legende": {
+            "S_T": "le niveau final de l'indice, en % du niveau initial (100 = niveau de départ)",
+            "B": "la barrière de capital, en % (par exemple 60)",
+            "T": "la maturité"
+          },
+          "en_francais": "À l'échéance, trois cas : tous les coupons, le capital seul, ou une perte comme l'indice sous la barrière."
+        }
+      ],
+      "deux_minutes": "**La décomposition.** Zéro-coupon + **digitales** qui paient les coupons de rappel + **put down-and-in vendu** par l'investisseur (strike 100 %, barrière 60 %), le tout avec une durée aléatoire, puisque le produit peut s'arrêter à chaque date.\n\n**Pourquoi le coupon est élevé.** La prime du put vendu le finance. Plus la **volatilité** est forte, plus ce put vaut cher, plus le coupon proposé est élevé : le client est **vendeur de volatilité**. C'est pourquoi les autocalls offrent de beaux coupons en marché agité.\n\n**Pour qui ?** Un investisseur qui anticipe un marché **stable ou en légère hausse** et accepte un risque en capital en cas de forte baisse.\n\n**Les risques** : perte en capital sous la barrière (et elle peut être forte : on perd toute la baisse, pas seulement ce qui dépasse la barrière) ; **durée inconnue** (1 an ou 5 ans) ; crédit de l'émetteur ; liquidité.\n\n**Barrière à l'échéance ou continue.** Ici, la barrière n'est regardée qu'à l'échéance (européenne). Si elle est observée chaque jour (américaine), le risque est plus élevé, et le coupon aussi.\n\n**Variantes** : seuil de rappel dégressif (100 %, puis 95 %, 90 %… pour faciliter le rappel), **daily callable** (condition de rappel vérifiée chaque jour de bourse après une période initiale, avec un coupon calculé selon le temps écoulé : durée de vie plus courte).",
+      "piege": "Dire que le capital est protégé jusqu'à −40 % « et qu'on perd seulement ce qui dépasse » : sous la barrière, on perd **toute** la baisse de l'indice. Et oublier que le coupon n'est versé qu'au rappel.",
+      "a_dire_en_entretien": "« Un autocall est rappelé avec un coupon par année écoulée dès que l'indice est au-dessus de son niveau initial à une date d'observation. Sinon, il continue. À l'échéance, le capital est protégé tant que l'indice n'a pas franchi la barrière, par exemple −40 % ; en dessous, on perd comme l'indice. Le coupon est financé par le put à barrière que le client vend : il est vendeur de volatilité, d'où des coupons plus élevés en marché agité. »",
+      "liens": [
+        "m5.autocall.phoenix",
+        "m5.bases.briques",
+        "m2.exotiques.barrieres",
+        "m5.conditions.parametres"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.phoenix",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "tags": [
+        "Phoenix",
+        "coupon conditionnel",
+        "mémoire"
+      ],
+      "titre": "Le Phoenix et l'effet mémoire",
+      "une_phrase": "Le **Phoenix** verse un **coupon à chaque période** où l'indice est au-dessus d'une **barrière de coupon** (par exemple 70 %), même sans rappel ; avec l'**effet mémoire**, un coupon manqué est **rattrapé** dès que la condition est de nouveau remplie.",
+      "trente_secondes": "Même mécanique de rappel et de barrière de capital que l'autocall, avec une différence : les coupons.\n\n- À chaque date, si l'indice est **au-dessus de 70 %**, le client reçoit son coupon, rappel ou non.\n- S'il est **au-dessus de 100 %**, le produit est en plus rappelé.\n- S'il est **sous 70 %**, pas de coupon. Avec la **mémoire**, ce coupon est mis de côté et versé plus tard, dès que l'indice repasse au-dessus de 70 %.\n\nRésultat : un **revenu plus régulier** que l'autocall, mais un coupon en général **plus faible**, car la condition est plus facile à remplir.",
+      "analogie": "Un employeur qui verse une prime chaque trimestre si l'activité dépasse un seuil. Avec la mémoire, une prime manquée un mauvais trimestre est rattrapée dès que l'activité repasse le seuil.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Année",
+          "Indice",
+          "Ce qui se passe",
+          "Versé"
+        ],
+        "lignes": [
+          [
+            "1",
+            "90 %",
+            "≥ 70 % : coupon ; < 100 % : pas de rappel",
+            "7"
+          ],
+          [
+            "2",
+            "65 %",
+            "< 70 % : pas de coupon, mis en mémoire",
+            "0"
+          ],
+          [
+            "3",
+            "80 %",
+            "≥ 70 % : coupon de l'année + coupon mémorisé",
+            "14"
+          ],
+          [
+            "4",
+            "102 %",
+            "≥ 100 % : rappel anticipé, capital + coupon",
+            "107"
+          ]
+        ],
+        "legende": "Exemple fictif : coupon 7 %, barrière de coupon 70 %, rappel 100 %, barrière de capital 60 %. Total : 128 pour 100 investis en 4 ans."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Phoenix à mémoire : coupon 7 % par an si l'indice ≥ 70 %, rappel si ≥ 100 %, barrière de capital 60 % à l'échéance.",
+        "Indice : 90 %, 65 %, 80 %, 102 %. Flux : **7**, **0**, **14**, **107**. Total : **128**.",
+        "Sans mémoire, le coupon de l'année 2 aurait été perdu : total **121**. En échange, le coupon proposé aurait été un peu plus élevé.",
+        "Comparaison avec l'Athena sur le même parcours : rappel en année 4 avec 4 coupons, soit 128 aussi, mais tout versé à la fin."
+      ],
+      "deux_minutes": "**Athena ou Phoenix ?**\n\n- Besoin de **revenus réguliers** (client privé qui vit de ses revenus, fondation) : Phoenix.\n- Vue **stable ou haussière**, pas besoin de revenus intermédiaires : Athena, au coupon plus élevé.\n- Dans les deux cas, **même risque en capital** sous la barrière à l'échéance.\n\n**La décomposition du Phoenix** : zéro-coupon + une **digitale** par date (strike à la barrière de coupon) + put down-and-in vendu, avec rappel. La mémoire ajoute de la valeur pour le client : à volatilité égale, le coupon est un peu plus bas qu'un Phoenix sans mémoire.\n\n**Barrière de coupon et barrière de capital.** Elles sont souvent différentes (70 % et 60 % ici). Plus elles sont basses, plus le produit est défensif, plus le coupon est faible.\n\n**Fiscalité et calendrier.** Les coupons intermédiaires sont versés chaque année (ou chaque trimestre pour certains produits) : c'est une contrainte de suivi pour l'agent de calcul et le dépositaire.",
+      "piege": "Confondre la barrière de coupon (qui conditionne le coupon) et la barrière de capital (qui protège le remboursement). Et croire que la mémoire rattrape les coupons même si le produit finit sous la barrière de coupon : elle ne joue que si la condition est de nouveau remplie.",
+      "a_dire_en_entretien": "« Le Phoenix verse un coupon à chaque date où l'indice est au-dessus d'une barrière de coupon, par exemple 70 %, même s'il n'est pas rappelé. Avec la mémoire, les coupons manqués sont rattrapés dès que la condition est de nouveau remplie. Le revenu est plus régulier que l'Athena, mais le coupon plus faible. Le risque en capital est le même : sous la barrière à l'échéance, on perd comme l'indice. »",
+      "liens": [
+        "m5.autocall.athena",
+        "m2.exotiques.digitales",
+        "m5.reverse.reverse-convertible"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "recto": "Autocall (Athena) : quand est-il rappelé ?",
+      "verso": "À une date d'observation où l'indice est au-dessus de son niveau initial.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "recto": "Montant au rappel de l'Athena ?",
+      "verso": "100 + un coupon par année écoulée.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "recto": "Sous la barrière à l'échéance ?",
+      "verso": "Le client perd comme l'indice (toute la baisse).",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 3,
+      "recto": "Décomposition d'un autocall ?",
+      "verso": "Zéro-coupon + digitales − put down-and-in vendu, durée aléatoire.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "recto": "Pourquoi le coupon d'un autocall monte avec la volatilité ?",
+      "verso": "Le put vendu par le client vaut plus cher.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "recto": "Phoenix ?",
+      "verso": "Coupon à chaque date où l'indice est au-dessus d'une barrière de coupon, même sans rappel.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c07",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "recto": "Effet mémoire ?",
+      "verso": "Les coupons manqués sont rattrapés dès que la condition est de nouveau remplie.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.c08",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "recto": "Athena ou Phoenix pour un client qui veut des revenus ?",
+      "verso": "Phoenix.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "question": "Explique un autocall à un client privé.",
+      "reponse_modele": "Vous placez 100 sur 5 ans au maximum, sur l'Euro Stoxx 50. Chaque année, on regarde l'indice. S'il est au-dessus de son niveau de départ, le produit s'arrête et vous récupérez votre capital plus 7 % par année écoulée. Sinon, on continue. Si on arrive au bout des 5 ans sans rappel, vous récupérez votre capital tant que l'indice n'a pas baissé de plus de 40 % ; au-delà, vous perdez comme l'indice. C'est un produit pour une vue stable ou légèrement haussière, avec un risque de perte en capital en cas de forte baisse, une durée inconnue, et le risque de crédit de l'émetteur.",
+      "points_cles": [
+        "Observation annuelle",
+        "Rappel avec coupons cumulés",
+        "Protection jusqu'à la barrière",
+        "Perte comme l'indice en dessous",
+        "Vue de marché et risques"
+      ],
+      "piege": "Dire qu'on ne perd que la baisse au-delà de 40 %.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 3,
+      "question": "Comment se décompose un autocall ? Pourquoi son coupon est-il élevé ?",
+      "reponse_modele": "C'est un zéro-coupon, plus des options digitales qui paient les coupons de rappel, moins un put down-and-in vendu par l'investisseur, de strike 100 % et de barrière 60 %, avec une durée aléatoire puisque le produit peut s'arrêter à chaque date. Le coupon est élevé parce que la prime du put vendu le finance. Plus la volatilité est forte, plus ce put vaut cher, plus le coupon est élevé : l'investisseur est vendeur de volatilité. C'est pour ça qu'en marché agité, les autocalls proposent de beaux coupons.",
+      "points_cles": [
+        "Zéro-coupon",
+        "Digitales",
+        "Put down-and-in vendu",
+        "Durée aléatoire",
+        "Vendeur de volatilité"
+      ],
+      "piege": "Dire que l'investisseur achète le put.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.q03",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "question": "Un client hésite entre un autocall et un Phoenix. Que lui dis-tu ?",
+      "reponse_modele": "Je lui demande s'il a besoin de revenus réguliers. L'autocall verse un coupon plus élevé, mais seulement au moment du rappel. Le Phoenix verse un coupon plus faible, mais à chaque date où l'indice est au-dessus de la barrière de coupon, même sans rappel, et la mémoire permet de rattraper les coupons manqués. S'il a besoin de revenus, le Phoenix ; s'il a une vue stable ou haussière et pas besoin de revenus, l'autocall. Dans les deux cas, je lui rappelle le même risque en capital sous la barrière à l'échéance.",
+      "points_cles": [
+        "Question sur le besoin de revenus",
+        "Autocall : coupon plus élevé au rappel",
+        "Phoenix : coupon régulier, mémoire",
+        "Même risque en capital"
+      ],
+      "piege": "Présenter le Phoenix comme moins risqué en capital.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "enonce": "Autocall, coupon 6 % par an. Il est rappelé à la 3e observation annuelle. Montant reçu pour 100 ?",
+      "reponse": 118,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "100 + 3 × 6 = 118.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "enonce": "Autocall jamais rappelé, barrière de capital 60 %. L'indice finit à 55 %. Le client reçoit…",
+      "choix": [
+        "100",
+        "95",
+        "55",
+        "60"
+      ],
+      "bonne": 2,
+      "explication": "Sous la barrière, il perd comme l'indice : 55 pour 100.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "enonce": "L'investisseur d'un autocall est vendeur de volatilité.",
+      "vrai": true,
+      "explication": "Il vend un put à barrière : une volatilité plus forte augmente la prime, donc le coupon.",
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "enonce": "Phoenix à mémoire : coupon 5 % si l'indice ≥ 70 %, rappel si ≥ 100 %. Indice : 85 %, 60 %, 65 %, 90 %. Coupon versé en année 4 ?",
+      "reponse": 15,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "Années 2 et 3 manquées et mises en mémoire : 5 + 5 + 5 = 15 en année 4 (pas de rappel, 90 % < 100 %).",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "enonce": "Un client a besoin de revenus réguliers. Entre un Athena et un Phoenix, on lui propose plutôt…",
+      "choix": [
+        "l'Athena",
+        "le Phoenix",
+        "les deux sont identiques",
+        "aucun"
+      ],
+      "bonne": 1,
+      "explication": "Le Phoenix verse un coupon à chaque date où l'indice est au-dessus de la barrière de coupon.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.z06",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "enonce": "À chaque date d'observation d'un Phoenix, remets les vérifications dans l'ordre.",
+      "etapes": [
+        "Relever le niveau de l'indice (fixing)",
+        "Comparer à la barrière de coupon",
+        "Verser le coupon, avec les coupons mémorisés s'il y en a",
+        "Comparer au seuil de rappel",
+        "Rembourser le capital si le seuil est atteint, sinon continuer"
+      ],
+      "explication": "C'est le travail de l'agent de calcul à chaque date.",
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.x01",
+      "type": "exercice",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 2,
+      "titre": "Phoenix à mémoire, date par date",
+      "enonce": "Exemple fictif. Phoenix : coupon 7 % par an si l'indice ≥ 70 %, effet mémoire, rappel si ≥ 100 %, barrière de capital 60 % à l'échéance (5 ans). L'indice vaut 90 %, 65 %, 80 %, 102 % aux quatre premières dates. Calcule les flux et le total, puis le total sans mémoire.",
+      "etapes": [
+        {
+          "titre": "Année 1 : 90 %",
+          "texte": "Au-dessus de 70 % : coupon de 7. Sous 100 % : pas de rappel.",
+          "resultat": "7"
+        },
+        {
+          "titre": "Année 2 : 65 %",
+          "texte": "Sous 70 % : pas de coupon, il est mis en mémoire.",
+          "resultat": "0"
+        },
+        {
+          "titre": "Année 3 : 80 %",
+          "texte": "Au-dessus de 70 % : coupon de l'année + coupon mémorisé.",
+          "resultat": "14"
+        },
+        {
+          "titre": "Année 4 : 102 %",
+          "texte": "Au-dessus de 100 % : rappel. Capital + coupon de l'année.",
+          "resultat": "107"
+        },
+        {
+          "titre": "Le total",
+          "texte": "7 + 0 + 14 + 107.",
+          "resultat": "128 pour 100 investis",
+          "verif": {
+            "fn": "structures.phoenixTotal",
+            "args": [
+              7,
+              70,
+              100,
+              60,
+              1,
+              90,
+              65,
+              80,
+              102,
+              95
+            ],
+            "attendu": 128,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Sans mémoire",
+          "texte": "Le coupon de l'année 2 est perdu : 7 + 0 + 7 + 107.",
+          "resultat": "121",
+          "verif": {
+            "fn": "structures.phoenixTotal",
+            "args": [
+              7,
+              70,
+              100,
+              60,
+              0,
+              90,
+              65,
+              80,
+              102,
+              95
+            ],
+            "attendu": 121,
+            "tolerance": 0.0001
+          }
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier de rattraper le coupon mémorisé.",
+        "Verser un coupon quand l'indice est sous la barrière de coupon.",
+        "Continuer après le rappel."
+      ],
+      "fiche": "m5.autocall.phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.x02",
+      "type": "exercice",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 3,
+      "titre": "Autocall : trois scénarios",
+      "enonce": "Exemple fictif. Autocall 5 ans, coupon 7 % par an cumulé au rappel, rappel si l'indice ≥ 100 %, barrière de capital 60 % à l'échéance. Scénario A : 95 %, 104 %. Scénario B : 90 %, 85 %, 80 %, 78 %, 75 %. Scénario C : 90 %, 80 %, 70 %, 60 %, 52 %. Montant reçu dans chaque cas, et rendement annuel du scénario A.",
+      "etapes": [
+        {
+          "titre": "Scénario A",
+          "texte": "Rappel en année 2 : 100 + 2 × 7.",
+          "resultat": "114",
+          "verif": {
+            "fn": "structures.phoenixTotal",
+            "args": [
+              7,
+              100,
+              100,
+              60,
+              1,
+              95,
+              104,
+              110,
+              112,
+              115
+            ],
+            "attendu": 114,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Rendement annuel du scénario A",
+          "texte": "(114 / 100)^(1/2) − 1.",
+          "resultat": "6,77 % par an",
+          "verif": {
+            "fn": "structures.rendementAnnuel",
+            "args": [
+              114,
+              100,
+              2
+            ],
+            "attendu": 6.77,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Scénario B",
+          "texte": "Jamais rappelé ; à l'échéance, 75 % est au-dessus de la barrière de 60 % : capital remboursé, sans coupon.",
+          "resultat": "100",
+          "verif": {
+            "fn": "structures.phoenixTotal",
+            "args": [
+              7,
+              100,
+              100,
+              60,
+              1,
+              90,
+              85,
+              80,
+              78,
+              75
+            ],
+            "attendu": 100,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Scénario C",
+          "texte": "À l'échéance, 52 % est sous la barrière : le client perd comme l'indice.",
+          "resultat": "52",
+          "verif": {
+            "fn": "structures.phoenixTotal",
+            "args": [
+              7,
+              100,
+              100,
+              60,
+              1,
+              90,
+              80,
+              70,
+              60,
+              52
+            ],
+            "attendu": 52,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le rendement d'un autocall est asymétrique : souvent un gain modéré et rapide, parfois rien pendant 5 ans, rarement une perte lourde. Ce sont ces trois scénarios qu'il faut montrer au client."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Compter un seul coupon au rappel en année 2 (il y en a deux).",
+        "Penser qu'à 52 % le client perd seulement 8 % (52 − 60).",
+        "Diviser le gain total par le nombre d'années au lieu de calculer un rendement composé."
+      ],
+      "fiche": "m5.autocall.athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-autocall",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Autocall",
+      "definition": "Produit remboursé par anticipation avec un coupon si l'indice est au-dessus d'un seuil à une date d'observation.",
+      "fiche": "m5.autocall.athena",
+      "anglais": "autocallable",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-athena",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Athena",
+      "definition": "Autocall dont les coupons sont versés seulement au rappel, un par période écoulée.",
+      "fiche": "m5.autocall.athena",
+      "anglais": "Athena",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-barriere-de-capital",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Barrière de capital",
+      "definition": "Niveau sous lequel le client perd comme l'indice à l'échéance.",
+      "fiche": "m5.autocall.athena",
+      "anglais": "capital barrier",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-put-down-and-in",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Put down-and-in",
+      "definition": "Put qui ne s'active que si le sous-jacent passe sous une barrière.",
+      "fiche": "m5.autocall.athena",
+      "anglais": "down-and-in put",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-daily-callable",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Daily callable",
+      "definition": "Autocall dont la condition de rappel est vérifiée chaque jour de bourse.",
+      "fiche": "m5.autocall.athena",
+      "anglais": "daily callable",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-phoenix",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Phoenix",
+      "definition": "Autocall qui verse un coupon conditionnel à chaque date où l'indice dépasse une barrière de coupon.",
+      "fiche": "m5.autocall.phoenix",
+      "anglais": "Phoenix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autocall.l-effet-memoire",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autocall",
+      "difficulte": 1,
+      "terme": "Effet mémoire",
+      "definition": "Rattrapage des coupons manqués dès que la condition de coupon est de nouveau remplie.",
+      "fiche": "m5.autocall.phoenix",
+      "anglais": "memory feature",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

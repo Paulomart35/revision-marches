@@ -1,0 +1,894 @@
+{
+  "chapitre": {
+    "id": "m3.swap",
+    "module": 3,
+    "ordre": 6,
+    "titre": "Le swap de taux",
+    "resume": "Échanger un taux variable contre un taux fixe : les flux, l'utilité pour une entreprise, le calcul du taux de swap, la valeur de marché et ce que la banque risque."
+  },
+  "elements": [
+    {
+      "id": "m3.swap.principe",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "tags": [
+        "swap",
+        "dérivés de taux"
+      ],
+      "titre": "Le swap de taux : le principe et les flux",
+      "une_phrase": "Un **swap de taux** (*interest rate swap*, IRS) est un contrat où deux parties échangent, sur un même nominal et pendant une durée fixée, des intérêts à **taux fixe** contre des intérêts à **taux variable** (l'Euribor).",
+      "trente_secondes": "Le nominal n'est **jamais échangé** : il sert seulement à calculer les intérêts.\n\n- La **jambe fixe** : une partie paie un taux fixe, par exemple 3 % par an.\n- La **jambe variable** : l'autre paie l'Euribor 3 ou 6 mois, révisé à chaque période.\n\nEn pratique, à chaque date on ne paie que la **différence** (le flux net).\n\nOn dit qu'on est **payeur** (*payer*) quand on paie le fixe et reçoit le variable, **receveur** (*receiver*) dans le cas inverse. Le payeur gagne si les taux montent ; le receveur gagne s'ils baissent.\n\nÀ la signature, le taux fixe est choisi pour que le swap vaille **zéro** pour les deux parties : aucune prime n'est payée.",
+      "analogie": "Deux colocataires partagent une facture d'électricité. L'un préfère payer un forfait fixe chaque mois, l'autre accepte de payer la facture réelle, qui varie. Le swap, c'est cet accord : l'un paie le forfait à l'autre, qui règle la facture variable.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.swap",
+        "legende": "Chaque trimestre, le flux du swap compense l'écart entre l'Euribor et le taux fixe."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Swap 5 ans sur 10 M€ : l'entreprise paie 3,00 % fixe et reçoit l'Euribor 3 mois, trimestre de 90 jours (base 360).",
+        "Trimestre où l'Euribor fixe à 3,50 % : l'entreprise **reçoit** 10 000 000 × (3,50 % − 3,00 %) × 90/360 = **12 500 €**.",
+        "Trimestre où l'Euribor fixe à 1,50 % : elle **paie** 10 000 000 × (3,00 % − 1,50 %) × 90/360 = **37 500 €**.",
+        "Le nominal de 10 M€ ne circule jamais."
+      ],
+      "formules": [
+        {
+          "titre": "Flux net d'une période, vu du payeur du fixe",
+          "latex": "\\text{Flux} = N \\times (\\text{Euribor} - K) \\times \\frac{j}{360}",
+          "legende": {
+            "N": "le nominal",
+            "\\text{Euribor}": "le taux variable fixé en début de période",
+            "K": "le taux fixe du swap",
+            "j": "le nombre de jours de la période"
+          },
+          "en_francais": "Si l'Euribor dépasse le fixe, le payeur reçoit la différence ; sinon, il la paie."
+        }
+      ],
+      "deux_minutes": "**Les conventions en euro.** La jambe fixe est souvent annuelle, en base 30/360 ; la jambe variable trimestrielle ou semestrielle, en Exact/360, sur l'Euribor 3 ou 6 mois. L'Euribor de chaque période est fixé deux jours ouvrés avant son début (*fixing*), et payé à la fin : on connaît donc toujours le prochain flux.\n\n**L'€STR et les swaps OIS.** Un swap peut aussi échanger un fixe contre le taux au jour le jour composé (l'€STR) : c'est un **OIS** (*overnight indexed swap*). Les OIS servent à lire les anticipations de taux directeurs et à construire la courbe d'actualisation.\n\n**Un marché énorme.** Les swaps de taux sont le plus gros marché de dérivés du monde en nominal. La plupart des swaps entre banques passent par une **chambre de compensation** (LCH, Eurex) qui se place entre les deux parties : c'est une obligation de la réglementation EMIR pour les dérivés standardisés.\n\n**Pour retenir le sens :** payeur de fixe = « je me protège contre la hausse » ; receveur de fixe = « je parie sur la baisse, ou je transforme un placement variable en fixe ».",
+      "piege": "Croire que le nominal est échangé, ou qu'un swap se paie à la signature. Rien ne s'échange au départ ; seuls les différentiels d'intérêts circulent.",
+      "a_dire_en_entretien": "« Un swap de taux, c'est l'échange, sur un nominal qui ne circule jamais, d'intérêts fixes contre des intérêts variables indexés sur l'Euribor. À chaque date, on règle seulement la différence. Le payeur du fixe gagne si les taux montent, le receveur s'ils baissent. À la signature, le taux fixe est calculé pour que le swap vaille zéro : il n'y a pas de prime. »",
+      "liens": [
+        "m3.swap.utilite",
+        "m3.swap.taux-swap",
+        "m3.interets.conventions"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.utilite",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "tags": [
+        "swap",
+        "couverture",
+        "entreprise"
+      ],
+      "titre": "À quoi sert un swap pour une entreprise",
+      "une_phrase": "Une entreprise endettée à taux variable utilise un swap **payeur du fixe** pour transformer son crédit en crédit à **taux fixe** : son coût devient connu, quel que soit l'Euribor.",
+      "trente_secondes": "Une PME a emprunté 10 M€ sur 5 ans à **Euribor 3 mois + 1,20 %**. Si l'Euribor monte, ses intérêts montent : son budget est menacé.\n\nElle signe avec sa banque un swap : elle **paie 3,00 % fixe** et **reçoit l'Euribor**.\n\n- À la banque prêteuse, elle paie Euribor + 1,20 %.\n- Dans le swap, elle reçoit l'Euribor, qui annule celui du crédit, et paie 3,00 %.\n- **Coût total : 3,00 % + 1,20 % = 4,20 %, quoi qu'il arrive.**\n\nLe swap ne fait pas « gagner » : il **échange une incertitude contre un coût connu**. Si l'Euribor baisse, l'entreprise ne profite plus de la baisse.",
+      "analogie": "C'est comme passer d'un forfait mobile au compteur à un forfait illimité : tu paies peut-être un peu plus certains mois, mais tu n'as plus jamais de mauvaise surprise sur ta facture.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          {
+            "titre": "Crédit",
+            "texte": "L'entreprise paie Euribor + 1,20 % à la banque prêteuse."
+          },
+          {
+            "titre": "Swap, jambe variable",
+            "texte": "La banque de marché lui verse l'Euribor : il annule celui du crédit."
+          },
+          {
+            "titre": "Swap, jambe fixe",
+            "texte": "L'entreprise paie 3,00 % fixe."
+          },
+          {
+            "titre": "Coût final",
+            "texte": "3,00 % + 1,20 % = 4,20 %, quel que soit l'Euribor."
+          }
+        ],
+        "legende": "Comment le swap transforme un crédit variable en crédit fixe."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Crédit 10 M€ à Euribor 3 mois + 1,20 %, swap payeur 3,00 %. Trimestre de 90 jours.",
+        "Euribor à 3,50 % : crédit 4,70 % → 117 500 € ; le swap rapporte 12 500 €. Coût net : **105 000 €**.",
+        "Euribor à 1,50 % : crédit 2,70 % → 67 500 € ; le swap coûte 37 500 €. Coût net : **105 000 €**.",
+        "105 000 € = 10 000 000 × 4,20 % × 90/360 : le coût est figé dans les deux cas."
+      ],
+      "deux_minutes": "**Les autres usages.**\n\n- Un **investisseur** qui détient une obligation à taux fixe peut la transformer en placement variable avec un swap où il **paie le fixe** et reçoit l'Euribor (*asset swap*).\n- Une entreprise qui a émis une obligation à taux fixe et pense que les taux vont baisser peut **recevoir le fixe** pour revenir à du variable.\n- Une banque gère avec des swaps l'écart entre ses crédits à taux fixe et ses dépôts.\n\n**Adapter le swap au crédit.** Le swap doit coller au crédit : même nominal, même calendrier, même index. Si le crédit **s'amortit**, on prend un **swap amortissable** dont le nominal baisse au même rythme. On peut aussi ne couvrir qu'une partie (50 à 70 %) pour garder de la souplesse.\n\n**Les inconvénients à expliquer au client :**\n\n- il ne profite plus d'une baisse des taux (coût d'opportunité) ;\n- sortir avant l'échéance se fait **à la valeur de marché** : si les taux ont baissé, il doit payer une **soulte** ;\n- il faut une **ligne de risque** chez la banque et une **convention-cadre** signée (FBF ou ISDA).",
+      "piege": "Dire au client que le swap va « lui faire gagner de l'argent ». Les bons mots : sécuriser, visibilité, budget. Et ne pas oublier la marge du crédit : le coût final est le fixe du swap **plus** la marge.",
+      "a_dire_en_entretien": "« Une entreprise endettée à Euribor plus marge qui craint la hausse des taux signe un swap où elle paie le fixe et reçoit l'Euribor. L'Euribor reçu annule celui du crédit : son coût devient le fixe du swap plus sa marge, connu à l'avance. En contrepartie, elle renonce à la baisse, et une sortie anticipée se fait à la valeur de marché. »",
+      "liens": [
+        "m3.swap.principe",
+        "m3.swap.valeur",
+        "m3.options-taux.cap-floor"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.taux-swap",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "tags": [
+        "swap",
+        "pricing",
+        "forward"
+      ],
+      "titre": "Comment on trouve le taux d'un swap",
+      "une_phrase": "Le **taux de swap** est le taux fixe qui rend la valeur actuelle de la jambe fixe égale à celle de la jambe variable : c'est une **moyenne pondérée des taux forward** sur la durée du swap.",
+      "trente_secondes": "Le taux fixe est choisi pour que le swap vaille zéro à la signature.\n\n- La jambe variable paiera des Euribor futurs inconnus. On les remplace par les **taux forward**, déduits de la courbe : ce sont les taux qu'on peut verrouiller aujourd'hui.\n- On actualise tous les flux des deux jambes avec les **facteurs d'actualisation**.\n- Le taux fixe est celui qui égalise les deux valeurs.\n\nConséquence directe : si la courbe **monte**, les forwards sont au-dessus de l'Euribor du jour, et le **taux de swap est au-dessus de l'Euribor actuel**. Le client ne paie pas une marge cachée : il paie les hausses que le marché anticipe.",
+      "analogie": "C'est comme un abonnement annuel à prix fixe pour des courses dont les prix vont évoluer : le prix juste du forfait est la moyenne des prix attendus sur l'année, pas le prix d'aujourd'hui.",
+      "exemple_chiffre": [
+        "Exemple fictif. Taux zéro-coupon : 1 an 2,5 %, 2 ans 3,0 %, 3 ans 3,2 %. Swap 3 ans à paiements annuels.",
+        "Facteurs d'actualisation : 1/1,025 = 0,9756 ; 1/1,03² = 0,9426 ; 1/1,032³ = 0,9098.",
+        "Taux de swap = (1 − 0,9098) ÷ (0,9756 + 0,9426 + 0,9098) = 0,0902 ÷ 2,8280 = **3,19 %**.",
+        "Il est au-dessus du taux 1 an (2,5 %) parce que la courbe monte."
+      ],
+      "formules": [
+        {
+          "titre": "Taux d'un swap à paiements annuels",
+          "latex": "K = \\frac{1 - DF(T_n)}{\\sum_{i=1}^{n} DF(T_i)}",
+          "legende": {
+            "K": "le taux fixe du swap",
+            "DF(T_i)": "le facteur d'actualisation de la i-ème date de paiement",
+            "n": "le nombre de paiements"
+          },
+          "en_francais": "Le numérateur est la valeur de la jambe variable (recevoir les forwards revient à recevoir 1 aujourd'hui et rendre 1 à la fin) ; le dénominateur est la valeur d'un fixe de 1 % payé chaque année (l'annuité)."
+        }
+      ],
+      "deux_minutes": "**Pourquoi la jambe variable vaut 1 − DF(Tn).** Recevoir chaque année l'Euribor sur 1 €, c'est comme placer 1 € aujourd'hui en monétaire, toucher les intérêts, et récupérer 1 € à la fin. La valeur actuelle est donc 1 − (valeur actuelle du 1 € final).\n\n**En pratique.** La courbe est construite à partir des prix de marché (dépôts, futures, swaps cotés), avec une courbe d'**actualisation OIS** (€STR) et une courbe de **projection** de l'Euribor : depuis 2008, on utilise deux courbes. Les swaps standards se lisent directement sur les écrans : on parle du « swap 5 ans à 2,95 % » contre Euribor 6 mois.\n\n**Le prix client.** La banque cote un taux **mid** (milieu de marché), auquel elle ajoute une marge commerciale et un coût de risque de contrepartie : un client paie par exemple 3,00 % quand le mid est à 2,95 %. Ces 5 pb, sur 10 M€ et 5 ans, valent environ 10 M€ × 0,05 % × 4,58 = **22 900 €**, encaissés en valeur actuelle le jour de l'opération.",
+      "piege": "Croire que le taux de swap est l'Euribor du jour plus une marge, ou que c'est une prévision des taux. C'est une moyenne des forwards, tirés de la courbe par arbitrage.",
+      "a_dire_en_entretien": "« Le taux d'un swap est le taux fixe qui rend égales les valeurs actuelles des deux jambes, donc qui fait valoir le swap zéro. La jambe variable se valorise avec les taux forward de la courbe. Le taux de swap est en fait une moyenne pondérée des forwards : avec une courbe qui monte, il est au-dessus de l'Euribor du jour. La banque ajoute à ce mid une marge et un coût de contrepartie. »",
+      "liens": [
+        "m3.courbe.forward",
+        "m3.interets.actualisation",
+        "m3.swap.valeur"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.valeur",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "tags": [
+        "swap",
+        "MtM",
+        "valorisation"
+      ],
+      "titre": "La valeur de marché d'un swap (MtM)",
+      "une_phrase": "Un swap vaut zéro à la signature, puis sa **valeur de marché** (*mark-to-market*, MtM) varie avec les taux : pour le payeur du fixe, elle devient **positive si les taux montent** et **négative s'ils baissent**.",
+      "trente_secondes": "Un client paie 3,00 % fixe pour 4 ans encore. Aujourd'hui, un nouveau swap de 4 ans se traite à 3,50 %.\n\nSon swap est devenu avantageux : il paie 3,00 % là où le marché demande 3,50 %. L'avantage vaut 0,50 % par an pendant 4 ans, actualisé.\n\n**MtM ≈ nominal × (taux du marché − taux du swap) × annuité**.\n\nCette valeur, c'est ce qu'il recevrait (ou paierait) s'il sortait du swap aujourd'hui : la **soulte**.\n\nUne MtM négative n'est **pas une perte réalisée** : si le client garde le swap jusqu'au bout, son coût reste celui fixé au départ.",
+      "analogie": "C'est un loyer bloqué : si tu as signé un bail à 1 000 € et que le quartier passe à 1 200 €, ton bail « vaut » de l'argent ; si les loyers tombent à 800 €, il pèse. Mais tant que tu restes, tu paies 1 000 €.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.swap",
+        "legende": "Plus bas dans l'outil : la valeur du swap selon le taux du marché et les années restantes."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Swap payeur 3,00 %, nominal 10 M€, 4 ans restants. Le swap 4 ans vaut maintenant 3,50 %.",
+        "Annuité à 3,50 % sur 4 ans : 1/1,035 + 1/1,035² + 1/1,035³ + 1/1,035⁴ = **3,6731**.",
+        "MtM ≈ 10 000 000 × 0,50 % × 3,6731 = **+183 654 €** pour le client.",
+        "DV01 ≈ 10 000 000 × 0,0001 × 3,6731 ≈ **3 673 €** par point de base.",
+        "Si au contraire les taux étaient tombés à 2,50 %, la MtM serait d'environ −10 M × 0,50 % × 3,76 ≈ −188 000 € : c'est le chiffre qu'un client inquiet voit sur son relevé."
+      ],
+      "formules": [
+        {
+          "titre": "Valeur d'un swap pour le payeur du fixe (courbe plate)",
+          "latex": "MtM = N \\times (S_{\\text{marché}} - K) \\times A \\qquad A = \\sum_{t=1}^{n} \\frac{1}{(1+S_{\\text{marché}})^{t}}",
+          "legende": {
+            "MtM": "la valeur de marché",
+            "N": "le nominal",
+            "S_{\\text{marché}}": "le taux de swap actuel pour la durée restante",
+            "K": "le taux fixe du swap signé",
+            "A": "l'annuité : somme des facteurs d'actualisation des années restantes"
+          },
+          "en_francais": "La valeur du swap, c'est l'écart de taux annuel, multiplié par le nominal, et actualisé sur les années qui restent."
+        }
+      ],
+      "deux_minutes": "**Pourquoi le client voit une valeur négative.** Si les taux ont baissé depuis la signature, sa MtM est négative : sortir lui coûterait cette somme. L'explication à donner : la couverture fait son travail. Son crédit, lui, coûte moins cher, et l'ensemble crédit + swap reste au coût fixé au départ.\n\n**Sortir avant l'échéance (débouclage).** Possible à tout moment, au prix de marché : le client paie ou reçoit la soulte, égale à la MtM, plus une marge. Il faut d'abord comprendre pourquoi : si le crédit est remboursé par anticipation, le swap n'est plus une couverture et doit être débouclé ou réduit.\n\n**La comptabilité de couverture.** Pour éviter que les variations de MtM ne fassent varier son résultat, une entreprise peut qualifier le swap de couverture (normes IFRS 9) : les variations passent alors en capitaux propres tant que la couverture est efficace.\n\n**Du côté de la banque,** la MtM positive pour elle est une **créance** sur le client : c'est l'exposition de crédit qui consomme la ligne de risque.",
+      "piege": "Dire à un client que sa MtM négative est une perte : ce n'est une perte que s'il sort du swap. Et inverser le sens : le payeur du fixe gagne quand les taux **montent**.",
+      "a_dire_en_entretien": "« Un swap vaut zéro à la signature, puis sa valeur suit les taux. Pour celui qui paie le fixe, elle est positive si les taux montent et négative s'ils baissent : en gros, nominal × écart de taux × annuité. Ce n'est pas une perte réalisée : c'est le prix d'une sortie aujourd'hui. Si le client garde le swap, son coût reste celui qu'il a fixé. »",
+      "liens": [
+        "m3.swap.utilite",
+        "m3.swap.risque",
+        "m3.duration.dv01"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.risque",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "tags": [
+        "swap",
+        "contrepartie",
+        "ligne de risque"
+      ],
+      "titre": "Le risque de contrepartie et la ligne de risque",
+      "une_phrase": "Quand un swap a une valeur positive pour la banque, le client lui **doit** cette valeur : s'il fait défaut, la banque la perd. Ce **risque de contrepartie** est encadré par une **ligne de risque** accordée à chaque client.",
+      "trente_secondes": "Un swap peut valoir des centaines de milliers d'euros pour l'une des parties. Si celle qui doit cette valeur fait faillite, l'autre perd son gain.\n\nPour la banque, le risque apparaît quand **la valeur du swap est positive pour elle**, donc négative pour le client. Pour un client payeur du fixe, c'est quand **les taux baissent**.\n\nAvant de traiter un dérivé, la banque vérifie donc que le client dispose d'une **ligne de risque dérivés** suffisante. Elle mesure la consommation de cette ligne avec :\n\n- la **MtM actuelle** (ce que le client doit aujourd'hui) ;\n- une **exposition potentielle future** : ce que le client pourrait devoir si les taux bougent d'ici l'échéance.\n\nLe prix du swap inclut un coût pour ce risque (la **CVA**, *credit valuation adjustment*).",
+      "analogie": "C'est comme un ami qui te doit de l'argent sur un pari en cours : tant que le pari n'est pas soldé, ton gain dépend de sa capacité à payer. Tu ne parieras pas de grosses sommes avec quelqu'un dont tu doutes.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque traite un swap 7 ans, nominal 20 M€, avec une ETI payeuse du fixe.",
+        "Exposition potentielle future estimée : par exemple 4 % du nominal, soit 800 000 €. La ligne de risque doit couvrir ce montant.",
+        "Deux ans plus tard, les taux ont baissé de 1 point : la MtM vaut environ −1 M€ pour le client, donc +1 M€ pour la banque. L'exposition actuelle consomme davantage la ligne.",
+        "Si l'ETI fait défaut, la banque perd ce million, moins ce qu'elle récupère."
+      ],
+      "deux_minutes": "**Réduire le risque.**\n\n- La **convention-cadre** (FBF en France, ISDA à l'international) permet la **compensation** (*netting*) : en cas de défaut, on fait la somme de tous les dérivés avec le client, positifs et négatifs.\n- Le **collatéral** : avec les banques et les grands clients, on échange chaque jour des **appels de marge** égaux à la MtM (annexe de remise en garantie, *CSA*). Le risque devient très faible.\n- La **compensation centrale** : les swaps standard entre professionnels passent par une chambre de compensation (obligatoire sous EMIR pour certaines catégories).\n\n**Pour les entreprises,** le collatéral est rare : la ligne de risque reste l'outil principal. C'est pourquoi un sales doit **vérifier la ligne avant de coter** un dérivé.\n\n**L'ajustement de valeur.** La CVA est le coût attendu du défaut de la contrepartie ; elle est facturée dans le prix. D'autres ajustements existent (coût du financement, du capital) : on les regroupe sous le nom de **XVA**.",
+      "piege": "Croire que le risque de la banque existe quand le swap est gagnant pour le client. C'est l'inverse : la banque est exposée quand le client lui doit de l'argent, donc quand la MtM est négative pour le client.",
+      "a_dire_en_entretien": "« Sur un swap, chaque partie est exposée au défaut de l'autre si la valeur du swap est en sa faveur. Pour une banque face à une entreprise payeuse du fixe, le risque apparaît quand les taux baissent. On l'encadre par une ligne de risque, qu'il faut vérifier avant de coter, par la compensation prévue dans la convention-cadre et, quand c'est possible, par des appels de marge. Son coût est intégré dans le prix sous forme de CVA. »",
+      "liens": [
+        "m3.swap.valeur",
+        "m3.credit.defaut"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "recto": "Swap de taux ?",
+      "verso": "Échange d'intérêts fixes contre variables sur un nominal qui ne circule pas.",
+      "fiche": "m3.swap.principe",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "recto": "Payeur et receveur ?",
+      "verso": "Payeur : paie le fixe, gagne si les taux montent. Receveur : reçoit le fixe, gagne s'ils baissent.",
+      "fiche": "m3.swap.principe",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "recto": "Prime d'un swap à la signature ?",
+      "verso": "Aucune : le taux fixe est calculé pour que le swap vaille zéro.",
+      "fiche": "m3.swap.principe",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "recto": "Coût d'un crédit Euribor + marge couvert par un swap ?",
+      "verso": "Taux fixe du swap + marge.",
+      "fiche": "m3.swap.utilite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "recto": "Inconvénients du swap pour le client ?",
+      "verso": "Plus de baisse possible ; sortie à la valeur de marché (soulte).",
+      "fiche": "m3.swap.utilite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "recto": "Taux de swap : formule ?",
+      "verso": "(1 − DF final) / somme des DF.",
+      "fiche": "m3.swap.taux-swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "recto": "Pourquoi le swap 5 ans est au-dessus de l'Euribor du jour ?",
+      "verso": "C'est une moyenne des forwards, au-dessus du court si la courbe monte.",
+      "fiche": "m3.swap.taux-swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "recto": "MtM d'un swap payeur ?",
+      "verso": "≈ nominal × (taux du marché − taux du swap) × annuité.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c09",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "recto": "MtM négative = perte ?",
+      "verso": "Non : c'est le prix d'une sortie aujourd'hui ; le coût reste fixé si on garde le swap.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c10",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "recto": "Quand la banque est-elle exposée au client sur un swap ?",
+      "verso": "Quand la MtM est positive pour elle (négative pour le client).",
+      "fiche": "m3.swap.risque",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.c11",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "recto": "CVA ?",
+      "verso": "Coût du risque de défaut de la contrepartie, intégré dans le prix du dérivé.",
+      "fiche": "m3.swap.risque",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "question": "Qu'est-ce qu'un swap de taux ? Explique-le simplement.",
+      "reponse_modele": "C'est un contrat où deux parties échangent des intérêts sur un même nominal, qui ne circule jamais : l'une paie un taux fixe, l'autre un taux variable, en général l'Euribor. À chaque date, on règle seulement la différence. Exemple : une entreprise endettée à Euribor + 1,20 % signe un swap où elle paie 3 % et reçoit l'Euribor : l'Euribor reçu annule celui de son crédit, elle paie au total 4,20 % fixe. Il n'y a pas de prime : le taux fixe est calculé pour que le swap vaille zéro au départ.",
+      "points_cles": [
+        "Échange fixe contre variable",
+        "Nominal non échangé",
+        "Flux nets",
+        "Exemple de couverture",
+        "Pas de prime"
+      ],
+      "piege": "Dire que le nominal est échangé.",
+      "fiche": "m3.swap.principe",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "question": "Une PME a un crédit de 20 M€ à Euribor + 1,5 % sur 7 ans et craint la hausse des taux. Que lui proposes-tu ?",
+      "reponse_modele": "D'abord des questions : veut-elle un coût totalement fixe ou garder une partie de la baisse ? Peut-elle payer une prime ? Le crédit s'amortit-il ? Une partie est-elle déjà couverte ? Ensuite trois solutions. Un swap payeur du fixe, calé sur le profil d'amortissement : coût connu, sans prime, mais plus de baisse possible et une sortie au prix du marché. Un cap : plafond sur l'Euribor contre une prime, en gardant la baisse. Un tunnel : plafond et plancher, sans prime. On peut aussi ne couvrir que 50 à 70 % du nominal. Enfin je vérifie la ligne de risque dérivés et la convention-cadre.",
+      "points_cles": [
+        "Questions sur le besoin",
+        "Swap amortissable",
+        "Cap avec prime",
+        "Tunnel sans prime",
+        "Couverture partielle",
+        "Ligne de risque et convention-cadre"
+      ],
+      "piege": "Proposer directement un swap sans poser de questions ni parler du scénario défavorable.",
+      "fiche": "m3.swap.utilite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "question": "Pourquoi le taux d'un swap 5 ans est-il au-dessus de l'Euribor 3 mois du jour ?",
+      "reponse_modele": "Parce que le taux de swap est une moyenne pondérée des taux forward sur 5 ans, pas l'Euribor du jour. Si la courbe monte, le marché anticipe des Euribor futurs plus élevés, plus une prime de terme : les forwards sont au-dessus de l'Euribor actuel, et le taux de swap aussi. Ce n'est pas une marge de la banque. Si la courbe était inversée, le taux de swap serait au contraire sous l'Euribor du jour.",
+      "points_cles": [
+        "Moyenne des forwards",
+        "Courbe pentue",
+        "Pas une marge",
+        "Courbe inversée : l'inverse"
+      ],
+      "piege": "Expliquer l'écart par la marge de la banque.",
+      "fiche": "m3.swap.taux-swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "question": "Un client appelle : « Pourquoi mon swap affiche −300 000 € ? »",
+      "reponse_modele": "C'est la valeur de marché du swap : ce que coûterait une sortie aujourd'hui. Il paie un taux fixe et les taux ont baissé depuis la signature : son taux fixe est maintenant au-dessus du marché. Ce n'est pas une perte réalisée : s'il garde le swap jusqu'au bout, son coût reste exactement celui fixé au départ, et son crédit à taux variable lui coûte moins cher. La couverture fait son travail : il a sécurisé son budget. Je lui demande s'il a une raison de vouloir sortir, par exemple un remboursement anticipé du crédit.",
+      "points_cles": [
+        "MtM = prix de sortie",
+        "Taux en baisse depuis la signature",
+        "Pas une perte réalisée",
+        "Le coût total reste fixé",
+        "Comprendre s'il veut sortir"
+      ],
+      "piege": "Laisser croire que le client a perdu 300 000 €.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.q05",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "question": "Quand la banque est-elle exposée au risque de crédit d'un client sur un swap ? Comment gère-t-elle ce risque ?",
+      "reponse_modele": "Quand la valeur du swap est positive pour la banque, c'est-à-dire négative pour le client : si le client fait défaut, la banque perd ce montant. Pour un client payeur du fixe, c'est quand les taux baissent. La banque fixe une ligne de risque dérivés par client, mesurée par la MtM actuelle et une exposition potentielle future, et la vérifie avant de traiter. La convention-cadre permet de compenser toutes les opérations en cas de défaut, et avec certains clients on échange du collatéral. Le coût du risque est intégré au prix, c'est la CVA.",
+      "points_cles": [
+        "MtM positive pour la banque",
+        "Client payeur : risque si les taux baissent",
+        "Ligne de risque, exposition potentielle",
+        "Netting, collatéral",
+        "CVA dans le prix"
+      ],
+      "piege": "Dire que la banque est exposée quand le swap gagne pour le client.",
+      "fiche": "m3.swap.risque",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "enonce": "Swap payeur 2,80 % sur 5 M€. L'Euribor du trimestre (91 jours) est fixé à 3,20 %. Flux net reçu par le payeur, en euros ?",
+      "reponse": 5055.56,
+      "tolerance": 0.5,
+      "unite": "€",
+      "explication": "5 000 000 × (3,20 % − 2,80 %) × 91/360 = 5 055,56 €.",
+      "fiche": "m3.swap.principe",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "enonce": "Une entreprise endettée à Euribor + 1 % signe un swap où elle paie 2,9 % et reçoit l'Euribor. Son coût total est…",
+      "choix": [
+        "2,9 %",
+        "3,9 %",
+        "Euribor + 3,9 %",
+        "1,9 %"
+      ],
+      "bonne": 1,
+      "explication": "L'Euribor reçu annule celui du crédit : 2,9 % + 1 % de marge = 3,9 %.",
+      "fiche": "m3.swap.utilite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "enonce": "Le payeur du taux fixe d'un swap voit la valeur de son swap augmenter quand les taux montent.",
+      "vrai": true,
+      "explication": "Il paie un fixe devenu inférieur au marché : son swap prend de la valeur.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "enonce": "Taux zéro-coupon : 1 an 2,5 %, 2 ans 3,0 %, 3 ans 3,2 %. Taux du swap 3 ans à paiements annuels, en % (deux décimales) ?",
+      "reponse": 3.19,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "(1 − 0,9098) ÷ (0,9756 + 0,9426 + 0,9098) = 3,19 %.",
+      "fiche": "m3.swap.taux-swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "enonce": "Pour un client payeur du fixe, la banque est exposée à son risque de crédit surtout quand…",
+      "choix": [
+        "les taux montent",
+        "les taux baissent",
+        "l'Euribor est stable",
+        "jamais, le nominal n'est pas échangé"
+      ],
+      "bonne": 1,
+      "explication": "Taux en baisse : le swap vaut négatif pour le client, positif pour la banque, qui devient créancière.",
+      "fiche": "m3.swap.risque",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z06",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "enonce": "Swap 5 ans de 10 M€ ; le client traite à 3,00 % quand le mid est à 2,95 %. Annuité 5 ans : 4,5797. Valeur de la marge pour la banque, en euros (arrondi) ?",
+      "reponse": 22899,
+      "tolerance": 5,
+      "unite": "€",
+      "explication": "10 000 000 × 0,05 % × 4,5797 ≈ 22 899 €, encaissés en valeur actuelle le jour de l'opération.",
+      "fiche": "m3.swap.taux-swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.z07",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "enonce": "Remets dans l'ordre le calcul de la valeur d'un swap existant.",
+      "etapes": [
+        "Relever le taux de swap du marché pour la durée restante",
+        "Calculer l'écart avec le taux fixe du swap signé",
+        "Calculer l'annuité des années restantes",
+        "Multiplier nominal × écart × annuité",
+        "Donner le signe selon que le client paie ou reçoit le fixe"
+      ],
+      "explication": "MtM ≈ N × (taux du marché − taux du swap) × annuité, positif pour le payeur si les taux ont monté.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 2,
+      "titre": "Les flux d'un swap de couverture",
+      "enonce": "Exemple fictif. Une PME a un crédit de 10 M€ à Euribor 3 mois + 1,20 %. Elle signe un swap où elle paie 3,00 % et reçoit l'Euribor 3 mois. Pour un trimestre de 90 jours (base 360), calcule les intérêts du crédit, le flux du swap et le coût total si l'Euribor fixe à 3,50 %, puis à 1,50 %.",
+      "etapes": [
+        {
+          "titre": "Le coût visé",
+          "texte": "Fixe du swap + marge du crédit : 3,00 % + 1,20 % = 4,20 %. Sur un trimestre : 10 000 000 × 4,20 % × 90/360.",
+          "resultat": "105 000 €",
+          "verif": {
+            "fn": "taux.interetsSimples",
+            "args": [
+              10000000,
+              4.2,
+              90
+            ],
+            "attendu": 105000,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Euribor à 3,50 %",
+          "texte": "Crédit : 10 M × 4,70 % × 90/360 = 117 500 €. Swap : la PME reçoit 10 M × (3,50 % − 3,00 %) × 90/360 = 12 500 €. Total : 117 500 − 12 500 = 105 000 €.",
+          "resultat": "Swap : +12 500 €",
+          "verif": {
+            "fn": "taux.fluxSwap",
+            "args": [
+              10000000,
+              3,
+              3.5,
+              90
+            ],
+            "attendu": 12500,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Euribor à 1,50 %",
+          "texte": "Crédit : 10 M × 2,70 % × 90/360 = 67 500 €. Swap : la PME paie 10 M × (3,00 % − 1,50 %) × 90/360 = 37 500 €. Total : 67 500 + 37 500 = 105 000 €.",
+          "resultat": "Swap : −37 500 €",
+          "verif": {
+            "fn": "taux.fluxSwap",
+            "args": [
+              10000000,
+              3,
+              1.5,
+              90
+            ],
+            "attendu": -37500,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Dans les deux cas, la PME paie 105 000 € : le swap compense exactement les variations de l'Euribor. Quand l'Euribor est bas, le swap lui « coûte », mais son crédit coûte moins : c'est le prix de la certitude."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier la marge de 1,20 % du crédit.",
+        "Inverser le sens du flux : la PME reçoit quand l'Euribor dépasse le fixe.",
+        "Utiliser 365 au lieu de 360."
+      ],
+      "fiche": "m3.swap.utilite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.x02",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "titre": "La valeur d'un swap après une hausse des taux",
+      "enonce": "Exemple fictif. Un client a signé un swap où il paie 3,00 % fixe sur 10 M€, à paiements annuels. Il reste 4 ans. Le swap 4 ans se traite maintenant à 3,50 %. Calcule l'annuité, la valeur du swap pour le client, et son DV01.",
+      "etapes": [
+        {
+          "titre": "L'annuité",
+          "texte": "Somme des facteurs d'actualisation à 3,50 % sur 4 ans : 0,9662 + 0,9335 + 0,9019 + 0,8714.",
+          "resultat": "3,6731",
+          "verif": {
+            "fn": "taux.annuite",
+            "args": [
+              3.5,
+              4
+            ],
+            "attendu": 3.6731,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "La valeur du swap",
+          "texte": "Le client paie 0,50 % de moins que le marché pendant 4 ans.",
+          "formule": {
+            "latex": "MtM = 10\\,000\\,000 \\times (3{,}50\\,\\% - 3{,}00\\,\\%) \\times 3{,}6731",
+            "legende": {
+              "3{,}6731": "l'annuité à 3,50 % sur 4 ans"
+            },
+            "en_francais": "L'avantage annuel, actualisé sur les années restantes."
+          },
+          "resultat": "+183 654 € pour le client",
+          "verif": {
+            "fn": "taux.valeurSwapPayeur",
+            "args": [
+              10000000,
+              3,
+              3.5,
+              4
+            ],
+            "attendu": 183654,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Le DV01",
+          "texte": "10 000 000 × 0,0001 × 3,6731 : chaque point de base de hausse ajoute environ 3 673 € à la valeur.",
+          "resultat": "≈ 3 673 € par point de base"
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le swap vaut maintenant de l'argent pour le client : s'il sortait, la banque lui verserait environ 183 650 € (moins une marge). Pour la banque, c'est une dette envers le client, donc pas de risque de crédit sur lui à ce stade."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Multiplier par 4 au lieu de l'annuité (oublier d'actualiser).",
+        "Se tromper de signe : le payeur gagne quand les taux montent.",
+        "Utiliser l'ancien taux (3 %) pour actualiser au lieu du taux actuel."
+      ],
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.k01",
+      "type": "cas_pratique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 3,
+      "titre": "Un client veut sortir de son swap",
+      "situation": "Exemple fictif. Une PME a signé il y a deux ans un swap payeur à 3,00 % sur 8 M€ pour couvrir un crédit à 7 ans. Elle vend une filiale et va rembourser son crédit par anticipation. Les taux ont baissé : le swap 5 ans se traite à 2,40 %. Le directeur financier demande : « Je veux arrêter le swap. Combien ça coûte ? »",
+      "questions_a_poser": [
+        "Le crédit est-il remboursé en totalité ou en partie, et à quelle date ?",
+        "Reste-t-il d'autres dettes à taux variable qui pourraient garder la couverture ?",
+        "Le swap est-il comptabilisé en couverture ? Qui doit valider la sortie chez vous ?",
+        "Souhaitez-vous sortir tout de suite, ou à la date du remboursement ?"
+      ],
+      "proposition": "Si le crédit disparaît, le swap n'est plus une couverture : il devient une position sur les taux, qu'il faut déboucler ou réduire. La sortie se fait à la valeur de marché : avec 5 ans restants, un fixe à 3,00 % contre un marché à 2,40 %, la MtM pour le client est d'environ −8 M€ × 0,60 % × 4,66 ≈ −224 000 € (annuité à 2,40 % sur 5 ans), plus une marge de débouclage. Je lui envoie une cotation indicative, puis ferme au moment de la décision. Si une autre dette variable existe, il peut garder une partie du swap en couverture de celle-ci.",
+      "scenario_defavorable": "Les taux peuvent encore baisser d'ici la décision, ce qui augmente la soulte (environ 3 700 € par point de base). Inversement, s'il attend et que les taux remontent, la soulte diminue : mais attendre sans crédit en face, c'est spéculer.",
+      "faisabilite": "Cotation au prix du marché au moment de l'exécution ; validation interne du client ; impact comptable (fin de la relation de couverture) ; paiement de la soulte à la date convenue ; confirmation de résiliation.",
+      "fiche": "m3.swap.valeur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-swap-de-taux",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Swap de taux",
+      "definition": "Échange d'intérêts fixes contre variables sur un nominal notionnel.",
+      "fiche": "m3.swap.principe",
+      "anglais": "interest rate swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-jambe-fixe",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Jambe fixe",
+      "definition": "Partie d'un swap où l'on paie ou reçoit un taux fixe.",
+      "fiche": "m3.swap.principe",
+      "anglais": "fixed leg",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-jambe-variable",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Jambe variable",
+      "definition": "Partie d'un swap indexée sur un taux variable (Euribor, €STR).",
+      "fiche": "m3.swap.principe",
+      "anglais": "floating leg",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-ois",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "OIS",
+      "definition": "Swap qui échange un fixe contre le taux au jour le jour composé (€STR en euro).",
+      "fiche": "m3.swap.principe",
+      "anglais": "overnight indexed swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-swap-amortissable",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Swap amortissable",
+      "definition": "Swap dont le nominal baisse au rythme de l'amortissement du crédit couvert.",
+      "fiche": "m3.swap.utilite",
+      "anglais": "amortising swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-taux-de-swap",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Taux de swap",
+      "definition": "Taux fixe qui rend nulle la valeur d'un swap à la signature.",
+      "fiche": "m3.swap.taux-swap",
+      "anglais": "swap rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-valeur-de-marche",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Valeur de marché",
+      "definition": "Valeur d'un dérivé aux conditions de marché actuelles : le prix d'une sortie aujourd'hui.",
+      "fiche": "m3.swap.valeur",
+      "anglais": "mark-to-market (MtM)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-soulte",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Soulte",
+      "definition": "Montant payé ou reçu pour sortir d'un dérivé avant l'échéance, égal à sa valeur de marché.",
+      "fiche": "m3.swap.valeur",
+      "anglais": "termination payment",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-ligne-de-risque",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Ligne de risque",
+      "definition": "Limite d'exposition qu'une banque accepte sur un client pour ses opérations de dérivés.",
+      "fiche": "m3.swap.risque",
+      "anglais": "credit line",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-cva",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "CVA",
+      "definition": "Ajustement de prix pour le risque de défaut de la contrepartie.",
+      "fiche": "m3.swap.risque",
+      "anglais": "credit valuation adjustment",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.swap.l-convention-cadre",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.swap",
+      "difficulte": 1,
+      "terme": "Convention-cadre",
+      "definition": "Contrat qui encadre tous les dérivés entre deux parties, dont la compensation en cas de défaut.",
+      "fiche": "m3.swap.risque",
+      "anglais": "master agreement (FBF, ISDA)",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

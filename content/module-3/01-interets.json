@@ -1,0 +1,689 @@
+{
+  "chapitre": {
+    "id": "m3.interets",
+    "module": 3,
+    "ordre": 1,
+    "titre": "Intérêts et actualisation",
+    "resume": "Le prix du temps : intérêts simples et composés, conventions de jours, et comment ramener un flux futur à sa valeur d'aujourd'hui."
+  },
+  "elements": [
+    {
+      "id": "m3.interets.simples-composes",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "tags": [
+        "intérêts",
+        "taux"
+      ],
+      "titre": "Intérêts simples et intérêts composés",
+      "une_phrase": "Avec des intérêts **simples**, seuls les 100 € de départ rapportent ; avec des intérêts **composés**, les intérêts déjà gagnés rapportent à leur tour.",
+      "trente_secondes": "Un **taux d'intérêt**, c'est le prix du temps : ce qu'on paie pour disposer d'argent maintenant plutôt que plus tard.\n\n**Intérêts simples** : on calcule les intérêts uniquement sur le capital de départ. C'est la règle sur le marché monétaire, pour les placements et emprunts de moins d'un an (dépôt à 3 mois, Euribor, €STR).\n\n**Intérêts composés** : à chaque période, les intérêts gagnés s'ajoutent au capital et produisent eux-mêmes des intérêts. C'est la règle dès qu'on parle de plusieurs années (obligations, crédits, épargne longue).\n\nSur un an, les deux donnent presque la même chose. Sur dix ans, l'écart devient important : c'est l'« effet boule de neige ».",
+      "analogie": "Une boule de neige qu'on fait rouler. Avec des intérêts simples, on ajoute chaque année la même poignée de neige. Avec des intérêts composés, la boule ramasse d'autant plus de neige qu'elle est déjà grosse.",
+      "exemple_chiffre": [
+        "Exemple fictif. Tu places 1 000 € à 5 % par an pendant 10 ans.",
+        "Intérêts simples : 50 € par an pendant 10 ans, soit 500 €. Tu récupères **1 500 €**.",
+        "Intérêts composés : 1 000 × 1,05 × 1,05 × … (dix fois) = 1 000 × 1,05¹⁰ = **1 628,89 €**.",
+        "L'écart de 128,89 € vient des intérêts gagnés sur les intérêts.",
+        "Sur 3 mois au marché monétaire : 1 000 000 € placés à 2,40 % pendant 90 jours rapportent 1 000 000 × 2,40 % × 90 / 360 = **6 000 €** (intérêts simples)."
+      ],
+      "formules": [
+        {
+          "titre": "Intérêts simples",
+          "latex": "I = C \\times r \\times \\frac{j}{B}",
+          "legende": {
+            "I": "les intérêts",
+            "C": "le capital placé ou emprunté",
+            "r": "le taux annuel",
+            "j": "le nombre de jours de la période",
+            "B": "la base annuelle : 360 ou 365 jours selon la convention"
+          },
+          "en_francais": "Les intérêts sont proportionnels au capital, au taux et à la durée exprimée en fraction d'année."
+        },
+        {
+          "titre": "Intérêts composés",
+          "latex": "C_n = C_0 \\times (1 + r)^{n}",
+          "legende": {
+            "C_n": "le capital au bout de n années",
+            "C_0": "le capital de départ",
+            "r": "le taux annuel",
+            "n": "le nombre d'années"
+          },
+          "en_francais": "Chaque année, le capital est multiplié par (1 + taux). Au bout de n années, on l'a multiplié n fois."
+        }
+      ],
+      "deux_minutes": "**Capitalisation plus fréquente.** Si les intérêts sont ajoutés chaque mois, un taux de 12 % « nominal » devient 1 % par mois, et (1,01)¹² − 1 = **12,68 %** sur un an. Le taux qui tient compte de la capitalisation s'appelle le **taux actuariel** (ou taux annuel effectif). Pour comparer deux placements, on compare toujours des taux actuariels.\n\n**Le cas limite : la capitalisation continue.** Si on capitalise à chaque instant, on obtient l'exponentielle : 1 000 € à 5 % continu deviennent 1 000 × e^(0,05 × 10) = 1 648,72 € en dix ans. Les modèles de prix d'options (Black-Scholes) utilisent ce taux continu parce qu'il simplifie les calculs.\n\n**Pourquoi le marché monétaire reste en intérêts simples.** Sur moins d'un an, les intérêts sont payés en une fois à l'échéance : il n'y a rien à capitaliser. C'est plus simple et c'est la convention de l'Euribor et de l'€STR.\n\n**Ordre de grandeur utile : la règle de 72.** Un capital double en environ 72 ÷ taux années. À 6 %, il double en 12 ans ; à 3 %, en 24 ans.",
+      "piege": "Comparer un taux mensuel multiplié par 12 avec un taux annuel effectif : 1 % par mois, ce n'est pas 12 % par an, c'est 12,68 %. Autre piège : appliquer des intérêts composés à un placement de 3 mois au marché monétaire, où la règle est l'intérêt simple.",
+      "a_dire_en_entretien": "« Les intérêts simples se calculent uniquement sur le capital de départ : c'est la règle du marché monétaire, sous un an. Les intérêts composés s'ajoutent au capital et rapportent à leur tour : c'est la règle sur plusieurs années, pour les obligations et les crédits. Pour comparer deux taux, je les ramène au même taux actuariel annuel. »",
+      "liens": [
+        "m3.interets.conventions",
+        "m3.interets.actualisation"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.conventions",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "tags": [
+        "intérêts",
+        "conventions"
+      ],
+      "titre": "Les conventions de jours",
+      "une_phrase": "Une **convention de jours** (*day count convention*) fixe comment on compte les jours d'une période et combien de jours compte une année, pour transformer un taux annuel en intérêts.",
+      "trente_secondes": "Un taux est toujours annuel, mais les périodes ne durent pas exactement un an. Il faut donc une règle pour calculer la fraction d'année.\n\nLes plus courantes :\n\n- **Exact/360** (*Act/360*) : jours réels de la période, divisés par 360. C'est la convention du marché monétaire en euro (€STR, Euribor) et en dollar (SOFR).\n- **Exact/365** : jours réels divisés par 365. Utilisée pour la livre sterling.\n- **Exact/Exact** (*Act/Act*) : jours réels divisés par les jours réels de l'année. C'est la convention des obligations d'État de la zone euro, comme l'OAT.\n- **30/360** : chaque mois compte 30 jours et l'année 360. Fréquente pour la jambe fixe des swaps en euro et pour beaucoup d'obligations d'entreprises.\n\nLe même taux, appliqué avec deux conventions différentes, ne donne pas les mêmes intérêts.",
+      "analogie": "C'est comme les unités de mesure : 10 « pieds » et 10 « mètres » ne sont pas la même longueur. Un taux de 3 % sans sa convention, c'est une mesure sans unité.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Convention",
+          "Fraction d'année",
+          "Où on la trouve"
+        ],
+        "lignes": [
+          [
+            "Exact/360",
+            "jours réels ÷ 360",
+            "€STR, Euribor, SOFR, dépôts, jambe variable des swaps"
+          ],
+          [
+            "Exact/365",
+            "jours réels ÷ 365",
+            "Marché monétaire en livre sterling"
+          ],
+          [
+            "Exact/Exact",
+            "jours réels ÷ jours de l'année",
+            "OAT, Bund, obligations d'État"
+          ],
+          [
+            "30/360",
+            "mois de 30 jours ÷ 360",
+            "Jambe fixe des swaps en euro, obligations d'entreprises"
+          ]
+        ],
+        "legende": "Les quatre conventions à connaître."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Placement de 10 000 000 € à 3 % sur une année de 365 jours.",
+        "En Exact/360 : 10 000 000 × 3 % × 365 / 360 = **304 166,67 €**.",
+        "En Exact/365 : 10 000 000 × 3 % × 365 / 365 = **300 000 €**.",
+        "Écart : 4 166,67 €. En Exact/360, un « an » de 365 jours vaut 1,0139 année : le taux réellement obtenu est un peu plus élevé que 3 %."
+      ],
+      "formules": [
+        {
+          "titre": "Passer d'une base 360 à une base 365",
+          "latex": "r_{365} = r_{360} \\times \\frac{365}{360}",
+          "legende": {
+            "r_{365}": "le taux équivalent exprimé en base 365",
+            "r_{360}": "le taux exprimé en base 360"
+          },
+          "en_francais": "Un taux en base 360 paie un peu plus qu'il n'en a l'air : pour le comparer à un taux en base 365, on le multiplie par 365/360."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est important en salle de marché.** Sur 100 millions, l'écart entre deux conventions représente des dizaines de milliers d'euros. Une confirmation de swap précise toujours, pour chaque jambe, la convention, la fréquence de paiement et le calendrier des jours ouvrés.\n\n**Les jours ouvrés.** Si une date de paiement tombe un samedi, on la décale selon une règle convenue (*modified following* : le jour ouvré suivant, sauf s'il tombe le mois suivant, auquel cas le jour ouvré précédent). Le calendrier de référence en euro est TARGET2.\n\n**Les intérêts courus.** Quand on achète une obligation entre deux coupons, on paie au vendeur la part du coupon qui lui revient : le **coupon couru**, calculé avec la convention de l'obligation. Le prix affiché sur les écrans est le **prix pied de coupon** (*clean price*) ; le prix payé est le **prix plein coupon** (*dirty price*) = prix pied de coupon + coupon couru.\n\n**À retenir pour un entretien :** marché monétaire en euro = Exact/360 ; obligations d'État = Exact/Exact ; jambe fixe d'un swap euro = 30/360, en général annuelle.",
+      "piege": "Croire que 3 % sur un an rapporte toujours 3 % du capital. En Exact/360, une année de 365 jours rapporte 3,04 %. Autre piège : oublier que le prix d'obligation affiché ne contient pas le coupon couru.",
+      "a_dire_en_entretien": "« La convention de jours dit comment transformer un taux annuel en intérêts sur une période. Le marché monétaire en euro est en Exact/360, les obligations d'État en Exact/Exact, la jambe fixe des swaps en euro souvent en 30/360. C'est un détail qui compte : sur de gros nominaux, l'écart entre conventions se chiffre vite en milliers d'euros. »",
+      "liens": [
+        "m3.interets.simples-composes",
+        "m3.obligations.prix"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.actualisation",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "tags": [
+        "actualisation",
+        "valeur actuelle"
+      ],
+      "titre": "L'actualisation et les facteurs d'actualisation",
+      "une_phrase": "**Actualiser**, c'est calculer ce que vaut aujourd'hui une somme reçue plus tard : 100 € dans un an valent moins que 100 € aujourd'hui, parce qu'on pourrait placer l'argent entre-temps.",
+      "trente_secondes": "L'actualisation est l'opération inverse de la capitalisation.\n\n- **Capitaliser** : 100 € aujourd'hui placés à 4 % deviennent 104 € dans un an.\n- **Actualiser** : 104 € reçus dans un an valent 104 / 1,04 = 100 € aujourd'hui.\n\nLe **facteur d'actualisation** est ce que vaut aujourd'hui 1 € reçu à une date future. À 4 %, 1 € dans un an vaut 0,9615 € ; dans 5 ans, 0,8219 €.\n\nC'est l'outil de base de toute la finance de marché : le prix d'une obligation, la valeur d'un swap ou d'un projet, c'est la **somme des flux futurs actualisés**.",
+      "analogie": "C'est comme un taux de change entre le futur et le présent. Pour convertir des euros « de dans 5 ans » en euros « d'aujourd'hui », on les multiplie par le facteur d'actualisation, comme on convertit des dollars en euros avec un cours de change.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une entreprise recevra 1 000 000 € dans 3 ans. Le taux à 3 ans est de 3 %.",
+        "Facteur d'actualisation : 1 / 1,03³ = 1 / 1,092727 = **0,915142**.",
+        "Valeur actuelle : 1 000 000 × 0,915142 = **915 142 €**.",
+        "Si le taux passe à 4 % : 1 / 1,04³ = 0,888996, valeur actuelle **888 996 €**. Plus le taux monte, plus une somme future vaut peu aujourd'hui."
+      ],
+      "formules": [
+        {
+          "titre": "Facteur d'actualisation",
+          "latex": "DF(t) = \\frac{1}{(1 + r_t)^{t}}",
+          "legende": {
+            "DF(t)": "le facteur d'actualisation (discount factor) à la date t",
+            "r_t": "le taux zéro-coupon de maturité t",
+            "t": "la durée en années"
+          },
+          "en_francais": "Un euro reçu dans t années vaut aujourd'hui 1 divisé par (1 + taux) à la puissance t."
+        },
+        {
+          "titre": "Valeur actuelle d'une série de flux",
+          "latex": "VA = \\sum_{i=1}^{n} F_i \\times DF(t_i)",
+          "legende": {
+            "VA": "la valeur actuelle",
+            "F_i": "le flux reçu à la date t_i",
+            "DF(t_i)": "le facteur d'actualisation de cette date"
+          },
+          "en_francais": "On convertit chaque flux futur en euros d'aujourd'hui, puis on les additionne."
+        }
+      ],
+      "deux_minutes": "**Un taux par maturité.** On n'actualise pas tous les flux au même taux : un flux à 1 an s'actualise au taux 1 an, un flux à 10 ans au taux 10 ans. L'ensemble de ces taux forme la **courbe des taux zéro-coupon**, et l'ensemble des facteurs d'actualisation forme la **courbe d'actualisation**.\n\n**Quelle courbe ?** Depuis la crise de 2008, les banques actualisent les dérivés couverts par un appel de marge (*collatéral*) avec la courbe du taux au jour le jour (l'**€STR** en euro, le **SOFR** en dollar), considéré comme presque sans risque. C'est la courbe dite **OIS**.\n\n**Lien avec les marchés.** Quand la banque centrale monte ses taux, toute la courbe d'actualisation bouge : les flux futurs valent moins, donc les obligations et les actions baissent. C'est un des canaux de transmission de la politique monétaire.\n\n**Taux négatifs.** Entre 2014 et 2022, certains taux euro étaient négatifs : le facteur d'actualisation dépassait 1. Recevoir 1 € dans un an valait plus qu'1 € aujourd'hui, parce que garder des liquidités coûtait de l'argent.",
+      "piege": "Additionner directement des flux reçus à des dates différentes. 100 € dans un an et 100 € dans dix ans ne valent pas la même chose : il faut d'abord les actualiser. Autre piège : croire qu'un facteur d'actualisation est toujours inférieur à 1 (faux avec des taux négatifs).",
+      "a_dire_en_entretien": "« Actualiser, c'est ramener un flux futur à sa valeur d'aujourd'hui, en le divisant par (1 + taux) puissance le nombre d'années. Le prix d'une obligation ou la valeur d'un swap, c'est la somme de leurs flux futurs actualisés. Quand les taux montent, les flux futurs valent moins : c'est pour ça que les prix des obligations baissent. »",
+      "liens": [
+        "m3.interets.simples-composes",
+        "m3.obligations.prix",
+        "m3.courbe.formes"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Intérêts simples : la formule ?",
+      "verso": "Capital × taux × jours / base (360 ou 365).",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Intérêts composés : la formule ?",
+      "verso": "Capital × (1 + taux) puissance le nombre d'années.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Où utilise-t-on les intérêts simples ?",
+      "verso": "Au marché monétaire, sous un an : Euribor, €STR, dépôts.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "recto": "1 % par mois, combien par an ?",
+      "verso": "12,68 % en taux effectif (1,01¹² − 1).",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Convention de l'Euribor et de l'€STR ?",
+      "verso": "Exact/360.",
+      "fiche": "m3.interets.conventions",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "recto": "Convention des obligations d'État de la zone euro ?",
+      "verso": "Exact/Exact.",
+      "fiche": "m3.interets.conventions",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "recto": "Prix pied de coupon et prix plein coupon ?",
+      "verso": "Plein coupon = pied de coupon + coupon couru. L'écran affiche le pied de coupon.",
+      "fiche": "m3.interets.conventions",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Facteur d'actualisation ?",
+      "verso": "Valeur aujourd'hui d'1 € reçu à la date t : 1 / (1 + r)^t.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c09",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 3,
+      "recto": "Quelle courbe pour actualiser un dérivé collatéralisé ?",
+      "verso": "La courbe OIS : €STR en euro, SOFR en dollar.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.c10",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "recto": "Règle de 72 ?",
+      "verso": "Un capital double en environ 72 ÷ taux années.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "question": "Quelle est la différence entre intérêts simples et intérêts composés ? Où utilise-t-on chacun ?",
+      "reponse_modele": "Avec des intérêts simples, les intérêts sont calculés seulement sur le capital de départ : capital × taux × durée. Avec des intérêts composés, les intérêts s'ajoutent au capital à chaque période et rapportent à leur tour. Le marché monétaire, sous un an, utilise les intérêts simples : l'Euribor ou un dépôt à 3 mois paient leurs intérêts en une fois. Dès qu'on parle de plusieurs années, obligations, crédits ou épargne, on raisonne en intérêts composés. Sur 10 ans à 5 %, 1 000 € deviennent 1 500 € en simple et 1 629 € en composé.",
+      "points_cles": [
+        "Simple : sur le capital de départ seulement",
+        "Composé : les intérêts produisent des intérêts",
+        "Monétaire (moins d'un an) : simple",
+        "Plusieurs années : composé"
+      ],
+      "piege": "Confondre un taux mensuel × 12 avec le taux annuel effectif.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'un facteur d'actualisation, et pourquoi est-ce si important ?",
+      "reponse_modele": "C'est ce que vaut aujourd'hui un euro reçu à une date future : 1 divisé par (1 + taux) puissance le nombre d'années. À 3 % sur 5 ans, c'est 0,8626. C'est la brique de toute la valorisation : le prix d'une obligation, la valeur d'un swap ou le zéro-coupon d'un produit structuré sont des sommes de flux multipliés par leur facteur d'actualisation. Chaque maturité a son taux, donc son facteur : c'est la courbe d'actualisation. Pour les dérivés collatéralisés, on utilise la courbe OIS, construite sur l'€STR en euro.",
+      "points_cles": [
+        "Valeur aujourd'hui de 1 € futur",
+        "1 / (1 + r)^t",
+        "Base de toutes les valorisations",
+        "Une courbe : un taux par maturité",
+        "Courbe OIS pour les dérivés collatéralisés"
+      ],
+      "piege": "Utiliser le même taux pour actualiser tous les flux quelle que soit leur date.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "question": "Un client compare un placement à 3 % en base Exact/360 et un autre à 3,03 % en base Exact/365. Lequel rapporte le plus sur un an ?",
+      "reponse_modele": "Il faut les ramener à la même base. 3 % en Exact/360 sur une année de 365 jours rapporte 3 % × 365/360 = 3,042 %. L'autre rapporte 3,03 %. Le premier rapporte donc un peu plus, alors que son taux affiché est plus bas. C'est pour ça qu'on ne compare jamais deux taux sans leur convention de jours.",
+      "points_cles": [
+        "Ramener à la même base",
+        "× 365/360",
+        "3,042 % contre 3,03 %",
+        "Toujours préciser la convention"
+      ],
+      "piege": "Comparer directement les taux affichés.",
+      "fiche": "m3.interets.conventions",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "question": "Pourquoi une hausse des taux fait-elle baisser la valeur des actifs financiers en général ?",
+      "reponse_modele": "Parce que la valeur d'un actif, c'est la somme de ses flux futurs actualisés. Si le taux d'actualisation monte, chaque flux futur vaut moins aujourd'hui, d'autant plus qu'il est lointain. Une obligation à taux fixe voit donc son prix baisser ; une action, dont les dividendes sont lointains et incertains, aussi, toutes choses égales par ailleurs. C'est un des canaux par lesquels une hausse des taux directeurs freine l'économie : elle réduit la valeur des patrimoines et le crédit devient plus cher.",
+      "points_cles": [
+        "Valeur = flux futurs actualisés",
+        "Taux plus haut : flux futurs valent moins",
+        "Effet plus fort sur les flux lointains",
+        "Canal de transmission de la politique monétaire"
+      ],
+      "piege": "Dire que les obligations baissent parce que les investisseurs ont peur : c'est mécanique.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "enonce": "Combien rapportent 2 000 000 € placés à 2,50 % pendant 180 jours, en base Exact/360 ?",
+      "reponse": 25000,
+      "tolerance": 1,
+      "unite": "€",
+      "explication": "2 000 000 × 2,50 % × 180 / 360 = 25 000 €.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "enonce": "1 000 € placés à 6 % en intérêts composés pendant 2 ans deviennent…",
+      "choix": [
+        "1 120,00 €",
+        "1 123,60 €",
+        "1 060,00 €",
+        "1 136,00 €"
+      ],
+      "bonne": 1,
+      "explication": "1 000 × 1,06² = 1 123,60 €. Les 3,60 € d'écart avec 1 120 € sont les intérêts sur les intérêts de la première année.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "enonce": "Un taux de 1 % par mois correspond exactement à un taux annuel effectif de 12 %.",
+      "vrai": false,
+      "explication": "Avec capitalisation mensuelle : 1,01¹² − 1 = 12,68 %.",
+      "fiche": "m3.interets.simples-composes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "enonce": "Quelle convention de jours utilise l'Euribor ?",
+      "choix": [
+        "Exact/365",
+        "30/360",
+        "Exact/360",
+        "Exact/Exact"
+      ],
+      "bonne": 2,
+      "explication": "Le marché monétaire en euro (Euribor, €STR) est en Exact/360, comme le SOFR en dollar.",
+      "fiche": "m3.interets.conventions",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z05",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "enonce": "Facteur d'actualisation à 5 ans avec un taux zéro-coupon de 3 % (4 décimales) ?",
+      "reponse": 0.8626,
+      "tolerance": 0.0001,
+      "unite": "",
+      "explication": "1 / 1,03⁵ = 1 / 1,159274 = 0,8626.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z06",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "enonce": "Quand les taux montent, la valeur actuelle d'un flux lointain baisse plus, en pourcentage, que celle d'un flux proche.",
+      "vrai": true,
+      "explication": "L'effet du taux est élevé à la puissance du nombre d'années : plus le flux est lointain, plus sa valeur actuelle est sensible au taux.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.z07",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "enonce": "Remets dans l'ordre le calcul de la valeur actuelle d'une série de flux.",
+      "etapes": [
+        "Lister chaque flux futur et sa date",
+        "Trouver le taux de la maturité de chaque flux",
+        "Calculer le facteur d'actualisation de chaque date",
+        "Multiplier chaque flux par son facteur",
+        "Additionner les flux actualisés"
+      ],
+      "explication": "Valeur actuelle = somme des flux × facteurs d'actualisation, avec un taux par maturité.",
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 2,
+      "titre": "Placement, capitalisation et actualisation",
+      "enonce": "Exemple fictif. Une trésorière dispose de 5 000 000 €. (1) Combien rapporte un dépôt de 90 jours à 2,40 % (Exact/360) ? (2) Que deviennent 5 000 000 € placés 5 ans à 3 % en intérêts composés ? (3) Combien vaut aujourd'hui un encaissement de 5 000 000 € dans 5 ans, si le taux à 5 ans est de 3 % ? (4) Quel est le taux annuel effectif d'un taux de 3 % capitalisé chaque mois ?",
+      "etapes": [
+        {
+          "titre": "Le dépôt à 90 jours",
+          "texte": "Intérêts simples, base 360.",
+          "formule": {
+            "latex": "I = 5\\,000\\,000 \\times 2{,}40\\,\\% \\times \\frac{90}{360}",
+            "legende": {
+              "90/360": "la fraction d'année en Exact/360"
+            },
+            "en_francais": "Capital × taux × fraction d'année."
+          },
+          "resultat": "30 000 €",
+          "verif": {
+            "fn": "taux.interetsSimples",
+            "args": [
+              5000000,
+              2.4,
+              90
+            ],
+            "attendu": 30000,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Le placement à 5 ans",
+          "texte": "Intérêts composés : on multiplie cinq fois par 1,03.",
+          "resultat": "5 796 370,37 €",
+          "verif": {
+            "fn": "taux.valeurAcquise",
+            "args": [
+              5000000,
+              3,
+              5
+            ],
+            "attendu": 5796370.37,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "La valeur actuelle de l'encaissement",
+          "texte": "On divise par 1,03⁵ = 1,159274. Le facteur d'actualisation est 0,862609.",
+          "resultat": "4 313 043,92 €",
+          "verif": {
+            "fn": "taux.valeurActuelle",
+            "args": [
+              5000000,
+              3,
+              5
+            ],
+            "attendu": 4313043.92,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Le taux effectif d'un taux mensualisé",
+          "texte": "3 % par an capitalisé chaque mois, c'est 0,25 % par mois : (1,0025)¹² − 1.",
+          "resultat": "3,0416 %",
+          "verif": {
+            "fn": "taux.tauxActuariel",
+            "args": [
+              3,
+              12
+            ],
+            "attendu": 3.0416,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Les étapes 2 et 3 sont l'aller et le retour du même calcul : capitaliser multiplie par 1,159274, actualiser divise par le même nombre. La capitalisation mensuelle ajoute environ 4 points de base au taux annuel."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Appliquer des intérêts composés à un dépôt de 90 jours.",
+        "Oublier la base 360 au marché monétaire.",
+        "Multiplier par 1,03⁵ au lieu de diviser quand on actualise."
+      ],
+      "fiche": "m3.interets.actualisation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-interets-composes",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Intérêts composés",
+      "definition": "Intérêts ajoutés au capital à chaque période, qui produisent à leur tour des intérêts.",
+      "fiche": "m3.interets.simples-composes",
+      "anglais": "compound interest",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-taux-actuariel",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Taux actuariel",
+      "definition": "Taux annuel qui tient compte de la capitalisation des intérêts ; sert à comparer des placements.",
+      "fiche": "m3.interets.simples-composes",
+      "anglais": "effective annual rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-convention-de-jours",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Convention de jours",
+      "definition": "Règle qui fixe la fraction d'année d'une période : Exact/360, Exact/365, Exact/Exact, 30/360.",
+      "fiche": "m3.interets.conventions",
+      "anglais": "day count convention",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-coupon-couru",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Coupon couru",
+      "definition": "Part du prochain coupon acquise par le vendeur d'une obligation depuis le dernier paiement.",
+      "fiche": "m3.interets.conventions",
+      "anglais": "accrued interest",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-actualisation",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Actualisation",
+      "definition": "Calcul de la valeur d'aujourd'hui d'un flux futur.",
+      "fiche": "m3.interets.actualisation",
+      "anglais": "discounting",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-facteur-d-actualisation",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Facteur d'actualisation",
+      "definition": "Valeur aujourd'hui d'1 € reçu à une date future.",
+      "fiche": "m3.interets.actualisation",
+      "anglais": "discount factor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.interets.l-courbe-ois",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.interets",
+      "difficulte": 1,
+      "terme": "Courbe OIS",
+      "definition": "Courbe d'actualisation construite sur le taux au jour le jour (€STR, SOFR), utilisée pour les dérivés collatéralisés.",
+      "fiche": "m3.interets.actualisation",
+      "anglais": "OIS curve",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

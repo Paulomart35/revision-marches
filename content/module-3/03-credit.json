@@ -1,0 +1,524 @@
+{
+  "chapitre": {
+    "id": "m3.credit",
+    "module": 3,
+    "ordre": 3,
+    "titre": "Le risque de crédit",
+    "resume": "Pourquoi une entreprise paie plus cher qu'un État : le spread de crédit, les notations et ce que coûte un défaut."
+  },
+  "elements": [
+    {
+      "id": "m3.credit.spread",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "tags": [
+        "crédit",
+        "spread"
+      ],
+      "titre": "Le spread de crédit",
+      "une_phrase": "Le **spread de crédit** est le supplément de rendement qu'un emprunteur risqué paie par rapport à une référence sans risque : il rémunère le risque qu'il ne rembourse pas.",
+      "trente_secondes": "Un État solide et une entreprise moyenne empruntent à 5 ans. L'entreprise doit payer plus : le prêteur veut être payé pour le risque de ne pas être remboursé.\n\nCe supplément, exprimé en **points de base** (1 pb = 0,01 %), est le **spread**. On le mesure souvent :\n\n- contre l'**obligation d'État** de même maturité (spread contre Bund, par exemple) ;\n- ou contre le **taux de swap** de même maturité (*asset swap spread*), la référence des banques.\n\nLe spread rémunère trois choses : la **perte attendue** en cas de défaut, une **prime de risque** (l'aversion des investisseurs pour l'incertitude) et une prime de **liquidité** (une obligation d'entreprise se revend moins facilement).",
+      "analogie": "C'est la prime d'assurance d'un conducteur : un jeune conducteur paie plus cher qu'un conducteur expérimenté. Pas parce qu'il aura forcément un accident, mais parce que le risque est plus élevé.",
+      "exemple_chiffre": [
+        "Exemple fictif. Bund 5 ans à 2,80 %, obligation 5 ans d'une entreprise notée BBB à 4,10 %.",
+        "Spread contre Bund : 4,10 − 2,80 = 1,30 point, soit **130 pb**.",
+        "Sur 10 M€ empruntés, l'entreprise paie 130 000 € d'intérêts de plus par an que l'État allemand.",
+        "Si l'entreprise publie de mauvais résultats et que son spread passe à 200 pb, le prix de son obligation baisse, même si les taux d'État n'ont pas bougé."
+      ],
+      "formules": [
+        {
+          "titre": "Le rendement d'une obligation d'entreprise",
+          "latex": "y_{\\text{entreprise}} = y_{\\text{sans risque}} + s",
+          "legende": {
+            "y_{\\text{entreprise}}": "le rendement demandé à l'entreprise",
+            "y_{\\text{sans risque}}": "le rendement d'État (ou le taux de swap) de même maturité",
+            "s": "le spread de crédit"
+          },
+          "en_francais": "Le taux d'une entreprise est le taux sans risque plus une prime pour son risque de crédit."
+        }
+      ],
+      "deux_minutes": "**Deux sources de variation du prix.** Une obligation d'entreprise baisse si les **taux sans risque** montent (risque de taux) ou si son **spread** s'élargit (risque de crédit). Les deux peuvent se compenser : en récession, les taux d'État baissent mais les spreads s'élargissent.\n\n**Catégories.** Les obligations notées de AAA à BBB− sont dites **investment grade** (catégorie investissement). En dessous (BB+ et moins), elles sont **high yield** (haut rendement, ou « spéculatives »), avec des spreads beaucoup plus larges.\n\n**Le CDS** (*credit default swap*) est une assurance contre le défaut d'un émetteur : l'acheteur paie une prime annuelle (le **spread de CDS**) et reçoit une indemnité si l'émetteur fait défaut. Il donne une mesure du risque de crédit qui se négocie en continu.\n\n**Pour une banque,** le spread compte aussi à l'envers : c'est le prix de sa propre dette. Dans un produit structuré, le spread de crédit de l'émetteur augmente le rendement offert au client, en échange du risque de crédit qu'il porte sur la banque.",
+      "piege": "Croire qu'un spread large signifie que l'émetteur va faire défaut. Il signifie que le marché demande plus pour porter ce risque ; la majorité des émetteurs à spread large remboursent quand même.",
+      "a_dire_en_entretien": "« Le spread de crédit, c'est le supplément de rendement qu'un emprunteur paie au-dessus du taux sans risque, pour rémunérer le risque de défaut, plus une prime de risque et de liquidité. Une obligation d'entreprise a donc deux risques : la hausse des taux et l'élargissement de son spread. Le CDS permet d'acheter une protection contre le défaut. »",
+      "liens": [
+        "m3.credit.notation",
+        "m3.credit.defaut",
+        "m3.obligations.souverains"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.notation",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "tags": [
+        "crédit",
+        "notation",
+        "agences"
+      ],
+      "titre": "Les notations de crédit",
+      "une_phrase": "Une **notation** est l'avis d'une agence (S&P, Moody's, Fitch) sur la capacité d'un emprunteur à rembourser, de **AAA** (le plus sûr) à **D** (en défaut).",
+      "trente_secondes": "Trois grandes agences dominent le marché : **S&P Global**, **Moody's** et **Fitch**. Elles notent les États, les entreprises, les banques et les émissions elles-mêmes.\n\nL'échelle de S&P et Fitch va de **AAA** à **D** ; Moody's utilise une écriture différente (Aaa, Aa1… Baa3, Ba1…).\n\nLa frontière qui compte : **BBB−** (Baa3 chez Moody's). Au-dessus, c'est l'**investment grade** ; en dessous, le **high yield**. Beaucoup d'investisseurs institutionnels n'ont pas le droit, ou pas l'envie, de détenir du high yield : une entreprise qui passe sous BBB− (un « ange déchu », *fallen angel*) voit souvent son spread bondir.\n\nLes agences publient aussi une **perspective** (positive, stable, négative) : elle annonce le sens d'un éventuel changement dans les 12 à 24 mois.",
+      "analogie": "C'est la note de contrôle technique d'une voiture d'occasion : elle ne garantit rien, mais elle résume l'état général et influence fortement le prix.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "S&P / Fitch",
+          "Moody's",
+          "Catégorie"
+        ],
+        "lignes": [
+          [
+            "AAA",
+            "Aaa",
+            "Qualité maximale"
+          ],
+          [
+            "AA+ à AA−",
+            "Aa1 à Aa3",
+            "Très haute qualité"
+          ],
+          [
+            "A+ à A−",
+            "A1 à A3",
+            "Haute qualité"
+          ],
+          [
+            "BBB+ à BBB−",
+            "Baa1 à Baa3",
+            "Qualité moyenne : dernier cran de l'investment grade"
+          ],
+          [
+            "BB+ et moins",
+            "Ba1 et moins",
+            "High yield (spéculatif)"
+          ],
+          [
+            "D",
+            "C",
+            "Défaut"
+          ]
+        ],
+        "legende": "Les échelles de notation de long terme."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une entreprise notée BBB− émet à un spread de 160 pb.",
+        "Elle est dégradée à BB+ : elle sort de l'investment grade. Des fonds obligés de vendre les titres pèsent sur le prix.",
+        "Son spread passe à 260 pb : +100 pb. Avec une sensibilité de 4, le prix de son obligation baisse d'environ 4 × 1 % = **4 %**."
+      ],
+      "deux_minutes": "**Pourquoi les notations comptent autant.** Elles entrent dans les règles d'investissement des fonds, dans les exigences de capital des banques (Bâle) et dans les critères d'éligibilité des titres pris en garantie par la BCE. Un changement de note peut donc forcer des ventes.\n\n**La notation des États.** Elle sert de plafond implicite à beaucoup d'émetteurs du pays : il est rare qu'une entreprise ou une banque française soit mieux notée que la France. Une dégradation de l'État a donc des effets sur tout le système financier du pays. Les agences publient un calendrier de revue des notes souveraines ; ces dates sont suivies par le marché.\n\n**Les limites.** Les agences sont payées par les émetteurs (conflit d'intérêts) et ont été très critiquées pour leurs AAA attribués aux produits titrisés avant la crise de 2008. Elles réagissent souvent après le marché : les spreads bougent en général avant la note.\n\n**À dire avec prudence :** ne cite une note précise que si tu es sûr de sa date. Les notes changent.",
+      "piege": "Croire que la note est une probabilité de défaut garantie, ou que le marché attend la note pour réagir. Les spreads anticipent souvent les dégradations.",
+      "a_dire_en_entretien": "« Les agences de notation, S&P, Moody's et Fitch, donnent un avis sur la capacité à rembourser, de AAA à D. La frontière clé est BBB− : au-dessus c'est l'investment grade, en dessous le high yield. Les notes comptent parce qu'elles entrent dans les règles des investisseurs et des régulateurs, mais le marché, via les spreads, réagit souvent avant elles. »",
+      "liens": [
+        "m3.credit.spread",
+        "m3.credit.defaut",
+        "m3.obligations.souverains"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.defaut",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 3,
+      "tags": [
+        "crédit",
+        "défaut",
+        "recouvrement"
+      ],
+      "titre": "Défaut, recouvrement et probabilité implicite",
+      "une_phrase": "En cas de **défaut**, le prêteur ne perd pas tout : il récupère une partie de sa créance (le **taux de recouvrement**) ; le spread permet d'estimer la probabilité de défaut que le marché anticipe.",
+      "trente_secondes": "Un **défaut**, c'est un emprunteur qui ne paie pas un coupon ou un remboursement à temps, ou qui restructure sa dette au détriment des prêteurs.\n\nAprès un défaut, les créanciers récupèrent en général une partie de leur argent : le **taux de recouvrement** (*recovery rate*). Pour une obligation senior non garantie, on prend souvent **40 %** comme hypothèse de marché.\n\nLa **perte en cas de défaut** est donc 1 − recouvrement : 60 %.\n\nSi le spread ne rémunérait que la perte attendue, on aurait : spread ≈ probabilité de défaut × perte en cas de défaut. On peut donc retourner la formule : **probabilité de défaut ≈ spread ÷ (1 − recouvrement)**.",
+      "analogie": "Un restaurant qui ferme doit de l'argent à ses fournisseurs. Une fois le matériel vendu, chaque fournisseur récupère une partie de sa facture, pas tout, pas rien : c'est le recouvrement.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une entreprise a un spread de 240 pb (2,40 %). Recouvrement supposé : 40 %.",
+        "Perte en cas de défaut : 1 − 40 % = 60 %.",
+        "Probabilité de défaut annuelle implicite : 2,40 % ÷ 60 % = **4 % par an**.",
+        "Sur 5 ans, la probabilité de survie est d'environ 0,96⁵ = 81,5 %, soit environ **18,5 %** de probabilité de défaut sur la période."
+      ],
+      "formules": [
+        {
+          "titre": "Probabilité de défaut implicite (approximation)",
+          "latex": "PD \\approx \\frac{s}{1 - R}",
+          "legende": {
+            "PD": "la probabilité de défaut annuelle implicite",
+            "s": "le spread de crédit annuel",
+            "R": "le taux de recouvrement (part récupérée en cas de défaut)"
+          },
+          "en_francais": "Le spread est à peu près la probabilité de défaut multipliée par la perte en cas de défaut ; on divise donc le spread par la perte pour retrouver la probabilité."
+        }
+      ],
+      "deux_minutes": "**Probabilité « risque-neutre ».** Cette probabilité est tirée des prix de marché : elle inclut la prime de risque et de liquidité. Elle est donc en général **plus élevée** que les fréquences de défaut historiques publiées par les agences. On s'en sert pour valoriser, pas pour prévoir.\n\n**Le rang de la dette.** Le recouvrement dépend de la place dans la file d'attente : la dette **garantie** (*secured*) passe avant la dette **senior** non garantie, puis la dette **subordonnée**, puis les actionnaires. Plus on est loin dans la file, plus le spread est large.\n\n**Le risque de contrepartie** est la version « dérivés » du risque de crédit : si une banque a un swap qui vaut +2 M€ pour elle et que le client fait défaut, elle perd ces 2 M€ (moins le recouvrement). C'est pourquoi chaque client a une **ligne de risque** et pourquoi les dérivés sont souvent collatéralisés.\n\n**Pour les produits structurés,** le client prête de l'argent à l'émetteur : si l'émetteur fait défaut, la protection du capital ne vaut plus rien. L'exemple souvent cité est la faillite de Lehman Brothers en 2008, dont des produits « à capital garanti » ont été lourdement touchés.",
+      "piege": "Oublier le recouvrement : un spread de 240 pb ne veut pas dire 2,4 % de probabilité de défaut, mais environ 4 % si l'on récupère 40 %.",
+      "a_dire_en_entretien": "« En cas de défaut, on récupère en général une partie de sa créance, souvent 40 % pour de la dette senior. Le spread rémunère à peu près la probabilité de défaut multipliée par la perte : avec 240 points de base et 40 % de recouvrement, le marché price environ 4 % de probabilité de défaut par an. C'est une probabilité tirée des prix, qui inclut une prime de risque. »",
+      "liens": [
+        "m3.credit.spread",
+        "m3.swap.risque",
+        "m5.bases.acteurs"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "recto": "Spread de crédit ?",
+      "verso": "Supplément de rendement au-dessus du taux sans risque, pour le risque de défaut.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "recto": "Deux risques d'une obligation d'entreprise ?",
+      "verso": "Hausse des taux sans risque et élargissement du spread.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "recto": "CDS ?",
+      "verso": "Assurance contre le défaut d'un émetteur ; la prime annuelle est le spread de CDS.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "recto": "Les trois agences de notation ?",
+      "verso": "S&P Global, Moody's, Fitch.",
+      "fiche": "m3.credit.notation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "recto": "Frontière investment grade / high yield ?",
+      "verso": "BBB− (Baa3) : au-dessus investment grade, en dessous high yield.",
+      "fiche": "m3.credit.notation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "recto": "Ange déchu ?",
+      "verso": "Émetteur dégradé de l'investment grade au high yield.",
+      "fiche": "m3.credit.notation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "recto": "Taux de recouvrement usuel pour de la dette senior ?",
+      "verso": "40 % (hypothèse de marché).",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "recto": "Probabilité de défaut implicite ?",
+      "verso": "Spread ÷ (1 − recouvrement).",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "question": "Pourquoi une entreprise emprunte-t-elle plus cher que l'État ?",
+      "reponse_modele": "Parce que le prêteur demande à être rémunéré pour le risque qu'elle ne rembourse pas. Ce supplément est le spread de crédit, exprimé en points de base au-dessus du taux de l'État ou du taux de swap de même maturité. Il paie la perte attendue en cas de défaut, une prime de risque et une prime de liquidité, car une obligation d'entreprise se revend moins facilement. Plus la note de l'entreprise est faible, plus le spread est large.",
+      "points_cles": [
+        "Risque de défaut",
+        "Spread en points de base",
+        "Perte attendue + prime de risque + liquidité",
+        "Lien avec la notation"
+      ],
+      "piege": "Dire que c'est parce que l'entreprise est plus petite : c'est le risque qui compte.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "question": "Qu'est-ce que l'investment grade et pourquoi la frontière BBB− est-elle si importante ?",
+      "reponse_modele": "L'investment grade regroupe les notes de AAA à BBB− (Baa3 chez Moody's). En dessous, on parle de high yield. La frontière est importante parce que beaucoup d'investisseurs institutionnels ne peuvent détenir que de l'investment grade, et que les exigences de capital et l'éligibilité au refinancement de la banque centrale en dépendent. Une entreprise dégradée sous BBB− subit souvent des ventes forcées et un élargissement brutal de son spread : c'est un ange déchu.",
+      "points_cles": [
+        "AAA à BBB− : investment grade",
+        "BB+ et moins : high yield",
+        "Règles d'investissement",
+        "Ventes forcées, ange déchu"
+      ],
+      "piege": "Placer la frontière à A ou à BB.",
+      "fiche": "m3.credit.notation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 3,
+      "question": "Un émetteur a un spread de 300 pb. Avec un recouvrement de 40 %, quelle probabilité de défaut le marché price-t-il ? Est-ce une prévision ?",
+      "reponse_modele": "Environ 3 % ÷ 60 % = 5 % par an. Mais c'est une probabilité dite risque-neutre, tirée des prix : elle contient une prime de risque et de liquidité, donc elle est en général plus élevée que la fréquence de défaut historique. Elle sert à valoriser et à comparer, pas à prévoir.",
+      "points_cles": [
+        "Spread ÷ (1 − recouvrement)",
+        "5 % par an",
+        "Probabilité risque-neutre",
+        "Plus haute que l'historique"
+      ],
+      "piege": "Répondre 3 % en oubliant le recouvrement.",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "question": "Un client achète un produit structuré « à capital garanti ». Est-il sans risque ?",
+      "reponse_modele": "Non. La garantie est donnée par l'émetteur : si la banque émettrice fait défaut, le client devient un créancier comme un autre et peut perdre une partie de son capital. Il porte donc le risque de crédit de l'émetteur, qui se lit dans son spread et sa note. Il porte aussi un risque de liquidité : s'il veut sortir avant l'échéance, il revend au prix du marché, qui peut être inférieur à 100.",
+      "points_cles": [
+        "Garantie de l'émetteur",
+        "Risque de crédit de l'émetteur",
+        "Sortie anticipée au prix de marché"
+      ],
+      "piege": "Dire « garanti » sans préciser par qui et à quelle date.",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "enonce": "Bund 5 ans à 2,70 %, obligation d'entreprise 5 ans à 3,95 %. Spread, en points de base ?",
+      "reponse": 125,
+      "tolerance": 0.5,
+      "unite": "pb",
+      "explication": "3,95 − 2,70 = 1,25 point = 125 pb.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "enonce": "Quelle est la note la plus basse de l'investment grade chez S&P ?",
+      "choix": [
+        "A−",
+        "BBB−",
+        "BB+",
+        "BBB+"
+      ],
+      "bonne": 1,
+      "explication": "BBB− (Baa3 chez Moody's). BB+ est la première note high yield.",
+      "fiche": "m3.credit.notation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "enonce": "Spread 180 pb, recouvrement 40 %. Probabilité de défaut annuelle implicite, en % ?",
+      "reponse": 3,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "1,80 % ÷ 60 % = 3 %.",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "enonce": "Si les taux d'État baissent, le prix d'une obligation d'entreprise monte forcément.",
+      "vrai": false,
+      "explication": "Son spread peut s'élargir en même temps, par exemple en récession, et compenser ou dépasser la baisse des taux d'État.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "enonce": "Un CDS, c'est…",
+      "choix": [
+        "un swap de taux à départ décalé",
+        "une assurance contre le défaut d'un émetteur",
+        "un certificat de dépôt",
+        "un indice de spreads"
+      ],
+      "bonne": 1,
+      "explication": "L'acheteur de CDS paie une prime annuelle et est indemnisé si l'émetteur de référence fait défaut.",
+      "fiche": "m3.credit.spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.z06",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 2,
+      "enonce": "Range ces créanciers du premier remboursé au dernier en cas de faillite.",
+      "etapes": [
+        "Dette garantie (secured)",
+        "Dette senior non garantie",
+        "Dette subordonnée",
+        "Actionnaires"
+      ],
+      "explication": "Plus on est loin dans la file, plus le recouvrement est faible et plus le spread est large.",
+      "fiche": "m3.credit.defaut",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-spread-de-credit",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "Spread de crédit",
+      "definition": "Écart de rendement entre un emprunteur risqué et la référence sans risque.",
+      "fiche": "m3.credit.spread",
+      "anglais": "credit spread",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-cds",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "CDS",
+      "definition": "Contrat d'assurance contre le défaut d'un émetteur de référence.",
+      "fiche": "m3.credit.spread",
+      "anglais": "credit default swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-investment-grade",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "Investment grade",
+      "definition": "Notations de AAA à BBB− : catégorie investissement.",
+      "fiche": "m3.credit.notation",
+      "anglais": "investment grade",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-high-yield",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "High yield",
+      "definition": "Notations de BB+ et moins : catégorie spéculative, à rendement élevé.",
+      "fiche": "m3.credit.notation",
+      "anglais": "high yield",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-taux-de-recouvrement",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "Taux de recouvrement",
+      "definition": "Part de sa créance qu'un prêteur récupère après un défaut.",
+      "fiche": "m3.credit.defaut",
+      "anglais": "recovery rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.credit.l-defaut",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.credit",
+      "difficulte": 1,
+      "terme": "Défaut",
+      "definition": "Non-paiement d'un coupon ou d'un remboursement à temps, ou restructuration au détriment des prêteurs.",
+      "fiche": "m3.credit.defaut",
+      "anglais": "default",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

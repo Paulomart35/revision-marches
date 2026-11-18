@@ -4,6 +4,7 @@ import * as fx from './fx';
 import * as inflation from './inflation';
 import * as taux from './taux';
 import * as opt from './options';
+import * as st from './structures';
 
 export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'fx.usdVersEur': fx.usdVersEur,
@@ -55,6 +56,46 @@ export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'options.erreurMC': (e, n) => opt.erreurMC(e, n),
   'options.deltaBumpCall': (S, K, T, r, s, h) => opt.deltaBump('call', { S, K, T, r, sigma: s }, h),
   'options.asiatiqueCall': (S, K, T, r, s) => opt.asiatiqueGeometrique('call', { S, K, T, r, sigma: s }),
+  // Module 3 : taux en %, durées en années
+  'taux.interetsSimples': taux.interetsSimples,
+  'taux.valeurAcquise': taux.valeurAcquise,
+  'taux.tauxActuariel': taux.tauxActuariel,
+  'taux.facteurActualisation': taux.facteurActualisation,
+  'taux.valeurActuelle': taux.valeurActuelle,
+  'taux.prixZeroCoupon': taux.prixZeroCoupon,
+  'taux.rendementObligation': taux.rendementObligation,
+  'taux.durationMacaulay': taux.durationMacaulay,
+  'taux.sensibilite': taux.sensibilite,
+  'taux.dv01': taux.dv01,
+  'taux.convexite': taux.convexite,
+  'taux.variationPrixApprochee': taux.variationPrixApprochee,
+  'taux.variationPrixExacte': taux.variationPrixExacte,
+  'taux.tauxForward': taux.tauxForward,
+  'taux.probaDefaut': taux.probaDefaut,
+  'taux.annuite': taux.annuite,
+  'taux.tauxSwap': taux.tauxSwap,
+  'taux.valeurSwapPayeur': taux.valeurSwapPayeur,
+  'taux.fluxSwap': taux.fluxSwap,
+  'taux.coutAvecCap': taux.coutAvecCap,
+  'taux.coutAvecTunnel': taux.coutAvecTunnel,
+  'taux.prixFutureTaux': taux.prixFutureTaux,
+  // Caplet (Black) : nominal, forward, strike, échéance du fixing, taux d'actualisation, volatilité, jours de la période
+  'taux.caplet': (nominal, F, K, T, r, s, jours) => nominal * (jours / 360) * opt.black76('call', F, K, T, r, s),
+  // Module 4
+  'fx.coursTerme': fx.coursTerme,
+  'fx.pointsTerme': fx.pointsTerme,
+  'fx.coutImportateurOption': fx.coutImportateurOption,
+  'fx.exportateurTunnel': fx.exportateurTunnel,
+  'fx.exportateurParticipatif': fx.exportateurParticipatif,
+  'fx.rendementCarry': fx.rendementCarry,
+  // Module 5
+  'structures.participation': st.participation,
+  'structures.rembourseCapitalGaranti': st.rembourseCapitalGaranti,
+  'structures.reverseConvertible': st.reverseConvertible,
+  'structures.rangeAccrual': st.rangeAccrual,
+  'structures.rendementAnnuel': st.rendementAnnuel,
+  // args = coupon, barrière de coupon, seuil de rappel, barrière de capital, mémoire (1 ou 0), puis les niveaux observés
+  'structures.phoenixTotal': (c, bc, sr, bk, m, ...niveaux) => st.phoenix(niveaux, c, bc, sr, bk, m === 1).total,
   // somme pondérée : args = poids1, hausse1, poids2, hausse2, …
   'inflation.inflationPonderee': (...a: number[]) => {
     const postes = [];

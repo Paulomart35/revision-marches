@@ -1,0 +1,623 @@
+{
+  "chapitre": {
+    "id": "m3.duration",
+    "module": 3,
+    "ordre": 4,
+    "titre": "Duration, sensibilité, DV01 et convexité",
+    "resume": "Mesurer de combien le prix d'une obligation bouge quand les taux bougent, en pourcentage, en euros et au-delà de la ligne droite."
+  },
+  "elements": [
+    {
+      "id": "m3.duration.duration",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "tags": [
+        "duration",
+        "sensibilité",
+        "risque de taux"
+      ],
+      "titre": "Duration et sensibilité",
+      "une_phrase": "La **duration** est la durée de vie moyenne des flux d'une obligation, pondérée par leur valeur ; la **sensibilité** (duration modifiée) dit de combien de % baisse le prix quand le taux monte de 1 point.",
+      "trente_secondes": "Deux obligations 10 ans ne réagissent pas pareil aux taux. Un zéro-coupon 10 ans reçoit tout dans 10 ans ; une obligation à gros coupon reçoit une partie de son argent bien avant.\n\nLa **duration de Macaulay** mesure ce « centre de gravité » des flux, en années. Un zéro-coupon 10 ans a une duration de 10 ans ; une obligation 10 ans à 3 % au pair, de 8,8 ans.\n\nLa **sensibilité** (*modified duration*) se déduit de la duration : duration ÷ (1 + taux). Elle donne directement l'effet d'une hausse de taux : avec une sensibilité de 8,5, **+1 point de taux fait perdre environ 8,5 %** au prix.\n\nRègles simples : la sensibilité augmente avec la **maturité**, et diminue quand le **coupon** ou le **niveau des taux** augmentent.",
+      "analogie": "La duration, c'est le point d'équilibre d'une balançoire sur laquelle on a posé des poids (les flux) à différentes distances (les dates). Plus les poids lourds sont loin, plus le point d'équilibre est loin, et plus la balançoire bascule fort quand on la pousse.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.obligation",
+        "legende": "La droite pointillée est l'approximation par la sensibilité : sa pente, c'est la duration."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Obligation 10 ans, coupon 3 %, rendement 3 % : prix 100.",
+        "Duration de Macaulay : **8,79 ans**. Sensibilité : 8,79 ÷ 1,03 = **8,53**.",
+        "Les taux montent de 0,50 point : variation estimée du prix = −8,53 × 0,50 % = **−4,27 %**, soit un prix d'environ 95,73.",
+        "Un zéro-coupon 10 ans à 4 % a une sensibilité de 10 ÷ 1,04 = **9,62** : il est plus sensible."
+      ],
+      "formules": [
+        {
+          "titre": "Duration de Macaulay",
+          "latex": "D = \\frac{1}{P} \\sum_{t=1}^{n} t \\times \\frac{F_t}{(1+y)^{t}}",
+          "legende": {
+            "D": "la duration, en années",
+            "P": "le prix de l'obligation",
+            "F_t": "le flux reçu à la date t (coupon, plus le nominal à la fin)",
+            "y": "le rendement",
+            "t": "la date du flux, en années"
+          },
+          "en_francais": "Chaque date est pondérée par la part du prix que représente le flux de cette date : la duration est la date moyenne des flux."
+        },
+        {
+          "titre": "Sensibilité et variation du prix",
+          "latex": "S = \\frac{D}{1+y} \\qquad \\frac{\\Delta P}{P} \\approx -S \\times \\Delta y",
+          "legende": {
+            "S": "la sensibilité (duration modifiée)",
+            "\\Delta P / P": "la variation du prix en %",
+            "\\Delta y": "la variation du taux"
+          },
+          "en_francais": "La variation du prix en % est à peu près l'opposé de la sensibilité multipliée par la variation du taux."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est le chiffre clé d'un gérant obligataire.** Il pilote son exposition aux taux par la duration de son portefeuille. S'il anticipe une baisse des taux, il **allonge** la duration (il achète du long) pour gagner davantage ; s'il anticipe une hausse, il la **raccourcit**.\n\n**Duration d'un portefeuille** : la moyenne des durations des titres, pondérée par leur valeur de marché.\n\n**Duration d'un passif.** Les assureurs et fonds de pension ont des engagements très longs (retraites dans 30 ans). Pour se protéger, ils achètent des obligations dont la duration correspond à celle de leurs engagements : c'est l'**adossement** (*immunisation*).\n\n**Duration d'un swap.** Un swap où l'on reçoit le fixe ressemble à une obligation à taux fixe financée à taux variable : il a une duration positive. Celui qui paie le fixe a une duration négative : il gagne quand les taux montent.\n\n**Limite.** La sensibilité est une approximation linéaire : elle est très bonne pour de petits mouvements, moins bonne pour de grands. La convexité corrige l'écart.",
+      "piege": "Confondre la duration (en années) et la maturité : une obligation 10 ans a une duration inférieure à 10 ans, sauf si c'est un zéro-coupon. Et oublier le signe : une hausse de taux fait **baisser** le prix.",
+      "a_dire_en_entretien": "« La duration, c'est la date moyenne des flux d'une obligation, pondérée par leur valeur actuelle. La sensibilité, duration divisée par (1 + taux), donne la baisse du prix en pourcentage pour une hausse de 1 point : avec une sensibilité de 8,5, +50 points de base font perdre environ 4,3 %. Elle augmente avec la maturité, et baisse avec le coupon et le niveau des taux. »",
+      "liens": [
+        "m3.duration.dv01",
+        "m3.duration.convexite",
+        "m3.obligations.prix"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.dv01",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "tags": [
+        "DV01",
+        "PV01",
+        "risque de taux"
+      ],
+      "titre": "Le DV01 : le risque de taux en euros",
+      "une_phrase": "Le **DV01** (*dollar value of 01*, ou PV01) est la variation de valeur d'une position, **en euros**, pour un mouvement de taux d'**un point de base** : c'est l'unité de mesure du risque de taux en salle de marché.",
+      "trente_secondes": "La sensibilité parle en pourcentage ; un trader veut savoir combien il gagne ou perd en euros.\n\n**DV01 = valeur de la position × sensibilité × 0,0001.**\n\nUn portefeuille de 10 M€ d'obligations de sensibilité 8,5 a un DV01 de 10 000 000 × 8,5 × 0,0001 = **8 500 €** : il perd environ 8 500 € chaque fois que les taux montent de 1 pb.\n\nLe grand avantage du DV01 : il s'**additionne**. Une obligation, un swap, un future de taux ont chacun un DV01 ; leur somme donne le risque de taux net du desk. Pour couvrir, on cherche une position de DV01 opposé.",
+      "analogie": "C'est la consommation d'une voiture en litres aux 100 km. Elle dit concrètement ce que coûte chaque kilomètre de hausse de taux, quelle que soit la voiture.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un trader détient 1 M€ d'obligations 10 ans à 3 % (sensibilité 8,53). DV01 : **853 €** par pb.",
+        "Il veut se couvrir avec un swap 5 ans dans lequel il paie le fixe, de DV01 égal à 460 € par million de nominal.",
+        "Nominal de swap nécessaire : 853 ÷ 460 ≈ **1,85 M€**.",
+        "Si les taux montent de 10 pb partout : obligations −8 530 €, swap +8 510 € environ. La position est couverte contre un mouvement parallèle."
+      ],
+      "formules": [
+        {
+          "titre": "Le DV01",
+          "latex": "DV01 \\approx V \\times S \\times 0{,}0001",
+          "legende": {
+            "DV01": "la variation de valeur pour 1 point de base",
+            "V": "la valeur de marché de la position",
+            "S": "la sensibilité",
+            "0{,}0001": "un point de base, soit 0,01 %"
+          },
+          "en_francais": "Le gain ou la perte pour 1 point de base, c'est la valeur multipliée par la sensibilité et par un dix-millième."
+        }
+      ],
+      "deux_minutes": "**Le DV01 par point de la courbe.** Un DV01 global suppose que tous les taux bougent ensemble (mouvement **parallèle**). En réalité, la courbe se **pentifie** ou s'**aplatit**. Les desks découpent donc leur risque par maturité (1 an, 2 ans, 5 ans, 10 ans, 30 ans) : ce sont les **sensibilités par pilier** (*bucketed DV01*, ou *key rate durations*). Une position peut être neutre en DV01 global et perdre beaucoup si la courbe change de forme.\n\n**Pour un swap.** Le DV01 d'un swap est à peu près nominal × annuité × 0,0001 : 10 M€ sur 4 ans avec une annuité de 3,67 donnent un DV01 d'environ 3 670 €.\n\n**Les limites de risque.** Un desk de taux a une limite de DV01 par devise et par maturité, suivie chaque jour par le risk management. Le chiffre est aussi utilisé pour calculer la VaR et les scénarios de stress.",
+      "piege": "Se croire couvert parce que le DV01 total est nul : on reste exposé aux déformations de la courbe si les DV01 ne sont pas compensés maturité par maturité.",
+      "a_dire_en_entretien": "« Le DV01, c'est combien je gagne ou perds en euros pour un point de base de mouvement des taux : valeur × sensibilité × 0,0001. C'est l'unité du risque de taux sur un desk, parce qu'il s'additionne entre obligations, swaps et futures. On le suit aussi par maturité, pour ne pas être exposé à une déformation de la courbe. »",
+      "liens": [
+        "m3.duration.duration",
+        "m3.swap.valeur",
+        "m3.courbe.formes"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.convexite",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "tags": [
+        "convexité",
+        "risque de taux"
+      ],
+      "titre": "La convexité",
+      "une_phrase": "La **convexité** mesure la courbure de la relation prix-taux : grâce à elle, le prix d'une obligation **monte plus** quand les taux baissent qu'il ne **baisse** quand les taux montent du même montant.",
+      "trente_secondes": "La sensibilité suppose que le prix suit une **droite**. En réalité, la relation prix-taux est une **courbe** bombée vers le bas (convexe).\n\nConséquence : la droite **sous-estime toujours** le prix.\n\n- Les taux montent : le prix baisse **moins** que prévu par la sensibilité.\n- Les taux baissent : le prix monte **plus** que prévu.\n\nPour une obligation classique, cette asymétrie est **favorable au détenteur**. Plus la maturité est longue, plus la convexité est forte. Pour de petits mouvements de taux, on peut l'ignorer ; pour de gros chocs (±1 point et plus) ou des maturités longues, elle compte.",
+      "analogie": "Un amortisseur : quand tu tombes (les taux montent), la chute est un peu freinée ; quand tu rebondis (les taux baissent), le rebond est un peu amplifié.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.obligation",
+        "legende": "Pousse le choc à ±200 pb : l'écart entre la courbe et la droite, c'est la convexité."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Obligation 10 ans, coupon 3 %, au pair. Sensibilité 8,53 ; convexité 87,1.",
+        "Taux +1 point : la sensibilité seule annonce **−8,53 %** ; la vraie baisse est de **−8,11 %**.",
+        "Taux −1 point : la sensibilité annonce +8,53 % ; la vraie hausse est de **+8,98 %**.",
+        "La correction de convexité vaut ½ × 87,1 × 0,01² = **+0,44 %** dans les deux cas : elle s'ajoute toujours.",
+        "Une obligation 30 ans à 3 % (sensibilité 19,6, convexité 507) : +1 point de taux, la droite annonce −19,6 %, la réalité est −17,3 %."
+      ],
+      "formules": [
+        {
+          "titre": "Variation du prix avec la convexité",
+          "latex": "\\frac{\\Delta P}{P} \\approx -S \\times \\Delta y + \\frac{1}{2} \\times C \\times (\\Delta y)^{2}",
+          "legende": {
+            "S": "la sensibilité",
+            "C": "la convexité",
+            "\\Delta y": "la variation du taux (en décimal : 1 point = 0,01)"
+          },
+          "en_francais": "Le premier terme est la ligne droite ; le second, toujours positif car le choc est au carré, corrige la courbure en faveur du détenteur."
+        }
+      ],
+      "deux_minutes": "**Le parallèle avec le gamma.** La convexité joue pour une obligation le rôle du gamma pour une option : c'est la dérivée seconde du prix. Un portefeuille **long convexité** gagne sur les grands mouvements de taux dans les deux sens, à sensibilité égale.\n\n**La convexité a un prix.** À sensibilité égale, le marché fait payer la convexité : une obligation plus convexe offre un rendement un peu plus faible.\n\n**La convexité négative.** Certains titres ont une convexité négative : leur prix monte peu quand les taux baissent. Exemple : les titres adossés à des crédits immobiliers américains (*MBS*), car les emprunteurs remboursent par anticipation quand les taux baissent. Les obligations **remboursables au gré de l'émetteur** (*callable*) ont le même défaut : l'émetteur rachète la dette quand les taux baissent.\n\n**Pour les swaps et options de taux,** les desks gèrent aussi cette courbure, avec des options (caps, floors, swaptions) qui ajoutent ou retirent de la convexité.",
+      "piege": "Croire que la convexité est un risque à fuir : pour un détenteur d'obligation classique, elle joue en sa faveur. Le vrai danger est la convexité négative.",
+      "a_dire_en_entretien": "« La sensibilité est une approximation linéaire ; la vraie relation prix-taux est courbe, convexe. Résultat : quand les taux montent, le prix baisse un peu moins que prévu, et quand ils baissent, il monte un peu plus. La convexité, c'est le gamma d'une obligation : elle est favorable au détenteur, plus forte sur les maturités longues, et elle compte pour les grands mouvements. »",
+      "liens": [
+        "m3.duration.duration",
+        "m2.grecques.gamma"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "recto": "Duration de Macaulay ?",
+      "verso": "Date moyenne des flux, pondérée par leur valeur actuelle, en années.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "recto": "Sensibilité ?",
+      "verso": "Duration / (1 + y) : baisse du prix en % pour +1 point de taux.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "recto": "Duration d'un zéro-coupon ?",
+      "verso": "Sa maturité.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "recto": "Qu'est-ce qui augmente la sensibilité ?",
+      "verso": "Une maturité plus longue, un coupon plus faible, des taux plus bas.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "recto": "DV01 ?",
+      "verso": "Variation de valeur en euros pour 1 point de base : valeur × sensibilité × 0,0001.",
+      "fiche": "m3.duration.dv01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "recto": "Pourquoi le DV01 par maturité ?",
+      "verso": "Pour être couvert contre les déformations de la courbe, pas seulement les mouvements parallèles.",
+      "fiche": "m3.duration.dv01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "recto": "Convexité ?",
+      "verso": "Courbure de la relation prix-taux ; elle joue en faveur du détenteur d'une obligation classique.",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "recto": "Formule prix avec convexité ?",
+      "verso": "ΔP/P ≈ −S × Δy + ½ × C × (Δy)².",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.c09",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "recto": "Convexité négative : exemples ?",
+      "verso": "Obligations remboursables par l'émetteur (callable), MBS américains.",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "question": "Qu'est-ce que la duration d'une obligation ? À quoi sert-elle ?",
+      "reponse_modele": "C'est la date moyenne à laquelle on reçoit les flux de l'obligation, pondérée par leur valeur actuelle, exprimée en années. Divisée par (1 + taux), elle donne la sensibilité : la baisse du prix en pourcentage pour une hausse de taux de 1 point. Une obligation 10 ans à 3 % au pair a une duration de 8,8 ans et une sensibilité de 8,5 : +1 point de taux lui fait perdre environ 8,5 %. Elle sert à mesurer et piloter le risque de taux d'un portefeuille, et à adosser des actifs à des engagements de long terme.",
+      "points_cles": [
+        "Date moyenne des flux, pondérée par leur valeur",
+        "Sensibilité = duration / (1 + y)",
+        "Baisse du prix pour +1 point",
+        "Pilotage du risque de taux"
+      ],
+      "piege": "Dire que la duration est égale à la maturité (vrai seulement pour un zéro-coupon).",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "question": "Quelle obligation est la plus sensible aux taux : une 10 ans à coupon 6 % ou un zéro-coupon 10 ans ?",
+      "reponse_modele": "Le zéro-coupon. Il ne reçoit qu'un flux, dans 10 ans, donc sa duration est de 10 ans. L'obligation à 6 % reçoit des coupons importants dès la première année : son centre de gravité est plus proche, sa duration est d'environ 7,8 ans. Plus le coupon est élevé, plus la duration est courte.",
+      "points_cles": [
+        "Zéro-coupon : duration = maturité",
+        "Gros coupon : flux plus tôt",
+        "Duration plus courte"
+      ],
+      "piege": "Répondre « la même chose, elles ont la même maturité ».",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "question": "Ton portefeuille a un DV01 de 25 000 €. Que se passe-t-il si les taux montent de 20 points de base ?",
+      "reponse_modele": "Si le DV01 est positif au sens d'une position longue en obligations, tu perds environ 25 000 × 20 = 500 000 €, pour un mouvement parallèle de la courbe. Pour un grand mouvement, la convexité réduit légèrement la perte. Et si la courbe ne bouge pas en parallèle, il faut regarder les DV01 par maturité.",
+      "points_cles": [
+        "DV01 × nombre de pb",
+        "500 000 €",
+        "Hypothèse de mouvement parallèle",
+        "Convexité et DV01 par maturité"
+      ],
+      "piege": "Oublier de préciser le sens : long obligations = perte quand les taux montent.",
+      "fiche": "m3.duration.dv01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "question": "Qu'est-ce que la convexité et pourquoi les investisseurs l'apprécient-ils ?",
+      "reponse_modele": "C'est la courbure de la relation entre le prix et le taux. La sensibilité suppose une droite ; en réalité, pour une obligation classique, la courbe est convexe : le prix baisse moins que prévu quand les taux montent et monte plus que prévu quand ils baissent. À sensibilité égale, une obligation plus convexe gagne donc plus sur les grands mouvements, dans les deux sens. C'est l'équivalent du gamma pour une option. Les investisseurs l'apprécient et la paient par un rendement un peu plus faible. Attention aux titres à convexité négative, comme les obligations remboursables par anticipation.",
+      "points_cles": [
+        "Courbure prix-taux",
+        "Asymétrie favorable",
+        "Équivalent du gamma",
+        "La convexité a un prix",
+        "Convexité négative : callable, MBS"
+      ],
+      "piege": "Présenter la convexité comme un risque pour le détenteur.",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "enonce": "Sensibilité 6, les taux montent de 0,25 point. Variation approximative du prix, en % ?",
+      "reponse": -1.5,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "−6 × 0,25 % = −1,5 %.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "enonce": "Toutes choses égales par ailleurs, la sensibilité d'une obligation augmente quand…",
+      "choix": [
+        "son coupon augmente",
+        "sa maturité augmente",
+        "le niveau des taux augmente",
+        "sa note de crédit s'améliore"
+      ],
+      "bonne": 1,
+      "explication": "Plus la maturité est longue, plus les flux sont lointains, plus la sensibilité est forte. Coupon et taux plus élevés la réduisent.",
+      "fiche": "m3.duration.duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "enonce": "Position de 20 M€ en obligations de sensibilité 7. DV01, en euros ?",
+      "reponse": 14000,
+      "tolerance": 1,
+      "unite": "€",
+      "explication": "20 000 000 × 7 × 0,0001 = 14 000 € par point de base.",
+      "fiche": "m3.duration.dv01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "enonce": "Une position avec un DV01 total nul ne peut perdre d'argent sur aucun mouvement de taux.",
+      "vrai": false,
+      "explication": "Elle peut perdre si la courbe se déforme (pentification, aplatissement) : il faut regarder les DV01 maturité par maturité.",
+      "fiche": "m3.duration.dv01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z05",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 2,
+      "enonce": "Pour une obligation classique, l'approximation par la sensibilité sous-estime toujours le prix.",
+      "vrai": true,
+      "explication": "La relation prix-taux est convexe : la courbe est au-dessus de sa tangente.",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.z06",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "enonce": "Quel titre a typiquement une convexité négative ?",
+      "choix": [
+        "Un zéro-coupon d'État",
+        "Une OAT 30 ans",
+        "Une obligation remboursable par anticipation au gré de l'émetteur",
+        "Un Bund 10 ans"
+      ],
+      "bonne": 2,
+      "explication": "Quand les taux baissent, l'émetteur rembourse et rachète sa dette moins cher : le prix ne monte presque plus.",
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 3,
+      "titre": "Mesurer le risque de taux d'une obligation 10 ans",
+      "enonce": "Exemple fictif. Tu détiens 1 M€ de nominal d'une obligation 10 ans, coupon 3 %, rendement 3 % (prix 100). Calcule (1) sa duration de Macaulay, (2) sa sensibilité, (3) son DV01, (4) sa convexité, puis (5) la variation de prix pour une hausse des taux de 100 pb : par la sensibilité seule, avec la convexité, et exactement.",
+      "etapes": [
+        {
+          "titre": "La duration",
+          "texte": "Pour une obligation au pair, une formule fermée existe : (1 + y)/y × (1 − 1/(1 + y)ⁿ) = 1,03/0,03 × (1 − 1/1,03¹⁰).",
+          "resultat": "8,79 ans",
+          "verif": {
+            "fn": "taux.durationMacaulay",
+            "args": [
+              3,
+              3,
+              10
+            ],
+            "attendu": 8.786,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "La sensibilité",
+          "texte": "Duration ÷ (1 + taux) = 8,786 ÷ 1,03.",
+          "resultat": "8,53",
+          "verif": {
+            "fn": "taux.sensibilite",
+            "args": [
+              3,
+              3,
+              10
+            ],
+            "attendu": 8.53,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Le DV01",
+          "texte": "1 000 000 × 8,53 × 0,0001.",
+          "resultat": "853 € par point de base",
+          "verif": {
+            "fn": "taux.dv01",
+            "args": [
+              3,
+              3,
+              10,
+              1000000
+            ],
+            "attendu": 853.02,
+            "tolerance": 0.1
+          }
+        },
+        {
+          "titre": "La convexité",
+          "texte": "Somme des t(t + 1) × flux / (1 + y)^(t + 2), divisée par le prix.",
+          "resultat": "87,1",
+          "verif": {
+            "fn": "taux.convexite",
+            "args": [
+              3,
+              3,
+              10
+            ],
+            "attendu": 87.066,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Le choc de +100 pb",
+          "texte": "Sensibilité seule : −8,53 × 1 % = −8,53 %. Avec la convexité : −8,53 % + ½ × 87,1 × 0,01² = −8,53 % + 0,44 % = −8,09 %. Exact (prix recalculé à 4 %) : −8,11 %.",
+          "formule": {
+            "latex": "\\frac{\\Delta P}{P} \\approx -8{,}53 \\times 0{,}01 + \\frac{1}{2} \\times 87{,}1 \\times 0{,}01^{2}",
+            "legende": {
+              "8{,}53": "la sensibilité",
+              "87{,}1": "la convexité",
+              "0{,}01": "le choc de 1 point"
+            },
+            "en_francais": "La ligne droite, plus la correction de courbure."
+          },
+          "resultat": "−8,53 % ; −8,09 % ; −8,11 %",
+          "verif": {
+            "fn": "taux.variationPrixExacte",
+            "args": [
+              3,
+              3,
+              10,
+              100
+            ],
+            "attendu": -8.111,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Sur 1 M€, la sensibilité seule annonce une perte de 85 300 €, la réalité est 81 100 € : la convexité a « rendu » 4 200 €. Avec la convexité, l'erreur tombe à 160 €."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier de diviser la duration par (1 + y).",
+        "Écrire le choc en points (1) au lieu de décimal (0,01) dans la formule.",
+        "Soustraire la correction de convexité : elle s'ajoute toujours."
+      ],
+      "fiche": "m3.duration.convexite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.l-duration",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "terme": "Duration",
+      "definition": "Date moyenne des flux d'une obligation, pondérée par leur valeur actuelle.",
+      "fiche": "m3.duration.duration",
+      "anglais": "duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.l-sensibilite",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "terme": "Sensibilité",
+      "definition": "Variation du prix en % pour une variation de taux de 1 point.",
+      "fiche": "m3.duration.duration",
+      "anglais": "modified duration",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.l-dv01",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "terme": "DV01",
+      "definition": "Variation de valeur, en euros, pour un mouvement de taux d'un point de base.",
+      "fiche": "m3.duration.dv01",
+      "anglais": "DV01, PV01",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.l-point-de-base",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "terme": "Point de base",
+      "definition": "Un centième de point de pourcentage : 0,01 %.",
+      "fiche": "m3.duration.dv01",
+      "anglais": "basis point",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.duration.l-convexite",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.duration",
+      "difficulte": 1,
+      "terme": "Convexité",
+      "definition": "Courbure de la relation prix-taux d'une obligation.",
+      "fiche": "m3.duration.convexite",
+      "anglais": "convexity",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

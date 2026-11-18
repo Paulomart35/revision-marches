@@ -1,0 +1,432 @@
+{
+  "chapitre": {
+    "id": "m5.reverse",
+    "module": 5,
+    "ordre": 4,
+    "titre": "Reverse convertible et worst-of",
+    "resume": "Un coupon garanti élevé contre un risque en capital, et des produits sur plusieurs sous-jacents où c'est le moins bon qui décide."
+  },
+  "elements": [
+    {
+      "id": "m5.reverse.reverse-convertible",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "tags": [
+        "reverse convertible",
+        "put vendu"
+      ],
+      "titre": "Le reverse convertible",
+      "une_phrase": "Un **reverse convertible** verse un **coupon fixe élevé, garanti**, mais rembourse le capital en fonction de l'indice (ou d'une action) s'il finit **sous une barrière** : le client a vendu un put.",
+      "trente_secondes": "Exemple : coupon de 8 % sur un an, barrière à 70 % observée à l'échéance.\n\n- L'indice finit **au-dessus de 70 %** de son niveau initial : le client reçoit **100 + 8 = 108**.\n- Il finit **sous 70 %**, par exemple à 60 % : il reçoit **60 + 8 = 68**. Il perd comme l'indice, amorti par le coupon.\n\nContrairement à l'autocall, le coupon est **versé dans tous les cas** : seul le capital est à risque.\n\nLe nom vient de la version sur action : sous la barrière, le client peut être remboursé **en actions** au lieu d'euros, d'où le terme « convertible inversé ».",
+      "analogie": "C'est être l'assureur de la Bourse : tu encaisses une prime fixe chaque année (le coupon), et tu paies les dégâts si une catastrophe se produit (la chute sous la barrière).",
+      "exemple_chiffre": [
+        "Exemple fictif. Reverse convertible 1 an sur l'Euro Stoxx 50, coupon 8 %, barrière 70 % à l'échéance.",
+        "Indice final 85 % : **108**.",
+        "Indice final 70 % : **108** (pile sur la barrière, le capital est remboursé).",
+        "Indice final 60 % : 60 + 8 = **68**.",
+        "Point mort par rapport à un placement sans risque à 2,5 % : le client fait mieux tant que l'indice ne passe pas sous la barrière."
+      ],
+      "formules": [
+        {
+          "titre": "Le remboursement d'un reverse convertible",
+          "latex": "R = c + \\begin{cases} 100 & \\text{si } S_T \\geq B \\\\ 100 \\times S_T & \\text{si } S_T < B \\end{cases}",
+          "legende": {
+            "R": "le montant reçu pour 100 investis",
+            "c": "le coupon garanti",
+            "S_T": "le niveau final, en % du niveau initial",
+            "B": "la barrière"
+          },
+          "en_francais": "Le coupon est toujours versé ; le capital est remboursé à 100 si l'indice finit au-dessus de la barrière, sinon au niveau de l'indice."
+        }
+      ],
+      "deux_minutes": "**La décomposition.** Zéro-coupon + coupon fixe − **put down-and-in vendu** (strike 100 %, barrière 70 %). La prime du put finance le coupon élevé.\n\n**Avec ou sans barrière.** Sans barrière, le client a vendu un put vanille : il perd dès que l'indice finit sous 100 %, mais le coupon est plus élevé. Avec une barrière, il est protégé jusqu'à 70 %, mais au-delà il perd tout depuis 100 %.\n\n**Ce qui fait le coupon** : volatilité élevée (put plus cher, coupon plus haut), taux élevés, dividendes élevés (put plus cher), barrière plus haute (plus de risque, plus de coupon), sous-jacent plus risqué.\n\n**Le piège commercial.** Un coupon de 15 % sur une action très volatile n'est pas une aubaine : c'est la mesure du risque. Plus le coupon est élevé, plus le marché juge probable une forte baisse.\n\n**Pour qui ?** Un investisseur qui pense que le sous-jacent ne s'effondrera pas, qui veut un rendement connu et accepte de perdre en capital dans le scénario de krach.",
+      "piege": "Présenter le coupon élevé comme un avantage sans contrepartie : c'est la rémunération d'un put vendu, donc d'un risque de perte importante.",
+      "a_dire_en_entretien": "« Le reverse convertible verse un coupon fixe élevé, garanti, mais si l'indice finit sous la barrière, le client perd comme l'indice, amorti par le coupon. C'est un zéro-coupon plus un coupon, moins un put à barrière vendu par le client. Le coupon est d'autant plus élevé que la volatilité est forte : un coupon très haut signale un risque élevé. »",
+      "liens": [
+        "m5.reverse.worst-of",
+        "m5.autocall.athena",
+        "m2.exotiques.barrieres"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.worst-of",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 3,
+      "tags": [
+        "worst-of",
+        "corrélation",
+        "panier"
+      ],
+      "titre": "Les produits worst-of",
+      "une_phrase": "Dans un **worst-of**, les conditions (coupon, rappel, barrière) portent sur **le moins bon** de plusieurs sous-jacents : le coupon est plus élevé, car il suffit qu'**un seul** chute pour déclencher la perte.",
+      "trente_secondes": "Un autocall sur trois actions (une banque, un constructeur automobile, un groupe de luxe), avec la règle : on regarde toujours **la plus mauvaise** des trois.\n\n- À une date d'observation, si les trois sont au-dessus de 100 %, le produit est rappelé.\n- Si l'une est à 95 %, même si les deux autres sont à 130 %, pas de rappel.\n- À l'échéance, si l'une est sous la barrière, le client perd comme **cette** action.\n\nLe client prend donc plus de risque qu'avec un seul sous-jacent : en échange, le coupon est nettement plus élevé.\n\nLe paramètre clé est la **corrélation** : plus les actions bougent ensemble, moins le risque supplémentaire est grand. Plus elles sont **indépendantes**, plus il est probable que l'une d'elles chute : plus le coupon proposé est élevé.",
+      "analogie": "Une cordée d'alpinistes : la cordée avance à la vitesse du plus lent, et si l'un tombe, tout le monde est tiré. Plus les grimpeurs sont différents, plus il y a de chances que l'un d'eux trébuche.",
+      "exemple_chiffre": [
+        "Exemple fictif. Autocall worst-of 3 ans sur trois actions A, B, C : coupon 11 % par an (contre 7 % sur l'indice seul), barrière 60 %.",
+        "Année 1 : A 120 %, B 108 %, C 97 %. Le moins bon est C à 97 % : pas de rappel.",
+        "Année 2 : A 125 %, B 110 %, C 102 %. Le moins bon est à 102 % : rappel, le client reçoit 100 + 2 × 11 = **122**.",
+        "Autre scénario : à l'échéance A 140 %, B 115 %, C 55 %. C est sous la barrière : le client reçoit **55**, malgré la hausse des deux autres."
+      ],
+      "formules": [
+        {
+          "titre": "La performance retenue",
+          "latex": "\\text{Perf}_{\\text{worst}} = \\min\\left(\\frac{S^{A}_{t}}{S^{A}_{0}},\\ \\frac{S^{B}_{t}}{S^{B}_{0}},\\ \\frac{S^{C}_{t}}{S^{C}_{0}}\\right)",
+          "legende": {
+            "S^{A}_{t}": "le cours de l'action A à la date d'observation",
+            "S^{A}_{0}": "son cours initial"
+          },
+          "en_francais": "À chaque date, on calcule la performance de chaque sous-jacent depuis le départ, et on ne retient que la plus faible."
+        }
+      ],
+      "deux_minutes": "**Le client est vendeur de corrélation.** Il gagne si les actions restent liées (elles montent ou baissent ensemble) et perd si l'une décroche seule. La banque, en face, est **acheteuse de corrélation** : c'est un risque qu'elle gère sur ses livres et qu'elle ne peut couvrir qu'imparfaitement.\n\n**Ce qui augmente le coupon** : plus de sous-jacents, des sous-jacents plus volatils, une corrélation plus faible entre eux, une barrière plus haute.\n\n**Le risque de concentration.** Une seule mauvaise nouvelle sur une seule entreprise (fraude, profit warning, procès) suffit à faire perdre le client, même si le marché va bien.\n\n**Pour qui ?** Un investisseur averti, qui comprend qu'il porte le risque du pire des sous-jacents, et qui accepte la perte dans ce scénario. Pour un client particulier, l'adéquation doit être vérifiée avec soin.\n\n**Variante : best-of.** Les conditions portent sur le meilleur : plus favorable au client, donc avec un coupon plus faible ou une participation moindre.",
+      "piege": "Croire que diversifier sur trois actions réduit le risque : dans un worst-of, c'est l'inverse, le risque augmente avec le nombre de sous-jacents. Et oublier que la corrélation basse augmente le coupon **parce qu'elle augmente le risque**.",
+      "a_dire_en_entretien": "« Dans un worst-of, toutes les conditions portent sur le moins bon des sous-jacents. Il suffit qu'un seul chute pour ne pas être rappelé ou pour perdre en capital, donc le coupon est plus élevé. Le paramètre clé est la corrélation : plus elle est faible, plus le risque est élevé et plus le coupon est haut. Le client est vendeur de corrélation : ce n'est pas une diversification, c'est un risque supplémentaire. »",
+      "liens": [
+        "m5.reverse.reverse-convertible",
+        "m5.autocall.athena",
+        "m5.conditions.parametres"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "recto": "Reverse convertible ?",
+      "verso": "Coupon fixe garanti ; capital remboursé selon l'indice s'il finit sous la barrière.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "recto": "Décomposition d'un reverse convertible ?",
+      "verso": "Zéro-coupon + coupon − put down-and-in vendu.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "recto": "Coupon très élevé : que signifie-t-il ?",
+      "verso": "Un sous-jacent très volatil, donc un risque de perte élevé.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "recto": "Worst-of ?",
+      "verso": "Conditions calculées sur le moins bon de plusieurs sous-jacents.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 3,
+      "recto": "Corrélation faible dans un worst-of ?",
+      "verso": "Plus de risque, coupon plus élevé.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 3,
+      "recto": "Client d'un worst-of : acheteur ou vendeur de corrélation ?",
+      "verso": "Vendeur.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'un reverse convertible et comment se décompose-t-il ?",
+      "reponse_modele": "C'est un produit qui verse un coupon fixe élevé, garanti, et qui rembourse le capital à 100 si le sous-jacent finit au-dessus d'une barrière, sinon au niveau du sous-jacent. Exemple : coupon 8 %, barrière 70 % : à 85 % le client reçoit 108, à 60 % il reçoit 68. Il se décompose en un zéro-coupon, plus le coupon, moins un put down-and-in vendu par le client : la prime de ce put finance le coupon élevé.",
+      "points_cles": [
+        "Coupon fixe garanti",
+        "Capital lié au sous-jacent sous la barrière",
+        "Exemple chiffré",
+        "Put down-and-in vendu"
+      ],
+      "piege": "Dire que le coupon dépend de l'indice.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 3,
+      "question": "Pourquoi un worst-of paie-t-il un coupon plus élevé qu'un produit sur un seul indice ? Quel est le rôle de la corrélation ?",
+      "reponse_modele": "Parce que toutes les conditions portent sur le moins bon sous-jacent : il suffit qu'un seul chute pour que le client ne soit pas rappelé ou perde en capital. La probabilité de perte est donc plus grande, et le coupon la rémunère. La corrélation mesure à quel point les sous-jacents bougent ensemble. Si elle est forte, ils se comportent presque comme un seul actif et le risque supplémentaire est faible. Si elle est faible, il est très probable qu'au moins l'un d'eux décroche : le risque est élevé et le coupon proposé aussi. Le client est vendeur de corrélation.",
+      "points_cles": [
+        "Le moins bon décide",
+        "Probabilité de perte plus élevée",
+        "Corrélation faible = risque élevé = coupon élevé",
+        "Client vendeur de corrélation"
+      ],
+      "piege": "Dire qu'une faible corrélation diversifie le risque du client.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.q03",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "question": "Un client voit un reverse convertible à 14 % de coupon sur une action et le trouve « génial ». Que lui dis-tu ?",
+      "reponse_modele": "Que le coupon élevé n'est pas un cadeau : il rémunère le put qu'il vend à la banque. Un coupon de 14 % signifie que le marché juge l'action très volatile, donc qu'une forte baisse est plausible. Je lui montre le scénario défavorable chiffré : si l'action finit à 50 %, il reçoit 50 + 14 = 64, soit une perte de 36 %. Je vérifie que ce risque correspond à son profil et je lui propose éventuellement une barrière plus basse ou un sous-jacent moins risqué, avec un coupon plus faible.",
+      "points_cles": [
+        "Coupon = rémunération du risque",
+        "Volatilité élevée",
+        "Scénario défavorable chiffré",
+        "Adéquation",
+        "Alternatives plus prudentes"
+      ],
+      "piege": "Valider l'enthousiasme du client sans montrer le scénario de perte.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "enonce": "Reverse convertible : coupon 8 %, barrière 70 %. L'indice finit à 62 %. Montant reçu pour 100 ?",
+      "reponse": 70,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "Sous la barrière : 62 + 8 = 70.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.z02",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "enonce": "Dans un reverse convertible, le coupon n'est versé que si l'indice finit au-dessus de la barrière.",
+      "vrai": false,
+      "explication": "Le coupon est garanti ; seul le remboursement du capital dépend de la barrière.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.z03",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "enonce": "Worst-of sur trois actions, à l'échéance : 130 %, 105 %, 58 %, barrière 60 %. Le client reçoit…",
+      "choix": [
+        "100",
+        "131 (la moyenne)",
+        "58",
+        "60"
+      ],
+      "bonne": 2,
+      "explication": "La moins bonne (58 %) est sous la barrière : il perd comme elle.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 3,
+      "enonce": "Dans un worst-of, une baisse de la corrélation entre les sous-jacents…",
+      "choix": [
+        "réduit le coupon proposé",
+        "augmente le coupon proposé",
+        "ne change rien",
+        "supprime le risque"
+      ],
+      "bonne": 1,
+      "explication": "Moins de corrélation, plus de chances qu'un sous-jacent décroche : plus de risque, donc plus de coupon.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.z05",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "enonce": "Ajouter des sous-jacents à un worst-of diversifie le risque du client.",
+      "vrai": false,
+      "explication": "C'est l'inverse : plus il y a de sous-jacents, plus il est probable que l'un d'eux chute.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.x01",
+      "type": "exercice",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 2,
+      "titre": "Reverse convertible : scénarios",
+      "enonce": "Exemple fictif. Reverse convertible 1 an, coupon 8 %, barrière 70 % observée à l'échéance. Calcule le montant reçu si l'indice finit à 85 %, 70 % et 60 %.",
+      "etapes": [
+        {
+          "titre": "Indice à 85 %",
+          "texte": "Au-dessus de la barrière : 100 + 8.",
+          "resultat": "108",
+          "verif": {
+            "fn": "structures.reverseConvertible",
+            "args": [
+              8,
+              70,
+              85
+            ],
+            "attendu": 108,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Indice à 70 %",
+          "texte": "Pile sur la barrière : le capital est remboursé.",
+          "resultat": "108",
+          "verif": {
+            "fn": "structures.reverseConvertible",
+            "args": [
+              8,
+              70,
+              70
+            ],
+            "attendu": 108,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Indice à 60 %",
+          "texte": "Sous la barrière : 60 + 8.",
+          "resultat": "68",
+          "verif": {
+            "fn": "structures.reverseConvertible",
+            "args": [
+              8,
+              70,
+              60
+            ],
+            "attendu": 68,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Entre 70 % et 69 %, le remboursement passe de 108 à 77 : c'est l'effet de seuil de la barrière. Le client gagne 8 % dans la plupart des scénarios, mais peut perdre beaucoup dans le scénario de krach."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier le coupon sous la barrière.",
+        "Ne rembourser que la part de la baisse au-delà de la barrière."
+      ],
+      "fiche": "m5.reverse.reverse-convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.l-reverse-convertible",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "terme": "Reverse convertible",
+      "definition": "Produit à coupon fixe garanti dont le capital dépend du sous-jacent sous une barrière.",
+      "fiche": "m5.reverse.reverse-convertible",
+      "anglais": "reverse convertible",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.l-worst-of",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "terme": "Worst-of",
+      "definition": "Produit dont les conditions portent sur le moins bon de plusieurs sous-jacents.",
+      "fiche": "m5.reverse.worst-of",
+      "anglais": "worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.l-best-of",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "terme": "Best-of",
+      "definition": "Produit dont les conditions portent sur le meilleur de plusieurs sous-jacents.",
+      "fiche": "m5.reverse.worst-of",
+      "anglais": "best-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.reverse.l-correlation",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.reverse",
+      "difficulte": 1,
+      "terme": "Corrélation",
+      "definition": "Mesure de la tendance de deux actifs à évoluer ensemble, de −1 à +1.",
+      "fiche": "m5.reverse.worst-of",
+      "anglais": "correlation",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

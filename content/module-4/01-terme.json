@@ -1,0 +1,598 @@
+{
+  "chapitre": {
+    "id": "m4.terme",
+    "module": 4,
+    "ordre": 1,
+    "titre": "Le change à terme",
+    "resume": "Comment une banque fabrique un cours à terme par arbitrage, ce que sont les points de terme, le report et le déport, et pourquoi le terme n'est pas une prévision."
+  },
+  "elements": [
+    {
+      "id": "m4.terme.fabrication",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "tags": [
+        "change à terme",
+        "arbitrage",
+        "parité des taux"
+      ],
+      "titre": "Fabriquer un cours à terme par arbitrage",
+      "une_phrase": "Le **cours à terme** est le cours de change fixé aujourd'hui pour un échange futur ; la banque le **fabrique** en empruntant une devise, en la changeant au comptant et en plaçant l'autre : il ne dépend que du **cours comptant** et de l'**écart de taux** entre les deux devises.",
+      "trente_secondes": "Un importateur doit payer 1 M$ dans un an. Il veut connaître dès aujourd'hui son coût en euros : il achète des dollars **à terme** auprès de sa banque.\n\nLa banque ne devine pas le cours futur. Elle se couvre tout de suite :\n\n1. Elle **emprunte des euros** aujourd'hui.\n2. Elle les **change en dollars au comptant**.\n3. Elle **place ces dollars** pendant un an, de façon à disposer d'1 M$ à l'échéance.\n4. Dans un an, elle livre le 1 M$ au client et reçoit ses euros, qui remboursent l'emprunt avec les intérêts.\n\nLe cours à terme est celui qui rend cette opération **sans gain ni perte**. C'est la **parité des taux d'intérêt couverte**.",
+      "analogie": "C'est comme un boulanger à qui on commande un gâteau pour dans un mois à prix fixé. Il ne parie pas sur le prix futur de la farine : il l'achète aujourd'hui, la stocke, et son prix intègre le coût du stockage. Le cours à terme intègre de la même façon le coût de « stocker » une devise plutôt qu'une autre.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.terme",
+        "legende": "Les quatre étapes de la fabrication, avec les montants, selon les taux que tu choisis."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. EUR/USD comptant 1,1200. Taux dollar 1 an 3,90 %, taux euro 2,70 %, 365 jours, base 360 pour les deux devises.",
+        "Facteur dollar : 1 + 3,90 % × 365/360 = 1,039542. Facteur euro : 1 + 2,70 % × 365/360 = 1,027375.",
+        "Cours à terme : 1,1200 × 1,039542 / 1,027375 = **1,1333**.",
+        "Un exportateur qui vend 1 M$ à terme recevra 1 000 000 / 1,1333 = **882 379 €**, contre 892 857 € au comptant. L'écart de 10 478 € n'est ni une marge ni une prévision : c'est le différentiel de taux d'environ 1,2 % sur un an."
+      ],
+      "formules": [
+        {
+          "titre": "Parité des taux d'intérêt couverte (EUR/USD)",
+          "latex": "F = S \\times \\frac{1 + r_{\\text{USD}} \\times \\frac{j}{360}}{1 + r_{\\text{EUR}} \\times \\frac{j}{360}}",
+          "legende": {
+            "F": "le cours à terme (dollars pour 1 euro)",
+            "S": "le cours comptant",
+            "r_{\\text{USD}}": "le taux du dollar sur la durée",
+            "r_{\\text{EUR}}": "le taux de l'euro sur la durée",
+            "j": "le nombre de jours jusqu'à l'échéance"
+          },
+          "en_francais": "Le cours à terme est le comptant ajusté du rapport entre ce que rapporte le dollar et ce que rapporte l'euro sur la durée. La devise du numérateur est celle de cotation (le dollar), celle du dénominateur la devise de base (l'euro)."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est forcément ce cours.** Si la banque cotait un terme plus haut, on pourrait emprunter des dollars, les changer en euros, les placer et revendre les euros à terme à ce cours trop haut : gain sans risque. Les arbitragistes le feraient jusqu'à ce que l'écart disparaisse. C'est pourquoi on parle de parité **couverte** : le risque de change est couvert à chaque étape.\n\n**La règle à retenir.** La devise qui a le **taux le plus élevé** vaut **moins à terme** qu'au comptant (elle est en **déport**) ; celle qui a le taux le plus bas vaut **plus à terme** (elle est en **report**). Sinon, on gagnerait sans risque à placer dans la devise à taux haut tout en se couvrant à terme.\n\n**En pratique**, la banque n'emprunte pas réellement pour chaque client : elle utilise un **swap de change** sur le marché interbancaire et gère une position globale. Mais le prix obtenu est le même.\n\n**Une petite exception.** Depuis 2008, la parité n'est pas parfaitement respectée sur le marché : un écart appelé **base de swap de change** (*cross-currency basis*) reflète la forte demande de dollars. Il reste faible devant l'écart de taux.",
+      "piege": "Dire que le cours à terme est la prévision du cours futur par la banque. Il est fabriqué par arbitrage, à partir des taux. Autre piège : inverser les taux dans la formule. Pour EUR/USD, le taux dollar est en haut.",
+      "a_dire_en_entretien": "« Le cours à terme n'est pas une prévision : la banque le fabrique. Pour livrer des dollars dans un an, elle emprunte des euros, les change au comptant et place les dollars. Le terme est le cours qui rend l'opération neutre : le comptant multiplié par le rapport des taux. La devise au taux le plus haut est moins chère à terme. Avec l'euro sous le dollar en taux, l'euro est en report. »",
+      "liens": [
+        "m4.terme.points",
+        "m4.terme.prevision",
+        "m3.courbe.forward",
+        "m1.change.exportateur"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.points",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "tags": [
+        "points de terme",
+        "report",
+        "déport"
+      ],
+      "titre": "Points de terme, report et déport",
+      "une_phrase": "Les **points de terme** sont l'écart entre le cours à terme et le comptant, en pips ; une devise est en **report** quand elle vaut plus à terme qu'au comptant, en **déport** quand elle vaut moins.",
+      "trente_secondes": "Sur les écrans, la banque ne cote pas directement le terme : elle cote le **comptant** et les **points de terme**.\n\nTerme = comptant + points (÷ 10 000 pour EUR/USD).\n\n- Points **positifs** : la devise de base (l'euro dans EUR/USD) vaut plus à terme : elle est en **report** (*premium*).\n- Points **négatifs** : elle est en **déport** (*discount*).\n\nPour EUR/USD, l'euro est en report quand le **taux euro est inférieur au taux dollar**.\n\nLes points grandissent avec la **durée** et l'**écart de taux**.",
+      "analogie": "Les points de terme, c'est la différence entre le prix d'un billet d'avion payé aujourd'hui pour un vol immédiat et pour un vol dans un an : une correction connue d'avance, calculée, pas devinée.",
+      "exemple_chiffre": [
+        "Exemple fictif. Comptant 1,1200, terme 1 an 1,1333 : points de terme = (1,1333 − 1,1200) × 10 000 = **+133 pips**. L'euro est en report.",
+        "Pour un **importateur** qui achète des dollars à terme : chaque euro lui donne 1,1333 $ au lieu de 1,1200 $. Le report est en sa **faveur**.",
+        "Pour un **exportateur** qui vend des dollars à terme : il lui faut 1,1333 $ pour obtenir 1 €. Le report joue **contre** lui.",
+        "Si le taux euro dépassait le taux dollar (par exemple 4 % contre 2 %), les points seraient négatifs : l'euro serait en déport, et ce serait l'inverse."
+      ],
+      "formules": [
+        {
+          "titre": "Les points de terme (approximation)",
+          "latex": "F - S \\approx S \\times (r_{\\text{USD}} - r_{\\text{EUR}}) \\times \\frac{j}{360}",
+          "legende": {
+            "F - S": "les points de terme, en valeur de cours",
+            "S": "le cours comptant",
+            "r_{\\text{USD}} - r_{\\text{EUR}}": "l'écart de taux entre le dollar et l'euro",
+            "j": "le nombre de jours"
+          },
+          "en_francais": "Les points de terme sont à peu près le comptant multiplié par l'écart de taux et par la durée."
+        }
+      ],
+      "deux_minutes": "**Lire une cotation.** Une banque affiche par exemple 1 an : 132,5 / 134,0. Le premier chiffre s'applique quand elle achète la devise de base à terme, le second quand elle la vend ; on les ajoute au comptant acheteur et vendeur. La fourchette sur les points s'ajoute à celle du comptant.\n\n**Le vocabulaire en français et en anglais.** Report = *premium* ; déport = *discount*. On dit aussi qu'une devise « cote en report ».\n\n**Les points et la politique monétaire.** Quand la BCE et la Fed bougent leurs taux à des rythmes différents, l'écart de taux change, et donc les points de terme. En 2023-2024, avec un taux dollar bien au-dessus du taux euro, l'euro était nettement en report contre le dollar : bon pour les importateurs de la zone euro, défavorable aux exportateurs qui se couvraient.\n\n**Les points ne sont pas un coût caché de la banque** : ils sont calculés à partir des taux de marché. La marge de la banque est dans la fourchette.",
+      "piege": "Dire qu'un exportateur « paie » des points de terme à la banque. Il subit un différentiel de taux, qui peut aussi jouer en sa faveur selon les taux. Et ne pas confondre le sens : pour EUR/USD, points positifs = euro en report.",
+      "a_dire_en_entretien": "« Les points de terme, c'est l'écart entre le terme et le comptant. Ils viennent du différentiel de taux : avec un taux euro plus bas que le taux dollar, l'euro est en report, il vaut plus de dollars à terme. C'est favorable à l'importateur qui achète des dollars à terme, défavorable à l'exportateur qui les vend. Ce n'est ni une prévision ni une marge. »",
+      "liens": [
+        "m4.terme.fabrication",
+        "m4.terme.prevision",
+        "m4.couvertures.terme-option"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.prevision",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "tags": [
+        "change à terme",
+        "prévision",
+        "parité non couverte"
+      ],
+      "titre": "Pourquoi le terme n'est pas une prévision",
+      "une_phrase": "Le cours à terme reflète l'**écart de taux**, pas une opinion sur l'avenir ; dans les faits, le cours futur s'en écarte souvent beaucoup, et pas dans un sens prévisible.",
+      "trente_secondes": "Un client dit : « La banque pense que l'euro va monter à 1,1333 dans un an, puisque c'est son cours à terme. » C'est faux.\n\nLe terme est un **prix d'arbitrage**, calculé à partir de deux taux. Il serait le même quelle que soit l'opinion de la banque.\n\nIl existe une théorie selon laquelle la devise à taux élevé devrait se déprécier d'autant (la **parité des taux non couverte**). Dans les données, elle marche mal à court et moyen terme : les devises à taux élevé ont souvent eu tendance à **ne pas** se déprécier autant, voire à monter. C'est ce qui rend le *carry trade* rentable, jusqu'au jour où il ne l'est plus.\n\nPour un client, la bonne question n'est pas « quel sera le cours ? » mais « **quel cours me permet de tenir mon budget ?** ».",
+      "analogie": "Le prix d'un parapluie réservé six mois à l'avance dépend du prix du parapluie aujourd'hui et du coût de stockage, pas de la météo prévue dans six mois.",
+      "exemple_chiffre": [
+        "Exemple fictif. Comptant 1,12, terme 1 an 1,1333.",
+        "Un an plus tard, l'EUR/USD peut valoir 1,05 comme 1,20 : le terme ne disait rien de cela.",
+        "Exportateur couvert à 1,1333 : il reçoit 882 379 € pour 1 M$, quel que soit le cours final.",
+        "Sans couverture, il aurait reçu 952 381 € à 1,05 ou 833 333 € à 1,20 : un écart de près de 120 000 € sur un seul flux. La couverture sert à supprimer cet écart, pas à battre le marché."
+      ],
+      "deux_minutes": "**Couverte contre non couverte.**\n\n- Parité **couverte** : le terme est fixé par l'arbitrage. Elle est vérifiée en permanence (à la base de swap près).\n- Parité **non couverte** : l'idée que le comptant futur sera, en moyenne, égal au terme. Elle n'est pas vérifiée de façon fiable à court terme.\n\n**Ce qui fait vraiment bouger le change** : les surprises de politique monétaire, la croissance relative, l'aversion au risque, les flux commerciaux et financiers. C'est l'objet du module 1.\n\n**Le discours au client.** Ne jamais présenter une couverture comme un pari gagnant. Les bons mots : **sécuriser une marge**, **donner de la visibilité**, **tenir un cours budgétaire**. Une entreprise fixe en général un cours budgétaire en début d'année ; la couverture sert à le garantir.\n\n**Après coup**, une couverture paraîtra souvent « perdante » (si le marché est allé dans le bon sens pour le client). C'est normal : c'est le prix d'une assurance dont on n'a finalement pas eu besoin.",
+      "piege": "Juger une couverture après coup (« j'aurais gagné plus sans »). Une couverture se juge à sa capacité à protéger le budget, pas au résultat comparé au marché.",
+      "a_dire_en_entretien": "« Le terme n'est pas une prévision : c'est le comptant ajusté du différentiel de taux, fixé par l'arbitrage. Dans les faits, le cours futur s'en écarte souvent beaucoup. Avec un client, je ne parle pas de deviner le cours : je l'aide à sécuriser son cours budgétaire. Une couverture se juge à la visibilité qu'elle donne, pas au résultat comparé après coup. »",
+      "liens": [
+        "m4.terme.fabrication",
+        "m4.swap-carry.carry",
+        "m1.forces.ecart-taux"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c01",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "recto": "Cours à terme ?",
+      "verso": "Cours fixé aujourd'hui pour un échange de devises futur, fabriqué par arbitrage.",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c02",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "recto": "Formule du terme EUR/USD ?",
+      "verso": "F = S × (1 + r$ × j/360) / (1 + r€ × j/360).",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c03",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "recto": "Les trois étapes de fabrication ?",
+      "verso": "Emprunter une devise, la changer au comptant, placer l'autre.",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c04",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "recto": "Devise au taux le plus haut : report ou déport ?",
+      "verso": "Déport : elle vaut moins à terme.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c05",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "recto": "Points de terme ?",
+      "verso": "Terme − comptant, en pips.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c06",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "recto": "Euro en report : qui est avantagé ?",
+      "verso": "L'importateur qui achète des dollars à terme.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c07",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "recto": "Le terme est-il une prévision ?",
+      "verso": "Non : il ne reflète que l'écart de taux.",
+      "fiche": "m4.terme.prevision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c08",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 3,
+      "recto": "Parité couverte et non couverte ?",
+      "verso": "Couverte : terme fixé par arbitrage (vérifiée). Non couverte : comptant futur = terme en moyenne (peu vérifiée).",
+      "fiche": "m4.terme.prevision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.c09",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "recto": "Comment juger une couverture de change ?",
+      "verso": "À sa capacité à protéger le budget, pas au résultat comparé après coup.",
+      "fiche": "m4.terme.prevision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.q01",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "question": "Comment une banque calcule-t-elle un cours à terme EUR/USD ?",
+      "reponse_modele": "Par arbitrage, pas par prévision. Pour livrer des dollars à terme à un client, la banque emprunte des euros, les change en dollars au comptant et place ces dollars jusqu'à l'échéance. Le cours à terme est celui qui rend l'opération neutre : comptant × (1 + taux dollar × durée) / (1 + taux euro × durée). Avec un comptant à 1,12, un taux dollar à 3,90 % et un taux euro à 2,70 % sur un an, on obtient 1,1333. L'euro, qui a le taux le plus bas, vaut plus à terme : il est en report.",
+      "points_cles": [
+        "Emprunter, changer, placer",
+        "Formule de parité couverte",
+        "Exemple chiffré",
+        "Taux bas = report",
+        "Pas une prévision"
+      ],
+      "piege": "Dire que la banque anticipe que l'euro va monter.",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.q02",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "question": "Qu'est-ce que le report et le déport ? Qui en profite aujourd'hui entre un exportateur et un importateur de la zone euro ?",
+      "reponse_modele": "Une devise est en report quand elle vaut plus à terme qu'au comptant, en déport quand elle vaut moins. Cela vient de l'écart de taux : la devise au taux le plus bas est en report. Quand le taux euro est inférieur au taux dollar, l'euro est en report contre le dollar : chaque euro donne plus de dollars à terme. L'importateur, qui achète des dollars à terme, en profite ; l'exportateur, qui vend ses dollars à terme, obtient moins d'euros qu'au comptant. Mi-novembre 2026, le taux de dépôt de la BCE à 2,50 % reste sous la fourchette de la Fed, à 3,75 % – 4,00 % : l'euro est donc en report.",
+      "points_cles": [
+        "Report : vaut plus à terme",
+        "Vient de l'écart de taux",
+        "Taux euro < taux dollar : euro en report",
+        "Importateur avantagé, exportateur pénalisé",
+        "Taux directeurs datés"
+      ],
+      "piege": "Inverser importateur et exportateur.",
+      "chiffres": [
+        {
+          "libelle": "Taux de la facilité de dépôt de la BCE",
+          "valeur": "2,50 %",
+          "date": "2026-11-18",
+          "source": "BCE",
+          "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html"
+        },
+        {
+          "libelle": "Fourchette cible des Fed funds",
+          "valeur": "3,75 % – 4,00 %",
+          "date": "2026-11-18",
+          "source": "Réserve fédérale",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BCE, taux d'intérêt directeurs",
+          "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.fr.html",
+          "date": "2026-11-18"
+        },
+        {
+          "titre": "Réserve fédérale, communiqué du FOMC",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+          "date": "2026-10-28"
+        }
+      ],
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.q03",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "question": "Un client te dit : « Votre cours à terme est à 1,1333, donc vous pensez que l'euro va monter. » Que réponds-tu ?",
+      "reponse_modele": "Je lui explique que le terme ne reflète aucune opinion. Il est fabriqué par arbitrage : nous empruntons une devise, la changeons au comptant et plaçons l'autre jusqu'à l'échéance. Le terme est le comptant ajusté de l'écart de taux entre l'euro et le dollar, rien de plus. Dans un an, le cours peut être bien au-dessus ou bien en dessous. L'intérêt du terme pour lui, c'est de connaître dès aujourd'hui son cours et de sécuriser son budget.",
+      "points_cles": [
+        "Pas une opinion",
+        "Fabrication par arbitrage",
+        "Écart de taux",
+        "Sécuriser le budget"
+      ],
+      "piege": "Valider l'idée que la banque prévoit le cours.",
+      "fiche": "m4.terme.prevision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "enonce": "EUR/USD comptant 1,1200, taux USD 3,90 %, taux EUR 2,70 %, 365 jours, base 360. Cours à terme (4 décimales) ?",
+      "reponse": 1.1333,
+      "tolerance": 0.0001,
+      "unite": "",
+      "explication": "1,12 × (1 + 3,90 % × 365/360) / (1 + 2,70 % × 365/360) = 1,1333.",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "enonce": "Le taux euro est inférieur au taux dollar. L'euro est, contre le dollar…",
+      "choix": [
+        "en déport",
+        "en report",
+        "au pair",
+        "cela dépend de la volatilité"
+      ],
+      "bonne": 1,
+      "explication": "La devise au taux le plus bas vaut plus à terme : elle est en report.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "enonce": "Le cours à terme est la prévision de la banque pour le cours futur.",
+      "vrai": false,
+      "explication": "C'est un prix d'arbitrage, déterminé par le comptant et l'écart de taux.",
+      "fiche": "m4.terme.prevision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "enonce": "Comptant 1,0950, terme 6 mois 1,1020. Points de terme, en pips ?",
+      "reponse": 70,
+      "tolerance": 0.5,
+      "unite": "pips",
+      "explication": "(1,1020 − 1,0950) × 10 000 = 70 pips, euro en report.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "enonce": "L'euro est en report contre le dollar. Pour qui le terme est-il plus favorable que le comptant ?",
+      "choix": [
+        "L'exportateur qui vend des dollars",
+        "L'importateur qui achète des dollars",
+        "Les deux",
+        "Aucun des deux"
+      ],
+      "bonne": 1,
+      "explication": "Chaque euro donne plus de dollars à terme : bon pour celui qui achète des dollars.",
+      "fiche": "m4.terme.points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.z06",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "enonce": "Remets dans l'ordre la fabrication d'une vente de dollars à terme à un importateur.",
+      "etapes": [
+        "Emprunter des euros aujourd'hui",
+        "Changer ces euros en dollars au comptant",
+        "Placer les dollars jusqu'à l'échéance",
+        "Livrer les dollars au client à l'échéance",
+        "Rembourser l'emprunt en euros avec ce que paie le client"
+      ],
+      "explication": "Le cours à terme est celui qui rend ces opérations sans gain ni perte.",
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.x01",
+      "type": "exercice",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 2,
+      "titre": "Cours à terme EUR/USD pour un exportateur",
+      "enonce": "Exemple fictif. EUR/USD comptant 1,1200. Taux USD 1 an 3,90 %, taux EUR 2,70 %, 365 jours, base 360. Un exportateur encaissera 1 000 000 USD dans un an. Calcule le cours à terme, les points de terme, les euros reçus à terme, et compare au comptant.",
+      "etapes": [
+        {
+          "titre": "Les facteurs de capitalisation",
+          "texte": "Dollar : 1 + 0,039 × 365/360 = 1,039542. Euro : 1 + 0,027 × 365/360 = 1,027375."
+        },
+        {
+          "titre": "Le cours à terme",
+          "texte": "1,1200 × 1,039542 / 1,027375.",
+          "formule": {
+            "latex": "F = 1{,}1200 \\times \\frac{1{,}039542}{1{,}027375}",
+            "legende": {
+              "1{,}039542": "1 + taux dollar × 365/360",
+              "1{,}027375": "1 + taux euro × 365/360"
+            },
+            "en_francais": "Le comptant multiplié par le rapport des facteurs de taux."
+          },
+          "resultat": "1,1333",
+          "verif": {
+            "fn": "fx.coursTerme",
+            "args": [
+              1.12,
+              3.9,
+              2.7,
+              365
+            ],
+            "attendu": 1.13326,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "titre": "Les points de terme",
+          "texte": "(1,13326 − 1,1200) × 10 000.",
+          "resultat": "+133 pips : l'euro est en report",
+          "verif": {
+            "fn": "fx.pointsTerme",
+            "args": [
+              1.12,
+              1.13326
+            ],
+            "attendu": 132.6,
+            "tolerance": 0.1
+          }
+        },
+        {
+          "titre": "Les euros reçus",
+          "texte": "À terme : 1 000 000 / 1,1333 = 882 379 €. Au comptant d'aujourd'hui : 1 000 000 / 1,12 = 892 857 €.",
+          "resultat": "882 379 € à terme",
+          "verif": {
+            "fn": "fx.usdVersEur",
+            "args": [
+              1000000,
+              1.1333
+            ],
+            "attendu": 882379,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le terme « coûte » 10 478 € à l'exportateur par rapport au comptant du jour : c'est le différentiel de taux (environ 1,2 % sur un an), pas une marge ni une prévision. En échange, il connaît son montant en euros dès aujourd'hui."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Mettre le taux euro au numérateur.",
+        "Multiplier des dollars par le cours au lieu de les diviser pour obtenir des euros.",
+        "Présenter les 10 478 € comme une commission de la banque."
+      ],
+      "fiche": "m4.terme.fabrication",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-change-a-terme",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Change à terme",
+      "definition": "Achat ou vente de devises à un cours fixé aujourd'hui, pour une livraison future.",
+      "fiche": "m4.terme.fabrication",
+      "anglais": "FX forward",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-parite-des-taux-couverte",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Parité des taux couverte",
+      "definition": "Relation d'arbitrage qui fixe le cours à terme à partir du comptant et de l'écart de taux.",
+      "fiche": "m4.terme.fabrication",
+      "anglais": "covered interest rate parity",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-points-de-terme",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Points de terme",
+      "definition": "Écart entre le cours à terme et le cours comptant, en pips.",
+      "fiche": "m4.terme.points",
+      "anglais": "forward points",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-report",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Report",
+      "definition": "Situation d'une devise qui vaut plus à terme qu'au comptant.",
+      "fiche": "m4.terme.points",
+      "anglais": "forward premium",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-deport",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Déport",
+      "definition": "Situation d'une devise qui vaut moins à terme qu'au comptant.",
+      "fiche": "m4.terme.points",
+      "anglais": "forward discount",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.terme.l-cours-budgetaire",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.terme",
+      "difficulte": 1,
+      "terme": "Cours budgétaire",
+      "definition": "Cours de change retenu par une entreprise pour construire son budget.",
+      "fiche": "m4.terme.prevision",
+      "anglais": "budget rate",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

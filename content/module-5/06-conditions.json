@@ -1,0 +1,515 @@
+{
+  "chapitre": {
+    "id": "m5.conditions",
+    "module": 5,
+    "ordre": 6,
+    "titre": "Ce qui fait varier les conditions",
+    "resume": "Taux, volatilité, dividendes, corrélation, spread de l'émetteur : comment chaque paramètre change le coupon ou la participation, et le comparatif des produits."
+  },
+  "elements": [
+    {
+      "id": "m5.conditions.parametres",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 3,
+      "tags": [
+        "structuration",
+        "volatilité",
+        "taux",
+        "dividendes",
+        "corrélation"
+      ],
+      "titre": "Les cinq paramètres qui font les conditions",
+      "une_phrase": "Les conditions d'un structuré dépendent de cinq paramètres de marché : les **taux**, la **volatilité**, les **dividendes**, la **corrélation** et le **spread de crédit de l'émetteur** ; leur effet dépend de ce que le client **achète** ou **vend**.",
+      "trente_secondes": "La règle pour s'y retrouver : regarder si le client **achète** ou **vend** des options.\n\n- **Capital garanti** : le client **achète** un call. Tout ce qui rend le call cher réduit la participation.\n- **Autocall, Phoenix, reverse convertible** : le client **vend** un put. Tout ce qui rend le put cher augmente le coupon.\n\nEnsuite :\n\n- **Taux** en hausse : le zéro-coupon coûte moins, il reste plus de budget. Bon pour les deux familles.\n- **Volatilité** en hausse : le call acheté coûte plus (participation ↓), le put vendu rapporte plus (coupon ↑).\n- **Dividendes** en hausse : l'indice (hors dividendes) monte moins vite à terme ; le call coûte moins (participation ↑) et le put coûte plus (coupon ↑).\n- **Spread de l'émetteur** en hausse : le zéro-coupon de l'émetteur coûte moins, meilleures conditions, mais plus de risque.\n- **Corrélation** (worst-of) en baisse : plus de risque, coupon ↑.",
+      "analogie": "Une recette de cuisine avec cinq ingrédients au prix variable : selon que tu vends ou que tu achètes chaque ingrédient, la hausse de son prix t'enrichit ou t'appauvrit.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Si ce paramètre augmente…",
+          "Capital garanti (participation)",
+          "Autocall, Phoenix (coupon)"
+        ],
+        "lignes": [
+          [
+            "Taux d'intérêt",
+            "↑ (zéro-coupon moins cher)",
+            "↑"
+          ],
+          [
+            "Volatilité",
+            "↓ (le call acheté coûte plus)",
+            "↑ (le put vendu rapporte plus)"
+          ],
+          [
+            "Dividendes de l'indice",
+            "↑ (call moins cher)",
+            "↑ (put plus cher)"
+          ],
+          [
+            "Spread de crédit de l'émetteur",
+            "↑ (mais plus de risque)",
+            "↑ (mais plus de risque)"
+          ],
+          [
+            "Corrélation (worst-of)",
+            "—",
+            "↓ (moins de risque, donc moins de coupon)"
+          ]
+        ],
+        "legende": "L'effet de chaque paramètre selon la famille de produit."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. La volatilité de l'Euro Stoxx 50 passe de 15 % à 25 % après un choc de marché.",
+        "Capital garanti 5 ans : le call à la monnaie passe d'environ 16 à plus de 25 pour 100 de nominal ; à budget égal, la participation tombe d'environ 73 % à moins de 50 %.",
+        "Autocall : le put à barrière vendu vaut plus cher ; le coupon proposé passe par exemple de 6 % à 9 % par an.",
+        "D'où la phrase à retenir : en marché agité, les autocalls proposent de beaux coupons, et les capitaux garantis de faibles participations."
+      ],
+      "deux_minutes": "**Pourquoi les dividendes jouent ainsi.** Les produits sont presque toujours indexés sur un indice **hors dividendes** (indice de prix). Quand une entreprise verse un dividende, le cours de son action baisse d'autant. Des dividendes élevés font donc baisser le niveau futur attendu de l'indice : le call vaut moins, le put vaut plus. Certains produits utilisent des indices à **dividende forfaitaire** (*decrement*), qui retranchent un dividende fixe : le put est encore plus cher, le coupon plus élevé, mais le risque aussi.\n\n**Le spread de l'émetteur.** Une banque dont le crédit est moins bon se finance plus cher : elle « rémunère » davantage l'argent du client. Le produit paraît meilleur, mais le client prend plus de risque de crédit. Comparer deux offres d'émetteurs différents, c'est aussi comparer leurs risques.\n\n**Le moment du lancement.** Un capital garanti se lance de préférence avec des taux hauts et une volatilité faible ; un autocall, avec une volatilité élevée. Le sales suit ces paramètres pour proposer le bon produit au bon moment.\n\n**Pour la banque,** chaque produit vendu laisse un risque à gérer : vega, corrélation, dividendes. Les desks qui vendent beaucoup d'autocalls se retrouvent **acheteurs de volatilité** et **de dividendes** en face de leurs clients.",
+      "piege": "Dire que la volatilité est « bonne » ou « mauvaise » en général : elle améliore le coupon d'un autocall et réduit la participation d'un capital garanti. Tout dépend de qui achète l'option.",
+      "a_dire_en_entretien": "« Les conditions dépendent des taux, de la volatilité, des dividendes, de la corrélation et du spread de l'émetteur. La clé, c'est de savoir si le client achète ou vend des options. L'acheteur d'un capital garanti est acheteur de volatilité ; l'acheteur d'un autocall en est vendeur. C'est pour ça qu'en marché agité, les autocalls proposent de beaux coupons, et qu'un capital garanti se lance plutôt avec des taux hauts et une volatilité faible. »",
+      "liens": [
+        "m5.conditions.comparatif",
+        "m5.garanti.capital-garanti",
+        "m5.autocall.athena",
+        "m5.reverse.worst-of"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.comparatif",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "tags": [
+        "comparatif",
+        "produits structurés"
+      ],
+      "titre": "Le comparatif des produits structurés",
+      "une_phrase": "Chaque produit répond à un **besoin** et à une **vue de marché** : capital garanti pour ne rien perdre, autocall pour un marché stable ou haussier, Phoenix pour des revenus réguliers, reverse convertible pour un coupon certain, range accrual pour des taux stables.",
+      "trente_secondes": "Avant de choisir un produit, on pose trois questions au client :\n\n1. **Accepte-t-il de perdre une partie de son capital ?** Si non : capital garanti ou range accrual à capital garanti.\n2. **A-t-il besoin de revenus réguliers ?** Si oui : Phoenix, reverse convertible.\n3. **Quelle est sa vue de marché ?** Forte hausse attendue : capital garanti (participation). Stabilité ou légère hausse : autocall, Phoenix. Taux stables : range accrual.\n\nEnsuite on vérifie l'**horizon** (le client peut-il immobiliser son argent 5 à 8 ans ?) et le **risque de crédit** de l'émetteur qu'il accepte.",
+      "analogie": "Choisir un véhicule : une berline sûre pour la famille (capital garanti), une voiture de sport pour qui aime la vitesse et accepte les risques (worst-of), un utilitaire pour qui veut des revenus réguliers (Phoenix). Il n'y a pas de meilleur véhicule, seulement un véhicule adapté.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Produit",
+          "Capital",
+          "Rendement",
+          "Scénario idéal",
+          "Risque principal"
+        ],
+        "lignes": [
+          [
+            "Capital garanti",
+            "100 % à l'échéance",
+            "Part de la hausse",
+            "Forte hausse",
+            "Rendement nul ; émetteur"
+          ],
+          [
+            "Autocall (Athena)",
+            "Protégé jusqu'à la barrière",
+            "Coupon au rappel",
+            "Stabilité ou hausse",
+            "Forte baisse"
+          ],
+          [
+            "Phoenix",
+            "Protégé jusqu'à la barrière",
+            "Coupon régulier conditionnel",
+            "Marché stable",
+            "Forte baisse"
+          ],
+          [
+            "Reverse convertible",
+            "Protégé jusqu'à la barrière",
+            "Coupon fixe garanti",
+            "Pas de chute forte",
+            "Chute sous la barrière"
+          ],
+          [
+            "Worst-of",
+            "Protégé jusqu'à la barrière",
+            "Coupon élevé",
+            "Sous-jacents stables et liés",
+            "Chute d'un seul sous-jacent"
+          ],
+          [
+            "Range accrual",
+            "Souvent garanti",
+            "Coupon au prorata des jours",
+            "Taux stables",
+            "Taux hors fourchette"
+          ],
+          [
+            "Credit-linked note",
+            "Lié au crédit d'un tiers",
+            "Coupon majoré du spread",
+            "Pas de défaut",
+            "Défaut de l'entité de référence"
+          ]
+        ],
+        "legende": "Le comparatif à connaître par cœur."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Trois clients, une même enveloppe de 1 M€ sur 5 ans.",
+        "Une association qui ne peut pas perdre de capital et pense que les marchés monteront : **capital garanti**, participation selon les taux du moment.",
+        "Un client privé qui vit de ses revenus et pense que le marché restera stable : **Phoenix à mémoire**, coupon régulier, barrière de capital à 60 %.",
+        "Une trésorerie d'entreprise qui pense que la BCE ne bougera plus ses taux : **range accrual** à capital garanti sur l'Euribor."
+      ],
+      "deux_minutes": "**Ce que le sales doit toujours faire.**\n\n- Montrer les **trois scénarios** chiffrés : favorable, neutre, défavorable.\n- Rappeler le **risque de crédit de l'émetteur** et la **liquidité** (sortie au prix de marché avant l'échéance).\n- Remettre le **DIC** au client particulier et vérifier l'**adéquation** (MiFID II) : connaissance, expérience, objectifs, capacité à supporter des pertes.\n- Respecter le **marché cible** défini par l'émetteur (gouvernance produit).\n\n**Les mots justes.** « Protégé jusqu'à −40 % » et non « garanti » pour un autocall. « Coupon conditionnel » et non « rendement de 8 % ». « Garanti à l'échéance, par l'émetteur » pour un capital garanti.\n\n**Le marché français.** Les produits structurés sont très distribués en France, notamment dans l'assurance-vie en unités de compte, ce qui a conduit l'AMF à publier des recommandations sur leur complexité et leur commercialisation.",
+      "piege": "Recommander un produit à partir de sa performance attendue plutôt qu'à partir du besoin et de la tolérance au risque du client. Et employer le mot « garanti » pour un produit à barrière.",
+      "a_dire_en_entretien": "« Je choisis un structuré à partir du client, pas du produit : peut-il perdre du capital, a-t-il besoin de revenus, quelle est sa vue de marché et son horizon ? Capital garanti pour ne rien perdre et viser la hausse, autocall pour un marché stable ou haussier, Phoenix pour des revenus réguliers, range accrual pour une trésorerie qui parie sur des taux stables. Et je montre toujours le scénario défavorable et le risque de l'émetteur. »",
+      "liens": [
+        "m5.conditions.parametres",
+        "m5.bases.cycle",
+        "m5.autocall.phoenix",
+        "m5.autres.range-accrual"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "recto": "Capital garanti : client acheteur ou vendeur de volatilité ?",
+      "verso": "Acheteur.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "recto": "Autocall : client acheteur ou vendeur de volatilité ?",
+      "verso": "Vendeur.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "recto": "Effet de taux plus hauts sur les structurés ?",
+      "verso": "Zéro-coupon moins cher : meilleures conditions.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 3,
+      "recto": "Effet de dividendes plus élevés ?",
+      "verso": "Call moins cher, put plus cher : participation ↑ et coupon d'autocall ↑.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "recto": "Spread de l'émetteur plus large ?",
+      "verso": "Meilleures conditions, mais plus de risque de crédit.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "recto": "Trois questions avant de choisir un structuré ?",
+      "verso": "Perte de capital acceptée ? Besoin de revenus ? Vue de marché ?",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.c07",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "recto": "Produit pour une trésorerie qui parie sur des taux stables ?",
+      "verso": "Range accrual.",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 3,
+      "question": "La volatilité monte fortement sur les marchés actions. Quel effet sur les conditions d'un capital garanti et d'un autocall ?",
+      "reponse_modele": "Effets opposés. Dans un capital garanti, le client achète un call : quand la volatilité monte, le call coûte plus cher et, à budget égal, la participation baisse. Dans un autocall, le client vend un put à barrière : quand la volatilité monte, ce put vaut plus cher, et sa prime finance un coupon plus élevé. D'où la phrase : l'acheteur d'un capital garanti est acheteur de volatilité, l'acheteur d'un autocall en est vendeur. En marché agité, les autocalls offrent de beaux coupons, mais le risque de franchir la barrière est aussi plus grand.",
+      "points_cles": [
+        "Capital garanti : achète un call → participation ↓",
+        "Autocall : vend un put → coupon ↑",
+        "Acheteur contre vendeur de volatilité",
+        "Coupon plus haut = risque plus haut"
+      ],
+      "piege": "Dire que la volatilité améliore tous les produits.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "question": "La BCE monte ses taux par surprise. Qu'est-ce que ça change pour les produits structurés que tu proposes ?",
+      "reponse_modele": "Des taux plus hauts rendent le zéro-coupon moins cher : il reste plus de budget pour les options. Les capitaux garantis offrent une meilleure participation, et les autocalls un coupon un peu plus élevé. C'est un bon moment pour proposer du capital garanti aux clients prudents. En revanche, les structurés déjà en portefeuille perdent un peu de valeur de marché, comme toute obligation. Et pour une trésorerie d'entreprise, un dépôt à terme devient aussi plus attractif : il faut comparer.",
+      "points_cles": [
+        "Zéro-coupon moins cher",
+        "Participation et coupons ↑",
+        "Moment propice au capital garanti",
+        "Baisse de valeur des produits existants",
+        "Comparer au dépôt"
+      ],
+      "piege": "Oublier l'effet sur les produits déjà vendus.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.q03",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "question": "Deux émetteurs proposent le même autocall, l'un avec 7 % de coupon, l'autre avec 7,8 %. Lequel choisis-tu ?",
+      "reponse_modele": "Je ne choisis pas seulement sur le coupon. Un coupon plus élevé peut venir d'un spread de crédit plus large : l'émetteur se finance plus cher et rémunère davantage, mais le client prend plus de risque de crédit. Je compare donc les notations et les spreads des deux émetteurs, les conditions exactes (barrières, dates, sous-jacent), la liquidité offerte sur le marché secondaire et les frais. Si le risque de crédit supplémentaire est faible et justifié, le coupon plus élevé peut se défendre.",
+      "points_cles": [
+        "Coupon ↔ spread de crédit",
+        "Comparer notations et spreads",
+        "Vérifier les conditions exactes",
+        "Liquidité et frais"
+      ],
+      "piege": "Choisir le coupon le plus élevé sans regarder l'émetteur.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "enonce": "Les dividendes attendus de l'indice augmentent. Le coupon d'un autocall proposé…",
+      "choix": [
+        "baisse",
+        "augmente",
+        "ne change pas",
+        "devient garanti"
+      ],
+      "bonne": 1,
+      "explication": "L'indice hors dividendes montera moins vite : le put vendu vaut plus, le coupon augmente.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "enonce": "Quel contexte est idéal pour lancer un capital garanti ?",
+      "choix": [
+        "Taux bas, volatilité élevée",
+        "Taux hauts, volatilité faible",
+        "Taux bas, volatilité faible",
+        "Taux hauts, volatilité élevée"
+      ],
+      "bonne": 1,
+      "explication": "Zéro-coupon bon marché et call bon marché : la meilleure participation.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "enonce": "Un spread de crédit plus large pour l'émetteur améliore les conditions du produit sans contrepartie pour le client.",
+      "vrai": false,
+      "explication": "Les conditions s'améliorent, mais le client porte un risque de crédit plus élevé.",
+      "fiche": "m5.conditions.parametres",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "enonce": "Un client veut des revenus réguliers et accepte un risque en capital en cas de forte baisse. On lui propose plutôt…",
+      "choix": [
+        "un capital garanti",
+        "un Phoenix",
+        "un Athena",
+        "un accumulateur"
+      ],
+      "bonne": 1,
+      "explication": "Le Phoenix verse un coupon à chaque date où l'indice est au-dessus de la barrière de coupon.",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "enonce": "Une association ne peut pas perdre de capital sur 5 ans. Le produit adapté est…",
+      "choix": [
+        "un reverse convertible",
+        "un worst-of",
+        "un capital garanti",
+        "une credit-linked note"
+      ],
+      "bonne": 2,
+      "explication": "Seul le capital garanti rend 100 % à l'échéance (sous réserve du crédit de l'émetteur).",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.z06",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "enonce": "Remets dans l'ordre la démarche pour proposer un structuré.",
+      "etapes": [
+        "Comprendre le besoin, l'horizon et la tolérance aux pertes",
+        "Identifier la vue de marché du client",
+        "Choisir la famille de produit adaptée",
+        "Montrer les scénarios favorable, neutre et défavorable",
+        "Vérifier l'adéquation et remettre le DIC"
+      ],
+      "explication": "On part du client, pas du produit, et on finit par les contrôles réglementaires.",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.k01",
+      "type": "cas_pratique",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 2,
+      "titre": "Une association veut placer 5 M€ sur 3 ans sans perdre de capital",
+      "situation": "Exemple fictif. Une association a 5 000 000 € de trésorerie dont elle n'aura pas besoin avant 3 ans. Son conseil d'administration interdit toute perte en capital. Elle trouve les dépôts « peu rémunérateurs » et demande ce que la banque peut proposer.",
+      "questions_a_poser": [
+        "Aurez-vous besoin d'une partie de cet argent avant 3 ans ?",
+        "Quel rendement visez-vous, et quel minimum est acceptable ?",
+        "Que disent vos statuts et votre politique de placement (types de produits, émetteurs, notation minimale) ?",
+        "Avez-vous une préférence entre un rendement lié aux actions et un rendement lié aux taux ?",
+        "Qui valide la décision, et sous quel délai ?"
+      ],
+      "proposition": "Trois pistes, toutes à capital garanti à l'échéance. (1) Un **dépôt à terme** à taux fixe : simple, connu, sans risque de marché. (2) Un **capital garanti indexé sur un indice actions** : avec des taux plus élevés qu'à l'époque des taux négatifs, le zéro-coupon coûte moins, et la participation à la hausse peut être intéressante. (3) Un **range accrual à capital garanti** sur l'Euribor, si elle pense que les taux resteront stables. Je compare les trois avec des scénarios chiffrés.",
+      "scenario_defavorable": "Capital garanti actions : si l'indice baisse, rendement nul sur 3 ans, alors qu'un dépôt aurait rapporté. Range accrual : si l'Euribor sort de la fourchette, coupons nuls. Dans tous les cas, une sortie avant l'échéance se fait au prix de marché, qui peut être inférieur à 100, et le capital dépend de la solidité de l'émetteur.",
+      "faisabilite": "Vérifier que les statuts autorisent ces produits et la notation de l'émetteur ; remettre le DIC et la documentation ; faire valider par le conseil d'administration ; prévoir éventuellement de ne placer qu'une partie en structuré et le reste en dépôt pour garder de la liquidité.",
+      "fiche": "m5.conditions.comparatif",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.k02",
+      "type": "cas_pratique",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 3,
+      "titre": "Un client privé attiré par un worst-of à 12 %",
+      "situation": "Exemple fictif. Un client de banque privée a vu chez un concurrent un autocall worst-of sur trois actions technologiques, coupon 12 % par an, barrière de capital 50 %. Il veut « la même chose, avec un meilleur coupon ». Il détient déjà beaucoup d'actions du même secteur.",
+      "questions_a_poser": [
+        "Quelle part de votre patrimoine représenterait ce placement ?",
+        "Comprenez-vous que la perte se calcule sur la plus mauvaise des trois actions ?",
+        "Comment réagiriez-vous si une seule de ces actions perdait 60 % ?",
+        "Avez-vous besoin de revenus, ou visez-vous la croissance du capital ?",
+        "Votre portefeuille est-il déjà exposé à ce secteur ?"
+      ],
+      "proposition": "Je lui explique que le coupon de 12 % rémunère trois risques : la volatilité élevée des actions technologiques, le fait que la plus mauvaise des trois décide, et une corrélation imparfaite entre elles. Comme son portefeuille est déjà concentré sur ce secteur, ce produit augmenterait encore cette concentration. Je propose des alternatives : un autocall sur un indice large (coupon plus faible mais risque diversifié), ou un worst-of sur des sous-jacents moins corrélés à son portefeuille, avec une taille limitée.",
+      "scenario_defavorable": "Si l'une des trois actions finit sous 50 % de son niveau initial à l'échéance, il perd comme elle : par exemple 55 % de perte si elle finit à 45 %, même si les deux autres ont progressé. Je chiffre ce scénario et le compare à la perte de son portefeuille actuel dans la même situation.",
+      "faisabilite": "Adéquation MiFID II (connaissance des produits complexes, capacité à supporter la perte), marché cible du produit, part du patrimoine raisonnable, DIC remis, et trace écrite du conseil donné.",
+      "fiche": "m5.reverse.worst-of",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.l-gouvernance-produit",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "terme": "Gouvernance produit",
+      "definition": "Obligation de définir le marché cible d'un produit et de vérifier qu'il lui est vendu.",
+      "fiche": "m5.conditions.comparatif",
+      "anglais": "product governance",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.l-adequation",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "terme": "Adéquation",
+      "definition": "Vérification que le produit conseillé correspond aux connaissances, objectifs et capacité de perte du client.",
+      "fiche": "m5.conditions.comparatif",
+      "anglais": "suitability",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.conditions.l-indice-a-dividende-forfaitaire",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.conditions",
+      "difficulte": 1,
+      "terme": "Indice à dividende forfaitaire",
+      "definition": "Indice qui retranche un dividende fixe : utilisé pour améliorer les coupons des structurés.",
+      "fiche": "m5.conditions.parametres",
+      "anglais": "decrement index",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

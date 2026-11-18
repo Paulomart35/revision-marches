@@ -1,0 +1,452 @@
+{
+  "chapitre": {
+    "id": "m4.swap-carry",
+    "module": 4,
+    "ordre": 2,
+    "titre": "Swap de change, carry trade et régimes de change",
+    "resume": "L'outil de trésorerie le plus échangé du marché des changes, la stratégie qui vit de l'écart de taux, et les différentes façons pour un pays de gérer sa monnaie."
+  },
+  "elements": [
+    {
+      "id": "m4.swap-carry.swap-change",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "tags": [
+        "swap de change",
+        "trésorerie"
+      ],
+      "titre": "Le swap de change",
+      "une_phrase": "Un **swap de change** (*FX swap*) combine un **change au comptant** et l'**opération inverse à terme** : on échange deux devises aujourd'hui et on les rééchange plus tard, à un cours fixé d'avance.",
+      "trente_secondes": "Une entreprise française a 10 M€ de trésorerie mais doit payer 5 M$ aujourd'hui ; elle recevra des dollars d'un client dans 3 mois. Elle ne veut pas vendre ses euros pour de bon.\n\nSolution : un swap de change.\n\n- **Jambe comptant** : elle vend des euros et achète 5 M$ aujourd'hui.\n- **Jambe terme** : dans 3 mois, elle revend 5 M$ et récupère ses euros, à un cours fixé dès aujourd'hui.\n\nC'est en fait un **prêt de dollars garanti par des euros**. L'écart entre les deux cours (les points de terme) rémunère la différence de taux entre les deux devises.\n\nC'est l'instrument **le plus échangé** du marché des changes, devant le comptant : les banques s'en servent chaque jour pour gérer leur trésorerie en devises.",
+      "analogie": "C'est comme prêter ta voiture à un ami contre la sienne pendant un mois, avec un petit dédommagement convenu à l'avance si l'une des deux voitures « vaut » plus à garder.",
+      "exemple_chiffre": [
+        "Exemple fictif. Comptant EUR/USD 1,1000, points 3 mois +40 pips : terme 1,1040.",
+        "Aujourd'hui : l'entreprise vend 4 545 455 € et reçoit 5 000 000 $ (au cours 1,1000).",
+        "Dans 3 mois : elle rend 5 000 000 $ et reçoit 5 000 000 / 1,1040 = 4 528 986 €.",
+        "Elle récupère 16 469 € de moins qu'elle n'a donné : c'est le coût d'avoir emprunté des dollars (taux plus élevé) contre des euros pendant 3 mois."
+      ],
+      "deux_minutes": "**Swap de change et cross-currency swap.** Le swap de change est en général court (jusqu'à un an) et n'a pas de flux intermédiaires. Le **swap de devises** (*cross-currency swap*) est plus long et échange aussi des intérêts périodiques dans chaque devise : une entreprise qui emprunte en dollars s'en sert pour transformer sa dette en euros.\n\n**Qui l'utilise ?**\n\n- Les **trésoreries d'entreprise** : décaler une couverture à terme (*prorogation* ou *levée anticipée* d'un terme), financer un besoin temporaire en devise.\n- Les **banques** : se refinancer en dollars quand elles ont des euros, et inversement.\n- Les **banques centrales** : par des lignes de swap entre elles (la Fed prête des dollars à la BCE, qui les reprête aux banques de la zone euro), comme en 2008 et en 2020.\n\n**Le risque de change disparaît**, puisque les deux jambes sont de sens opposé : il ne reste qu'une exposition à l'écart de taux.",
+      "piege": "Croire qu'un swap de change expose au risque de change : les deux cours sont fixés dès le départ. Et le confondre avec un swap de taux : ici, ce sont des devises qui sont échangées, et réellement livrées.",
+      "a_dire_en_entretien": "« Un swap de change, c'est un achat de devises au comptant et la revente à terme, à un cours fixé dès aujourd'hui. Économiquement, c'est un prêt dans une devise garanti par l'autre. Il n'y a pas de risque de change, seulement l'écart de taux, qui se lit dans les points de terme. C'est l'instrument le plus échangé du marché des changes, utilisé pour la trésorerie en devises. »",
+      "liens": [
+        "m4.terme.points",
+        "m4.swap-carry.carry"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.carry",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "tags": [
+        "carry trade",
+        "spéculation"
+      ],
+      "titre": "Le carry trade",
+      "une_phrase": "Le **carry trade** consiste à **emprunter dans une devise à taux bas** pour **placer dans une devise à taux élevé** : on encaisse l'écart de taux, tant que la devise à taux élevé ne chute pas.",
+      "trente_secondes": "L'exemple classique : emprunter en **yen** (taux proche de zéro pendant des années), changer en dollars et placer en dollars à un taux bien plus élevé.\n\n- Si le dollar reste stable contre le yen, on gagne l'écart de taux.\n- Si le dollar baisse contre le yen de plus que cet écart, on perd.\n\nC'est un pari **non couvert** : on parie que la parité des taux non couverte ne se vérifie pas, c'est-à-dire que la devise à taux élevé ne se dépréciera pas autant que l'écart de taux.\n\nLe carry trade rapporte un peu, régulièrement, et peut perdre beaucoup d'un coup, quand tout le monde veut sortir en même temps : on dit qu'il « monte par l'escalier et descend par l'ascenseur ».",
+      "analogie": "Ramasser des pièces devant un rouleau compresseur : le gain est petit et régulier, mais il faut sortir avant que le rouleau n'arrive, et tout le monde se précipite à la sortie en même temps.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un fonds emprunte l'équivalent de 100 M$ en yens à 0,50 % et place les dollars à 4,50 % pendant un an.",
+        "Dollar stable contre le yen : gain = 4,50 % − 0,50 % = **4 %**, soit 4 M$.",
+        "Dollar en baisse de 3 % contre le yen : (1,045 × 0,97) − 1,005 = **+0,87 %**, le gain fond.",
+        "Dollar en baisse de 10 % : (1,045 × 0,90) − 1,005 = **−6,45 %** : une année de portage effacée et plus."
+      ],
+      "formules": [
+        {
+          "titre": "Le résultat d'un carry trade sur un an",
+          "latex": "R = (1 + r_{\\text{placement}}) \\times (1 + v) - (1 + r_{\\text{emprunt}})",
+          "legende": {
+            "R": "le résultat, en % du montant emprunté",
+            "r_{\\text{placement}}": "le taux de la devise où l'on place",
+            "r_{\\text{emprunt}}": "le taux de la devise empruntée",
+            "v": "la variation de la devise de placement contre la devise d'emprunt"
+          },
+          "en_francais": "On gagne l'écart de taux, corrigé de ce qu'a fait la devise de placement : une baisse de celle-ci peut tout effacer."
+        }
+      ],
+      "deux_minutes": "**Pourquoi ça marche souvent.** Les devises à taux élevé ont historiquement eu tendance à ne pas se déprécier autant que l'écart de taux, au moins en période calme : c'est l'« énigme du terme » (*forward premium puzzle*).\n\n**Pourquoi ça casse.** En période de stress, les investisseurs ferment leurs positions en même temps : ils rachètent la devise empruntée (yen, franc suisse) et vendent la devise placée. Les devises de financement montent brutalement. En **août 2024**, le débouclage de positions de carry financées en yen, après une hausse de taux de la Banque du Japon, a provoqué de fortes secousses sur les marchés mondiaux.\n\n**Le lien avec la volatilité.** Le carry est en quelque sorte une position **vendeuse de volatilité** : il gagne quand les marchés sont calmes et perd quand ils s'agitent.\n\n**Pour une entreprise**, ce n'est pas un usage légitime de la salle des marchés : un dérivé client doit couvrir un risque réel. S'endetter dans une devise à taux bas sans revenus dans cette devise expose à un risque de change considérable (comme les crédits immobiliers en francs suisses dans certains pays d'Europe de l'Est avant 2015).",
+      "piege": "Présenter le carry comme un gain sans risque : c'est l'inverse de la parité couverte, qui, elle, élimine le risque de change.",
+      "a_dire_en_entretien": "« Le carry trade, c'est emprunter dans une devise à taux bas, comme le yen, et placer dans une devise à taux élevé, pour encaisser l'écart. Le risque est que la devise à taux élevé chute : comme tout le monde sort en même temps, les pertes sont brutales, comme en août 2024 sur le yen. C'est une stratégie spéculative, à ne pas confondre avec une couverture. »",
+      "liens": [
+        "m4.terme.prevision",
+        "m4.swap-carry.swap-change",
+        "m4.swap-carry.regimes"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.regimes",
+      "type": "fiche",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "tags": [
+        "régimes de change",
+        "parité fixe"
+      ],
+      "titre": "Les régimes de change",
+      "une_phrase": "Un **régime de change** est la façon dont un pays gère le cours de sa monnaie : **flottant** (le marché décide), **fixe** (la banque centrale défend une parité), ou **intermédiaire**.",
+      "trente_secondes": "- **Change flottant** : le cours est fixé par l'offre et la demande. C'est le cas de l'euro, du dollar, de la livre, du yen. La banque centrale ne vise pas un cours, mais une inflation ; elle intervient rarement sur le change.\n- **Change fixe** (ou arrimé) : la banque centrale s'engage à maintenir un cours contre une devise d'ancrage (souvent le dollar ou l'euro). Exemples : le franc CFA arrimé à l'euro, le dollar de Hong Kong maintenu dans une bande étroite contre le dollar américain.\n- **Intermédiaires** : flottement géré, bandes de fluctuation, panier de devises.\n\nLe principe à retenir est le **triangle d'incompatibilité** : un pays ne peut pas avoir à la fois un **change fixe**, une **libre circulation des capitaux** et une **politique monétaire autonome**. Il doit en choisir deux.",
+      "analogie": "Un bateau amarré au quai (change fixe) ne dérive pas, mais il suit les mouvements du quai. Un bateau à l'ancre libre (change flottant) bouge avec les vagues, mais son capitaine choisit sa route.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Choix du pays",
+          "Ce qu'il garde",
+          "Ce qu'il abandonne"
+        ],
+        "lignes": [
+          [
+            "Zone euro vis-à-vis du reste du monde",
+            "Capitaux libres, politique monétaire autonome",
+            "Change fixe (l'euro flotte)"
+          ],
+          [
+            "Change fixe avec capitaux libres",
+            "Change fixe, capitaux libres",
+            "Politique monétaire autonome : il suit les taux de la devise d'ancrage"
+          ],
+          [
+            "Contrôle des capitaux",
+            "Change fixe, politique monétaire autonome",
+            "Libre circulation des capitaux"
+          ]
+        ],
+        "legende": "Le triangle d'incompatibilité : on ne peut garder que deux sommets sur trois."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un pays fixe sa monnaie à 10 unités pour 1 dollar, avec des capitaux libres.",
+        "La Fed monte ses taux de 1 point. Si le pays ne suit pas, les capitaux partent vers le dollar, mieux rémunéré, et sa monnaie subit des ventes.",
+        "Pour défendre la parité, la banque centrale vend ses réserves de dollars et finit par monter ses taux elle aussi, même si son économie n'en a pas besoin.",
+        "Si ses réserves s'épuisent, elle doit dévaluer : c'est le scénario d'une crise de change."
+      ],
+      "sources": [
+        {
+          "titre": "Banque nationale suisse, abandon du cours plancher face à l'euro, communiqué",
+          "date": "2015-01-15"
+        }
+      ],
+      "deux_minutes": "**La défense d'une parité.** Pour tenir un cours fixe, la banque centrale achète ou vend sa monnaie contre ses **réserves de change**, et ajuste ses taux. Si le marché doute qu'elle tiendra, il attaque la monnaie (c'est arrivé à la livre sterling en 1992, ou en Asie en 1997).\n\n**L'abandon d'un plancher.** Le 15 janvier 2015, la Banque nationale suisse a abandonné le cours plancher qu'elle défendait face à l'euro depuis 2011. Le franc suisse s'est apprécié violemment en quelques minutes, provoquant de lourdes pertes pour ceux qui étaient positionnés à l'inverse.\n\n**La zone euro est un cas particulier.** À l'intérieur, les pays ont abandonné leurs monnaies : il n'y a plus de change entre eux, mais plus non plus de politique monétaire nationale. Vis-à-vis du reste du monde, l'euro flotte.\n\n**Les interventions.** Même en change flottant, certaines banques centrales interviennent ponctuellement pour freiner un mouvement jugé excessif (le Japon l'a fait plusieurs fois pour soutenir le yen).",
+      "piege": "Croire qu'une monnaie arrimée est sans risque : quand une parité cède, le mouvement est brutal. Et dire que la BCE fixe le cours de l'euro : il flotte.",
+      "a_dire_en_entretien": "« Un pays peut laisser flotter sa monnaie, comme la zone euro, ou la fixer contre une devise d'ancrage. Le triangle d'incompatibilité dit qu'il ne peut pas avoir en même temps un change fixe, des capitaux libres et une politique monétaire autonome. Un pays à change fixe et capitaux libres doit suivre les taux de la devise d'ancrage, et une parité qui cède provoque des mouvements brutaux, comme le franc suisse en janvier 2015. »",
+      "liens": [
+        "m4.swap-carry.carry",
+        "m1.bc.bce",
+        "m1.forces.ecart-taux"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c01",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "recto": "Swap de change ?",
+      "verso": "Change au comptant + opération inverse à terme, à cours fixé d'avance.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c02",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "recto": "Instrument le plus échangé du marché des changes ?",
+      "verso": "Le swap de change.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c03",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 3,
+      "recto": "Cross-currency swap ?",
+      "verso": "Swap de devises long, avec échange d'intérêts périodiques dans chaque devise.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c04",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "recto": "Carry trade ?",
+      "verso": "Emprunter dans une devise à taux bas, placer dans une devise à taux élevé.",
+      "fiche": "m4.swap-carry.carry",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c05",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "recto": "Risque du carry trade ?",
+      "verso": "Une chute brutale de la devise à taux élevé lors d'un débouclage général.",
+      "fiche": "m4.swap-carry.carry",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c06",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "recto": "Triangle d'incompatibilité ?",
+      "verso": "Change fixe, capitaux libres, politique monétaire autonome : on n'en garde que deux.",
+      "fiche": "m4.swap-carry.regimes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.c07",
+      "type": "carte",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "recto": "Régime de l'euro face au dollar ?",
+      "verso": "Change flottant.",
+      "fiche": "m4.swap-carry.regimes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.q01",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'un swap de change et à quoi sert-il ?",
+      "reponse_modele": "C'est l'achat d'une devise au comptant et sa revente à terme, à un cours fixé dès aujourd'hui. Économiquement, c'est un prêt dans une devise garanti par l'autre : il n'y a pas de risque de change, seulement l'écart de taux, qui se lit dans les points de terme. Les entreprises s'en servent pour couvrir un besoin temporaire en devises ou décaler une couverture à terme ; les banques pour gérer leur trésorerie en devises ; et les banques centrales s'échangent des devises par des lignes de swap, comme la Fed avec la BCE en 2020.",
+      "points_cles": [
+        "Comptant + terme inverse",
+        "Prêt garanti",
+        "Pas de risque de change",
+        "Trésorerie et décalage de couverture",
+        "Lignes de swap des banques centrales"
+      ],
+      "piege": "Le confondre avec un swap de taux.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.q02",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "question": "Qu'est-ce que le carry trade ? Quel est son risque ?",
+      "reponse_modele": "Emprunter dans une devise à taux bas, placer dans une devise à taux élevé, et encaisser l'écart de taux. Le pari, c'est que la devise à taux élevé ne baisse pas autant que l'écart de taux. Le risque est un mouvement brutal du change : en période de stress, tout le monde ferme ses positions en même temps, la devise de financement s'envole et les pertes effacent des mois de gains. C'est ce qui s'est passé avec le yen en août 2024.",
+      "points_cles": [
+        "Emprunt taux bas, placement taux haut",
+        "Pari non couvert",
+        "Débouclage brutal",
+        "Exemple daté"
+      ],
+      "piege": "Dire que le carry est sans risque parce que l'écart de taux est connu.",
+      "fiche": "m4.swap-carry.carry",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.q03",
+      "type": "question_entretien",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "question": "Qu'est-ce que le triangle d'incompatibilité ?",
+      "reponse_modele": "Un pays ne peut pas avoir en même temps un change fixe, une libre circulation des capitaux et une politique monétaire autonome : il doit en sacrifier un. La zone euro a choisi les capitaux libres et une politique monétaire autonome : l'euro flotte. Un pays qui fixe sa monnaie au dollar avec des capitaux libres doit suivre les taux de la Fed. La Chine a longtemps gardé un change géré et une politique monétaire autonome en contrôlant les capitaux.",
+      "points_cles": [
+        "Trois objectifs, deux possibles",
+        "Zone euro : change flottant",
+        "Change fixe : suivre la devise d'ancrage",
+        "Contrôle des capitaux"
+      ],
+      "piege": "Oublier la libre circulation des capitaux.",
+      "fiche": "m4.swap-carry.regimes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "enonce": "Un swap de change combine…",
+      "choix": [
+        "deux options",
+        "un change au comptant et l'opération inverse à terme",
+        "un swap de taux et un future",
+        "deux changes au comptant"
+      ],
+      "bonne": 1,
+      "explication": "On échange les devises aujourd'hui et on les rééchange à une date future, à un cours fixé d'avance.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.z02",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "enonce": "Carry trade : emprunt à 0,5 %, placement à 4,5 %, la devise de placement baisse de 3 %. Résultat sur un an, en % (deux décimales) ?",
+      "reponse": 0.87,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "1,045 × 0,97 − 1,005 = 0,00865, soit 0,87 %.",
+      "fiche": "m4.swap-carry.carry",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "enonce": "Un swap de change expose au risque de change pendant toute sa durée.",
+      "vrai": false,
+      "explication": "Les deux cours sont fixés au départ : il ne reste qu'une exposition à l'écart de taux.",
+      "fiche": "m4.swap-carry.swap-change",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 2,
+      "enonce": "Un pays à change fixe contre le dollar, avec des capitaux libres, voit la Fed monter ses taux. Que doit-il faire, en général, pour tenir sa parité ?",
+      "choix": [
+        "Baisser ses taux",
+        "Monter ses taux",
+        "Rien",
+        "Dévaluer immédiatement"
+      ],
+      "bonne": 1,
+      "explication": "Sinon les capitaux partent vers le dollar : il perd l'autonomie de sa politique monétaire.",
+      "fiche": "m4.swap-carry.regimes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.z05",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "enonce": "La BCE fixe le cours de l'euro contre le dollar.",
+      "vrai": false,
+      "explication": "L'euro flotte : son cours est fixé par le marché. La BCE vise l'inflation, pas un cours de change.",
+      "fiche": "m4.swap-carry.regimes",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-swap-de-change",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Swap de change",
+      "definition": "Achat au comptant d'une devise et revente à terme, à cours fixé d'avance.",
+      "fiche": "m4.swap-carry.swap-change",
+      "anglais": "FX swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-swap-de-devises",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Swap de devises",
+      "definition": "Échange sur plusieurs années de nominaux et d'intérêts dans deux devises.",
+      "fiche": "m4.swap-carry.swap-change",
+      "anglais": "cross-currency swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-carry-trade",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Carry trade",
+      "definition": "Emprunt dans une devise à taux bas pour placer dans une devise à taux élevé.",
+      "fiche": "m4.swap-carry.carry",
+      "anglais": "carry trade",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-change-flottant",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Change flottant",
+      "definition": "Régime où le cours est fixé par le marché.",
+      "fiche": "m4.swap-carry.regimes",
+      "anglais": "floating exchange rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-change-fixe",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Change fixe",
+      "definition": "Régime où la banque centrale défend une parité contre une devise d'ancrage.",
+      "fiche": "m4.swap-carry.regimes",
+      "anglais": "pegged exchange rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m4.swap-carry.l-triangle-d-incompatibilite",
+      "type": "lexique",
+      "module": 4,
+      "chapitre": "m4.swap-carry",
+      "difficulte": 1,
+      "terme": "Triangle d'incompatibilité",
+      "definition": "Impossibilité d'avoir à la fois change fixe, capitaux libres et politique monétaire autonome.",
+      "fiche": "m4.swap-carry.regimes",
+      "anglais": "impossible trinity",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

@@ -4,6 +4,9 @@ import { usdVersEur } from '../finance/fx';
 import { contribution, inflationPonderee, niveauPrix, pouvoirAchat } from '../finance/inflation';
 import { eur, nf } from '../lib';
 import { Gouverneur, Historique, Transmission } from './politique';
+import { CoursTerme, CouverturesFx } from './change';
+import { Autocall, CapitalGaranti } from './structures';
+import { Courbe, Emprunteur, Obligation, SwapFlux } from './taux';
 import { ArbreBinomial, CouvertureDelta, Explorateur, GrecquesProfils, MonteCarlo, Smile, Strategies } from './options';
 
 function Curseur(p: { libelle: string; valeur: number; min: number; max: number; pas: number; affiche: string; onChange: (v: number) => void }) {
@@ -168,4 +171,12 @@ export const OUTILS: Record<string, { titre: string; resume: string; module: num
   'labo.strategies': { titre: 'Les stratégies optionnelles', resume: 'Spreads, straddle, strangle, butterfly, risk reversal, collar.', module: 2, rendu: () => <Strategies />, fiche: 'm2.strategies.spreads' },
   'labo.binomial': { titre: "L'arbre binomial pas à pas", resume: 'Option européenne ou américaine, calculée nœud par nœud.', module: 2, rendu: () => <ArbreBinomial />, fiche: 'm2.modeles.binomial' },
   'labo.monte-carlo': { titre: 'Monte Carlo en direct', resume: "Des trajectoires simulées et une marge d'erreur qui fond en 1/√n.", module: 2, rendu: () => <MonteCarlo />, fiche: 'm2.modeles.monte-carlo' },
+  'labo.obligation': { titre: 'Prix, duration et convexité', resume: "Comment le prix d'une obligation réagit au taux.", module: 3, rendu: () => <Obligation />, fiche: 'm3.duration.duration' },
+  'labo.courbe': { titre: 'La courbe des taux', resume: 'Normale, plate, inversée, en bosse : taux zéro-coupon, forward et swap.', module: 3, rendu: () => <Courbe />, fiche: 'm3.courbe.formes' },
+  'labo.swap': { titre: 'Un swap trimestre par trimestre', resume: 'Les flux de couverture et la valeur de marché du swap.', module: 3, rendu: () => <SwapFlux />, fiche: 'm3.swap.principe' },
+  'labo.emprunteur': { titre: 'Swap, cap ou tunnel ?', resume: "Le taux réellement payé par un emprunteur selon l'Euribor.", module: 3, rendu: () => <Emprunteur />, fiche: 'm3.options-taux.cap-floor' },
+  'labo.terme': { titre: 'Le cours à terme', resume: 'Fabriqué par arbitrage, étape par étape : report ou déport.', module: 4, rendu: () => <CoursTerme />, fiche: 'm4.terme.fabrication' },
+  'labo.couvertures-fx': { titre: 'Couvrir un flux en dollars', resume: 'Terme, option, tunnel, terme participatif : exportateur ou importateur.', module: 4, rendu: () => <CouverturesFx />, fiche: 'm4.couvertures.terme-option' },
+  'labo.capital-garanti': { titre: 'Construire un capital garanti', resume: 'Zéro-coupon + call : ce qui fait la participation.', module: 5, rendu: () => <CapitalGaranti />, fiche: 'm5.garanti.capital-garanti' },
+  'labo.autocall': { titre: 'Autocall et Phoenix, date par date', resume: 'Rappel, coupons, mémoire et barrière de capital.', module: 5, rendu: () => <Autocall />, fiche: 'm5.autocall.athena' },
 };

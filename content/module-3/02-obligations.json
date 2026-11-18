@@ -1,0 +1,780 @@
+{
+  "chapitre": {
+    "id": "m3.obligations",
+    "module": 3,
+    "ordre": 2,
+    "titre": "Les obligations",
+    "resume": "Prix, coupon, rendement et leur relation inverse ; zéro-coupon ; les grandes signatures souveraines (OAT, Bund, Treasuries) ; les obligations indexées sur l'inflation."
+  },
+  "elements": [
+    {
+      "id": "m3.obligations.prix",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "tags": [
+        "obligations",
+        "prix",
+        "rendement"
+      ],
+      "titre": "Prix, coupon et rendement d'une obligation",
+      "une_phrase": "Une **obligation** est un prêt découpé en titres : l'émetteur verse un **coupon** fixe chaque année et rembourse le **nominal** à l'échéance ; son **prix** est la somme de ces flux actualisés, donc il **baisse quand les taux montent**.",
+      "trente_secondes": "Un État ou une entreprise emprunte en émettant des obligations. Chaque titre a :\n\n- un **nominal** (souvent exprimé pour 100) remboursé à l'échéance ;\n- un **coupon** : un taux fixe, versé chaque année sur le nominal ;\n- une **échéance** (*maturité*).\n\nUne fois émise, l'obligation s'échange sur le marché. Son **prix** change, pas son coupon. Le **rendement** (*yield*, ou taux actuariel) est le taux qui égalise le prix payé et les flux futurs actualisés : c'est ce que rapporte l'obligation si on l'achète au prix du jour et qu'on la garde jusqu'au bout.\n\n**La règle d'or : prix et rendement varient en sens inverse.** Si les taux du marché montent, une obligation ancienne qui paie un coupon plus faible devient moins attractive : son prix baisse jusqu'à ce que son rendement s'aligne sur le marché.",
+      "analogie": "Une balançoire à bascule : d'un côté le prix, de l'autre le rendement. Quand l'un monte, l'autre descend, toujours.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.obligation",
+        "legende": "Bouge le taux du marché : le prix glisse le long de la courbe, en sens inverse."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Obligation de nominal 100, coupon 3 %, échéance 5 ans. Le taux du marché est à 3 % : elle vaut **100** (au pair).",
+        "Les taux du marché passent à 4 %. Les nouvelles obligations paient 4 €. La nôtre ne paie que 3 € : personne ne la paierait 100.",
+        "Nouveau prix : 3/1,04 + 3/1,04² + 3/1,04³ + 3/1,04⁴ + 103/1,04⁵ = **95,55**.",
+        "L'acheteur à 95,55 touche 3 € par an et gagne 4,45 € à l'échéance (il paie 95,55, reçoit 100) : au total, il obtient 4 % par an, comme le marché.",
+        "Si les taux tombent à 2 %, le même titre vaut **104,71** (au-dessus du pair)."
+      ],
+      "formules": [
+        {
+          "titre": "Prix d'une obligation à coupon annuel",
+          "latex": "P = \\sum_{t=1}^{n} \\frac{C}{(1+y)^{t}} + \\frac{N}{(1+y)^{n}}",
+          "legende": {
+            "P": "le prix",
+            "C": "le coupon annuel en euros",
+            "N": "le nominal remboursé à l'échéance",
+            "y": "le rendement (taux actuariel)",
+            "n": "le nombre d'années restantes"
+          },
+          "en_francais": "Le prix est la somme des coupons et du nominal, chacun actualisé au rendement selon sa date."
+        }
+      ],
+      "deux_minutes": "**Au pair, au-dessus, en dessous.**\n\n- Coupon = rendement : prix = 100 (**au pair**).\n- Coupon > rendement : prix > 100 (au-dessus du pair, *premium*).\n- Coupon < rendement : prix < 100 (sous le pair, *discount*).\n\n**Le rendement n'est pas le coupon.** Le coupon est fixé à l'émission ; le rendement change tous les jours avec le prix. Quand on dit « l'OAT 10 ans est à 3,5 % », on parle du rendement, pas du coupon.\n\n**Rendement courant.** Le coupon divisé par le prix (3 / 95,55 = 3,14 %) ignore le gain ou la perte au remboursement. Le rendement actuariel en tient compte : c'est lui qu'on utilise.\n\n**Qui perd quand les taux montent ?** Celui qui doit **vendre** avant l'échéance. Celui qui garde l'obligation jusqu'au bout touche exactement les flux prévus, si l'émetteur ne fait pas défaut. C'est ce qui a mis en difficulté certaines banques américaines en 2023 (Silicon Valley Bank) : elles avaient acheté des obligations longues à taux bas et ont dû les vendre en perte quand les dépôts sont partis.\n\n**Cotation.** Les prix s'expriment en pourcentage du nominal, pied de coupon. Le règlement se fait au prix plein coupon (avec le coupon couru).",
+      "piege": "Dire qu'une obligation « rapporte son coupon ». Elle rapporte son rendement, qui dépend du prix d'achat. Et le piège classique : croire que prix et taux montent ensemble. C'est l'inverse.",
+      "a_dire_en_entretien": "« Le prix d'une obligation, c'est la somme de ses coupons et de son nominal actualisés. Le coupon est fixe ; le prix s'ajuste pour que le rendement colle au marché. Donc quand les taux montent, le prix baisse, et inversement. Une obligation au pair a un coupon égal à son rendement. »",
+      "liens": [
+        "m3.interets.actualisation",
+        "m3.duration.duration",
+        "m3.obligations.zero-coupon"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.zero-coupon",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "tags": [
+        "obligations",
+        "zéro-coupon"
+      ],
+      "titre": "Le zéro-coupon",
+      "une_phrase": "Un **zéro-coupon** ne verse aucun coupon : on l'achète sous 100 et il rembourse 100 à l'échéance ; la différence est l'intérêt.",
+      "trente_secondes": "C'est l'obligation la plus simple : un seul flux, à la fin.\n\nSon prix est simplement le nominal actualisé : à 3 % sur 5 ans, 100 / 1,03⁵ = 86,26. On paie 86,26 aujourd'hui, on reçoit 100 dans 5 ans.\n\nTrois usages essentiels :\n\n1. **Mesurer les taux** : le taux d'un zéro-coupon de maturité t est le « vrai » taux à t ans. La courbe des taux zéro-coupon sert à actualiser tous les autres flux.\n2. **Garantir un capital** dans les produits structurés : pour rendre 100 dans 5 ans, il suffit d'investir 86,26 en zéro-coupon. Le reste sert à acheter des options.\n3. **Démembrer** les obligations d'État : on peut séparer les coupons et le nominal d'une OAT en zéro-coupons distincts (les *strips*).",
+      "analogie": "C'est un bon d'achat que tu paies 86 € aujourd'hui et qui vaudra 100 € dans 5 ans. Pas de cadeau entre-temps : tout le gain arrive à la fin.",
+      "exemple_chiffre": [
+        "Exemple fictif. Zéro-coupon 5 ans, taux 3 % : prix = 100 / 1,03⁵ = **86,26**.",
+        "Zéro-coupon 10 ans, taux 3 % : prix = 100 / 1,03¹⁰ = **74,41**.",
+        "Si le taux 10 ans passe de 3 % à 4 % : prix = 100 / 1,04¹⁰ = **67,56**, soit une baisse de 9,2 %. Un zéro-coupon long est très sensible aux taux.",
+        "Pour un capital garanti 5 ans : avec des taux à 3 %, il reste 100 − 86,26 = 13,74 pour les options et les frais ; avec des taux à 1 %, il ne reste que 100 − 95,15 = 4,85."
+      ],
+      "formules": [
+        {
+          "titre": "Prix d'un zéro-coupon",
+          "latex": "P = \\frac{N}{(1 + r)^{T}}",
+          "legende": {
+            "P": "le prix aujourd'hui",
+            "N": "le nominal remboursé (souvent 100)",
+            "r": "le taux zéro-coupon de maturité T",
+            "T": "la maturité en années"
+          },
+          "en_francais": "Le prix est le nominal actualisé une seule fois, sur toute la durée."
+        }
+      ],
+      "deux_minutes": "**Le plus sensible aux taux.** Comme tout le flux arrive à la fin, la duration d'un zéro-coupon est égale à sa maturité : un zéro-coupon 10 ans perd environ 10 % pour une hausse de taux de 1 point. Une obligation à coupons de même maturité perd moins, parce qu'une partie de ses flux arrive plus tôt.\n\n**Pas de risque de réinvestissement.** Avec une obligation à coupons, le rendement final dépend du taux auquel on réinvestira les coupons. Avec un zéro-coupon, il n'y a rien à réinvestir : le rendement est connu dès l'achat si on le garde jusqu'au bout.\n\n**Les bons du Trésor.** Les titres d'État à moins d'un an (BTF en France, *T-bills* aux États-Unis) sont des zéro-coupons : ils s'émettent sous le pair.\n\n**Dans les produits structurés,** le « zéro-coupon » est en général une créance de l'émetteur, pas un titre d'État : le client porte le risque de crédit de la banque émettrice.",
+      "piege": "Croire qu'un zéro-coupon ne rapporte rien parce qu'il ne verse pas de coupon. Il rapporte la différence entre son prix d'achat et 100.",
+      "a_dire_en_entretien": "« Un zéro-coupon ne paie qu'un flux, à l'échéance : on l'achète sous le pair et il rembourse 100. Son prix, c'est 100 actualisé sur toute la durée. C'est la brique de base pour construire la courbe des taux et pour garantir le capital d'un produit structuré. Sa duration est égale à sa maturité, donc il est très sensible aux taux. »",
+      "liens": [
+        "m3.obligations.prix",
+        "m3.interets.actualisation",
+        "m5.garanti.capital-garanti"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.souverains",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "tags": [
+        "obligations",
+        "OAT",
+        "Bund",
+        "Treasuries",
+        "spread"
+      ],
+      "titre": "OAT, Bund, Treasuries : les grandes dettes d'État",
+      "une_phrase": "Les **OAT** (France), le **Bund** (Allemagne) et les **Treasuries** (États-Unis) sont les obligations d'État de référence ; l'écart de taux entre l'OAT et le Bund mesure la prime de risque que le marché demande à la France.",
+      "trente_secondes": "- **OAT** (Obligation assimilable du Trésor) : dette à moyen et long terme de l'État français, émise par l'Agence France Trésor (AFT). Le taux de l'**OAT 10 ans** est la référence française.\n- **Bund** : obligation fédérale allemande. Le Bund 10 ans est la **référence sans risque de la zone euro** : l'Allemagne est jugée l'emprunteur le plus sûr.\n- **Treasuries** (*US Treasury notes et bonds*) : dette fédérale américaine, le marché obligataire le plus grand et le plus liquide du monde. Le taux à 10 ans américain sert de référence mondiale.\n\nL'**écart OAT-Bund** (*spread*), en points de base, est la prime que les investisseurs exigent pour prêter à la France plutôt qu'à l'Allemagne. Il s'élargit quand le marché doute des finances publiques françaises ou de la stabilité politique.",
+      "analogie": "Deux voisins demandent un prêt à la même banque. Celui qui a des comptes impeccables obtient le meilleur taux ; l'autre paie un supplément. Le spread OAT-Bund, c'est ce supplément payé par la France.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Titre",
+          "Émetteur",
+          "Rôle sur le marché"
+        ],
+        "lignes": [
+          [
+            "BTF",
+            "France, moins d'un an",
+            "Bons du Trésor, émis sous le pair"
+          ],
+          [
+            "OAT",
+            "France, 2 à 50 ans",
+            "Référence française ; écart avec le Bund suivi de près"
+          ],
+          [
+            "Bund",
+            "Allemagne, 10 ans",
+            "Référence sans risque de la zone euro"
+          ],
+          [
+            "BTP",
+            "Italie",
+            "Spread BTP-Bund : baromètre des tensions de la zone euro"
+          ],
+          [
+            "Treasuries",
+            "États-Unis",
+            "Référence mondiale, valeur refuge"
+          ]
+        ],
+        "legende": "Les dettes souveraines à connaître."
+      },
+      "exemple_chiffre": [
+        "Le 17 novembre 2026, l'OAT 10 ans rapportait **4,91 %** et le Bund 10 ans **3,35 %** (source secondaire : Ideal-investisseur.fr).",
+        "Écart OAT-Bund : 4,91 − 3,35 = 1,56 point, soit **environ 156 points de base**.",
+        "Le 16 novembre 2026, le Treasury 10 ans américain rapportait **5,12 %** (Réserve fédérale, via FRED).",
+        "Ordre de grandeur : sur 100 milliards d'euros empruntés à 10 ans, 1,56 point d'écart représente 1,56 milliard d'euros d'intérêts en plus par an par rapport à l'Allemagne."
+      ],
+      "exemple_fictif": false,
+      "chiffres": [
+        {
+          "libelle": "OAT 10 ans",
+          "valeur": "4,91 %",
+          "date": "2026-11-17",
+          "source": "Ideal-investisseur.fr (source secondaire)",
+          "url": "https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html"
+        },
+        {
+          "libelle": "Bund 10 ans",
+          "valeur": "3,35 %",
+          "date": "2026-11-17",
+          "source": "Ideal-investisseur.fr (source secondaire)",
+          "url": "https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html"
+        },
+        {
+          "libelle": "Treasury 10 ans",
+          "valeur": "5,12 %",
+          "date": "2026-11-16",
+          "source": "Réserve fédérale, via FRED",
+          "url": "https://fred.stlouisfed.org/series/DGS10"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Écart OAT-Bund, Ideal-investisseur.fr",
+          "url": "https://www.ideal-investisseur.fr/en/markets/oat-bund-spread.html",
+          "date": "2026-11-17"
+        },
+        {
+          "titre": "FRED, 10-Year Treasury Constant Maturity (DGS10)",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "date": "2026-11-16"
+        },
+        {
+          "titre": "Agence France Trésor",
+          "url": "https://www.aft.gouv.fr/"
+        }
+      ],
+      "deux_minutes": "**Ce qui fait bouger le taux d'un État.** Trois composantes : les **anticipations de taux directeurs** (la politique de la banque centrale), une **prime de terme** (le supplément pour immobiliser son argent longtemps) et, dans la zone euro, une **prime de risque** propre à chaque pays (finances publiques, croissance, stabilité politique, notation).\n\n**Pourquoi la zone euro a des spreads.** Les pays de l'euro partagent la même monnaie et la même banque centrale, mais pas le même budget. Un État ne peut pas « imprimer » l'euro pour rembourser : le marché évalue donc séparément le risque de chaque pays. La BCE dispose depuis 2022 d'un outil, le TPI (*Transmission Protection Instrument*), pour contrer un écartement « désordonné » des spreads, sous conditions.\n\n**Les Treasuries, valeur refuge.** En cas de crise, les investisseurs achètent souvent des Treasuries : leurs taux baissent. Le taux 10 ans américain influence le coût de l'argent dans le monde entier, et donc l'EUR/USD.\n\n**Les adjudications.** Les États émettent par adjudication à calendrier connu. Les banques **spécialistes en valeurs du Trésor** (SVT) s'engagent à participer et à animer le marché secondaire.",
+      "piege": "Dire que le spread OAT-Bund mesure le risque de défaut de la France seul : il reflète aussi la liquidité, l'offre de titres et la demande pour le Bund comme actif refuge. Et ne pas confondre le **Bund** (dette allemande) avec la **Bundesbank** (banque centrale allemande).",
+      "a_dire_en_entretien": "« Le Bund 10 ans est la référence sans risque de la zone euro. L'écart entre l'OAT et le Bund, c'est la prime que la France paie en plus ; il s'élargit quand le marché s'inquiète du déficit ou de la situation politique. Les Treasuries sont la référence mondiale et la valeur refuge. Mi-novembre 2026, l'écart OAT-Bund était d'environ 156 points de base. »",
+      "liens": [
+        "m3.obligations.prix",
+        "m3.credit.spread",
+        "m1.marche.vue-30s"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.indexees",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "tags": [
+        "obligations",
+        "inflation",
+        "OATi",
+        "point mort"
+      ],
+      "titre": "Les obligations indexées sur l'inflation",
+      "une_phrase": "Une **obligation indexée** (OATi, OAT€i, TIPS) voit son nominal grossir avec l'inflation : elle garantit un **rendement réel**, et l'écart avec une obligation classique donne l'**inflation anticipée par le marché** (le point mort).",
+      "trente_secondes": "Une obligation classique paie des euros fixes : si l'inflation est forte, ces euros perdent leur pouvoir d'achat.\n\nUne obligation indexée corrige ce problème : son **nominal est multiplié chaque jour par l'évolution d'un indice des prix**. Le coupon, calculé sur ce nominal revalorisé, grossit aussi.\n\n- **OATi** : indexée sur l'inflation française (hors tabac).\n- **OAT€i** : indexée sur l'inflation de la zone euro (IPCH hors tabac).\n- **TIPS** : version américaine.\n\nSon rendement s'appelle le **taux réel**. Si l'OAT 10 ans rapporte 3,5 % et l'OAT€i 10 ans 1,2 %, le marché anticipe en gros 3,5 − 1,2 = **2,3 % d'inflation par an** : c'est le **point mort d'inflation** (*breakeven*).",
+      "analogie": "Un loyer indexé sur l'indice des loyers : le propriétaire sait que son revenu suivra les prix. L'obligation indexée fait la même chose pour un prêteur.",
+      "exemple_chiffre": [
+        "Exemple fictif. OAT€i de nominal 100, coupon réel 1 %. L'indice des prix a progressé de 10 % depuis l'émission.",
+        "Nominal revalorisé : 100 × 1,10 = **110**.",
+        "Coupon versé : 1 % × 110 = **1,10 €** (au lieu de 1 €).",
+        "À l'échéance, le remboursement est de 110 (et, pour l'OATi et l'OAT€i, jamais moins que 100 en cas de déflation).",
+        "Point mort : OAT classique 10 ans à 3,50 %, OAT€i 10 ans à 1,20 % → inflation anticipée ≈ **2,30 %** par an."
+      ],
+      "formules": [
+        {
+          "titre": "Le point mort d'inflation",
+          "latex": "\\pi^{*} \\approx y_{\\text{nominal}} - y_{\\text{réel}}",
+          "legende": {
+            "\\pi^{*}": "l'inflation moyenne anticipée par le marché (point mort)",
+            "y_{\\text{nominal}}": "le rendement de l'obligation classique",
+            "y_{\\text{réel}}": "le rendement de l'obligation indexée de même maturité"
+          },
+          "en_francais": "Si l'inflation réalisée dépasse le point mort, l'obligation indexée aura été le meilleur placement ; en dessous, l'obligation classique."
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est utile à la banque centrale.** Le point mort est un des thermomètres des **anticipations d'inflation**. Si le point mort 5 ans dans 5 ans s'éloigne nettement de 2 %, la BCE s'inquiète d'un « désancrage » des anticipations.\n\n**Une approximation.** Le point mort contient aussi une **prime de risque d'inflation** (le supplément demandé pour l'incertitude sur l'inflation) et des effets de **liquidité** (les indexées s'échangent moins). Ce n'est donc pas une prévision pure.\n\n**Qui en achète ?** Les assureurs et les fonds de pension, dont les engagements (retraites, rentes) sont souvent liés aux prix.\n\n**Qui en émet ?** Les États, qui y trouvent des investisseurs supplémentaires. Mais le coût est incertain : avec l'inflation de 2022, la charge des titres indexés a fortement augmenté pour l'État français.\n\n**Le swap d'inflation** permet d'échanger une inflation fixe contre l'inflation réalisée ; son taux est l'autre mesure des anticipations d'inflation du marché.",
+      "piege": "Croire qu'une obligation indexée ne peut pas perdre de valeur : si les **taux réels** montent, son prix baisse, comme pour toute obligation. Elle protège contre l'inflation, pas contre la hausse des taux réels.",
+      "a_dire_en_entretien": "« Une obligation indexée voit son nominal suivre l'inflation : elle garantit un rendement réel. L'écart entre le rendement d'une obligation classique et celui d'une indexée de même maturité, c'est le point mort : l'inflation moyenne que le marché anticipe, avec une petite prime de risque. La BCE le surveille pour vérifier que les anticipations restent ancrées autour de 2 %. »",
+      "liens": [
+        "m3.obligations.prix",
+        "m1.inflation.definition"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Prix et rendement d'une obligation varient…",
+      "verso": "En sens inverse.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Obligation au pair ?",
+      "verso": "Prix = 100 : coupon = rendement.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Coupon contre rendement ?",
+      "verso": "Le coupon est fixé à l'émission ; le rendement change avec le prix.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Prix d'un zéro-coupon ?",
+      "verso": "Nominal / (1 + r)^T.",
+      "fiche": "m3.obligations.zero-coupon",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "recto": "Duration d'un zéro-coupon ?",
+      "verso": "Égale à sa maturité.",
+      "fiche": "m3.obligations.zero-coupon",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "OAT ?",
+      "verso": "Obligation assimilable du Trésor : dette à moyen et long terme de l'État français.",
+      "fiche": "m3.obligations.souverains",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Référence sans risque de la zone euro ?",
+      "verso": "Le Bund 10 ans allemand.",
+      "fiche": "m3.obligations.souverains",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "recto": "Écart OAT-Bund ?",
+      "verso": "Rendement OAT 10 ans − Bund 10 ans, en points de base : la prime de risque France.",
+      "fiche": "m3.obligations.souverains",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c09",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "recto": "OATi et OAT€i ?",
+      "verso": "OAT dont le nominal suit l'inflation française (OATi) ou de la zone euro (OAT€i).",
+      "fiche": "m3.obligations.indexees",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.c10",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "recto": "Point mort d'inflation ?",
+      "verso": "Rendement nominal − rendement réel : l'inflation anticipée par le marché (avec une prime).",
+      "fiche": "m3.obligations.indexees",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "question": "Pourquoi le prix d'une obligation baisse-t-il quand les taux montent ?",
+      "reponse_modele": "Parce que son coupon est fixe. Si les taux du marché montent à 4 %, une obligation ancienne qui paie 3 % devient moins intéressante que les nouvelles : pour trouver un acheteur, son prix doit baisser jusqu'à ce que son rendement atteigne 4 %. Mathématiquement, le prix est la somme des flux futurs actualisés : un taux d'actualisation plus élevé réduit la valeur de chaque flux. Exemple : 5 ans, coupon 3 %, prix 100 à 3 % de taux, 95,55 à 4 %.",
+      "points_cles": [
+        "Coupon fixe",
+        "Le prix s'ajuste au rendement du marché",
+        "Somme des flux actualisés",
+        "Exemple chiffré"
+      ],
+      "piege": "Dire que c'est une question de confiance des investisseurs : c'est mécanique.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "question": "Une obligation cote 104. Que peux-tu dire de son coupon par rapport au taux du marché ?",
+      "reponse_modele": "Elle cote au-dessus du pair, donc son coupon est supérieur à son rendement : elle a probablement été émise quand les taux étaient plus hauts qu'aujourd'hui. L'acheteur paie 104 mais ne récupérera que 100 à l'échéance : la perte de 4 compense le coupon élevé, si bien que son rendement est aligné sur le marché.",
+      "points_cles": [
+        "Au-dessus du pair",
+        "Coupon > rendement",
+        "Perte de 4 au remboursement compensée par le coupon"
+      ],
+      "piege": "Dire que l'obligation rapporte plus que le marché parce que son coupon est élevé.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "question": "Qu'est-ce que l'écart OAT-Bund et que t'apprend-il ?",
+      "reponse_modele": "C'est la différence entre le rendement de l'OAT 10 ans française et celui du Bund 10 ans allemand, exprimée en points de base. Le Bund est la référence sans risque de la zone euro, donc l'écart mesure la prime que le marché demande pour prêter à la France : il reflète la perception de ses finances publiques, de sa stabilité politique, et aussi des effets de liquidité. Mi-novembre 2026, il tournait autour de 156 points de base. Un écart qui s'élargit renchérit le financement de l'État, mais aussi celui des banques et des entreprises françaises, dont les taux s'appuient sur l'OAT.",
+      "points_cles": [
+        "OAT 10 ans − Bund 10 ans",
+        "Bund = référence sans risque",
+        "Prime de risque France",
+        "Impact sur tout le financement français",
+        "Chiffre daté"
+      ],
+      "piege": "Confondre Bund (obligation) et Bundesbank (banque centrale).",
+      "fiche": "m3.obligations.souverains",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 3,
+      "question": "Qu'est-ce que le point mort d'inflation ? Est-ce une prévision ?",
+      "reponse_modele": "C'est la différence entre le rendement d'une obligation classique et celui d'une obligation indexée sur l'inflation de même maturité. C'est le niveau d'inflation moyen pour lequel les deux placements rapportent la même chose : on l'interprète comme l'inflation anticipée par le marché. Mais ce n'est pas une prévision pure : il contient une prime de risque d'inflation et un effet de liquidité, car les indexées s'échangent moins. Les banques centrales le suivent pour vérifier que les anticipations restent ancrées autour de leur cible.",
+      "points_cles": [
+        "Nominal − réel",
+        "Inflation anticipée",
+        "Prime de risque et liquidité",
+        "Suivi par la banque centrale"
+      ],
+      "piege": "Présenter le point mort comme la prévision officielle d'inflation.",
+      "fiche": "m3.obligations.indexees",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "enonce": "Les taux du marché montent. Le prix d'une obligation à taux fixe déjà émise…",
+      "choix": [
+        "monte",
+        "baisse",
+        "ne bouge pas, le coupon est fixe",
+        "dépend uniquement de l'émetteur"
+      ],
+      "bonne": 1,
+      "explication": "Coupon fixe : le prix baisse jusqu'à ce que le rendement rejoigne le marché.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z02",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "enonce": "Prix d'une obligation de coupon 3 %, maturité 5 ans, si le rendement du marché est de 4 % (pour 100, deux décimales) ?",
+      "reponse": 95.55,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "3/1,04 + 3/1,04² + 3/1,04³ + 3/1,04⁴ + 103/1,04⁵ = 95,55.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "enonce": "Une obligation dont le coupon est supérieur au taux du marché cote au-dessus de 100.",
+      "vrai": true,
+      "explication": "Coupon > rendement : prix au-dessus du pair.",
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "enonce": "Prix d'un zéro-coupon 10 ans si le taux 10 ans est de 4 % (pour 100) ?",
+      "reponse": 67.56,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "100 / 1,04¹⁰ = 67,56.",
+      "fiche": "m3.obligations.zero-coupon",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "enonce": "Quelle obligation sert de référence « sans risque » dans la zone euro ?",
+      "choix": [
+        "L'OAT 10 ans",
+        "Le Bund 10 ans",
+        "Le BTP 10 ans",
+        "L'Euribor 12 mois"
+      ],
+      "bonne": 1,
+      "explication": "Le Bund allemand : l'Allemagne est jugée l'emprunteur le plus sûr de la zone euro.",
+      "fiche": "m3.obligations.souverains",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z06",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "enonce": "OAT 10 ans à 3,40 %, OAT€i 10 ans à 1,15 %. Point mort d'inflation, en % ?",
+      "reponse": 2.25,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "3,40 − 1,15 = 2,25 % d'inflation anticipée par an, environ.",
+      "fiche": "m3.obligations.indexees",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.z07",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 3,
+      "enonce": "Une obligation indexée sur l'inflation ne peut pas perdre de valeur.",
+      "vrai": false,
+      "explication": "Si les taux réels montent, son prix baisse. Elle protège contre l'inflation, pas contre la hausse des taux réels.",
+      "fiche": "m3.obligations.indexees",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 2,
+      "titre": "Prix et rendement d'une obligation",
+      "enonce": "Exemple fictif. Une obligation d'entreprise de nominal 100 paie un coupon de 4 % par an et arrive à échéance dans 7 ans. (1) Quel est son prix si le marché demande 5 % ? (2) Le lendemain, elle cote 97. Quel est son rendement ? (3) Que vaudrait un zéro-coupon 7 ans au même taux de 5 % ?",
+      "etapes": [
+        {
+          "titre": "Le prix à 5 %",
+          "texte": "On actualise les 7 coupons de 4 et le nominal de 100 à 5 %.",
+          "formule": {
+            "latex": "P = \\sum_{t=1}^{7} \\frac{4}{1{,}05^{t}} + \\frac{100}{1{,}05^{7}}",
+            "legende": {
+              "4": "le coupon annuel",
+              "100": "le nominal",
+              "1{,}05": "1 + rendement"
+            },
+            "en_francais": "Somme des flux actualisés au rendement demandé."
+          },
+          "resultat": "94,21",
+          "verif": {
+            "fn": "taux.prixObligation",
+            "args": [
+              4,
+              5,
+              7
+            ],
+            "attendu": 94.214,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Le rendement à 97",
+          "texte": "On cherche le taux qui donne un prix de 97, par essais successifs : à 4,5 %, le prix est 97,05 ; à 4,51 %, 96,99. Le rendement est donc juste au-dessus de 4,5 %.",
+          "resultat": "4,51 %",
+          "verif": {
+            "fn": "taux.rendementObligation",
+            "args": [
+              97,
+              4,
+              7
+            ],
+            "attendu": 4.509,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Le zéro-coupon 7 ans",
+          "texte": "Un seul flux : 100 / 1,05⁷.",
+          "resultat": "71,07",
+          "verif": {
+            "fn": "taux.prixZeroCoupon",
+            "args": [
+              5,
+              7
+            ],
+            "attendu": 71.068,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le prix passe de 94,21 à 97 quand le rendement baisse de 5 % à 4,51 % : prix et rendement varient en sens inverse. Le zéro-coupon vaut beaucoup moins que l'obligation à coupons, car il ne verse rien avant l'échéance."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier de rajouter le nominal au dernier flux.",
+        "Confondre coupon (fixe) et rendement (qui change avec le prix).",
+        "Chercher le rendement avec une formule directe : il n'y en a pas, il faut procéder par essais."
+      ],
+      "fiche": "m3.obligations.prix",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-obligation",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Obligation",
+      "definition": "Titre de dette qui verse des coupons et rembourse un nominal à l'échéance.",
+      "fiche": "m3.obligations.prix",
+      "anglais": "bond",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-coupon",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Coupon",
+      "definition": "Intérêt fixe versé chaque année par une obligation, en % du nominal.",
+      "fiche": "m3.obligations.prix",
+      "anglais": "coupon",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-rendement-actuariel",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Rendement actuariel",
+      "definition": "Taux qui égalise le prix d'une obligation et ses flux futurs actualisés.",
+      "fiche": "m3.obligations.prix",
+      "anglais": "yield to maturity",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-au-pair",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Au pair",
+      "definition": "Prix égal au nominal, 100 : le coupon est égal au rendement.",
+      "fiche": "m3.obligations.prix",
+      "anglais": "at par",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-zero-coupon",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Zéro-coupon",
+      "definition": "Obligation sans coupon, achetée sous le pair et remboursée 100 à l'échéance.",
+      "fiche": "m3.obligations.zero-coupon",
+      "anglais": "zero-coupon bond",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-oat",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "OAT",
+      "definition": "Obligation assimilable du Trésor, dette à moyen et long terme de l'État français.",
+      "fiche": "m3.obligations.souverains",
+      "anglais": "French government bond",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-bund",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Bund",
+      "definition": "Obligation fédérale allemande ; le Bund 10 ans est la référence sans risque de la zone euro.",
+      "fiche": "m3.obligations.souverains",
+      "anglais": "Bund",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-treasuries",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Treasuries",
+      "definition": "Dette de l'État fédéral américain, référence mondiale des taux.",
+      "fiche": "m3.obligations.souverains",
+      "anglais": "US Treasuries",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-point-mort-d-inflation",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Point mort d'inflation",
+      "definition": "Écart entre le rendement d'une obligation classique et celui d'une indexée : l'inflation anticipée par le marché.",
+      "fiche": "m3.obligations.indexees",
+      "anglais": "breakeven inflation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.obligations.l-taux-reel",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.obligations",
+      "difficulte": 1,
+      "terme": "Taux réel",
+      "definition": "Rendement d'une obligation indexée sur l'inflation : ce que rapporte le placement en pouvoir d'achat.",
+      "fiche": "m3.obligations.indexees",
+      "anglais": "real yield",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

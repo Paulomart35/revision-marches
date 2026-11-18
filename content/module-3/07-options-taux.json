@@ -1,0 +1,811 @@
+{
+  "chapitre": {
+    "id": "m3.options-taux",
+    "module": 3,
+    "ordre": 7,
+    "titre": "Cap, floor, tunnel, swaption et futures",
+    "resume": "Les options de taux pour plafonner un coût sans renoncer à la baisse, les swaps qui démarrent plus tard, et les futures de taux."
+  },
+  "elements": [
+    {
+      "id": "m3.options-taux.cap-floor",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "tags": [
+        "cap",
+        "floor",
+        "options de taux"
+      ],
+      "titre": "Le cap et le floor",
+      "une_phrase": "Un **cap** est une assurance contre la hausse des taux : si l'Euribor dépasse un plafond (le *strike*), la banque paie la différence ; un **floor** est l'inverse, une protection contre la baisse.",
+      "trente_secondes": "Un emprunteur à taux variable veut se protéger contre la hausse, **sans renoncer à la baisse**. Le swap ne le permet pas ; le cap, si.\n\n- Le cap est une **série d'options** sur l'Euribor, une par période : les **caplets**.\n- À chaque période, si l'Euribor dépasse le strike, l'acheteur reçoit (Euribor − strike) × nominal × durée.\n- Sinon, il ne reçoit rien et paie simplement l'Euribor, plus bas.\n- Comme toute option, le cap se paie par une **prime**, souvent à la signature ou étalée en % par an.\n\nLe **floor** fonctionne à l'envers : il paie si l'Euribor passe **sous** le strike. Un placeur à taux variable l'achète pour garantir un rendement minimum.",
+      "analogie": "Le cap, c'est une assurance habitation : tu paies une prime chaque année, et l'assureur paie si le sinistre (l'Euribor au-dessus du plafond) se produit. Si rien n'arrive, la prime est perdue, mais tu as dormi tranquille.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.emprunteur",
+        "legende": "Compare le coût de l'emprunteur avec un swap, un cap ou un tunnel, selon l'Euribor."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Crédit 10 M€ à Euribor 3 mois + 1,20 %. Cap à 3,25 % pour une prime de 0,30 % par an.",
+        "Euribor à 1,50 % : le cap ne joue pas. Coût = 1,50 + 1,20 + 0,30 = **3,00 %**.",
+        "Euribor à 2,75 % : coût = 2,75 + 1,20 + 0,30 = **4,25 %**.",
+        "Euribor à 4,50 % : le cap paie 4,50 − 3,25 = 1,25 %. Coût = 3,25 + 1,20 + 0,30 = **4,75 %**, plafonné quoi qu'il arrive.",
+        "Avec un swap à 3,00 %, le coût aurait été 4,20 % dans les trois cas."
+      ],
+      "formules": [
+        {
+          "titre": "Le paiement d'un caplet",
+          "latex": "\\text{Paiement} = N \\times \\max(\\text{Euribor} - K, 0) \\times \\frac{j}{360}",
+          "legende": {
+            "N": "le nominal",
+            "\\text{Euribor}": "le taux fixé pour la période",
+            "K": "le strike du cap",
+            "j": "le nombre de jours de la période"
+          },
+          "en_francais": "Le caplet paie l'excédent de l'Euribor au-dessus du strike, et rien sinon : c'est un call sur le taux."
+        },
+        {
+          "titre": "Le coût final de l'emprunteur couvert par un cap",
+          "latex": "\\text{Coût} = \\min(\\text{Euribor}, K) + \\text{marge} + \\text{prime annuelle}",
+          "legende": {
+            "K": "le strike du cap",
+            "\\text{marge}": "la marge du crédit",
+            "\\text{prime annuelle}": "la prime du cap exprimée en % par an"
+          },
+          "en_francais": "L'emprunteur paie l'Euribor tant qu'il est sous le plafond, et le plafond au-delà, plus sa marge et le coût de l'assurance."
+        }
+      ],
+      "deux_minutes": "**Comment on le price.** Chaque caplet est un call sur un taux forward : on utilise le modèle de **Black** (la version de Black-Scholes pour les forwards), avec une volatilité de taux. Le prix du cap est la somme des prix des caplets.\n\n**Ce qui rend un cap cher.**\n\n- Un strike **bas** (proche ou sous les forwards) : la protection joue plus souvent.\n- Une **maturité** longue : plus de caplets.\n- Une **volatilité** de taux élevée.\n- Une courbe **pentue** : les forwards sont plus hauts, donc plus proches du strike.\n\n**Parité cap-floor-swap.** Acheter un cap et vendre un floor de même strike revient exactement à un swap payeur à ce taux : c'est la parité call-put appliquée aux taux.\n\n**Cap ou swap ?** Le swap ne coûte pas de prime mais fige tout. Le cap coûte une prime mais garde la baisse. Le choix dépend de la vue de l'entreprise sur les taux et de son budget pour une prime.",
+      "piege": "Oublier la prime dans le coût final, ou dire qu'un cap est gratuit. Et confondre cap (protection contre la hausse, pour un emprunteur) et floor (protection contre la baisse, pour un placeur).",
+      "a_dire_en_entretien": "« Un cap est une série d'options sur l'Euribor : si l'Euribor dépasse le strike, la banque paie la différence. L'emprunteur plafonne son coût et garde la baisse, contre une prime, comme une assurance. Le floor est la même chose à la baisse, pour un placeur. On les price avec le modèle de Black, caplet par caplet. »",
+      "liens": [
+        "m3.options-taux.tunnel",
+        "m3.swap.utilite",
+        "m2.bs.black"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.tunnel",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "tags": [
+        "tunnel",
+        "collar",
+        "options de taux"
+      ],
+      "titre": "Le tunnel (collar)",
+      "une_phrase": "Un **tunnel** combine l'**achat d'un cap** et la **vente d'un floor** : le taux de l'emprunteur reste entre un plancher et un plafond, et la prime du floor vendu finance celle du cap, souvent pour une **prime nulle**.",
+      "trente_secondes": "Le client veut une protection contre la hausse mais **ne veut pas payer de prime**.\n\nSolution : il achète un cap (plafond, par exemple 3,50 %) et vend un floor (plancher, par exemple 2,25 %). La banque lui paie le cap ; lui renonce à la baisse sous le plancher.\n\n- Euribor au-dessus de 3,50 % : il paie 3,50 % (+ marge).\n- Euribor entre 2,25 % et 3,50 % : il paie l'Euribor (+ marge).\n- Euribor sous 2,25 % : il paie 2,25 % (+ marge).\n\nOn choisit les deux niveaux pour que la prime du floor vendu égale celle du cap acheté : c'est le **tunnel à prime nulle**.",
+      "analogie": "C'est un thermostat réglé entre 19 °C et 23 °C : il ne fera jamais plus chaud que 23 °C, mais jamais plus froid que 19 °C non plus, même si tu aimerais en profiter.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.emprunteur",
+        "legende": "Règle le plancher et le plafond du tunnel : la courbe est plate en dessous et au-dessus."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Crédit à Euribor + 1,20 %, tunnel 2,25 % – 3,50 % à prime nulle.",
+        "Euribor à 1,50 % : ramené au plancher. Coût = 2,25 + 1,20 = **3,45 %**.",
+        "Euribor à 2,75 % : dans le tunnel. Coût = 2,75 + 1,20 = **3,95 %**.",
+        "Euribor à 4,50 % : ramené au plafond. Coût = 3,50 + 1,20 = **4,70 %**.",
+        "Comparaison à 1,50 % : swap 4,20 %, cap 3,00 %, tunnel 3,45 %. À 4,50 % : swap 4,20 %, cap 4,75 %, tunnel 4,70 %."
+      ],
+      "formules": [
+        {
+          "titre": "Le coût avec un tunnel",
+          "latex": "\\text{Coût} = \\min\\big(\\max(\\text{Euribor}, P),\\, C\\big) + \\text{marge}",
+          "legende": {
+            "P": "le plancher (strike du floor vendu)",
+            "C": "le plafond (strike du cap acheté)"
+          },
+          "en_francais": "L'Euribor est ramené dans l'intervalle entre le plancher et le plafond, puis on ajoute la marge du crédit."
+        }
+      ],
+      "deux_minutes": "**Le compromis.** Plus le plafond est bas (meilleure protection), plus le plancher doit être haut pour financer le cap : on renonce à plus de baisse. À l'extrême, quand plancher et plafond se rejoignent, le tunnel devient un **swap**.\n\n**Le risque pour le client.** Il est **vendeur d'un floor** : si les taux s'effondrent, il paie le plancher et perd la baisse. Il doit le comprendre et l'accepter. La valeur de marché du tunnel peut devenir négative, et la sortie anticipée se fait au prix du marché.\n\n**Pour la banque,** le tunnel est un dérivé comme les autres : il consomme une ligne de risque (le client peut lui devoir de l'argent si les taux baissent) et nécessite une convention-cadre.\n\n**Le même principe existe en change** : le tunnel de change (achat d'une option, vente d'une autre) protège un exportateur ou un importateur à prime nulle.",
+      "piege": "Dire que le tunnel est « gratuit » sans préciser ce qu'on abandonne : la baisse sous le plancher. Le client est vendeur d'option.",
+      "a_dire_en_entretien": "« Le tunnel, c'est acheter un cap et vendre un floor. Le client est protégé au-dessus du plafond, mais renonce à la baisse sous le plancher. La prime du floor vendu finance celle du cap, ce qui permet souvent une prime nulle. C'est la solution pour un client qui veut une protection et garder une partie de la baisse, sans payer de prime. »",
+      "liens": [
+        "m3.options-taux.cap-floor",
+        "m3.swap.utilite",
+        "m4.couvertures.tunnel"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.swaption",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 3,
+      "tags": [
+        "swaption",
+        "options de taux"
+      ],
+      "titre": "La swaption",
+      "une_phrase": "Une **swaption** est une option qui donne le **droit**, pas l'obligation, de conclure un swap à un taux fixé d'avance, à une date future.",
+      "trente_secondes": "Une entreprise négocie un crédit qui sera signé dans 6 mois. Elle craint que les taux montent d'ici là, mais elle n'est pas sûre d'obtenir le crédit.\n\nUn swap à départ décalé l'obligerait à payer le fixe même sans crédit. La **swaption** lui donne le droit d'entrer dans un swap payeur à 3,20 % dans 6 mois :\n\n- si les swaps sont alors au-dessus de 3,20 %, elle exerce et obtient son taux ;\n- s'ils sont en dessous, elle laisse l'option et traite au marché, moins cher ;\n- si le crédit ne se fait pas, elle n'est engagée à rien (au pire, elle revend l'option).\n\nElle paie une **prime** à la signature.\n\nVocabulaire : swaption **payeuse** (droit de payer le fixe, protège contre la hausse) ; swaption **receveuse** (droit de recevoir le fixe, protège contre la baisse).",
+      "analogie": "Une option d'achat sur un appartement : tu paies pour qu'on te le réserve à un prix fixé pendant quelques mois. Si ton financement tombe, tu laisses passer ; si les prix montent, tu es content de l'avoir réservé.",
+      "exemple_chiffre": [
+        "Exemple fictif. Swaption payeuse « 6 mois dans 5 ans », strike 3,20 %, nominal 10 M€, prime 0,45 % du nominal = **45 000 €**.",
+        "Dans 6 mois, le swap 5 ans vaut 3,80 % : elle exerce. Gain d'environ 10 M × 0,60 % × 4,5 (annuité) ≈ 270 000 € en valeur, moins la prime.",
+        "Dans 6 mois, le swap 5 ans vaut 2,70 % : elle n'exerce pas et traite au marché à 2,70 %. Elle a perdu la prime, mais paie moins que 3,20 %."
+      ],
+      "deux_minutes": "**La notation.** Une swaption « 1 an dans 5 ans » (*1y5y*) est une option d'échéance 1 an sur un swap de 5 ans.\n\n**Le prix.** On utilise aussi le modèle de Black (ou un modèle à volatilité normale, en points de base, depuis l'époque des taux négatifs), appliqué au **taux de swap forward**. Le prix dépend du strike, de la volatilité des taux, de l'échéance de l'option et de la durée du swap.\n\n**Qui l'utilise ?**\n\n- Les entreprises, pour un crédit **incertain** ou futur (acquisition en cours, appel d'offres).\n- Les assureurs et banques, pour gérer les options cachées dans leurs bilans (remboursements anticipés de crédits immobiliers).\n- Les traders de volatilité de taux.\n\n**Les produits « annulables ».** Un swap que la banque peut annuler à certaines dates est un swap plus une swaption vendue par le client : il obtient un taux plus bas, mais la banque choisira d'annuler quand cela l'arrange.",
+      "piege": "Confondre swaption et swap à départ décalé : le swap décalé engage ferme, la swaption laisse le choix, contre une prime.",
+      "a_dire_en_entretien": "« Une swaption, c'est le droit d'entrer dans un swap à un taux fixé, à une date future. Elle convient à un client dont le besoin de couverture est incertain, par exemple un crédit pas encore signé : il est protégé contre la hausse sans être engagé. Il paie une prime, et on la price avec Black sur le taux de swap forward. »",
+      "liens": [
+        "m3.options-taux.forward-start",
+        "m3.options-taux.cap-floor",
+        "m3.swap.principe"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.forward-start",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "tags": [
+        "swap",
+        "départ décalé"
+      ],
+      "titre": "Le swap à départ décalé",
+      "une_phrase": "Un **swap à départ décalé** (*forward starting swap*) est signé aujourd'hui mais ne commence qu'à une date future : il permet de **fixer dès maintenant** le taux d'un financement qui démarrera plus tard.",
+      "trente_secondes": "Une entreprise sait qu'elle tirera un crédit de 15 M€ dans un an, pour 5 ans, à Euribor + marge. Elle veut fixer le taux tout de suite.\n\nElle signe aujourd'hui un swap qui **commence dans un an** et dure 5 ans. Rien n'est payé avant le départ.\n\nLe taux fixe est calculé à partir des **taux forward** de la courbe sur cette période future : avec une courbe qui monte, il est un peu plus haut que le taux d'un swap qui démarrerait aujourd'hui. Ce supplément n'est pas une marge : c'est le prix du décalage.\n\nÀ la différence de la swaption, c'est un **engagement ferme**, sans prime : à réserver aux besoins **certains**.",
+      "analogie": "Réserver aujourd'hui une location de vacances pour l'été prochain à un prix fixé : tu ne paies rien maintenant, mais tu es engagé, que tu partes ou non.",
+      "exemple_chiffre": [
+        "Exemple fictif. Swap 5 ans démarrant aujourd'hui : 2,95 %. Swap 5 ans démarrant dans 1 an : 3,10 %.",
+        "L'écart de 15 pb vient de la pente de la courbe : les taux forward de la période 1-6 ans dépassent ceux de la période 0-5 ans.",
+        "Si dans un an le swap 5 ans vaut 3,60 %, l'entreprise a fixé 3,10 % : elle économise 0,50 % par an.",
+        "Si le crédit ne se fait pas, elle garde quand même un swap, qu'elle devra déboucler au prix du marché."
+      ],
+      "deux_minutes": "**Quand le proposer.** Crédit déjà signé avec tirage différé, refinancement prévu d'une dette existante, programme d'investissement certain.\n\n**Swap décalé, swaption ou cap à départ décalé ?**\n\n- Besoin **certain** et volonté de figer : swap décalé (pas de prime).\n- Besoin **incertain** : swaption (prime, mais pas d'engagement).\n- Envie de garder la baisse : cap à départ décalé (prime).\n\n**Pour la banque**, le swap décalé consomme une ligne de risque dès la signature : sa valeur bouge avec les taux même avant le départ.",
+      "piege": "Proposer un swap décalé pour un crédit incertain : si le crédit ne se fait pas, le client reste engagé dans un dérivé spéculatif, avec une valeur de marché qui peut être négative.",
+      "a_dire_en_entretien": "« Le swap à départ décalé fixe aujourd'hui le taux d'un financement futur. Son taux vient des forwards de la courbe, donc il est un peu au-dessus du swap qui démarre tout de suite si la courbe monte. C'est un engagement ferme : pour un besoin certain. Si le besoin est incertain, je propose plutôt une swaption. »",
+      "liens": [
+        "m3.options-taux.swaption",
+        "m3.courbe.forward",
+        "m3.swap.taux-swap"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.futures",
+      "type": "fiche",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "tags": [
+        "futures",
+        "Euribor",
+        "€STR"
+      ],
+      "titre": "Les futures de taux",
+      "une_phrase": "Un **future de taux** est un contrat standardisé, coté en bourse, qui fixe aujourd'hui un taux pour une période future ; son prix se cote **100 − taux**, si bien qu'il **monte quand les taux baissent**.",
+      "trente_secondes": "Deux grandes familles :\n\n- **Futures sur taux courts** : sur l'Euribor 3 mois ou l'€STR en euro, sur le SOFR en dollar. Chaque contrat porte sur une période de 3 mois future. Prix = 100 − taux anticipé. Un future qui cote 97,75 annonce un taux de 2,25 %.\n- **Futures sur obligations** : sur un panier d'obligations d'État (le **Bund future** sur l'Allemagne, l'**OAT future** sur la France, les *T-note futures* aux États-Unis).\n\nAvantages : très **liquides**, peu de frais, et le risque de contrepartie est porté par la **chambre de compensation**, qui exige des **appels de marge** quotidiens.\n\nLes traders s'en servent pour couvrir ou prendre rapidement une position de taux, et le marché pour lire les anticipations de politique monétaire.",
+      "analogie": "C'est comme acheter aujourd'hui à prix fixé un abonnement de train qui ne commencera que dans trois mois, sur une plateforme où tout le monde voit les prix et où un arbitre garantit que chacun paie.",
+      "exemple_chiffre": [
+        "Exemple fictif. Le future Euribor 3 mois d'échéance mars cote 97,60 : le marché anticipe un Euribor de **2,40 %** pour la période qui commence en mars.",
+        "La BCE surprend par une hausse : le future tombe à 97,35, taux anticipé **2,65 %**.",
+        "Variation : 25 pb. Le contrat porte sur 1 M€ et 3 mois : chaque point de base vaut 1 000 000 × 0,01 % × 3/12 = **25 €**. Le vendeur d'un contrat gagne 25 × 25 = **625 €**.",
+        "Le vendeur était positionné sur la hausse des taux : vendre un future de taux, c'est parier sur la hausse."
+      ],
+      "formules": [
+        {
+          "titre": "Prix d'un future de taux court",
+          "latex": "P = 100 - r",
+          "legende": {
+            "P": "le prix coté du future",
+            "r": "le taux anticipé pour la période du contrat, en %"
+          },
+          "en_francais": "Le prix est 100 moins le taux : quand le taux anticipé monte, le prix baisse, comme pour une obligation."
+        }
+      ],
+      "deux_minutes": "**Pourquoi 100 − taux ?** Pour que le future se comporte comme une obligation : son prix baisse quand les taux montent. Acheter un future, c'est parier sur la baisse des taux (et se protéger contre elle, pour un placeur).\n\n**Lire la politique monétaire.** La série des futures €STR (ou des swaps OIS) donne la trajectoire de taux que le marché anticipe : c'est de là que viennent les phrases « le marché price une hausse de 25 pb en décembre ». Aux États-Unis, l'outil FedWatch du CME transforme les futures sur Fed funds en probabilités de décision.\n\n**Les futures obligataires.** Le Bund future porte sur un emprunt allemand fictif de 6 % de coupon ; à l'échéance, le vendeur livre l'obligation réelle la moins chère à livrer (*cheapest to deliver*) du panier. C'est l'instrument le plus utilisé pour couvrir rapidement un DV01 sur la partie longue de la courbe en euro.\n\n**Futures et FRA.** Le FRA est l'équivalent de gré à gré du future de taux court : sur mesure, mais avec un risque de contrepartie bilatéral.",
+      "piege": "Croire qu'un future qui monte annonce une hausse des taux : c'est l'inverse, puisqu'il cote 100 − taux.",
+      "a_dire_en_entretien": "« Un future de taux court, sur l'Euribor ou l'€STR, est coté 100 moins le taux anticipé : s'il cote 97,60, le marché anticipe 2,40 %. C'est standardisé, liquide et compensé, avec des appels de marge quotidiens. On s'en sert pour couvrir un risque de taux et pour lire ce que le marché anticipe de la banque centrale. »",
+      "liens": [
+        "m3.courbe.forward",
+        "m3.duration.dv01"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c01",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "recto": "Cap ?",
+      "verso": "Série d'options (caplets) qui paient si l'Euribor dépasse le strike : plafond pour un emprunteur.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c02",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "recto": "Floor ?",
+      "verso": "Série d'options qui paient si l'Euribor passe sous le strike : plancher pour un placeur.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c03",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "recto": "Coût d'un emprunteur couvert par un cap ?",
+      "verso": "min(Euribor, strike) + marge + prime annuelle.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c04",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "recto": "Tunnel ?",
+      "verso": "Achat d'un cap + vente d'un floor : taux entre plancher et plafond, souvent à prime nulle.",
+      "fiche": "m3.options-taux.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c05",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "recto": "Ce que le client abandonne dans un tunnel ?",
+      "verso": "La baisse sous le plancher : il est vendeur du floor.",
+      "fiche": "m3.options-taux.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c06",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 3,
+      "recto": "Cap + floor vendu de même strike = ?",
+      "verso": "Un swap payeur à ce taux.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c07",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "recto": "Swaption ?",
+      "verso": "Droit d'entrer dans un swap à un taux fixé, à une date future, contre une prime.",
+      "fiche": "m3.options-taux.swaption",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c08",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "recto": "Swap décalé ou swaption ?",
+      "verso": "Besoin certain : swap décalé (ferme, sans prime). Besoin incertain : swaption (prime, sans engagement).",
+      "fiche": "m3.options-taux.forward-start",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c09",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "recto": "Prix d'un future de taux court ?",
+      "verso": "100 − taux anticipé.",
+      "fiche": "m3.options-taux.futures",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.c10",
+      "type": "carte",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "recto": "Acheter un future de taux, c'est parier sur…",
+      "verso": "La baisse des taux.",
+      "fiche": "m3.options-taux.futures",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.q01",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "question": "Swap, cap ou tunnel : comment choisis-tu pour un client emprunteur ?",
+      "reponse_modele": "Je pars de son besoin. S'il veut un coût totalement connu et ne veut pas de prime, c'est le swap : coût figé, mais plus de baisse possible. S'il veut un plafond et garder toute la baisse, et qu'il accepte une prime, c'est le cap. S'il veut un plafond sans prime et accepte de renoncer à la baisse sous un plancher, c'est le tunnel. Je lui montre le coût dans chaque scénario : avec un swap à 3 %, un cap à 3,25 % pour 0,30 % et un tunnel 2,25 % – 3,50 %, si l'Euribor tombe à 1,50 %, il paie 4,20 %, 3,00 % ou 3,45 % ; s'il monte à 4,50 %, 4,20 %, 4,75 % ou 4,70 %. Personne ne sait lequel sera le moins cher : on choisit selon le besoin, pas selon une prévision.",
+      "points_cles": [
+        "Swap : certitude, pas de prime",
+        "Cap : plafond + baisse, prime",
+        "Tunnel : plafond sans prime, plancher",
+        "Scénarios chiffrés",
+        "Choix selon le besoin, pas une prévision"
+      ],
+      "piege": "Recommander une solution parce qu'on pense que les taux vont baisser.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.q02",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 3,
+      "question": "Comment price-t-on un cap ?",
+      "reponse_modele": "Un cap est une somme de caplets, un par période. Chaque caplet est un call sur l'Euribor de la période, qu'on price avec le modèle de Black appliqué au taux forward de cette période : prix = nominal × durée de la période × facteur d'actualisation × (F × N(d1) − K × N(d2)), avec une volatilité de taux par caplet, tirée du marché. Le cap est cher si le strike est bas par rapport aux forwards, si la maturité est longue et si la volatilité des taux est élevée.",
+      "points_cles": [
+        "Somme de caplets",
+        "Call sur le forward",
+        "Modèle de Black",
+        "Strike, maturité, volatilité, pente"
+      ],
+      "piege": "Pricer le cap comme une seule option sur le taux du jour.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.q03",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "question": "Un client signera un crédit dans 6 mois, s'il remporte un appel d'offres. Comment le protéger contre la hausse des taux ?",
+      "reponse_modele": "Son besoin est incertain : un swap à départ décalé l'engagerait même s'il perd l'appel d'offres, et il se retrouverait avec un dérivé sans crédit en face. Je propose une swaption payeuse : le droit, dans 6 mois, d'entrer dans un swap à un taux fixé aujourd'hui. Il paie une prime, mais s'il perd l'appel d'offres il n'est engagé à rien. Si les taux ont baissé, il laisse l'option et traite au marché. Un cap à départ décalé est une autre option, si le crédit est probable et qu'il veut garder la baisse.",
+      "points_cles": [
+        "Besoin incertain",
+        "Pas de swap décalé",
+        "Swaption payeuse",
+        "Prime, pas d'engagement",
+        "Alternative : cap décalé"
+      ],
+      "piege": "Proposer un swap décalé pour un besoin incertain.",
+      "fiche": "m3.options-taux.swaption",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.q04",
+      "type": "question_entretien",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "question": "Le future Euribor de mars cote 97,40. Qu'est-ce que ça veut dire ?",
+      "reponse_modele": "Le marché anticipe un Euribor 3 mois de 100 − 97,40 = 2,60 % pour la période de 3 mois qui commence à l'échéance de mars. Si les anticipations de hausse de la BCE augmentent, le prix baisse. Acheter ce future, c'est se positionner sur la baisse des taux ; le vendre, sur la hausse. Comme pour le forward, ce taux contient une petite prime de risque : ce n'est pas une prévision pure.",
+      "points_cles": [
+        "100 − prix = taux anticipé",
+        "2,60 %",
+        "Prix en sens inverse du taux",
+        "Achat = pari sur la baisse"
+      ],
+      "piege": "Lire 97,40 comme un taux.",
+      "fiche": "m3.options-taux.futures",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "enonce": "Un emprunteur à taux variable veut plafonner son coût en gardant la baisse. Il achète…",
+      "choix": [
+        "un floor",
+        "un cap",
+        "un swap receveur",
+        "un future Euribor"
+      ],
+      "bonne": 1,
+      "explication": "Le cap plafonne l'Euribor contre une prime, sans renoncer à la baisse.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z02",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "enonce": "Crédit à Euribor + 1,20 %, cap à 3,25 % pour 0,30 % par an. L'Euribor vaut 4,50 %. Coût total, en % ?",
+      "reponse": 4.75,
+      "tolerance": 0.005,
+      "unite": "%",
+      "explication": "3,25 + 1,20 + 0,30 = 4,75 %.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "enonce": "Crédit à Euribor + 1,20 %, tunnel 2,25 % – 3,50 %. L'Euribor vaut 1,50 %. Coût total, en % ?",
+      "reponse": 3.45,
+      "tolerance": 0.005,
+      "unite": "%",
+      "explication": "Euribor ramené au plancher : 2,25 + 1,20 = 3,45 %.",
+      "fiche": "m3.options-taux.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "enonce": "Dans un tunnel, le client est vendeur d'une option.",
+      "vrai": true,
+      "explication": "Il vend le floor pour financer le cap : c'est pourquoi il renonce à la baisse sous le plancher.",
+      "fiche": "m3.options-taux.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "enonce": "Acheter un cap et vendre un floor de même strike équivaut à…",
+      "choix": [
+        "un swap receveur",
+        "un swap payeur",
+        "une swaption",
+        "rien du tout"
+      ],
+      "bonne": 1,
+      "explication": "Parité cap-floor-swap : le coût est figé au strike, comme avec un swap payeur.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z06",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "enonce": "Pour un financement futur certain, sans prime, on propose…",
+      "choix": [
+        "une swaption",
+        "un swap à départ décalé",
+        "un floor",
+        "un CDS"
+      ],
+      "bonne": 1,
+      "explication": "Le swap décalé fixe le taux sans prime, mais engage ferme : pour un besoin certain.",
+      "fiche": "m3.options-taux.forward-start",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.z07",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "enonce": "Un future €STR cote 97,85. Taux anticipé, en % ?",
+      "reponse": 2.15,
+      "tolerance": 0.001,
+      "unite": "%",
+      "explication": "100 − 97,85 = 2,15 %.",
+      "fiche": "m3.options-taux.futures",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.x01",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "titre": "Swap, cap ou tunnel : le taux effectif",
+      "enonce": "Exemple fictif. Crédit à Euribor 3 mois + 1,20 %. Trois couvertures possibles : swap à 3,00 % ; cap à 3,25 % pour 0,30 % par an ; tunnel 2,25 % – 3,50 % à prime nulle. Calcule le taux effectif dans chaque cas si l'Euribor vaut 1,50 %, 2,75 % ou 4,50 %.",
+      "etapes": [
+        {
+          "titre": "Sans couverture et avec le swap",
+          "texte": "Sans couverture : Euribor + 1,20 %, soit 2,70 %, 3,95 %, 5,70 %. Avec le swap : 3,00 + 1,20 = 4,20 % dans tous les cas."
+        },
+        {
+          "titre": "Avec le cap",
+          "texte": "min(Euribor ; 3,25 %) + 1,20 % + 0,30 % : 3,00 %, 4,25 %, 4,75 %.",
+          "resultat": "À 4,50 % : 4,75 %",
+          "verif": {
+            "fn": "taux.coutAvecCap",
+            "args": [
+              4.5,
+              3.25,
+              1.2,
+              0.3
+            ],
+            "attendu": 4.75,
+            "tolerance": 0.000001
+          }
+        },
+        {
+          "titre": "Avec le tunnel",
+          "texte": "Euribor ramené entre 2,25 % et 3,50 %, + 1,20 % : 3,45 %, 3,95 %, 4,70 %.",
+          "resultat": "À 1,50 % : 3,45 %",
+          "verif": {
+            "fn": "taux.coutAvecTunnel",
+            "args": [
+              1.5,
+              2.25,
+              3.5,
+              1.2
+            ],
+            "attendu": 3.45,
+            "tolerance": 0.000001
+          }
+        },
+        {
+          "titre": "Le tableau",
+          "texte": "Euribor 1,50 % : sans 2,70 · swap 4,20 · cap 3,00 · tunnel 3,45. Euribor 2,75 % : sans 3,95 · swap 4,20 · cap 4,25 · tunnel 3,95. Euribor 4,50 % : sans 5,70 · swap 4,20 · cap 4,75 · tunnel 4,70."
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Le swap protège le plus mais ne laisse aucune souplesse ; le cap coûte une prime mais garde toute la baisse ; le tunnel est gratuit mais bloque la baisse sous 2,25 %. Aucune n'est la meilleure dans tous les cas."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier la prime du cap.",
+        "Oublier la marge du crédit.",
+        "Penser que le tunnel ne coûte rien dans aucun scénario : sous le plancher, il fait payer plus que sans couverture."
+      ],
+      "fiche": "m3.options-taux.tunnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.x02",
+      "type": "exercice",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 3,
+      "titre": "Le prix d'un caplet avec Black",
+      "enonce": "Exemple fictif. Caplet sur l'Euribor 3 mois, nominal 10 M€, strike 3,25 %, fixé dans 1 an. Taux forward de la période : 3,00 %. Volatilité du taux : 20 %. Taux d'actualisation : 3 %. Période de 90 jours. Calcule le prix du caplet, puis celui d'un caplet à la monnaie (strike 3,00 %).",
+      "etapes": [
+        {
+          "titre": "Le modèle",
+          "texte": "Black : le caplet est un call sur le forward F, de strike K, actualisé, multiplié par le nominal et la durée de la période.",
+          "formule": {
+            "latex": "\\text{Caplet} = N \\times \\frac{j}{360} \\times e^{-rT} \\big[F\\,N(d_1) - K\\,N(d_2)\\big] \\qquad d_{1,2} = \\frac{\\ln(F/K) \\pm \\tfrac{1}{2}\\sigma^{2}T}{\\sigma\\sqrt{T}}",
+            "legende": {
+              "F": "le taux forward de la période",
+              "K": "le strike",
+              "\\sigma": "la volatilité du taux",
+              "T": "la date du fixing, en années",
+              "N(\\cdot)": "la fonction de répartition de la loi normale"
+            },
+            "en_francais": "La même structure que Black-Scholes, appliquée au taux forward au lieu d'un prix d'action."
+          },
+          "resultat": "d₁ = −0,300 ; d₂ = −0,500"
+        },
+        {
+          "titre": "Le caplet de strike 3,25 %",
+          "texte": "F N(d₁) − K N(d₂) = 3 % × 0,382 − 3,25 % × 0,309 ≈ 0,1436 %. × e^(−0,03) × 10 M × 90/360.",
+          "resultat": "≈ 3 482 €",
+          "verif": {
+            "fn": "taux.caplet",
+            "args": [
+              10000000,
+              0.03,
+              0.0325,
+              1,
+              0.03,
+              0.2,
+              90
+            ],
+            "attendu": 3482,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Le caplet à la monnaie",
+          "texte": "Strike 3,00 % = forward : le caplet vaut plus, il est plus probable qu'il paie.",
+          "resultat": "≈ 5 798 €",
+          "verif": {
+            "fn": "taux.caplet",
+            "args": [
+              10000000,
+              0.03,
+              0.03,
+              1,
+              0.03,
+              0.2,
+              90
+            ],
+            "attendu": 5798,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Un cap 5 ans trimestriel, c'est une vingtaine de caplets comme celui-ci, avec des forwards et des échéances différents. Baisser le strike de 25 pb fait passer ce caplet de 3 482 € à 5 798 € : la protection a un prix."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Utiliser l'Euribor du jour au lieu du forward de la période.",
+        "Oublier de multiplier par la durée de la période (90/360).",
+        "Confondre la volatilité du taux (en %, relative) avec un écart en points de base."
+      ],
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.k01",
+      "type": "cas_pratique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 2,
+      "titre": "Une ETI endettée qui craint la hausse des taux",
+      "situation": "Exemple fictif. Une ETI industrielle a un crédit de 20 M€ sur 7 ans à Euribor 3 mois + 1,50 %, amortissable par annuités constantes. Son directeur financier a vu l'Euribor remonter et craint que ses frais financiers dépassent son budget. Il t'appelle : « Qu'est-ce que vous me proposez ? »",
+      "questions_a_poser": [
+        "Voulez-vous un coût totalement fixe, ou garder une partie de la baisse si les taux redescendent ?",
+        "Pouvez-vous payer une prime, et quel budget ?",
+        "Quel est le profil d'amortissement exact du crédit, et ses dates de fixing ?",
+        "Une partie de la dette est-elle déjà couverte ? Avez-vous d'autres dettes à taux fixe ?",
+        "Avez-vous une vue sur les taux, ou un taux budgétaire à ne pas dépasser ?",
+        "Un remboursement anticipé est-il possible (cession, refinancement) ?"
+      ],
+      "proposition": "Trois solutions, calées sur l'amortissement du crédit. (1) Un **swap amortissable** payeur du fixe : coût connu (taux du swap + 1,50 %), sans prime. (2) Un **cap** : plafond sur l'Euribor contre une prime, en gardant toute la baisse. (3) Un **tunnel** à prime nulle : plafond, mais plancher sous lequel il ne profite plus de la baisse. Variante : ne couvrir que 50 à 70 % du nominal, pour garder de la souplesse et profiter en partie d'une baisse.",
+      "scenario_defavorable": "Avec le swap, si les taux baissent, il paie plus que sans couverture et la valeur de marché du swap devient négative : une sortie anticipée (par exemple en cas de cession) coûterait une soulte. Avec le cap, si les taux restent bas, la prime est perdue. Avec le tunnel, si l'Euribor passe sous le plancher, il paie le plancher. Je lui montre les chiffres de chaque scénario.",
+      "faisabilite": "Vérifier la ligne de risque dérivés de l'ETI et la convention-cadre (FBF) signée ; valider l'adéquation (connaissance des dérivés, objectif de couverture et non de spéculation) ; aligner le swap sur les dates et les montants du crédit ; préciser le traitement comptable de couverture avec son expert-comptable.",
+      "fiche": "m3.options-taux.cap-floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-cap",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Cap",
+      "definition": "Option qui plafonne un taux variable : série de caplets.",
+      "fiche": "m3.options-taux.cap-floor",
+      "anglais": "cap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-caplet",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Caplet",
+      "definition": "Option sur l'Euribor d'une seule période, élément d'un cap.",
+      "fiche": "m3.options-taux.cap-floor",
+      "anglais": "caplet",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-floor",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Floor",
+      "definition": "Option qui garantit un taux variable minimum.",
+      "fiche": "m3.options-taux.cap-floor",
+      "anglais": "floor",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-tunnel",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Tunnel",
+      "definition": "Achat d'un cap et vente d'un floor : le taux reste entre un plancher et un plafond.",
+      "fiche": "m3.options-taux.tunnel",
+      "anglais": "collar",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-swaption",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Swaption",
+      "definition": "Option d'entrer dans un swap à un taux fixé d'avance.",
+      "fiche": "m3.options-taux.swaption",
+      "anglais": "swaption",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-swap-a-depart-decale",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Swap à départ décalé",
+      "definition": "Swap signé aujourd'hui qui commence à une date future.",
+      "fiche": "m3.options-taux.forward-start",
+      "anglais": "forward starting swap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-future-de-taux",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Future de taux",
+      "definition": "Contrat coté qui fixe un taux pour une période future ; prix = 100 − taux.",
+      "fiche": "m3.options-taux.futures",
+      "anglais": "interest rate future",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m3.options-taux.l-appel-de-marge",
+      "type": "lexique",
+      "module": 3,
+      "chapitre": "m3.options-taux",
+      "difficulte": 1,
+      "terme": "Appel de marge",
+      "definition": "Versement quotidien qui solde les gains et pertes d'un contrat compensé ou collatéralisé.",
+      "fiche": "m3.options-taux.futures",
+      "anglais": "margin call",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

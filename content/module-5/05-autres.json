@@ -1,0 +1,383 @@
+{
+  "chapitre": {
+    "id": "m5.autres",
+    "module": 5,
+    "ordre": 5,
+    "titre": "Range accrual et credit-linked note",
+    "resume": "Des structurés pour les trésoreries d'entreprise : un coupon qui court tant que l'Euribor reste dans une fourchette, et un coupon élevé en échange d'un risque de crédit."
+  },
+  "elements": [
+    {
+      "id": "m5.autres.range-accrual",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "tags": [
+        "range accrual",
+        "taux",
+        "trésorerie"
+      ],
+      "titre": "Le range accrual",
+      "une_phrase": "Dans un **range accrual**, le coupon **court chaque jour** où un indice (souvent l'Euribor) reste **dans une fourchette** : le client touche le taux maximal multiplié par la part des jours passés dans la fourchette.",
+      "trente_secondes": "Pour une entreprise, le sous-jacent d'un structuré est souvent un **taux** plutôt qu'un indice actions.\n\nExemple : coupon maximal de 4 % par an, versé au prorata des jours où l'Euribor 3 mois est resté **entre 1,50 % et 3,50 %**.\n\n- L'Euribor est resté dans la fourchette tous les jours : coupon de **4 %**.\n- Il en est sorti 50 jours sur 250 : coupon de 4 % × 200 / 250 = **3,2 %**.\n- Il en est sorti toute l'année : coupon **nul**.\n\nLe capital est souvent garanti à l'échéance. Le client parie sur des **taux stables** : il vend en fait des options digitales quotidiennes sur la sortie de la fourchette.",
+      "analogie": "Un salarié payé à la journée tant qu'il fait beau : chaque jour de pluie, pas de salaire. À la fin du mois, il touche son tarif journalier multiplié par le nombre de jours de soleil.",
+      "exemple_chiffre": [
+        "Exemple fictif. Range accrual 3 ans à capital garanti, coupon maximal 4 %, fourchette Euribor 3 mois 1,50 % – 3,50 %.",
+        "Année 1 : Euribor dans la fourchette 250 jours sur 250 : coupon **4 %**.",
+        "Année 2 : 200 jours sur 250 : coupon 4 % × 200 / 250 = **3,2 %**.",
+        "Année 3 : l'Euribor monte à 3,8 % et y reste : 0 jour dans la fourchette, coupon **0 %**.",
+        "Total sur 3 ans : 7,2 % de coupons, contre 12 % au maximum. Le capital est remboursé à 100."
+      ],
+      "formules": [
+        {
+          "titre": "Le coupon d'un range accrual",
+          "latex": "\\text{Coupon} = c_{\\max} \\times \\frac{n_{\\text{dedans}}}{n_{\\text{total}}}",
+          "legende": {
+            "c_{\\max}": "le coupon maximal de la période",
+            "n_{\\text{dedans}}": "le nombre de jours où l'indice est resté dans la fourchette",
+            "n_{\\text{total}}": "le nombre de jours de la période"
+          },
+          "en_francais": "Le coupon est proportionnel au temps passé dans la fourchette."
+        }
+      ],
+      "deux_minutes": "**La décomposition.** Zéro-coupon (pour le capital garanti) + une série d'options **digitales quotidiennes** : chaque jour, une digitale paie un 250e du coupon si l'Euribor est dans la fourchette. Le client est en réalité **vendeur de volatilité de taux** : plus les taux sont volatils, plus la sortie de la fourchette est probable, plus le coupon maximal offert est élevé.\n\n**Pour qui ?** Une trésorerie qui veut un rendement supérieur au monétaire, avec un capital garanti, et qui pense que les taux resteront stables.\n\n**Le risque** : un mouvement de taux brutal (cycle de hausses de la banque centrale) fait sortir l'Euribor de la fourchette, et le coupon tombe à zéro pendant des mois, voire des années. Le coût d'opportunité est alors élevé, surtout si les taux du marché ont monté.\n\n**Autres structurés de taux** : dépôt à coupon progressif, coupon indexé sur la **pente** de la courbe (taux 10 ans − taux 2 ans), produit à coupon fixe remboursable au gré de l'émetteur.",
+      "piege": "Croire que le range accrual protège contre la hausse des taux : au contraire, une forte hausse (ou baisse) fait sortir l'Euribor de la fourchette et annule le coupon.",
+      "a_dire_en_entretien": "« Dans un range accrual, le coupon court chaque jour où l'Euribor reste dans une fourchette : coupon maximal multiplié par la part des jours dans la fourchette. Le capital est souvent garanti. Le client parie sur des taux stables : il vend des digitales quotidiennes, donc de la volatilité de taux. Si la banque centrale bouge fort, le coupon peut tomber à zéro. »",
+      "liens": [
+        "m5.autres.cln",
+        "m5.bases.briques",
+        "m3.options-taux.cap-floor"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.cln",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 3,
+      "tags": [
+        "credit-linked note",
+        "risque de crédit"
+      ],
+      "titre": "La credit-linked note",
+      "une_phrase": "Une **credit-linked note** (CLN) verse un coupon élevé, mais son remboursement dépend d'un **émetteur de référence** : si celui-ci fait défaut, le client est remboursé au **taux de recouvrement** au lieu de 100.",
+      "trente_secondes": "C'est une obligation émise par une banque, liée au risque de crédit d'une **autre entreprise** (l'entité de référence).\n\n- Pas de défaut de l'entité de référence : le client reçoit ses coupons et 100 à l'échéance.\n- Défaut (*événement de crédit*) : la CLN s'arrête, et le client reçoit la valeur de recouvrement, par exemple 40.\n\nLe coupon élevé rémunère ce risque : en pratique, le client a **vendu une protection** (un **CDS**) sur l'entité de référence. La banque émettrice, elle, a acheté cette protection.\n\nLe client porte **deux** risques de crédit : celui de l'entité de référence et celui de l'**émetteur** de la CLN.",
+      "analogie": "C'est se porter caution pour quelqu'un contre une rémunération : tant qu'il rembourse ses dettes, tu touches ta commission ; s'il fait faillite, c'est toi qui paies.",
+      "exemple_chiffre": [
+        "Exemple fictif. CLN 5 ans, nominal 1 M€, sur une entreprise industrielle notée BBB. Taux sans risque 5 ans : 2,8 %. Spread CDS de l'entreprise : 150 pb.",
+        "Coupon de la CLN : environ 2,8 % + 1,5 % = **4,3 %** par an, soit 43 000 €.",
+        "Sans défaut : 5 coupons de 43 000 € et 1 000 000 € à l'échéance.",
+        "Défaut en année 3, recouvrement de 40 % : la CLN s'arrête ; le client a reçu 2 coupons et récupère **400 000 €**, soit une perte de 600 000 € sur le capital."
+      ],
+      "deux_minutes": "**Ce qu'est un événement de crédit.** Il est défini précisément dans la documentation (standards ISDA) : faillite, défaut de paiement, restructuration de la dette, selon les cas. Un comité tranche les cas litigieux.\n\n**Pourquoi un client en achète.** Pour obtenir un rendement supérieur à une obligation classique du même émetteur, ou pour s'exposer à un crédit qui n'émet pas d'obligation sur la maturité voulue. Les institutionnels (assureurs) en sont les principaux acheteurs.\n\n**Les variantes** : CLN sur un **panier** d'entités, au premier défaut (*first-to-default*, très risquée), ou sur une **tranche** d'un indice de crédit.\n\n**Le double risque.** Si la banque émettrice fait défaut, le client perd aussi, même si l'entité de référence va bien. La corrélation entre les deux (même secteur, même pays) aggrave le risque.\n\n**Pour un sales,** la CLN se présente comme un placement obligataire **à risque de crédit** : jamais comme un placement sûr.",
+      "piege": "Oublier le risque de l'émetteur de la CLN, ou présenter le coupon élevé sans le relier au spread de crédit de l'entité de référence.",
+      "a_dire_en_entretien": "« Une credit-linked note est une obligation dont le remboursement dépend du crédit d'une entité de référence : sans défaut, coupons et 100 ; en cas de défaut, remboursement au taux de recouvrement. Le coupon est à peu près le taux sans risque plus le spread de CDS de l'entité : le client a vendu une protection. Il porte deux risques : l'entité de référence et l'émetteur de la note. »",
+      "liens": [
+        "m5.autres.range-accrual",
+        "m3.credit.spread",
+        "m3.credit.defaut"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "recto": "Range accrual ?",
+      "verso": "Coupon qui court chaque jour où un indice (souvent l'Euribor) reste dans une fourchette.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "recto": "Formule du coupon d'un range accrual ?",
+      "verso": "Coupon maximal × jours dans la fourchette / jours de la période.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "recto": "Risque d'un range accrual ?",
+      "verso": "Une forte variation des taux fait sortir l'indice de la fourchette : coupon nul.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "recto": "Credit-linked note ?",
+      "verso": "Obligation dont le remboursement dépend du crédit d'une entité de référence.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 3,
+      "recto": "Coupon d'une CLN ?",
+      "verso": "Environ taux sans risque + spread CDS de l'entité de référence.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "recto": "Les deux risques de crédit d'une CLN ?",
+      "verso": "L'entité de référence et l'émetteur de la note.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'un range accrual ? Quel est son risque ?",
+      "reponse_modele": "C'est un produit, souvent à capital garanti, dont le coupon court chaque jour où un indice de taux, par exemple l'Euribor 3 mois, reste dans une fourchette. Coupon = taux maximal × jours dans la fourchette / jours de la période : avec 4 % et 200 jours sur 250, on obtient 3,2 %. Le client parie sur des taux stables. Le risque : si la banque centrale monte ou baisse fortement ses taux, l'Euribor sort de la fourchette et le coupon tombe à zéro, avec un coût d'opportunité important.",
+      "points_cles": [
+        "Coupon au prorata des jours dans la fourchette",
+        "Exemple chiffré",
+        "Pari sur des taux stables",
+        "Coupon nul en cas de forte variation"
+      ],
+      "piege": "Présenter le range accrual comme une protection contre la hausse des taux.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 3,
+      "question": "Comment fonctionne une credit-linked note et à quoi correspond son coupon ?",
+      "reponse_modele": "C'est une obligation émise par une banque dont le remboursement dépend du crédit d'une autre entité. Sans défaut, le client reçoit ses coupons et 100 à l'échéance. En cas d'événement de crédit, il est remboursé au taux de recouvrement, par exemple 40. Le coupon correspond à peu près au taux sans risque plus le spread de CDS de l'entité de référence : le client a vendu une protection sur cette entité. Il porte aussi le risque de crédit de la banque émettrice.",
+      "points_cles": [
+        "Lien avec une entité de référence",
+        "Remboursement au recouvrement en cas de défaut",
+        "Coupon = taux sans risque + spread CDS",
+        "Vente de protection",
+        "Double risque"
+      ],
+      "piege": "Oublier le risque de l'émetteur.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "enonce": "Range accrual : coupon maximal 4 %, Euribor dans la fourchette 200 jours sur 250. Coupon, en % ?",
+      "reponse": 3.2,
+      "tolerance": 0.001,
+      "unite": "%",
+      "explication": "4 % × 200 / 250 = 3,2 %.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.z02",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "enonce": "Un range accrual protège le client contre une forte hausse des taux.",
+      "vrai": false,
+      "explication": "Une forte hausse fait sortir l'Euribor de la fourchette : le coupon tombe à zéro.",
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.z03",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "enonce": "Le client d'une credit-linked note a économiquement…",
+      "choix": [
+        "acheté une protection CDS",
+        "vendu une protection CDS",
+        "acheté un cap",
+        "vendu un call"
+      ],
+      "bonne": 1,
+      "explication": "Il touche un coupon majoré du spread et subit la perte en cas de défaut : il a vendu une protection.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 2,
+      "enonce": "CLN de 1 M€, l'entité de référence fait défaut, recouvrement 35 %. Montant récupéré sur le capital, en euros ?",
+      "reponse": 350000,
+      "tolerance": 1,
+      "unite": "€",
+      "explication": "1 000 000 × 35 % = 350 000 €.",
+      "fiche": "m5.autres.cln",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.x01",
+      "type": "exercice",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "titre": "Le coupon d'un range accrual sur trois ans",
+      "enonce": "Exemple fictif. Range accrual à capital garanti, coupon maximal 4 % par an, fourchette Euribor 3 mois 1,50 % – 3,50 %. L'Euribor est resté dans la fourchette 250 jours sur 250 la première année, 200 la deuxième, 0 la troisième. Coupons et total ?",
+      "etapes": [
+        {
+          "titre": "Année 1",
+          "texte": "4 % × 250 / 250.",
+          "resultat": "4 %",
+          "verif": {
+            "fn": "structures.rangeAccrual",
+            "args": [
+              4,
+              250,
+              250
+            ],
+            "attendu": 4,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Année 2",
+          "texte": "4 % × 200 / 250.",
+          "resultat": "3,2 %",
+          "verif": {
+            "fn": "structures.rangeAccrual",
+            "args": [
+              4,
+              200,
+              250
+            ],
+            "attendu": 3.2,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Année 3",
+          "texte": "Aucun jour dans la fourchette.",
+          "resultat": "0 %",
+          "verif": {
+            "fn": "structures.rangeAccrual",
+            "args": [
+              4,
+              0,
+              250
+            ],
+            "attendu": 0,
+            "tolerance": 0.0001
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Total : 7,2 % sur 3 ans, au lieu de 12 % au maximum. Le capital est remboursé à 100. L'année 3 montre le risque : un Euribor qui sort durablement de la fourchette annule le coupon."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Compter les jours ouvrés d'une période et les jours calendaires de l'autre.",
+        "Croire que le coupon est perdu en entier dès le premier jour hors fourchette."
+      ],
+      "fiche": "m5.autres.range-accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.l-range-accrual",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "terme": "Range accrual",
+      "definition": "Produit dont le coupon court chaque jour où un indice reste dans une fourchette.",
+      "fiche": "m5.autres.range-accrual",
+      "anglais": "range accrual",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.l-credit-linked-note",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "terme": "Credit-linked note",
+      "definition": "Obligation liée au risque de crédit d'une entité de référence.",
+      "fiche": "m5.autres.cln",
+      "anglais": "credit-linked note (CLN)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.l-evenement-de-credit",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "terme": "Événement de crédit",
+      "definition": "Défaut, faillite ou restructuration qui déclenche le paiement d'un CDS ou d'une CLN.",
+      "fiche": "m5.autres.cln",
+      "anglais": "credit event",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.autres.l-entite-de-reference",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.autres",
+      "difficulte": 1,
+      "terme": "Entité de référence",
+      "definition": "Entreprise ou État dont le crédit détermine le remboursement d'une CLN ou d'un CDS.",
+      "fiche": "m5.autres.cln",
+      "anglais": "reference entity",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

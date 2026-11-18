@@ -1,0 +1,502 @@
+{
+  "chapitre": {
+    "id": "m5.garanti",
+    "module": 5,
+    "ordre": 2,
+    "titre": "Le capital garanti",
+    "resume": "Rendre 100 % du capital à l'échéance et participer à la hausse d'un indice : comment on le construit, ce qui fait la participation, et comment l'améliorer."
+  },
+  "elements": [
+    {
+      "id": "m5.garanti.capital-garanti",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "tags": [
+        "capital garanti",
+        "participation",
+        "zéro-coupon"
+      ],
+      "titre": "Construire un capital garanti",
+      "une_phrase": "Un produit à **capital garanti** rend **100 % du capital à l'échéance**, plus une **participation** à la hausse d'un indice : le zéro-coupon assure le remboursement, ce qui reste du budget achète un **call**.",
+      "trente_secondes": "Le client investit 100 pour 5 ans.\n\n1. La banque achète un **zéro-coupon** qui rendra 100 dans 5 ans. À 3 %, il coûte 86,26.\n2. Elle garde ses **marges et frais**, par exemple 2.\n3. Avec le reste, 11,74, elle achète un **call** à la monnaie sur l'indice.\n4. Si ce call coûte 16 pour 100 de nominal, elle peut en acheter 11,74 / 16 : la **participation** est de **73 %**.\n\nÀ l'échéance :\n\n- l'indice a baissé : le client récupère **100** (le call ne vaut rien) ;\n- l'indice a monté de 30 % : il reçoit 100 + 73 % × 30 = **121,9**.",
+      "analogie": "Tu mets de côté l'argent du loyer avant tout (le zéro-coupon), et tu joues au loto avec le reste (le call) : quoi qu'il arrive, le loyer est payé, et tu as une chance de gagner plus.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.capital-garanti",
+        "legende": "Bouge le taux, la volatilité et la protection : regarde la participation changer."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. 5 ans, capital garanti 100 %, sur l'Euro Stoxx 50. Taux zéro-coupon 3,00 %. Marges et frais 2 %. Call 5 ans à la monnaie : 16 %.",
+        "Zéro-coupon : 100 / 1,03⁵ = **86,26**. Budget pour le call : 100 − 86,26 − 2 = **11,74**.",
+        "Participation : 11,74 / 16 = **73,4 %**.",
+        "Avec des taux à 1 % : zéro-coupon 95,15, budget 2,85, participation **17,8 %**.",
+        "C'est pour cela que le capital garanti avait presque disparu avec les taux négatifs, et qu'il est revenu quand les taux ont remonté."
+      ],
+      "formules": [
+        {
+          "titre": "La participation",
+          "latex": "p = \\frac{100 - \\dfrac{100}{(1 + r)^{T}} - m}{C}",
+          "legende": {
+            "p": "la participation à la hausse",
+            "r": "le taux zéro-coupon de maturité T",
+            "T": "la maturité en années",
+            "m": "les marges et frais",
+            "C": "le prix du call pour 100 de nominal"
+          },
+          "en_francais": "La participation, c'est ce qui reste après avoir acheté la protection et payé les frais, divisé par le prix de l'option."
+        },
+        {
+          "titre": "Le remboursement à l'échéance",
+          "latex": "R = 100 + p \\times \\max(\\text{Perf}, 0)",
+          "legende": {
+            "R": "le montant remboursé pour 100 investis",
+            "\\text{Perf}": "la performance de l'indice, en points de % (ex. 30 pour +30 %)"
+          },
+          "en_francais": "Le client récupère 100 dans tous les cas, plus sa part de la hausse si l'indice a monté."
+        }
+      ],
+      "deux_minutes": "**Ce qui fait la participation.**\n\n- **Taux** : plus ils sont hauts, moins le zéro-coupon coûte, plus la participation est forte.\n- **Volatilité** : plus elle est forte, plus le call coûte cher, plus la participation est faible. L'acheteur d'un capital garanti est **acheteur de volatilité**.\n- **Dividendes** : l'indice de référence est en général hors dividendes ; des dividendes élevés font baisser le prix du call, donc montent la participation (mais le client ne les touche pas).\n- **Maturité** : plus elle est longue, plus le zéro-coupon est bon marché.\n- **Spread de l'émetteur** : un émetteur au spread plus large finance un zéro-coupon moins cher, donc une meilleure participation, en échange d'un risque de crédit plus grand.\n\n**Pour qui ?** Une trésorerie prudente, une association, un épargnant qui accepte d'immobiliser son argent plusieurs années et ne veut pas perdre de capital.\n\n**Les risques** : le crédit de l'émetteur ; le **coût d'opportunité** (0 % de rendement si l'indice baisse, alors qu'un dépôt aurait rapporté) ; la **liquidité** : une sortie avant l'échéance se fait au prix de marché, qui peut être inférieur à 100 ; l'**inflation** (100 dans 5 ans valent moins que 100 aujourd'hui).",
+      "piege": "Dire que le capital est garanti « à tout moment » : il l'est **à l'échéance**, et par l'émetteur. Et oublier que l'indice est souvent hors dividendes : le client ne touche pas les dividendes.",
+      "a_dire_en_entretien": "« Un capital garanti, c'est un zéro-coupon qui rend 100 à l'échéance et un call acheté avec le reste du budget. La participation, c'est ce budget divisé par le prix du call. Elle monte avec les taux, et baisse avec la volatilité : le client est acheteur de volatilité. Avec des taux à 3 %, on peut offrir environ 70 % de participation sur 5 ans ; à 1 %, moins de 20 %. Les risques : l'émetteur, le coût d'opportunité et la sortie avant l'échéance. »",
+      "liens": [
+        "m5.garanti.ameliorer",
+        "m5.bases.briques",
+        "m3.obligations.zero-coupon",
+        "m5.conditions.parametres"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.ameliorer",
+      "type": "fiche",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 3,
+      "tags": [
+        "capital garanti",
+        "structuration"
+      ],
+      "titre": "Améliorer les conditions d'un capital garanti",
+      "une_phrase": "Quand le budget est trop faible pour une bonne participation, le structureur peut **allonger la maturité**, **plafonner la performance**, **réduire la protection** à 90 ou 95 %, ou utiliser une **moyenne** des observations.",
+      "trente_secondes": "Un client trouve 40 % de participation trop faible. Les leviers :\n\n- **Allonger la maturité** : un zéro-coupon 8 ans coûte moins qu'un 5 ans, il reste plus pour l'option.\n- **Plafonner la performance** (*cap*) : le client renonce à la hausse au-delà de, disons, +40 %. La banque vend en face un call de strike plus haut, ce qui finance une participation plus élevée (c'est un **call spread**).\n- **Réduire la protection** : 90 % au lieu de 100 %. Le zéro-coupon ne doit rendre que 90 : plus de budget, mais une perte possible de 10 %.\n- **Moyenner** la performance (option **asiatique**) : la moyenne bouge moins que le cours final, l'option est moins chère, mais la participation porte sur une performance lissée.\n- **Changer de sous-jacent** : un indice moins volatil, ou à dividendes élevés, rend le call moins cher.",
+      "analogie": "Pour faire tenir un voyage dans un budget, on peut partir plus longtemps hors saison, accepter un hôtel moins prestigieux ou limiter les excursions : chaque concession libère de l'argent pour le reste.",
+      "visuel": {
+        "type": "outil",
+        "ref": "labo.capital-garanti",
+        "legende": "Passe la protection à 90 % ou allonge la maturité : la participation augmente."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Taux 3 %, marges 2 %, call 5 ans à la monnaie à 16 %.",
+        "Protection 100 % : participation **73 %** (budget 11,74).",
+        "Protection 90 % : zéro-coupon 90 / 1,03⁵ = 77,63, budget 100 − 77,63 − 2 = 20,37, participation 20,37 / 16 = **127 %**.",
+        "Avec un plafond : si un call spread 100-140 coûte 9, la participation à la hausse jusqu'à +40 % devient 11,74 / 9 = **130 %**, mais le gain est plafonné à 1,30 × 40 = 52."
+      ],
+      "deux_minutes": "**Chaque amélioration a un prix pour le client.**\n\n- Maturité plus longue : argent immobilisé plus longtemps, plus de risque de crédit, plus d'inflation.\n- Plafond : pas de gain au-delà du plafond, alors que les fortes hausses sont justement celles qui rendent le produit intéressant.\n- Protection réduite : le produit n'est plus « garanti » ; il faut le dire clairement.\n- Moyenne : dans un marché qui monte régulièrement, la moyenne est sous le niveau final, le client participe à moins de hausse.\n\n**Le rôle du sales.** Il comprend ce que le client accepte de céder (durée, potentiel, protection) et ce qui compte pour lui, puis demande au structureur des variantes. Un bon comparatif montre les scénarios chiffrés de chaque variante.\n\n**Les capitaux garantis de taux.** Le sous-jacent peut aussi être un taux : un produit à capital garanti qui verse un coupon lié à l'Euribor ou à la pente de la courbe, pour une trésorerie qui préfère un risque de taux à un risque actions.",
+      "piege": "Présenter une protection à 90 % comme un capital garanti. Et oublier de chiffrer le scénario de forte hausse avec un plafond.",
+      "a_dire_en_entretien": "« Pour améliorer la participation d'un capital garanti, on peut allonger la maturité, plafonner la performance avec un call spread, réduire la protection à 90 ou 95 %, ou moyenner les observations. Chaque levier libère du budget en échange d'une concession du client : durée, potentiel ou protection. Mon rôle est de comprendre ce qu'il accepte de céder, et de lui montrer les scénarios chiffrés. »",
+      "liens": [
+        "m5.garanti.capital-garanti",
+        "m2.strategies.spreads",
+        "m2.exotiques.asiatiques"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c01",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "recto": "Les deux briques d'un capital garanti ?",
+      "verso": "Un zéro-coupon (protection) + un call acheté (participation).",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c02",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "recto": "Formule de la participation ?",
+      "verso": "(100 − zéro-coupon − marges) / prix du call.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c03",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "recto": "Effet d'une hausse des taux sur la participation ?",
+      "verso": "Elle augmente : le zéro-coupon coûte moins.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c04",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "recto": "Effet d'une hausse de la volatilité sur la participation ?",
+      "verso": "Elle baisse : le call coûte plus.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c05",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "recto": "Le client d'un capital garanti est-il acheteur ou vendeur de volatilité ?",
+      "verso": "Acheteur.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c06",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "recto": "Garantie : par qui et quand ?",
+      "verso": "Par l'émetteur, à l'échéance.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.c07",
+      "type": "carte",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 3,
+      "recto": "Leviers pour améliorer la participation ?",
+      "verso": "Maturité plus longue, plafond, protection réduite, moyenne, sous-jacent moins volatil.",
+      "fiche": "m5.garanti.ameliorer",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.q01",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "question": "Comment construis-tu un produit à capital garanti 100 % à 5 ans ?",
+      "reponse_modele": "J'achète un zéro-coupon qui rendra 100 dans 5 ans : avec un taux à 3 %, il coûte 86,26. Je retire les marges et frais, disons 2. Il reste 11,74 pour acheter un call sur l'indice. Si le call 5 ans à la monnaie coûte 16, la participation est de 11,74 / 16, environ 73 %. À l'échéance, le client récupère 100 si l'indice a baissé, et 100 plus 73 % de la hausse sinon. Je précise que la garantie est donnée par l'émetteur et qu'elle vaut à l'échéance.",
+      "points_cles": [
+        "Zéro-coupon 86,26",
+        "Marges",
+        "Budget 11,74 pour le call",
+        "Participation 73 %",
+        "Garantie de l'émetteur, à l'échéance"
+      ],
+      "piege": "Oublier les marges ou dire que le capital est garanti à tout moment.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.q02",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "question": "Pourquoi les produits à capital garanti ont-ils presque disparu quand les taux étaient négatifs ?",
+      "reponse_modele": "Parce que la participation dépend du prix du zéro-coupon. Avec des taux nuls ou négatifs, un zéro-coupon qui rend 100 dans 5 ans coûte presque 100, voire plus. Après les frais, il ne reste presque rien pour acheter l'option : la participation devient quasi nulle, et le produit n'a plus d'intérêt. Quand les taux ont remonté à partir de 2022, le zéro-coupon est redevenu bon marché et le capital garanti est revenu.",
+      "points_cles": [
+        "Zéro-coupon proche de 100",
+        "Plus de budget pour l'option",
+        "Participation quasi nulle",
+        "Retour avec la remontée des taux"
+      ],
+      "piege": "Expliquer la disparition par la volatilité.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.q03",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 3,
+      "question": "Le client d'un capital garanti est-il acheteur ou vendeur de volatilité ? Qu'est-ce que ça change ?",
+      "reponse_modele": "Acheteur : il détient un call. Quand la volatilité est élevée, le call coûte plus cher, donc à budget égal la participation proposée est plus faible. Le moment idéal pour lancer un capital garanti, c'est donc des taux élevés et une volatilité faible. C'est l'inverse d'un autocall, où le client vend un put et obtient un coupon plus élevé quand la volatilité monte.",
+      "points_cles": [
+        "Acheteur de volatilité",
+        "Volatilité haute = participation faible",
+        "Idéal : taux hauts, volatilité basse",
+        "Contraire de l'autocall"
+      ],
+      "piege": "Dire que la volatilité est bonne pour un capital garanti.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.q04",
+      "type": "question_entretien",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 3,
+      "question": "Un client trouve la participation trop faible. Que peux-tu proposer ?",
+      "reponse_modele": "Plusieurs leviers, chacun avec une concession. Allonger la maturité : le zéro-coupon coûte moins, mais l'argent est bloqué plus longtemps. Plafonner la performance : on vend un call plus haut, la participation monte mais le gain est limité. Réduire la protection à 90 ou 95 % : plus de budget, mais une perte possible. Moyenner la performance : l'option est moins chère, mais le client participe à une hausse lissée. Ou choisir un sous-jacent moins volatil. Je lui demande ce qu'il accepte de céder et je lui montre les scénarios chiffrés.",
+      "points_cles": [
+        "Maturité",
+        "Plafond (call spread)",
+        "Protection réduite",
+        "Moyenne (asiatique)",
+        "Sous-jacent",
+        "Concession et scénarios"
+      ],
+      "piege": "Proposer de réduire la protection sans dire que le produit n'est plus garanti.",
+      "fiche": "m5.garanti.ameliorer",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "enonce": "Taux 3 %, 5 ans, marges 2 %, call à 16 %. Participation, en % (une décimale) ?",
+      "reponse": 73.4,
+      "tolerance": 0.1,
+      "unite": "%",
+      "explication": "(100 − 86,26 − 2) / 16 = 73,4 %.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "enonce": "Quel changement augmente la participation d'un capital garanti ?",
+      "choix": [
+        "Une baisse des taux",
+        "Une hausse de la volatilité",
+        "Une hausse des taux",
+        "Une maturité plus courte"
+      ],
+      "bonne": 2,
+      "explication": "Taux plus hauts : zéro-coupon moins cher, plus de budget pour le call.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "enonce": "Capital garanti avec 70 % de participation. L'indice monte de 30 %. Remboursement pour 100 investis ?",
+      "reponse": 121,
+      "tolerance": 0.01,
+      "unite": "",
+      "explication": "100 + 70 % × 30 = 121.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.z04",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "enonce": "Un capital garanti peut valoir moins de 100 si le client le revend avant l'échéance.",
+      "vrai": true,
+      "explication": "La garantie vaut à l'échéance ; avant, le prix dépend des taux, de la volatilité et de l'indice.",
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 3,
+      "enonce": "Plafonner la performance d'un capital garanti revient à…",
+      "choix": [
+        "vendre un put",
+        "vendre un call de strike plus élevé",
+        "acheter un zéro-coupon plus long",
+        "acheter une digitale"
+      ],
+      "bonne": 1,
+      "explication": "Le client détient un call spread : la prime du call vendu finance une participation plus forte.",
+      "fiche": "m5.garanti.ameliorer",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.x01",
+      "type": "exercice",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 2,
+      "titre": "Construire un capital garanti",
+      "enonce": "Exemple fictif. Produit 5 ans, capital garanti 100 %, sur l'Euro Stoxx 50. Taux zéro-coupon 3,00 %. Marges et frais 2 %. Call 5 ans à la monnaie : 16 %. Calcule la participation, le remboursement si l'indice monte de 25 %, puis la participation avec un taux de 1 %.",
+      "etapes": [
+        {
+          "titre": "Le zéro-coupon",
+          "texte": "100 / 1,03⁵ = 100 / 1,159274.",
+          "resultat": "86,26",
+          "verif": {
+            "fn": "taux.prixZeroCoupon",
+            "args": [
+              3,
+              5
+            ],
+            "attendu": 86.261,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "La participation",
+          "texte": "Budget : 100 − 86,26 − 2 = 11,74 ; divisé par le prix du call, 16.",
+          "formule": {
+            "latex": "p = \\frac{100 - 86{,}26 - 2}{16}",
+            "legende": {
+              "2": "les marges et frais",
+              "16": "le prix du call",
+              "86{,}26": "le zéro-coupon"
+            },
+            "en_francais": "Ce qui reste du budget, divisé par le prix de l'option."
+          },
+          "resultat": "73,4 %",
+          "verif": {
+            "fn": "structures.participation",
+            "args": [
+              3,
+              5,
+              16,
+              2
+            ],
+            "attendu": 73.37,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Le remboursement si l'indice monte de 25 %",
+          "texte": "100 + 73,4 % × 25.",
+          "resultat": "118,3",
+          "verif": {
+            "fn": "structures.rembourseCapitalGaranti",
+            "args": [
+              73.37,
+              125
+            ],
+            "attendu": 118.34,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Avec un taux de 1 %",
+          "texte": "Zéro-coupon : 100 / 1,01⁵ = 95,15. Budget : 2,85. Participation : 2,85 / 16 (en supposant le même prix de call).",
+          "resultat": "17,8 %",
+          "verif": {
+            "fn": "structures.participation",
+            "args": [
+              1,
+              5,
+              16,
+              2
+            ],
+            "attendu": 17.8,
+            "tolerance": 0.05
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Deux points de taux en moins divisent la participation par quatre. C'est pourquoi le capital garanti avait disparu avec les taux négatifs, et est revenu ensuite."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Oublier les marges.",
+        "Calculer le zéro-coupon en multipliant au lieu de diviser.",
+        "Appliquer la participation à une performance négative : le remboursement ne descend pas sous 100."
+      ],
+      "fiche": "m5.garanti.capital-garanti",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.l-capital-garanti",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "terme": "Capital garanti",
+      "definition": "Produit qui rend 100 % du capital à l'échéance, plus une participation à la hausse d'un sous-jacent.",
+      "fiche": "m5.garanti.capital-garanti",
+      "anglais": "capital guaranteed note",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.l-participation",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "terme": "Participation",
+      "definition": "Part de la hausse du sous-jacent reversée au client.",
+      "fiche": "m5.garanti.capital-garanti",
+      "anglais": "participation rate",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.l-plafond",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "terme": "Plafond",
+      "definition": "Limite au-delà de laquelle la hausse du sous-jacent ne profite plus au client.",
+      "fiche": "m5.garanti.ameliorer",
+      "anglais": "cap",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m5.garanti.l-call-spread",
+      "type": "lexique",
+      "module": 5,
+      "chapitre": "m5.garanti",
+      "difficulte": 1,
+      "terme": "Call spread",
+      "definition": "Achat d'un call et vente d'un call de strike plus élevé : participation plafonnée.",
+      "fiche": "m5.garanti.ameliorer",
+      "anglais": "call spread",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}
