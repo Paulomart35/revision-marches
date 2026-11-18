@@ -24,7 +24,7 @@ Application web (PWA) pour comprendre la culture des marchés financiers et s'en
 ## Données de marché automatiques
 
 - `netlify/lib/collecte.ts` interroge des sources officielles gratuites : le portail de données de la BCE (taux directeurs, €STR, Euribor en moyenne mensuelle, taux de change de référence, taux à 10 ans en moyenne mensuelle), Eurostat (inflation de la zone euro) et FRED, de la Fed de Saint-Louis (Fed funds, inflation américaine, Treasury 10 ans, Brent).
-- `netlify/functions/marche-collecte.ts` est une fonction planifiée, appelée toutes les heures ; elle ne collecte que si les données ont plus de 12 heures. Le résultat est stocké dans Netlify Blobs.
+- `netlify/functions/marche-collecte.ts` est une fonction planifiée, exécutée une fois par jour à 17 h UTC (après la publication des taux de change de la BCE). Le résultat est stocké dans Netlify Blobs.
 - `netlify/functions/marche.ts` sert ces données sur `/api/marche`. Le site en garde une copie sur l'appareil pour le hors-ligne.
 - Si une source ne répond pas, la dernière valeur connue est conservée et signalée comme ancienne.
 - `npm run collecte` lance la collecte en local et affiche le résultat.
