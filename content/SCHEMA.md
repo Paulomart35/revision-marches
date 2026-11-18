@@ -57,7 +57,7 @@ L'identifiant de chaque élément commence par celui de son chapitre : `m1.chang
 
 Groupes possibles : Banques centrales, Taux courts, Inflation, Change, Taux longs, Matières premières et actions.
 
-Depuis l'app, l'onglet Marché permet de copier la demande à coller dans Claude, d'importer sa réponse, puis d'exporter le pack au format du dépôt.
+L'app n'affiche aucune donnée en temps réel : l'onglet Marché montre le pack le plus récent (et les anciens en archive). Pour le mettre à jour, on ajoute un nouveau fichier `content/actu/AAAA-MM.json` puis on pousse sur `main`.
 
 ## Règles
 

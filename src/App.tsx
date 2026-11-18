@@ -8,7 +8,6 @@ import { Rendu } from './components/Elements';
 import { Entrainer, PageGenre, Session } from './pages/Entrainer';
 import { Clarifier } from './pages/Clarifier';
 import { Marche } from './pages/Marche';
-import { dateValeur, useMarcheAuto, valeurTexte } from './marche-auto';
 import { OUTILS } from './tools';
 import { Points, dateFr, lireFichier, normaliser, telecharger, useRoute } from './lib';
 import { NOMS_TYPES, titreDe, type TElement } from './schema';
@@ -56,15 +55,8 @@ function Accueil({ contenu }: { contenu: Contenu }) {
   const fiches = contenu.deType('fiche');
   const reprendre = fiches.find((f) => prog.fiches.get(f.id)?.statut !== 'comprise');
   const pack = usePacks()[0];
-  const { marche } = useMarcheAuto();
-  // Les chiffres automatiques s'ils existent, sinon ceux du pack mensuel.
-  const cles = ['bce-depot', 'inflation-ze', 'eurusd'].map((k) => {
-    const auto = marche?.series[k];
-    if (auto) return { cle: k, libelle: auto.libelle, valeur: valeurTexte(auto), date: dateValeur(auto.date) };
-    const c = pack?.chiffres.find((x) => x.cle === k);
-    return c ? { cle: k, libelle: c.libelle, valeur: c.valeur, date: dateFr(c.date) } : null;
-  }).filter((c) => c !== null);
-  const titreMarche = marche ? `Le marché · ${new Date(marche.genere_le).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}` : pack ? `Le marché · ${dateFr(pack.arrete_le)}` : 'Le marché';
+  const cles = ['bce-depot', 'inflation-ze', 'eurusd'].map((k) => pack?.chiffres.find((x) => x.cle === k)).filter((c) => c !== undefined);
+  const titreMarche = pack ? `Le marché · ${dateFr(pack.arrete_le)}` : 'Le marché';
   return (
     <div className="page accueil">
       <div className="sessions">
@@ -84,7 +76,7 @@ function Accueil({ contenu }: { contenu: Contenu }) {
         <>
           <h2>{titreMarche}</h2>
           <a className="marche-bref" href="#/marche">
-            {cles.map((c) => <span key={c.cle}><small>{c.libelle}</small><b>{c.valeur}</b><small>{c.date}</small></span>)}
+            {cles.map((c) => <span key={c.cle}><small>{c.libelle}</small><b>{c.valeur}</b><small>{dateFr(c.date)}</small></span>)}
           </a>
         </>
       )}

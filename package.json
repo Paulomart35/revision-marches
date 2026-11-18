@@ -10,14 +10,12 @@
     "build": "npm run validate && tsc --noEmit && vite build",
     "preview": "vite preview",
     "icons": "node scripts/make-icons.mjs",
-    "integrer": "tsx scripts/integrer.ts",
-    "collecte": "tsx scripts/collecte-locale.ts"
+    "integrer": "tsx scripts/integrer.ts"
   },
   "dependencies": {
     "@fontsource/archivo": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/ibm-plex-sans": "^5.3.0",
-    "@netlify/blobs": "^11.1.9",
     "dexie": "^4.4.7",
     "dexie-react-hooks": "^4.4.0",
     "katex": "^0.19.1",
@@ -28,7 +26,6 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@netlify/functions": "^6.1.1",
     "@types/katex": "^0.16.8",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",

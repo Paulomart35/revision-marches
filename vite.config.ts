@@ -2,7 +2,12 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// Sur GitHub Pages, le site est servi dans un sous-dossier (/revision-marches/) : le workflow fournit BASE_PATH.
+// En local, il reste servi à la racine.
+const base = process.env.BASE_PATH ?? '/';
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -11,15 +16,16 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2,json}'],
         maximumFileSizeToCacheInBytes: 5_000_000,
-        navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/api\//],
+        navigateFallback: `${base}index.html`,
       },
       manifest: {
         name: 'Révision marchés',
         short_name: 'Marchés',
         description: 'Culture des marchés financiers et questions d\'entretien',
         lang: 'fr',
-        start_url: '/',
+        id: base,
+        start_url: base,
+        scope: base,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#0a1230',

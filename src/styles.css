@@ -359,10 +359,3 @@ table.grecques td:last-child:not(.n) { color: var(--mut); font-size: .8rem; }
 .arbre .noeud.calcule rect { stroke: var(--blue); }
 .arbre .noeud.exerce rect { fill: var(--soft-yel); stroke: var(--dur); }
 .arbre .noeud .val { fill: var(--blue); font-weight: 700; }
-
-/* Chiffres du jour */
-.chiffres-jour { margin-bottom: 8px; }
-details.chiffre.ancien { box-shadow: inset 4px 0 0 var(--dur); }
-details.pack-chiffres { margin-top: 18px; }
-details.pack-chiffres > summary { font-size: .95rem; }
-h2.titre-pack { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }

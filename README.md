@@ -21,19 +21,13 @@ Application web (PWA) pour comprendre la culture des marchés financiers et s'en
 - `src/clarifier.ts` : bouton « Pas clair ? », prompt pour Claude, import de la réponse.
 - `sources/` : fichiers HTML de départ. Ce dossier est exclu de git (il contient des éléments personnels).
 
-## Données de marché automatiques
+## Données de marché
 
-- `netlify/lib/collecte.ts` interroge des sources officielles gratuites : le portail de données de la BCE (taux directeurs, €STR, Euribor en moyenne mensuelle, taux de change de référence, taux à 10 ans en moyenne mensuelle), Eurostat (inflation de la zone euro) et FRED, de la Fed de Saint-Louis (Fed funds, inflation américaine, Treasury 10 ans, Brent).
-- `netlify/functions/marche-collecte.ts` est une fonction planifiée, exécutée une fois par jour à 17 h UTC (après la publication des taux de change de la BCE). Le résultat est stocké dans Netlify Blobs.
-- `netlify/functions/marche.ts` sert ces données sur `/api/marche`. Le site en garde une copie sur l'appareil pour le hors-ligne.
-- Si une source ne répond pas, la dernière valeur connue est conservée et signalée comme ancienne.
-- `npm run collecte` lance la collecte en local et affiche le résultat.
-- Variable d'environnement facultative : `FRED_API_KEY` (clé gratuite à demander sur le site de FRED). Sans elle, la collecte passe par le téléchargement CSV public de FRED.
-- Les indices actions et le VIX ne sont pas collectés (pas de source officielle libre de droits) : ils restent dans le pack actu mensuel.
+Pas de temps réel : l'onglet Marché affiche une photo datée (pack actu, `content/actu/AAAA-MM.json`). Chaque chiffre porte sa date et sa source.
 
 ## Déploiement
 
-Netlify reconstruit et publie le site à chaque `git push` sur `main` (commande `npm run test && npm run build`, dossier `dist`, voir `netlify.toml`).
+GitHub Pages, à chaque `git push` sur `main` (workflow `.github/workflows/pages.yml` : tests, validation du contenu, build avec `BASE_PATH=/revision-marches/`). Adresse : https://paulomart35.github.io/revision-marches/
 
 ## Installer l'app sur le téléphone
 
