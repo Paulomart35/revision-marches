@@ -4,6 +4,7 @@ import { db } from '../db';
 import { PACKS_DEPOT, usePacks } from '../content';
 import { PackActu, type TChiffreMarche, type TPackActu } from '../schema';
 import { Md, copier, dateFr, telecharger } from '../lib';
+import { dateValeur, useMarcheAuto, valeurTexte, variation, type Serie } from '../marche-auto';
 
 const FLECHE = { hausse: '↗', baisse: '↘', stable: '→' } as const;
 const GROUPES: TChiffreMarche['groupe'][] = ['Banques centrales', 'Taux courts', 'Inflation', 'Change', 'Taux longs', 'Matières premières et actions'];
@@ -60,6 +61,52 @@ ${JSON.stringify(exemple, null, 2)}
 \`\`\``;
 }
 
+/* ---------- Les chiffres du jour, collectés automatiquement ---------- */
+const GROUPES_AUTO: Serie['groupe'][] = ['Banques centrales', 'Taux courts', 'Inflation', 'Change', 'Taux longs', 'Matières premières'];
+const FLECHE_AUTO = { hausse: '↗', baisse: '↘', stable: '→' } as const;
+
+function SerieAuto({ s }: { s: Serie }) {
+  const v = variation(s);
+  return (
+    <details className={`chiffre ${s.statut === 'ancien' ? 'ancien' : ''}`}>
+      <summary>
+        <span className="lib">{s.libelle}</span>
+        <b>{valeurTexte(s)}</b>
+        {v && <span className={`tend ${v.sens}`}>{FLECHE_AUTO[v.sens]} {v.texte}</span>}
+        <span className="quand">{dateValeur(s.date)} · {s.source}{s.statut === 'ancien' && ' · source injoignable, dernière valeur connue'}</span>
+      </summary>
+      <p><b>Ce que c'est.</b> {s.definition}</p>
+      <p><b>Pourquoi ça compte.</b> {s.pourquoi}</p>
+      {s.note && <p className="note">{s.note}</p>}
+      <p className="note">Relevé le {new Date(s.releve_le).toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}. Données {s.frequence === 'mensuelle' ? 'mensuelles' : 'quotidiennes'}. <a href={s.url} target="_blank" rel="noreferrer">Voir la source</a></p>
+    </details>
+  );
+}
+
+function ChiffresDuJour() {
+  const { marche, etat } = useMarcheAuto();
+  return (
+    <section className="chiffres-jour">
+      <h2>Les chiffres du jour</h2>
+      {etat === 'chargement' && !marche && <p className="note">Chargement…</p>}
+      {etat === 'indisponible' && <p className="message">Les chiffres automatiques ne sont pas disponibles pour l'instant (hors ligne, ou première collecte pas encore faite). L'analyse du mois, plus bas, reste consultable.</p>}
+      {marche && (
+        <>
+          <p className="note">
+            Mis à jour automatiquement depuis la BCE, Eurostat et la Fed de Saint-Louis. Dernière collecte : {new Date(marche.genere_le).toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}
+            {etat === 'copie' && ' · copie enregistrée sur cet appareil (pas de connexion)'}. Appuie sur un chiffre pour sa définition.
+          </p>
+          {GROUPES_AUTO.map((g) => {
+            const liste = Object.values(marche.series).filter((s) => s.groupe === g);
+            if (!liste.length) return null;
+            return <section key={g}><h3 className="groupe">{g}</h3>{liste.map((s) => <SerieAuto key={s.cle} s={s} />)}</section>;
+          })}
+        </>
+      )}
+    </section>
+  );
+}
+
 export function Marche() {
   const packs = usePacks();
   const [mois, setMois] = useState<string | null>(null);
@@ -93,8 +140,11 @@ export function Marche() {
   return (
     <div className="page marche">
       <h1>Le marché actuel</h1>
-      <p className="note">Photo arrêtée au {dateFr(pack.arrete_le)}{importe && ' · pack importé sur cet appareil'}. Chaque chiffre porte sa date et sa source.</p>
-      {age > 21 && <p className="message">Ce pack a {age} jours. Les chiffres ont pu changer : vérifie-les avant un entretien, ou génère le pack du mois (en bas de page).</p>}
+      <ChiffresDuJour />
+
+      <h2 className="titre-pack">L'analyse du mois : {moisFr(pack.mois)}</h2>
+      <p className="note">Pack rédigé et vérifié, arrêté au {dateFr(pack.arrete_le)}{importe && ' · importé sur cet appareil'}. Chaque chiffre porte sa date et sa source.</p>
+      {age > 21 && <p className="message">Ce pack a {age} jours : l'analyse a pu vieillir. Les chiffres du jour ci-dessus, eux, sont à jour. Pense à générer le pack du mois (en bas de page).</p>}
       {packs.length > 1 && (
         <div className="seg" role="group" aria-label="Archive des packs">
           {packs.map((p) => <button key={p.mois} aria-pressed={p.mois === pack.mois} onClick={() => setMois(p.mois)}>{moisFr(p.mois)}</button>)}
@@ -106,13 +156,15 @@ export function Marche() {
       <h2>L'histoire du mois en 5 phrases</h2>
       <ol className="etapes">{pack.histoire.map((h, i) => <li key={i}><Md>{h}</Md></li>)}</ol>
 
-      <h2>Le tableau de bord</h2>
-      <p className="note">Appuie sur un chiffre pour voir ce qu'il mesure et pourquoi il compte.</p>
-      {GROUPES.map((g) => {
-        const liste = pack.chiffres.filter((c) => c.groupe === g);
-        if (!liste.length) return null;
-        return <section key={g}><h3 className="groupe">{g}</h3>{liste.map((c) => <Chiffre key={c.cle} c={c} />)}</section>;
-      })}
+      <details className="pack-chiffres">
+        <summary>Les chiffres commentés du pack ({moisFr(pack.mois)}, arrêtés au {dateFr(pack.arrete_le)})</summary>
+        <p className="note">Photo figée du mois, avec aussi les indices actions et le VIX, qui ne sont pas mis à jour automatiquement. Appuie sur un chiffre pour voir ce qu'il mesure.</p>
+        {GROUPES.map((g) => {
+          const liste = pack.chiffres.filter((c) => c.groupe === g);
+          if (!liste.length) return null;
+          return <section key={g}><h3 className="groupe">{g}</h3>{liste.map((c) => <Chiffre key={c.cle} c={c} />)}</section>;
+        })}
+      </details>
 
       <h2>Ce que ça change pour les clients d'une banque</h2>
       <div className="impacts">{pack.impacts.map((i) => <div key={i.client}><b>{i.client}</b><p>{i.texte}</p></div>)}</div>
