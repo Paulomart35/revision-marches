@@ -5,6 +5,7 @@ import * as inflation from './inflation';
 import * as taux from './taux';
 import * as opt from './options';
 import * as st from './structures';
+import * as bq from './banque';
 
 export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'fx.usdVersEur': fx.usdVersEur,
@@ -96,6 +97,14 @@ export const REGISTRE: Record<string, (...a: number[]) => number> = {
   'structures.rendementAnnuel': st.rendementAnnuel,
   // args = coupon, barrière de coupon, seuil de rappel, barrière de capital, mémoire (1 ou 0), puis les niveaux observés
   'structures.phoenixTotal': (c, bc, sr, bk, m, ...niveaux) => st.phoenix(niveaux, c, bc, sr, bk, m === 1).total,
+  // Module 6
+  'banque.ratioFondsPropres': bq.ratioFondsPropres,
+  'banque.ratioLevier': bq.ratioLevier,
+  'banque.lcr': bq.lcr,
+  'banque.actifPondere': bq.actifPondere,
+  'banque.varParametrique': bq.varParametrique,
+  'banque.varEchelle': bq.varEchelle,
+  'banque.perteAttendue': bq.perteAttendue,
   // somme pondérée : args = poids1, hausse1, poids2, hausse2, …
   'inflation.inflationPonderee': (...a: number[]) => {
     const postes = [];

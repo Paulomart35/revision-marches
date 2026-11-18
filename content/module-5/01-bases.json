@@ -478,19 +478,6 @@
       "version": 1
     },
     {
-      "id": "m5.bases.l-option-a-barriere",
-      "type": "lexique",
-      "module": 5,
-      "chapitre": "m5.bases",
-      "difficulte": 1,
-      "terme": "Option à barrière",
-      "definition": "Option qui s'active ou disparaît si le sous-jacent touche un niveau.",
-      "fiche": "m5.bases.briques",
-      "anglais": "barrier option",
-      "maj": "2026-11-18",
-      "version": 1
-    },
-    {
       "id": "m5.bases.l-emtn",
       "type": "lexique",
       "module": 5,

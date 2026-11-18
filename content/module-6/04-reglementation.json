@@ -1,0 +1,853 @@
+{
+  "chapitre": {
+    "id": "m6.reglementation",
+    "module": 6,
+    "ordre": 4,
+    "titre": "Les bases réglementaires",
+    "resume": "Qui supervise les banques, puis trois textes à connaître : Bâle III (capital et liquidité), MiFID II (protection des investisseurs et transparence) et EMIR (dérivés de gré à gré)."
+  },
+  "elements": [
+    {
+      "id": "m6.reglementation.supervision",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "tags": [
+        "supervision",
+        "BCE",
+        "ACPR",
+        "AMF"
+      ],
+      "titre": "Qui supervise les banques en France ?",
+      "une_phrase": "Les grandes banques de la zone euro sont supervisées par la **BCE** (mécanisme de surveillance unique), avec l'**ACPR** pour les plus petites et pour l'assurance ; l'**AMF** surveille les marchés financiers et la commercialisation des produits.",
+      "trente_secondes": "- **La BCE**, via le **mécanisme de surveillance unique** (MSU, depuis novembre 2014), supervise directement les banques importantes de la zone euro, dont les grands groupes français. Elle contrôle leur capital, leur liquidité, leurs risques et leur gouvernance.\n- **L'ACPR** (Autorité de contrôle prudentiel et de résolution), adossée à la **Banque de France**, supervise les autres établissements, les assureurs, et participe aux équipes de la BCE.\n- **L'AMF** (Autorité des marchés financiers) veille à l'information des investisseurs, au bon fonctionnement des marchés et aux règles de commercialisation (MiFID II).\n\nAu niveau européen, l'**EBA** (banques) et l'**ESMA** (marchés) rédigent des règles techniques communes.",
+      "analogie": "Un match encadré par plusieurs arbitres : l'un vérifie la solidité des équipes (BCE et ACPR : capital, liquidité), l'autre vérifie qu'on respecte les règles du jeu avec le public (AMF : information, vente des produits).",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Autorité",
+          "Ce qu'elle surveille"
+        ],
+        "lignes": [
+          [
+            "BCE (mécanisme de surveillance unique)",
+            "Solidité des grandes banques de la zone euro"
+          ],
+          [
+            "ACPR (Banque de France)",
+            "Autres banques, assureurs ; résolution des crises"
+          ],
+          [
+            "AMF",
+            "Marchés financiers, information des investisseurs, commercialisation"
+          ],
+          [
+            "EBA et ESMA",
+            "Règles techniques européennes pour les banques et les marchés"
+          ]
+        ],
+        "legende": "Les superviseurs à connaître."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Chaque année, la BCE évalue une grande banque (processus SREP) et fixe une exigence de fonds propres propre à cette banque, au-dessus du minimum réglementaire.",
+        "Si la banque est jugée plus risquée, son exigence augmente, par exemple de 0,5 point d'actifs pondérés.",
+        "En parallèle, l'AMF contrôle qu'un produit structuré vendu à des particuliers est présenté de façon claire et équilibrée."
+      ],
+      "sources": [
+        {
+          "titre": "BCE, supervision bancaire",
+          "url": "https://www.bankingsupervision.europa.eu/"
+        },
+        {
+          "titre": "ACPR",
+          "url": "https://acpr.banque-france.fr/"
+        },
+        {
+          "titre": "AMF",
+          "url": "https://www.amf-france.org/"
+        }
+      ],
+      "deux_minutes": "**Pourquoi la BCE supervise.** Après la crise des dettes souveraines, la zone euro a créé l'**Union bancaire** : supervision unique (MSU), résolution unique (mécanisme de résolution unique, MRU) pour gérer la faillite d'une banque sans faire payer le contribuable, et un projet de garantie des dépôts commune, encore inachevé.\n\n**Deux métiers de la BCE à ne pas confondre** : la politique monétaire (fixer les taux) et la supervision bancaire (contrôler les banques). Ils sont séparés en interne.\n\n**Les stress tests.** L'EBA et la BCE soumettent régulièrement les grandes banques à des scénarios de crise pour vérifier que leur capital resterait suffisant.",
+      "piege": "Croire que la Banque de France supervise seule les grandes banques françaises : c'est la BCE, avec l'appui de l'ACPR. Et confondre l'AMF (marchés) avec l'ACPR (solidité des établissements).",
+      "a_dire_en_entretien": "« Les grandes banques françaises sont supervisées par la BCE dans le cadre du mécanisme de surveillance unique, avec l'ACPR, adossée à la Banque de France, qui supervise les autres établissements et les assureurs. L'AMF surveille les marchés et la commercialisation des produits financiers. Au niveau européen, l'EBA et l'ESMA écrivent les règles techniques. »",
+      "liens": [
+        "m6.reglementation.bale3",
+        "m6.reglementation.mifid2",
+        "m1.bc.bce"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.bale3",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "tags": [
+        "Bâle III",
+        "fonds propres",
+        "liquidité",
+        "réglementation"
+      ],
+      "titre": "Bâle III",
+      "une_phrase": "**Bâle III** est l'ensemble de règles internationales, adopté après la crise de 2008, qui impose aux banques **plus de fonds propres**, de **meilleure qualité**, et des **ratios de liquidité** pour pouvoir absorber les pertes et tenir en cas de crise.",
+      "trente_secondes": "Rédigé par le **Comité de Bâle** (qui réunit les superviseurs des grands pays), transposé en Europe par le règlement **CRR** et la directive **CRD**.\n\nTrois idées :\n\n1. **Plus de capital, et du vrai capital.** Le cœur est le **CET1** (actions et réserves). Minimum : **4,5 %** des actifs pondérés par les risques, plus un **coussin de conservation** de **2,5 %**, soit **7 %**, auxquels s'ajoutent des coussins contracycliques et systémiques.\n2. **Un ratio de levier** : les fonds propres Tier 1 doivent représenter au moins **3 %** de l'exposition totale, **sans pondération** : un garde-fou si les pondérations sont trop optimistes.\n3. **Deux ratios de liquidité** :\n   - le **LCR** : assez d'actifs liquides pour tenir **30 jours** de stress (≥ 100 %) ;\n   - le **NSFR** : des ressources stables pour financer les actifs à plus d'un an (≥ 100 %).",
+      "analogie": "Les règles de sécurité d'un immeuble : des fondations plus solides (le capital), une limite au nombre d'étages qu'on peut empiler sur ces fondations (le levier), et des issues de secours et réserves d'eau pour tenir en cas d'incendie (la liquidité).",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Exigence",
+          "Minimum",
+          "À quoi ça sert"
+        ],
+        "lignes": [
+          [
+            "CET1 / actifs pondérés",
+            "4,5 % (+ 2,5 % de coussin de conservation)",
+            "Absorber les pertes avec du capital de qualité"
+          ],
+          [
+            "Tier 1 / actifs pondérés",
+            "6 %",
+            "Capital de base élargi"
+          ],
+          [
+            "Total des fonds propres / actifs pondérés",
+            "8 %",
+            "Exigence globale"
+          ],
+          [
+            "Ratio de levier",
+            "3 %",
+            "Limiter la taille du bilan quel que soit le risque affiché"
+          ],
+          [
+            "LCR",
+            "100 %",
+            "Tenir 30 jours de stress de liquidité"
+          ],
+          [
+            "NSFR",
+            "100 %",
+            "Financer les actifs longs par des ressources stables"
+          ]
+        ],
+        "legende": "Les ratios minimaux de Bâle III (hors coussins contracycliques, systémiques et exigences propres à chaque banque)."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque a 50 Md€ de CET1 et 380 Md€ d'actifs pondérés : ratio CET1 = 50 / 380 = **13,2 %**.",
+        "Son exposition totale non pondérée est de 1 250 Md€, ses fonds propres Tier 1 de 55 Md€ : ratio de levier = **4,4 %**.",
+        "Ses actifs liquides de haute qualité valent 300 Md€ et ses sorties nettes sur 30 jours de stress 230 Md€ : LCR = **130 %**.",
+        "Un crédit de 1 M€ à une entreprise pondéré à 100 % consomme 1 M€ d'actifs pondérés ; avec un objectif de CET1 de 13 %, il « coûte » 130 000 € de capital."
+      ],
+      "formules": [
+        {
+          "titre": "Le ratio de fonds propres",
+          "latex": "\\text{Ratio CET1} = \\frac{\\text{CET1}}{\\text{RWA}}",
+          "legende": {
+            "\\text{CET1}": "les fonds propres de base de catégorie 1 : actions et réserves, après déductions",
+            "\\text{RWA}": "les actifs pondérés par les risques (risk-weighted assets) : chaque exposition multipliée par une pondération selon son risque"
+          },
+          "en_francais": "On rapporte le capital de meilleure qualité à la somme des risques de la banque, chacun pesé selon sa dangerosité."
+        },
+        {
+          "titre": "Le LCR",
+          "latex": "LCR = \\frac{\\text{actifs liquides de haute qualité}}{\\text{sorties nettes de trésorerie sur 30 jours de stress}} \\geq 100\\,\\%",
+          "legende": {
+            "LCR": "liquidity coverage ratio"
+          },
+          "en_francais": "La banque doit pouvoir faire face à un mois de crise de liquidité avec ses seuls actifs facilement vendables."
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Comité de Bâle, Bâle III : cadre international",
+          "url": "https://www.bis.org/bcbs/basel3.htm"
+        },
+        {
+          "titre": "Autorité bancaire européenne (EBA)",
+          "url": "https://www.eba.europa.eu/"
+        }
+      ],
+      "deux_minutes": "**Les actifs pondérés (RWA).** Ils couvrent trois risques : **crédit** (le plus gros), **marché** et **opérationnel**. Les pondérations dépendent du type d'exposition et de sa qualité : un prêt à un État bien noté pèse peu, un prêt à une entreprise risquée pèse beaucoup. Les grandes banques peuvent utiliser leurs **modèles internes**, encadrés.\n\n**La finalisation de Bâle III** (souvent appelée « Bâle IV ») limite l'avantage des modèles internes par un **plancher** (*output floor*) : les actifs pondérés calculés par modèle ne peuvent pas descendre sous 72,5 % de ceux de la méthode standard, avec une mise en place progressive. En Europe, elle est appliquée par le règlement CRR3, en vigueur pour l'essentiel depuis 2025.\n\n**Pourquoi c'est important pour une salle des marchés.** Chaque opération consomme du capital : un dérivé avec un client non collatéralisé, un financement long, une position de marché. La rentabilité d'une activité se juge par rapport au capital qu'elle mobilise. C'est une raison du prix des dérivés (coût du capital, CVA).\n\n**Les coussins supplémentaires** : contracyclique (fixé par chaque pays selon le cycle du crédit), systémique (pour les G-SIB), et l'exigence propre fixée par le superviseur après son évaluation annuelle.",
+      "piege": "Confondre ratio de solvabilité (capital / actifs **pondérés**) et ratio de levier (capital / exposition **non pondérée**). Et confondre LCR (court terme, 30 jours) et NSFR (structurel, plus d'un an).",
+      "a_dire_en_entretien": "« Bâle III, c'est la réponse réglementaire à 2008 : plus de capital et de meilleure qualité, avec un CET1 d'au moins 4,5 % des actifs pondérés plus un coussin de 2,5 % et des coussins supplémentaires ; un ratio de levier de 3 %, sans pondération ; et deux ratios de liquidité, le LCR sur 30 jours et le NSFR sur le long terme. Pour une salle des marchés, ça veut dire que chaque opération consomme du capital, qu'il faut rémunérer. »",
+      "liens": [
+        "m6.reglementation.supervision",
+        "m6.risques.liquidite",
+        "m6.risques.credit",
+        "m3.swap.risque"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.mifid2",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "tags": [
+        "MiFID II",
+        "protection des investisseurs",
+        "réglementation"
+      ],
+      "titre": "MiFID II",
+      "une_phrase": "**MiFID II** est la directive européenne, appliquée depuis le **3 janvier 2018**, qui encadre les services d'investissement : **protection des investisseurs** (catégorisation, adéquation, transparence des coûts) et **transparence des marchés**.",
+      "trente_secondes": "Ce qu'elle impose aux banques, côté clients :\n\n- **Catégoriser** chaque client : **non professionnel** (le plus protégé), **professionnel**, **contrepartie éligible**.\n- Vérifier l'**adéquation** (*suitability*) en cas de conseil : le produit correspond-il aux connaissances, à l'expérience, aux objectifs et à la capacité de perte du client ? Sans conseil, vérifier au moins le **caractère approprié**.\n- **Gouvernance produit** : définir pour chaque produit un **marché cible**, et ne pas le vendre en dehors.\n- **Transparence des coûts** : informer le client de tous les coûts, avant et après.\n- **Meilleure exécution** (*best execution*) : obtenir le meilleur résultat pour le client.\n- **Enregistrer** les conversations téléphoniques et électroniques qui mènent à des opérations.\n\nCôté marchés : transparence des prix avant et après les transactions, et déclaration des transactions aux régulateurs.",
+      "analogie": "Les règles d'un pharmacien : il vérifie l'ordonnance (l'adéquation), ne délivre pas un médicament à un patient à qui il est contre-indiqué (le marché cible), affiche ses prix (les coûts) et garde une trace de ce qu'il a délivré (l'enregistrement).",
+      "exemple_chiffre": [
+        "Exemple fictif. Un client particulier veut souscrire un autocall worst-of. Son questionnaire montre qu'il n'a jamais investi en produits complexes et qu'il ne peut pas supporter une perte de plus de 10 %.",
+        "Le produit est hors de son marché cible et inadéquat : le conseiller ne peut pas le lui recommander.",
+        "Pour un autre client adapté, le conseiller remet le DIC et l'information sur les coûts : par exemple 1 % de frais d'entrée et 0,8 % de coûts annuels intégrés au produit, présentés en euros et en pourcentage."
+      ],
+      "sources": [
+        {
+          "titre": "ESMA, MiFID II",
+          "url": "https://www.esma.europa.eu/"
+        },
+        {
+          "titre": "AMF, la directive MIF 2",
+          "url": "https://www.amf-france.org/"
+        }
+      ],
+      "deux_minutes": "**MiFID II et MiFIR.** La directive (MiFID II) est complétée par un règlement (MiFIR), qui porte surtout sur la transparence des marchés et la déclaration des transactions.\n\n**La recherche.** MiFID II a imposé de facturer séparément la recherche financière et l'exécution des ordres (*unbundling*), règle ensuite assouplie.\n\n**Pour un sales.** Avant de proposer un produit : vérifier la catégorie du client, son profil, le marché cible du produit, remettre la documentation (DIC pour un particulier) et l'information sur les coûts, et garder la trace du conseil. Les conversations sont enregistrées.\n\n**PRIIPs**, règlement distinct, impose le **document d'informations clés** (DIC) pour les produits packagés vendus aux particuliers, dont les produits structurés.",
+      "piege": "Croire que MiFID II ne concerne que les particuliers : elle s'applique à tous les clients, avec un niveau de protection décroissant des non-professionnels aux contreparties éligibles. Et confondre MiFID II (services d'investissement) et EMIR (dérivés de gré à gré).",
+      "a_dire_en_entretien": "« MiFID II, appliquée depuis janvier 2018, protège les investisseurs et rend les marchés plus transparents. Pour un sales, c'est concret : catégoriser le client, vérifier l'adéquation du produit à son profil, respecter le marché cible défini par la gouvernance produit, informer sur tous les coûts, chercher la meilleure exécution, et enregistrer les échanges. »",
+      "liens": [
+        "m6.reglementation.emir",
+        "m5.conditions.comparatif",
+        "m4.couvertures.accumulateur"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.emir",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "tags": [
+        "EMIR",
+        "dérivés",
+        "compensation",
+        "réglementation"
+      ],
+      "titre": "EMIR",
+      "une_phrase": "**EMIR** est le règlement européen de 2012 sur les **dérivés de gré à gré** : il impose la **compensation centrale** des dérivés standardisés, la **déclaration** de tous les dérivés à des référentiels centraux, et des **techniques de réduction des risques** (marges, confirmations) pour les autres.",
+      "trente_secondes": "Avant 2008, les dérivés de gré à gré (swaps, options négociées entre deux parties) étaient opaques : personne n'avait une vue d'ensemble des expositions. Le G20 de 2009 a décidé de les encadrer ; EMIR en est la traduction européenne.\n\nTrois piliers :\n\n1. **Compensation centrale obligatoire** : certains dérivés standardisés (par exemple les swaps de taux standard en euro entre grands acteurs) doivent passer par une **chambre de compensation** (CCP), qui devient la contrepartie de chacun et exige des marges.\n2. **Déclaration** : tous les dérivés, compensés ou non, sont déclarés à un **référentiel central** (*trade repository*) : les régulateurs voient les expositions.\n3. **Réduction des risques des dérivés non compensés** : confirmation rapide, rapprochement des portefeuilles, règlement des différends et, pour les acteurs importants, **échange de marges**.\n\nLes obligations dépendent de la catégorie de la contrepartie : **financière**, **non financière au-dessus des seuils** (NFC+) ou **en dessous** (NFC−, la plupart des PME).",
+      "analogie": "Avant, chacun se prêtait de l'argent entre voisins sans rien noter. EMIR, c'est faire passer les gros échanges standard par une banque centrale de quartier (la chambre de compensation), et noter tous les autres dans un registre que le maire peut consulter.",
+      "exemple_chiffre": [
+        "Exemple fictif. Deux grandes banques traitent un swap de taux standard en euro de 100 M€ : il doit être compensé par une chambre de compensation, qui exige des marges initiales et des appels de marge quotidiens.",
+        "Une PME (NFC−) signe un swap de couverture avec sa banque : pas de compensation obligatoire ni d'échange de marges, mais le swap est déclaré à un référentiel central et confirmé rapidement.",
+        "Le régulateur peut ainsi voir les expositions de chaque acteur sur les dérivés."
+      ],
+      "sources": [
+        {
+          "titre": "ESMA, EMIR",
+          "url": "https://www.esma.europa.eu/"
+        },
+        {
+          "titre": "AMF, EMIR",
+          "url": "https://www.amf-france.org/"
+        }
+      ],
+      "deux_minutes": "**Pourquoi la compensation centrale.** En cas de défaut d'un acteur, la chambre de compensation utilise les marges qu'il a versées et ses ressources propres pour absorber la perte, au lieu d'une cascade de défauts entre banques. Le revers : les risques se concentrent sur quelques chambres, elles-mêmes très surveillées.\n\n**Les évolutions.** EMIR a été révisé (EMIR Refit en 2019, puis une nouvelle révision adoptée fin 2024), notamment pour simplifier les obligations des petites contreparties et renforcer la compensation dans l'Union européenne.\n\n**Pour une salle des marchés**, EMIR se traduit par des contrôles quotidiens : déclaration de chaque opération, confirmation dans les délais, rapprochement des portefeuilles avec les contreparties. C'est un travail important du middle et du back office.\n\n**Lien avec Bâle III** : un dérivé compensé ou collatéralisé consomme moins de capital, ce qui pousse vers la compensation.",
+      "piege": "Croire qu'EMIR impose la compensation de tous les dérivés : seuls certains dérivés standardisés, entre certaines catégories de contreparties, doivent être compensés. La déclaration, elle, concerne tous les dérivés.",
+      "a_dire_en_entretien": "« EMIR est le règlement européen de 2012 qui encadre les dérivés de gré à gré : compensation centrale obligatoire des dérivés standardisés entre les acteurs concernés, déclaration de tous les dérivés à des référentiels centraux, et techniques de réduction des risques pour les dérivés non compensés, comme la confirmation rapide et l'échange de marges. Une PME qui couvre son crédit avec un swap déclare l'opération, mais n'a pas à la compenser. »",
+      "liens": [
+        "m6.reglementation.mifid2",
+        "m3.swap.risque",
+        "m3.options-taux.futures"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c01",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "recto": "Superviseur des grandes banques de la zone euro ?",
+      "verso": "La BCE (mécanisme de surveillance unique), avec l'ACPR.",
+      "fiche": "m6.reglementation.supervision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c02",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "recto": "Rôle de l'AMF ?",
+      "verso": "Surveiller les marchés, l'information des investisseurs et la commercialisation.",
+      "fiche": "m6.reglementation.supervision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c03",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "CET1 minimum de Bâle III ?",
+      "verso": "4,5 % des actifs pondérés, + 2,5 % de coussin de conservation.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c04",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "Ratio de levier ?",
+      "verso": "Tier 1 / exposition totale non pondérée ≥ 3 %.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c05",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "LCR et NSFR ?",
+      "verso": "LCR : tenir 30 jours de stress. NSFR : financer les actifs longs par des ressources stables.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c06",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "RWA ?",
+      "verso": "Actifs pondérés par les risques : crédit, marché, opérationnel.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c07",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "recto": "Les trois catégories de clients MiFID II ?",
+      "verso": "Non professionnel, professionnel, contrepartie éligible.",
+      "fiche": "m6.reglementation.mifid2",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c08",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "recto": "Adéquation (MiFID II) ?",
+      "verso": "Vérifier que le produit conseillé correspond au profil du client.",
+      "fiche": "m6.reglementation.mifid2",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c09",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "Les trois piliers d'EMIR ?",
+      "verso": "Compensation centrale des dérivés standardisés, déclaration, réduction des risques.",
+      "fiche": "m6.reglementation.emir",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.c10",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "recto": "CCP ?",
+      "verso": "Chambre de compensation : contrepartie centrale qui exige des marges.",
+      "fiche": "m6.reglementation.emir",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.q01",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "question": "Qu'est-ce que Bâle III ? Cite les principaux ratios.",
+      "reponse_modele": "Ce sont les règles internationales adoptées après la crise de 2008 pour renforcer la solidité des banques, transposées en Europe par CRR et CRD. Sur le capital : un ratio CET1 d'au moins 4,5 % des actifs pondérés par les risques, plus un coussin de conservation de 2,5 %, soit 7 %, plus des coussins contracycliques, systémiques et une exigence propre fixée par le superviseur. Un ratio de levier d'au moins 3 %, sans pondération. Et deux ratios de liquidité : le LCR, pour tenir 30 jours de stress, et le NSFR, pour financer les actifs longs par des ressources stables, tous deux d'au moins 100 %.",
+      "points_cles": [
+        "Après 2008, CRR et CRD",
+        "CET1 4,5 % + 2,5 %",
+        "Coussins supplémentaires",
+        "Levier 3 %",
+        "LCR et NSFR ≥ 100 %"
+      ],
+      "piege": "Confondre ratio de solvabilité et ratio de levier.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.q02",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "question": "Qu'est-ce que MiFID II change concrètement pour un sales ?",
+      "reponse_modele": "Avant toute proposition, il doit connaître la catégorie de son client, non professionnel, professionnel ou contrepartie éligible, et vérifier l'adéquation du produit à son profil : connaissances, expérience, objectifs, capacité de perte. Il doit respecter le marché cible défini pour chaque produit, informer le client de tous les coûts, chercher la meilleure exécution et garder la trace du conseil ; les conversations sont enregistrées. Pour un particulier, il remet aussi le document d'informations clés.",
+      "points_cles": [
+        "Catégorisation",
+        "Adéquation",
+        "Marché cible",
+        "Transparence des coûts",
+        "Meilleure exécution",
+        "Enregistrement"
+      ],
+      "piege": "Présenter MiFID II comme une formalité administrative.",
+      "fiche": "m6.reglementation.mifid2",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.q03",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'EMIR et pourquoi a-t-il été créé ?",
+      "reponse_modele": "C'est le règlement européen de 2012 sur les dérivés de gré à gré, issu des engagements du G20 après la crise de 2008, quand personne n'avait de vue d'ensemble sur les expositions de dérivés entre banques. Il impose trois choses : la compensation centrale des dérivés standardisés entre les acteurs concernés, la déclaration de tous les dérivés à des référentiels centraux, et des techniques de réduction des risques pour les dérivés non compensés, comme la confirmation rapide, le rapprochement des portefeuilles et l'échange de marges pour les grands acteurs.",
+      "points_cles": [
+        "Dérivés de gré à gré",
+        "Réponse à 2008, G20",
+        "Compensation centrale",
+        "Déclaration",
+        "Réduction des risques"
+      ],
+      "piege": "Dire que tous les dérivés doivent être compensés.",
+      "fiche": "m6.reglementation.emir",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.q04",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "question": "Qui supervise BNP Paribas ou le Crédit Agricole ?",
+      "reponse_modele": "La BCE, dans le cadre du mécanisme de surveillance unique, qui supervise directement les grandes banques de la zone euro depuis 2014, avec l'appui de l'ACPR, adossée à la Banque de France. L'AMF surveille de son côté leurs activités sur les marchés et la commercialisation des produits financiers.",
+      "points_cles": [
+        "BCE, mécanisme de surveillance unique",
+        "ACPR en appui",
+        "AMF pour les marchés"
+      ],
+      "piege": "Répondre seulement « la Banque de France ».",
+      "fiche": "m6.reglementation.supervision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "enonce": "CET1 de 26 Md€, actifs pondérés de 200 Md€. Ratio CET1, en % ?",
+      "reponse": 13,
+      "tolerance": 0.01,
+      "unite": "%",
+      "explication": "26 / 200 = 13 %.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "enonce": "Quel ratio de Bâle III mesure la capacité à tenir 30 jours de stress de liquidité ?",
+      "choix": [
+        "Le NSFR",
+        "Le LCR",
+        "Le ratio de levier",
+        "Le CET1"
+      ],
+      "bonne": 1,
+      "explication": "Le LCR (liquidity coverage ratio) compare les actifs liquides aux sorties nettes sur 30 jours de stress.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "enonce": "Le ratio de levier rapporte les fonds propres aux actifs pondérés par les risques.",
+      "vrai": false,
+      "explication": "Il rapporte le Tier 1 à l'exposition totale non pondérée : c'est son intérêt.",
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "enonce": "Depuis quand MiFID II s'applique-t-elle ?",
+      "choix": [
+        "2008",
+        "3 janvier 2018",
+        "2012",
+        "2025"
+      ],
+      "bonne": 1,
+      "explication": "MiFID II et MiFIR s'appliquent depuis le 3 janvier 2018.",
+      "fiche": "m6.reglementation.mifid2",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "enonce": "Une PME (NFC−) signe un swap de couverture. Selon EMIR, elle doit…",
+      "choix": [
+        "le compenser via une chambre de compensation",
+        "le déclarer à un référentiel central (souvent via sa banque)",
+        "échanger des marges quotidiennes",
+        "rien du tout"
+      ],
+      "bonne": 1,
+      "explication": "Tous les dérivés sont déclarés ; la compensation et l'échange de marges ne s'imposent pas aux petites contreparties non financières.",
+      "fiche": "m6.reglementation.emir",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.z06",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "enonce": "Quelle autorité surveille la commercialisation des produits financiers en France ?",
+      "choix": [
+        "La BCE",
+        "L'AMF",
+        "L'EBA",
+        "Le FSB"
+      ],
+      "bonne": 1,
+      "explication": "L'AMF veille à l'information des investisseurs et aux règles de commercialisation.",
+      "fiche": "m6.reglementation.supervision",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.x01",
+      "type": "exercice",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 2,
+      "titre": "Les ratios de Bâle III d'une banque",
+      "enonce": "Exemple fictif. Une banque a 50 Md€ de CET1, 55 Md€ de fonds propres Tier 1, 380 Md€ d'actifs pondérés et 1 250 Md€ d'exposition totale. Ses actifs liquides de haute qualité valent 300 Md€, ses sorties nettes sur 30 jours de stress 230 Md€. Calcule son ratio CET1, son ratio de levier et son LCR, puis le capital mobilisé par un crédit de 10 M€ pondéré à 100 % avec un objectif de CET1 de 13 %.",
+      "etapes": [
+        {
+          "titre": "Le ratio CET1",
+          "texte": "50 / 380.",
+          "resultat": "13,2 %",
+          "verif": {
+            "fn": "banque.ratioFondsPropres",
+            "args": [
+              50,
+              380
+            ],
+            "attendu": 13.158,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Le ratio de levier",
+          "texte": "Tier 1 / exposition totale non pondérée : 55 / 1 250.",
+          "resultat": "4,4 %",
+          "verif": {
+            "fn": "banque.ratioLevier",
+            "args": [
+              55,
+              1250
+            ],
+            "attendu": 4.4,
+            "tolerance": 0.001
+          }
+        },
+        {
+          "titre": "Le LCR",
+          "texte": "300 / 230.",
+          "resultat": "130 %",
+          "verif": {
+            "fn": "banque.lcr",
+            "args": [
+              300,
+              230
+            ],
+            "attendu": 130.43,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Le capital mobilisé par un crédit",
+          "texte": "Actifs pondérés : 10 M€ × 100 % = 10 M€. Capital : 13 % × 10 M€.",
+          "resultat": "1,3 M€ de CET1",
+          "verif": {
+            "fn": "banque.actifPondere",
+            "args": [
+              10000000,
+              100
+            ],
+            "attendu": 10000000,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "Les trois ratios dépassent largement les minimums (7 % de CET1 avec le coussin de conservation, 3 % de levier, 100 % de LCR). Le dernier calcul montre pourquoi chaque crédit ou dérivé a un coût en capital, que la banque doit rémunérer."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Diviser le levier par les actifs pondérés.",
+        "Oublier les coussins quand on compare au minimum.",
+        "Confondre LCR (30 jours) et NSFR (plus d'un an)."
+      ],
+      "fiche": "m6.reglementation.bale3",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-mecanisme-de-surveillance-unique",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Mécanisme de surveillance unique",
+      "definition": "Supervision des grandes banques de la zone euro par la BCE, depuis 2014.",
+      "fiche": "m6.reglementation.supervision",
+      "anglais": "single supervisory mechanism (SSM)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-acpr",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "ACPR",
+      "definition": "Autorité de contrôle prudentiel et de résolution, adossée à la Banque de France.",
+      "fiche": "m6.reglementation.supervision",
+      "anglais": "French prudential supervision and resolution authority",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-amf",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "AMF",
+      "definition": "Autorité des marchés financiers : surveillance des marchés et protection des investisseurs.",
+      "fiche": "m6.reglementation.supervision",
+      "anglais": "French financial markets authority",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-bale-iii",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Bâle III",
+      "definition": "Règles internationales de capital et de liquidité des banques, adoptées après 2008.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "Basel III",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-cet1",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "CET1",
+      "definition": "Fonds propres de meilleure qualité : actions et réserves, après déductions.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "common equity tier 1",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-actifs-ponderes-par-les-risques",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Actifs pondérés par les risques",
+      "definition": "Expositions de la banque multipliées par une pondération selon leur risque.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "risk-weighted assets (RWA)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-ratio-de-levier",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Ratio de levier",
+      "definition": "Tier 1 rapporté à l'exposition totale non pondérée.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "leverage ratio",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-lcr",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "LCR",
+      "definition": "Ratio de liquidité à 30 jours : actifs liquides / sorties nettes de stress.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "liquidity coverage ratio",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-nsfr",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "NSFR",
+      "definition": "Ratio de financement stable à plus d'un an.",
+      "fiche": "m6.reglementation.bale3",
+      "anglais": "net stable funding ratio",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-mifid-ii",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "MiFID II",
+      "definition": "Directive européenne sur les services d'investissement, appliquée depuis le 3 janvier 2018.",
+      "fiche": "m6.reglementation.mifid2",
+      "anglais": "MiFID II",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-marche-cible",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Marché cible",
+      "definition": "Clientèle à laquelle un produit est destiné, définie par la gouvernance produit.",
+      "fiche": "m6.reglementation.mifid2",
+      "anglais": "target market",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-meilleure-execution",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Meilleure exécution",
+      "definition": "Obligation d'obtenir le meilleur résultat possible pour le client lors de l'exécution.",
+      "fiche": "m6.reglementation.mifid2",
+      "anglais": "best execution",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-emir",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "EMIR",
+      "definition": "Règlement européen de 2012 sur les dérivés de gré à gré.",
+      "fiche": "m6.reglementation.emir",
+      "anglais": "European Market Infrastructure Regulation",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-chambre-de-compensation",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Chambre de compensation",
+      "definition": "Entité qui s'interpose entre les parties d'une transaction et exige des marges.",
+      "fiche": "m6.reglementation.emir",
+      "anglais": "central counterparty (CCP)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.reglementation.l-referentiel-central",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.reglementation",
+      "difficulte": 1,
+      "terme": "Référentiel central",
+      "definition": "Base où sont déclarés les dérivés, consultable par les régulateurs.",
+      "fiche": "m6.reglementation.emir",
+      "anglais": "trade repository",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

@@ -762,19 +762,6 @@
       "anglais": "breakeven inflation",
       "maj": "2026-11-18",
       "version": 1
-    },
-    {
-      "id": "m3.obligations.l-taux-reel",
-      "type": "lexique",
-      "module": 3,
-      "chapitre": "m3.obligations",
-      "difficulte": 1,
-      "terme": "Taux réel",
-      "definition": "Rendement d'une obligation indexée sur l'inflation : ce que rapporte le placement en pouvoir d'achat.",
-      "fiche": "m3.obligations.indexees",
-      "anglais": "real yield",
-      "maj": "2026-11-18",
-      "version": 1
     }
   ]
 }

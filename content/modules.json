@@ -4,5 +4,5 @@
   { "id": 3, "titre": "Taux, obligations et dérivés de taux", "court": "Taux", "disponible": true },
   { "id": 4, "titre": "Change approfondi", "court": "Change", "disponible": true },
   { "id": 5, "titre": "Produits structurés", "court": "Structurés", "disponible": true },
-  { "id": 6, "titre": "Culture bancaire et métiers", "court": "Banque", "disponible": false }
+  { "id": 6, "titre": "Culture bancaire et métiers", "court": "Banque", "disponible": true }
 ]

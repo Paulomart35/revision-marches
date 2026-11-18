@@ -1,0 +1,623 @@
+{
+  "chapitre": {
+    "id": "m6.acteurs",
+    "module": 6,
+    "ordre": 3,
+    "titre": "Les acteurs bancaires français",
+    "resume": "Le paysage bancaire français, puis les quatre grands groupes : BNP Paribas, Société Générale, Crédit Agricole (avec CACIB et LCL) et BPCE (avec Natixis). Leur organisation, leurs métiers et ce qui les distingue."
+  },
+  "elements": [
+    {
+      "id": "m6.acteurs.paysage",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "tags": [
+        "banques françaises",
+        "mutualisme",
+        "banque universelle"
+      ],
+      "titre": "Le paysage bancaire français",
+      "une_phrase": "La France est dominée par quelques grands **groupes universels**, dont deux sont des sociétés anonymes cotées (**BNP Paribas**, **Société Générale**) et deux des groupes **mutualistes** (**Crédit Agricole**, **BPCE**) ; tous les quatre sont classés banques **d'importance systémique mondiale**.",
+      "trente_secondes": "Deux modèles coexistent :\n\n- **Les banques commerciales cotées**, détenues par des actionnaires : BNP Paribas, Société Générale.\n- **Les groupes mutualistes**, détenus à la base par leurs clients sociétaires, via des caisses locales et régionales : Crédit Agricole, BPCE (Banque Populaire et Caisse d'Epargne), Crédit Mutuel. Ils ont souvent une tête de groupe ou des filiales cotées.\n\nTous sont des **banques universelles** : détail, banque privée, BFI, gestion d'actifs, assurance sous un même toit.\n\nÀ côté : La Banque Postale (groupe La Poste), les banques en ligne, et les grandes banques étrangères, qui ont renforcé leur présence à Paris depuis le Brexit.",
+      "analogie": "Deux modèles d'entreprise côte à côte, comme une société cotée et une coopérative agricole : les deux vendent les mêmes produits, mais leurs propriétaires, et donc leurs priorités de long terme, ne sont pas les mêmes.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Groupe",
+          "Modèle",
+          "Quelques entités à connaître"
+        ],
+        "lignes": [
+          [
+            "BNP Paribas",
+            "Société anonyme cotée",
+            "Banques de détail en France, Belgique, Italie, Luxembourg ; BNP Paribas CIB ; Cardif"
+          ],
+          [
+            "Société Générale",
+            "Société anonyme cotée",
+            "Réseau SG, BoursoBank, Global Banking and Investor Solutions, Ayvens"
+          ],
+          [
+            "Crédit Agricole",
+            "Mutualiste, tête de groupe cotée (Crédit Agricole SA)",
+            "Caisses régionales, LCL, CACIB, Amundi, Indosuez"
+          ],
+          [
+            "BPCE",
+            "Mutualiste",
+            "Banques Populaires, Caisses d'Epargne, Natixis (BFI et gestion d'actifs)"
+          ],
+          [
+            "Crédit Mutuel",
+            "Mutualiste",
+            "CIC (Crédit Mutuel Alliance Fédérale), Crédit Mutuel Arkéa"
+          ],
+          [
+            "La Banque Postale",
+            "Filiale du groupe La Poste",
+            "Banque de détail, CNP Assurances"
+          ]
+        ],
+        "legende": "Les principaux groupes bancaires français."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Un client de LCL ouvre un compte : il est client d'une filiale du groupe Crédit Agricole.",
+        "Sa PME veut couvrir un risque de change : la salle des marchés du réseau lui propose un terme et se couvre auprès de la BFI du groupe, CACIB.",
+        "Il investit dans un fonds : le fonds est géré par Amundi, filiale du même groupe.",
+        "Le même groupe intervient donc à chaque étape, d'où le terme de banque universelle."
+      ],
+      "sources": [
+        {
+          "titre": "Financial Stability Board, liste des banques d'importance systémique mondiale",
+          "url": "https://www.fsb.org/"
+        },
+        {
+          "titre": "Fédération bancaire française",
+          "url": "https://www.fbf.fr/"
+        }
+      ],
+      "deux_minutes": "**Banques systémiques.** Le Conseil de stabilité financière (FSB) publie chaque année la liste des banques d'importance systémique mondiale (G-SIB). Les quatre grands groupes français y figurent ; ils doivent détenir un **coussin de fonds propres supplémentaire** et respecter des exigences renforcées de capacité d'absorption des pertes.\n\n**Le mutualisme.** Dans un groupe mutualiste, les clients peuvent devenir **sociétaires** de leur caisse locale (une voix par sociétaire, quel que soit le nombre de parts). Les caisses régionales détiennent l'organe central. Le résultat est largement mis en réserve, ce qui renforce les fonds propres.\n\n**Une concentration élevée.** Quelques groupes concentrent la majorité des dépôts et des crédits en France, ce qui en fait des acteurs centraux du financement de l'économie, très surveillés par la BCE et l'ACPR.\n\n**Le piège classique de vocabulaire** : BPCE (groupe bancaire) n'a rien à voir avec la BCE (banque centrale).",
+      "piege": "Confondre BCE et BPCE. Et croire que les banques mutualistes sont de petits établissements : le Crédit Agricole et BPCE sont parmi les plus grands groupes bancaires européens.",
+      "a_dire_en_entretien": "« Le paysage français est dominé par quatre grands groupes universels classés systémiques : deux cotés, BNP Paribas et Société Générale, et deux mutualistes, Crédit Agricole et BPCE, détenus à la base par leurs sociétaires. Chacun couvre la banque de détail, la banque privée, la BFI, la gestion d'actifs et l'assurance. »",
+      "liens": [
+        "m6.acteurs.bnp",
+        "m6.acteurs.sg",
+        "m6.acteurs.ca",
+        "m6.acteurs.bpce",
+        "m1.bc.bce-bpce"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.bnp",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "tags": [
+        "BNP Paribas"
+      ],
+      "titre": "BNP Paribas",
+      "une_phrase": "**BNP Paribas**, née en 2000 de la fusion de la BNP et de Paribas, est un groupe coté organisé en trois pôles : la **BFI** (*Corporate & Institutional Banking*), la **banque commerciale et les services** et les **activités d'investissement et de protection** (assurance, gestion d'actifs, banque privée).",
+      "trente_secondes": "- **Une banque de détail sur plusieurs marchés domestiques** : France, Belgique (BNP Paribas Fortis), Italie (BNL), Luxembourg (BGL BNP Paribas), plus des services spécialisés (crédit à la consommation, location).\n- **Une BFI de premier plan en Europe**, avec trois grands métiers : financements, marchés de capitaux (*global markets*) et services titres (*securities services*).\n- **L'assurance** avec BNP Paribas Cardif, la **gestion d'actifs** et la **banque privée**.\n\nSon modèle mise sur la **diversification** : entre métiers, entre pays et entre clients, pour lisser les résultats.",
+      "analogie": "Un grand magasin à plusieurs étages et dans plusieurs villes : si un rayon ou une ville a une mauvaise année, les autres compensent.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un assureur européen veut couvrir son risque de taux, faire conserver ses titres et emprunter des titres.",
+        "La même banque lui propose des swaps (marchés), la conservation de ses titres (services titres) et un financement (BFI).",
+        "C'est l'argument du modèle intégré : un client, plusieurs métiers."
+      ],
+      "sources": [
+        {
+          "titre": "BNP Paribas, présentation du groupe",
+          "url": "https://group.bnpparibas/"
+        }
+      ],
+      "deux_minutes": "**Les marchés de capitaux.** BNP Paribas est un acteur majeur en Europe sur les taux, le change, le crédit et les dérivés actions, et compte parmi les grandes plateformes de marchés européennes.\n\n**La gestion d'actifs.** Le groupe a renforcé ce métier avec l'acquisition d'AXA Investment Managers, finalisée en 2025.\n\n**À dire si on te demande ce qui le distingue** : la taille, la diversification géographique et la puissance de la BFI européenne. Prépare toujours ce type de question avec les publications récentes du groupe (résultats trimestriels, plan stratégique).",
+      "piege": "Citer des chiffres (résultats, effectifs) de mémoire sans date : vérifie toujours la dernière publication avant un entretien.",
+      "a_dire_en_entretien": "« BNP Paribas est née de la fusion de la BNP et de Paribas en 2000. C'est un groupe coté, organisé en trois pôles : la BFI, la banque commerciale et les services, avec des marchés domestiques en France, en Belgique, en Italie et au Luxembourg, et les activités d'investissement et de protection. Son modèle repose sur la diversification et sur une BFI de premier plan en Europe. »",
+      "liens": [
+        "m6.acteurs.paysage",
+        "m6.banques.bfi"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.sg",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "tags": [
+        "Société Générale"
+      ],
+      "titre": "Société Générale",
+      "une_phrase": "La **Société Générale**, fondée en 1864, est un groupe coté dont la banque de détail en France opère sous la marque **SG**, avec la banque en ligne **BoursoBank**, et dont la BFI (*Global Banking and Investor Solutions*) est historiquement réputée sur les **dérivés actions et les produits structurés**.",
+      "trente_secondes": "- **Banque de détail en France** : les réseaux Société Générale et Crédit du Nord ont fusionné en 2023 sous la marque SG ; **BoursoBank** (anciennement Boursorama) est sa banque en ligne.\n- **Banque de détail à l'international** (notamment en République tchèque avec Komerční banka, et en Afrique, où le groupe a cédé plusieurs filiales ces dernières années).\n- **Services financiers** : location longue durée de véhicules avec **Ayvens**.\n- **BFI** : *Global Banking and Investor Solutions*, avec les activités de marchés, les financements et le conseil.\n\nSa réputation sur les marchés vient en particulier de l'**ingénierie financière** : options, produits structurés, solutions d'investissement.",
+      "analogie": "Un atelier réputé pour ses pièces sur mesure : on vient chez lui pour la qualité de son ingénierie, même si le magasin d'à côté vend aussi des produits standards.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque privée cherche un émetteur pour un autocall sur un panier d'actions.",
+        "Elle consulte plusieurs émetteurs, dont des BFI françaises réputées sur les dérivés actions, et compare coupon, barrière et notation de l'émetteur.",
+        "Le choix se fait sur les conditions, la qualité de crédit et le service sur le marché secondaire."
+      ],
+      "sources": [
+        {
+          "titre": "Société Générale, présentation du groupe",
+          "url": "https://www.societegenerale.com/"
+        }
+      ],
+      "deux_minutes": "**Un groupe en transformation.** Ces dernières années, la Société Générale a simplifié son organisation : fusion des réseaux en France, cessions de filiales à l'étranger, recentrage sur ses métiers clés.\n\n**L'épisode de 2008.** La banque a subi une perte de près de 5 milliards d'euros liée aux positions non autorisées d'un trader (affaire Kerviel), qui a renforcé dans toute la place l'attention portée aux contrôles du middle office et du risk management.\n\n**À préparer** : la dernière présentation des résultats et le plan stratégique en cours.",
+      "piege": "Confondre la Société Générale et la Banque de France, ou présenter des informations anciennes (Crédit du Nord, Boursorama) sans dire qu'elles ont changé.",
+      "a_dire_en_entretien": "« La Société Générale est un groupe coté, fondé en 1864. En France, sa banque de détail opère sous la marque SG depuis la fusion avec le Crédit du Nord, avec BoursoBank en ligne. Sa BFI est historiquement réputée sur les dérivés actions et les produits structurés. Le groupe a mené ces dernières années une simplification de son organisation. »",
+      "liens": [
+        "m6.acteurs.paysage",
+        "m5.bases.acteurs",
+        "m6.salle.front-middle-back"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.ca",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "tags": [
+        "Crédit Agricole",
+        "CACIB",
+        "LCL",
+        "Amundi"
+      ],
+      "titre": "Crédit Agricole : caisses régionales, LCL, CACIB, Amundi",
+      "une_phrase": "Le **Crédit Agricole** est un groupe **mutualiste** : des caisses locales et régionales détenues par leurs sociétaires, une tête de groupe cotée (**Crédit Agricole SA**) et des filiales spécialisées, dont **LCL**, **CACIB** et **Amundi**.",
+      "trente_secondes": "L'organisation en trois étages :\n\n1. **Les caisses locales**, détenues par les sociétaires (les clients).\n2. **Les caisses régionales**, banques de plein exercice dans leur région, qui détiennent la majorité de Crédit Agricole SA.\n3. **Crédit Agricole SA**, cotée, qui porte les filiales :\n   - **LCL** : banque de détail, l'ancien Crédit Lyonnais, racheté par le groupe en 2003 et renommé LCL en 2005 ;\n   - **CACIB** (Crédit Agricole Corporate and Investment Bank) : la BFI du groupe ;\n   - **Amundi** : la gestion d'actifs, premier gestionnaire d'actifs européen ;\n   - **Crédit Agricole Assurances**, **Indosuez Wealth Management** (banque privée), le crédit à la consommation, et la banque de détail en Italie.",
+      "analogie": "Une fédération de clubs régionaux qui a créé ensemble une société commune pour les activités que chaque club ne peut pas porter seul : la grande clientèle internationale, la gestion de fonds, l'assurance.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          {
+            "titre": "Sociétaires",
+            "texte": "Les clients détiennent des parts de leur caisse locale."
+          },
+          {
+            "titre": "Caisses régionales",
+            "texte": "Banques de plein exercice, majoritaires dans Crédit Agricole SA."
+          },
+          {
+            "titre": "Crédit Agricole SA",
+            "texte": "Tête de groupe cotée."
+          },
+          {
+            "titre": "Filiales",
+            "texte": "LCL, CACIB, Amundi, assurances, Indosuez, Italie…"
+          }
+        ],
+        "legende": "L'organisation du groupe Crédit Agricole."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une ETI cliente de LCL veut couvrir un crédit à taux variable.",
+        "La salle des marchés de LCL, au service des entreprises clientes du réseau, lui propose un swap.",
+        "Elle se couvre ensuite auprès de CACIB, la BFI du groupe, qui gère le risque sur les marchés.",
+        "Les deux entités travaillent ensemble : l'une connaît le client, l'autre porte et gère le risque de marché."
+      ],
+      "sources": [
+        {
+          "titre": "Groupe Crédit Agricole, organisation",
+          "url": "https://www.credit-agricole.com/"
+        },
+        {
+          "titre": "LCL, histoire",
+          "url": "https://www.lcl.com/"
+        },
+        {
+          "titre": "Amundi, présentation du groupe",
+          "url": "https://about.amundi.com/"
+        }
+      ],
+      "deux_minutes": "**Pourquoi c'est utile de bien connaître cette organisation.** Dans un entretien chez LCL ou CACIB, on attend que tu saches situer l'entité dans le groupe : LCL est une banque de détail urbaine, filiale de Crédit Agricole SA ; CACIB est la BFI qui sert les grandes entreprises et les institutionnels et qui fournit aux réseaux du groupe l'accès aux marchés.\n\n**Le poids de la banque de proximité.** Avec les caisses régionales et LCL, le groupe est l'un des premiers financeurs de l'économie française, des particuliers aux entreprises et à l'agriculture.\n\n**CACIB** est notamment reconnue sur les financements (projets, aéronautique, maritime), la finance durable (obligations vertes) et les marchés de taux et de change.\n\n**À préparer** : les derniers résultats de Crédit Agricole SA et le plan stratégique du groupe.",
+      "piege": "Dire que LCL et le Crédit Agricole sont concurrents sans nuance : LCL est une filiale de Crédit Agricole SA, même si les deux réseaux de détail coexistent sur le territoire. Et confondre Crédit Agricole SA (cotée) et le groupe Crédit Agricole (mutualiste) dans son ensemble.",
+      "a_dire_en_entretien": "« Le Crédit Agricole est un groupe mutualiste à trois étages : caisses locales, caisses régionales, et Crédit Agricole SA, cotée, qui porte les filiales. LCL, l'ancien Crédit Lyonnais, est la banque de détail urbaine du groupe depuis 2003 ; CACIB est la BFI ; Amundi est le premier gestionnaire d'actifs européen. La salle des marchés d'un réseau comme LCL sert les clients du réseau et s'appuie sur CACIB pour la couverture. »",
+      "liens": [
+        "m6.acteurs.paysage",
+        "m6.banques.bfi",
+        "m6.banques.gestion-actifs"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.bpce",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "tags": [
+        "BPCE",
+        "Natixis",
+        "Banque Populaire",
+        "Caisse d'Epargne"
+      ],
+      "titre": "BPCE et Natixis",
+      "une_phrase": "**BPCE**, créé en 2009 par le rapprochement des groupes **Banque Populaire** et **Caisse d'Epargne**, est un groupe **mutualiste** dont la BFI et la gestion d'actifs sont portées par **Natixis**.",
+      "trente_secondes": "- **Deux réseaux mutualistes** : les Banques Populaires et les Caisses d'Epargne, banques régionales détenues par leurs sociétaires, qui détiennent ensemble l'organe central **BPCE**.\n- **Natixis** : historiquement cotée, elle a été entièrement reprise par BPCE en 2021 et retirée de la cote. Elle porte :\n  - **Natixis Corporate & Investment Banking**, la BFI ;\n  - **Natixis Investment Managers**, la gestion d'actifs, organisée en de nombreuses sociétés de gestion affiliées.\n- D'autres filiales : Banque Palatine (entreprises et banque privée), Oney (crédit à la consommation), assurances.",
+      "analogie": "Deux familles qui se sont associées pour créer une maison commune, en gardant chacune sa propre maison régionale : les réseaux restent distincts, mais la BFI, la gestion d'actifs et l'organe central sont partagés.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une Caisse d'Epargne finance un projet d'infrastructure régional et a besoin de couvrir le taux du crédit.",
+        "La couverture est organisée avec la BFI du groupe, qui a l'accès aux marchés.",
+        "Les clients particuliers des réseaux peuvent souscrire des fonds gérés par une société affiliée à Natixis Investment Managers."
+      ],
+      "sources": [
+        {
+          "titre": "Groupe BPCE, présentation",
+          "url": "https://groupebpce.com/"
+        }
+      ],
+      "deux_minutes": "**Les dérivés et produits structurés.** La BFI du groupe est un acteur reconnu des dérivés actions et des produits structurés, ainsi que des financements (immobilier, infrastructures, énergie, aéronautique).\n\n**Le piège de vocabulaire.** **BPCE** est un groupe bancaire ; la **BCE** est la Banque centrale européenne, qui supervise d'ailleurs BPCE comme les autres grandes banques de la zone euro.\n\n**À préparer** : l'actualité récente du groupe et de Natixis, dont l'organisation évolue régulièrement.",
+      "piege": "Confondre BPCE et BCE ; croire que Natixis est encore cotée.",
+      "a_dire_en_entretien": "« BPCE est le groupe mutualiste issu du rapprochement des Banques Populaires et des Caisses d'Epargne en 2009. Natixis, entièrement détenue depuis 2021, porte la BFI et la gestion d'actifs du groupe, avec un savoir-faire reconnu sur les dérivés et les produits structurés. Et BPCE n'a rien à voir avec la BCE, qui la supervise. »",
+      "liens": [
+        "m6.acteurs.paysage",
+        "m1.bc.bce-bpce"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c01",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "Les quatre grands groupes bancaires français ?",
+      "verso": "BNP Paribas, Société Générale, Crédit Agricole, BPCE.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c02",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "Groupes mutualistes ?",
+      "verso": "Crédit Agricole, BPCE, Crédit Mutuel.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c03",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "recto": "G-SIB ?",
+      "verso": "Banque d'importance systémique mondiale, soumise à des exigences de capital renforcées.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c04",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "BNP Paribas : naissance ?",
+      "verso": "Fusion de la BNP et de Paribas en 2000.",
+      "fiche": "m6.acteurs.bnp",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c05",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "recto": "Marque de la banque de détail de la Société Générale en France ?",
+      "verso": "SG (fusion avec le Crédit du Nord en 2023), et BoursoBank en ligne.",
+      "fiche": "m6.acteurs.sg",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c06",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "LCL ?",
+      "verso": "Ancien Crédit Lyonnais, filiale de Crédit Agricole SA depuis 2003, renommé LCL en 2005.",
+      "fiche": "m6.acteurs.ca",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c07",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "CACIB ?",
+      "verso": "Crédit Agricole Corporate and Investment Bank : la BFI du groupe Crédit Agricole.",
+      "fiche": "m6.acteurs.ca",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c08",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "recto": "BPCE ?",
+      "verso": "Groupe mutualiste né en 2009 du rapprochement Banque Populaire – Caisse d'Epargne.",
+      "fiche": "m6.acteurs.bpce",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.c09",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "recto": "Natixis ?",
+      "verso": "BFI et gestion d'actifs du groupe BPCE, retirée de la cote en 2021.",
+      "fiche": "m6.acteurs.bpce",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.q01",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "question": "Peux-tu présenter les grands groupes bancaires français ?",
+      "reponse_modele": "Il y a quatre grands groupes universels, tous classés systémiques au niveau mondial. Deux sont des sociétés cotées : BNP Paribas, très diversifiée, avec une BFI de premier plan en Europe et des banques de détail en France, en Belgique, en Italie et au Luxembourg ; et la Société Générale, avec son réseau SG, BoursoBank et une BFI réputée sur les dérivés actions. Deux sont mutualistes : le Crédit Agricole, avec ses caisses régionales et Crédit Agricole SA, qui porte LCL, CACIB et Amundi ; et BPCE, avec les Banques Populaires, les Caisses d'Epargne et Natixis. On peut ajouter le Crédit Mutuel avec le CIC, et La Banque Postale.",
+      "points_cles": [
+        "Quatre groupes systémiques",
+        "Cotés : BNP Paribas, Société Générale",
+        "Mutualistes : Crédit Agricole, BPCE",
+        "Filiales clés",
+        "Crédit Mutuel, La Banque Postale"
+      ],
+      "piege": "Oublier le modèle mutualiste ou confondre BPCE et BCE.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.q02",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "question": "Situe LCL et CACIB dans le groupe Crédit Agricole. Comment travaillent-ils ensemble ?",
+      "reponse_modele": "Le groupe Crédit Agricole est mutualiste : caisses locales, caisses régionales, et Crédit Agricole SA, cotée, qui porte les filiales. LCL, l'ancien Crédit Lyonnais racheté en 2003, est la banque de détail urbaine du groupe, pour les particuliers, les professionnels, les entreprises et la banque privée. CACIB est la banque de financement et d'investissement, qui sert les grandes entreprises et les institutionnels. Les deux travaillent ensemble : quand un client de LCL a besoin d'une couverture de taux ou de change, LCL lui propose la solution et se couvre auprès de CACIB, qui gère le risque sur les marchés.",
+      "points_cles": [
+        "Organisation mutualiste",
+        "LCL : détail urbain, filiale de Crédit Agricole SA",
+        "CACIB : BFI",
+        "Le réseau propose, la BFI couvre"
+      ],
+      "piege": "Présenter LCL comme indépendante du Crédit Agricole.",
+      "fiche": "m6.acteurs.ca",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.q03",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "question": "Qu'est-ce qu'une banque mutualiste ? Qu'est-ce que ça change ?",
+      "reponse_modele": "Une banque détenue à la base par ses clients sociétaires, via des caisses locales et régionales, selon le principe une personne, une voix. Les résultats sont largement mis en réserve, ce qui renforce les fonds propres, et la gouvernance est décentralisée, avec un fort ancrage régional. Les groupes mutualistes ont souvent des filiales ou une tête de groupe cotées pour accéder aux marchés, comme Crédit Agricole SA. En pratique, ils proposent les mêmes métiers que les banques cotées, mais avec un horizon de long terme et moins de pression des actionnaires sur les dividendes.",
+      "points_cles": [
+        "Détenue par les sociétaires",
+        "Une personne, une voix",
+        "Résultats mis en réserve",
+        "Ancrage régional",
+        "Têtes de groupe ou filiales cotées"
+      ],
+      "piege": "Dire que mutualiste veut dire petit ou non lucratif.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "enonce": "LCL fait partie du groupe…",
+      "choix": [
+        "BNP Paribas",
+        "Société Générale",
+        "Crédit Agricole",
+        "BPCE"
+      ],
+      "bonne": 2,
+      "explication": "LCL, l'ancien Crédit Lyonnais, est une filiale de Crédit Agricole SA depuis 2003.",
+      "fiche": "m6.acteurs.ca",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "enonce": "Natixis appartient au groupe…",
+      "choix": [
+        "Crédit Agricole",
+        "BPCE",
+        "BNP Paribas",
+        "Crédit Mutuel"
+      ],
+      "bonne": 1,
+      "explication": "Natixis porte la BFI et la gestion d'actifs du groupe BPCE.",
+      "fiche": "m6.acteurs.bpce",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "enonce": "BPCE est la Banque centrale européenne.",
+      "vrai": false,
+      "explication": "BPCE est un groupe bancaire mutualiste ; la BCE est la banque centrale de la zone euro, qui le supervise.",
+      "fiche": "m6.acteurs.bpce",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 2,
+      "enonce": "Quel est le premier gestionnaire d'actifs européen, filiale du groupe Crédit Agricole ?",
+      "choix": [
+        "Natixis Investment Managers",
+        "Amundi",
+        "Cardif",
+        "Ayvens"
+      ],
+      "bonne": 1,
+      "explication": "Amundi est la filiale de gestion d'actifs du groupe Crédit Agricole.",
+      "fiche": "m6.acteurs.ca",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "enonce": "Lesquels de ces groupes sont mutualistes ?",
+      "choix": [
+        "BNP Paribas et Société Générale",
+        "Crédit Agricole et BPCE",
+        "Société Générale et BPCE",
+        "BNP Paribas et Crédit Agricole"
+      ],
+      "bonne": 1,
+      "explication": "Crédit Agricole et BPCE (comme le Crédit Mutuel) sont mutualistes ; BNP Paribas et Société Générale sont cotées.",
+      "fiche": "m6.acteurs.paysage",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-banque-universelle",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "Banque universelle",
+      "definition": "Groupe qui réunit banque de détail, banque privée, BFI, gestion d'actifs et assurance.",
+      "fiche": "m6.acteurs.paysage",
+      "anglais": "universal bank",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-banque-mutualiste",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "Banque mutualiste",
+      "definition": "Banque détenue par ses clients sociétaires, selon le principe une personne, une voix.",
+      "fiche": "m6.acteurs.paysage",
+      "anglais": "cooperative bank",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-societaire",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "Sociétaire",
+      "definition": "Client qui détient des parts sociales d'une banque mutualiste.",
+      "fiche": "m6.acteurs.paysage",
+      "anglais": "member",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-g-sib",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "G-SIB",
+      "definition": "Banque d'importance systémique mondiale, listée chaque année par le FSB.",
+      "fiche": "m6.acteurs.paysage",
+      "anglais": "global systemically important bank",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-cacib",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "CACIB",
+      "definition": "Banque de financement et d'investissement du groupe Crédit Agricole.",
+      "fiche": "m6.acteurs.ca",
+      "anglais": "Crédit Agricole CIB",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-lcl",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "LCL",
+      "definition": "Banque de détail du groupe Crédit Agricole, ancien Crédit Lyonnais.",
+      "fiche": "m6.acteurs.ca",
+      "anglais": "LCL",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.acteurs.l-natixis",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.acteurs",
+      "difficulte": 1,
+      "terme": "Natixis",
+      "definition": "BFI et gestion d'actifs du groupe BPCE.",
+      "fiche": "m6.acteurs.bpce",
+      "anglais": "Natixis",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

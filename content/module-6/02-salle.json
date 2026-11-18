@@ -1,0 +1,701 @@
+{
+  "chapitre": {
+    "id": "m6.salle",
+    "module": 6,
+    "ordre": 2,
+    "titre": "La salle des marchés et ses métiers",
+    "resume": "Front, middle et back office, puis les métiers un par un : sales, trader, structureur, quant, risk manager. Qui fait quoi, et comment ils travaillent ensemble autour d'une opération client."
+  },
+  "elements": [
+    {
+      "id": "m6.salle.front-middle-back",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "tags": [
+        "organisation",
+        "front office",
+        "middle office",
+        "back office"
+      ],
+      "titre": "Front, middle et back office",
+      "une_phrase": "Le **front office** traite avec les clients et le marché, le **middle office** contrôle et mesure les risques et les résultats, le **back office** règle, confirme et comptabilise les opérations.",
+      "trente_secondes": "Une opération passe par trois étages :\n\n- **Front office** : il **génère** l'opération. Sales, traders, structureurs. Il cote, négocie et exécute.\n- **Middle office** : il **contrôle**. Saisie et validation des opérations dans les systèmes, calcul quotidien du résultat (P&L), suivi des risques et des limites, valorisation indépendante.\n- **Back office** : il **dénoue**. Confirmations avec les contreparties, règlement-livraison, appels de marge, paiements des flux, comptabilité.\n\nAutour : le **risk management** (indépendant du front), la **conformité**, le **juridique**, l'**informatique**.\n\nLe principe essentiel est la **séparation des fonctions** : celui qui prend le risque n'est pas celui qui le mesure ni celui qui le règle.",
+      "analogie": "Un restaurant : la salle prend les commandes et sert (front), le chef de cuisine vérifie chaque assiette et tient les comptes du service (middle), la plonge et la comptabilité s'assurent que tout est payé et rangé (back). Celui qui encaisse n'est pas celui qui fait les additions.",
+      "visuel": {
+        "type": "chaine",
+        "etapes": [
+          {
+            "titre": "Front office",
+            "texte": "Le sales recueille le besoin, le trader cote et exécute."
+          },
+          {
+            "titre": "Middle office",
+            "texte": "Saisie et contrôle de l'opération, P&L, risques, limites."
+          },
+          {
+            "titre": "Back office",
+            "texte": "Confirmation, règlement, paiements, comptabilité."
+          },
+          {
+            "titre": "Fonctions de contrôle",
+            "texte": "Risk management, conformité, juridique : indépendants du front."
+          }
+        ],
+        "legende": "Le parcours d'une opération dans la banque."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une PME signe un swap de 10 M€ par téléphone avec un sales à 10 h 05.",
+        "10 h 10 : le trader a couvert l'opération sur le marché ; le middle office vérifie que les caractéristiques saisies correspondent à l'enregistrement.",
+        "Le soir : le middle office calcule le P&L du jour, dont la marge commerciale de l'opération, et vérifie les limites de DV01 du desk.",
+        "Le lendemain : le back office envoie la confirmation au client, qui la signe ; les premiers flux seront payés dans 3 mois."
+      ],
+      "deux_minutes": "**Pourquoi la séparation des fonctions.** Les grandes pertes de trading de l'histoire ont souvent associé un trader et un contrôle insuffisant de ses positions (l'affaire Kerviel à la Société Générale en 2008 en est l'exemple français). La séparation front/middle/back et l'indépendance du risk management sont des réponses directes.\n\n**Le middle office, carrefour.** Il connaît les produits (comme le front), les systèmes et les contrôles (comme le back). C'est souvent une très bonne porte d'entrée pour comprendre une salle des marchés.\n\n**Les opérations sur produits structurés.** Paramétrage des produits dans les systèmes, suivi des fixings, calcul des coupons et des rappels : c'est un travail de middle et de back office, où la rigueur est essentielle.\n\n**L'automatisation.** Beaucoup de tâches répétitives (rapprochements, contrôles) sont automatisées ; les profils qui savent coder sont recherchés à tous les étages.",
+      "piege": "Considérer le middle et le back office comme secondaires : ce sont eux qui garantissent qu'une opération est juste, payée et contrôlée. Et oublier que le risk management est indépendant du front.",
+      "a_dire_en_entretien": "« Le front office génère les opérations : sales, traders, structureurs. Le middle office les contrôle : saisie, P&L, risques, limites. Le back office les dénoue : confirmations, paiements, comptabilité. La règle d'or, c'est la séparation des fonctions : celui qui prend le risque n'est ni celui qui le mesure ni celui qui le règle. »",
+      "liens": [
+        "m6.salle.sales",
+        "m6.salle.trader",
+        "m6.salle.risk-manager"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.sales",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "tags": [
+        "sales",
+        "vente",
+        "front office"
+      ],
+      "titre": "Le sales",
+      "une_phrase": "Le **sales** est l'interlocuteur du client à la salle des marchés : il comprend son besoin, lui propose une solution, lui transmet le prix du trader et accompagne la relation dans la durée.",
+      "trente_secondes": "Son rôle :\n\n- **Comprendre le besoin** : un risque à couvrir, un placement à faire, une vue de marché.\n- **Proposer** : la bonne solution parmi plusieurs, avec ses avantages, ses limites et son scénario défavorable.\n- **Coter** : demander le prix au trader, ajouter la marge commerciale, le présenter au client.\n- **Exécuter et suivre** : faire signer, vérifier la confirmation, suivre la valeur des positions, rappeler le client quand le marché bouge.\n\nIl suit des clients selon leur type (entreprises, institutionnels, banque privée) ou leur produit (taux, change, actions). Sa valeur vient de sa connaissance des marchés **et** de ses clients.",
+      "analogie": "Un médecin généraliste du marché : il écoute, pose un diagnostic, prescrit le bon traitement en expliquant les effets secondaires, et fait appel au spécialiste (le trader, le structureur) pour le dosage exact.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une ETI veut couvrir un crédit de 20 M€. Le sales pose ses questions, propose swap, cap et tunnel avec leurs scénarios.",
+        "Le client choisit le swap. Le trader cote un mid à 2,95 % ; le sales propose 3,00 % au client.",
+        "Marge commerciale : 5 pb sur 20 M€ et 5 ans, environ 20 M€ × 0,05 % × 4,58 ≈ **45 800 €**, en valeur actuelle.",
+        "Le sales vérifie avant de traiter la ligne de risque du client et la convention-cadre."
+      ],
+      "deux_minutes": "**Les qualités attendues.** Clarté (expliquer un produit complexe en mots simples), réactivité (un prix vit quelques minutes), rigueur (un chiffre faux dans une confirmation coûte cher), sens du conseil et **éthique** : un dérivé client doit couvrir un vrai besoin, et le client doit comprendre le pire scénario.\n\n**La méthode face à un client** : poser des questions → proposer deux ou trois solutions → expliquer le scénario défavorable → vérifier la faisabilité (ligne de risque, documentation, adéquation).\n\n**La journée type.** Point marché le matin, appels clients, cotations, préparation de propositions, suivi des opérations et des événements de marché (décision de banque centrale, chiffre d'inflation).\n\n**Le cadre réglementaire.** MiFID II encadre le conseil : catégorisation du client, adéquation, transparence des coûts, enregistrement des conversations.",
+      "piege": "Croire que le sales doit « vendre » à tout prix : son rôle est de conseiller une solution adaptée, et de refuser une opération qui ne correspond pas au besoin réel du client.",
+      "a_dire_en_entretien": "« Le sales est l'interlocuteur du client. Il comprend son besoin, propose deux ou trois solutions en expliquant le scénario défavorable, obtient le prix du trader et vérifie la faisabilité avant de traiter. Sa valeur, c'est la connaissance des marchés et des clients, et la confiance : un dérivé client doit couvrir un vrai besoin. »",
+      "liens": [
+        "m6.salle.front-middle-back",
+        "m6.salle.trader",
+        "m6.salle.structureur",
+        "m3.options-taux.cap-floor"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.trader",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "tags": [
+        "trader",
+        "market making",
+        "risque"
+      ],
+      "titre": "Le trader",
+      "une_phrase": "Le **trader** cote les prix, exécute les opérations et **gère le risque** de son portefeuille (son *book*) : dans une banque, c'est surtout un **teneur de marché** qui se couvre, pas un parieur.",
+      "trente_secondes": "Dans une salle des marchés de banque, le trader est organisé par produit (swaps euro, options de change, dérivés actions…).\n\nSon travail :\n\n- **Coter** : donner un prix d'achat et de vente aux sales et aux autres banques (*market making*).\n- **Exécuter** et **couvrir** : quand le client traite, le trader se couvre sur le marché pour neutraliser le risque principal.\n- **Gérer les risques résiduels** de son book : delta, gamma, vega, DV01 par maturité, dans le respect de ses **limites**.\n- **Analyser son P&L** chaque jour : d'où viennent les gains et les pertes.\n\nDepuis la crise de 2008 et les réglementations qui ont suivi (règle Volcker aux États-Unis, loi bancaire française de 2013), la prise de position pour compte propre est fortement encadrée dans les banques.",
+      "analogie": "Un bureau de change à l'aéroport : il achète et vend des devises toute la journée en gagnant l'écart entre prix d'achat et de vente, et s'assure de ne pas garder trop de dollars si le dollar risque de chuter.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un trader d'options vend à un client 1 000 calls sur un indice, de delta 0,55.",
+        "Il achète immédiatement l'équivalent de 550 indices pour être neutre en delta.",
+        "Il reste short gamma et short vega : il surveille ces risques et peut racheter des options sur le marché pour les réduire.",
+        "Son P&L du jour se décompose : marge client + effet du thêta + effet du gamma + effet du vega + frais de couverture."
+      ],
+      "deux_minutes": "**L'explication du P&L.** Chaque jour, le middle office et le trader décomposent le résultat par facteur de risque : c'est l'*explain*. Un P&L inexpliqué est un signal d'alerte (erreur de saisie, modèle faux, position non couverte).\n\n**Les limites.** Chaque desk a des limites de risque (DV01, delta, vega, VaR) et de perte, suivies par le risk management. Les dépasser sans autorisation est une faute grave.\n\n**Flux et exotiques.** Les traders de produits *flow* (simples, beaucoup de volume : change comptant, swaps standards) se distinguent des traders d'**exotiques** (produits structurés, options complexes), qui gèrent des risques plus fins comme la corrélation ou la volatilité de la volatilité.\n\n**Le trading électronique.** Une grande partie des prix sur les produits liquides est produite automatiquement par des algorithmes ; les traders supervisent, ajustent et gèrent le risque.",
+      "piege": "Décrire le trader de banque comme quelqu'un qui « parie sur les marchés » : son métier est surtout de servir les clients et de gérer le risque qui en résulte, dans des limites strictes.",
+      "a_dire_en_entretien": "« En banque, le trader cote les prix, exécute les opérations des clients et gère le risque de son book : il se couvre en delta, suit son gamma, son vega, son DV01, dans des limites fixées par le risk management. Il explique son P&L chaque jour. C'est d'abord un teneur de marché qui gère des risques, pas un parieur. »",
+      "liens": [
+        "m6.salle.sales",
+        "m2.couverture.delta-hedging",
+        "m6.risques.marche"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.structureur",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "tags": [
+        "structureur",
+        "produits structurés"
+      ],
+      "titre": "Le structureur",
+      "une_phrase": "Le **structureur** conçoit les produits sur mesure : il assemble des briques (obligations, options) pour répondre au besoin d'un client, et calcule les conditions qu'on peut lui offrir.",
+      "trente_secondes": "Il travaille entre le sales (qui connaît le client) et le trader (qui couvrira le produit).\n\n- Il traduit un besoin (« 5 % par an, capital protégé jusqu'à −40 % ») en **produit** : autocall, Phoenix, capital garanti, reverse convertible…\n- Il **price** le produit avec les modèles de la banque et propose les conditions (coupon, barrière, participation).\n- Il prépare la **term sheet** et vérifie avec le juridique la documentation.\n- Il propose des **idées** aux sales selon les conditions de marché (volatilité élevée → autocalls attractifs ; taux hauts → capitaux garantis).\n\nIl existe des structureurs en actions, en taux, en crédit, en change, et des structureurs « solutions » pour les entreprises.",
+      "analogie": "Un architecte : le client dit ce qu'il veut (trois chambres, de la lumière, un budget), l'architecte dessine les plans avec les matériaux disponibles, et vérifie avec le maçon (le trader) que c'est constructible et à quel prix.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque privée demande un produit pour des clients qui veulent un revenu régulier.",
+        "Le structureur propose un Phoenix à mémoire 6 ans sur l'Euro Stoxx 50 : barrière de coupon 70 %, barrière de capital 60 %.",
+        "Avec la volatilité du moment, son modèle permet un coupon de 6,5 % par an après marges.",
+        "Le sales trouve la barrière trop haute pour ses clients ; le structureur recalcule avec 55 % : le coupon tombe à 5,9 %."
+      ],
+      "deux_minutes": "**Les compétences.** Une bonne maîtrise des options et des grecques (module 2), des taux (module 3) et des produits (module 5), le goût de la modélisation, et le sens commercial pour proposer des idées qui répondent à un vrai besoin.\n\n**La gouvernance produit.** Le structureur participe à la définition du **marché cible** : à quels clients le produit est destiné, et à qui il ne l'est pas. C'est une exigence de MiFID II.\n\n**Le lien avec le risque.** Chaque produit laisse au desk des risques à gérer (corrélation, dividendes, volatilité). Le structureur doit concevoir des produits que le trader peut couvrir sans risque disproportionné.",
+      "piege": "Croire que le structureur choisit librement le coupon : celui-ci découle des paramètres de marché et des marges ; le structureur ajuste les caractéristiques pour atteindre le besoin.",
+      "a_dire_en_entretien": "« Le structureur conçoit des produits sur mesure en assemblant obligations et options. Il traduit le besoin du client en produit, le price, propose les conditions et prépare la term sheet. Il travaille entre le sales, qui connaît le client, et le trader, qui couvrira le produit. »",
+      "liens": [
+        "m6.salle.sales",
+        "m6.salle.quant",
+        "m5.bases.briques"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.quant",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "tags": [
+        "quant",
+        "modèles"
+      ],
+      "titre": "Le quant",
+      "une_phrase": "Le **quant** (analyste quantitatif) développe et maintient les **modèles mathématiques** et les outils de calcul qui servent à pricer les produits et à mesurer leurs risques.",
+      "trente_secondes": "Il est souvent ingénieur ou docteur en mathématiques appliquées, en physique ou en informatique.\n\nIl travaille sur :\n\n- les **modèles de pricing** : Black-Scholes et ses extensions, modèles de volatilité locale ou stochastique, modèles de taux ;\n- les **méthodes numériques** : arbres, Monte Carlo, équations aux dérivées partielles ;\n- le **calcul des sensibilités** (les grecques), rapide et précis, pour des milliers de produits ;\n- la **calibration** des modèles aux prix du marché.\n\nOn distingue souvent les quants **front office** (proches des traders, ils construisent les outils de pricing), les quants **risque** (mesure des risques, VaR, stress tests) et les équipes de **validation des modèles**, indépendantes, qui vérifient que les modèles sont corrects.",
+      "analogie": "L'ingénieur qui conçoit les instruments de bord d'un avion : le pilote (le trader) s'y fie pour voler, et un autre ingénieur, indépendant, vérifie que les instruments indiquent juste.",
+      "exemple_chiffre": [
+        "Exemple fictif. Les traders d'autocalls constatent que leur modèle sous-estime le prix des puts à barrière en marché agité.",
+        "Le quant propose un modèle de volatilité qui reproduit mieux le smile du marché, le calibre chaque matin sur les prix des options cotées.",
+        "Il compare les prix et les grecques des deux modèles sur l'ensemble du portefeuille.",
+        "L'équipe de validation teste le nouveau modèle avant son utilisation en production."
+      ],
+      "deux_minutes": "**Le risque de modèle.** Un modèle faux ou mal utilisé peut faire perdre beaucoup d'argent sans que personne ne s'en aperçoive. C'est pourquoi les banques ont des équipes de validation indépendantes et des réserves pour risque de modèle.\n\n**Le calcul des grecques.** Pour gérer le risque, il faut recalculer chaque jour des milliers de sensibilités. Les méthodes vont de la formule fermée au *bump and reprice* (recalculer le prix en décalant un paramètre) et à la **différentiation automatique**, qui calcule toutes les dérivées en même temps que le prix.\n\n**Les outils.** C++ pour les bibliothèques de calcul rapides, Python pour l'analyse et le prototypage.",
+      "piege": "Croire qu'un modèle donne « le vrai prix » : il donne un prix cohérent avec des hypothèses et calibré sur le marché. Les hypothèses comptent autant que les mathématiques.",
+      "a_dire_en_entretien": "« Le quant développe les modèles et les outils qui servent à pricer les produits et à calculer leurs risques : modèles de volatilité, Monte Carlo, calcul des grecques, calibration. On distingue les quants du front, ceux du risque et la validation indépendante des modèles, parce qu'un modèle faux est un risque en soi. »",
+      "liens": [
+        "m6.salle.structureur",
+        "m2.modeles.monte-carlo",
+        "m6.salle.risk-manager"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.risk-manager",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "tags": [
+        "risk management",
+        "limites",
+        "VaR"
+      ],
+      "titre": "Le risk manager",
+      "une_phrase": "Le **risk manager** mesure, encadre et surveille les risques pris par la banque, **indépendamment** du front office : il fixe et contrôle les limites et alerte quand elles sont dépassées.",
+      "trente_secondes": "Il existe des risk managers pour chaque grand risque :\n\n- **Risque de marché** : sensibilités des desks (DV01, delta, vega), VaR, scénarios de stress, limites.\n- **Risque de crédit et de contrepartie** : notation des clients, lignes de risque, exposition aux dérivés.\n- **Risque de liquidité** : capacité à faire face aux sorties de trésorerie.\n- **Risque opérationnel** : erreurs, fraudes, pannes, procédures.\n\nSon pouvoir vient de son **indépendance** : il rapporte à une direction des risques séparée des métiers, et peut s'opposer à une opération.",
+      "analogie": "L'arbitre d'un match : il ne joue pas, il connaît parfaitement les règles, il surveille chaque action et siffle quand une limite est franchie, même si c'est l'équipe qui gagne.",
+      "exemple_chiffre": [
+        "Exemple fictif. Le desk de swaps euro a une limite de DV01 de 500 000 € sur la maturité 10 ans.",
+        "Après une grosse opération client, le DV01 10 ans atteint 620 000 €.",
+        "Le risk manager le détecte dans le rapport du soir et alerte le responsable du desk.",
+        "Le trader doit se couvrir le lendemain matin ou obtenir une autorisation temporaire, documentée."
+      ],
+      "deux_minutes": "**Les outils.** VaR (perte maximale probable sur un horizon à un niveau de confiance), stress tests (scénarios extrêmes historiques ou hypothétiques), sensibilités, limites par desk et par client.\n\n**Le lien avec le capital.** Les risques mesurés déterminent les **actifs pondérés** et donc les fonds propres exigés par Bâle III : le risk management est au cœur de la solidité de la banque.\n\n**L'appétit pour le risque.** La direction générale fixe un cadre global (combien de risque la banque accepte de prendre) ; le risk management le décline en limites opérationnelles.\n\n**Les qualités** : rigueur, compréhension fine des produits, capacité à dire non et à expliquer pourquoi.",
+      "piege": "Voir le risk manager comme un frein au business : son rôle est de permettre de prendre des risques maîtrisés, compatibles avec le capital de la banque.",
+      "a_dire_en_entretien": "« Le risk manager mesure et encadre les risques indépendamment du front : risques de marché, de crédit et de contrepartie, de liquidité, opérationnels. Il fixe et suit les limites, utilise la VaR et les stress tests, et peut s'opposer à une opération. Son indépendance est ce qui donne sa valeur au contrôle. »",
+      "liens": [
+        "m6.salle.front-middle-back",
+        "m6.risques.marche",
+        "m6.reglementation.bale3"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c01",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Front office ?",
+      "verso": "Génère les opérations : sales, traders, structureurs.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c02",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Middle office ?",
+      "verso": "Contrôle : saisie, P&L, risques, limites.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c03",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Back office ?",
+      "verso": "Dénoue : confirmations, règlements, paiements, comptabilité.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c04",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "recto": "Séparation des fonctions ?",
+      "verso": "Celui qui prend le risque ne le mesure pas et ne le règle pas.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c05",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Rôle du sales ?",
+      "verso": "Comprendre le besoin, proposer, coter, exécuter, suivre le client.",
+      "fiche": "m6.salle.sales",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c06",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Rôle du trader en banque ?",
+      "verso": "Coter, exécuter, couvrir et gérer le risque de son book dans ses limites.",
+      "fiche": "m6.salle.trader",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c07",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Rôle du structureur ?",
+      "verso": "Concevoir et pricer des produits sur mesure à partir de briques.",
+      "fiche": "m6.salle.structureur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c08",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Rôle du quant ?",
+      "verso": "Développer les modèles de pricing et de risque, et le calcul des grecques.",
+      "fiche": "m6.salle.quant",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.c09",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "recto": "Rôle du risk manager ?",
+      "verso": "Mesurer et encadrer les risques, indépendamment du front.",
+      "fiche": "m6.salle.risk-manager",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.q01",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "question": "Quelle est la différence entre front, middle et back office ?",
+      "reponse_modele": "Le front office génère les opérations : les sales traitent avec les clients, les traders cotent et gèrent le risque, les structureurs conçoivent les produits. Le middle office contrôle : il valide la saisie des opérations, calcule le P&L quotidien, suit les risques et les limites. Le back office dénoue les opérations : confirmations, règlements, paiements, comptabilité. Le risk management et la conformité sont indépendants du front. Le principe est la séparation des fonctions : celui qui prend le risque ne le mesure pas et ne le règle pas.",
+      "points_cles": [
+        "Front : génère",
+        "Middle : contrôle, P&L, risques",
+        "Back : confirme, paie, comptabilise",
+        "Séparation des fonctions"
+      ],
+      "piege": "Présenter le middle et le back comme des fonctions secondaires.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.q02",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "question": "Comment le sales, le structureur et le trader travaillent-ils ensemble sur un produit structuré ?",
+      "reponse_modele": "Le sales recueille le besoin du client : rendement visé, protection, horizon, vue de marché. Le structureur traduit ce besoin en produit, par exemple un Phoenix, le price et propose des conditions. Le trader vérifie qu'il peut couvrir le produit et donne le prix ferme au moment de l'opération. Le sales présente la proposition au client avec les scénarios, vérifie l'adéquation, puis l'opération est exécutée et transmise au middle et au back office, qui la paramètrent et la suivent jusqu'à l'échéance.",
+      "points_cles": [
+        "Sales : besoin et relation",
+        "Structureur : conception et pricing",
+        "Trader : couverture et prix ferme",
+        "Middle et back : suivi"
+      ],
+      "piege": "Oublier le rôle du trader dans la couverture.",
+      "fiche": "m6.salle.structureur",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.q03",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "question": "Pourquoi le risk management doit-il être indépendant du front office ?",
+      "reponse_modele": "Parce que le front office est rémunéré sur ses résultats et peut être tenté de sous-estimer ses risques. Un contrôle exercé par ceux qui prennent les risques n'est pas fiable. Les grandes pertes de trading de l'histoire, comme l'affaire Kerviel à la Société Générale en 2008, ont montré ce que coûte un contrôle insuffisant. L'indépendance permet au risk manager de mesurer les positions avec ses propres outils, de faire respecter les limites et de s'opposer à une opération.",
+      "points_cles": [
+        "Conflit d'intérêts",
+        "Contrôle fiable",
+        "Exemple historique",
+        "Limites et droit d'opposition"
+      ],
+      "piege": "Dire que c'est seulement une exigence réglementaire.",
+      "fiche": "m6.salle.risk-manager",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.q04",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "question": "Qu'est-ce qu'un bon sales selon toi ?",
+      "reponse_modele": "Quelqu'un qui comprend vraiment le besoin de son client avant de proposer quoi que ce soit, qui sait expliquer un produit complexe en mots simples, y compris le scénario défavorable, et qui est réactif et rigoureux : un prix vit quelques minutes et une erreur dans une confirmation coûte cher. C'est aussi quelqu'un qui connaît les marchés et peut appeler son client au bon moment, par exemple après une décision de la BCE. Et qui sait refuser une opération qui ne correspond pas au besoin réel du client.",
+      "points_cles": [
+        "Écoute du besoin",
+        "Clarté, scénario défavorable",
+        "Réactivité et rigueur",
+        "Connaissance des marchés",
+        "Éthique"
+      ],
+      "piege": "Ne parler que de la capacité à vendre.",
+      "fiche": "m6.salle.sales",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "enonce": "Qui envoie la confirmation d'une opération au client et gère les paiements ?",
+      "choix": [
+        "Le sales",
+        "Le trader",
+        "Le back office",
+        "Le quant"
+      ],
+      "bonne": 2,
+      "explication": "Le back office confirme, règle et comptabilise les opérations.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.z02",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "enonce": "Qui calcule chaque jour le P&L d'un desk et vérifie le respect des limites ?",
+      "choix": [
+        "Le middle office et le risk management",
+        "Le sales",
+        "Le client",
+        "Le juridique"
+      ],
+      "bonne": 0,
+      "explication": "Le middle office calcule le P&L ; le risk management, indépendant, suit les limites.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.z03",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "enonce": "Dans une banque, le trader d'options cherche avant tout à parier sur la direction du marché.",
+      "vrai": false,
+      "explication": "Il sert les clients, se couvre en delta et gère des risques résiduels dans des limites.",
+      "fiche": "m6.salle.trader",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "enonce": "Qui vérifie qu'un nouveau modèle de pricing est correct avant son utilisation ?",
+      "choix": [
+        "Le sales",
+        "L'équipe de validation des modèles",
+        "Le client",
+        "Le back office"
+      ],
+      "bonne": 1,
+      "explication": "Une équipe de validation indépendante teste les modèles : le risque de modèle est un risque à part entière.",
+      "fiche": "m6.salle.quant",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.z05",
+      "type": "quiz",
+      "forme": "ordre",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "enonce": "Remets dans l'ordre la vie d'une opération de swap avec un client.",
+      "etapes": [
+        "Le sales recueille le besoin et propose des solutions",
+        "Le trader cote et le client traite",
+        "Le trader couvre l'opération sur le marché",
+        "Le middle office contrôle la saisie et calcule le P&L",
+        "Le back office envoie la confirmation et gère les paiements"
+      ],
+      "explication": "Du front au back, avec un contrôle à chaque étage.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.k01",
+      "type": "cas_pratique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 2,
+      "titre": "Une erreur dans une confirmation déjà envoyée",
+      "situation": "Exemple fictif. Tu travailles au middle office. En rapprochant les opérations de la veille, tu constates que la confirmation envoyée à un client pour un swap de 15 M€ indique un taux fixe de 3,05 % alors que l'enregistrement de la conversation et le système de trading indiquent 3,00 %. Le client n'a pas encore signé.",
+      "questions_a_poser": [
+        "Quelle est la bonne valeur, d'après l'enregistrement et le ticket de trading ?",
+        "La confirmation a-t-elle été signée ou un flux a-t-il déjà été payé ?",
+        "D'autres opérations ont-elles pu être touchées par la même erreur ?",
+        "D'où vient l'erreur : saisie manuelle, modèle de document, interface entre systèmes ?"
+      ],
+      "proposition": "Alerter immédiatement le sales et son responsable, ainsi que le back office : ne jamais corriger en silence. Émettre une confirmation rectificative avec le bon taux, après vérification de l'enregistrement, et prévenir le client de l'erreur. Vérifier l'impact (aucun flux payé ici). Puis analyser la cause et proposer un contrôle (rapprochement automatique entre le système de trading et l'outil de confirmation) pour que cela ne se reproduise pas.",
+      "scenario_defavorable": "Si l'erreur n'est pas signalée, le client peut signer une confirmation fausse : 5 pb sur 15 M€ et plusieurs années représentent des dizaines de milliers d'euros, et un litige qui abîme la relation. Une erreur cachée découverte plus tard est toujours plus grave qu'une erreur signalée tout de suite.",
+      "faisabilite": "Procédure de rectification prévue par le back office ; traçabilité de l'incident (déclaration d'incident opérationnel) ; validation du nouveau contrôle par le responsable du middle office.",
+      "fiche": "m6.salle.front-middle-back",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.k02",
+      "type": "cas_pratique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "titre": "Une cotation urgente pendant une proposition",
+      "situation": "Exemple fictif. Tu prépares une proposition de couverture pour un client, attendue en fin de journée. Un sales te demande en urgence une cotation de swap pour un autre client, au téléphone, qui veut traiter dans les dix minutes.",
+      "questions_a_poser": [
+        "Quelles sont les caractéristiques exactes de l'opération (nominal, maturité, index, sens) ?",
+        "La ligne de risque du client est-elle suffisante ?",
+        "La convention-cadre est-elle signée ?"
+      ],
+      "proposition": "La cotation passe en premier : un prix de marché vit quelques minutes et le client attend. Je vérifie les paramètres et la ligne de risque avant d'envoyer le prix, puis je reprends ma proposition, en prévenant si besoin du nouveau délai.",
+      "scenario_defavorable": "Envoyer un prix sans vérifier la ligne ou les paramètres peut conduire à traiter une opération impossible à accepter ou à un mauvais prix. Négliger la proposition sans prévenir peut décevoir l'autre client : la communication sur les délais compte.",
+      "faisabilite": "Outils de pricing disponibles, ligne de risque à jour, validation du trader sur le prix ferme.",
+      "fiche": "m6.salle.sales",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-front-office",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Front office",
+      "definition": "Fonctions en contact avec les clients et le marché : sales, traders, structureurs.",
+      "fiche": "m6.salle.front-middle-back",
+      "anglais": "front office",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-middle-office",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Middle office",
+      "definition": "Fonctions de contrôle des opérations, du P&L et des risques.",
+      "fiche": "m6.salle.front-middle-back",
+      "anglais": "middle office",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-back-office",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Back office",
+      "definition": "Fonctions de confirmation, règlement, paiement et comptabilité.",
+      "fiche": "m6.salle.front-middle-back",
+      "anglais": "back office",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-p-l",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "P&L",
+      "definition": "Résultat d'un desk ou d'une position, calculé chaque jour.",
+      "fiche": "m6.salle.front-middle-back",
+      "anglais": "profit and loss",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-sales",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Sales",
+      "definition": "Interlocuteur du client à la salle des marchés.",
+      "fiche": "m6.salle.sales",
+      "anglais": "salesperson",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-trader",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Trader",
+      "definition": "Responsable de la cotation, de l'exécution et du risque d'un portefeuille.",
+      "fiche": "m6.salle.trader",
+      "anglais": "trader",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-book",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Book",
+      "definition": "Portefeuille de positions géré par un trader.",
+      "fiche": "m6.salle.trader",
+      "anglais": "book",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-teneur-de-marche",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Teneur de marché",
+      "definition": "Intermédiaire qui cote en permanence un prix d'achat et de vente.",
+      "fiche": "m6.salle.trader",
+      "anglais": "market maker",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-structureur",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Structureur",
+      "definition": "Concepteur de produits sur mesure assemblant obligations et options.",
+      "fiche": "m6.salle.structureur",
+      "anglais": "structurer",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-quant",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Quant",
+      "definition": "Spécialiste des modèles mathématiques de pricing et de risque.",
+      "fiche": "m6.salle.quant",
+      "anglais": "quantitative analyst",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-risque-de-modele",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Risque de modèle",
+      "definition": "Risque de perte lié à un modèle faux ou mal utilisé.",
+      "fiche": "m6.salle.quant",
+      "anglais": "model risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.salle.l-risk-manager",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.salle",
+      "difficulte": 1,
+      "terme": "Risk manager",
+      "definition": "Responsable de la mesure et de l'encadrement des risques, indépendant du front.",
+      "fiche": "m6.salle.risk-manager",
+      "anglais": "risk manager",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

@@ -1,0 +1,766 @@
+{
+  "chapitre": {
+    "id": "m6.risques",
+    "module": 6,
+    "ordre": 5,
+    "titre": "Les grands risques bancaires",
+    "resume": "Risque de marché, de crédit, de contrepartie, de liquidité et opérationnel : ce que chacun recouvre, comment on le mesure et comment on le limite."
+  },
+  "elements": [
+    {
+      "id": "m6.risques.marche",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "tags": [
+        "risque de marché",
+        "VaR",
+        "stress test"
+      ],
+      "titre": "Le risque de marché et la VaR",
+      "une_phrase": "Le **risque de marché** est le risque de perte dû aux variations des prix de marché (taux, change, actions, matières premières, volatilité) ; on le mesure par les **sensibilités**, la **VaR** et les **stress tests**.",
+      "trente_secondes": "Trois outils, du plus fin au plus global :\n\n- **Les sensibilités** : delta, gamma, vega, DV01… Elles disent de combien la position varie si un paramètre bouge un peu.\n- **La VaR** (*value at risk*, valeur en risque) : la perte qu'on ne dépassera pas, avec une probabilité donnée, sur un horizon donné. Exemple : « VaR à 1 jour à 99 % de 2 M€ » veut dire qu'en temps normal, on ne perd pas plus de 2 M€ en une journée, 99 jours sur 100.\n- **Les stress tests** : la perte dans des scénarios extrêmes (krach de 2008, choc de taux de 2022, scénario imaginé).\n\nLa VaR dit ce qui arrive **les jours normaux** ; les stress tests ce qui arrive **les jours de crise**.",
+      "analogie": "La VaR, c'est la hauteur d'eau qu'une digue doit contenir 99 jours sur 100. Les stress tests, c'est se demander ce qui se passe le jour de la crue centennale.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un portefeuille d'actions de 10 M€, volatilité annuelle 20 %.",
+        "Volatilité sur 1 jour : 20 % / √252 = 1,26 %, soit 126 000 €.",
+        "VaR à 1 jour à 99 % (loi normale, quantile 2,326) : 126 000 × 2,326 ≈ **293 000 €**.",
+        "VaR à 10 jours : 293 000 × √10 ≈ **927 000 €**.",
+        "Un jour sur cent, en moyenne, la perte dépassera 293 000 € : la VaR ne dit pas de combien."
+      ],
+      "formules": [
+        {
+          "titre": "VaR paramétrique",
+          "latex": "VaR_{\\alpha} = V \\times \\sigma \\times \\sqrt{\\frac{h}{252}} \\times z_{\\alpha}",
+          "legende": {
+            "V": "la valeur de la position",
+            "\\sigma": "la volatilité annuelle",
+            "h": "l'horizon en jours de bourse",
+            "z_{\\alpha}": "le quantile de la loi normale (2,326 à 99 %, 1,645 à 95 %)"
+          },
+          "en_francais": "On transforme la volatilité annuelle en volatilité sur l'horizon, puis on prend le nombre d'écarts-types qui correspond au niveau de confiance."
+        }
+      ],
+      "deux_minutes": "**Trois méthodes de VaR.**\n\n- **Paramétrique** : on suppose une loi normale (simple, mais sous-estime les queues épaisses).\n- **Historique** : on rejoue les variations réelles des dernières années sur le portefeuille actuel.\n- **Monte Carlo** : on simule des milliers de scénarios.\n\n**Les limites de la VaR.** Elle ne dit rien de l'ampleur des pertes au-delà du seuil, elle suppose des marchés « normaux » et des positions qu'on peut liquider. C'est pourquoi la réglementation utilise aussi la **VaR stressée** (calculée sur une période de crise) et, avec la réforme dite FRTB, l'**expected shortfall** : la perte **moyenne** dans les pires cas.\n\n**Le backtesting.** On compare chaque jour la VaR à la perte réelle : si la perte dépasse la VaR trop souvent, le modèle est mal calibré.\n\n**Au quotidien,** les desks ont des limites de VaR, de sensibilités et de stress, suivies par le risk management.",
+      "piege": "Dire que la VaR est la perte maximale : c'est une perte qu'on dépasse avec une probabilité donnée (1 jour sur 100 à 99 %), et elle ne dit rien de l'ampleur des pertes au-delà.",
+      "a_dire_en_entretien": "« Le risque de marché, c'est la perte due aux mouvements des prix. On le mesure par les sensibilités, la VaR et les stress tests. Une VaR à un jour à 99 % de 2 M€ veut dire qu'on perd plus de 2 M€ en moyenne un jour sur cent. Elle ne dit pas de combien : c'est pour ça qu'on la complète par des stress tests et l'expected shortfall. »",
+      "liens": [
+        "m6.risques.credit",
+        "m6.salle.risk-manager",
+        "m3.duration.dv01",
+        "m2.grecques.delta"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.credit",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "tags": [
+        "risque de crédit",
+        "perte attendue"
+      ],
+      "titre": "Le risque de crédit",
+      "une_phrase": "Le **risque de crédit** est le risque qu'un emprunteur ne rembourse pas ; on l'estime avec trois paramètres : la **probabilité de défaut** (PD), la **perte en cas de défaut** (LGD) et l'**exposition au moment du défaut** (EAD).",
+      "trente_secondes": "C'est le risque le plus important d'une banque, celui qui consomme le plus de capital.\n\n**Perte attendue = PD × LGD × EAD.**\n\n- **PD** : probabilité que l'emprunteur fasse défaut dans l'année (issue de sa notation).\n- **LGD** : part de l'exposition perdue en cas de défaut (1 − taux de recouvrement), selon les garanties.\n- **EAD** : montant exposé au moment du défaut.\n\nLa **perte attendue** est intégrée dans la marge des crédits (le coût du risque). La **perte inattendue** (ce qui peut arriver de pire au-delà de la moyenne) est couverte par les **fonds propres**.",
+      "analogie": "Un assureur auto : il sait qu'en moyenne quelques conducteurs auront un accident (la perte attendue, couverte par les primes), et il garde des réserves pour une année exceptionnelle de grêle (la perte inattendue, couverte par le capital).",
+      "exemple_chiffre": [
+        "Exemple fictif. Crédit de 10 M€ à une entreprise : PD 2 %, LGD 60 %, EAD 10 M€.",
+        "Perte attendue : 2 % × 60 % × 10 M€ = **120 000 €** par an.",
+        "La banque doit au moins couvrir ces 120 000 € dans sa marge, soit 1,2 % du crédit, plus le coût de ses ressources, ses frais et la rémunération du capital mobilisé.",
+        "Une garantie (hypothèque, caution) réduit la LGD, donc la perte attendue et le capital exigé."
+      ],
+      "formules": [
+        {
+          "titre": "La perte attendue",
+          "latex": "EL = PD \\times LGD \\times EAD",
+          "legende": {
+            "EL": "la perte attendue (expected loss)",
+            "PD": "la probabilité de défaut sur un an",
+            "LGD": "la perte en cas de défaut, en % de l'exposition",
+            "EAD": "l'exposition au moment du défaut"
+          },
+          "en_francais": "La perte moyenne qu'on peut attendre, c'est la probabilité du défaut multipliée par ce qu'on perdrait s'il arrivait."
+        }
+      ],
+      "deux_minutes": "**Le coût du risque.** Dans les comptes d'une banque, le **coût du risque** regroupe les dépréciations sur les crédits. Depuis la norme IFRS 9, les banques provisionnent dès l'octroi une partie des pertes attendues, et davantage si la qualité du crédit se dégrade.\n\n**La concentration.** Une banque limite son exposition à un même client ou groupe (grands risques), à un secteur, à un pays.\n\n**La notation interne.** Chaque client reçoit une note interne, qui détermine sa PD, les conditions de crédit et les fonds propres exigés.\n\n**Le lien avec les marchés.** Le spread de crédit observé sur les obligations et les CDS donne une mesure de marché du même risque.",
+      "piege": "Confondre perte attendue (couverte par la marge et les provisions) et perte inattendue (couverte par le capital).",
+      "a_dire_en_entretien": "« Le risque de crédit, c'est le risque de non-remboursement. On l'estime avec la probabilité de défaut, la perte en cas de défaut et l'exposition : leur produit est la perte attendue, intégrée dans la marge et les provisions. La perte inattendue, au-delà de la moyenne, est couverte par les fonds propres. »",
+      "liens": [
+        "m6.risques.contrepartie",
+        "m3.credit.defaut",
+        "m6.reglementation.bale3"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.contrepartie",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 3,
+      "tags": [
+        "risque de contrepartie",
+        "dérivés",
+        "collatéral"
+      ],
+      "titre": "Le risque de contrepartie",
+      "une_phrase": "Le **risque de contrepartie** est le risque de crédit propre aux dérivés et aux opérations de marché : le risque que l'autre partie fasse défaut **alors que l'opération a une valeur positive** pour la banque.",
+      "trente_secondes": "Sur un crédit, l'exposition est connue : le montant prêté. Sur un dérivé, elle **change avec le marché** :\n\n- aujourd'hui, le swap vaut peut-être zéro ;\n- demain, si les taux baissent, il peut valoir +1 M€ pour la banque, qui devient alors créancière du client.\n\nOn mesure donc :\n\n- l'**exposition actuelle** : la valeur de marché positive (MtM) ;\n- l'**exposition potentielle future** : ce que l'opération pourrait valoir dans le futur, dans un scénario défavorable.\n\nPour réduire ce risque : **compensation** des opérations (*netting*) grâce à la convention-cadre, **collatéral** (appels de marge), **compensation centrale**, et **lignes de risque** par client.",
+      "analogie": "Un pari à long terme avec un ami : au départ personne ne doit rien ; au fil du temps, l'un des deux devient débiteur de l'autre, et le montant change. Le risque, c'est que celui qui doit de l'argent disparaisse.",
+      "exemple_chiffre": [
+        "Exemple fictif. La banque a trois dérivés avec un même client : +2 M€, −0,5 M€ et +0,3 M€ pour elle.",
+        "Sans compensation, en cas de défaut, elle serait exposée sur les dérivés positifs : 2,3 M€.",
+        "Avec une convention-cadre qui permet la compensation : exposition nette 2 − 0,5 + 0,3 = **1,8 M€**.",
+        "Si le client a versé 1,5 M€ de collatéral, l'exposition résiduelle tombe à **0,3 M€**."
+      ],
+      "deux_minutes": "**Le risque de corrélation défavorable** (*wrong-way risk*) : quand l'exposition augmente précisément au moment où la contrepartie s'affaiblit. Exemple : une entreprise pétrolière qui a vendu du pétrole à terme à la banque, alors que le prix du pétrole s'effondre et que sa santé se dégrade en même temps.\n\n**La CVA.** Le coût attendu du défaut de la contrepartie est intégré dans le prix des dérivés (CVA, *credit valuation adjustment*). Ses variations passent dans le résultat, et Bâle III exige du capital pour ce risque.\n\n**Pour un sales.** C'est pourquoi on vérifie la ligne de risque **avant** de coter un dérivé à un client, et pourquoi le prix dépend de la qualité du client et de la présence de collatéral.",
+      "piege": "Croire que le risque de contrepartie est connu à la signature : il évolue avec le marché, et il est nul seulement tant que l'opération ne vaut rien pour la banque.",
+      "a_dire_en_entretien": "« Le risque de contrepartie, c'est le risque de crédit sur les dérivés : l'exposition dépend de la valeur de marché de l'opération, qui évolue. On mesure l'exposition actuelle et potentielle, on la réduit par la compensation prévue dans la convention-cadre, le collatéral et la compensation centrale, et on l'encadre par une ligne de risque par client. Son coût est intégré dans le prix sous forme de CVA. »",
+      "liens": [
+        "m6.risques.credit",
+        "m3.swap.risque",
+        "m6.reglementation.emir"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.liquidite",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "tags": [
+        "risque de liquidité",
+        "LCR",
+        "bank run"
+      ],
+      "titre": "Le risque de liquidité",
+      "une_phrase": "Le **risque de liquidité** est le risque de ne pas pouvoir faire face à ses sorties d'argent (retraits, échéances, appels de marge) à temps et à un coût raisonnable, même en étant solvable.",
+      "trente_secondes": "Une banque peut être **solvable** (ses actifs valent plus que ses dettes) et pourtant **à court de liquidités** : ses actifs sont des crédits à 20 ans, alors que ses déposants peuvent retirer leur argent demain.\n\nDeux formes :\n\n- **Liquidité de financement** : ne plus trouver de financement (dépôts qui partent, marchés fermés).\n- **Liquidité de marché** : ne pas pouvoir vendre un actif sans le brader.\n\nOutils de gestion : une **réserve d'actifs liquides** (obligations d'État, dépôts à la banque centrale), des financements diversifiés et longs, des scénarios de stress, et les ratios de Bâle III (**LCR** à 30 jours, **NSFR** à plus d'un an). En dernier recours, la **banque centrale** prête aux banques solvables contre garantie.",
+      "analogie": "Une maison qui vaut cher mais dont tu ne peux pas vendre une pièce pour payer une facture demain : tu es riche, mais sans argent liquide. C'est la différence entre solvabilité et liquidité.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque a 100 Md€ de dépôts, dont 20 % pourraient partir en un mois de stress, et 30 Md€ d'actifs liquides.",
+        "Sorties de stress : 20 Md€. LCR simplifié : 30 / 20 = **150 %** : elle tient le mois.",
+        "Si les retraits atteignaient 40 % (40 Md€), ses actifs liquides ne suffiraient plus : elle devrait vendre d'autres actifs, peut-être à perte, ou emprunter à la banque centrale."
+      ],
+      "deux_minutes": "**Le cas Silicon Valley Bank (mars 2023).** Des dépôts très concentrés et non garantis, investis dans des obligations longues achetées quand les taux étaient bas. Quand les taux ont monté, ces obligations ont perdu de la valeur ; les déposants inquiets ont retiré leur argent très rapidement, et la banque a dû vendre à perte. C'est la rencontre d'un **risque de taux** et d'un **risque de liquidité**.\n\n**La transformation**, cœur du métier bancaire, crée naturellement ce risque : la gestion actif-passif (ALM) et la trésorerie du groupe le pilotent chaque jour.\n\n**Pour une salle des marchés,** les appels de marge sur dérivés collatéralisés peuvent créer de gros besoins de liquidité en quelques heures lors d'un choc de marché.",
+      "piege": "Confondre solvabilité (capital suffisant pour absorber les pertes) et liquidité (argent disponible à temps). Une banque solvable peut faire faillite par manque de liquidité.",
+      "a_dire_en_entretien": "« Le risque de liquidité, c'est de ne pas pouvoir faire face à ses sorties d'argent à temps, même en étant solvable, parce que la banque prête à long terme avec des ressources à court terme. On le gère avec une réserve d'actifs liquides, des financements diversifiés, des stress tests et les ratios LCR et NSFR. Silicon Valley Bank en 2023 a montré ce que donne un risque de taux combiné à une fuite des dépôts. »",
+      "liens": [
+        "m6.risques.operationnel",
+        "m6.reglementation.bale3",
+        "m6.banques.detail"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.operationnel",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "tags": [
+        "risque opérationnel",
+        "conformité",
+        "fraude"
+      ],
+      "titre": "Le risque opérationnel",
+      "une_phrase": "Le **risque opérationnel** est le risque de perte dû à des **processus**, des **personnes** ou des **systèmes** défaillants, ou à des **événements extérieurs** : erreurs, fraudes, pannes informatiques, cyberattaques, litiges.",
+      "trente_secondes": "Il est partout, même dans une activité sans risque de marché ni de crédit.\n\nExemples :\n\n- une **erreur de saisie** (un zéro de trop sur un nominal, un mauvais sens d'opération) ;\n- une **fraude** interne ou externe ;\n- une **panne** ou une **cyberattaque** qui bloque les paiements ;\n- un **défaut de conformité** (blanchiment, sanctions internationales) qui entraîne une amende ;\n- un **litige** avec un client mal conseillé.\n\nOn le réduit par des **procédures**, des **contrôles** (double validation, rapprochements), l'**automatisation**, la **séparation des fonctions** et la **déclaration des incidents** pour en tirer des leçons.",
+      "analogie": "Dans une cuisine de restaurant, le risque n'est pas seulement le prix des ingrédients (risque de marché) : c'est aussi le cuisinier qui se trompe de recette, le four qui tombe en panne ou l'employé qui se sert dans la caisse.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un opérateur saisit un swap de 100 M€ au lieu de 10 M€.",
+        "La couverture du trader est calculée sur 100 M€ : le desk se retrouve avec une position non voulue de 90 M€.",
+        "Un rapprochement automatique entre le ticket du trader et la confirmation détecte l'écart dans l'heure : la position est corrigée avant que le marché ne bouge.",
+        "L'incident est déclaré et un contrôle supplémentaire est ajouté."
+      ],
+      "deux_minutes": "**Les grandes pertes opérationnelles** de l'histoire bancaire viennent souvent de fraudes de traders associées à des contrôles insuffisants (l'affaire Kerviel en 2008 en France) ou d'amendes pour manquements à la conformité (sanctions internationales, blanchiment).\n\n**La mesure.** Bâle III exige du capital pour le risque opérationnel, calculé aujourd'hui selon une approche standard fondée sur les revenus de la banque et son historique de pertes.\n\n**La résilience opérationnelle numérique.** Le règlement européen **DORA**, applicable depuis janvier 2025, impose aux acteurs financiers de gérer leurs risques informatiques et de cybersécurité, y compris chez leurs prestataires.\n\n**Pour un stagiaire,** c'est le risque le plus concret : vérifier ses chiffres, signaler immédiatement une erreur, ne jamais corriger en silence.",
+      "piege": "Croire que le risque opérationnel concerne seulement l'informatique : il couvre les erreurs humaines, les fraudes, la conformité et les litiges.",
+      "a_dire_en_entretien": "« Le risque opérationnel, c'est la perte due à des erreurs, des fraudes, des pannes, des cyberattaques ou des manquements à la conformité. On le réduit par des procédures, des contrôles comme la double validation et les rapprochements, l'automatisation et la séparation des fonctions. Et par une culture où l'on signale tout de suite une erreur plutôt que de la corriger en silence. »",
+      "liens": [
+        "m6.risques.liquidite",
+        "m6.salle.front-middle-back"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c01",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "recto": "Risque de marché : trois outils ?",
+      "verso": "Sensibilités, VaR, stress tests.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c02",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "recto": "VaR à 1 jour à 99 % ?",
+      "verso": "Perte dépassée en moyenne un jour sur cent ; ne dit pas de combien.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c03",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "recto": "Passer d'une VaR à 1 jour à 10 jours ?",
+      "verso": "Multiplier par √10.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c04",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 3,
+      "recto": "Expected shortfall ?",
+      "verso": "Perte moyenne dans les pires cas, au-delà de la VaR.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c05",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "recto": "Perte attendue d'un crédit ?",
+      "verso": "PD × LGD × EAD.",
+      "fiche": "m6.risques.credit",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c06",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "recto": "Perte attendue ou inattendue : qui couvre quoi ?",
+      "verso": "Attendue : marge et provisions. Inattendue : fonds propres.",
+      "fiche": "m6.risques.credit",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c07",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "recto": "Risque de contrepartie ?",
+      "verso": "Risque de crédit sur les dérivés, dont l'exposition varie avec le marché.",
+      "fiche": "m6.risques.contrepartie",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c08",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 3,
+      "recto": "Wrong-way risk ?",
+      "verso": "L'exposition augmente quand la contrepartie s'affaiblit.",
+      "fiche": "m6.risques.contrepartie",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c09",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "recto": "Solvabilité ou liquidité ?",
+      "verso": "Solvabilité : capital suffisant. Liquidité : argent disponible à temps.",
+      "fiche": "m6.risques.liquidite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.c10",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "recto": "Risque opérationnel ?",
+      "verso": "Pertes dues aux processus, personnes, systèmes ou événements extérieurs.",
+      "fiche": "m6.risques.operationnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.q01",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "question": "Quels sont les grands risques d'une banque ?",
+      "reponse_modele": "Le risque de crédit, que les emprunteurs ne remboursent pas, le plus important en capital. Le risque de contrepartie, sa version sur les dérivés, où l'exposition dépend de la valeur de marché. Le risque de marché, les pertes dues aux mouvements des taux, des changes, des actions ou de la volatilité. Le risque de liquidité, ne pas pouvoir faire face à ses sorties d'argent à temps. Et le risque opérationnel : erreurs, fraudes, pannes, cyberattaques, conformité. On peut ajouter le risque de taux du bilan, géré par l'ALM, et le risque de réputation.",
+      "points_cles": [
+        "Crédit",
+        "Contrepartie",
+        "Marché",
+        "Liquidité",
+        "Opérationnel",
+        "Taux du bilan, réputation"
+      ],
+      "piege": "Oublier le risque de liquidité ou le risque opérationnel.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.q02",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "question": "Qu'est-ce que la VaR ? Quelles sont ses limites ?",
+      "reponse_modele": "La VaR est la perte qu'on ne dépassera pas, avec une probabilité donnée, sur un horizon donné : une VaR à un jour à 99 % de 2 M€ signifie qu'on perd plus de 2 M€ environ un jour sur cent. Ses limites : elle ne dit rien de l'ampleur des pertes au-delà du seuil, elle repose sur des hypothèses ou sur l'historique récent, et elle sous-estime souvent les crises et les mouvements extrêmes. On la complète par des stress tests, la VaR stressée et l'expected shortfall, qui mesure la perte moyenne dans les pires cas.",
+      "points_cles": [
+        "Définition avec probabilité et horizon",
+        "Exemple",
+        "Ne mesure pas l'au-delà",
+        "Hypothèses",
+        "Stress tests, expected shortfall"
+      ],
+      "piege": "Dire que la VaR est la perte maximale.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.q03",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "question": "Quelle différence entre solvabilité et liquidité ?",
+      "reponse_modele": "La solvabilité, c'est avoir assez de capital pour absorber ses pertes : la valeur des actifs dépasse celle des dettes. La liquidité, c'est avoir l'argent disponible au moment où il faut payer. Une banque peut être solvable et manquer de liquidités, parce qu'elle a prêté à long terme avec des ressources courtes : si les déposants retirent leur argent en masse, elle doit vendre ses actifs à perte. Bâle III traite la première par les ratios de fonds propres, la seconde par le LCR et le NSFR, et la banque centrale peut prêter en dernier ressort à une banque solvable.",
+      "points_cles": [
+        "Solvabilité : capital",
+        "Liquidité : argent disponible",
+        "Transformation",
+        "Ratios de Bâle III",
+        "Prêteur en dernier ressort"
+      ],
+      "piege": "Utiliser les deux mots comme synonymes.",
+      "fiche": "m6.risques.liquidite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.q04",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "question": "Pourquoi le risque de contrepartie est-il plus difficile à mesurer que le risque de crédit d'un prêt ?",
+      "reponse_modele": "Parce que l'exposition n'est pas fixe. Sur un prêt, la banque sait combien elle a prêté. Sur un dérivé, l'exposition est la valeur de marché positive de l'opération, qui change avec les taux, les changes ou les actions : nulle à la signature, elle peut devenir importante plus tard. Il faut donc estimer une exposition potentielle future par simulation, tenir compte de la compensation entre opérations et du collatéral, et parfois du risque que l'exposition monte au moment où la contrepartie s'affaiblit.",
+      "points_cles": [
+        "Exposition variable",
+        "Valeur de marché positive",
+        "Exposition potentielle future",
+        "Compensation et collatéral",
+        "Wrong-way risk"
+      ],
+      "piege": "Dire que le risque est nul parce que le nominal n'est pas échangé.",
+      "fiche": "m6.risques.contrepartie",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z01",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "enonce": "VaR à 1 jour de 200 000 €. VaR à 25 jours par la règle de la racine du temps, en euros ?",
+      "reponse": 1000000,
+      "tolerance": 1,
+      "unite": "€",
+      "explication": "200 000 × √25 = 200 000 × 5 = 1 000 000 €.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z02",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "enonce": "Une VaR à 99 % de 1 M€ signifie qu'on ne peut jamais perdre plus de 1 M€.",
+      "vrai": false,
+      "explication": "On dépasse ce montant en moyenne un jour sur cent, et la VaR ne dit pas de combien.",
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "enonce": "Crédit de 5 M€, PD 3 %, LGD 40 %. Perte attendue, en euros ?",
+      "reponse": 60000,
+      "tolerance": 1,
+      "unite": "€",
+      "explication": "3 % × 40 % × 5 000 000 = 60 000 €.",
+      "fiche": "m6.risques.credit",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z04",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "enonce": "Dérivés avec un client : +3 M€, −1 M€, +0,5 M€ pour la banque ; compensation possible ; collatéral reçu 1 M€. Exposition résiduelle, en M€ ?",
+      "reponse": 1.5,
+      "tolerance": 0.001,
+      "unite": "M€",
+      "explication": "Net : 3 − 1 + 0,5 = 2,5 M€ ; moins 1 M€ de collatéral = 1,5 M€.",
+      "fiche": "m6.risques.contrepartie",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z05",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "enonce": "Une erreur de saisie d'un nominal relève du risque…",
+      "choix": [
+        "de marché",
+        "de crédit",
+        "opérationnel",
+        "de liquidité"
+      ],
+      "bonne": 2,
+      "explication": "Erreur humaine dans un processus : risque opérationnel.",
+      "fiche": "m6.risques.operationnel",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.z06",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "enonce": "Une banque solvable ne peut pas faire faillite.",
+      "vrai": false,
+      "explication": "Elle peut manquer de liquidités si ses déposants retirent leur argent plus vite qu'elle ne peut mobiliser ses actifs.",
+      "fiche": "m6.risques.liquidite",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.x01",
+      "type": "exercice",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 2,
+      "titre": "VaR d'un portefeuille et perte attendue d'un crédit",
+      "enonce": "Exemple fictif. (1) Un portefeuille d'actions vaut 10 M€, sa volatilité annuelle est de 20 %. Calcule sa VaR paramétrique à 1 jour à 99 % (quantile 2,326, 252 jours de bourse), puis à 10 jours. (2) Un crédit de 10 M€ a une PD de 2 % et une LGD de 60 %. Calcule la perte attendue.",
+      "etapes": [
+        {
+          "titre": "La volatilité sur un jour",
+          "texte": "20 % / √252 = 1,26 %, soit 126 000 € sur 10 M€."
+        },
+        {
+          "titre": "La VaR à 1 jour à 99 %",
+          "texte": "126 000 × 2,326.",
+          "formule": {
+            "latex": "VaR = 10\\,000\\,000 \\times 0{,}20 \\times \\sqrt{\\frac{1}{252}} \\times 2{,}326",
+            "legende": {
+              "2{,}326": "le quantile à 99 % de la loi normale"
+            },
+            "en_francais": "La volatilité d'une journée, multipliée par le nombre d'écarts-types du niveau de confiance."
+          },
+          "resultat": "≈ 293 000 €",
+          "verif": {
+            "fn": "banque.varParametrique",
+            "args": [
+              10000000,
+              20,
+              1
+            ],
+            "attendu": 293048,
+            "tolerance": 1
+          }
+        },
+        {
+          "titre": "La VaR à 10 jours",
+          "texte": "293 048 × √10.",
+          "resultat": "≈ 926 700 €",
+          "verif": {
+            "fn": "banque.varEchelle",
+            "args": [
+              293048,
+              10
+            ],
+            "attendu": 926699,
+            "tolerance": 2
+          }
+        },
+        {
+          "titre": "La perte attendue du crédit",
+          "texte": "2 % × 60 % × 10 M€.",
+          "resultat": "120 000 € par an",
+          "verif": {
+            "fn": "banque.perteAttendue",
+            "args": [
+              2,
+              60,
+              10000000
+            ],
+            "attendu": 120000,
+            "tolerance": 0.01
+          }
+        },
+        {
+          "titre": "Lecture",
+          "texte": "La VaR mesure une perte de marché probable sur un horizon court ; la perte attendue mesure un coût moyen du crédit sur un an, intégré dans la marge. Les deux ne disent rien des scénarios extrêmes : d'où les stress tests et le capital."
+        }
+      ],
+      "erreurs_a_eviter": [
+        "Utiliser la volatilité annuelle sans la ramener à un jour.",
+        "Multiplier par 10 au lieu de √10 pour passer à 10 jours.",
+        "Oublier la LGD dans la perte attendue."
+      ],
+      "fiche": "m6.risques.marche",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-risque-de-marche",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Risque de marché",
+      "definition": "Risque de perte dû aux variations des prix de marché.",
+      "fiche": "m6.risques.marche",
+      "anglais": "market risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-var",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "VaR",
+      "definition": "Perte qu'on ne dépassera pas avec une probabilité donnée, sur un horizon donné.",
+      "fiche": "m6.risques.marche",
+      "anglais": "value at risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-stress-test",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Stress test",
+      "definition": "Mesure de la perte dans un scénario de marché extrême.",
+      "fiche": "m6.risques.marche",
+      "anglais": "stress test",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-expected-shortfall",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Expected shortfall",
+      "definition": "Perte moyenne dans les pires scénarios, au-delà du seuil de la VaR.",
+      "fiche": "m6.risques.marche",
+      "anglais": "expected shortfall",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-risque-de-credit",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Risque de crédit",
+      "definition": "Risque qu'un emprunteur ne rembourse pas.",
+      "fiche": "m6.risques.credit",
+      "anglais": "credit risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-probabilite-de-defaut",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Probabilité de défaut",
+      "definition": "Probabilité qu'un emprunteur fasse défaut, en général sur un an.",
+      "fiche": "m6.risques.credit",
+      "anglais": "probability of default (PD)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-perte-en-cas-de-defaut",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Perte en cas de défaut",
+      "definition": "Part de l'exposition perdue si l'emprunteur fait défaut.",
+      "fiche": "m6.risques.credit",
+      "anglais": "loss given default (LGD)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-perte-attendue",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Perte attendue",
+      "definition": "PD × LGD × exposition : coût moyen du risque de crédit.",
+      "fiche": "m6.risques.credit",
+      "anglais": "expected loss",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-cout-du-risque",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Coût du risque",
+      "definition": "Dépréciations passées en charges pour les crédits qui risquent de ne pas être remboursés.",
+      "fiche": "m6.risques.credit",
+      "anglais": "cost of risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-risque-de-contrepartie",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Risque de contrepartie",
+      "definition": "Risque de défaut de l'autre partie d'un dérivé quand celui-ci a une valeur positive.",
+      "fiche": "m6.risques.contrepartie",
+      "anglais": "counterparty credit risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-compensation-netting",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Compensation (netting)",
+      "definition": "Calcul d'une exposition nette entre toutes les opérations avec un même client.",
+      "fiche": "m6.risques.contrepartie",
+      "anglais": "netting",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-collateral",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Collatéral",
+      "definition": "Garantie (espèces, titres) versée pour couvrir une exposition.",
+      "fiche": "m6.risques.contrepartie",
+      "anglais": "collateral",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-risque-de-liquidite",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Risque de liquidité",
+      "definition": "Risque de ne pas pouvoir faire face à ses sorties d'argent à temps et à un coût raisonnable.",
+      "fiche": "m6.risques.liquidite",
+      "anglais": "liquidity risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-risque-operationnel",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "Risque opérationnel",
+      "definition": "Risque de perte lié aux processus, aux personnes, aux systèmes ou à des événements extérieurs.",
+      "fiche": "m6.risques.operationnel",
+      "anglais": "operational risk",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.risques.l-dora",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.risques",
+      "difficulte": 1,
+      "terme": "DORA",
+      "definition": "Règlement européen sur la résilience informatique des acteurs financiers, applicable depuis janvier 2025.",
+      "fiche": "m6.risques.operationnel",
+      "anglais": "Digital Operational Resilience Act",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}

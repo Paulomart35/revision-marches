@@ -1,0 +1,557 @@
+{
+  "chapitre": {
+    "id": "m6.banques",
+    "module": 6,
+    "ordre": 1,
+    "titre": "Les grands métiers de la banque",
+    "resume": "Banque de détail, banque privée, banque de financement et d'investissement, gestion d'actifs : qui sont les clients, comment chaque métier gagne de l'argent et comment ils travaillent ensemble."
+  },
+  "elements": [
+    {
+      "id": "m6.banques.detail",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "tags": [
+        "banque de détail",
+        "marge d'intérêt"
+      ],
+      "titre": "La banque de détail",
+      "une_phrase": "La **banque de détail** (*retail banking*) sert les particuliers, les professionnels et les PME : elle collecte les dépôts, accorde des crédits et gère les moyens de paiement ; elle vit surtout de sa **marge d'intérêt** et de ses **commissions**.",
+      "trente_secondes": "C'est la banque que tout le monde connaît : l'agence, l'application mobile, la carte bancaire, le crédit immobilier.\n\nSes clients : particuliers, professionnels (artisans, commerçants, professions libérales), PME et parfois ETI (souvent suivies par une **banque des entreprises** au sein du réseau).\n\nSes deux sources de revenus :\n\n- la **marge nette d'intérêt** : l'écart entre ce que rapportent les crédits et ce que coûtent les dépôts et le financement ;\n- les **commissions** : tenue de compte, cartes, assurance, épargne, conseil.\n\nC'est un métier de **volume** et de **relation durable**, très sensible au niveau des taux et à la pente de la courbe.",
+      "analogie": "Une épicerie de quartier de l'argent : elle achète de l'épargne à un prix (le taux des dépôts), la revend sous forme de crédit à un prix plus élevé, et facture quelques services autour.",
+      "exemple_chiffre": [
+        "Exemple fictif. Une banque collecte 100 M€ de dépôts rémunérés en moyenne 1,2 % et prête 100 M€ de crédits immobiliers à 3,4 %.",
+        "Marge d'intérêt brute : 3,4 % − 1,2 % = 2,2 %, soit **2,2 M€** par an.",
+        "Il faut en retirer les frais de fonctionnement (agences, informatique, salaires) et le **coût du risque** (les crédits non remboursés).",
+        "Si les taux des dépôts montent plus vite que ceux des crédits à taux fixe déjà accordés, la marge se comprime."
+      ],
+      "deux_minutes": "**La transformation.** La banque de détail prête à long terme (crédits immobiliers sur 20 ans, souvent à taux fixe en France) avec des ressources courtes (dépôts à vue, livrets). C'est utile à l'économie, mais cela crée un **risque de taux** et un **risque de liquidité**, gérés par la direction financière (gestion actif-passif, ALM).\n\n**Le cas français.** Le crédit immobilier est majoritairement à taux fixe, et l'épargne réglementée (Livret A) a un taux fixé par les pouvoirs publics. Quand les taux montent vite, les banques françaises voient leur coût de ressources augmenter avant le rendement de leurs crédits.\n\n**La banque des entreprises.** Au sein du réseau, des chargés d'affaires suivent les PME et ETI : crédits, flux, change et couvertures simples. Les besoins de couverture plus complexes sont souvent traités avec la salle des marchés du groupe.\n\n**La transformation numérique** et les banques en ligne (néobanques, filiales en ligne des grands groupes) poussent à réduire les coûts et le réseau d'agences.",
+      "piege": "Croire que la banque de détail « prête l'argent des déposants » au sens strict : elle crée de la monnaie en accordant un crédit, dans les limites de ses contraintes de liquidité et de fonds propres. Et oublier le coût du risque dans la rentabilité.",
+      "a_dire_en_entretien": "« La banque de détail sert les particuliers, les professionnels et les PME. Elle vit de sa marge d'intérêt, l'écart entre le rendement des crédits et le coût des dépôts, et de ses commissions. Elle transforme des ressources courtes en crédits longs, ce qui crée un risque de taux et de liquidité géré par l'ALM. En France, avec des crédits immobiliers à taux fixe, une remontée rapide des taux comprime d'abord sa marge. »",
+      "liens": [
+        "m6.banques.bfi",
+        "m1.transmission.clients",
+        "m6.risques.liquidite"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.privee",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "tags": [
+        "banque privée",
+        "gestion de patrimoine"
+      ],
+      "titre": "La banque privée",
+      "une_phrase": "La **banque privée** (*private banking*, *wealth management*) conseille les clients fortunés sur l'ensemble de leur patrimoine : placements, crédit, transmission, fiscalité, avec un banquier dédié.",
+      "trente_secondes": "Ses clients ont un patrimoine financier important (les seuils varient selon les banques, souvent à partir de quelques centaines de milliers ou d'un million d'euros) : chefs d'entreprise, familles, professions libérales.\n\nCe qu'elle propose :\n\n- la **gestion conseillée** (le client décide, le banquier conseille) ou **sous mandat** (le client délègue la gestion) ;\n- l'**ingénierie patrimoniale** : transmission, donation, cession d'entreprise, fiscalité ;\n- le **crédit** (souvent adossé aux actifs du client : crédit lombard) ;\n- l'accès à des produits spécifiques : **produits structurés**, fonds de private equity, immobilier.\n\nElle vit surtout de **commissions** sur les actifs gérés et les transactions.",
+      "analogie": "Le médecin de famille du patrimoine : il connaît toute l'histoire du client, coordonne les spécialistes (fiscaliste, notaire, gérant) et propose un traitement adapté à sa situation.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un chef d'entreprise vend sa société et encaisse 8 M€.",
+        "Le banquier privé propose : une poche de liquidités, un mandat de gestion diversifié, un produit structuré Phoenix pour un revenu régulier, et un travail avec un notaire sur la transmission.",
+        "Commission de gestion de 1 % par an sur 6 M€ sous mandat : **60 000 €** par an pour la banque.",
+        "Avant chaque produit, il vérifie l'adéquation (MiFID II) : objectifs, horizon, connaissance des produits complexes, capacité à supporter des pertes."
+      ],
+      "deux_minutes": "**Le lien avec la salle des marchés.** La banque privée est un grand distributeur de produits structurés : le banquier recueille le besoin, le structureur et le sales de la salle des marchés proposent les conditions. C'est un des clients internes des desks de dérivés actions.\n\n**Les cessions d'entreprise.** Un moment clé : le chef d'entreprise devient un client patrimonial. Les groupes bancaires organisent souvent le passage de la banque des entreprises à la banque privée.\n\n**La conformité.** Clientèle exigeante et souvent internationale : connaissance du client (KYC), lutte contre le blanchiment, origine des fonds, règles fiscales. C'est un métier très encadré.\n\n**En France,** chaque grand groupe a sa banque privée ; certaines maisons indépendantes existent aussi, et le marché de la gestion de patrimoine compte de nombreux conseillers indépendants (CGP).",
+      "piege": "Réduire la banque privée à « placer de l'argent » : c'est un métier de conseil global (patrimoine, transmission, crédit, fiscalité), très encadré par la conformité.",
+      "a_dire_en_entretien": "« La banque privée conseille les clients fortunés sur tout leur patrimoine : placements en gestion conseillée ou sous mandat, crédit, transmission, fiscalité. Elle vit surtout de commissions. C'est un grand distributeur de produits structurés, ce qui en fait un client clé de la salle des marchés, avec une forte exigence d'adéquation et de conformité. »",
+      "liens": [
+        "m6.banques.gestion-actifs",
+        "m5.conditions.comparatif",
+        "m6.reglementation.mifid2"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.bfi",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "tags": [
+        "BFI",
+        "CIB",
+        "marchés de capitaux"
+      ],
+      "titre": "La banque de financement et d'investissement (BFI)",
+      "une_phrase": "La **BFI** (*corporate and investment banking*, CIB) sert les grandes entreprises, les institutionnels et les États : financements, conseil en fusions-acquisitions, émissions d'actions et d'obligations, et activités de **marchés** (taux, change, actions, matières premières).",
+      "trente_secondes": "Elle regroupe trois grands ensembles :\n\n- **Les financements** : crédits syndiqués, financements de projets (infrastructures, énergie), financements d'acquisitions, financements structurés, commerce international.\n- **La banque d'investissement** (*investment banking*) : conseil en **fusions-acquisitions** (M&A), introductions en bourse et augmentations de capital (*ECM*), émissions obligataires (*DCM*).\n- **Les marchés de capitaux** (*global markets*) : la **salle des marchés**, organisée par produits (taux, change, crédit, actions, dérivés) et par fonctions (sales, trading, structuration).\n\nS'ajoutent souvent les **services titres** (conservation, dépositaire) et la **banque transactionnelle** (*cash management*, flux).",
+      "analogie": "Si la banque de détail est l'épicerie de quartier, la BFI est le grossiste et l'ingénieur-conseil des grandes entreprises : gros volumes, opérations sur mesure, et un atelier technique (la salle des marchés) qui fabrique les produits complexes.",
+      "visuel": {
+        "type": "tableau",
+        "colonnes": [
+          "Activité",
+          "Clients",
+          "Exemples"
+        ],
+        "lignes": [
+          [
+            "Financements",
+            "Grandes entreprises, projets",
+            "Crédit syndiqué, financement de projet, financement export"
+          ],
+          [
+            "Banque d'investissement",
+            "Entreprises, actionnaires",
+            "Fusions-acquisitions, introduction en bourse, émission obligataire"
+          ],
+          [
+            "Marchés de capitaux",
+            "Entreprises, institutionnels, réseaux du groupe",
+            "Swaps, change, options, produits structurés, obligations"
+          ],
+          [
+            "Banque transactionnelle",
+            "Entreprises",
+            "Gestion des flux, trade finance, cash management"
+          ]
+        ],
+        "legende": "Les grandes activités d'une BFI."
+      },
+      "exemple_chiffre": [
+        "Exemple fictif. Une ETI rachète un concurrent américain pour 300 M$.",
+        "La BFI conseille l'opération (M&A), organise un crédit d'acquisition de 200 M€ avec d'autres banques (crédit syndiqué).",
+        "La salle des marchés propose un **swap** pour fixer le taux du crédit et une **couverture de change** pour le paiement en dollars.",
+        "Un an plus tard, l'ETI refinance une partie du crédit par une émission obligataire, organisée par l'équipe DCM."
+      ],
+      "deux_minutes": "**Comment la BFI gagne de l'argent.** Commissions de conseil et d'émission, marges d'intérêt sur les financements, et revenus de marché : marge commerciale sur les opérations clients (la différence entre le prix client et le prix de couverture) et résultat de la gestion des risques des desks.\n\n**Le lien avec les réseaux.** Dans les groupes français, la BFI fabrique souvent les produits de marché distribués par les réseaux de détail et la banque privée (couvertures pour les PME, produits structurés pour les particuliers). Une salle des marchés de réseau peut ainsi servir les clients du réseau et se couvrir auprès de la BFI du groupe.\n\n**La consommation de capital.** Les activités de marché et les financements consomment beaucoup de fonds propres (Bâle III) : la rentabilité se mesure par rapport au capital alloué.\n\n**Les métiers d'entrée.** Analyste en M&A, sales, trader, structureur, quant, risk manager, middle office : c'est la porte d'entrée des stages en finance de marché.",
+      "piege": "Confondre la BFI et la seule banque d'affaires (M&A) : la BFI inclut aussi les financements et les marchés. Et ignorer que les produits de la salle des marchés servent aussi les clients des réseaux.",
+      "a_dire_en_entretien": "« La BFI sert les grandes entreprises, les institutionnels et les États. Elle regroupe les financements, la banque d'investissement, avec le conseil en fusions-acquisitions et les émissions, et les marchés de capitaux. La salle des marchés fabrique aussi les couvertures et les produits structurés distribués par les réseaux du groupe. Elle vit de commissions, de marges sur financements et de revenus de marché. »",
+      "liens": [
+        "m6.banques.detail",
+        "m6.salle.front-middle-back",
+        "m3.swap.utilite"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.gestion-actifs",
+      "type": "fiche",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "tags": [
+        "gestion d'actifs",
+        "fonds"
+      ],
+      "titre": "La gestion d'actifs",
+      "une_phrase": "La **gestion d'actifs** (*asset management*) gère l'argent de clients dans des **fonds** ou des **mandats**, selon une politique d'investissement définie, et se rémunère par des **frais de gestion** proportionnels aux encours.",
+      "trente_secondes": "Ses clients : les particuliers (via les fonds distribués par les banques et l'assurance-vie), les institutionnels (assureurs, caisses de retraite), les entreprises.\n\nDeux grands styles :\n\n- **Gestion active** : un gérant choisit les titres pour battre un indice de référence.\n- **Gestion passive** (ou indicielle) : on réplique un indice à faible coût, souvent via des **ETF** (fonds cotés).\n\nLe gérant est un **acheteur** de produits financiers (*buy side*) : il achète des actions, des obligations, des dérivés aux banques, qui sont le **sell side**.\n\nSa rentabilité dépend des **encours** gérés (*assets under management*) et des frais appliqués.",
+      "analogie": "Un chef qui cuisine pour beaucoup de clients à la fois : chacun apporte une part, le chef compose le menu selon une recette annoncée (la politique d'investissement), et prend un pourcentage pour son travail.",
+      "exemple_chiffre": [
+        "Exemple fictif. Un fonds actions européennes de 500 M€ facture 1,5 % de frais de gestion par an : **7,5 M€** de revenus pour la société de gestion.",
+        "Un ETF sur le même indice facture 0,15 % : 0,75 M€ pour 500 M€.",
+        "Si le fonds actif fait 8 % brut et l'indice 8 %, le client du fonds actif obtient 6,5 % net, celui de l'ETF 7,85 %.",
+        "C'est l'argument central de la gestion passive : les frais pèsent lourd sur la durée."
+      ],
+      "deux_minutes": "**Buy side et sell side.** Les gérants d'actifs, assureurs et fonds de pension investissent : c'est le *buy side*. Les banques leur vendent des produits, de la recherche et de l'exécution : c'est le *sell side*. Un sales de salle des marchés passe une grande partie de son temps avec des clients du buy side.\n\n**Les grandes catégories de fonds** : monétaires, obligataires, actions, diversifiés, alternatifs (hedge funds, private equity). En Europe, la plupart des fonds ouverts au public suivent la réglementation **OPCVM** (UCITS).\n\n**Le paysage français.** Plusieurs groupes bancaires et d'assurance ont de grandes filiales de gestion d'actifs ; Amundi, filiale du groupe Crédit Agricole, est le premier gestionnaire d'actifs européen.\n\n**La finance durable.** Les critères ESG (environnement, social, gouvernance) et les règles européennes de transparence (SFDR) ont pris une place importante dans la gestion.",
+      "sources": [
+        {
+          "titre": "Amundi, présentation du groupe",
+          "url": "https://about.amundi.com/"
+        }
+      ],
+      "piege": "Confondre gestion d'actifs (gérer l'argent des clients dans des fonds, buy side) et banque d'investissement (conseiller et vendre des produits, sell side).",
+      "a_dire_en_entretien": "« La gestion d'actifs gère l'argent de clients dans des fonds ou des mandats, en gestion active pour battre un indice ou passive pour le répliquer à faible coût. Elle se rémunère par des frais sur les encours. C'est le buy side, en face des banques, le sell side, qui leur vendent produits, recherche et exécution. »",
+      "liens": [
+        "m6.banques.privee",
+        "m6.banques.bfi",
+        "m6.acteurs.ca"
+      ],
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c01",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "recto": "Les deux sources de revenus de la banque de détail ?",
+      "verso": "La marge d'intérêt et les commissions.",
+      "fiche": "m6.banques.detail",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c02",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "recto": "Transformation bancaire ?",
+      "verso": "Prêter à long terme avec des ressources courtes : risque de taux et de liquidité.",
+      "fiche": "m6.banques.detail",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c03",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "recto": "Gestion conseillée ou sous mandat ?",
+      "verso": "Conseillée : le client décide. Sous mandat : il délègue la gestion.",
+      "fiche": "m6.banques.privee",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c04",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "recto": "Les grandes activités d'une BFI ?",
+      "verso": "Financements, banque d'investissement (M&A, ECM, DCM), marchés de capitaux.",
+      "fiche": "m6.banques.bfi",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c05",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "recto": "ECM et DCM ?",
+      "verso": "Émissions d'actions (equity capital markets) et d'obligations (debt capital markets).",
+      "fiche": "m6.banques.bfi",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c06",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "recto": "Gestion active ou passive ?",
+      "verso": "Active : battre un indice. Passive : le répliquer à faible coût (ETF).",
+      "fiche": "m6.banques.gestion-actifs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.c07",
+      "type": "carte",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "recto": "Buy side ?",
+      "verso": "Les investisseurs : gérants, assureurs, fonds de pension.",
+      "fiche": "m6.banques.gestion-actifs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.q01",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "question": "Quels sont les grands métiers d'une banque universelle ?",
+      "reponse_modele": "Quatre grands ensembles. La banque de détail, pour les particuliers, les professionnels et les PME, qui vit de sa marge d'intérêt et de ses commissions. La banque privée, qui conseille les clients fortunés sur tout leur patrimoine. La banque de financement et d'investissement, pour les grandes entreprises et les institutionnels : financements, conseil en fusions-acquisitions, émissions et marchés de capitaux. Et la gestion d'actifs, qui gère l'argent des clients dans des fonds. On y ajoute souvent l'assurance et les services financiers spécialisés. Les grands groupes français sont des banques universelles : ils réunissent tous ces métiers.",
+      "points_cles": [
+        "Détail",
+        "Banque privée",
+        "BFI",
+        "Gestion d'actifs",
+        "Assurance",
+        "Modèle de banque universelle"
+      ],
+      "piege": "Oublier la gestion d'actifs ou l'assurance.",
+      "fiche": "m6.banques.bfi",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.q02",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "question": "Comment une hausse des taux affecte-t-elle les différents métiers d'une banque ?",
+      "reponse_modele": "En banque de détail, elle finit par améliorer la marge d'intérêt, mais en France l'effet est d'abord négatif : les crédits immobiliers sont à taux fixe et le coût des dépôts et de l'épargne réglementée monte vite. Le coût du risque peut aussi augmenter si des emprunteurs fragiles souffrent. En BFI, l'activité de couverture de taux augmente, les clients veulent se protéger, ce qui soutient les revenus de marché. En gestion d'actifs, les fonds monétaires et obligataires redeviennent attractifs, mais la baisse des prix des actifs réduit les encours et donc les frais. Pour la banque privée, les placements à capital garanti redeviennent intéressants.",
+      "points_cles": [
+        "Détail : marge d'abord comprimée en France",
+        "Coût du risque",
+        "BFI : demande de couvertures",
+        "Gestion d'actifs : effet encours",
+        "Banque privée : capital garanti"
+      ],
+      "piege": "Dire qu'une hausse des taux est toujours bonne pour les banques.",
+      "fiche": "m6.banques.detail",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.q03",
+      "type": "question_entretien",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "question": "Quelle différence entre buy side et sell side ?",
+      "reponse_modele": "Le buy side, ce sont ceux qui investissent pour eux-mêmes ou pour leurs clients : gérants d'actifs, assureurs, fonds de pension, hedge funds. Le sell side, ce sont les banques qui leur vendent des produits, de la recherche, de l'exécution et des services de marché. Un sales de salle des marchés est sell side : ses clients institutionnels sont buy side.",
+      "points_cles": [
+        "Buy side : investisseurs",
+        "Sell side : banques",
+        "Produits, recherche, exécution",
+        "Le sales est sell side"
+      ],
+      "piege": "Inverser les deux.",
+      "fiche": "m6.banques.gestion-actifs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.z01",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "enonce": "Le conseil en fusions-acquisitions fait partie de…",
+      "choix": [
+        "la banque de détail",
+        "la banque d'investissement (BFI)",
+        "la gestion d'actifs",
+        "la banque privée"
+      ],
+      "bonne": 1,
+      "explication": "Le M&A fait partie de la banque d'investissement, au sein de la BFI.",
+      "fiche": "m6.banques.bfi",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.z02",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "enonce": "Une société de gestion d'actifs fait partie du sell side.",
+      "vrai": false,
+      "explication": "Elle investit pour ses clients : c'est le buy side.",
+      "fiche": "m6.banques.gestion-actifs",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.z03",
+      "type": "quiz",
+      "forme": "numerique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "enonce": "Crédits à 3,5 %, dépôts à 1,3 %, 200 M€ d'encours. Marge d'intérêt brute annuelle, en M€ ?",
+      "reponse": 4.4,
+      "tolerance": 0.001,
+      "unite": "M€",
+      "explication": "(3,5 % − 1,3 %) × 200 M€ = 4,4 M€, avant frais et coût du risque.",
+      "fiche": "m6.banques.detail",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.z04",
+      "type": "quiz",
+      "forme": "qcm",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "enonce": "Qui est un grand distributeur de produits structurés auprès des clients fortunés ?",
+      "choix": [
+        "La banque privée",
+        "La gestion passive",
+        "Le back office",
+        "La banque centrale"
+      ],
+      "bonne": 0,
+      "explication": "La banque privée recueille le besoin du client ; la salle des marchés fabrique le produit.",
+      "fiche": "m6.banques.privee",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.z05",
+      "type": "quiz",
+      "forme": "vrai_faux",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 2,
+      "enonce": "Une banque de détail française voit sa marge s'améliorer immédiatement quand les taux montent vite.",
+      "vrai": false,
+      "explication": "Ses crédits immobiliers sont surtout à taux fixe, alors que le coût de ses ressources monte vite : la marge est d'abord comprimée.",
+      "fiche": "m6.banques.detail",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-banque-de-detail",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Banque de détail",
+      "definition": "Banque des particuliers, professionnels et PME : dépôts, crédits, moyens de paiement.",
+      "fiche": "m6.banques.detail",
+      "anglais": "retail banking",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-marge-nette-d-interet",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Marge nette d'intérêt",
+      "definition": "Écart entre les intérêts reçus sur les crédits et les intérêts payés sur les ressources.",
+      "fiche": "m6.banques.detail",
+      "anglais": "net interest margin",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-alm",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "ALM",
+      "definition": "Gestion actif-passif : pilotage des risques de taux et de liquidité du bilan.",
+      "fiche": "m6.banques.detail",
+      "anglais": "asset liability management",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-banque-privee",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Banque privée",
+      "definition": "Conseil patrimonial global pour une clientèle fortunée.",
+      "fiche": "m6.banques.privee",
+      "anglais": "private banking",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-gestion-sous-mandat",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Gestion sous mandat",
+      "definition": "Gestion déléguée par le client à la banque, dans un cadre convenu.",
+      "fiche": "m6.banques.privee",
+      "anglais": "discretionary management",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-bfi",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "BFI",
+      "definition": "Banque de financement et d'investissement : financements, conseil, émissions, marchés.",
+      "fiche": "m6.banques.bfi",
+      "anglais": "corporate and investment banking (CIB)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-fusions-acquisitions",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Fusions-acquisitions",
+      "definition": "Conseil aux entreprises qui achètent, vendent ou fusionnent des sociétés.",
+      "fiche": "m6.banques.bfi",
+      "anglais": "mergers and acquisitions (M&A)",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-credit-syndique",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Crédit syndiqué",
+      "definition": "Crédit accordé par un groupe de banques à un même emprunteur.",
+      "fiche": "m6.banques.bfi",
+      "anglais": "syndicated loan",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-gestion-d-actifs",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Gestion d'actifs",
+      "definition": "Gestion de l'argent de clients dans des fonds ou des mandats.",
+      "fiche": "m6.banques.gestion-actifs",
+      "anglais": "asset management",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-etf",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "ETF",
+      "definition": "Fonds coté en bourse qui réplique un indice.",
+      "fiche": "m6.banques.gestion-actifs",
+      "anglais": "exchange-traded fund",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-buy-side",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Buy side",
+      "definition": "Les investisseurs : gérants d'actifs, assureurs, fonds de pension, hedge funds.",
+      "fiche": "m6.banques.gestion-actifs",
+      "anglais": "buy side",
+      "maj": "2026-11-18",
+      "version": 1
+    },
+    {
+      "id": "m6.banques.l-sell-side",
+      "type": "lexique",
+      "module": 6,
+      "chapitre": "m6.banques",
+      "difficulte": 1,
+      "terme": "Sell side",
+      "definition": "Les banques qui vendent produits, recherche et exécution aux investisseurs.",
+      "fiche": "m6.banques.gestion-actifs",
+      "anglais": "sell side",
+      "maj": "2026-11-18",
+      "version": 1
+    }
+  ]
+}
